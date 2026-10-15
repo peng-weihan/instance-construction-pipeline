@@ -1,0 +1,24 @@
+{
+  "resolved": [
+    {
+      "issue": "first runtime UID could not execute compiler-owned mode0700 output",
+      "evidence": "parent trajectory.jsonl contains invalid score=null attempts",
+      "fix": "trusted controller validates regular binary and chmod0755 before separate execution UID"
+    },
+    {
+      "issue": "author-audit tuple indexing and empty @changed frame parser bugs",
+      "evidence": "author-audit-bootstrap-failure.json; parent trajectory.jsonl",
+      "fix": "corrected author-only audit parser; grader parser already handled empty frames"
+    }
+  ],
+  "pre_final_probe": {
+    "cases": 42,
+    "reference": 1.0,
+    "full_reparse_complete_apis": 1.0,
+    "nop": 0.135,
+    "full_reparse_starter": 0.4456060606060606,
+    "scanner_gate_missing": 1.0,
+    "status": "construction evidence from parent transcript, superseded by final 45-case freeze; not formal history"
+  },
+  "dependency_setup_note": "All installs targeted job-local .author-venv. Initial pip commands did not explicitly disable or redirect pip cache; they may have used the default cache. No global package install or shared configuration change was made. Later dependency downloads used --no-cache-dir and job-local wheel outputs."
+}

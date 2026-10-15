@@ -1,0 +1,16 @@
+{
+  "original_measured_controls": "/ws/users/raymone/edgebench/remaining-three-001/science-pilot/scorer-controls/report.json",
+  "controls_sha256": "cb393b6bfa27c3f8739e12c417adf3fe34a3ae23efd29d3ddda102187aaa09b9",
+  "image_id": "sha256:d4c4f1f1bb4ef45d791b644d31381795ca79a2667c367064d5a80a0d49bfaa7d",
+  "unchanged_components": {
+    "edgebench_harbor/restler_scorer.py": "5b934d73275ef333035fc154fcd4876d9729adc6efa40bcb8c59e22361277554",
+    "edgebench_harbor/singlecell_scorer_base.py": "7526bd2b93701f5f9fdfc7c59b34d78cf2f16a92d998eef45c72d41a89481fe2",
+    "harbor/agents/installed/codex.py": "ee0ca8ec43617f3909d2195afe8f9e7cbd7313a8b3b558b01fde388f65b7c39c"
+  },
+  "changes": [
+    "borrow the actual guarded host entry lease",
+    "release only after direct SDK not-found"
+  ],
+  "score_formula_or_resources_changed": false,
+  "shared_guard_source_modified": false
+}

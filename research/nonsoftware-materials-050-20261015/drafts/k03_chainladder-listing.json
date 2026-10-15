@@ -1,0 +1,14 @@
+{
+  "repo": "casact/chainladder-python",
+  "revision": "90c7b3532499b662e57b5be2275a848ce90d5a70",
+  "matching_paths": [
+    "LICENSE",
+    "chainladder/methods/mack.py",
+    "chainladder/methods/tests/rtest_mack.py",
+    "chainladder/methods/tests/test_mack.py",
+    "chainladder/utils/data/genins.csv",
+    "chainladder/utils/data/raa.csv"
+  ],
+  "match_count": 6,
+  "tree_truncated": false
+}

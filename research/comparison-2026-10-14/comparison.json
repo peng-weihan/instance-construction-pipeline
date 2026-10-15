@@ -1,0 +1,828 @@
+{
+  "date": "2026-10-14",
+  "sample_batch": "samples/category-pilot-004",
+  "scope": "read-only task design and material comparison; no task runtime validation",
+  "training_effect": "unmeasured; hypotheses based on capability overlap, not asserted learning gains",
+  "six_hour_ready_count": 0,
+  "six_hour_ready_definition": "empirically calibrated learning curves and executable feedback; none collected for this batch",
+  "priority": [
+    "industrial_irregular_strip",
+    "kolmogorov_holder_modification"
+  ],
+  "substantial_reconstruction": [
+    "restler_resource_lifecycle",
+    "finite_release_groundwater_inverse",
+    "industry_portfolio_risk_lab"
+  ],
+  "conditional_direction": [
+    "microrts_resource_frontier"
+  ],
+  "records": [
+    {
+      "sample": "restler_resource_lifecycle",
+      "anchor": "schemathesis_datagen_pipeline",
+      "category_match": true,
+      "mechanism_match": "partial: recovery of existing lifecycle vs multi-feature roadmap construction",
+      "different_task": "different repository, functions and requirements; no original task code used in sample",
+      "training_value_hypothesis": "API framework navigation, state-machine repair, dependency and resource lifecycle reasoning; weaker evidence for roadmap design and broad integration",
+      "original_scope": {
+        "feature_targets": 8,
+        "scope": [
+          "structured headers",
+          "coverage hooks",
+          "multi-schema pytest",
+          "discriminator validation",
+          "discriminator generation",
+          "503 retries",
+          "multiple validation errors",
+          "regex AST transforms"
+        ],
+        "source": "original_image_metadata/author_only/schemathesis_datagen_pipeline/layer_8/app/TODO.md"
+      },
+      "sample_scope": {
+        "files_ablated": 3,
+        "functions_ablated": 9,
+        "lines_removed": 324,
+        "behavior_checks_planned": 24
+      },
+      "six_hour_design_verdict": "not aligned yet; substantial redesign",
+      "critical_gaps": [
+        "Complete function signatures/docstrings and callers substantially narrow solution search.",
+        "Nine functions are not equivalent to eight independent roadmap features.",
+        "Only three editable files constrain cross-module engineering.",
+        "Behavior check roster is not an implemented verifier."
+      ],
+      "required_changes": [
+        "Keep RESTler as a source but create a coherent new feature roadmap spanning parsing/configuration, asynchronous execution, dependency lifecycle and diagnostics.",
+        "Construct a private complete reference branch and requirement-to-check matrix using a CLI constructor; do not treat the old code as oracle for new features.",
+        "Use independently achievable feature groups plus cross-feature integration checks; permit necessary module edits."
+      ],
+      "proposed_progression": [
+        "Restore valid end-to-end basic workflow",
+        "Implement new lifecycle and dependency behavior",
+        "Handle cross-feature error recovery, compatibility and coverage"
+      ],
+      "novelty_unresolved": [
+        "Full source/test overlap against original hidden assets",
+        "Public upstream code memorization"
+      ],
+      "sample_manifest_sha256": "7c092361393da1a65a0e8f7e5c65992b02f7467c8140d2ba70b3c0b926b31fab",
+      "anchor_spec_sha256": "446b568d02621af5b9edd567fb806f32ed009bbc5308b7e7cb547bf1b851a4e5"
+    },
+    {
+      "sample": "finite_release_groundwater_inverse",
+      "anchor": "borden_source_inversion",
+      "category_match": true,
+      "mechanism_match": "same inverse-problem family but forward-model construction removed",
+      "different_task": "new independently authored forward model, source truth, wells and observations; synthetic data explicitly labeled",
+      "training_value_hypothesis": "numerical fitting, optimization and generalization; much less physical model construction than original",
+      "original_scope": {
+        "physical_scene": "Borden-AdePy grid, bottom profile and hydrogeological inputs",
+        "observations": "sparse, noisy, censored",
+        "agent_work": "construct own forward approximation and inverse optimizer",
+        "scoring": "hidden wells/future times; relative RMSE and log metrics; quality gates",
+        "source": "../../data/EdgeBench/borden_source_inversion.json"
+      },
+      "sample_scope": {
+        "unknown_parameters": 14,
+        "public_observations": 108,
+        "feedback_targets": 96,
+        "final_targets": 180,
+        "public_forward_model": true,
+        "forward_model_same_as_data_generator": true,
+        "noise": "multiplicative log-normal; no censoring"
+      },
+      "six_hour_design_verdict": "not aligned yet; reconstruct the scientific work",
+      "critical_gaps": [
+        "Exact forward model supplied to agent, turning model construction into parameter fitting.",
+        "Infinite-domain constant-coefficient scene omits original grid/bottom context and censored observations.",
+        "More fitted parameters do not establish greater difficulty; source shape/dispersion can be weakly identifiable.",
+        "Single fixed truth does not by itself establish a reusable training task family."
+      ],
+      "required_changes": [
+        "Keep private generating code; publish sufficient equations, geometry, physical inputs and measurement protocol so model construction is well specified.",
+        "Supply an independently sourced scene and realistic censoring/noise with explicit metadata; do not add unexplained hidden physics.",
+        "Reward withheld spatial/future prediction with meaningful physical subchecks; audit trivial low-concentration fits.",
+        "Require reproducible inference source and answer snapshot; count different work packages rather than only changed random seeds."
+      ],
+      "proposed_progression": [
+        "Implement and check physical forward approximation",
+        "Fit release geometry and time jointly",
+        "Improve model fidelity, identifiability and held-out prediction"
+      ],
+      "novelty_unresolved": [
+        "Complete original scene overlap comparison",
+        "Reuse terms for reference documentation"
+      ],
+      "sample_manifest_sha256": "f62b76c8107f1132abd1023fd79486f6cf0639b8275427497eacf343f0e3dcb2",
+      "anchor_spec_sha256": "9218658263fb2217768ff8c75d06410e9811e5022aa387f88e3c62c3e1457195"
+    },
+    {
+      "sample": "industrial_irregular_strip",
+      "anchor": "jagua_nesting_optimization",
+      "category_match": true,
+      "mechanism_match": "strong: improve a real irregular packing solver under fixed compute and independent geometry checks",
+      "different_task": "different C++ repository and selected OpenCutList designs; original Rust code not used",
+      "training_value_hypothesis": "strongest direct candidate for optimizer engineering, profiling, geometric reasoning and iterative algorithm improvement",
+      "original_scope": {
+        "cases_per_evaluation": 16,
+        "per_case_timeout_seconds": 20,
+        "reference": "frozen original LBF",
+        "goal": "beat reference; independent geometric validity",
+        "source": "../../data/EdgeBench/jagua_nesting_optimization.json"
+      },
+      "sample_scope": {
+        "cases_total": 9,
+        "public": 3,
+        "feedback": 3,
+        "final": 3,
+        "items_per_case": [
+          8,
+          100
+        ],
+        "per_case_timeout_seconds": 120,
+        "score": "absolute utilization; no reference-relative gain",
+        "knight_variants_same_partition": true
+      },
+      "six_hour_design_verdict": "credible after targeted strengthening; unverified",
+      "critical_gaps": [
+        "Absolute utilization can reward an untouched strong solver; original explicitly measures improvement over frozen reference.",
+        "Three feedback/final cases offer weak coverage of algorithmic tradeoffs.",
+        "Longer per-case compute does not make agent work deeper.",
+        "Original hidden polygon datasets have not been extracted, so shape-lineage disjointness is not established."
+      ],
+      "required_changes": [
+        "Preserve pinned baseline and use a metadata-defined reference-relative improvement score or equivalent verified improvement gate.",
+        "Expand independent design families and stratify by concavity, holes, rotations, repeated pieces and scale while preserving strip-packing semantics.",
+        "Use the same per-case compute for reference and candidate; protect independent geometry verifier.",
+        "First inspect original task document/scorer to confirm geometry constraints and normalization before exact matching."
+      ],
+      "proposed_progression": [
+        "Profile and improve construction heuristic",
+        "Improve placement/ordering neighborhoods and geometry speed",
+        "Tune search/restarts across held-out shape families"
+      ],
+      "novelty_unresolved": [
+        "Original jagua asset lineage",
+        "Separate OpenCutList data redistribution terms"
+      ],
+      "sample_manifest_sha256": "cfedf884806720c5ccb06459cd973602481f4f57db515443fb5b477dab9008f1",
+      "anchor_spec_sha256": "5d8f64ebd76218d8636c21aef8bb63b70348e037fad666e9f711450e58a747e7"
+    },
+    {
+      "sample": "industry_portfolio_risk_lab",
+      "anchor": "portfolio_risk_calibration",
+      "category_match": true,
+      "mechanism_match": "weak as a whole-task match; current task covers only risk forecasting",
+      "different_task": "different real industry-return panel, mandates and periods, but also changes asset universe and objective",
+      "training_value_hypothesis": "risk estimation subskill only; not a substitute for dynamic portfolio system training",
+      "original_scope": {
+        "assets": 10,
+        "asset_classes": [
+          "Equity",
+          "Bond",
+          "Commodity",
+          "Money Market"
+        ],
+        "core_modules": [
+          "risk calibration",
+          "constrained allocation",
+          "transaction costs",
+          "dynamic rebalancing"
+        ],
+        "additional_requirements": [
+          "VaR breach adaptation",
+          "risk scale",
+          "short positions",
+          "leverage and class limits",
+          "macro covariates",
+          "reconstructable NAV and trades"
+        ],
+        "source": "original_image_metadata/author_only/portfolio_risk_calibration/layer_9/home/workspace/task_instruction.md"
+      },
+      "sample_scope": {
+        "industry_series": 49,
+        "fixed_mandates": 8,
+        "outputs": [
+          "daily variance",
+          "1% quantile",
+          "5% quantile"
+        ],
+        "missing_modules": [
+          "optimized dynamic weights",
+          "execution costs",
+          "rebalancing",
+          "portfolio constraints",
+          "NAV and trade accounting"
+        ]
+      },
+      "six_hour_design_verdict": "not aligned; replace or substantially rebuild task/data package",
+      "critical_gaps": [
+        "49 equity industries do not recreate 10 cross-asset ETF risk structure.",
+        "Fixed weights remove constrained optimization and dynamic allocation.",
+        "QLIKE/pinball scoring is a different objective from system-level risk-adjusted performance and accounting consistency.",
+        "More historical rows do not compensate for missing decision modules."
+      ],
+      "required_changes": [
+        "Acquire an independently licensed cross-asset price/volume panel and state indicators with a new asset universe and period.",
+        "Construct a new but comparable mandate with covariance/tail calibration, constrained dynamic allocation, execution costs and event-driven rebalancing.",
+        "Define trusted accounting and all constraints numerically; remove ambiguities instead of copying inconsistent source wording.",
+        "Keep the present forecast task only as an explicitly labeled curriculum subtask."
+      ],
+      "proposed_progression": [
+        "Correct causal accounting and feasible allocations",
+        "Risk-calibrated constrained allocator",
+        "Cost-aware timing, regime adaptation and robustness"
+      ],
+      "novelty_unresolved": [
+        "French/CRSP training and redistribution terms",
+        "No empirical transfer from risk forecasts to original full system"
+      ],
+      "sample_manifest_sha256": "84e64324144d98f8c3e8f2a3a7ad658d1bd86f4ab930704b75b4ce17b120a4ef",
+      "anchor_spec_sha256": "0343ac03f42042ff9053cb1809d106dac9311e5fe7d9bab353eab4ad1b078cb1"
+    },
+    {
+      "sample": "kolmogorov_holder_modification",
+      "anchor": "lean_analysis_proofs",
+      "category_match": true,
+      "mechanism_match": "strong: fixed statements, Lean proof completion, transitive axiom checks and incremental credit",
+      "different_task": "Brownian stochastic-process continuity instead of original real/functional-analysis task scope; full theorem-level dedup incomplete",
+      "training_value_hypothesis": "proof search, library navigation, decomposition and dependency-aware planning; public proof reconstruction carries memorization risk",
+      "original_scope": {
+        "project": "multi-file real and functional analysis",
+        "proof_count": null,
+        "scoring": "build success and transitive axiom closure",
+        "source": "../../data/EdgeBench/lean_analysis_proofs.json",
+        "additional_evidence": "original_image_metadata/author_only/lean_analysis_proofs/layer_11/home/workspace/se-bmk-intern/analysis/ListDeclAxiom.lean"
+      },
+      "sample_scope": {
+        "target_file_count": 1,
+        "proof_targets": 16,
+        "removed_proof_lines": 440,
+        "target_weights": "uniform",
+        "lean_version": "v4.33.0-rc1",
+        "original_lean_version": "v4.28.0"
+      },
+      "six_hour_design_verdict": "credible difficulty; progress curve needs redesign and later measurement",
+      "critical_gaps": [
+        "Single concentrated dependency chain can cause long score plateaus despite substantial work.",
+        "Many provided helper theorems may shortcut selected targets; closure must be audited.",
+        "Sixteen targets versus unknown original target count cannot establish scale parity.",
+        "Different toolchain changes library support and proof ergonomics."
+      ],
+      "required_changes": [
+        "Inspect original project proof inventory before claiming matched scale.",
+        "Select several independent proof branches from the same new mathematical development, each with intermediate and synthesis goals.",
+        "Audit alternate theorem routes, remaining sorries and transitive dependencies; keep exact signatures frozen.",
+        "Use one supported pinned Lean/mathlib environment for comparison and identify project/theorem-family splits for training."
+      ],
+      "proposed_progression": [
+        "Complete independent basic lemmas",
+        "Prove measurable and continuity estimates",
+        "Assemble the stochastic-process modification theorem"
+      ],
+      "novelty_unresolved": [
+        "Original theorem inventory not extracted due large image layers",
+        "Public proof/pretraining overlap"
+      ],
+      "sample_manifest_sha256": "a49e3cac80cefbd21665489cf414fc6aea532834f2e946563e044bc0bc0c38e1",
+      "anchor_spec_sha256": "393385a2974bca00a43f988697c5cd63cc0b0267891d3a1859fe7c5866f5b18d"
+    },
+    {
+      "sample": "microrts_resource_frontier",
+      "anchor": "wesnoth_tactical_ai",
+      "category_match": true,
+      "mechanism_match": "agent development and iterative match feedback match; game dynamics and score differ",
+      "different_task": "different engine, API, language and authored maps",
+      "training_value_hypothesis": "strategy implementation, simulator/API use and repeated tactical diagnosis; transfer to Wesnoth-specific mechanics unproven",
+      "original_scope": {
+        "engine": "Wesnoth 1.18",
+        "interface": "Lua AI + WML, multiple source files",
+        "maps": 3,
+        "default_seeds": 10,
+        "default_repeats": 2,
+        "nominal_matches": 60,
+        "score": "80*win_rate+20*efficiency",
+        "source": "../../data/EdgeBench/wesnoth_tactical_ai.json"
+      },
+      "sample_scope": {
+        "engine": "microRTS",
+        "maps_total": 9,
+        "maps_per_split": 3,
+        "opponents": 4,
+        "seeds": 4,
+        "seats": 2,
+        "matches_per_evaluation": 96,
+        "map_family": "same paired chokepoints with size and resource changes",
+        "score": "win+0.5*draw; no efficiency component",
+        "action_budget_ms": 100,
+        "cycles_per_match": 6000
+      },
+      "six_hour_design_verdict": "possible in category, insufficient for close matching in current form",
+      "critical_gaps": [
+        "Larger match count is not greater strategic diversity.",
+        "Simple rush opponents and shared map topology may be exploitable.",
+        "Turn-based Wesnoth and real-time microRTS have materially different mechanics.",
+        "96*6000*0.1s = 16h candidate-action upper-bound work if every cycle uses full allowance; actual runtime unmeasured.",
+        "Single-file submission artificially restricts modular bot engineering."
+      ],
+      "required_changes": [
+        "For closer transfer, use the same Wesnoth engine with independent scenario/map packs and new tactical objectives; otherwise explicitly target broader simulator skills.",
+        "If retaining microRTS, diversify terrain topology, resource access and opponent strategies, not only numeric settings.",
+        "Restore a score-sensitive late improvement dimension with no reward for harmful actions.",
+        "Use a bounded fast feedback suite plus separate broad evaluation; publish whole-evaluation budget and permit a source directory."
+      ],
+      "proposed_progression": [
+        "Legal basic bot and resource economy",
+        "Counter-strategy, movement and combat coordination",
+        "Generalize across map topologies and opponent tactics"
+      ],
+      "novelty_unresolved": [
+        "Empirical cross-engine transfer",
+        "Diversity and determinism of authored maps"
+      ],
+      "sample_manifest_sha256": "b02303062c44ffde27063ddf06f0b206fb4e08778df00387bc44a98b30e09393",
+      "anchor_spec_sha256": "b03e7eaafb4bddc146b82d80c38eb7222d4b2d3d7130253a2fc5b4903324cf63"
+    }
+  ],
+  "official_curves": [
+    {
+      "task_id": "schemathesis_datagen_pipeline",
+      "model": "Claude Opus 4.8",
+      "scores": {
+        "2": 68.0,
+        "4": 70.2,
+        "6": 70.2,
+        "8": 70.2,
+        "10": 70.2,
+        "12": 70.2
+      },
+      "gain_2_to_6": 2.2,
+      "gain_4_to_6": 0.0,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "schemathesis_datagen_pipeline",
+      "model": "DS-V4-Pro",
+      "scores": {
+        "2": 47.9,
+        "4": 50.1,
+        "6": 52.3,
+        "8": 52.3,
+        "10": 52.3,
+        "12": 52.3
+      },
+      "gain_2_to_6": 4.4,
+      "gain_4_to_6": 2.2,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "schemathesis_datagen_pipeline",
+      "model": "GLM-5.1",
+      "scores": {
+        "2": 62.1,
+        "4": 64.2,
+        "6": 64.2,
+        "8": 67.0,
+        "10": 67.0,
+        "12": 67.0
+      },
+      "gain_2_to_6": 2.1,
+      "gain_4_to_6": 0.0,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "schemathesis_datagen_pipeline",
+      "model": "GPT-5.4",
+      "scores": {
+        "2": 56.6,
+        "4": 56.6,
+        "6": 56.6,
+        "8": 56.6,
+        "10": 56.6,
+        "12": 56.6
+      },
+      "gain_2_to_6": 0.0,
+      "gain_4_to_6": 0.0,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "schemathesis_datagen_pipeline",
+      "model": "GPT-5.5",
+      "scores": {
+        "2": 54.6,
+        "4": 54.6,
+        "6": 56.7,
+        "8": 56.7,
+        "10": 56.7,
+        "12": 56.7
+      },
+      "gain_2_to_6": 2.1,
+      "gain_4_to_6": 2.1,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "borden_source_inversion",
+      "model": "Claude Opus 4.8",
+      "scores": {
+        "2": 7.5,
+        "4": 19.8,
+        "6": 26.2,
+        "8": 28.5,
+        "10": 38.5,
+        "12": 48.4
+      },
+      "gain_2_to_6": 18.7,
+      "gain_4_to_6": 6.4,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "borden_source_inversion",
+      "model": "DS-V4-Pro",
+      "scores": {
+        "2": 7.0,
+        "4": 11.6,
+        "6": 15.1,
+        "8": 26.6,
+        "10": 36.7,
+        "12": 38.2
+      },
+      "gain_2_to_6": 8.1,
+      "gain_4_to_6": 3.5,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "borden_source_inversion",
+      "model": "GLM-5.1",
+      "scores": {
+        "2": 7.0,
+        "4": 10.3,
+        "6": 12.0,
+        "8": 12.3,
+        "10": 12.5,
+        "12": 15.1
+      },
+      "gain_2_to_6": 5.0,
+      "gain_4_to_6": 1.7,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "borden_source_inversion",
+      "model": "GPT-5.4",
+      "scores": {
+        "2": 7.2,
+        "4": 7.3,
+        "6": 7.6,
+        "8": 7.9,
+        "10": 8.0,
+        "12": 8.0
+      },
+      "gain_2_to_6": 0.4,
+      "gain_4_to_6": 0.3,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "borden_source_inversion",
+      "model": "GPT-5.5",
+      "scores": {
+        "2": 20.1,
+        "4": 27.0,
+        "6": 29.4,
+        "8": 37.8,
+        "10": 38.1,
+        "12": 38.5
+      },
+      "gain_2_to_6": 9.3,
+      "gain_4_to_6": 2.4,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "jagua_nesting_optimization",
+      "model": "Claude Opus 4.8",
+      "scores": {
+        "2": 11.2,
+        "4": 17.8,
+        "6": 24.5,
+        "8": 31.4,
+        "10": 41.0,
+        "12": 44.2
+      },
+      "gain_2_to_6": 13.3,
+      "gain_4_to_6": 6.7,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "jagua_nesting_optimization",
+      "model": "DS-V4-Pro",
+      "scores": {
+        "2": 10.7,
+        "4": 20.2,
+        "6": 23.7,
+        "8": 26.7,
+        "10": 28.1,
+        "12": 28.4
+      },
+      "gain_2_to_6": 13.0,
+      "gain_4_to_6": 3.5,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "jagua_nesting_optimization",
+      "model": "GLM-5.1",
+      "scores": {
+        "2": 8.9,
+        "4": 9.0,
+        "6": 10.0,
+        "8": 12.2,
+        "10": 12.3,
+        "12": 12.4
+      },
+      "gain_2_to_6": 1.1,
+      "gain_4_to_6": 1.0,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "jagua_nesting_optimization",
+      "model": "GPT-5.4",
+      "scores": {
+        "2": 22.4,
+        "4": 23.0,
+        "6": 23.9,
+        "8": 24.0,
+        "10": 24.1,
+        "12": 24.1
+      },
+      "gain_2_to_6": 1.5,
+      "gain_4_to_6": 0.9,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "jagua_nesting_optimization",
+      "model": "GPT-5.5",
+      "scores": {
+        "2": 15.9,
+        "4": 19.4,
+        "6": 20.0,
+        "8": 20.6,
+        "10": 21.3,
+        "12": 21.6
+      },
+      "gain_2_to_6": 4.1,
+      "gain_4_to_6": 0.6,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "portfolio_risk_calibration",
+      "model": "Claude Opus 4.8",
+      "scores": {
+        "2": 20.1,
+        "4": 21.6,
+        "6": 23.0,
+        "8": 23.6,
+        "10": 23.6,
+        "12": 24.5
+      },
+      "gain_2_to_6": 2.9,
+      "gain_4_to_6": 1.4,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "portfolio_risk_calibration",
+      "model": "DS-V4-Pro",
+      "scores": {
+        "2": 10.4,
+        "4": 16.3,
+        "6": 16.6,
+        "8": 16.7,
+        "10": 23.7,
+        "12": 23.7
+      },
+      "gain_2_to_6": 6.2,
+      "gain_4_to_6": 0.3,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "portfolio_risk_calibration",
+      "model": "GLM-5.1",
+      "scores": {
+        "2": 0.0,
+        "4": 8.4,
+        "6": 8.5,
+        "8": 8.9,
+        "10": 9.2,
+        "12": 9.4
+      },
+      "gain_2_to_6": 8.5,
+      "gain_4_to_6": 0.1,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "portfolio_risk_calibration",
+      "model": "GPT-5.4",
+      "scores": {
+        "2": 6.0,
+        "4": 9.6,
+        "6": 10.7,
+        "8": 10.7,
+        "10": 10.7,
+        "12": 10.7
+      },
+      "gain_2_to_6": 4.7,
+      "gain_4_to_6": 1.1,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "portfolio_risk_calibration",
+      "model": "GPT-5.5",
+      "scores": {
+        "2": 17.3,
+        "4": 21.3,
+        "6": 22.7,
+        "8": 23.5,
+        "10": 24.4,
+        "12": 25.0
+      },
+      "gain_2_to_6": 5.4,
+      "gain_4_to_6": 1.4,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "lean_analysis_proofs",
+      "model": "Claude Opus 4.8",
+      "scores": {
+        "2": 17.9,
+        "4": 25.1,
+        "6": 28.6,
+        "8": 30.2,
+        "10": 32.6,
+        "12": 33.0
+      },
+      "gain_2_to_6": 10.7,
+      "gain_4_to_6": 3.5,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "lean_analysis_proofs",
+      "model": "DS-V4-Pro",
+      "scores": {
+        "2": 5.8,
+        "4": 7.3,
+        "6": 8.2,
+        "8": 8.8,
+        "10": 9.3,
+        "12": 9.5
+      },
+      "gain_2_to_6": 2.4,
+      "gain_4_to_6": 0.9,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "lean_analysis_proofs",
+      "model": "GLM-5.1",
+      "scores": {
+        "2": 5.2,
+        "4": 5.9,
+        "6": 5.9,
+        "8": 5.9,
+        "10": 5.9,
+        "12": 5.9
+      },
+      "gain_2_to_6": 0.7,
+      "gain_4_to_6": 0.0,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "lean_analysis_proofs",
+      "model": "GPT-5.4",
+      "scores": {
+        "2": 3.6,
+        "4": 8.1,
+        "6": 10.8,
+        "8": 12.9,
+        "10": 15.5,
+        "12": 16.4
+      },
+      "gain_2_to_6": 7.2,
+      "gain_4_to_6": 2.7,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "lean_analysis_proofs",
+      "model": "GPT-5.5",
+      "scores": {
+        "2": 16.8,
+        "4": 23.2,
+        "6": 28.4,
+        "8": 33.9,
+        "10": 39.0,
+        "12": 42.5
+      },
+      "gain_2_to_6": 11.6,
+      "gain_4_to_6": 5.2,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "wesnoth_tactical_ai",
+      "model": "Claude Opus 4.8",
+      "scores": {
+        "2": 84.0,
+        "4": 85.3,
+        "6": 87.7,
+        "8": 87.7,
+        "10": 87.7,
+        "12": 88.0
+      },
+      "gain_2_to_6": 3.7,
+      "gain_4_to_6": 2.4,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "wesnoth_tactical_ai",
+      "model": "DS-V4-Pro",
+      "scores": {
+        "2": 17.0,
+        "4": 36.3,
+        "6": 36.3,
+        "8": 36.3,
+        "10": 36.3,
+        "12": 36.3
+      },
+      "gain_2_to_6": 19.3,
+      "gain_4_to_6": 0.0,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "wesnoth_tactical_ai",
+      "model": "GLM-5.1",
+      "scores": {
+        "2": 75.7,
+        "4": 78.3,
+        "6": 78.3,
+        "8": 78.3,
+        "10": 78.3,
+        "12": 78.3
+      },
+      "gain_2_to_6": 2.6,
+      "gain_4_to_6": 0.0,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "wesnoth_tactical_ai",
+      "model": "GPT-5.4",
+      "scores": {
+        "2": 79.7,
+        "4": 79.7,
+        "6": 80.3,
+        "8": 80.3,
+        "10": 81.3,
+        "12": 81.3
+      },
+      "gain_2_to_6": 0.6,
+      "gain_4_to_6": 0.6,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    },
+    {
+      "task_id": "wesnoth_tactical_ai",
+      "model": "GPT-5.5",
+      "scores": {
+        "2": 64.7,
+        "4": 73.0,
+        "6": 76.3,
+        "8": 78.0,
+        "10": 78.3,
+        "12": 79.3
+      },
+      "gain_2_to_6": 11.6,
+      "gain_4_to_6": 3.3,
+      "provenance": "published rounded aggregate, not our run or raw trajectory"
+    }
+  ],
+  "original_asset_handling": "author-only comparison directory; never copied into sample/training materials",
+  "calibration_plan_deferred": {
+    "matched_model": "user-selected gpt-6.1-sol, fixed effort/tools/resources",
+    "checkpoints_hours": [
+      0.5,
+      1,
+      2,
+      4,
+      6
+    ],
+    "repeats": 3,
+    "record": [
+      "best valid score",
+      "raw quality metrics",
+      "submissions",
+      "active work vs evaluation wait",
+      "code/strategy changes",
+      "held-out task performance"
+    ],
+    "conditions": [
+      "Baseline leaves substantial nontrivial headroom",
+      "Several meaningful partially independent improvement stages",
+      "Later gains exceed repeat variability",
+      "Feedback latency permits repeated diagnose-edit-submit cycles",
+      "Post-training gains require held-out project/scene/theorem-family evaluation with matched inference budgets"
+    ],
+    "not_an_official_numeric_rule": "No invented minimum score gain or target count; thresholds chosen after observing noise and operational cost."
+  }
+}

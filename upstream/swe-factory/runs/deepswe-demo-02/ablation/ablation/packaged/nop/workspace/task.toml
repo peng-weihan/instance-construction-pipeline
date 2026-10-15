@@ -1,0 +1,4 @@
+version = "1.0"
+[metadata]
+factory = "deepswe-factory"
+base_commit = "a04c9bc80b9a3cd41bfda7948f6787e3c4d1cf1f"

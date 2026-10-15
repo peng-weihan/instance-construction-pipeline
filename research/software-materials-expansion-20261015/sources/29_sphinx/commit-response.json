@@ -1,0 +1,137 @@
+{
+  "sha": "b04a2101295ac3fb725b16111eda0284b6da4cca",
+  "node_id": "C_kwDOAbYXYdoAKGIwNGEyMTAxMjk1YWMzZmI3MjViMTYxMTFlZGEwMjg0YjZkYTRjY2E",
+  "commit": {
+    "author": {
+      "name": "James Addison",
+      "email": "55152140+jayaddison@users.noreply.github.com",
+      "date": "2026-09-18T09:38:07Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-09-18T09:38:07Z"
+    },
+    "message": "Tests: adapt HTML escaping to pygments v2.21.0 change-in-behaviour (#14611)",
+    "tree": {
+      "sha": "c6afaeef6d2ce93450c5fcefe45d51705acc1b49",
+      "url": "https://api.github.com/repos/sphinx-doc/sphinx/git/trees/c6afaeef6d2ce93450c5fcefe45d51705acc1b49"
+    },
+    "url": "https://api.github.com/repos/sphinx-doc/sphinx/git/commits/b04a2101295ac3fb725b16111eda0284b6da4cca",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqrQZ/CRC1aQ7uu5UhlAAAp3YQAFcq2V6KNTjjHc5KBagRD5xT\nYjwK0MXU0a7OxAXMvAXwhFlr9cEARqfk584Th5j0iGtXwbF4g/OqfBVJj7Dip9pf\n5o8WkhAoi2wkbMrzyZ3HhKIbFVggjGM6wkbAs+x1s2+dMDHDAWpV904YFmFxB82+\naTQnavgRVFkfc0Q1U1qTFyoC8U+RSXmSyDm85cij5j0Hx4KYP/3cdu1n/OyfLWAX\na3aQSNlwdqnrrxdjPsHLxzDqt5dhnGCOXKc8nDbGsmAEQ6GBIwHAIycKMv9mFMun\nMAsRMYRL9VBGk1vmGy4BPAwRLMkI8FsvBggDcq5tlvAahmSC0Clf1gsSi9xUp/ps\n7uFpeY3CoqXjTTZZpXePzg2Y254aUjxcGRLiAWasocmAcwICYAc2Nwxmjuucze3D\nWOayd0M9X9SRptJm9dFRVfxGQlSIPQPpg1WwZFP2es7OlSACEv02FYHJLu3FaGVX\nzo6XgcstoQeaEYZ09wk29E3YlJhtNjekY4TMEyqUa9dhFV88FZhwHYLF8WoY5J/J\n05o5fXdeoW1cT72SOZpL+XmPmgyQJPGQzyxVDGDCKKZ216Ys3N/Z8cuFoDNYQ89/\nmWqQLBVC7YO3Q/FprhsMdjNnB/GWsKvBOcw5sj9VE5y8NnTNPfkTj3wu0a+affqe\nGx1umX9eekDH91yxpoe/\n=kFd6\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree c6afaeef6d2ce93450c5fcefe45d51705acc1b49\nparent e44a40eb2f810558ccd9da1425421270ccb81351\nauthor James Addison <55152140+jayaddison@users.noreply.github.com> 1789724287 +0100\ncommitter GitHub <noreply@github.com> 1789724287 +0200\n\nTests: adapt HTML escaping to pygments v2.21.0 change-in-behaviour (#14611)",
+      "verified_at": "2026-09-18T09:38:08Z"
+    }
+  },
+  "url": "https://api.github.com/repos/sphinx-doc/sphinx/commits/b04a2101295ac3fb725b16111eda0284b6da4cca",
+  "html_url": "https://github.com/sphinx-doc/sphinx/commit/b04a2101295ac3fb725b16111eda0284b6da4cca",
+  "comments_url": "https://api.github.com/repos/sphinx-doc/sphinx/commits/b04a2101295ac3fb725b16111eda0284b6da4cca/comments",
+  "author": {
+    "login": "jayaddison",
+    "id": 55152140,
+    "node_id": "MDQ6VXNlcjU1MTUyMTQw",
+    "avatar_url": "https://avatars.githubusercontent.com/u/55152140?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/jayaddison",
+    "html_url": "https://github.com/jayaddison",
+    "followers_url": "https://api.github.com/users/jayaddison/followers",
+    "following_url": "https://api.github.com/users/jayaddison/following{/other_user}",
+    "gists_url": "https://api.github.com/users/jayaddison/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/jayaddison/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/jayaddison/subscriptions",
+    "organizations_url": "https://api.github.com/users/jayaddison/orgs",
+    "repos_url": "https://api.github.com/users/jayaddison/repos",
+    "events_url": "https://api.github.com/users/jayaddison/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/jayaddison/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "e44a40eb2f810558ccd9da1425421270ccb81351",
+      "url": "https://api.github.com/repos/sphinx-doc/sphinx/commits/e44a40eb2f810558ccd9da1425421270ccb81351",
+      "html_url": "https://github.com/sphinx-doc/sphinx/commit/e44a40eb2f810558ccd9da1425421270ccb81351"
+    }
+  ],
+  "stats": {
+    "total": 46,
+    "additions": 35,
+    "deletions": 11
+  },
+  "files": [
+    {
+      "sha": "19ec291569e921825f8a9a6c7bd44c947929b095",
+      "filename": "tests/test_builders/test_build_html_code.py",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 1,
+      "changes": 7,
+      "blob_url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/tests%2Ftest_builders%2Ftest_build_html_code.py",
+      "raw_url": "https://github.com/sphinx-doc/sphinx/raw/b04a2101295ac3fb725b16111eda0284b6da4cca/tests%2Ftest_builders%2Ftest_build_html_code.py",
+      "contents_url": "https://api.github.com/repos/sphinx-doc/sphinx/contents/tests%2Ftest_builders%2Ftest_build_html_code.py?ref=b04a2101295ac3fb725b16111eda0284b6da4cca",
+      "patch": "@@ -45,6 +45,11 @@ def test_html_code_role(app: SphinxTestApp) -> None:\n     else:\n         sp = ' '\n \n+    if tuple(map(int, pygments.__version__.split('.')[:2])) >= (2, 21):\n+        abc = '\"abc\"'\n+    else:\n+        abc = '&quot;abc&quot;'\n+\n     app.build()\n     content = (app.outdir / 'index.html').read_text(encoding='utf8')\n \n@@ -57,7 +62,7 @@ def test_html_code_role(app: SphinxTestApp) -> None:\n         '<span class=\"o\">+</span> '\n         '<span class=\"kc\">None</span> '\n         '<span class=\"o\">+</span> '\n-        '<span class=\"s2\">&quot;abc&quot;</span>'\n+        f'<span class=\"s2\">{abc}</span>'\n         '<span class=\"p\">):</span> '\n         '<span class=\"k\">pass</span>'\n     )"
+    },
+    {
+      "sha": "efb358d5250807b59422dbf5131f4ba121407e97",
+      "filename": "tests/test_extensions/test_ext_viewcode.py",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 4,
+      "changes": 10,
+      "blob_url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/tests%2Ftest_extensions%2Ftest_ext_viewcode.py",
+      "raw_url": "https://github.com/sphinx-doc/sphinx/raw/b04a2101295ac3fb725b16111eda0284b6da4cca/tests%2Ftest_extensions%2Ftest_ext_viewcode.py",
+      "contents_url": "https://api.github.com/repos/sphinx-doc/sphinx/contents/tests%2Ftest_extensions%2Ftest_ext_viewcode.py?ref=b04a2101295ac3fb725b16111eda0284b6da4cca",
+      "patch": "@@ -20,6 +20,11 @@ def check_viewcode_output(app: SphinxTestApp) -> str:\n     else:\n         sp = ' '\n \n+    if tuple(map(int, pygments.__version__.split('.')[:2])) >= (2, 21):\n+        ds = '\"\"\"this is Class1\"\"\"'\n+    else:\n+        ds = '&quot;&quot;&quot;this is Class1&quot;&quot;&quot;'\n+\n     warnings = re.sub(r'\\\\+', '/', app.warning.getvalue())\n     assert re.findall(\n         r\"index.rst:\\d+: WARNING: Object named 'func1' not found in include \"\n@@ -49,10 +54,7 @@ def check_viewcode_output(app: SphinxTestApp) -> str:\n     ) in result\n     assert '<span>@decorator</span>\\n' in result\n     assert f'<span>class</span>{sp}<span>Class1</span><span>:</span>\\n' in result\n-    assert (\n-        '<span>    </span>'\n-        '<span>&quot;&quot;&quot;this is Class1&quot;&quot;&quot;</span></div>\\n'\n-    ) in result\n+    assert f'<span>    </span><span>{ds}</span></div>\\n' in result\n \n     return result\n "
+    },
+    {
+      "sha": "1fe1f59347f0f6b22e8288276b3824a99a74f8dc",
+      "filename": "tests/test_highlighting.py",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 3,
+      "changes": 11,
+      "blob_url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/tests%2Ftest_highlighting.py",
+      "raw_url": "https://github.com/sphinx-doc/sphinx/raw/b04a2101295ac3fb725b16111eda0284b6da4cca/tests%2Ftest_highlighting.py",
+      "contents_url": "https://api.github.com/repos/sphinx-doc/sphinx/contents/tests%2Ftest_highlighting.py?ref=b04a2101295ac3fb725b16111eda0284b6da4cca",
+      "patch": "@@ -26,6 +26,11 @@\n \n     Formatter.__class_getitem__ = classmethod(lambda cls, name: cls)  # type: ignore[attr-defined]\n \n+if tuple(map(int, pygments.__version__.split('.')[:2])) < (2, 21):\n+    hsw = '&quot;Hello sphinx world&quot;'\n+else:\n+    hsw = '\"Hello sphinx world\"'\n+\n \n class MyLexer(RegexLexer):\n     name = 'testlexer'\n@@ -93,7 +98,7 @@ def test_default_highlight(logger: mock.Mock) -> None:\n     ret = bridge.highlight_block('print \"Hello sphinx world\"', 'default')\n     assert ret == (\n         '<div class=\"highlight\"><pre><span></span><span class=\"nb\">print</span> '\n-        '<span class=\"s2\">&quot;Hello sphinx world&quot;</span>\\n</pre></div>\\n'\n+        f'<span class=\"s2\">{hsw}</span>\\n</pre></div>\\n'\n     )\n \n     # default: fallbacks to none if highlighting failed\n@@ -107,7 +112,7 @@ def test_default_highlight(logger: mock.Mock) -> None:\n     assert ret == (\n         '<div class=\"highlight\"><pre><span></span><span class=\"nb\">print</span>'\n         '<span class=\"p\">(</span>'\n-        '<span class=\"s2\">&quot;Hello sphinx world&quot;</span>'\n+        f'<span class=\"s2\">{hsw}</span>'\n         '<span class=\"p\">)</span>\\n</pre></div>\\n'\n     )\n \n@@ -116,7 +121,7 @@ def test_default_highlight(logger: mock.Mock) -> None:\n     assert ret == (\n         '<div class=\"highlight\"><pre><span></span><span class=\"nb\">print</span>'\n         '<span class=\"p\">(</span>'\n-        '<span class=\"s2\">&quot;Hello sphinx world&quot;</span>'\n+        f'<span class=\"s2\">{hsw}</span>'\n         '<span class=\"p\">)</span>\\n</pre></div>\\n'\n     )\n "
+    },
+    {
+      "sha": "db0598e7e5613152c92d094e9de1611e3820b061",
+      "filename": "tests/test_intl/test_intl.py",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 3,
+      "changes": 18,
+      "blob_url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/tests%2Ftest_intl%2Ftest_intl.py",
+      "raw_url": "https://github.com/sphinx-doc/sphinx/raw/b04a2101295ac3fb725b16111eda0284b6da4cca/tests%2Ftest_intl%2Ftest_intl.py",
+      "contents_url": "https://api.github.com/repos/sphinx-doc/sphinx/contents/tests%2Ftest_intl%2Ftest_intl.py?ref=b04a2101295ac3fb725b16111eda0284b6da4cca",
+      "patch": "@@ -1638,6 +1638,11 @@ def test_additional_targets_should_not_be_translated(app: SphinxTestApp) -> None\n     else:\n         sp = ' '\n \n+    if tuple(map(int, pygments.__version__.split('.')[:2])) >= (2, 21):\n+        res = \"'result'\"\n+    else:\n+        res = '&#39;result&#39;'\n+\n     app.build()\n     # [literalblock.txt]\n     result = (app.outdir / 'literalblock.html').read_text(encoding='utf8')\n@@ -1647,7 +1652,7 @@ def test_additional_targets_should_not_be_translated(app: SphinxTestApp) -> None\n     assert_count(expected_expr, result, 2)\n \n     # ruby code block should not be translated but be highlighted\n-    expected_expr = \"\"\"<span class=\"s1\">&#39;result&#39;</span>\"\"\"\n+    expected_expr = f\"\"\"<span class=\"s1\">{res}</span>\"\"\"\n     assert_count(expected_expr, result, 1)\n \n     # C code block without lang should not be translated and *ruby* highlighted\n@@ -1726,6 +1731,13 @@ def test_additional_targets_should_be_translated(app: SphinxTestApp) -> None:\n     else:\n         sp = ' '\n \n+    if tuple(map(int, pygments.__version__.split('.')[:2])) >= (2, 21):\n+        home = '\"HTTPS://SPHINX-DOC.ORG\"'\n+        res = \"'RESULT'\"\n+    else:\n+        home = '&quot;HTTPS://SPHINX-DOC.ORG&quot;'\n+        res = '&#39;RESULT&#39;'\n+\n     app.build()\n     # [literalblock.txt]\n     result = (app.outdir / 'literalblock.html').read_text(encoding='utf8')\n@@ -1738,15 +1750,15 @@ def test_additional_targets_should_be_translated(app: SphinxTestApp) -> None:\n     assert_count(expected_expr, result, 1)\n \n     # literalinclude should be translated\n-    expected_expr = '<span class=\"s2\">&quot;HTTPS://SPHINX-DOC.ORG&quot;</span>'\n+    expected_expr = f'<span class=\"s2\">{home}</span>'\n     assert_count(expected_expr, result, 1)\n \n     # title should be translated\n     expected_expr = 'CODE-BLOCKS'\n     assert_count(expected_expr, result, 2)\n \n     # ruby code block should be translated and be highlighted\n-    expected_expr = \"\"\"<span class=\"s1\">&#39;RESULT&#39;</span>\"\"\"\n+    expected_expr = f\"\"\"<span class=\"s1\">{res}</span>\"\"\"\n     assert_count(expected_expr, result, 1)\n \n     # C code block without lang should be translated and *ruby* highlighted"
+    }
+  ]
+}

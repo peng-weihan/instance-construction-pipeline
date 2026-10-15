@@ -1,0 +1,618 @@
+[
+  {
+    "id": "o01_ortools",
+    "name": "OR-Tools 维护窗口车间调度",
+    "category": "optimization",
+    "title": "维护窗口与换型间隔下的作业车间调度",
+    "source_unit": "examples/python/jobshop_with_maintenance_sat.py 与 jobshop_ft06_distance_sat.py；不是整个OR-Tools作为一道题",
+    "proposed_task": "给定工序、机器、维护窗口和明确换型规则，提交可行排程及可重放求解器，在固定计算预算下缩短makespan。先只组合已公开的非抢占语义，不默认完整柔性工厂。",
+    "deliverable": "工序开始/结束和机器分配表、求解程序、目标与约束核对记录。",
+    "difficulty_sources": [
+      "维护占用与工序先后共同限制机器顺序，局部交换可能使另一条作业链不可行。",
+      "可行排程之后仍有瓶颈移动、邻域选择和求解时间分配的质量取舍，必须实测强CP-SAT基线后的余量。"
+    ],
+    "baseline": "默认CP-SAT interval/NoOverlap模型、正常预处理与参数调优；允许现成调度器。",
+    "first_probe": "把现成维护模型和距离模型改成统一输入，测结构不同的中小实例；先看合法建模与默认求解是否已饱和。",
+    "stop_condition": "薄建模已在预算内普遍最优，或困难主要来自未公开换型定义，则重设该实例族。",
+    "grader_plan": "独立逐工序检查precedence、机器不重叠和维护窗口，再重算makespan；小规模穷举交叉验证，连续分数端点待测。",
+    "generation_and_split": "另建可行证书驱动的工艺路线/维护生成器，按工艺拓扑和瓶颈类型分族；公开FT06仅用于格式和基线，不作hidden。",
+    "novelty_and_overlap": "新主仓库；排程是广泛共享机制，不能将FT06改名或只换seed算新任务。与原组合优化任务的隐藏实例仍需核对。",
+    "offline_and_compute": "CPU Python/原生OR-Tools轮子、固定solver版本；保存的只有例子与许可，完整依赖和实例族未构建。",
+    "license_observation": "根Apache-2.0；源例子许可头需保留，外部调度数据分别核权。",
+    "priority": "hold_baseline",
+    "potential": "high",
+    "repo": "google/or-tools",
+    "revision": "100f66e6242ab8bf8d32feb8f3bf086db66ae2b5",
+    "source_manifest": "sources/o01_ortools/manifest.json",
+    "read_scope": [
+      {
+        "path": "sources/o01_ortools/files/examples/python/jobshop_with_maintenance_sat.py",
+        "start": 65,
+        "end": 108,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/o01_ortools/files/examples/python/jobshop_ft06_distance_sat.py",
+        "start": 15,
+        "end": 40,
+        "kind": "specification"
+      }
+    ],
+    "card": "cards/o01_ortools.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "evidence": [
+      {
+        "path": "sources/o01_ortools/files/examples/python/jobshop_with_maintenance_sat.py",
+        "line": 65,
+        "claim": "原生示例用维护interval、NoOverlap和工序precedence最小化makespan。",
+        "url": "https://github.com/google/or-tools/blob/100f66e6242ab8bf8d32feb8f3bf086db66ae2b5/examples/python/jobshop_with_maintenance_sat.py#L65"
+      },
+      {
+        "path": "sources/o01_ortools/files/examples/python/jobshop_ft06_distance_sat.py",
+        "line": 15,
+        "claim": "FT06变体明确机器间最小距离约束及makespan目标。",
+        "url": "https://github.com/google/or-tools/blob/100f66e6242ab8bf8d32feb8f3bf086db66ae2b5/examples/python/jobshop_ft06_distance_sat.py#L15"
+      }
+    ]
+  },
+  {
+    "id": "o02_pyvrp",
+    "name": "PyVRP 奖励收集配送",
+    "category": "optimization",
+    "title": "多维容量与可选客户的奖励收集路径优化",
+    "source_unit": "CostEvaluator、Model及prize-collecting原生回归",
+    "proposed_task": "在固定距离/时间矩阵和公开车队约束下选择服务客户及路线，平衡里程与未收集奖励；限定已确认的容量、时间及可选客户子集。",
+    "deliverable": "逐车路线/服务集合、求解策略和约束可行性记录。",
+    "difficulty_sources": [
+      "可选客户的奖励决定是否访问，局部删点既改变距离也改变收益，不能只做最短路线。",
+      "容量、时间和车队类型在跨路线移动时共同变化，惩罚搜索中的好解不等于最终可行解。"
+    ],
+    "baseline": "现有PyVRP ILS/正常模型参数，OR-Tools或合法MILP；默认成熟求解器也必须参与比较。",
+    "first_probe": "使用未修改PyVRP跑新结构的奖励/容量族，并与简单插入/删除策略比较；检查剩余质量空间。",
+    "stop_condition": "默认求解器已满足整体目标，或仅需调一个罚系数便全解，则不包装成长程题。",
+    "grader_plan": "独立重算每条路线、访问唯一性、负载/时间和未收集奖励；可行性单独门控，不用penalisedCost替代最终cost。",
+    "generation_and_split": "生成新的客户实体、服务奖励和车队结构，按地理/奖励相关性分族；不复用Solomon/Homberger原点集。",
+    "novelty_and_overlap": "与旧VRPTW属同一车辆路径谱系；独立仓库不证明任务独立，新增奖励选择合同与分布须有实质变化。",
+    "offline_and_compute": "Python/C++扩展；数据矩阵和全部依赖离线预置。所取测试可能依赖未下载fixture，未执行。",
+    "license_observation": "根MIT，标注HGS-CVRP/HGS-DIMACS谱系版权；数据许可另核。",
+    "priority": "hold_baseline",
+    "potential": "high",
+    "repo": "PyVRP/PyVRP",
+    "revision": "abe53138ca43bce75ed95c99e37c7452f14e53d2",
+    "source_manifest": "sources/o02_pyvrp/manifest.json",
+    "read_scope": [
+      {
+        "path": "sources/o02_pyvrp/files/pyvrp/cpp/CostEvaluator.h",
+        "start": 200,
+        "end": 258,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/o02_pyvrp/files/tests/test_CostEvaluator.py",
+        "start": 135,
+        "end": 180,
+        "kind": "test"
+      }
+    ],
+    "card": "cards/o02_pyvrp.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "evidence": [
+      {
+        "path": "sources/o02_pyvrp/files/pyvrp/cpp/CostEvaluator.h",
+        "line": 200,
+        "claim": "最终cost对不可行解返回极大值，deltaCost另计算容量/时间等罚项。",
+        "url": "https://github.com/PyVRP/PyVRP/blob/abe53138ca43bce75ed95c99e37c7452f14e53d2/pyvrp/cpp/CostEvaluator.h#L200"
+      },
+      {
+        "path": "sources/o02_pyvrp/files/tests/test_CostEvaluator.py",
+        "line": 135,
+        "claim": "原生prize测试将路线距离和未收集奖励相加；可行性测试独立存在。",
+        "url": "https://github.com/PyVRP/PyVRP/blob/abe53138ca43bce75ed95c99e37c7452f14e53d2/tests/test_CostEvaluator.py#L135"
+      }
+    ]
+  },
+  {
+    "id": "o03_scip",
+    "name": "SCIP 随机设施选址",
+    "category": "optimization",
+    "title": "多需求场景下的容量设施选址与补救分配",
+    "source_unit": "SCFLP官方例子的明确模型、reader、CAP小实例与testset索引",
+    "proposed_task": "提交统一开设决策及各需求场景的服务分配，使所有场景可行并降低固定开设成本与平均服务成本。",
+    "deliverable": "设施开设向量、逐场景分配证书、可重放求解器。",
+    "difficulty_sources": [
+      "各场景共享离散开设变量，单场景最优决定可能无法承受其它需求，主问题与补救问题相互约束。",
+      "完整MIP与分解方法的界、warm start和场景工作量存在时间/内存取舍，现成Benders已是强基线。"
+    ],
+    "baseline": "SCIP现有monolithic和Benders模型及HiGHS等合法建模；不禁求解器。",
+    "first_probe": "在同资源下比较现成两种模型的结构阶梯和可行证书，不先假设分解一定更优。",
+    "stop_condition": "现成模型普遍解决，或新场景只是无意义扩大数量，则撤销该难度设计。",
+    "grader_plan": "独立检查二元开设、容量和每场景需求，按公开概率/等权定义重算目标；小实例穷举开设集+LP。",
+    "generation_and_split": "使用新的成本/容量/需求联合生成过程，按场景相关性和设施紧张程度拆分；CAP文件仅示例，未证明可直接再分发其原数据。",
+    "novelty_and_overlap": "模型来源于既有SCFLP，题目需新的场景族和可验证研究目标；不把现有Benders当待实现功能。",
+    "offline_and_compute": "SCIP C/C++与LP后端全依赖、实例生成器和参考未构建；不把编译耗时计为难度。",
+    "license_observation": "当前根Apache-2.0；CAP文件来自OR-Library谱系，数据再使用条款尚需核实。",
+    "priority": "hold_baseline",
+    "potential": "high",
+    "repo": "scipopt/scip",
+    "revision": "38028b9ebdb05b2cf4928e259278934a7c7c52ba",
+    "source_manifest": "sources/o03_scip/manifest.json",
+    "read_scope": [
+      {
+        "path": "sources/o03_scip/files/examples/SCFLP/doc/xternal_scflp.c",
+        "start": 62,
+        "end": 121,
+        "kind": "specification"
+      },
+      {
+        "path": "sources/o03_scip/files/examples/SCFLP/src/probdata_scflp.c",
+        "start": 260,
+        "end": 305,
+        "kind": "implementation"
+      }
+    ],
+    "card": "cards/o03_scip.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "evidence": [
+      {
+        "path": "sources/o03_scip/files/examples/SCFLP/doc/xternal_scflp.c",
+        "line": 62,
+        "claim": "SCFLP规格明确共享开设变量、各场景服务/容量约束和等权目标。",
+        "url": "https://github.com/scipopt/scip/blob/38028b9ebdb05b2cf4928e259278934a7c7c52ba/examples/SCFLP/doc/xternal_scflp.c#L62"
+      },
+      {
+        "path": "sources/o03_scip/files/examples/SCFLP/src/probdata_scflp.c",
+        "line": 260,
+        "claim": "实现把设施容量与逐场景customer变量连接。",
+        "url": "https://github.com/scipopt/scip/blob/38028b9ebdb05b2cf4928e259278934a7c7c52ba/examples/SCFLP/src/probdata_scflp.c#L260"
+      }
+    ]
+  },
+  {
+    "id": "o04_networkit",
+    "name": "NetworKit 图社区优化",
+    "category": "optimization",
+    "title": "多结构加权图的模块度最大化",
+    "source_unit": "PLM实现、CommunityGTest的PLM/Leiden可行分区回归",
+    "proposed_task": "给定冻结的加权无向图与resolution参数，输出完整节点分区并最大化明确模块度，在同计算预算上比较策略泛化。",
+    "deliverable": "分区证书、可重复搜索程序与原始模块度/时间。",
+    "difficulty_sources": [
+      "单节点局部增益与社区总体体积相连，局部最大值和多层聚合会改变最终分区。",
+      "稀疏/重尾/弱社区图的搜索与并行收益不同；不能把有语义标签的分类准确率偷偷换成模块度。"
+    ],
+    "baseline": "现成PLM、ParallelLeiden、正常多次重启与resolution；允许其他成熟社区工具。",
+    "first_probe": "固定目标定义与资源，对结构不同图族跑PLM/Leiden，检查默认方案是否已达到有效上限。",
+    "stop_condition": "成熟默认方法已饱和，或难点仅来自目标未定义/不恰当resolution，则重设。",
+    "grader_plan": "独立检查每节点唯一归属，直接由边和社区度和重算Q；小图枚举分区，输出社区编号置换不影响评分。",
+    "generation_and_split": "生成新的图实体和拓扑族，按degree/assortativity/overlap结构划分，不能只换节点ID；公开PGP图不放hidden。",
+    "novelty_and_overlap": "与原graph_node_classification和图分割有图谱系联系，但本任务无监督优化分区而非预测标签；不能据此声称完全无重叠。",
+    "offline_and_compute": "C++/OpenMP/Python和图数据预置，线程与随机性固定；没有实际速度或最优差距测量。",
+    "license_observation": "根MIT式许可文本（License.txt），外部图数据独立核权；当前只取测试代码未取其引用PGP/CAIDA图。",
+    "priority": "hold_baseline",
+    "potential": "medium",
+    "repo": "networkit/networkit",
+    "revision": "5f03e17cec0918add08f0f7c00c103ee0119da5b",
+    "source_manifest": "sources/o04_networkit/manifest.json",
+    "read_scope": [
+      {
+        "path": "sources/o04_networkit/files/networkit/cpp/community/PLM.cpp",
+        "start": 83,
+        "end": 139,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/o04_networkit/files/networkit/cpp/community/test/CommunityGTest.cpp",
+        "start": 155,
+        "end": 200,
+        "kind": "test"
+      },
+      {
+        "path": "sources/o04_networkit/files/networkit/cpp/community/test/CommunityGTest.cpp",
+        "start": 282,
+        "end": 325,
+        "kind": "test"
+      }
+    ],
+    "card": "cards/o04_networkit.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "evidence": [
+      {
+        "path": "sources/o04_networkit/files/networkit/cpp/community/PLM.cpp",
+        "line": 83,
+        "claim": "PLM明确按邻居社区亲和度及gamma计算移动的模块度增益。",
+        "url": "https://github.com/networkit/networkit/blob/5f03e17cec0918add08f0f7c00c103ee0119da5b/networkit/cpp/community/PLM.cpp#L83"
+      },
+      {
+        "path": "sources/o04_networkit/files/networkit/cpp/community/test/CommunityGTest.cpp",
+        "line": 282,
+        "claim": "PLM/Leiden测试检查输出是proper clustering，未证明其最优。",
+        "url": "https://github.com/networkit/networkit/blob/5f03e17cec0918add08f0f7c00c103ee0119da5b/networkit/cpp/community/test/CommunityGTest.cpp#L282"
+      }
+    ]
+  },
+  {
+    "id": "o05_mapf",
+    "name": "League of Robot Runners",
+    "category": "optimization",
+    "title": "延迟与持续任务下的多机器人分配和路径协调",
+    "source_unit": "官方Start-Kit执行状态与输入输出合同、maze示例元数据",
+    "proposed_task": "选定并冻结一个combined轨道，提交任务分配/无碰撞行动策略，在持续到达任务和公开延迟模型下提高完成量。",
+    "deliverable": "离线策略程序、可重放行动/分配记录和完成任务统计。",
+    "difficulty_sources": [
+      "分配改变机器人去向和拥堵，局部最短路可能降低整个车队完成量。",
+      "执行延迟使计划与实际状态分离，重规划、避碰和计算预算共同影响长期吞吐。"
+    ],
+    "baseline": "官方starter与成熟优先级规划、CBS/RHCR/LNS等适用算法，正常调参；不禁标准路径算法。",
+    "first_probe": "先跑健康kit与独立trace复算，确认2026动作时长/延迟规则，再比较官方与成熟规划方案。",
+    "stop_condition": "环境版本不稳定或只需改调度参数即可全解；没有明确轨道则不成题。",
+    "grader_plan": "由冻结可信环境重放动作、碰撞/任务状态并统计numTaskFinished与错误；候选自报统计不可信，另写小规模独立网格检查。",
+    "generation_and_split": "新建仓库/障碍拓扑、任务到达/延迟生成模型，按布局族和任务过程拆分，不把现成地图换seed当新题。",
+    "novelty_and_overlap": "与原warehouse_forklift_routing及本批Flatland都是多主体路径谱系；新引擎不能替代地图/任务生成与评测独立性。",
+    "offline_and_compute": "CPU C++/Boost/Python bindings，headless可设计；示例JSON引用的地图/任务资产未完整获取，未跑环境。",
+    "license_observation": "根MIT；地图和竞赛外部资产须逐项核权，仓库license不自动覆盖引用图。",
+    "priority": "hold_reference",
+    "potential": "high",
+    "repo": "MAPF-Competition/Start-Kit",
+    "revision": "9bc75d9dd9883de049294ab2981bf325bbe19d49",
+    "source_manifest": "sources/o05_mapf/manifest.json",
+    "read_scope": [
+      {
+        "path": "sources/o05_mapf/files/src/ActionModel.cpp",
+        "start": 490,
+        "end": 533,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/o05_mapf/files/Input_Output_Format.md",
+        "start": 100,
+        "end": 125,
+        "kind": "specification"
+      }
+    ],
+    "card": "cards/o05_mapf.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "evidence": [
+      {
+        "path": "sources/o05_mapf/files/src/ActionModel.cpp",
+        "line": 490,
+        "claim": "行动状态包含未完成动作及方向，计划动作与实际动作存在时长状态。",
+        "url": "https://github.com/MAPF-Competition/Start-Kit/blob/9bc75d9dd9883de049294ab2981bf325bbe19d49/src/ActionModel.cpp#L490"
+      },
+      {
+        "path": "sources/o05_mapf/files/Input_Output_Format.md",
+        "line": 100,
+        "claim": "输出合同分别记录actual/planner paths、任务事件、动作/调度错误与超时。",
+        "url": "https://github.com/MAPF-Competition/Start-Kit/blob/9bc75d9dd9883de049294ab2981bf325bbe19d49/Input_Output_Format.md#L100"
+      }
+    ]
+  },
+  {
+    "id": "o06_vtr",
+    "name": "VTR FPGA布局",
+    "category": "optimization",
+    "title": "固定网表与器件约束下的FPGA布局质量优化",
+    "source_unit": "VPR布局验证、正式region约束与小任务配置；不采用尚未合并的relative macros",
+    "proposed_task": "冻结已pack网表、器件和合法region约束，交付块位置或布局策略，在合法布局下改善线长与固定时序指标。",
+    "deliverable": "可验证.place/位置证书、搜索程序和冻结VPR重算指标。",
+    "difficulty_sources": [
+      "资源类型、区域约束和互连拓扑限制离散位置，局部线长改善可能损害关键路径。",
+      "增量代价与完整重算的一致性、温度/移动候选和时间预算产生真实搜索取舍，但默认placer已成熟。"
+    ],
+    "baseline": "当前VPR默认placer/正常退火与时序选项；现成布局/图划分方案可用。",
+    "first_probe": "先构建健康headless闭包并校验默认结果，确认只使用已实现的region功能，再测默认参数前沿。",
+    "stop_condition": "奖励依赖未实现relative_macro_list，或收益只是默认配置差异/环境等待，则停止当前范围。",
+    "grader_plan": "冻结可信VPR做独立位置合法性/代价完整重算，另查块唯一性/容量/region；不采用候选上报增量cost。",
+    "generation_and_split": "新网表结构族与器件/约束配置，按电路谱系划分；公开power_quick只是配置入口，引用的完整网表/架构未下载。",
+    "novelty_and_overlap": "与原CPU/硬件优化有领域联系，核心交付是布局解而非修VPR；独立netlist与评价范围仍需建立。",
+    "offline_and_compute": "完整VPR和架构/网表资产较重，先hold_reference；构建成本不作为求解难度。",
+    "license_observation": "VTR多组件许可汇编，LICENSE.md要求按VPR/ABC/ODIN及benchmark逐项核；不能统一按MIT。",
+    "priority": "hold_reference",
+    "potential": "high",
+    "repo": "verilog-to-routing/vtr-verilog-to-routing",
+    "revision": "5c65c868eb4e4d03697010e331d6abaa1cb46d4e",
+    "source_manifest": "sources/o06_vtr/manifest.json",
+    "read_scope": [
+      {
+        "path": "sources/o06_vtr/files/vpr/src/place/placer.cpp",
+        "start": 252,
+        "end": 301,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/o06_vtr/files/doc/src/vpr/relative_placement_constraints.rst",
+        "start": 1,
+        "end": 48,
+        "kind": "specification"
+      },
+      {
+        "path": "sources/o06_vtr/files/doc/src/vpr/placement_constraints.rst",
+        "start": 1,
+        "end": 45,
+        "kind": "specification"
+      }
+    ],
+    "card": "cards/o06_vtr.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "evidence": [
+      {
+        "path": "sources/o06_vtr/files/vpr/src/place/placer.cpp",
+        "line": 252,
+        "claim": "Placer用verify_placement与完整代价检查验证布局不变量。",
+        "url": "https://github.com/verilog-to-routing/vtr-verilog-to-routing/blob/5c65c868eb4e4d03697010e331d6abaa1cb46d4e/vpr/src/place/placer.cpp#L252"
+      },
+      {
+        "path": "sources/o06_vtr/files/doc/src/vpr/relative_placement_constraints.rst",
+        "line": 1,
+        "claim": "当前relative placement文档明确实现未合并，读入后报错；该功能不纳入本候选。",
+        "url": "https://github.com/verilog-to-routing/vtr-verilog-to-routing/blob/5c65c868eb4e4d03697010e331d6abaa1cb46d4e/doc/src/vpr/relative_placement_constraints.rst#L1"
+      }
+    ]
+  },
+  {
+    "id": "o07_kahypar",
+    "name": "KaHyPar 超图划分",
+    "category": "optimization",
+    "title": "平衡约束下的超图k路划分",
+    "source_unit": "cut/km1明确目标、平衡分区回归与小.hgr例子",
+    "proposed_task": "在节点权重和公开不平衡阈值下输出k路分区，选择并冻结cut或km1一个目标，以相同资源预算优化。",
+    "deliverable": "节点块编号证书、划分策略、平衡与目标原始数值。",
+    "difficulty_sources": [
+      "一个超边连接多个分区，改动单点影响多个局部增益和块容量，不能用普通图边cut替代。",
+      "coarsening、初始分区、refinement和重启预算相互影响，已有多层方法是强基线。"
+    ],
+    "baseline": "KaHyPar默认与正常配置，多重启/成熟超图划分器；不故意禁现成工具。",
+    "first_probe": "确认cut和km1独立复算一致后，对结构不同超图测默认/最佳合法配置的余量。",
+    "stop_condition": "默认或简单多重启已经饱和，或评价混淆cut/km1/平衡，则重设。",
+    "grader_plan": "独立统计每块节点总权重和每条超边覆盖块数，重算cut或km1；小例子穷举确认，不使用候选metric。",
+    "generation_and_split": "新的hyperedge重叠、节点权重与社区/网表生成族，按底层超图谱系拆分；小.hgr仅格式验证。",
+    "novelty_and_overlap": "与本批FPGA、图模块度存在表示/算法联系，属于不同约束目标但非完全独立训练族。",
+    "offline_and_compute": "C++/CMake依赖和配置预置；x86/ARM线程/随机性及GPL依赖未跑。",
+    "license_observation": "根GPL-3.0文本，依赖/外部网表各自核权。",
+    "priority": "hold_baseline",
+    "potential": "high",
+    "repo": "kahypar/kahypar",
+    "revision": "d207276070d176097273f7d4ee94043067eb97f0",
+    "source_manifest": "sources/o07_kahypar/manifest.json",
+    "read_scope": [
+      {
+        "path": "sources/o07_kahypar/files/kahypar/partition/metrics.h",
+        "start": 95,
+        "end": 151,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/o07_kahypar/files/tests/partition/metrics_test.cc",
+        "start": 87,
+        "end": 129,
+        "kind": "test"
+      }
+    ],
+    "card": "cards/o07_kahypar.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "evidence": [
+      {
+        "path": "sources/o07_kahypar/files/kahypar/partition/metrics.h",
+        "line": 95,
+        "claim": "原生metric分别实现hyperedge cut与(k-1)加权连接度目标。",
+        "url": "https://github.com/kahypar/kahypar/blob/d207276070d176097273f7d4ee94043067eb97f0/kahypar/partition/metrics.h#L95"
+      },
+      {
+        "path": "sources/o07_kahypar/files/tests/partition/metrics_test.cc",
+        "line": 87,
+        "claim": "原生测试对demo图cut给出精确值，不证明优化质量已校准。",
+        "url": "https://github.com/kahypar/kahypar/blob/d207276070d176097273f7d4ee94043067eb97f0/tests/partition/metrics_test.cc#L87"
+      }
+    ]
+  },
+  {
+    "id": "o08_bqskit",
+    "name": "BQSKit 量子线路映射",
+    "category": "optimization",
+    "title": "耦合图约束下的量子线路布局与交换门优化",
+    "source_unit": "GeneralizedSabreAlgorithm/layout/routing与unitary等价回归、tfim小QASM",
+    "proposed_task": "给定小规模原线路和硬件耦合图，输出保持语义与初末映射的可执行线路，降低两比特门/SWAP或深度；先冻结门集与单一主目标。",
+    "deliverable": "QASM线路、初末映射、编译/搜索策略和等价检查记录。",
+    "difficulty_sources": [
+      "逻辑到物理映射改变后续门距离，局部少SWAP不保证全局线路低深度。",
+      "门依赖frontier、前后向布局与搜索预算相互约束，必须保持包含置换的线路等价。"
+    ],
+    "baseline": "原生SABRE布局/路由与Qiskit等成熟合法transpiler，先扫正常passes/heuristic。",
+    "first_probe": "先在小线路全矩阵等价检查下建立强SABRE基线，再比较不同拓扑/线路族的可测剩余门数。",
+    "stop_condition": "默认编译已饱和，或错误忽略映射/换门集带来伪改进，则不成题。",
+    "grader_plan": "独立模拟或对固定可证门集作严格等价检查，包含initial/final permutation，再验证每个两比特门在耦合图上；规模待测，大电路抽样不冒充严格等价。",
+    "generation_and_split": "原创线路族和硬件拓扑联合生成，按电路结构划分，不仅调随机旋转角；tfim只作格式/参考。",
+    "novelty_and_overlap": "编译器基础设施可共享，但评分是组合映射的解质量；与硬件/优化族谱系交叉显式记录。",
+    "offline_and_compute": "Python/原生BQSKit依赖；不需真实QPU，但全unitary指数成本需限制和验证。",
+    "license_observation": "根BSD式许可并含LBNL/UC条款，依赖各核；量子服务不作为必要条件。",
+    "priority": "hold_baseline",
+    "potential": "high",
+    "repo": "BQSKit/bqskit",
+    "revision": "9324d64a65f147ecffec005a122eb5a491a3fefc",
+    "source_manifest": "sources/o08_bqskit/manifest.json",
+    "read_scope": [
+      {
+        "path": "sources/o08_bqskit/files/bqskit/passes/mapping/layout/sabre.py",
+        "start": 14,
+        "end": 83,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/o08_bqskit/files/tests/passes/mapping/test_sabre.py",
+        "start": 1,
+        "end": 55,
+        "kind": "test"
+      },
+      {
+        "path": "sources/o08_bqskit/files/bqskit/passes/mapping/sabre.py",
+        "start": 100,
+        "end": 155,
+        "kind": "implementation"
+      }
+    ],
+    "card": "cards/o08_bqskit.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "evidence": [
+      {
+        "path": "sources/o08_bqskit/files/bqskit/passes/mapping/sabre.py",
+        "line": 100,
+        "claim": "SABRE按逻辑到物理映射、耦合图和门frontier推进。",
+        "url": "https://github.com/BQSKit/bqskit/blob/9324d64a65f147ecffec005a122eb5a491a3fefc/bqskit/passes/mapping/sabre.py#L100"
+      },
+      {
+        "path": "sources/o08_bqskit/files/tests/passes/mapping/test_sabre.py",
+        "line": 1,
+        "claim": "原生测试同时检查包含PI/PF的unitary距离及耦合边合法性。",
+        "url": "https://github.com/BQSKit/bqskit/blob/9324d64a65f147ecffec005a122eb5a491a3fefc/tests/passes/mapping/test_sabre.py#L1"
+      }
+    ]
+  },
+  {
+    "id": "o09_openwbo",
+    "name": "Open-WBO MaxSAT",
+    "category": "optimization",
+    "title": "带硬约束与加权偏好的MaxSAT求解",
+    "source_unit": "WCNF/PB reader、完整模型代价与OLL参考；所取CNF只是小格式例子",
+    "proposed_task": "输入冻结WCNF，提交满足全部硬子句的赋值并最小化未满足软子句权重，在统一时间预算上比较anytime策略。",
+    "deliverable": "赋值证书、求解策略、目标值与有效性日志。",
+    "difficulty_sources": [
+      "硬可行性和软权重冲突共同影响搜索，降低局部软代价可能破坏硬约束。",
+      "core-guided、线性搜索、编码与权重分层有实例依赖，现有选择器是强基线。"
+    ],
+    "baseline": "Open-WBO原生策略与现代合法MaxSAT/SAT/MIP方案，不以禁solver增加难度。",
+    "first_probe": "先用新生成/有授权结构族测默认与强现成MaxSAT，检查有效最优差距与可重复性。",
+    "stop_condition": "现成选择器已解决全部预算实例，或依赖已公开答案/权重溢出漏洞拿分，则重设。",
+    "grader_plan": "独立逐字句检查完整赋值，硬约束失败判无效；用安全整数重算软成本，小实例穷举；不信任s OPTIMUM FOUND文字。",
+    "generation_and_split": "按底层配置/图/排程编码结构族生成WCNF，排除同一CNF重排/变量置换跨split；完整实例集尚未取得。",
+    "novelty_and_overlap": "与原SMT solver同属约束求解，新增MaxSAT目标及实例谱系须实质区别；公开SAT小例不是新的高难benchmark。",
+    "offline_and_compute": "C++和SAT submodule依赖预置；旧WCNF parser版本/硬权重定义需固定，未编译。",
+    "license_observation": "根为MiniSat/Open-WBO MIT式条款，外部MaxSAT语料另核；没有把竞赛数据许可视为已确认。",
+    "priority": "hold_baseline",
+    "potential": "high",
+    "repo": "sat-group/open-wbo",
+    "revision": "80f3073e41028b219b0b0ad7c61fba28351f88e6",
+    "source_manifest": "sources/o09_openwbo/manifest.json",
+    "read_scope": [
+      {
+        "path": "sources/o09_openwbo/files/MaxSAT.cc",
+        "start": 149,
+        "end": 205,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/o09_openwbo/files/README.md",
+        "start": 25,
+        "end": 85,
+        "kind": "specification"
+      }
+    ],
+    "card": "cards/o09_openwbo.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "evidence": [
+      {
+        "path": "sources/o09_openwbo/files/MaxSAT.cc",
+        "line": 149,
+        "claim": "模型代价按未满足软子句权重求和。",
+        "url": "https://github.com/sat-group/open-wbo/blob/80f3073e41028b219b0b0ad7c61fba28351f88e6/MaxSAT.cc#L149"
+      },
+      {
+        "path": "sources/o09_openwbo/files/README.md",
+        "line": 25,
+        "claim": "README区分SATISFIABLE与OPTIMUM FOUND并定义赋值/目标输出。",
+        "url": "https://github.com/sat-group/open-wbo/blob/80f3073e41028b219b0b0ad7c61fba28351f88e6/README.md#L25"
+      }
+    ]
+  },
+  {
+    "id": "o10_setcover",
+    "name": "SetCoveringSolver",
+    "category": "optimization",
+    "title": "覆盖结构族上的集合覆盖解质量优化",
+    "source_unit": "显式覆盖计数/成本证书与已有greedy/LNS/CP-SAT方法；数据CSV是目录而非完整实例",
+    "proposed_task": "先限定unicost set cover，提交覆盖全部元素的集合ID子集，在冻结预算下减少集合数。",
+    "deliverable": "集合证书、搜索程序、覆盖与目标值核对。",
+    "difficulty_sources": [
+      "集合高度重叠时贪心容易进入局部最优，移除/重新覆盖需要联合交换。",
+      "reduction、局部搜索与大邻域时间分配对结构族敏感，但已有贪心/CP-SAT很强。"
+    ],
+    "baseline": "原生所有适用greedy、LNS、MILP/HiGHS和OR-Tools，允许按公开结构选择。",
+    "first_probe": "先建立授权实例或原创incidence生成器，再比较完整现成算法前沿；不使用目录CSV代替实际运行材料。",
+    "stop_condition": "现成组合已饱和，或所谓新实例只是PACE文件改名/重排，则退出当前方向。",
+    "grader_plan": "独立检查集合ID唯一/合法及并集覆盖，并重算集合数；小宇宙穷举，不能信candidate covers计数。",
+    "generation_and_split": "按incidence相关性、稀疏/密集和可行结构生成新族，原PACE/GECCO分发条款未确认；不能只新seed。",
+    "novelty_and_overlap": "与旧packingsolver同作者/optimizationtools依赖谱系，但不是同一主来源；必须按底层实例结构去重。",
+    "offline_and_compute": "C++及依赖预置；download_data.py指向外部Google Drive压缩包未执行，当前无完整benchmark数据。",
+    "license_observation": "根MIT；外部数据与最优答案文件许可未确认，候选hold_data。",
+    "priority": "hold_data",
+    "potential": "medium",
+    "repo": "fontanf/setcoveringsolver",
+    "revision": "6b24f8cb0a8e5baa6849283e5250aa4a3bd09aff",
+    "source_manifest": "sources/o10_setcover/manifest.json",
+    "read_scope": [
+      {
+        "path": "sources/o10_setcover/files/include/setcoveringsolver/solution.hpp",
+        "start": 75,
+        "end": 123,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/o10_setcover/files/README.md",
+        "start": 1,
+        "end": 48,
+        "kind": "specification"
+      },
+      {
+        "path": "sources/o10_setcover/files/scripts/download_data.py",
+        "start": 1,
+        "end": 37,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/o10_setcover/files/include/setcoveringsolver/solution.hpp",
+        "start": 40,
+        "end": 76,
+        "kind": "specification"
+      },
+      {
+        "path": "sources/o10_setcover/files/include/setcoveringsolver/solution.hpp",
+        "start": 147,
+        "end": 187,
+        "kind": "implementation"
+      }
+    ],
+    "card": "cards/o10_setcover.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "evidence": [
+      {
+        "path": "sources/o10_setcover/files/include/setcoveringsolver/solution.hpp",
+        "line": 40,
+        "claim": "Solution接口将完整覆盖作为可行性，成本与元素计数独立记录。",
+        "url": "https://github.com/fontanf/setcoveringsolver/blob/6b24f8cb0a8e5baa6849283e5250aa4a3bd09aff/include/setcoveringsolver/solution.hpp#L40"
+      },
+      {
+        "path": "sources/o10_setcover/files/README.md",
+        "line": 1,
+        "claim": "README已有多种贪心、MILP/CP-SAT和LNS，不把它们冒称新方法。",
+        "url": "https://github.com/fontanf/setcoveringsolver/blob/6b24f8cb0a8e5baa6849283e5250aa4a3bd09aff/README.md#L1"
+      }
+    ]
+  }
+]

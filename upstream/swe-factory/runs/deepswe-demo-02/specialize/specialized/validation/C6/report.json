@@ -1,0 +1,14 @@
+{
+  "healthy": true,
+  "tests": {
+    "tests/test_regression.py::test_plain": "passed",
+    "tests/test_target.py::test_parent": "passed",
+    "tests/test_target.py::test_child": "passed",
+    "tests/test_target.py::test_override": "passed",
+    "tests/test_target.py::test_unicode": "passed"
+  },
+  "errors": [],
+  "returncode": 0,
+  "timed_out": false,
+  "evidence": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/specialize/specialized/validation/C6"
+}

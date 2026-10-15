@@ -1,0 +1,19 @@
+{
+  "source": {
+    "repository": "https://github.com/fontanf/packingsolver.git",
+    "commit": "79b67f8f9924018943daa878613da67bca955355",
+    "files": [
+      {
+        "path": "src/irregular/optimize.cpp",
+        "sha256": "df75731b011b22b1938e9d5164f6f2bf3c0e7429b3b617329a383ac52c03ff31"
+      }
+    ],
+    "acquired": true,
+    "runtime_verified": false
+  },
+  "same_per_case_cpu_budget_seconds": 20,
+  "threads": 1,
+  "seed": 4187,
+  "baseline_lengths": null,
+  "run_status": "not_executed"
+}

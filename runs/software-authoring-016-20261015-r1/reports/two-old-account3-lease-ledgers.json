@@ -1,0 +1,15 @@
+[
+  {
+    "host_pid": 3038765,
+    "task": "/ws/users/raymone/edgebench/next-two-001/lean-pilot/run-6h-002/task",
+    "jobs_dir": "/ws/users/raymone/edgebench/next-two-001/lean-pilot/run-6h-002/jobs",
+    "ledgers": [
+      {
+        "ledger": "/ws/users/raymone/edgebench/next-two-001/lean-pilot/run-6h-002/jobs/trial/task__UWTEA9U/aliyun-task__UWTEA9U__env.json",
+        "sandbox_id": "sbx-b64a5745-4209-4e16-b649-87271f97167d",
+        "created": true,
+        "destroyed": true
+      }
+    ]
+  }
+]

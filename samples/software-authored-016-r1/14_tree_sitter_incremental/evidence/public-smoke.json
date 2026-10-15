@@ -1,0 +1,11 @@
+{
+  "command": "PROJECT_ROOT=<job>/evidence/public-smoke /bin/sh public/smoke.sh",
+  "exit_code": 0,
+  "outputs": [
+    "submission/build/prefix_multiline.bin.out",
+    "submission/build/replace_type.bin.out",
+    "submission/build/rename_same_shape.bin.out"
+  ],
+  "semantic_assertions": false,
+  "purpose": "actual public build/API execution entry; raw output for debugging, no scoring"
+}

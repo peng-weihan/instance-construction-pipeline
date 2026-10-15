@@ -1,0 +1,35 @@
+{"ok":true,"original":{"s":"\b\u001b\f\n\r\t\\\""},"text":"s=\"\\b\\e\\f\\n\\r\\t\\\\\\\"\"\n","value":{"s":"\b\u001b\f\n\r\t\\\""}}
+{"ok":true,"original":{"s":"Aα😀"},"text":"s=\"\\x41\\u03B1\\U0001F600\"\n","value":{"s":"Aα😀"}}
+{"ok":true,"original":{"α":{"😀":"yes"}},"text":"\"\\u03B1\".\"\\U0001F600\"=\"yes\"\n","value":{"α":{"😀":"yes"}}}
+{"ok":true,"original":{"s":"C:\\Users\\ray"},"text":"s='C:\\Users\\ray'\n","value":{"s":"C:\\Users\\ray"}}
+{"ok":true,"original":{"s":"中文🙂"},"text":"s=\"中\\u6587\\U0001F642\"\n","value":{"s":"中文🙂"}}
+{"ok":true,"original":{"s":"alphabetagamma"},"text":"s=\"\"\"\nalpha\\\n    beta\\\n\n\t gamma\"\"\"\n","value":{"s":"alphabetagamma"}}
+{"ok":true,"original":{"s":"alphabeta"},"text":"s=\"\"\"\r\nalpha\\\r\n  \r\n\tbeta\"\"\"\n","value":{"s":"alphabeta"}}
+{"ok":true,"original":{"s":"ab"},"text":"s=\"\"\"a\\ \t\n \t b\"\"\"\n","value":{"s":"ab"}}
+{"ok":true,"original":{"s":"new\nlines and \\slashes"},"text":"s='''\nnew\nlines and \\slashes'''\n","value":{"s":"new\nlines and \\slashes"}}
+{"ok":true,"original":{"s":"two \"\" quotes and \" done"},"text":"s=\"\"\"two \"\" quotes and \\\" done\"\"\"\n","value":{"s":"two \"\" quotes and \" done"}}
+{"ok":true,"original":{"package":{"name":"demo","version":"0.1"}},"text":"# package configuration\n[package] # header\nname  =  'demo' # keep me\nversion=\"0.1\"\n","value":{"package":{"name":"demo","version":"0.1"}}}
+{"ok":true,"original":{"values":["a","b"]},"text":"values = [\n  \"a\", # item\n  'b',\n]\n","value":{"values":["a","b"]}}
+{"ok":true,"original":{"root key":{"nested":{"x":1,"y":"two"}}},"text":"\"root key\".nested={ x=1, y = 'two' } # tail\n","value":{"root key":{"nested":{"x":1,"y":"two"}}}}
+{"ok":true,"original":{"bin":[{"name":"one"},{"name":"two"}]},"text":"[[bin]]\nname='one'\n[[bin]] # two\nname=\"two\"\n","value":{"bin":[{"name":"one"},{"name":"two"}]}}
+{"ok":true,"original":{"float":1000.25,"hex":3735928559,"plus":42},"text":"hex = 0xDEAD_BEEF\nplus = +42\nfloat = 1_000.25\n","value":{"float":1000.25,"hex":3735928559,"plus":42}}
+{"ok":true,"original":{"a":"unchanged","b":2},"text":"a = 'unchanged' # comment\nb = '''\nline\n\"quote\"\\tail'''\n","value":{"a":"unchanged","b":"line\n\"quote\"\\tail"}}
+{"ok":true,"original":{"package":{"name":"old","version":"1.0"}},"text":"# banner\n[package]\nname= \"\"\"\nnew\nname\"\"\"\nversion = '1.0' # keep\n","value":{"package":{"name":"new\nname","version":"1.0"}}}
+{"ok":true,"original":{"items":["old","keep","last"]},"text":"items = [\"new\\tvalue\", 'keep', \"last\"] # tail\n","value":{"items":["new\tvalue","keep","last"]}}
+{"ok":true,"original":{"point":{"label":"old","x":1}},"text":"point={ x=1, label= \"it's new\" }\n","value":{"point":{"label":"it's new","x":1}}}
+{"ok":true,"original":{"name":"demo"},"text":"name='demo'\n\"strange key.中\" = \"value\\\\path\\u0001\"\n","value":{"name":"demo","strange key.中":"value\\path\u0001"}}
+{"ok":true,"text":"s = \"\"\"\n\\b\\t\n\\f\\r\\u001B\\u0000\\u007F\"\"\"\n"}
+{"ok":true,"text":"s = \"\\\"\\\"\\\" and ''' and \\\\\"\n"}
+{"ok":true,"text":"\"\" = \"empty\"\n\"a.b\" = \"dot\"\nbare-key = 1\n\"中 文\" = \"中文\"\n"}
+{"ok":true,"text":"s = \"\"\"\n\n\nhello\n\"\"\"\n"}
+{"ok":true,"text":"[package]\nfeatures = [\"a\", \"\"\"\nb\nc\"\"\"]\nname = \"demo\"\n\n[package.metadata]\n\"needs quote\" = 'x\\y'\n"}
+{"message":"missing escaped value, expected `b`, `e`, `f`, `n`, `r`, `\\`, `\"`, `x`, `u`, `U`","ok":false,"span":[4,4]}
+{"message":"too few unicode value digits, expected unicode hexadecimal value","ok":false,"span":[7,7]}
+{"message":"invalid value, expected unicode hexadecimal value","ok":false,"span":[5,5]}
+{"message":"invalid value, expected unicode hexadecimal value","ok":false,"span":[5,5]}
+{"message":"too few unicode value digits, expected unicode hexadecimal value","ok":false,"span":[8,8]}
+{"message":"carriage return must be followed by newline, expected newline","ok":false,"span":[10,10]}
+{"message":"invalid multi-line basic string, expected newline","ok":false,"span":[9,9]}
+{"ok":true,"original":{"package":{"metadata":{"x":["a\nb","😀"]},"name":"demo"}},"text":"[package]\nname=\"demo\"\n[package.metadata]\nx=[\"a\\nb\", \"\\U0001F600\"]\n","value":{"package":{"metadata":{"x":["a\nb","😀"]},"name":"demo"}}}
+{"ok":true,"original":{"a.b":{"α":{"s":"\t"}}},"text":"[\"a.b\".\"\\u03b1\"]\ns=\"\\t\" # trailing\n","value":{"a.b":{"α":{"s":"\t"}}}}
+{"ok":true,"original":{"section":{"item":"x"},"title":"demo"},"text":"title = 'demo'\n\n[section]\nitem = \"x\"\n","value":{"section":{"item":"x"},"title":"demo"}}

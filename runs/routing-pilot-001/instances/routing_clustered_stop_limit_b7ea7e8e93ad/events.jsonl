@@ -1,0 +1,8 @@
+{"counts":{"feedback":6,"final":6,"public":3},"elapsed_seconds":0.0022,"profile":"clustered_stop_limit","replica":1,"stage":"generated"}
+{"elapsed_seconds":0.0072,"gates":{"all_certificates_feasible":true,"deterministic_generation":true,"no_exact_case_duplicates":true,"tiny_exact_oracle":true},"stage":"certificates_and_oracle"}
+{"elapsed_seconds":0.3841,"rejected":10,"stage":"negative_controls"}
+{"elapsed_seconds":0.9502,"scores":{"greedy":72.55144649894112,"search":72.55144649894112,"singleton":0.0},"stage":"feedback_calibration"}
+{"elapsed_seconds":1.5118,"phases":["feedback","final"],"stage":"exported"}
+{"elapsed_seconds":1.5128,"selected":"search","stage":"selected_on_feedback"}
+{"elapsed_seconds":1.6609,"score":72.43328233776641,"stage":"final_evaluated_once","valid":true}
+{"elapsed_seconds":1.6609,"stage":"completed","status":"host_verified"}

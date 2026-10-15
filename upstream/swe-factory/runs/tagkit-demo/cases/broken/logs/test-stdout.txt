@@ -1,0 +1,30 @@
+$ /Users/raymone/Desktop/swe-factory/.venv/bin/python -m pytest -q -p no:cacheprovider
+...F                                                                     [100%]
+=================================== FAILURES ===================================
+__________________________________ test_type ___________________________________
+
+    def test_type():
+        assert issubclass(InvalidTagInput, TypeError)
+        with pytest.raises(InvalidTagInput):
+>           normalize_tags(None)
+
+../../../source/tests/test_api.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tagkit/api.py:8: in normalize_tags
+    return _unique(_tokens(text))
+                   ^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+text = None
+
+    def _tokens(text):
+>       return [part.strip().casefold() for part in text.split(",") if part.strip()]
+                                                    ^^^^^^^^^^
+E       AttributeError: 'NoneType' object has no attribute 'split'
+
+tagkit/parser.py:2: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_api.py::test_type - AttributeError: 'NoneType' object has n...
+1 failed, 3 passed in 0.01s
+
+[returncode=1; timed_out=False]

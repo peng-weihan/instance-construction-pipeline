@@ -1,0 +1,59 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.polaris.persistence.nosql.authz.api;
+
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
+import java.util.Set;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+import org.jspecify.annotations.NonNull;
+
+public interface Acl {
+
+  void entriesForRoleIds(
+      @NonNull Set<String> roleIds, @NonNull Consumer<AclEntry> aclEntryConsumer);
+
+  void forEach(@NonNull BiConsumer<String, AclEntry> consumer);
+
+  boolean isEmpty();
+
+  interface AclBuilder {
+    @CanIgnoreReturnValue
+    AclBuilder from(@NonNull Acl instance);
+
+    @CanIgnoreReturnValue
+    AclBuilder addEntry(@NonNull String roleId, @NonNull AclEntry entry);
+
+    @CanIgnoreReturnValue
+    AclBuilder removeEntry(@NonNull String roleId);
+
+    /**
+     * Add, remove or update an {@linkplain AclEntry ACL entry} for a role.
+     *
+     * <p>The {@linkplain Consumer consumer} is called with an empty builder, if no ACL entry for
+     * the role exists, otherwise with a builder constructed from the existing entry. If the given
+     * {@linkplain Consumer consumer} removes all privileges from the ACL entry, the ACL entry will
+     * be removed.
+     */
+    @CanIgnoreReturnValue
+    AclBuilder modify(@NonNull String roleId, @NonNull Consumer<AclEntry.AclEntryBuilder> entry);
+
+    Acl build();
+  }
+}

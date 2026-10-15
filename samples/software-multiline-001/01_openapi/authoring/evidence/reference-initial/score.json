@@ -1,0 +1,223 @@
+{
+  "valid": true,
+  "score": 0.16666666666666666,
+  "pass_rate": 0.16666666666666666,
+  "checks": [
+    {
+      "name": "nested",
+      "passed": false
+    },
+    {
+      "name": "union",
+      "passed": false
+    },
+    {
+      "name": "arrays",
+      "passed": false
+    },
+    {
+      "name": "siblings",
+      "passed": false
+    },
+    {
+      "name": "wire",
+      "passed": false
+    },
+    {
+      "name": "conflict",
+      "passed": true
+    }
+  ],
+  "metrics": {
+    "passed_semantic_groups": 1,
+    "fixed_denominator": 6
+  },
+  "summary": "Generated SDK semantic groups; host execution is not Harbor acceptance",
+  "records": [
+    {
+      "case": "nested",
+      "phase": "generate",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/authoring/venv/bin/python",
+        "-m",
+        "openapi_python_client",
+        "generate",
+        "--path",
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-cej7ah8p/spec.json",
+        "--meta",
+        "none",
+        "--output-path",
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-cej7ah8p/generated"
+      ],
+      "cwd": "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/solution/reference",
+      "exit": 0,
+      "stdout": "Generating /var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-cej7ah8p/generated\n",
+      "stderr": ""
+    },
+    {
+      "case": "nested",
+      "phase": "sdk-execution",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/authoring/venv/bin/python",
+        "-c",
+        "from pilot_client.models.envelope import Envelope\nfrom pilot_client.types import Unset\n\nobj = Envelope.from_dict({\"id\": 7, \"name\": \"Ada\"})\nassert obj.id == 7 and obj.name == \"Ada\"\nassert isinstance(obj.note, Unset)\nassert obj.to_dict() == {\"id\": 7, \"name\": \"Ada\"}\ntry:\n    Envelope.from_dict({\"id\": 7})\nexcept KeyError:\n    pass\nelse:\n    raise AssertionError(\"nested required name lost\")\nobj.note = \"hi\"\nassert obj.to_dict()[\"note\"] == \"hi\"\n"
+      ],
+      "cwd": "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-cej7ah8p/generated",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'pilot_client'\n"
+    },
+    {
+      "case": "union",
+      "phase": "generate",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/authoring/venv/bin/python",
+        "-m",
+        "openapi_python_client",
+        "generate",
+        "--path",
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-gdh39wlh/spec.json",
+        "--meta",
+        "none",
+        "--output-path",
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-gdh39wlh/generated"
+      ],
+      "cwd": "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/solution/reference",
+      "exit": 0,
+      "stdout": "Generating /var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-gdh39wlh/generated\n",
+      "stderr": ""
+    },
+    {
+      "case": "union",
+      "phase": "sdk-execution",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/authoring/venv/bin/python",
+        "-c",
+        "from pilot_client.models.envelope import Envelope\nfrom pilot_client.types import Unset\n\nfor data, field, value in [({\"kind\":\"cat\",\"lives\":9,\"id\":3}, \"lives\", 9), ({\"kind\":\"dog\",\"bark\":True,\"id\":4}, \"bark\", True)]:\n    obj = Envelope.from_dict({\"payload\": data})\n    assert not isinstance(obj.payload, dict)\n    assert obj.payload.id == data[\"id\"] and getattr(obj.payload, field) == value\n    assert obj.payload.kind == data[\"kind\"]\n    assert obj.to_dict() == {\"payload\": data}\n"
+      ],
+      "cwd": "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-gdh39wlh/generated",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'pilot_client'\n"
+    },
+    {
+      "case": "arrays",
+      "phase": "generate",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/authoring/venv/bin/python",
+        "-m",
+        "openapi_python_client",
+        "generate",
+        "--path",
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-qtrhl2d1/spec.json",
+        "--meta",
+        "none",
+        "--output-path",
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-qtrhl2d1/generated"
+      ],
+      "cwd": "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/solution/reference",
+      "exit": 0,
+      "stdout": "Generating /var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-qtrhl2d1/generated\n",
+      "stderr": ""
+    },
+    {
+      "case": "arrays",
+      "phase": "sdk-execution",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/authoring/venv/bin/python",
+        "-c",
+        "from pilot_client.models.envelope import Envelope\nfrom pilot_client.types import Unset\n\nfor choice in [[1, None, {\"x\": [False]}], \"literal\"]:\n    data = {\"rows\": [1, None, {\"a\": [True, \"s\"]}], \"choice\": choice}\n    obj = Envelope.from_dict(data)\n    assert obj.rows == data[\"rows\"] and obj.choice == choice\n    assert obj.to_dict() == data\n"
+      ],
+      "cwd": "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-qtrhl2d1/generated",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'pilot_client'\n"
+    },
+    {
+      "case": "siblings",
+      "phase": "generate",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/authoring/venv/bin/python",
+        "-m",
+        "openapi_python_client",
+        "generate",
+        "--path",
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-tblut85l/spec.json",
+        "--meta",
+        "none",
+        "--output-path",
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-tblut85l/generated"
+      ],
+      "cwd": "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/solution/reference",
+      "exit": 0,
+      "stdout": "Generating /var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-tblut85l/generated\n",
+      "stderr": ""
+    },
+    {
+      "case": "siblings",
+      "phase": "sdk-execution",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/authoring/venv/bin/python",
+        "-c",
+        "from pilot_client.models.envelope import Envelope\nfrom pilot_client.types import Unset\n\nobj = Envelope.from_dict({\"id\":2,\"child\":{\"id\":5}})\nassert obj.id == 2 and obj.child.id == 5\n# This SDK already gives optional scalar default values to from_dict. Freeze\n# that application behavior, without claiming JSON Schema inserts defaults.\nassert obj.shade == \"blue\"\nobj.shade = \"red\"\nassert obj.to_dict() == {\"id\":2,\"child\":{\"id\":5},\"shade\":\"red\"}\n"
+      ],
+      "cwd": "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-tblut85l/generated",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'pilot_client'\n"
+    },
+    {
+      "case": "wire",
+      "phase": "generate",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/authoring/venv/bin/python",
+        "-m",
+        "openapi_python_client",
+        "generate",
+        "--path",
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-a4sc71k9/spec.json",
+        "--meta",
+        "none",
+        "--output-path",
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-a4sc71k9/generated"
+      ],
+      "cwd": "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/solution/reference",
+      "exit": 0,
+      "stdout": "Generating /var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-a4sc71k9/generated\n",
+      "stderr": ""
+    },
+    {
+      "case": "wire",
+      "phase": "sdk-execution",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/authoring/venv/bin/python",
+        "-c",
+        "from pilot_client.models.envelope import Envelope\nfrom pilot_client.types import Unset\n\nimport asyncio, json, httpx\nfrom pilot_client import Client\nfrom pilot_client.api.default import echo\npayload = {\"id\":17,\"detail\":{\"id\":21,\"kind\":\"dog\",\"bark\":True}}\nobj = Envelope.from_dict(payload)\nassert obj.id == 17 and obj.detail.id == 21 and obj.detail.bark is True\nseen = []\ndef transport(request):\n    assert request.method == \"POST\" and request.url.path == \"/echo\"\n    assert json.loads(request.content) == payload\n    assert request.headers[\"content-type\"] == \"application/json\"\n    seen.append(1)\n    return httpx.Response(200, json=payload)\nclient = Client(base_url=\"http://example.invalid\")\nclient.set_httpx_client(httpx.Client(base_url=client._base_url, transport=httpx.MockTransport(transport)))\nresult = echo.sync(client=client, body=obj)\nassert result.id == 17 and result.detail.id == 21 and result.detail.bark is True\nasync def run():\n    async with httpx.AsyncClient(base_url=client._base_url, transport=httpx.MockTransport(transport)) as ac:\n        client.set_async_httpx_client(ac)\n        result = await echo.asyncio(client=client, body=obj)\n        assert result.detail.kind == \"dog\" and result.detail.bark is True\nasyncio.run(run())\nassert len(seen) == 2\n"
+      ],
+      "cwd": "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-a4sc71k9/generated",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'pilot_client'\n"
+    },
+    {
+      "case": "conflict",
+      "phase": "generate",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/authoring/venv/bin/python",
+        "-m",
+        "openapi_python_client",
+        "generate",
+        "--path",
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-al8fnmql/spec.json",
+        "--meta",
+        "none",
+        "--output-path",
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/openapi-pilot-al8fnmql/generated"
+      ],
+      "cwd": "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/solution/reference",
+      "exit": 1,
+      "stdout": "\n",
+      "stderr": "Error(s) encountered while generating, client was not created\nUnsupported schema composition\n\n#/components/schemas/Envelope/properties/id: incompatible allOf types 'integer' and 'string'\n\n\nIf you believe this was a mistake or this tool is missing a feature you need, please open an issue at https://github.com/openapi-generators/openapi-python-client/issues/new/choose\n"
+    }
+  ]
+}

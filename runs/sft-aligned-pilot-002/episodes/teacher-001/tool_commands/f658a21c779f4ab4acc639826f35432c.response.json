@@ -1,0 +1,1 @@
+{"argv":["/bin/bash","--noprofile","--norc","-c","date '+%H:%M:%S' && ls src"],"request_id":"f658a21c779f4ab4acc639826f35432c","returncode":0,"stderr":"","stdout":"02:42:41\nsolver.backup\nsolver.cpp\n","timed_out":false}

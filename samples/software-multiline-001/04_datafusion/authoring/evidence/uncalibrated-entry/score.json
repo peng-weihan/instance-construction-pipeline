@@ -1,0 +1,8 @@
+{
+  "valid": false,
+  "score": null,
+  "pass_rate": null,
+  "summary": "infrastructure failure: RuntimeError('hold_for_evidence: measured baseline and strong-reference anchors are missing; calibration is disabled')",
+  "checks": [],
+  "metrics": {}
+}

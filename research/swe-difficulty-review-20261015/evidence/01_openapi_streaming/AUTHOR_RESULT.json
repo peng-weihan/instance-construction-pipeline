@@ -1,0 +1,202 @@
+{
+  "task_path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task",
+  "source_repository": "https://github.com/openapi-generators/openapi-python-client",
+  "source_revision": "0a283fe21eeaa23046faf622d4ff4b2c826d2edb",
+  "reference_commit": "1e114ab2d00e83f07faef3398f5a1e2e51465b95",
+  "status": "constructed_unverified",
+  "local_checks_completed": true,
+  "difficulty_decision": "held_for_evidence",
+  "summary_zh": "已构造完整真实生成器题包与私有参考、离线依赖、分维度 grader；本地参考五次 1.0，廉价包装基线 0.60；尚未通过容器/ARM/六小时验收。",
+  "implemented_files": [
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/instruction.md",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/task.toml",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/environment/Dockerfile",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/environment/public/stream-contract.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/environment/public/config.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/environment/public/worker.py",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/environment/public/smoke.py",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/environment/requirements-hashed.txt",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/verifier/Dockerfile",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/verifier/private/stream-contract.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/verifier/private/score-spec.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/verifier/private/reference.patch",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/verifier/private/integrity.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/verifier/requirements-hashed.txt",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/tests/test.sh",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/tests/grader.py",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/tests/worker.py",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/solution/solve.sh",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/solution/reference.patch",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/MATERIALS.md",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/DIFFICULTY.md",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/pipeline-profile.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/AUTHORING_REPORT.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/authoring/provenance.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/authoring/score-spec.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/authoring/build-manifest.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/authoring/dependency-manifest.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/authoring/grading-freeze.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/authoring/frozen-replay-results.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/authoring/controls/controls.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/solution/reference/openapi_python_client/parser/openapi.py",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/solution/reference/openapi_python_client/parser/responses.py",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/solution/reference/openapi_python_client/templates/endpoint_macros.py.jinja",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/solution/reference/openapi_python_client/templates/endpoint_module.py.jinja",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/solution/reference/openapi_python_client/templates/streaming_endpoint.py.jinja"
+  ],
+  "copied_materials": {
+    "upstream_files": 488,
+    "reference_files": 489,
+    "wheel_files_per_context": 45,
+    "full_inventory": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/authoring/build-manifest.json"
+  },
+  "actual_checks": [
+    {
+      "name": "fixed_source_acquisition",
+      "command": "git clone --no-checkout https://github.com/openapi-generators/openapi-python-client.git material-src/openapi-python-client; git -C material-src/openapi-python-client checkout --detach 0a283fe21eeaa23046faf622d4ff4b2c826d2edb",
+      "result": "完整 488 个跟踪文件，Git fsck exit 0；候选输入六个已下载文件哈希全部吻合",
+      "evidence": [
+        "../material-src/manifest.json",
+        "../evidence/source-fsck-result.json",
+        "../evidence/source-card-hash-matches.json"
+      ]
+    },
+    {
+      "name": "actual_harbor_schema",
+      "command": ".venv/bin/python author-tools/check_schema.py",
+      "result": "直接载入指定 TaskConfig 快照通过，未使用未知字段；separate verifier、21600 秒、四作用域 no-network",
+      "evidence": [
+        "../evidence/schema-validation.json"
+      ]
+    },
+    {
+      "name": "generator_reference_native",
+      "command": "PATH=\"$PWD/.venv/bin:$PATH\" TMPDIR=\"$PWD/.tmp\" .venv/bin/python -I -c 'import sys,pytest; sys.path.insert(0,\"task/solution/reference\"); import openapi_python_client; print(\"ACTUAL_REFERENCE_IMPORT\",openapi_python_client.__file__); raise SystemExit(pytest.main([\"material-src/openapi-python-client/tests\",\"-q\",\"--basetemp=.tmp/native-final\",\"-o\",\"cache_dir=.tmp/native-cache-final\"]))' ",
+      "result": "321 passed, 4 skipped；日志确认 actual reference import 路径；并非引用 upstream 包冒充参考",
+      "evidence": [
+        "../evidence/reference-native-final.log"
+      ]
+    },
+    {
+      "name": "upstream_generated_code_functional",
+      "command": "PATH=\"$PWD/.venv/bin:$PATH\" TMPDIR=\"$PWD/.tmp\" PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -I -c 'import sys,pytest; sys.path.insert(0,\"task/solution/reference\"); import openapi_python_client; sys.path.append(\"material-src/openapi-python-client\"); print(\"ACTUAL_REFERENCE_IMPORT\",openapi_python_client.__file__); raise SystemExit(pytest.main([\"material-src/openapi-python-client/end_to_end_tests/functional_tests\",\"-q\",\"--basetemp=.tmp/functional-final\",\"-o\",\"cache_dir=.tmp/functional-cache-final\"]))' ",
+      "result": "122 passed；1 条 pytest plugin rewrite warning",
+      "evidence": [
+        "../evidence/reference-functional.log"
+      ]
+    },
+    {
+      "name": "offline_dependency_install",
+      "command": "TMPDIR=\"$PWD/.tmp\" .venv-offline/bin/python -m pip --cache-dir downloads/pip-cache install --no-index --find-links=task/environment/wheelhouse --require-hashes -r task/environment/requirements-hashed.txt",
+      "result": "新本地 venv 完成无网络哈希锁定安装；45 wheels（44 个 PyPI 哈希核对、1 个固定源自构建 wheel）",
+      "evidence": [
+        "../evidence/offline-install-final.log",
+        "authoring/dependency-manifest.json"
+      ]
+    },
+    {
+      "name": "frozen_same_snapshot_regrading",
+      "command": ".venv/bin/python author-tools/final_replay.py",
+      "result": {
+        "reference_scores": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "reference_named_checks": "36/36，每次生成/import/执行，非缓存返回",
+        "controls": {
+          "nop": {
+            "score": 0.03,
+            "passed": 1,
+            "total": 36
+          },
+          "cheap": {
+            "score": 0.6,
+            "passed": 21,
+            "total": 36
+          },
+          "no_auth_override": {
+            "score": 0.84,
+            "passed": 28,
+            "total": 36
+          },
+          "eager": {
+            "score": 0.5992424242424242,
+            "passed": 23,
+            "total": 36
+          }
+        }
+      },
+      "evidence": [
+        "authoring/frozen-replay-results.json",
+        "authoring/control-evidence",
+        "../evidence/frozen/results.json"
+      ]
+    },
+    {
+      "name": "failure_classification_and_patch",
+      "command": ".venv/bin/python author-tools/audit.py; .venv/bin/python author-tools/finish_checks.py",
+      "result": "缺文件/语法错误 valid=true, score=0 且 native reward=0；显式基础设施故障/损坏私有 schema valid=false, score=null 且 reward.txt/reward.json 不存在（旧奖励已移除）；补丁重放与参考逐文件一致",
+      "evidence": [
+        "../evidence/audit/failure-classification.json",
+        "../evidence/audit/corrupt-private-result.json",
+        "../evidence/audit/patch-replay.json"
+      ]
+    },
+    {
+      "name": "ownership_and_permissions_audit",
+      "command": ".venv/bin/python author-tools/extra_audit.py",
+      "result": "sync/async lazy client、自定义认证 header 覆盖探针通过；以真实 UID 21001 打开已知 private/reference.patch 被拒绝，创建 reward 文件被拒绝",
+      "evidence": [
+        "../evidence/audit/extra-contract.json"
+      ]
+    },
+    {
+      "name": "public_starter_and_reference_injection",
+      "command": "SUBMISSION_DIR=\"$PWD/.tmp/solve-injection/submission\" sh task/solution/solve.sh；在本地隔离副本执行 public/smoke.py",
+      "result": "starter smoke exit=1（缺新增接口）；reference smoke exit=0；真实 solve.sh 注入的 489 个参考文件一致；默认 Harbor 路径未改",
+      "evidence": [
+        "../evidence/public-smoke-and-injection.json",
+        "../evidence/public-smoke-starter.log",
+        "../evidence/public-smoke-reference.log"
+      ]
+    },
+    {
+      "name": "package_closure",
+      "command": ".venv/bin/python author-tools/package_metadata.py; sh -n task/tests/test.sh; sh -n task/solution/solve.sh",
+      "result": "构建上下文文件已逐一清单化，根 tests 与 verifier/tests 字节一致，contexts 无 symlink；两个 shell 脚本语法通过",
+      "evidence": [
+        "authoring/build-manifest.json",
+        "authoring/grading-freeze.json",
+        "../evidence/finish-checks.log"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "item": "Docker 构建和容器运行",
+      "status": "deferred",
+      "detail": "仅读取 daemon 版本可用性；没有构建 work/judge 镜像，没有原生 Harbor trial 或实际 /tests/test.sh 容器执行。镜像标签须由 build manifest 中命令预构建。"
+    },
+    {
+      "item": "ARM 运行",
+      "status": "deferred",
+      "detail": "CPython 3.12 aarch64 wheel 已下载且核对；没有 ARM 编译/导入/loopback 或 native verifier 运行证据。"
+    },
+    {
+      "item": "六小时学习曲线与三轨迹",
+      "status": "held_for_evidence",
+      "detail": "未启动教师。cheap baseline 已得 0.60，早期饱和风险高；不得称为合格六小时训练题。"
+    },
+    {
+      "item": "独立泛化与抗主动投机",
+      "status": "limited",
+      "detail": "反馈集固定单 schema，Python 进程内 transport instrumentation 可被主动 monkeypatch；root wire 观测和奖励隔离不是完整安全 VM。正式 runtime/cgroup/Harbor snapshot 集成仍需核实。"
+    }
+  ],
+  "teacher_rollouts_started": 0,
+  "report": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/AUTHORING_REPORT.json",
+  "trajectory": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/trajectory.jsonl"
+}

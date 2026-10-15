@@ -1,0 +1,22 @@
+{
+  "repository": "https://github.com/toml-rs/toml",
+  "revision": "ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+  "archive_url": "https://codeload.github.com/toml-rs/toml/tar.gz/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+  "archive_sha256": "d73b36b701dc465156b8dfa08452e0676da0b5f37c12f7c7c0b7c455ddad3e4a",
+  "licenses": [
+    "MIT",
+    "Apache-2.0"
+  ],
+  "transformation": "authoring/mask-manifest.json",
+  "reference_origin": "unmodified official fixed-commit workspace",
+  "truth_origin": "frozen upstream execution plus tomllib checks on applicable TOML 1.0 input semantics",
+  "requested_author_model": "gpt-6.1-sol",
+  "provider_receipt_verified": false,
+  "toolchain": {
+    "version": "1.90.0",
+    "host": "aarch64-apple-darwin",
+    "official_url": "https://static.rust-lang.org/dist/rust-1.90.0-aarch64-apple-darwin.tar.xz",
+    "sha256": "9772d20d5cd736079a0ee84d00e6697cf2084f0fc4621b011e24e6f2d08d2d7f"
+  },
+  "timestamp_utc": "2026-10-15T08:46:33.827151+00:00"
+}

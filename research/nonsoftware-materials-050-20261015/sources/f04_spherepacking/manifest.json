@@ -1,0 +1,75 @@
+{
+  "repo": "thefundamentaltheor3m/Sphere-Packing-Lean",
+  "revision": "de0ce2b6d5a6622ddae2c409987cb45f678b8cf9",
+  "resolved_utc": "2026-10-15T14:58:51.383906+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:54.275141+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "048bbbd62add7fec9e97fa8ab662eaafb1f250acb8f59a9ddb0e92757c3b7a2f",
+    "truncated": false,
+    "blob_count": 132
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "url": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/blob/de0ce2b6d5a6622ddae2c409987cb45f678b8cf9/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1831,
+      "sha256": "2cc2d2d07c36ae65597e9e779403a3cbb8c8fa81c6b00c37fe6777d03991942f",
+      "url": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/blob/de0ce2b6d5a6622ddae2c409987cb45f678b8cf9/README.md"
+    },
+    {
+      "path": "SpherePacking/Basic/PeriodicPacking.lean",
+      "bytes": 55030,
+      "sha256": "4a737f6c47afb0f9e164d12df36506e04291196bcba81c105fd0d44503cb95e2",
+      "url": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/blob/de0ce2b6d5a6622ddae2c409987cb45f678b8cf9/SpherePacking/Basic/PeriodicPacking.lean"
+    },
+    {
+      "path": "SpherePacking/Basic/SpherePacking.lean",
+      "bytes": 19769,
+      "sha256": "4ae8b0302ce74cea8cfcfe44dc7649610e14054efd1b01fe92acf05bdffda634",
+      "url": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/blob/de0ce2b6d5a6622ddae2c409987cb45f678b8cf9/SpherePacking/Basic/SpherePacking.lean"
+    },
+    {
+      "path": "SpherePacking/CohnElkies/LPBound.lean",
+      "bytes": 32705,
+      "sha256": "9dfad9d67d0696860f908ce86f3a57302c63f82817d51769ef53ca7be9af28af",
+      "url": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/blob/de0ce2b6d5a6622ddae2c409987cb45f678b8cf9/SpherePacking/CohnElkies/LPBound.lean"
+    },
+    {
+      "path": "SpherePacking/MainTheorem.lean",
+      "bytes": 339,
+      "sha256": "29bd6863578e9046fe3b67198cb933b6d10be71bef7ca845c491b3d48d5e65c0",
+      "url": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/blob/de0ce2b6d5a6622ddae2c409987cb45f678b8cf9/SpherePacking/MainTheorem.lean"
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3452,
+      "sha256": "c910a4b656ebcea7070409160cd9787b6d27d8a4244756a69e73ff7154bff1e6",
+      "url": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/blob/de0ce2b6d5a6622ddae2c409987cb45f678b8cf9/lake-manifest.json"
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 443,
+      "sha256": "321fe7e02e020ef8cf7bef8edc61f524a54d992bebeb307e0a41faa74aa06fef",
+      "url": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/blob/de0ce2b6d5a6622ddae2c409987cb45f678b8cf9/lakefile.toml"
+    },
+    {
+      "path": "lean-toolchain",
+      "bytes": 29,
+      "sha256": "8f89aa44fccdb1a0b6cc768c7c9f54b94cd40e47a08d582f82d1235f13075cf7",
+      "url": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/blob/de0ce2b6d5a6622ddae2c409987cb45f678b8cf9/lean-toolchain"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

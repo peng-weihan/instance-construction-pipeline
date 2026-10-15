@@ -1,0 +1,5 @@
+--- a/datafusion/physical-plan/src/topk/mod.rs
++++ b/datafusion/physical-plan/src/topk/mod.rs
+@@ -359,1 +359,1 @@
+-                e.options,
++                arrow::compute::SortOptions { descending: e.options.descending, nulls_first: !e.options.nulls_first },

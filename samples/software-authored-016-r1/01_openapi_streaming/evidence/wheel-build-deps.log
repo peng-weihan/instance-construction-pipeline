@@ -1,0 +1,18 @@
+Collecting hatchling==1.27.0
+  Downloading hatchling-1.27.0-py3-none-any.whl.metadata (3.8 kB)
+Collecting packaging>=24.2 (from hatchling==1.27.0)
+  Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pathspec>=0.10.1 (from hatchling==1.27.0)
+  Using cached pathspec-1.1.1-py3-none-any.whl.metadata (14 kB)
+Collecting pluggy>=1.0.0 (from hatchling==1.27.0)
+  Downloading pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+Collecting trove-classifiers (from hatchling==1.27.0)
+  Downloading trove_classifiers-2026.9.21.13-py3-none-any.whl.metadata (2.4 kB)
+Downloading hatchling-1.27.0-py3-none-any.whl (75 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 75.8/75.8 kB 3.1 MB/s eta 0:00:00
+Using cached packaging-26.3-py3-none-any.whl (129 kB)
+Using cached pathspec-1.1.1-py3-none-any.whl (57 kB)
+Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+Downloading trove_classifiers-2026.9.21.13-py3-none-any.whl (14 kB)
+Installing collected packages: trove-classifiers, pluggy, pathspec, packaging, hatchling
+Successfully installed hatchling-1.27.0 packaging-26.3 pathspec-1.1.1 pluggy-1.7.0 trove-classifiers-2026.9.21.13

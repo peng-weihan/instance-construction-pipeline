@@ -1,0 +1,1 @@
+{"feedback_budget_seconds":1,"final_budget_seconds":3,"full_profile_per_case_seconds":60,"full_profile_total_seconds":1200,"minimum_feedback_gain":20,"minimum_final_raw_score":90,"model":"gpt-6.1-sol","require_all_final_feasible":true,"require_complete_real_trace":true,"require_private_files_denied":true,"teacher_seconds":600}

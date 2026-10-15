@@ -1,0 +1,20 @@
+[
+  {
+    "stage": "source_frozen",
+    "source": {
+      "commit": "a04c9bc80b9a3cd41bfda7948f6787e3c4d1cf1f",
+      "source": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/ablation-source",
+      "snapshot_sha256": "3bbfe0f9d2f716459eb206f506c71b0f99c2abec8935702e1b25494f78fdf63e"
+    }
+  },
+  {
+    "stage": "ablation"
+  },
+  {
+    "stage": "ablation_validation"
+  },
+  {
+    "stage": "internally_verified",
+    "task": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/ablation/ablation/task"
+  }
+]

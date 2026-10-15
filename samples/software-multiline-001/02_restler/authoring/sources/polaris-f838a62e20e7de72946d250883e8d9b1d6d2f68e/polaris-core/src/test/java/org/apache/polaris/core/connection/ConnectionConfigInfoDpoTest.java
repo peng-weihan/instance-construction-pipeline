@@ -1,0 +1,401 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.polaris.core.connection;
+
+import java.util.Map;
+import java.util.Optional;
+import org.apache.polaris.core.admin.model.AuthenticationParameters;
+import org.apache.polaris.core.admin.model.AwsIamServiceIdentityInfo;
+import org.apache.polaris.core.admin.model.ConnectionConfigInfo;
+import org.apache.polaris.core.admin.model.HadoopConnectionConfigInfo;
+import org.apache.polaris.core.admin.model.HiveConnectionConfigInfo;
+import org.apache.polaris.core.admin.model.ImplicitAuthenticationParameters;
+import org.apache.polaris.core.admin.model.ServiceIdentityInfo;
+import org.apache.polaris.core.identity.credential.AwsIamServiceIdentityCredential;
+import org.apache.polaris.core.identity.provider.ServiceIdentityProvider;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import tools.jackson.core.StreamWriteFeature;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
+
+public class ConnectionConfigInfoDpoTest {
+  private static final ObjectMapper objectMapper =
+      JsonMapper.builder().enable(StreamWriteFeature.STRICT_DUPLICATE_DETECTION).build();
+
+  private ServiceIdentityProvider serviceIdentityProvider;
+
+  @BeforeEach
+  void setUp() {
+    serviceIdentityProvider = Mockito.mock(ServiceIdentityProvider.class);
+    Mockito.when(serviceIdentityProvider.getServiceIdentityInfo(Mockito.any()))
+        .thenReturn(
+            Optional.of(
+                AwsIamServiceIdentityInfo.builder()
+                    .setIdentityType(ServiceIdentityInfo.IdentityTypeEnum.AWS_IAM)
+                    .setIamArn("arn:aws:iam::123456789012:user/test-user")
+                    .build()));
+    Mockito.when(serviceIdentityProvider.getServiceIdentityCredential(Mockito.any()))
+        .thenReturn(
+            Optional.of(
+                new AwsIamServiceIdentityCredential("arn:aws:iam::123456789012:user/test-user")));
+  }
+
+  @Test
+  void testOAuthClientCredentialsParameters() {
+    // Test deserialization and reserialization of the persistence JSON.
+    String json =
+        ""
+            + "{"
+            + "  \"connectionTypeCode\": 1,"
+            + "  \"uri\": \"https://myorg-my_account.snowflakecomputing.com/polaris/api/catalog\","
+            + "  \"remoteCatalogName\": \"my-catalog\","
+            + "  \"authenticationParameters\": {"
+            + "    \"authenticationTypeCode\": 1,"
+            + "    \"tokenUri\": \"https://myorg-my_account.snowflakecomputing.com/polaris/api/catalog/v1/oauth/tokens\","
+            + "    \"clientId\": \"client-id\","
+            + "    \"clientSecretReference\": {"
+            + "      \"urn\": \"urn:polaris-secret:secretmanager-impl:keystore-id-12345\","
+            + "      \"referencePayload\": {"
+            + "        \"hash\": \"a1b2c3\","
+            + "        \"encryption-key\": \"z0y9x8\""
+            + "      }"
+            + "    },"
+            + "    \"scopes\": [\"PRINCIPAL_ROLE:ALL\"]"
+            + "  }"
+            + "}";
+    ConnectionConfigInfoDpo connectionConfigInfoDpo = ConnectionConfigInfoDpo.deserialize(json);
+    Assertions.assertNotNull(connectionConfigInfoDpo);
+    JsonNode tree1 = objectMapper.readTree(json);
+    JsonNode tree2 = objectMapper.readTree(connectionConfigInfoDpo.serialize());
+    Assertions.assertEquals(tree1, tree2);
+
+    // Test conversion into API model JSON.
+    ConnectionConfigInfo connectionConfigInfoApiModel =
+        connectionConfigInfoDpo.asConnectionConfigInfoModel(serviceIdentityProvider);
+    String expectedApiModelJson =
+        ""
+            + "{"
+            + "  \"connectionType\": \"ICEBERG_REST\","
+            + "  \"uri\": \"https://myorg-my_account.snowflakecomputing.com/polaris/api/catalog\","
+            + "  \"remoteCatalogName\": \"my-catalog\","
+            + "  \"authenticationParameters\": {"
+            + "    \"authenticationType\": \"OAUTH\","
+            + "    \"tokenUri\": \"https://myorg-my_account.snowflakecomputing.com/polaris/api/catalog/v1/oauth/tokens\","
+            + "    \"clientId\": \"client-id\","
+            + "    \"scopes\": [\"PRINCIPAL_ROLE:ALL\"]"
+            + "  }"
+            + "}";
+    Assertions.assertEquals(
+        objectMapper.readValue(expectedApiModelJson, ConnectionConfigInfo.class),
+        connectionConfigInfoApiModel);
+  }
+
+  @Test
+  void testBearerAuthenticationParameters() {
+    // Test deserialization and reserialization of the persistence JSON.
+    String json =
+        ""
+            + "{"
+            + "  \"connectionTypeCode\": 1,"
+            + "  \"uri\": \"https://myorg-my_account.snowflakecomputing.com/polaris/api/catalog\","
+            + "  \"remoteCatalogName\": \"my-catalog\","
+            + "  \"authenticationParameters\": {"
+            + "    \"authenticationTypeCode\": 2,"
+            + "    \"bearerTokenReference\": {"
+            + "      \"urn\": \"urn:polaris-secret:secretmanager-impl:keystore-id-12345\","
+            + "      \"referencePayload\": {"
+            + "        \"hash\": \"a1b2c3\","
+            + "        \"encryption-key\": \"z0y9x8\""
+            + "      }"
+            + "    }"
+            + "  }"
+            + "}";
+    ConnectionConfigInfoDpo connectionConfigInfoDpo = ConnectionConfigInfoDpo.deserialize(json);
+    Assertions.assertNotNull(connectionConfigInfoDpo);
+    JsonNode tree1 = objectMapper.readTree(json);
+    JsonNode tree2 = objectMapper.readTree(connectionConfigInfoDpo.serialize());
+    Assertions.assertEquals(tree1, tree2);
+
+    // Test conversion into API model JSON.
+    ConnectionConfigInfo connectionConfigInfoApiModel =
+        connectionConfigInfoDpo.asConnectionConfigInfoModel(serviceIdentityProvider);
+    String expectedApiModelJson =
+        ""
+            + "{"
+            + "  \"connectionType\": \"ICEBERG_REST\","
+            + "  \"uri\": \"https://myorg-my_account.snowflakecomputing.com/polaris/api/catalog\","
+            + "  \"remoteCatalogName\": \"my-catalog\","
+            + "  \"authenticationParameters\": {"
+            + "    \"authenticationType\": \"BEARER\""
+            + "  }"
+            + "}";
+    Assertions.assertEquals(
+        objectMapper.readValue(expectedApiModelJson, ConnectionConfigInfo.class),
+        connectionConfigInfoApiModel);
+  }
+
+  @Test
+  void testImplicitAuthenticationParameters() {
+    // Test deserialization and reserialization of the persistence JSON.
+    String json =
+        ""
+            + "{"
+            + "  \"connectionTypeCode\": 2,"
+            + "  \"uri\": \"file:///hadoop-catalog/warehouse\","
+            + "  \"warehouse\": \"hadoop-catalog\","
+            + "  \"authenticationParameters\": {"
+            + "    \"authenticationTypeCode\": 3"
+            + "  }"
+            + "}";
+    ConnectionConfigInfoDpo connectionConfigInfoDpo = ConnectionConfigInfoDpo.deserialize(json);
+    Assertions.assertNotNull(connectionConfigInfoDpo);
+    JsonNode tree1 = objectMapper.readTree(json);
+    JsonNode tree2 = objectMapper.readTree(connectionConfigInfoDpo.serialize());
+    Assertions.assertEquals(tree1, tree2);
+
+    // Test conversion into API model JSON.
+    ConnectionConfigInfo connectionConfigInfoApiModel =
+        connectionConfigInfoDpo.asConnectionConfigInfoModel(serviceIdentityProvider);
+    String expectedApiModelJson =
+        ""
+            + "{"
+            + "  \"connectionType\": \"HADOOP\","
+            + "  \"uri\": \"file:///hadoop-catalog/warehouse\","
+            + "  \"warehouse\": \"hadoop-catalog\","
+            + "  \"authenticationParameters\": {"
+            + "    \"authenticationType\": \"IMPLICIT\""
+            + "  }"
+            + "}";
+    Assertions.assertEquals(
+        objectMapper.readValue(expectedApiModelJson, ConnectionConfigInfo.class),
+        connectionConfigInfoApiModel);
+  }
+
+  @Test
+  void testSigV4AuthenticationParameters() {
+    // Test deserialization and reserialization of the persistence JSON.
+    String json =
+        ""
+            + "{"
+            + "  \"connectionTypeCode\": 1,"
+            + "  \"uri\": \"https://glue.us-west-2.amazonaws.com/iceberg\","
+            + "  \"remoteCatalogName\": \"123456789012\","
+            + "  \"authenticationParameters\": {"
+            + "    \"authenticationTypeCode\": 4,"
+            + "    \"roleArn\": \"arn:aws:iam::123456789012:role/glue-catalog-role\","
+            + "    \"roleSessionName\": \"polaris-catalog-federation\","
+            + "    \"externalId\": \"external-id\","
+            + "    \"signingRegion\": \"us-west-2\","
+            + "    \"signingName\": \"glue\""
+            + "  },"
+            + "  \"serviceIdentity\": {"
+            + "    \"identityTypeCode\": 1,"
+            + "    \"identityInfoReference\": {"
+            + "      \"urn\": \"urn:polaris-secret:default-identity-provider:my-realm:AWS_IAM\","
+            + "      \"referencePayload\": {"
+            + "        \"key\": \"value\""
+            + "      }"
+            + "    }"
+            + "  }"
+            + "}";
+
+    ConnectionConfigInfoDpo connectionConfigInfoDpo = ConnectionConfigInfoDpo.deserialize(json);
+    Assertions.assertNotNull(connectionConfigInfoDpo);
+    JsonNode tree1 = objectMapper.readTree(json);
+    JsonNode tree2 = objectMapper.readTree(connectionConfigInfoDpo.serialize());
+    Assertions.assertEquals(tree1, tree2);
+
+    // Test conversion into API model JSON.
+    ConnectionConfigInfo connectionConfigInfoApiModel =
+        connectionConfigInfoDpo.asConnectionConfigInfoModel(serviceIdentityProvider);
+    String expectedApiModelJson =
+        ""
+            + "{"
+            + "  \"connectionType\": \"ICEBERG_REST\","
+            + "  \"uri\": \"https://glue.us-west-2.amazonaws.com/iceberg\","
+            + "  \"remoteCatalogName\": \"123456789012\","
+            + "  \"authenticationParameters\": {"
+            + "    \"authenticationType\": \"SIGV4\","
+            + "    \"roleArn\": \"arn:aws:iam::123456789012:role/glue-catalog-role\","
+            + "    \"roleSessionName\": \"polaris-catalog-federation\","
+            + "    \"externalId\": \"external-id\","
+            + "    \"signingRegion\": \"us-west-2\","
+            + "    \"signingName\": \"glue\""
+            + "  },"
+            + "  \"serviceIdentity\": {"
+            + "    \"identityType\": \"AWS_IAM\","
+            + "    \"iamArn\": \"arn:aws:iam::123456789012:user/test-user\""
+            + "  }"
+            + "}";
+    Assertions.assertEquals(
+        objectMapper.readValue(expectedApiModelJson, ConnectionConfigInfo.class),
+        connectionConfigInfoApiModel);
+  }
+
+  @Test
+  void testBigQueryMetastoreConnectionConfig() {
+    // Test deserialization and reserialization of the persistence JSON.
+    String json =
+        ""
+            + "{"
+            + "  \"connectionTypeCode\": 4,"
+            + "  \"uri\": \"https://bigquery.googleapis.com\","
+            + "  \"properties\": {"
+            + "    \"warehouse\": \"gs://gcs-bucket/warehouse\","
+            + "    \"gcp.bigquery.project-id\": \"gcp-project\","
+            + "    \"gcp.bigquery.location\": \"us-central1\","
+            + "    \"gcp.bigquery.impersonate.service-account\": \"sa@gcp-project.iam.gserviceaccount.com\","
+            + "    \"gcp.bigquery.impersonate.lifetime-seconds\": \"3600\","
+            + "    \"gcp.bigquery.impersonate.scopes\": \"https://www.googleapis.com/auth/cloud-platform\","
+            + "    \"gcp.bigquery.impersonate.delegates\": \"delegate@gcp-project.iam.gserviceaccount.com\""
+            + "  },"
+            + "  \"authenticationParameters\": {"
+            + "    \"authenticationTypeCode\": 3"
+            + "  }"
+            + "}";
+    ConnectionConfigInfoDpo connectionConfigInfoDpo = ConnectionConfigInfoDpo.deserialize(json);
+    Assertions.assertNotNull(connectionConfigInfoDpo);
+    JsonNode tree1 = objectMapper.readTree(json);
+    JsonNode tree2 = objectMapper.readTree(connectionConfigInfoDpo.serialize());
+    Assertions.assertEquals(tree1, tree2);
+
+    // Test conversion into API model JSON.
+    ConnectionConfigInfo connectionConfigInfoApiModel =
+        connectionConfigInfoDpo.asConnectionConfigInfoModel(serviceIdentityProvider);
+    String expectedApiModelJson =
+        ""
+            + "{"
+            + "  \"connectionType\": \"BIGQUERY\","
+            + "  \"uri\": \"https://bigquery.googleapis.com\","
+            + "  \"properties\": {"
+            + "    \"warehouse\": \"gs://gcs-bucket/warehouse\","
+            + "    \"gcp.bigquery.project-id\": \"gcp-project\","
+            + "    \"gcp.bigquery.location\": \"us-central1\","
+            + "    \"gcp.bigquery.impersonate.service-account\": \"sa@gcp-project.iam.gserviceaccount.com\","
+            + "    \"gcp.bigquery.impersonate.lifetime-seconds\": \"3600\","
+            + "    \"gcp.bigquery.impersonate.scopes\": \"https://www.googleapis.com/auth/cloud-platform\","
+            + "    \"gcp.bigquery.impersonate.delegates\": \"delegate@gcp-project.iam.gserviceaccount.com\""
+            + "  },"
+            + "  \"authenticationParameters\": {"
+            + "    \"authenticationType\": \"IMPLICIT\""
+            + "  }"
+            + "}";
+    Assertions.assertEquals(
+        objectMapper.readValue(expectedApiModelJson, ConnectionConfigInfo.class),
+        connectionConfigInfoApiModel);
+  }
+
+  @Test
+  void testHadoopConnectionConfigProperties() {
+    Map<String, String> properties = Map.of("hadoop.custom-key", "custom-value");
+
+    // API model -> DPO must keep the connection properties.
+    ConnectionConfigInfo apiModel =
+        HadoopConnectionConfigInfo.builder()
+            .setConnectionType(ConnectionConfigInfo.ConnectionTypeEnum.HADOOP)
+            .setUri("file:///hadoop-catalog/warehouse")
+            .setWarehouse("hadoop-catalog")
+            .setAuthenticationParameters(
+                ImplicitAuthenticationParameters.builder()
+                    .setAuthenticationType(AuthenticationParameters.AuthenticationTypeEnum.IMPLICIT)
+                    .build())
+            .setProperties(properties)
+            .build();
+    ConnectionConfigInfoDpo fromModel =
+        ConnectionConfigInfoDpo.fromConnectionConfigInfoModelWithSecrets(apiModel, Map.of());
+    Assertions.assertEquals(properties, fromModel.getProperties());
+
+    // Persistence JSON round trip must keep the connection properties.
+    String json =
+        ""
+            + "{"
+            + "  \"connectionTypeCode\": 2,"
+            + "  \"uri\": \"file:///hadoop-catalog/warehouse\","
+            + "  \"warehouse\": \"hadoop-catalog\","
+            + "  \"properties\": {"
+            + "    \"hadoop.custom-key\": \"custom-value\""
+            + "  },"
+            + "  \"authenticationParameters\": {"
+            + "    \"authenticationTypeCode\": 3"
+            + "  }"
+            + "}";
+    ConnectionConfigInfoDpo connectionConfigInfoDpo = ConnectionConfigInfoDpo.deserialize(json);
+    Assertions.assertNotNull(connectionConfigInfoDpo);
+    Assertions.assertEquals(properties, connectionConfigInfoDpo.getProperties());
+    JsonNode tree1 = objectMapper.readTree(json);
+    JsonNode tree2 = objectMapper.readTree(connectionConfigInfoDpo.serialize());
+    Assertions.assertEquals(tree1, tree2);
+
+    // DPO -> API model must expose the connection properties.
+    ConnectionConfigInfo connectionConfigInfoApiModel =
+        connectionConfigInfoDpo.asConnectionConfigInfoModel(serviceIdentityProvider);
+    Assertions.assertEquals(properties, connectionConfigInfoApiModel.getProperties());
+  }
+
+  @Test
+  void testHiveConnectionConfigProperties() {
+    Map<String, String> properties = Map.of("hive.custom-key", "custom-value");
+
+    // API model -> DPO must keep the connection properties.
+    ConnectionConfigInfo apiModel =
+        HiveConnectionConfigInfo.builder()
+            .setConnectionType(ConnectionConfigInfo.ConnectionTypeEnum.HIVE)
+            .setUri("thrift://hms.example.com:9083")
+            .setWarehouse("s3://bucket/warehouse")
+            .setAuthenticationParameters(
+                ImplicitAuthenticationParameters.builder()
+                    .setAuthenticationType(AuthenticationParameters.AuthenticationTypeEnum.IMPLICIT)
+                    .build())
+            .setProperties(properties)
+            .build();
+    ConnectionConfigInfoDpo fromModel =
+        ConnectionConfigInfoDpo.fromConnectionConfigInfoModelWithSecrets(apiModel, Map.of());
+    Assertions.assertEquals(properties, fromModel.getProperties());
+
+    // Persistence JSON round trip must keep the connection properties.
+    String json =
+        ""
+            + "{"
+            + "  \"connectionTypeCode\": 3,"
+            + "  \"uri\": \"thrift://hms.example.com:9083\","
+            + "  \"warehouse\": \"s3://bucket/warehouse\","
+            + "  \"properties\": {"
+            + "    \"hive.custom-key\": \"custom-value\""
+            + "  },"
+            + "  \"authenticationParameters\": {"
+            + "    \"authenticationTypeCode\": 3"
+            + "  }"
+            + "}";
+    ConnectionConfigInfoDpo connectionConfigInfoDpo = ConnectionConfigInfoDpo.deserialize(json);
+    Assertions.assertNotNull(connectionConfigInfoDpo);
+    Assertions.assertEquals(properties, connectionConfigInfoDpo.getProperties());
+    JsonNode tree1 = objectMapper.readTree(json);
+    JsonNode tree2 = objectMapper.readTree(connectionConfigInfoDpo.serialize());
+    Assertions.assertEquals(tree1, tree2);
+
+    // DPO -> API model must expose the connection properties.
+    ConnectionConfigInfo connectionConfigInfoApiModel =
+        connectionConfigInfoDpo.asConnectionConfigInfoModel(serviceIdentityProvider);
+    Assertions.assertEquals(properties, connectionConfigInfoApiModel.getProperties());
+  }
+}

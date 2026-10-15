@@ -1,0 +1,10 @@
+{
+  "checked_date": "2026-10-15",
+  "checked_via": "web.run official repositories and official documentation",
+  "urls": [
+    "https://github.com/go-task/task",
+    "https://taskfile.dev/docs/guide/up-to-date"
+  ],
+  "canonical_repo": "go-task/task",
+  "note": "Rolling docs establish current product context; immutable SHA source excerpts are task design evidence. No build/runtime verification."
+}

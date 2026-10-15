@@ -1,0 +1,69 @@
+{
+  "repo": "google/cel-go",
+  "revision": "6d32ef54e4f124929730b15d5eb9b9205da58992",
+  "resolved_utc": "2026-10-15T13:30:29.535246+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:31:18.783195+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "47c92902d3d1187c1c0315ba166acd508298cb76d7987196a16122ba4cb5d1eb",
+    "truncated": false,
+    "blob_count": 154
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "url": "https://github.com/google/cel-go/blob/6d32ef54e4f124929730b15d5eb9b9205da58992/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 12065,
+      "sha256": "016a66248795775d3ed1996b179253066df506ec080d094d2552235929647767",
+      "url": "https://github.com/google/cel-go/blob/6d32ef54e4f124929730b15d5eb9b9205da58992/README.md"
+    },
+    {
+      "path": "cel/alias.go",
+      "bytes": 22245,
+      "sha256": "8dc181d0dd9f440175e652ad230fb729691fe81f0577c4af2a727c8b323cc97d",
+      "url": "https://github.com/google/cel-go/blob/6d32ef54e4f124929730b15d5eb9b9205da58992/cel/alias.go"
+    },
+    {
+      "path": "cel/alias_test.go",
+      "bytes": 1255,
+      "sha256": "cb493712ab5758b3cff2464564db19f98729ed7657533e8bd053383999e82136",
+      "url": "https://github.com/google/cel-go/blob/6d32ef54e4f124929730b15d5eb9b9205da58992/cel/alias_test.go"
+    },
+    {
+      "path": "codelab/codelab.go",
+      "bytes": 8601,
+      "sha256": "30c0a6cc90f6c899b0a6c8d298a01db897eb2d6d8dbb39f303f8af3f5e289f0f",
+      "url": "https://github.com/google/cel-go/blob/6d32ef54e4f124929730b15d5eb9b9205da58992/codelab/codelab.go"
+    },
+    {
+      "path": "common/types/alias_test.go",
+      "bytes": 1361,
+      "sha256": "82ffcc14cb7425a4dd02f692cd903bf817bfee4b70bc5381dcc9f12b2ed50a4f",
+      "url": "https://github.com/google/cel-go/blob/6d32ef54e4f124929730b15d5eb9b9205da58992/common/types/alias_test.go"
+    },
+    {
+      "path": "go.mod",
+      "bytes": 538,
+      "sha256": "7d8b1018a9bee24c811110f7712005213e9b6dc37b7a86ed84f9b08a83163140",
+      "url": "https://github.com/google/cel-go/blob/6d32ef54e4f124929730b15d5eb9b9205da58992/go.mod"
+    },
+    {
+      "path": "interpreter/alias.go",
+      "bytes": 7484,
+      "sha256": "e1166b67ea163a8023f54b273cfecab6be38909001a5717834345ccd16640e3c",
+      "url": "https://github.com/google/cel-go/blob/6d32ef54e4f124929730b15d5eb9b9205da58992/interpreter/alias.go"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

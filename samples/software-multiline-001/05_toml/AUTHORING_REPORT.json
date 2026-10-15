@@ -1,0 +1,77 @@
+{
+  "task_id": "toml-string-recovery",
+  "route": "05_toml",
+  "status": "construction_success_host; hold_current_profile_for_long_horizon",
+  "source_revision": "ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+  "requested_author_model": "gpt-6.1-sol",
+  "provider_receipt_verified": false,
+  "actual_source": "complete official workspace archived with full licenses",
+  "actual_changes": {
+    "masked_files": 3,
+    "masked_functions": 4,
+    "removed_lines": 264,
+    "inverse_control": "exact original bytes restored for all three files"
+  },
+  "local_controls": {
+    "reference": {
+      "valid": true,
+      "score": 1.0,
+      "pass_rate": 1.0,
+      "summary": "35/35 behavioral cases passed"
+    },
+    "starter": {
+      "valid": true,
+      "score": 0.02040816326530612,
+      "pass_rate": 0.02857142857142857,
+      "summary": "1/35 behavioral cases passed"
+    },
+    "unicode-ascii-only": {
+      "valid": true,
+      "score": 0.8666666666666666,
+      "pass_rate": 0.8857142857142857,
+      "summary": "31/35 behavioral cases passed"
+    },
+    "discard-formatting": {
+      "valid": true,
+      "score": 0.6,
+      "pass_rate": 0.6571428571428571,
+      "summary": "23/35 behavioral cases passed"
+    },
+    "missing": {
+      "valid": true,
+      "score": 0.0,
+      "pass_rate": 0.0,
+      "summary": "submission workspace missing"
+    },
+    "missing-infrastructure": {
+      "valid": false,
+      "score": null,
+      "pass_rate": null,
+      "summary": "infrastructure failure: RuntimeError('promised cargo missing')"
+    }
+  },
+  "evidence": "authoring/evidence/{reference,starter,unicode-ascii-only,discard-formatting,missing,missing-infrastructure,inverse-control.json}",
+  "unverified": [
+    "Docker build",
+    "Linux isolated compilation and private/reward read/write controls",
+    "Harbor native oracle/NOP and pipeline entry",
+    "x86 and ARM work/judge images",
+    "six-hour model trajectories and growth"
+  ],
+  "blockers": [
+    "container runtime unavailable/forbidden in this batch",
+    "public-source exact recovery may saturate early; no difficulty calibration"
+  ],
+  "acceptance": false,
+  "six_hour_calibrated": false,
+  "source_volume_is_not_difficulty_evidence": true,
+  "selection_decision": "hold_current_profile_for_long_horizon",
+  "difficulty_high_risk": true,
+  "difficulty_evidence": {
+    "assessment_type": "design-screening hypothesis, not solver-duration measurement",
+    "scope": "string helper slice; tokenizer/parser state/AST/container edits remain implemented",
+    "public_simple_baseline_full_score": null,
+    "private_inverse_patch": "author construction control only; not a solver shortcut",
+    "next_step": "low priority until short permitted pilot or broader independently versioned profile"
+  }
+}

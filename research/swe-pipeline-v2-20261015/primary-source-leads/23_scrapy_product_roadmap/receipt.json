@@ -1,0 +1,22 @@
+{
+  "id": "23_scrapy_product_roadmap",
+  "repo": "scrapy/scrapy",
+  "revision": "db2404bb8691d1579f75ca823d5385749b77693c",
+  "observed_utc": "2026-10-15T12:43:02.941418+00:00",
+  "status": "source_leads_only",
+  "files": [
+    {
+      "path": "tree.json",
+      "url": "https://api.github.com/repos/scrapy/scrapy/git/trees/db2404bb8691d1579f75ca823d5385749b77693c?recursive=1",
+      "sha256": "29232a527e53559fd3c74ae8f7c4875a7be216978640adf146f98dbf6e2713a5"
+    },
+    {
+      "path": "recent-issues-and-prs.json",
+      "url": "https://api.github.com/repos/scrapy/scrapy/issues?state=all&per_page=20",
+      "sha256": "3b9da7fea8f0c251dd9795b55a26aee8521edb06f01d9bdc5127e4affb9b8ebd"
+    }
+  ],
+  "errors": [],
+  "warning": "Issue state is current, not proof of a missing feature at the fixed revision. Build/reproduce before selecting a contract.",
+  "tree_truncated": false
+}

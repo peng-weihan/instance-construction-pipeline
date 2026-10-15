@@ -1,0 +1,87 @@
+{
+  "valid": true,
+  "schema_source": "harbor==0.23.0 wheel; byte-identical to supplied snapshot",
+  "schema_sha256": "d8c62a49acefb8cd6a0be4c4d48dc0f4f52f31f8a8a6728439aad04e1c62e9fb",
+  "actual_TaskConfig_model_validation": true,
+  "unknown_fields_rejected_by_extra_audit": true,
+  "runtime_or_container_validation": false,
+  "config": {
+    "schema_version": "1.4",
+    "task": {
+      "name": "edgebench/tree-sitter-edit-recovery",
+      "version": "0.1.0-draft",
+      "description": "Recover linked incremental editing semantics in the native tree-sitter C core",
+      "authors": [],
+      "keywords": []
+    },
+    "metadata": {
+      "reward_type": "bounded_continuous",
+      "construction_status": "constructed_unverified",
+      "difficulty_status": "held_for_evidence",
+      "intended_model": "gpt-6.1-sol",
+      "score_spec": "authoring/score-spec.json",
+      "work_build_context": "environment",
+      "verifier_build_context": "verifier"
+    },
+    "verifier": {
+      "network_mode": "no-network",
+      "allowed_hosts": null,
+      "timeout_sec": 600.0,
+      "env": {},
+      "user": null,
+      "environment_mode": "separate",
+      "environment": {
+        "network_mode": "no-network",
+        "allowed_hosts": null,
+        "build_timeout_sec": 1200.0,
+        "docker_image": "edgebench-tree-sitter-judge:author-v1",
+        "os": "linux",
+        "cpus": 2,
+        "memory_mb": 4096,
+        "storage_mb": 4096,
+        "gpus": null,
+        "gpu_types": null,
+        "tpu": null,
+        "mcp_servers": [],
+        "env": {},
+        "skills_dir": null,
+        "healthcheck": null,
+        "workdir": "/home/workspace/tree-sitter"
+      },
+      "collect": []
+    },
+    "agent": {
+      "network_mode": "no-network",
+      "allowed_hosts": null,
+      "timeout_sec": 21600.0,
+      "user": null
+    },
+    "environment": {
+      "network_mode": "no-network",
+      "allowed_hosts": null,
+      "build_timeout_sec": 1200.0,
+      "docker_image": "edgebench-tree-sitter-work:author-v1",
+      "os": "linux",
+      "cpus": 2,
+      "memory_mb": 4096,
+      "storage_mb": 4096,
+      "gpus": null,
+      "gpu_types": null,
+      "tpu": null,
+      "mcp_servers": [],
+      "env": {},
+      "skills_dir": null,
+      "healthcheck": null,
+      "workdir": "/home/workspace/tree-sitter"
+    },
+    "solution": {
+      "env": {}
+    },
+    "source": null,
+    "multi_step_reward_strategy": null,
+    "steps": null,
+    "artifacts": [
+      "/home/workspace/tree-sitter/submission"
+    ]
+  }
+}

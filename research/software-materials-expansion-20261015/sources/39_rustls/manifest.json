@@ -1,0 +1,80 @@
+{
+  "repo": "rustls/rustls",
+  "revision": "d37c3c338fe30c3fdc70f0696997909ffd15f5b8",
+  "resolved_utc": "2026-10-15T13:08:20.370630+00:00",
+  "retrieved_utc": "2026-10-15T13:09:17.420148+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "0d24875d452bf08cec5ab68eab6084705aa0379286c2a0b07d850adcc7b34b1f",
+    "truncated": false,
+    "blob_count": 1066
+  },
+  "files_acquired": [
+    {
+      "path": "Cargo.toml",
+      "bytes": 4144,
+      "sha256": "e9d9846b1f5c00eeaecfa4892b23c9e032b7e391eeea5898d649fe8192fd269d",
+      "url": "https://github.com/rustls/rustls/blob/d37c3c338fe30c3fdc70f0696997909ffd15f5b8/Cargo.toml"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 286,
+      "sha256": "d75967ce788187f83c3bd3328210974acfc443d4dc44909f1d7e34f21623a0c6",
+      "url": "https://github.com/rustls/rustls/blob/d37c3c338fe30c3fdc70f0696997909ffd15f5b8/LICENSE"
+    },
+    {
+      "path": "LICENSE-APACHE",
+      "bytes": 10847,
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "url": "https://github.com/rustls/rustls/blob/d37c3c338fe30c3fdc70f0696997909ffd15f5b8/LICENSE-APACHE"
+    },
+    {
+      "path": "LICENSE-ISC",
+      "bytes": 775,
+      "sha256": "7cfafc877eccc46c0e346ccbaa5c51bb6b894d2b818e617d970211e232785ad4",
+      "url": "https://github.com/rustls/rustls/blob/d37c3c338fe30c3fdc70f0696997909ffd15f5b8/LICENSE-ISC"
+    },
+    {
+      "path": "LICENSE-MIT",
+      "bytes": 1082,
+      "sha256": "709e3175b4212f7b13aa93971c9f62ff8c69ec45ad8c6532a7e0c41d7a7d6f8c",
+      "url": "https://github.com/rustls/rustls/blob/d37c3c338fe30c3fdc70f0696997909ffd15f5b8/LICENSE-MIT"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9492,
+      "sha256": "23b5ca1a337022da77f5d21f0c4793a42cebf99cb63562d728c8981abc4822cc",
+      "url": "https://github.com/rustls/rustls/blob/d37c3c338fe30c3fdc70f0696997909ffd15f5b8/README.md"
+    },
+    {
+      "path": "rustls-test/tests/api/io.rs",
+      "bytes": 108313,
+      "sha256": "bd2d1b5a8cd00f3a30e6739a76027038761c2b2c4f22938e0673bfe9e657b51f",
+      "url": "https://github.com/rustls/rustls/blob/d37c3c338fe30c3fdc70f0696997909ffd15f5b8/rustls-test/tests/api/io.rs"
+    },
+    {
+      "path": "rustls-test/tests/api/resume.rs",
+      "bytes": 54309,
+      "sha256": "f81a38a054abb4fc7e1a940b1451b71f5066c98717dde10c19869e7028134785",
+      "url": "https://github.com/rustls/rustls/blob/d37c3c338fe30c3fdc70f0696997909ffd15f5b8/rustls-test/tests/api/resume.rs"
+    },
+    {
+      "path": "rustls/src/client/tls13.rs",
+      "bytes": 61754,
+      "sha256": "688b94546ca2041fb69ef17f8ded77b6cb9fbea1539c052b3f5e7de197c3c73b",
+      "url": "https://github.com/rustls/rustls/blob/d37c3c338fe30c3fdc70f0696997909ffd15f5b8/rustls/src/client/tls13.rs"
+    },
+    {
+      "path": "rustls/src/server/tls13.rs",
+      "bytes": 61216,
+      "sha256": "f9a75875995364e06b2ca382031e8cb572e27df99e57191493cf3879e208018c",
+      "url": "https://github.com/rustls/rustls/blob/d37c3c338fe30c3fdc70f0696997909ffd15f5b8/rustls/src/server/tls13.rs"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

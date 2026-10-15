@@ -1,0 +1,25 @@
+{
+  "previous_revision": "science-task-r2",
+  "why": "two-source public-data reference reached .922 in 110 seconds",
+  "new_physics": "unknown heterogeneous Darcy field coupled to transport and two sources",
+  "parameter_count": 135,
+  "public_forward_supplied": true,
+  "original_formula_constants_unchanged": true,
+  "independent_agreement": {
+    "hydraulic_axis_0": {
+      "head": 5.511147094239277e-13,
+      "flux": 4.410014020628239e-14,
+      "total": 9.769962616701378e-14
+    },
+    "hydraulic_axis_1": {
+      "head": 3.7242431361050876e-13,
+      "flux": 2.4119595209981526e-14,
+      "total": 4.263256414560601e-14
+    },
+    "calibration": 9.50350909079134e-13,
+    "contaminant": 3.4100500201361683e-13
+  },
+  "six_hour_difficulty": "not_measured",
+  "source_count": 4,
+  "scoring_change": "remove the r1/r2 auxiliary calibration reward; retain original unknown-source prediction formula"
+}

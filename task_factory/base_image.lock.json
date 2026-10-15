@@ -1,0 +1,33 @@
+{
+  "source": "docker.io/library/ubuntu:24.04",
+  "manifest_list_digest": "sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55",
+  "platforms": [
+    {
+      "architecture": "amd64",
+      "os": "linux"
+    },
+    {
+      "architecture": "arm",
+      "os": "linux",
+      "variant": "v7"
+    },
+    {
+      "architecture": "arm64",
+      "os": "linux",
+      "variant": "v8"
+    },
+    {
+      "architecture": "ppc64le",
+      "os": "linux"
+    },
+    {
+      "architecture": "riscv64",
+      "os": "linux"
+    },
+    {
+      "architecture": "s390x",
+      "os": "linux"
+    }
+  ],
+  "retrieved_date": "2026-10-14"
+}

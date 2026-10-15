@@ -1,0 +1,237 @@
+[
+  {
+    "id": "g01_open_spiel",
+    "name": "OpenSpiel / Goofspiel",
+    "source_unit": "Goofspiel同步竞价规则与测试；整个OpenSpiel集合只计一个来源",
+    "title": "不完全信息同步竞价策略",
+    "proposed_task": "给定合法观察接口，交付能在未见牌序和对手混合池中持续分配手牌、估计对手并控制风险的竞价策略；固定有限牌组范围。",
+    "deliverable": "策略入口、配置、离线对局记录和策略/消融说明；不要求实现游戏引擎。",
+    "difficulty_sources": [
+      "每次竞价永久消耗手牌，使当前得分与未来高价值轮次竞争。",
+      "同步出价且可隐藏对方历史，必须维护信念并应对平局与对手变化。"
+    ],
+    "baseline": "随机合法、按点牌同值竞价、手牌贪心，加原生CFR/搜索算法的正常适配。",
+    "first_probe": "先用现成CFR和简单混合策略在小牌组闭合；比较隐藏对手族上的增益及过拟合。",
+    "stop_condition": "若标准CFR适配或固定同值规则在全部合同分布已达到目标，则降为短任务；不能靠禁用算法制造难度。",
+    "grader_plan": "判题器私有化运行原规则，检验动作合法和终局收益；交换座位、配对种子，对混合对手汇总均值及尾部收益。",
+    "generation_and_split": "牌序、牌数与对手策略族分层，留出对手混合方式而非仅新seed；隐藏judge不向策略暴露全state或牌堆。",
+    "novelty_and_overlap": "不同于已有RPG/RTS引擎；OpenSpiel多游戏不重复计数。公开竞价算法/解需检索，公平纳入基线。",
+    "offline_and_compute": "C++/Python绑定需预构建，表格观察无图像资产；小牌组CPU可先测，较大状态的训练预算未验证。",
+    "license_observation": "根LICENSE为Apache-2.0；第三方依赖另查。",
+    "potential": "medium",
+    "priority": "hold_baseline",
+    "read_scope": [
+      [
+        "open_spiel/games/goofspiel/goofspiel.cc",
+        418,
+        465,
+        "implementation"
+      ],
+      [
+        "open_spiel/games/goofspiel/goofspiel_test.cc",
+        30,
+        59,
+        "test"
+      ]
+    ],
+    "claims": [
+      "同步出价检查合法手牌，唯一最高者得点，平局弃点，随后消耗牌。",
+      "原生测试覆盖多人、收益口径、不完全信息和有限轮数。"
+    ]
+  },
+  {
+    "id": "g02_minigrid",
+    "name": "MiniGrid / BabyAI",
+    "source_unit": "BabyAI组合指令生成、任务验证器与环境复现测试",
+    "title": "带记忆的组合指令执行",
+    "proposed_task": "从局部观察和自然语言指令执行寻物、开锁、搬运及先后顺序任务；交付可跨未见房间结构与指令组合泛化的agent。",
+    "deliverable": "决策策略、可持久化的局内记忆、开发集轨迹和错误分类。",
+    "difficulty_sources": [
+      "局部视野要求探索并记住物体、门和钥匙位置。",
+      "指令组合与搬运/开锁前提相互作用，单步导航成功不代表整条任务完成。"
+    ],
+    "baseline": "官方可用专家/符号导航方案、BFS地图记忆及简单指令解析；先查能否完整覆盖。",
+    "first_probe": "用符号地图+BFS+原生验证器跑组合留出，比较解析和探索失误；主动测试reset跨局状态。",
+    "stop_condition": "若固定语法的解析+BFS已覆盖全部自然任务则下调，不把扩大格子数视为长程难度证据。",
+    "grader_plan": "独立任务验证器评完成率、合法动作、步数与超时；不让agent读内部网格/任务谓词。",
+    "generation_and_split": "留出房间连通模式、指令组合、干扰物和锁钥匙依赖；seed与生成结构双重分离。",
+    "novelty_and_overlap": "非旧RTS/RPG；与大量BabyAI公开基准有污染风险，必须重新定义组合分布和验收，而非换seed。",
+    "offline_and_compute": "Python离线生成、符号/低分辨率观察；无需下载图像语料；训练和泛化强度未测。",
+    "license_observation": "根Apache-2.0；环境和发行依赖另核对。",
+    "potential": "medium",
+    "priority": "hold_baseline",
+    "read_scope": [
+      [
+        "minigrid/envs/babyai/core/levelgen.py",
+        59,
+        90,
+        "implementation"
+      ],
+      [
+        "tests/test_envs.py",
+        54,
+        94,
+        "test"
+      ]
+    ],
+    "claims": [
+      "任务生成控制锁门、干扰物、可达性和随机指令；gen_mission显式清除跨局locked_room。",
+      "同seed双环境相同动作的测试逐步比较观察、奖励和终止标记。"
+    ]
+  },
+  {
+    "id": "g03_magent2",
+    "name": "MAgent2 / Battle",
+    "source_unit": "Battle原生环境、C++GridWorld绑定、并行观察定义及渲染测试",
+    "title": "局部视野下的小队协同对抗",
+    "proposed_task": "交付局部观察小队策略，在障碍、出生分布和对手战术变化下实现集火、撤退、包围与生存；限定可计算的小队规模。",
+    "deliverable": "共享或多角色策略入口、局内通信/记忆方案、对局回放和战术分析。",
+    "difficulty_sources": [
+      "局部观察下，集火和撤退需要跨单位协调，单体贪心会相互阻塞。",
+      "步进/攻击/死亡的不同奖励可能诱发刷分，必须以完整对局胜负校验。"
+    ],
+    "baseline": "随机、最近敌人追击、编队集火及现成多智能体训练代码的合法适配。",
+    "first_probe": "先固定小队做不渲染step/reset/seed重放探针；比较集火启发式能否已饱和。",
+    "stop_condition": "若仅增加单位数量或依赖长训练才能拉开差距则暂缓；简单集中式策略全面达标则重设范围。",
+    "grader_plan": "私有进程运行环境，限制所见观察；胜负/存活与资源预算分项，并用多对手池和对称出生配对。",
+    "generation_and_split": "留出地图瓶颈拓扑、兵力比例和对手角色组合；团队大小变化不能成为唯一新分布。",
+    "novelty_and_overlap": "独立MAgent底层，不是microRTS包装；仍属网格战斗，需与旧RTS谱系及共享PettingZoo接口区分。",
+    "offline_and_compute": "需要本地C++扩展，战斗可用数组观察；所读渲染测试仅证明headless测试设计，不能替代引擎无显示运行证据。",
+    "license_observation": "根MIT；C++后端与依赖随完整发行再审。",
+    "potential": "medium",
+    "priority": "hold_baseline",
+    "read_scope": [
+      [
+        "magent2/environments/battle/battle.py",
+        129,
+        155,
+        "implementation"
+      ],
+      [
+        "magent2/environments/magent_env.py",
+        38,
+        85,
+        "implementation"
+      ],
+      [
+        "tests/test_render.py",
+        25,
+        47,
+        "test"
+      ],
+      [
+        "magent2/environments/battle/battle.py",
+        181,
+        205,
+        "implementation"
+      ]
+    ],
+    "claims": [
+      "Battle设定max_cycles、seed以及步进/攻击/死亡和击杀奖励。",
+      "并行环境分别提供各agent观察和全局state，必须阻止评分时全局state泄露。",
+      "渲染测试用dummy SDL并检查只初始化display/font；不是对游戏难度的测试。",
+      "底层GridWorld配置写入seed并定义局部CircleRange视野与攻击距离。"
+    ]
+  },
+  {
+    "id": "g04_lux",
+    "name": "Lux AI Season 2",
+    "source_unit": "官方S2环境、配置、Python agent与移动冲突示例",
+    "title": "资源供应链与对抗工厂经营",
+    "proposed_task": "交付从工厂选址到采冰、供水、供电、运输和地衣竞争的完整策略，针对未见地图与对手持续改进。",
+    "deliverable": "可运行agent、预算内规划器、开发回放、资源损失和策略消融报告。",
+    "difficulty_sources": [
+      "工厂选址和早期投资会约束后续水/能量供应链，短期采集最优可能长期破产。",
+      "多机器人移动冲突、动作队列与对手争夺同时影响行动可执行性和终局收益。"
+    ],
+    "baseline": "官方Python示例、启发式采集+运输+工厂生存，允许公开路径规划和竞争方案正常适配。",
+    "first_probe": "先修订并验证固定版本API健康脚本：所读collision例子使用4元组step而当前env注解为5元组；再做工厂生存基线。",
+    "stop_condition": "若参考环境/样例协议不能一致闭合则先hold；若公开策略薄适配达标则重设地图/对手合同。",
+    "grader_plan": "不信agent自报资源；隔离运行官方step并保存动作和重放，以终局地衣/胜负及非法动作率分层反馈。",
+    "generation_and_split": "除seed外留出地形/资源空间结构、工厂数和对手策略组合；禁止把隐藏对手代码映射给agent。",
+    "novelty_and_overlap": "与microRTS同为资源对抗但不同引擎、动作和经济链；公开Kaggle方案污染需查。",
+    "offline_and_compute": "Python/numpy数组环境，无需大视觉资源；API兼容、CPU每步预算与离线依赖未实测。",
+    "license_observation": "根Apache-2.0；公开参赛策略不能默认同许可。",
+    "potential": "high",
+    "priority": "hold_reference",
+    "read_scope": [
+      [
+        "luxai_s2/luxai_s2/env.py",
+        760,
+        808,
+        "implementation"
+      ],
+      [
+        "luxai_s2/tests/collision.py",
+        12,
+        48,
+        "test"
+      ],
+      [
+        "luxai_s2/luxai_s2/env.py",
+        995,
+        1015,
+        "implementation"
+      ]
+    ],
+    "claims": [
+      "step区分早期工厂阶段并检查动作空间，类型注解含5个返回量。",
+      "固定seed移动冲突示例构造不同power的重型机器人并检查淘汰结果，调用协议需健康复核。",
+      "实际step返回observations、rewards、terminations、truncations、infos五项；原例四项调用需修订核验。"
+    ]
+  },
+  {
+    "id": "g05_hanabi",
+    "name": "Hanabi Learning Environment",
+    "source_unit": "Hanabi规则状态、Python观察/奖励接口与示例",
+    "title": "有限提示预算下的协作纸牌策略",
+    "proposed_task": "交付只看合法玩家观察的合作策略，在换座位、未知伙伴策略及未见牌序下建立可靠的提示与出牌行为。",
+    "deliverable": "agent入口、跨回合信念状态、伙伴适应实验与回放。",
+    "difficulty_sources": [
+      "看见别人的牌却看不见自己的牌，提示消耗公共资源且必须兼容伙伴解释。",
+      "错误出牌耗生命，弃牌不可逆，安全保守与取得高分存在冲突。"
+    ],
+    "baseline": "官方SimpleAgent、可用规则约定与信念采样/搜索算法；正常纳入已有强Hanabi策略。",
+    "first_probe": "先比较SimpleAgent和公开约定策略的跨伙伴表现，确认观察中不会泄露自己的牌；检查独立种子重放。",
+    "stop_condition": "若目标仅自对弈且公开约定直接达标则降级；不能把不说明伙伴协议的任意失败当难度。",
+    "grader_plan": "私有环境累计真实score差，记录终止和合法动作；区分自合作、同族伙伴与跨族伙伴得分。",
+    "generation_and_split": "留出伙伴族和约定混合，不仅换牌序；只在规则允许范围内变人数/牌组，明确训练可见信息。",
+    "novelty_and_overlap": "独立协作隐藏信息纸牌，无旧RPG/RTS引擎复用；公开Hanabi策略和解码约定污染风险较高。",
+    "offline_and_compute": "C++绑定与Python接口需要预构建；无图片资产；搜索/训练预算和复现尚未测。",
+    "license_observation": "根Apache-2.0；任何外部伙伴实现另查许可。",
+    "potential": "high",
+    "priority": "hold_baseline",
+    "read_scope": [
+      [
+        "hanabi_learning_environment/hanabi_lib/hanabi_state.cc",
+        250,
+        286,
+        "implementation"
+      ],
+      [
+        "hanabi_learning_environment/rl_env.py",
+        343,
+        366,
+        "implementation"
+      ],
+      [
+        "examples/rl_env_example.py",
+        34,
+        64,
+        "example_spec"
+      ],
+      [
+        "hanabi_learning_environment/hanabi_lib/hanabi_game.cc",
+        42,
+        66,
+        "implementation"
+      ]
+    ],
+    "claims": [
+      "提示扣information tokens并更新他人手牌知识，机会事件按剩余牌概率抽取。",
+      "奖励是state.score的前后差且终局可能负，不可错误累计仅正分。",
+      "示例按player_observations逐人决策，只有current_player动作传给step。",
+      "游戏seed=-1时采random_device，显式seed后初始化rng；评测必须冻结该参数。"
+    ]
+  }
+]

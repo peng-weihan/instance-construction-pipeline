@@ -1,0 +1,57 @@
+{
+  "direction": "higher_is_better",
+  "range": [
+    0,
+    1
+  ],
+  "formula": "valid*(0.25+0.60*clip((U-U_ref)/0.10,0,1)+0.15/(1+scaled_pinball))",
+  "constants": {
+    "functional_weight": 0.25,
+    "utility_weight": 0.6,
+    "calibration_weight": 0.15,
+    "utility_scale": 0.1,
+    "pinball_scale": 0.01,
+    "quantile": 0.05,
+    "annual_days": 252,
+    "volatility_penalty": 0.5,
+    "drawdown_penalty": 1.0,
+    "risk_budget_tolerance": 1.2,
+    "constraint_tolerance": 1e-08,
+    "hold_weight_tolerance": 1e-07,
+    "cost": 0.0005,
+    "borrow": 0.03,
+    "financing": 0.05,
+    "baseline_weights": {
+      "SPY": 0.1,
+      "IWM": 0.05,
+      "EFA": 0.1,
+      "EEM": 0.05,
+      "TLT": 0.4,
+      "GLD": 0.05,
+      "VNQ": 0.05,
+      "DBC": 0.05
+    },
+    "baseline_variance_floor": 1e-10,
+    "baseline_tail_z": -1.645,
+    "initialize_seconds": 20,
+    "decision_seconds": 2,
+    "breach_rate_tolerance": 0.03,
+    "history_rows": 253,
+    "forecast_history_rows": 20,
+    "insufficient_history_variance": 0.0001
+  },
+  "endpoint_mechanism": "declared_algorithmic_reference_plus_theoretical_upper_bound",
+  "baseline": {
+    "implementation": "solution/ and verifier; see endpoint_notes.md",
+    "measured_score": null
+  },
+  "upper": {
+    "value": 1,
+    "meaning": "formula bound, not a demonstrated attainable score"
+  },
+  "oracle_score": null,
+  "nop_score": null,
+  "model_three_run_mean": null,
+  "episode_aggregation": "equal arithmetic mean",
+  "baseline_version": "public/baseline_policy.py; frozen independent copy in verifier"
+}

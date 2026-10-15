@@ -1,0 +1,49 @@
+{
+  "reward_type": "bounded_continuous",
+  "reference_mode": "ordinary_oracle",
+  "formula": "sum((1/8)*passed[g]/total[g] for g in frozen_groups)",
+  "constants": {
+    "group_weight": 0.125,
+    "groups": {
+      "integer": 163,
+      "traps": 14,
+      "control": 19,
+      "loops": 6,
+      "calls": 5,
+      "memory": 8,
+      "composition": 4,
+      "binary": 4
+    },
+    "per_case_wall_sec": 3,
+    "per_case_cpu_sec": 2,
+    "candidate_memory_bytes": 536870912,
+    "candidate_output_file_bytes": 1048576
+  },
+  "unrun_and_failed_cases": "remain in fixed denominator; zero credit",
+  "raw_metric": "behavior checks passed, separately by semantic group",
+  "direction": "maximize",
+  "range": [
+    0,
+    1
+  ],
+  "pass_rate": "sum(passed)/sum(total), not weighted score",
+  "reference_observation": {
+    "score": 1.0,
+    "evidence": "controls/reference/score.json",
+    "host_only": true
+  },
+  "baseline_observation": {
+    "score": 0.125,
+    "evidence": "controls/starter/score.json",
+    "host_only": true
+  },
+  "upper_bound": {
+    "formula_clip": 1,
+    "global_semantic_completeness": "not claimed",
+    "attainment_evidence": "authoring/controls/reference/score.json when present"
+  },
+  "failure_classification": {
+    "missing_or_wrong_submission": "valid=true, computed partial or 0",
+    "broken_dependency_or_fixture": "valid=false, score=null, no reward.txt/reward.json"
+  }
+}

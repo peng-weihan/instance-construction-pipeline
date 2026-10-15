@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "/Users/raymone/Desktop/01_Research/swe-factory/.venv/bin/python",
+    "-m",
+    "pytest",
+    "tests/test_target.py",
+    "-q",
+    "--junitxml=.factory-report.xml",
+    "--rootdir=.",
+    "-o",
+    "junit_family=xunit1",
+    "-p",
+    "no:cacheprovider"
+  ],
+  "returncode": 1,
+  "stdout": "FFFF                                                                     [100%]\n=================================== FAILURES ===================================\n_________________________________ test_parent __________________________________\n\n    def test_parent():\n>       assert combine({\"a\": 1}, {}) == {\"a\": 1}\nE       AssertionError: assert {} == {'a': 1}\nE         \nE         Right contains 1 more item:\nE         {'a': 1}\nE         Use -v to get more diff\n\ntests/test_target.py:3: AssertionError\n__________________________________ test_child __________________________________\n\n    def test_child():\n>       assert combine({}, {\"b\": 2}) == {\"b\": 2}\nE       AssertionError: assert {} == {'b': 2}\nE         \nE         Right contains 1 more item:\nE         {'b': 2}\nE         Use -v to get more diff\n\ntests/test_target.py:5: AssertionError\n________________________________ test_override _________________________________\n\n    def test_override():\n>       assert combine({\"a\": 1, \"b\": 2}, {\"a\": 3}) == {\"a\": 3, \"b\": 2}\nE       AssertionError: assert {} == {'a': 3, 'b': 2}\nE         \nE         Right contains 2 more items:\nE         {'a': 3, 'b': 2}\nE         Use -v to get more diff\n\ntests/test_target.py:7: AssertionError\n_________________________________ test_unicode _________________________________\n\n    def test_unicode():\n>       assert combine({\"名字\": \"甲\"}, {\"名字\": \"乙\"}) == {\"名字\": \"乙\"}\nE       AssertionError: assert {} == {'名字': '乙'}\nE         \nE         Right contains 1 more item:\nE         {'名字': '乙'}\nE         Use -v to get more diff\n\ntests/test_target.py:9: AssertionError\n- generated xml file: /Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/ablation/ablation/validation/C2/workspace/.factory-report.xml -\n=========================== short test summary info ============================\nFAILED tests/test_target.py::test_parent - AssertionError: assert {} == {'a': 1}\nFAILED tests/test_target.py::test_child - AssertionError: assert {} == {'b': 2}\nFAILED tests/test_target.py::test_override - AssertionError: assert {} == {'a...\nFAILED tests/test_target.py::test_unicode - AssertionError: assert {} == {'名...\n4 failed in 0.02s\n",
+  "stderr": "",
+  "timed_out": false,
+  "elapsed_sec": 0.129,
+  "runtime": {
+    "backend": "host",
+    "isolated": false,
+    "image": null
+  }
+}

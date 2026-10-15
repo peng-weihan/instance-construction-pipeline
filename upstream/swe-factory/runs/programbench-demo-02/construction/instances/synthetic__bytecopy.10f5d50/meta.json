@@ -1,0 +1,12 @@
+{
+  "category": "text-processing",
+  "language": "c",
+  "tool_type": "byte-copy CLI",
+  "difficulty": "unrated",
+  "n_tests": 12,
+  "n_kept": 11,
+  "n_branches": 1,
+  "build_verified": true,
+  "confidence": "unreviewed",
+  "notes": "Synthetic binary stdin/stdout and error fixture"
+}

@@ -1,0 +1,214 @@
+[
+  {
+    "id": "31_mosquitto",
+    "repo": "eclipse-mosquitto/mosquitto",
+    "revision": "83f2620f0b955b89aadce32cceb96a8e81950f5e",
+    "route": "M2",
+    "title": "持久会话与消息投递引擎",
+    "priority": "build_scope_probe",
+    "scope": "独立单 broker starter 保留报文/socket/认证壳，交付通配订阅、retain、QoS 0/1/2、Session/Message Expiry、Receive Maximum、成功快照后恢复；排除集群/bridge/TLS/Will/shared subscriptions，不声称完整 MQTT。",
+    "existing_capability": "上游已经实现消息路由、会话、QoS 与持久恢复。",
+    "proposed_gap": "拟制独立 starter 中重建完整会话/投递/持久状态闭环；不是上游现存功能缺口；删源码须改列恢复任务。",
+    "evidence": [
+      {
+        "path": "src/database.c",
+        "line": 1071,
+        "claim": "重连重新计算 quota；等待 PUBCOMP 的 QoS 2 状态转为重发 PUBREL。",
+        "url": "https://github.com/eclipse-mosquitto/mosquitto/blob/83f2620f0b955b89aadce32cceb96a8e81950f5e/src/database.c#L1071"
+      },
+      {
+        "path": "src/persist_write.c",
+        "line": 170,
+        "claim": "保存会话截止时间和进出方向 queued/inflight 队列。",
+        "url": "https://github.com/eclipse-mosquitto/mosquitto/blob/83f2620f0b955b89aadce32cceb96a8e81950f5e/src/persist_write.c#L170"
+      },
+      {
+        "path": "test/broker/15-persist-client-msg-out-v5-0.py",
+        "line": 60,
+        "claim": "测试覆盖离线订阅、publish、终止/重启、重连 QoS 1/2 交付及二次重连无遗留。",
+        "url": "https://github.com/eclipse-mosquitto/mosquitto/blob/83f2620f0b955b89aadce32cceb96a8e81950f5e/test/broker/15-persist-client-msg-out-v5-0.py#L60"
+      },
+      {
+        "path": "LICENSE.txt",
+        "line": 1,
+        "claim": "根许可标示 EPL-2.0 OR BSD-3-Clause。",
+        "url": "https://github.com/eclipse-mosquitto/mosquitto/blob/83f2620f0b955b89aadce32cceb96a8e81950f5e/LICENSE.txt#L1"
+      }
+    ],
+    "cheap_baseline": "stock Mosquitto 或现成 broker + 启停/配置/快照 wrapper；MQTT 客户端库与 SQLite 合法。只要黑盒协议可能完全满足交付。",
+    "first_probe": "将全拟题合同映射到 stock broker 薄 wrapper；若全部覆盖，取消从零系统题，改有真实宿主集成要求的恢复任务或 hold。",
+    "remaining_work_hypotheses": [
+      "正常网络闭环后补齐 QoS 重连状态/quota/剩余过期时间共同一致性。",
+      "成功快照闭环后补齐引用完整性/缺损文件处理/多客户端交错与资源回收。"
+    ],
+    "license_observation": "根 LICENSE 和源码 SPDX 为 EPL-2.0 OR BSD-3-Clause；未做完整依赖再分发审查。",
+    "official_references": [
+      {
+        "url": "https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html",
+        "claim": "固定 MQTT 5.0 规范，仅抽取明示功能集；独立客户端驱动互通。"
+      },
+      {
+        "url": "https://www.mosquitto.org/man/mosquitto-conf-5.html",
+        "claim": "官方 broker 配置及持久化语义参考；成功快照恢复不等于任意断电持久保证。"
+      }
+    ],
+    "composite_scenarios": [
+      "离线会话+多 QoS/过期+快照重启+小接收窗口。",
+      "QoS 2 确认边界断连+同 client id 恢复+重发+再次恢复。",
+      "重叠通配订阅+retained 更新删除+clean start/expiry 清理。"
+    ],
+    "independent_oracle": "OASIS 条款导出允许观察集合；独立客户端和固定 Mosquitto 互通，避免强制规范允许差异的调度。",
+    "offline_architecture_cost": "固定 C 工具链、broker/客户端和快照格式；loopback 无外服；虚拟时间和 reactor 统一成本未知。",
+    "status": "source_reviewed_not_constructed",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "card": "cards/31_mosquitto.md"
+  },
+  {
+    "id": "32_bmv2",
+    "repo": "p4lang/behavioral-model",
+    "revision": "7f4e1daca12b7fe52897687764b7e74ded7dab55",
+    "route": "M2",
+    "title": "编译后包处理程序执行系统",
+    "priority": "build_scope_probe",
+    "scope": "离线包 I/O/控制框架 starter；冻结 JSON feature manifest，交付加载/header/parser/match-action/register-counter/checksum/deparser；排除 meter/action profile/clone/recirculate/multicast/extern/gRPC/NIC，不声称完整 P4。",
+    "existing_capability": "BMv2 已是读取 P4 编译 JSON 的 C++ 参考交换机。",
+    "proposed_gap": "拟抽取独立有界执行系统，必须对 manifest 内任意合法组合工作；不是现有实现缺口，starter 未制作。",
+    "evidence": [
+      {
+        "path": "README.md",
+        "line": 11,
+        "claim": "定位为解释 P4 编译 JSON 的参考软件交换机。",
+        "url": "https://github.com/p4lang/behavioral-model/blob/7f4e1daca12b7fe52897687764b7e74ded7dab55/README.md#L11"
+      },
+      {
+        "path": "src/bm_sim/parser.cpp",
+        "line": 1042,
+        "claim": "执行 parser ops 后构建 key，选择下一状态。",
+        "url": "https://github.com/p4lang/behavioral-model/blob/7f4e1daca12b7fe52897687764b7e74ded7dab55/src/bm_sim/parser.cpp#L1042"
+      },
+      {
+        "path": "src/bm_sim/match_tables.cpp",
+        "line": 85,
+        "claim": "lookup 确定动作、命中信息和下一控制节点。",
+        "url": "https://github.com/p4lang/behavioral-model/blob/7f4e1daca12b7fe52897687764b7e74ded7dab55/src/bm_sim/match_tables.cpp#L85"
+      },
+      {
+        "path": "src/bm_sim/deparser.cpp",
+        "line": 57,
+        "claim": "更新 checksum，按序只发射有效 header。",
+        "url": "https://github.com/p4lang/behavioral-model/blob/7f4e1daca12b7fe52897687764b7e74ded7dab55/src/bm_sim/deparser.cpp#L57"
+      },
+      {
+        "path": "tests/test_parser.cpp",
+        "line": 201,
+        "claim": "解析 Ethernet/IPv4/TCP 并核对有效位和字段。",
+        "url": "https://github.com/p4lang/behavioral-model/blob/7f4e1daca12b7fe52897687764b7e74ded7dab55/tests/test_parser.cpp#L201"
+      },
+      {
+        "path": "docs/JSON_format.md",
+        "line": 267,
+        "claim": "定义 parser 状态与操作格式。",
+        "url": "https://github.com/p4lang/behavioral-model/blob/7f4e1daca12b7fe52897687764b7e74ded7dab55/docs/JSON_format.md#L267"
+      }
+    ],
+    "cheap_baseline": "直接链接 BMv2 bm_sim 或调用 stock simple_switch/控制 CLI，做离线包适配；语言重写/禁库不是难度证据。",
+    "first_probe": "核对 stock BMv2 最薄离线适配能否足额实现包/控制/状态合同；若成立，改真实恢复/宿主集成任务或 hold。",
+    "remaining_work_hypotheses": [
+      "基本静态转发后补齐位宽/符号/截断、变长与栈、跨阶段 metadata。",
+      "单包行为后补齐动态表项、跨包状态、parser 错误及完整输出链。"
+    ],
+    "license_observation": "源码/README 为 Apache-2.0；根 LICENSE 指向的 LICENSES/Apache-2.0.txt 已在固定提交获取并哈希，1-5 行确认为 Apache License 2.0 实际文本；发布时仍须核查 NOTICE 与实际依赖。",
+    "official_references": [
+      {
+        "url": "https://github.com/p4lang/behavioral-model/blob/main/docs/JSON_format.md",
+        "claim": "官方 JSON 格式，实际合同以已固定提交文档为准。"
+      },
+      {
+        "url": "https://p4lang.github.io/p4-spec/docs/P4-16-v1.2.1.html",
+        "claim": "适用语言语义参考，不能替代 BMv2 方言/目标架构合同。"
+      }
+    ],
+    "composite_scenarios": [
+      "变长/混合位宽解析+LPM/ternary+改写+checksum/输出。",
+      "跨包寄存器/计数器+控制更新表项+默认动作/overflow。",
+      "短包/verify 错误+后续元数据路径+无效 header/payload。"
+    ],
+    "independent_oracle": "新 P4 程序预编译成固定 JSON；BMv2 和候选共跑有序事件，对比字节/端口/状态；规范手算例补充。",
+    "offline_architecture_cost": "预编译 fixture 避免 agent 安装 p4c；参考镜像仍需 C++/GMP/Boost/Thrift 等依赖，未验证；文件 I/O 避免 root/NIC。",
+    "status": "source_reviewed_not_constructed",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "card": "cards/32_bmv2.md"
+  },
+  {
+    "id": "33_avro",
+    "repo": "apache/avro",
+    "revision": "3a207fa6e87c535b95eafca4cf5a6ef524d77df2",
+    "route": "M2",
+    "title": "带 schema 演进的跨实现数据文件系统",
+    "priority": "hold",
+    "scope": "独立 starter 交付全原始/复合类型 schema/二进制 codec、writer-reader resolution、OCF 流式读写/块跳转/CLI；null/deflate；排除 RPC/IDL/代码生成/可选 codec；alias/logical type 须明列。",
+    "existing_capability": "上游已有 schema 编译、二进制 codec、resolution 与 OCF。",
+    "proposed_gap": "可抽取 schema→数据→reader 投影→容器系统闭环，但尚无排除薄库包装的真实缺口，暂缓构题。",
+    "evidence": [
+      {
+        "path": "lang/c++/impl/parsing/ResolvingDecoder.cc",
+        "line": 160,
+        "claim": "按 writer 字段生成读取/跳过动作，reader 新字段生成默认值字节与 fieldOrder。",
+        "url": "https://github.com/apache/avro/blob/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/lang/c++/impl/parsing/ResolvingDecoder.cc#L160"
+      },
+      {
+        "path": "lang/c++/impl/DataFile.cc",
+        "line": 446,
+        "claim": "按 writer/reader schema 选择 resolving decoder，跨块检查同步标记。",
+        "url": "https://github.com/apache/avro/blob/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/lang/c++/impl/DataFile.cc#L446"
+      },
+      {
+        "path": "doc/content/en/docs/1.12.0/Specification/_index.md",
+        "line": 447,
+        "claim": "规定 OCF schema/codec 元数据、块计数/长度/sync。",
+        "url": "https://github.com/apache/avro/blob/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/doc/content/en/docs/1.12.0/Specification/_index.md#L447"
+      },
+      {
+        "path": "doc/content/en/docs/1.12.0/Specification/_index.md",
+        "line": 681,
+        "claim": "规定递归 resolution/union 匹配/default/数值提升。",
+        "url": "https://github.com/apache/avro/blob/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/doc/content/en/docs/1.12.0/Specification/_index.md#L681"
+      },
+      {
+        "path": "LICENSE.txt",
+        "line": 2,
+        "claim": "Apache License Version 2.0。",
+        "url": "https://github.com/apache/avro/blob/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/LICENSE.txt#L2"
+      }
+    ],
+    "cheap_baseline": "官方 Avro Python/Java/C++ 库或 fastavro + CLI/标准 zlib；核心交付很可能直接满足。",
+    "first_probe": "映射全部 API/场景至官方库；薄包装覆盖则取消，不通过禁库制造困难；仅真实宿主集成、受损实现恢复或已证互通缺口形成额外交付时重开。",
+    "remaining_work_hypotheses": [
+      "单 schema round trip 后补齐递归命名、writer/reader 分工、skip/default/union 的共同状态。",
+      "单块成功后补齐 codec/块界限/跳转/坏文件；现成库已有，不能据此推断困难。"
+    ],
+    "license_observation": "根 LICENSE 为 Apache-2.0 且有 NOTICE；实际 codec/语言包第三方通知仍须检查。",
+    "official_references": [
+      {
+        "url": "https://avro.apache.org/docs/1.12.0/specification/",
+        "claim": "冻结 Avro 1.12.0 二进制/OCF/resolution 规范；可选 alias 须明确合同。"
+      }
+    ],
+    "composite_scenarios": [
+      "递归 record/array/map/union+字段重排删除默认+跨块。",
+      "数值提升+union 顺序+enum 默认/错误+严格类型分支。",
+      "null/deflate OCF+seek/sync+部分读取+损坏边界。"
+    ],
+    "independent_oracle": "固定规范 + 冻结至少两个不同语言实现双向互通 + 手算字节/坏文件；不比较随机 marker 或压缩字节完全相等。",
+    "offline_architecture_cost": "固定 1.12.0 库/zlib/schema/fixtures，无外服；多语言 alias/logical type 差异及依赖成本尚未验证。",
+    "status": "source_reviewed_not_constructed",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "card": "cards/33_avro.md"
+  }
+]

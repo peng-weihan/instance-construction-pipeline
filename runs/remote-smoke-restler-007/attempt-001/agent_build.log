@@ -1,0 +1,92 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 810B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu@sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55
+#2 DONE 0.5s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 66B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/9] FROM docker.io/library/ubuntu@sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55
+#5 resolve docker.io/library/ubuntu@sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55 0.0s done
+#5 CACHED
+
+#4 [internal] load build context
+#4 transferring context: 28.84MB 0.1s done
+#4 DONE 0.2s
+
+#6 [2/9] RUN apt-get update && apt-get install -y --no-install-recommends python3 python3-venv python3-pip bubblewrap git curl ca-certificates build-essential cmake ninja-build pkg-config && rm -rf /var/lib/apt/lists/*
+#6 44.75 Ign:1 http://archive.ubuntu.com/ubuntu noble InRelease
+#6 44.75 Ign:2 http://security.ubuntu.com/ubuntu noble-security InRelease
+#6 44.78 Ign:3 http://archive.ubuntu.com/ubuntu noble-updates InRelease
+#6 44.81 Ign:4 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+#6 45.79 Ign:1 http://archive.ubuntu.com/ubuntu noble InRelease
+#6 45.80 Ign:2 http://security.ubuntu.com/ubuntu noble-security InRelease
+#6 45.83 Ign:3 http://archive.ubuntu.com/ubuntu noble-updates InRelease
+#6 45.86 Ign:4 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+#6 47.83 Ign:2 http://security.ubuntu.com/ubuntu noble-security InRelease
+#6 47.84 Ign:1 http://archive.ubuntu.com/ubuntu noble InRelease
+#6 47.88 Ign:3 http://archive.ubuntu.com/ubuntu noble-updates InRelease
+#6 47.92 Ign:4 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+#6 51.87 Err:2 http://security.ubuntu.com/ubuntu noble-security InRelease
+#6 51.87   Could not connect to security.ubuntu.com:80 (185.125.190.81), connection timed out Could not connect to security.ubuntu.com:80 (185.125.190.83), connection timed out Could not connect to security.ubuntu.com:80 (91.189.91.81), connection timed out Could not connect to security.ubuntu.com:80 (91.189.91.82), connection timed out Could not connect to security.ubuntu.com:80 (91.189.92.22), connection timed out Could not connect to security.ubuntu.com:80 (91.189.92.23), connection timed out Could not connect to security.ubuntu.com:80 (185.125.190.82), connection timed out Could not connect to security.ubuntu.com:80 (91.189.92.24), connection timed out Could not connect to security.ubuntu.com:80 (91.189.91.83), connection timed out
+#6 51.98 Err:1 http://archive.ubuntu.com/ubuntu noble InRelease
+#6 51.98   Could not connect to archive.ubuntu.com:80 (91.189.92.23), connection timed out Could not connect to archive.ubuntu.com:80 (185.125.190.83), connection timed out Could not connect to archive.ubuntu.com:80 (185.125.190.81), connection timed out Could not connect to archive.ubuntu.com:80 (91.189.91.83), connection timed out Could not connect to archive.ubuntu.com:80 (91.189.91.82), connection timed out Could not connect to archive.ubuntu.com:80 (91.189.91.81), connection timed out Could not connect to archive.ubuntu.com:80 (185.125.190.82), connection timed out Could not connect to archive.ubuntu.com:80 (91.189.92.24), connection timed out Could not connect to archive.ubuntu.com:80 (91.189.92.22), connection timed out
+#6 52.02 Err:3 http://archive.ubuntu.com/ubuntu noble-updates InRelease
+#6 52.02   Unable to connect to archive.ubuntu.com:80:
+#6 52.06 Err:4 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+#6 52.06   Unable to connect to archive.ubuntu.com:80:
+#6 52.06 Reading package lists...
+#6 52.07 W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/noble/InRelease  Could not connect to archive.ubuntu.com:80 (91.189.92.23), connection timed out Could not connect to archive.ubuntu.com:80 (185.125.190.83), connection timed out Could not connect to archive.ubuntu.com:80 (185.125.190.81), connection timed out Could not connect to archive.ubuntu.com:80 (91.189.91.83), connection timed out Could not connect to archive.ubuntu.com:80 (91.189.91.82), connection timed out Could not connect to archive.ubuntu.com:80 (91.189.91.81), connection timed out Could not connect to archive.ubuntu.com:80 (185.125.190.82), connection timed out Could not connect to archive.ubuntu.com:80 (91.189.92.24), connection timed out Could not connect to archive.ubuntu.com:80 (91.189.92.22), connection timed out
+#6 52.07 W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/noble-updates/InRelease  Unable to connect to archive.ubuntu.com:80:
+#6 52.07 W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/noble-backports/InRelease  Unable to connect to archive.ubuntu.com:80:
+#6 52.07 W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/noble-security/InRelease  Could not connect to security.ubuntu.com:80 (185.125.190.81), connection timed out Could not connect to security.ubuntu.com:80 (185.125.190.83), connection timed out Could not connect to security.ubuntu.com:80 (91.189.91.81), connection timed out Could not connect to security.ubuntu.com:80 (91.189.91.82), connection timed out Could not connect to security.ubuntu.com:80 (91.189.92.22), connection timed out Could not connect to security.ubuntu.com:80 (91.189.92.23), connection timed out Could not connect to security.ubuntu.com:80 (185.125.190.82), connection timed out Could not connect to security.ubuntu.com:80 (91.189.92.24), connection timed out Could not connect to security.ubuntu.com:80 (91.189.91.83), connection timed out
+#6 52.07 W: Some index files failed to download. They have been ignored, or old ones used instead.
+#6 52.08 Reading package lists...
+#6 52.09 Building dependency tree...
+#6 52.09 Reading state information...
+#6 52.09 Package ca-certificates is not available, but is referred to by another package.
+#6 52.09 This may mean that the package is missing, has been obsoleted, or
+#6 52.09 is only available from another source
+#6 52.09 
+#6 52.09 E: Unable to locate package python3
+#6 52.09 E: Unable to locate package python3-venv
+#6 52.09 E: Unable to locate package python3-pip
+#6 52.09 E: Unable to locate package bubblewrap
+#6 52.09 E: Unable to locate package git
+#6 52.09 E: Unable to locate package curl
+#6 52.09 E: Package 'ca-certificates' has no installation candidate
+#6 52.09 E: Unable to locate package build-essential
+#6 52.09 E: Unable to locate package cmake
+#6 52.09 E: Unable to locate package ninja-build
+#6 52.09 E: Unable to locate package pkg-config
+#6 ERROR: process "/bin/sh -c apt-get update && apt-get install -y --no-install-recommends python3 python3-venv python3-pip bubblewrap git curl ca-certificates build-essential cmake ninja-build pkg-config && rm -rf /var/lib/apt/lists/*" did not complete successfully: exit code: 100
+------
+ > [2/9] RUN apt-get update && apt-get install -y --no-install-recommends python3 python3-venv python3-pip bubblewrap git curl ca-certificates build-essential cmake ninja-build pkg-config && rm -rf /var/lib/apt/lists/*:
+52.09 E: Unable to locate package python3-venv
+52.09 E: Unable to locate package python3-pip
+52.09 E: Unable to locate package bubblewrap
+52.09 E: Unable to locate package git
+52.09 E: Unable to locate package curl
+52.09 E: Package 'ca-certificates' has no installation candidate
+52.09 E: Unable to locate package build-essential
+52.09 E: Unable to locate package cmake
+52.09 E: Unable to locate package ninja-build
+52.09 E: Unable to locate package pkg-config
+------
+Dockerfile:3
+--------------------
+   1 |     FROM ubuntu@sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55
+   2 |     ENV DEBIAN_FRONTEND=noninteractive
+   3 | >>> RUN apt-get update && apt-get install -y --no-install-recommends python3 python3-venv python3-pip bubblewrap git curl ca-certificates build-essential cmake ninja-build pkg-config && rm -rf /var/lib/apt/lists/*
+   4 |     RUN python3 -m venv /opt/runtime/venv
+   5 |     ENV PATH="/opt/runtime/venv/bin:/opt/runtime/elan/bin:${PATH}"
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c apt-get update && apt-get install -y --no-install-recommends python3 python3-venv python3-pip bubblewrap git curl ca-certificates build-essential cmake ninja-build pkg-config && rm -rf /var/lib/apt/lists/*" did not complete successfully: exit code: 100

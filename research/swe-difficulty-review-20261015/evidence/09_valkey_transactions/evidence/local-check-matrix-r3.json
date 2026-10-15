@@ -1,0 +1,329 @@
+{
+  "checks": [
+    {
+      "name": "r3-frozen-repeat-1",
+      "command": [
+        "/usr/bin/python3",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader_entry.py",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/verifier/private/reference",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-repeat-1",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-repeat-1/score.json",
+      "valid": true,
+      "score": 1.0,
+      "native_reward": "1",
+      "snapshot_sha256": "4e4a9e7976be33717172ab4c62eb87f7c193ede1cf3a8b6ce6fb55104862fba8"
+    },
+    {
+      "name": "r3-frozen-repeat-2",
+      "command": [
+        "sh",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/test.sh",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/verifier/private/reference",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-repeat-2",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-repeat-2/score.json",
+      "valid": true,
+      "score": 1.0,
+      "native_reward": "1",
+      "snapshot_sha256": "4e4a9e7976be33717172ab4c62eb87f7c193ede1cf3a8b6ce6fb55104862fba8"
+    },
+    {
+      "name": "r3-frozen-repeat-3",
+      "command": [
+        "/usr/bin/python3",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader_entry.py",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/verifier/private/reference",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-repeat-3",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-repeat-3/score.json",
+      "valid": true,
+      "score": 1.0,
+      "native_reward": "1",
+      "snapshot_sha256": "4e4a9e7976be33717172ab4c62eb87f7c193ede1cf3a8b6ce6fb55104862fba8"
+    },
+    {
+      "name": "r3-frozen-repeat-4",
+      "command": [
+        "/usr/bin/python3",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader_entry.py",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/verifier/private/reference",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-repeat-4",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-repeat-4/score.json",
+      "valid": true,
+      "score": 1.0,
+      "native_reward": "1",
+      "snapshot_sha256": "4e4a9e7976be33717172ab4c62eb87f7c193ede1cf3a8b6ce6fb55104862fba8"
+    },
+    {
+      "name": "r3-frozen-repeat-5",
+      "command": [
+        "/usr/bin/python3",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader_entry.py",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/verifier/private/reference",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-repeat-5",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-repeat-5/score.json",
+      "valid": true,
+      "score": 1.0,
+      "native_reward": "1",
+      "snapshot_sha256": "4e4a9e7976be33717172ab4c62eb87f7c193ede1cf3a8b6ce6fb55104862fba8"
+    },
+    {
+      "name": "r3-frozen-nop-python",
+      "command": [
+        "/usr/bin/python3",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader_entry.py",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/environment/submission",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-nop-python",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-nop-python/score.json",
+      "valid": true,
+      "score": 0.36,
+      "native_reward": "0.35999999999999999",
+      "snapshot_sha256": "a36e91b01fc170c8d5075badf15b1ec792acc240e694218e40c3c36a4348e2b8"
+    },
+    {
+      "name": "r3-frozen-nop-shell",
+      "command": [
+        "sh",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/test.sh",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/environment/submission",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-nop-shell",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-nop-shell/score.json",
+      "valid": true,
+      "score": 0.36,
+      "native_reward": "0.35999999999999999",
+      "snapshot_sha256": "a36e91b01fc170c8d5075badf15b1ec792acc240e694218e40c3c36a4348e2b8"
+    },
+    {
+      "name": "r3-frozen-no-watch-python",
+      "command": [
+        "/usr/bin/python3",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader_entry.py",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/verifier/private/controls/no_watch",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-no-watch-python",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-no-watch-python/score.json",
+      "valid": true,
+      "score": 0.81,
+      "native_reward": "0.81000000000000005",
+      "snapshot_sha256": "70743ef862e43980c75eb0ae1b7e9231d04c9dc0dc3471b77a6b5740b8acbadd"
+    },
+    {
+      "name": "r3-frozen-no-watch-shell",
+      "command": [
+        "sh",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/test.sh",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/verifier/private/controls/no_watch",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-no-watch-shell",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-no-watch-shell/score.json",
+      "valid": true,
+      "score": 0.81,
+      "native_reward": "0.81000000000000005",
+      "snapshot_sha256": "70743ef862e43980c75eb0ae1b7e9231d04c9dc0dc3471b77a6b5740b8acbadd"
+    },
+    {
+      "name": "r3-frozen-stop-exec-python",
+      "command": [
+        "/usr/bin/python3",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader_entry.py",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/verifier/private/controls/stop_exec",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-stop-exec-python",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-stop-exec-python/score.json",
+      "valid": true,
+      "score": 0.9200000000000002,
+      "native_reward": "0.92000000000000015",
+      "snapshot_sha256": "63072c73f8f3ef10f012d1dadb1ab74530bf58b19ee8538155ca2e8ea5dc96fd"
+    },
+    {
+      "name": "r3-frozen-stop-exec-shell",
+      "command": [
+        "sh",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/test.sh",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/verifier/private/controls/stop_exec",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-stop-exec-shell",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-stop-exec-shell/score.json",
+      "valid": true,
+      "score": 0.9200000000000002,
+      "native_reward": "0.92000000000000015",
+      "snapshot_sha256": "63072c73f8f3ef10f012d1dadb1ab74530bf58b19ee8538155ca2e8ea5dc96fd"
+    },
+    {
+      "name": "r3-frozen-missing-python",
+      "command": [
+        "/usr/bin/python3",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader_entry.py",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/controls/missing",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-missing-python",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-missing-python/score.json",
+      "valid": true,
+      "score": 0.0,
+      "native_reward": "0",
+      "snapshot_sha256": null
+    },
+    {
+      "name": "r3-frozen-missing-shell",
+      "command": [
+        "sh",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/test.sh",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/controls/missing",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-missing-shell",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-missing-shell/score.json",
+      "valid": true,
+      "score": 0.0,
+      "native_reward": "0",
+      "snapshot_sha256": null
+    },
+    {
+      "name": "r3-frozen-syntax-python",
+      "command": [
+        "/usr/bin/python3",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader_entry.py",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/controls/syntax",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-syntax-python",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-syntax-python/score.json",
+      "valid": true,
+      "score": 0.0,
+      "native_reward": "0",
+      "snapshot_sha256": "60169a844e7530945825f6dccdf7c436de099532849fcefc8ce735d87a8a875d"
+    },
+    {
+      "name": "r3-frozen-syntax-shell",
+      "command": [
+        "sh",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/test.sh",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/controls/syntax",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-syntax-shell",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-syntax-shell/score.json",
+      "valid": true,
+      "score": 0.0,
+      "native_reward": "0",
+      "snapshot_sha256": "60169a844e7530945825f6dccdf7c436de099532849fcefc8ce735d87a8a875d"
+    },
+    {
+      "name": "r3-frozen-infra-python",
+      "command": [
+        "/usr/bin/python3",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader_entry.py",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/environment/submission",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-infra-python",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes",
+        "--fault-infrastructure"
+      ],
+      "exit_code": 2,
+      "score_report": "evidence/r3-frozen-infra-python/score.json",
+      "valid": false,
+      "score": null,
+      "native_reward": null,
+      "snapshot_sha256": null
+    },
+    {
+      "name": "r3-frozen-infra-shell",
+      "command": [
+        "sh",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/test.sh",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/environment/submission",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-infra-shell",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes",
+        "--fault-infrastructure"
+      ],
+      "exit_code": 2,
+      "score_report": "evidence/r3-frozen-infra-shell/score.json",
+      "valid": false,
+      "score": null,
+      "native_reward": null,
+      "snapshot_sha256": null
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "reference_mode": "ordinary_oracle_local_behavior_only",
+  "direction": "maximize",
+  "reward_type": "bounded_continuous",
+  "groups": [
+    {
+      "name": "nested",
+      "weight": 0.16666666666666666,
+      "requires": "all independent assertions in tests/cases.py group"
+    },
+    {
+      "name": "union",
+      "weight": 0.16666666666666666,
+      "requires": "all independent assertions in tests/cases.py group"
+    },
+    {
+      "name": "arrays",
+      "weight": 0.16666666666666666,
+      "requires": "all independent assertions in tests/cases.py group"
+    },
+    {
+      "name": "siblings",
+      "weight": 0.16666666666666666,
+      "requires": "all independent assertions in tests/cases.py group"
+    },
+    {
+      "name": "wire",
+      "weight": 0.16666666666666666,
+      "requires": "all independent assertions in tests/cases.py group"
+    },
+    {
+      "name": "conflict",
+      "weight": 0.16666666666666666,
+      "requires": "all independent assertions in tests/cases.py group"
+    }
+  ],
+  "formula": "sum(group_passed)/6",
+  "fixed_denominator": 6,
+  "range": [
+    0,
+    1
+  ],
+  "raw_metric": "passed_semantic_groups",
+  "baseline": {
+    "source": "full fixed upstream",
+    "score": 0.0,
+    "evidence": "authoring/evidence/starter/score.json"
+  },
+  "reference": {
+    "score": 1.0,
+    "evidence": "authoring/evidence/reference/score.json"
+  },
+  "upper_bound": {
+    "value": 1,
+    "kind": "fixed correctness group maximum; achieved on host, not global optimization claim"
+  },
+  "controls": {
+    "reference": 1.0,
+    "starter": 0.0,
+    "near-miss-lost-required": 0.8333333333333334,
+    "near-miss-untyped-arrays": 0.8333333333333334,
+    "empty": 0.0
+  },
+  "missing_or_incorrect_candidate": "valid=true, actual score including zero",
+  "infrastructure_failure": "valid=false, score=null, no reward file",
+  "native_reward": "same scalar as score.json",
+  "regression_scope": "321 unit passed /4 skipped and 80 generated SDK execution passed are author validation; not extra score groups",
+  "difficulty_measurements": null
+}

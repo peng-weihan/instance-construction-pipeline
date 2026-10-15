@@ -1,0 +1,6 @@
+{
+  "valid": false,
+  "score": null,
+  "error": "corrupt oracle asset: rename_same_shape.out",
+  "traceback": "Traceback (most recent call last):\n  File \"/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/tests/grader.py\", line 129, in main\n    try:r=grade(a.submission.resolve(),a.base.resolve(),a.build_parent.resolve());code=0\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/tests/grader.py\", line 81, in grade\n    if hashlib.sha256((private/rel).read_bytes()).hexdigest()!=digest:raise RuntimeError('corrupt oracle asset: '+rel)\n                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: corrupt oracle asset: rename_same_shape.out\n"
+}

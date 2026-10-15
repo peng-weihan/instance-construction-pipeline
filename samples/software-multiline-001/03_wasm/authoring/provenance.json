@@ -1,0 +1,33 @@
+{
+  "sources": [
+    {
+      "repo": "https://github.com/WebAssembly/spec",
+      "commit": "d910f03bd6d6477656fc5070b5098e8f909305d3",
+      "tag": "v1.0.0"
+    }
+  ],
+  "retained_archives": [
+    {
+      "path": "authoring/sources/spec.tar.gz",
+      "sha256": "2f0b2e82aaa5da1bc8ab4def6f091647a8355ba0961b54265dc071f698d81a34",
+      "bytes": 4949039
+    }
+  ],
+  "test_material_origin": "Official i32 assertion inputs with exact source lines plus explicitly adapted control/call/memory compositions",
+  "expected_origin": "V8 WebAssembly in pinned Node v24.13.1, compiled from WAT with wasmtime==38.0.0; Python reference never produces expected",
+  "transformations": [
+    "Fixed archive -> extracted original source with notices",
+    "Normative documents only -> work public reference; implementation and hidden data excluded",
+    "Scoped WAT -> real binary bytecode -> independent V8 outputs",
+    "Source family -> eight frozen semantic groups; repeated cases do not increase group weight"
+  ],
+  "splits": {
+    "public": "environment/dev_cases.json, one documented case per group",
+    "private": "verifier/private/cases.json, all scoring cases including development anchors",
+    "independent_test_holdout": "No unseen task-family holdout evidence; not claimed"
+  },
+  "agent_environment_content": "starter, normative profile, public development examples and generic tools; no private oracle or hidden corpus",
+  "host_platform": "macOS-26.6.2-arm64-arm-64bit",
+  "requested_author_model": "gpt-6.1-sol",
+  "provider_receipt_verified": false
+}

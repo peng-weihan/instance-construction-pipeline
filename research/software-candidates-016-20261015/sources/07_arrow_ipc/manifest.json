@@ -1,0 +1,70 @@
+{
+  "id": "07_arrow_ipc",
+  "repo": "apache/arrow",
+  "family": "system_implementation",
+  "new_source": true,
+  "title": "嵌套类型和字典演化的IPC读写器",
+  "files": [
+    "README.md",
+    "format/Message.fbs",
+    "docs/source/format/Columnar.rst",
+    "dev/archery/archery/integration/runner.py"
+  ],
+  "revision": "ca5564e007a209e251b9d4648af4bc6a53c68c4f",
+  "retrieved_utc": "2026-10-15T09:20:34.384029+00:00",
+  "files_acquired": [
+    {
+      "path": "README.md",
+      "bytes": 5855,
+      "sha256": "a8240517de55f26840b8d798cba46d2159ee62cf3a9ea8758565db7fe2db86e7",
+      "url": "https://github.com/apache/arrow/blob/ca5564e007a209e251b9d4648af4bc6a53c68c4f/README.md"
+    },
+    {
+      "path": "format/Message.fbs",
+      "bytes": 6580,
+      "sha256": "ec4274d76bfeb959b4a1961fa7ddb07dd06aa4a4a4960832c9fecec61f3bce53",
+      "url": "https://github.com/apache/arrow/blob/ca5564e007a209e251b9d4648af4bc6a53c68c4f/format/Message.fbs"
+    },
+    {
+      "path": "docs/source/format/Columnar.rst",
+      "bytes": 74828,
+      "sha256": "f7291ce8562f1a248da288bdcf4fc9a6b6f31afe88da561fda27f7df7d429ca9",
+      "url": "https://github.com/apache/arrow/blob/ca5564e007a209e251b9d4648af4bc6a53c68c4f/docs/source/format/Columnar.rst"
+    },
+    {
+      "path": "dev/archery/archery/integration/runner.py",
+      "bytes": 29690,
+      "sha256": "f90312ce15a1bf9fc34d15aecf0e5b4e544443afbe30770259bc1556cd42548b",
+      "url": "https://github.com/apache/arrow/blob/ca5564e007a209e251b9d4648af4bc6a53c68c4f/dev/archery/archery/integration/runner.py"
+    },
+    {
+      "path": "LICENSE.txt",
+      "bytes": 110383,
+      "sha256": "cd03925a27219d326d622609fbcae6567279af8b8885c33d5969a9e4ef5d7525",
+      "url": "https://github.com/apache/arrow/blob/ca5564e007a209e251b9d4648af4bc6a53c68c4f/LICENSE.txt"
+    },
+    {
+      "path": "format/Schema.fbs",
+      "bytes": 21803,
+      "sha256": "c5187ee92f011736e3877f22372869aaf11930fb176eb63fa942d39a9a11be8d",
+      "url": "https://github.com/apache/arrow/blob/ca5564e007a209e251b9d4648af4bc6a53c68c4f/format/Schema.fbs"
+    }
+  ],
+  "missing_paths": [
+    "LICENSE",
+    "LICENSE.md",
+    "COPYING",
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "runtime_validation": false,
+  "six_hour_difficulty_verified": false,
+  "tree_manifest": {
+    "path": "git-tree.json",
+    "sha256": "0186a3b60f473564512ec15fa8b72295ab6947528ac3c32165ed006ea7466729",
+    "blob_count": 5322,
+    "truncated": false
+  },
+  "resolved_initial_404_paths": {},
+  "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+}

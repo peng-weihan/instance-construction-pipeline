@@ -1,0 +1,22 @@
+{
+  "id": "27_ninja_behavioral_port",
+  "repo": "ninja-build/ninja",
+  "revision": "b81e306232dfa644e92145c7d2871690017969e8",
+  "observed_utc": "2026-10-15T12:43:18.868118+00:00",
+  "status": "source_leads_only",
+  "files": [
+    {
+      "path": "tree.json",
+      "url": "https://api.github.com/repos/ninja-build/ninja/git/trees/b81e306232dfa644e92145c7d2871690017969e8?recursive=1",
+      "sha256": "5bac00d7438cb4a1d3e4da73da5c47f88d7da320733f349135845520e0094f4e"
+    },
+    {
+      "path": "recent-issues-and-prs.json",
+      "url": "https://api.github.com/repos/ninja-build/ninja/issues?state=all&per_page=20",
+      "sha256": "7e89d5b6bc43cbeda38e3bfc35c367e664964c63d31eee4a02919de3282c66aa"
+    }
+  ],
+  "errors": [],
+  "warning": "Issue state is current, not proof of a missing feature at the fixed revision. Build/reproduce before selecting a contract.",
+  "tree_truncated": false
+}

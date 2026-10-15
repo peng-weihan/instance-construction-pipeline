@@ -1,0 +1,69 @@
+{
+  "repo": "cvxgrp/cvxportfolio",
+  "revision": "351c782b9b8b395c1a5f886b77e0d55f1bc9396e",
+  "resolved_utc": "2026-10-15T15:00:01.237397+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:02:24.985275+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "66401a0909319acab4f8d852f0907eae93e612b44dd0473a52b94b52a1dd86b4",
+    "truncated": false,
+    "blob_count": 182
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 35150,
+      "sha256": "e57f1c320b8cf8798a7d2ff83a6f9e06a33a03585f6e065fea97f1d86db84052",
+      "url": "https://github.com/cvxgrp/cvxportfolio/blob/351c782b9b8b395c1a5f886b77e0d55f1bc9396e/LICENSE"
+    },
+    {
+      "path": "README.rst",
+      "bytes": 13720,
+      "sha256": "f5a9e1678978fe960e8f9aaf4931ed0e3d8413e5c87bf6aaf838c39d1882a3eb",
+      "url": "https://github.com/cvxgrp/cvxportfolio/blob/351c782b9b8b395c1a5f886b77e0d55f1bc9396e/README.rst"
+    },
+    {
+      "path": "cvxportfolio/costs.py",
+      "bytes": 44414,
+      "sha256": "04c0940134d90e98ff9c8dee2c6fd7071977579c262a85b582fb4b6db0bf1aef",
+      "url": "https://github.com/cvxgrp/cvxportfolio/blob/351c782b9b8b395c1a5f886b77e0d55f1bc9396e/cvxportfolio/costs.py"
+    },
+    {
+      "path": "cvxportfolio/simulator.py",
+      "bytes": 37060,
+      "sha256": "9e60920b4a5eaa0b32d7c3b0df30add13f27269a103c665cb338c878d6e9d3f3",
+      "url": "https://github.com/cvxgrp/cvxportfolio/blob/351c782b9b8b395c1a5f886b77e0d55f1bc9396e/cvxportfolio/simulator.py"
+    },
+    {
+      "path": "cvxportfolio/tests/returns.csv",
+      "bytes": 156730,
+      "sha256": "eefdfdc7efc0c4bc3b522b947ec61e5551c60263c291d28d60bbe083f82a6742",
+      "url": "https://github.com/cvxgrp/cvxportfolio/blob/351c782b9b8b395c1a5f886b77e0d55f1bc9396e/cvxportfolio/tests/returns.csv"
+    },
+    {
+      "path": "cvxportfolio/tests/test_simulator.py",
+      "bytes": 48435,
+      "sha256": "29a60b9343aa04942d8b84ea68f83b41901c491eb24510098f4162f142643904",
+      "url": "https://github.com/cvxgrp/cvxportfolio/blob/351c782b9b8b395c1a5f886b77e0d55f1bc9396e/cvxportfolio/tests/test_simulator.py"
+    },
+    {
+      "path": "cvxportfolio/tests/volumes.csv",
+      "bytes": 116620,
+      "sha256": "e07f89cf26a64e49dc4a17470fc93b4841bbda81a6ef985cb298a41f6d7d57a2",
+      "url": "https://github.com/cvxgrp/cvxportfolio/blob/351c782b9b8b395c1a5f886b77e0d55f1bc9396e/cvxportfolio/tests/volumes.csv"
+    },
+    {
+      "path": "examples/market_neutral.py",
+      "bytes": 4781,
+      "sha256": "23787813a3e1ece76b73d4a5321acf3488ccf98c1983172c0c65758b7d61d59d",
+      "url": "https://github.com/cvxgrp/cvxportfolio/blob/351c782b9b8b395c1a5f886b77e0d55f1bc9396e/examples/market_neutral.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

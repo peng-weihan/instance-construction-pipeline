@@ -1,0 +1,93 @@
+{
+  "repo": "wireshark/wireshark",
+  "revision": "455e49bcca6882e317d83d76feb86cf88a27df1f",
+  "resolved_utc": "2026-10-15T13:31:17.340138+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:32:58.455315+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "891d5c8dc050bcd2cf9499f7f03383e8ce1178930df46b74dd825596b06d1935",
+    "truncated": false,
+    "blob_count": 7867
+  },
+  "files_acquired": [
+    {
+      "path": "CMakeLists.txt",
+      "bytes": 177208,
+      "sha256": "cace9473e5532bee4d3621fa388e087965100e5b43a87fda978619702ea8eb6c",
+      "url": "https://github.com/wireshark/wireshark/blob/455e49bcca6882e317d83d76feb86cf88a27df1f/CMakeLists.txt"
+    },
+    {
+      "path": "COPYING",
+      "bytes": 17984,
+      "sha256": "edaef632cbb643e4e7a221717a6c441a4c1a7c918e6e4d56debc3d8739b233f6",
+      "url": "https://github.com/wireshark/wireshark/blob/455e49bcca6882e317d83d76feb86cf88a27df1f/COPYING"
+    },
+    {
+      "path": "README.DECT",
+      "bytes": 1274,
+      "sha256": "43198d9c503c0c407907817721f93d0440854a8a9b44d3331e9f8a8cdf0488b4",
+      "url": "https://github.com/wireshark/wireshark/blob/455e49bcca6882e317d83d76feb86cf88a27df1f/README.DECT"
+    },
+    {
+      "path": "README.bsd",
+      "bytes": 2968,
+      "sha256": "29c49815cb965e5159f9a73fa7d2bc1702143d53bf1be96d53982bcbc73d876f",
+      "url": "https://github.com/wireshark/wireshark/blob/455e49bcca6882e317d83d76feb86cf88a27df1f/README.bsd"
+    },
+    {
+      "path": "README.linux",
+      "bytes": 5648,
+      "sha256": "84733b2a7df664e9de7f01a82cd8e16a72e85ac4fcbf7928d65b2eeeddd8dfd4",
+      "url": "https://github.com/wireshark/wireshark/blob/455e49bcca6882e317d83d76feb86cf88a27df1f/README.linux"
+    },
+    {
+      "path": "README.macos",
+      "bytes": 6789,
+      "sha256": "b9315216b6609c13135d5110b2f2278264535b060304afec3f3cc98e91c50f3c",
+      "url": "https://github.com/wireshark/wireshark/blob/455e49bcca6882e317d83d76feb86cf88a27df1f/README.macos"
+    },
+    {
+      "path": "README.md",
+      "bytes": 10429,
+      "sha256": "4fa734571eb7e326f7bdacb527ccf269f63021f94afd9aa67b16d7ca2f454075",
+      "url": "https://github.com/wireshark/wireshark/blob/455e49bcca6882e317d83d76feb86cf88a27df1f/README.md"
+    },
+    {
+      "path": "README.msys2",
+      "bytes": 413,
+      "sha256": "3b8510ab990f76068ba33b3d5b9fa40024a6ae2193f7078087751f64d618fc14",
+      "url": "https://github.com/wireshark/wireshark/blob/455e49bcca6882e317d83d76feb86cf88a27df1f/README.msys2"
+    },
+    {
+      "path": "epan/dfilter/dfilter.c",
+      "bytes": 23060,
+      "sha256": "d8db0183906afae3427c5e0739bb7ea35dd075fafe64f019d347c8941a790591",
+      "url": "https://github.com/wireshark/wireshark/blob/455e49bcca6882e317d83d76feb86cf88a27df1f/epan/dfilter/dfilter.c"
+    },
+    {
+      "path": "epan/dissectors/packet-tcp.c",
+      "bytes": 526001,
+      "sha256": "80a3830673b64c6cb667eaad07123bb915914effb1769555c6bae2994f4f3093",
+      "url": "https://github.com/wireshark/wireshark/blob/455e49bcca6882e317d83d76feb86cf88a27df1f/epan/dissectors/packet-tcp.c"
+    },
+    {
+      "path": "epan/reassemble.c",
+      "bytes": 114870,
+      "sha256": "4779943a2db2a592300a320912c911755067a33e88fff9bf9f350a23e46f7260",
+      "url": "https://github.com/wireshark/wireshark/blob/455e49bcca6882e317d83d76feb86cf88a27df1f/epan/reassemble.c"
+    },
+    {
+      "path": "test/suite_dissection.py",
+      "bytes": 210530,
+      "sha256": "43f866e00fc8a60ec6b84cdf3762c44a6a8ed3db5f2ce8520846c4cf2be55c6a",
+      "url": "https://github.com/wireshark/wireshark/blob/455e49bcca6882e317d83d76feb86cf88a27df1f/test/suite_dissection.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

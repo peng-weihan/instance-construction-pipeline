@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/authoring/evidence/infra-venv/bin/python",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/tests/grader.py",
+    "--candidate",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/solution/reference",
+    "--output",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/authoring/evidence/infra-failure"
+  ],
+  "exit": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/tests/grader.py\", line 104, in <module>\n    main()\n  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/tests/grader.py\", line 95, in main\n    result = grade(args.candidate.resolve())\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/tests/grader.py\", line 55, in grade\n    raise RuntimeError(\"judge dependency missing: \" + dependency)\nRuntimeError: judge dependency missing: httpx\n",
+  "reward_file_exists": false
+}

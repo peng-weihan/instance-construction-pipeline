@@ -1,0 +1,14 @@
+{
+  "formula": "mean(0.8*win+0.2*win*max(0,(45-turns_to_win)/44))",
+  "constants": {
+    "win_weight": 0.8,
+    "efficiency_weight": 0.2,
+    "turn_cap": 45,
+    "earliest_turn": 1
+  },
+  "draw_score": 0,
+  "loss_score": 0,
+  "feedback_matches": 12,
+  "feedback_deadline_target_seconds": 600,
+  "baseline_score": null
+}

@@ -1,0 +1,40 @@
+{
+  "task_id": "wesnoth_frontier_campaign_ai",
+  "category": "Interactive Games & Simulators",
+  "title": "Wesnoth 多地形经济与战术 AI",
+  "anchor": "wesnoth_tactical_ai",
+  "status": "constructed_unverified",
+  "sources": [
+    {
+      "repository": "https://github.com/wesnoth/wesnoth.git",
+      "commit": "8ba2b3ebd33f6850c2dc4fe7c6478c7e4f9fc3fd",
+      "files": [
+        {
+          "path": "data/ai/ais/ai_default_rca.cfg",
+          "sha256": "1f328b5a086523c278458b711e0e80b6913863aa92e00dcd4a7db6ffabdc0850"
+        },
+        {
+          "path": "data/multiplayer/scenarios/2p_The_Freelands.cfg",
+          "sha256": "8c26bf033ab19e9d61ddc0097efe98963b438cc2c15e0504e7dd997b09073fca"
+        }
+      ],
+      "acquired": true,
+      "runtime_verified": false
+    }
+  ],
+  "authoring": "interactive source inspection + deterministic construction scripts; no independent CLI model run",
+  "long_horizon_potential": "design hypothesis, not an observed six-hour curve",
+  "empirical_training_benefit": null,
+  "accepted": false,
+  "progression": [
+    "合法 CA 与招募/占村经济",
+    "地形、时段与阵营驱动的战术协同",
+    "多场景稳健性、胜率与获胜效率"
+  ],
+  "construction_gaps": [
+    "Authored WML/maps have not been loaded by the game; fairness/playability and match cost are unmeasured.",
+    "Engine dependencies and immutable scenario/verifier packaging pending."
+  ],
+  "runtime_verification": "deferred_by_user",
+  "construction_stage": "materials_and_spec_constructed"
+}

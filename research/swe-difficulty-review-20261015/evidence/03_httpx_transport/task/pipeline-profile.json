@@ -1,0 +1,7 @@
+{
+  "agent_image": "edgebench-httpx-ledger-agent:1.0.0-draft",
+  "verifier_image": "edgebench-httpx-ledger-verifier:1.0.0-draft",
+  "artifacts": ["/home/workspace/httpx/submission/httpx"],
+  "selection": "valid_then_score",
+  "score_direction": "maximize"
+}

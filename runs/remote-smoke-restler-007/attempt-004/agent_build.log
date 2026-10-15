@@ -1,0 +1,54 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 810B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu@sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 66B done
+#3 DONE 0.0s
+
+#4 [1/9] FROM docker.io/library/ubuntu@sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55
+#4 resolve docker.io/library/ubuntu@sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55 done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 42.69kB 0.0s done
+#5 DONE 0.0s
+
+#6 [5/9] COPY public /opt/public
+#6 CACHED
+
+#7 [2/9] RUN apt-get update && apt-get install -y --no-install-recommends python3 python3-venv python3-pip bubblewrap git curl ca-certificates build-essential cmake ninja-build pkg-config && rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [7/9] RUN python /opt/capture_build.py
+#8 CACHED
+
+#9 [3/9] RUN python3 -m venv /opt/runtime/venv
+#9 CACHED
+
+#10 [4/9] RUN python -m pip install --no-cache-dir numpy==2.2.6 scipy==1.15.3 shapely==2.1.1 applicationinsights==0.11.10 requests==2.32.4 pytest==8.4.1 cmake==3.31.6
+#10 CACHED
+
+#11 [6/9] COPY capture_build.py /opt/capture_build.py
+#11 CACHED
+
+#12 [8/9] RUN mkdir /workspace && cp -a /opt/public/. /workspace/
+#12 CACHED
+
+#13 [9/9] WORKDIR /workspace
+#13 CACHED
+
+#14 exporting to image
+#14 exporting layers done
+#14 exporting manifest sha256:4a9026cb6901757aedee2abf147d5647863007b7e1de2f2cf943cf8fee487b84 done
+#14 exporting config sha256:dadb02310ae232468c8b76d8a5a8652df41b736cb6f0b5c08fa8e96ffb974530 done
+#14 exporting attestation manifest sha256:645993263be90fc376cd80131526d891075d3c0249599aaae51ee33b024ec9cf done
+#14 exporting manifest list sha256:7373190bdb9eb5e3bffbebd6968eff036bf28ed61df33d0c9261b464306ae23b done
+#14 naming to docker.io/library/edge-raymone-agent:8cd3bfc2a671 done
+#14 unpacking to docker.io/library/edge-raymone-agent:8cd3bfc2a671 done
+#14 DONE 0.1s

@@ -1,0 +1,73 @@
+{
+  "scope": "construction-only file integrity, counts and source partition inspection; no solution or verifier run",
+  "runtime_runs": 0,
+  "candidates": {
+    "brownian_multibranch_proofs": {
+      "files": 120,
+      "hashes_match": true,
+      "budget_seconds": 21600,
+      "targets": 31,
+      "files_with_targets": 5,
+      "removed_proof_lines": 983
+    },
+    "cross_asset_adaptive_allocator": {
+      "files": 21,
+      "hashes_match": true,
+      "budget_seconds": 21600,
+      "data": {
+        "source_sha256": "00213a0f32a454e32cb76ad29b87fc203e1817090386b2375326b01e6186f906",
+        "upstream_declared_source": "yfinance",
+        "independently_verified_market_prices": false,
+        "counts": {
+          "train": 2414,
+          "dev": 1006,
+          "feedback": 756,
+          "audit": 752
+        },
+        "rights": "repository MIT covers code; underlying market-data terms not established"
+      }
+    },
+    "industrial_nesting_improvement": {
+      "files": 1070,
+      "hashes_match": true,
+      "budget_seconds": 21600,
+      "workloads": 27
+    },
+    "layered_aquifer_source_lab": {
+      "files": 16,
+      "hashes_match": true,
+      "budget_seconds": 21600,
+      "observations": {
+        "public": {
+          "rows": 96,
+          "censored": 43,
+          "max_concentration": 0.01110466518718105,
+          "nonzero": 53
+        },
+        "feedback": {
+          "rows": 96,
+          "censored": 0,
+          "max_concentration": 0.00996580894065619,
+          "nonzero": 96
+        },
+        "audit": {
+          "rows": 180,
+          "censored": 0,
+          "max_concentration": 0.0180314068402618,
+          "nonzero": 180
+        }
+      }
+    },
+    "restler_resilient_execution": {
+      "files": 476,
+      "hashes_match": true,
+      "budget_seconds": 21600
+    },
+    "wesnoth_frontier_campaign_ai": {
+      "files": 48,
+      "hashes_match": true,
+      "budget_seconds": 21600,
+      "maps": 9
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "02_restler_recovery",
+  "repo": "microsoft/restler-fuzzer",
+  "revision": "6d984deedbc54aad957fa3da0c7e9e5df23a2aee",
+  "family": "engineering_evolution",
+  "new_source": false,
+  "title": "真实campaign的崩溃恢复与状态一致性",
+  "files": [
+    "README.md",
+    "restler/utils/saver.py",
+    "restler/engine/core/driver.py",
+    "docs/user-guide/Replay.md"
+  ],
+  "retrieved_utc": "2026-10-15T09:20:29.725298+00:00",
+  "files_acquired": [
+    {
+      "path": "README.md",
+      "bytes": 9690,
+      "sha256": "d2aab30caf88bdde3e0256b29d8631640cb266096ab8e3dd48b2cb12cd0e0974",
+      "url": "https://github.com/microsoft/restler-fuzzer/blob/6d984deedbc54aad957fa3da0c7e9e5df23a2aee/README.md"
+    },
+    {
+      "path": "restler/engine/core/driver.py",
+      "bytes": 45452,
+      "sha256": "bb7c4f56294d775f9fc813a60d10b1c6ad4b21b334fe679a397c2289def19f60",
+      "url": "https://github.com/microsoft/restler-fuzzer/blob/6d984deedbc54aad957fa3da0c7e9e5df23a2aee/restler/engine/core/driver.py"
+    },
+    {
+      "path": "docs/user-guide/Replay.md",
+      "bytes": 6666,
+      "sha256": "55d060251662257b0f535df3910c2dc4c2f7125c2fe879966a1539ad88bf69d0",
+      "url": "https://github.com/microsoft/restler-fuzzer/blob/6d984deedbc54aad957fa3da0c7e9e5df23a2aee/docs/user-guide/Replay.md"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1141,
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "url": "https://github.com/microsoft/restler-fuzzer/blob/6d984deedbc54aad957fa3da0c7e9e5df23a2aee/LICENSE"
+    },
+    {
+      "path": "restler/utils/saver.py",
+      "bytes": 3670,
+      "sha256": "10393b9e1239b0bbb9b6cb884b77050beee03ca2a2e4dd7394f9d5b237b4c1ed",
+      "url": "https://github.com/microsoft/restler-fuzzer/blob/6d984deedbc54aad957fa3da0c7e9e5df23a2aee/restler/utils/saver.py"
+    }
+  ],
+  "missing_paths": [
+    "LICENSE.txt",
+    "LICENSE.md",
+    "COPYING",
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "runtime_validation": false,
+  "six_hour_difficulty_verified": false,
+  "tree_manifest": {
+    "path": "git-tree.json",
+    "sha256": "b5aeb5f2293ba742adddad3cbab3aff6d81ed54efdce72f72de85fa6f387e206",
+    "blob_count": 476,
+    "truncated": false
+  },
+  "resolved_initial_404_paths": {
+    "restler/engine/core/saver.py": "restler/utils/saver.py"
+  },
+  "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+}

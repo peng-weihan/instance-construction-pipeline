@@ -1,0 +1,802 @@
+[
+  {
+    "id": "28_alembic",
+    "tier": "A",
+    "potential": "high",
+    "authoring_cost": "medium",
+    "recommended_scope": "显式 rename intent 的完整迁移交付：在 SQLite/固定 PostgreSQL 上将目标 metadata 与已声明旧名合成可审查、保数据、可逆的重构版本；覆盖关联约束与同次属性变更。",
+    "difficulty_reason": "差分按对象名称集合工作，而迁移应保持对象身份和数据。重命名意图必须贯穿反射、操作图顺序、渲染、真实 DDL 和反向迁移；完成一次 rename 并未完成这一交付。",
+    "shortcut_risk": "原生 RenameTableOp、alter_column 和 Rewriter 已足够处理简单场景。现成插件可能覆盖完整合同，不能把 rename API 或自动推断任意重命名当新能力。",
+    "judge_plan": "独立 Inspector/数据快照检查两后端 schema 与记录；执行 upgrade→downgrade→upgrade 并再次 autogenerate 检查无虚假差分；错误意图应在执行前拒绝。",
+    "residual_milestones": [
+      "建立意图的对象身份校验与依赖操作排序，联合表/列 rename 和约束/属性变化。",
+      "让渲染与逆向操作在实际数据库保持数据，加入冲突/过期意图诊断及重复生成一致性。"
+    ],
+    "first_probe": "用最短 Rewriter 加正常插件先做关联表/列 rename，并用真实数据执行升级降级；再叠加一个同次属性变化。",
+    "stop_condition": "若正常插件和薄配置已经完成整个有状态往返合同，或范围只能缩成单次名称替换，则降为 C。",
+    "evidence": [
+      {
+        "path": "sources/28_alembic/files/alembic/autogenerate/compare/tables.py",
+        "line": 83,
+        "claim": "反射与目标表名集合比较，新增/删除/共有表走不同路径",
+        "url": "https://github.com/sqlalchemy/alembic/blob/1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd/alembic/autogenerate/compare/tables.py#L83",
+        "upstream_path": "alembic/autogenerate/compare/tables.py"
+      },
+      {
+        "path": "sources/28_alembic/files/tests/test_autogen_diffs.py",
+        "line": 1837,
+        "claim": "原生回归验证操作反转及 schema 对象结构",
+        "url": "https://github.com/sqlalchemy/alembic/blob/1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd/tests/test_autogen_diffs.py#L1837",
+        "upstream_path": "tests/test_autogen_diffs.py"
+      },
+      {
+        "path": "sources/28_alembic/files/docs/build/autogenerate.rst",
+        "line": 162,
+        "claim": "自动生成不推断表/列重命名，不能把 rename 操作本身冒称新增",
+        "url": "https://github.com/sqlalchemy/alembic/blob/1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd/docs/build/autogenerate.rst#L162",
+        "upstream_path": "docs/build/autogenerate.rst"
+      },
+      {
+        "path": "sources/28_alembic/files/alembic/operations/ops.py",
+        "line": 1444,
+        "claim": "原生 RenameTableOp 已存在，是必须纳入的强基线",
+        "url": "https://github.com/sqlalchemy/alembic/blob/1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd/alembic/operations/ops.py#L1444",
+        "upstream_path": "alembic/operations/ops.py"
+      }
+    ],
+    "caveat": "A 表示值得制作基线，不表示已证实现有插件无解。双后端运行与外键/名称交换的跨模块推断待主验证；未构造 starter。",
+    "read_scope": [
+      {
+        "path": "research/software-materials-expansion-20261015/sources/28_alembic/files/alembic/autogenerate/compare/tables.py",
+        "line_start": 83,
+        "line_end": 128,
+        "kind": "implementation"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/28_alembic/files/tests/test_autogen_diffs.py",
+        "line_start": 1837,
+        "line_end": 1887,
+        "kind": "test_or_spec"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/28_alembic/files/docs/build/autogenerate.rst",
+        "line_start": 150,
+        "line_end": 180,
+        "kind": "test_or_spec"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/28_alembic/files/alembic/operations/ops.py",
+        "line_start": 1444,
+        "line_end": 1490,
+        "kind": "implementation"
+      }
+    ]
+  },
+  {
+    "id": "29_sphinx",
+    "tier": "C",
+    "potential": "medium",
+    "authoring_cost": "medium",
+    "recommended_scope": "先保留为指纹增量构建产品的小规模探针；仅当现有事件扩展无法完整处理缓存重载、迁移与并行失效时，再扩成完整构建交付。",
+    "difficulty_reason": "依赖清理、并行合并和读写集合一致性存在可观语义，但当前拟新增主要是 mtime→hash 与原因清单，尚没有证据显示超过成熟扩展适配。",
+    "shortcut_risk": "env-get-outdated、purge、merge、source-read 已提供扩展点；标准 hash 插件加全量构建 oracle 很可能覆盖，单独导出 JSON 易成短题。",
+    "judge_plan": "同项目 fresh build 对比语义 HTML，并由独立 source-read 观测重读集合；保留无关文档不重读的事先合同，不能靠自报原因清单评分。",
+    "residual_milestones": [
+      "对共享依赖删除/重现与 autodoc 依赖变化给出稳定指纹失效。",
+      "跨进程并行合并及目录迁移后继续缓存，原因清单和输出与 fresh build 一致。"
+    ],
+    "first_probe": "用原生事件扩展实现保留 mtime 的 include 修改、迁移缓存、串并行重跑三个旅程。",
+    "stop_condition": "若短扩展已覆盖整个合同，当前方向停止升格；不要靠禁止扩展或增加文件量制造难度。",
+    "evidence": [
+      {
+        "path": "sources/29_sphinx/files/sphinx/environment/__init__.py",
+        "line": 849,
+        "claim": "已有 _has_doc_changed 以 source/dependency mtime 与缺失状态判定",
+        "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/sphinx/environment/__init__.py#L849",
+        "upstream_path": "sphinx/environment/__init__.py"
+      },
+      {
+        "path": "sources/29_sphinx/files/tests/test_environment/test_environment_record_dependencies.py",
+        "line": 14,
+        "claim": "原生测试验证 autodoc Python 模块依赖",
+        "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/tests/test_environment/test_environment_record_dependencies.py#L14",
+        "upstream_path": "tests/test_environment/test_environment_record_dependencies.py"
+      },
+      {
+        "path": "sources/29_sphinx/files/doc/extdev/event_callbacks.rst",
+        "line": 32,
+        "claim": "env-get-outdated/purge/merge 等事件已提供扩展入口",
+        "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/doc/extdev/event_callbacks.rst#L32",
+        "upstream_path": "doc/extdev/event_callbacks.rst"
+      }
+    ],
+    "caveat": "现有失效系统和完整事件链已存在；本次只读关键切片，未核实外部插件生态或执行构建。",
+    "read_scope": [
+      {
+        "path": "research/software-materials-expansion-20261015/sources/29_sphinx/files/sphinx/environment/__init__.py",
+        "line_start": 849,
+        "line_end": 895,
+        "kind": "implementation"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/29_sphinx/files/tests/test_environment/test_environment_record_dependencies.py",
+        "line_start": 14,
+        "line_end": 17,
+        "kind": "test_or_spec"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/29_sphinx/files/doc/extdev/event_callbacks.rst",
+        "line_start": 32,
+        "line_end": 83,
+        "kind": "test_or_spec"
+      }
+    ]
+  },
+  {
+    "id": "30_mitmproxy",
+    "tier": "A",
+    "potential": "high",
+    "authoring_cost": "medium",
+    "recommended_scope": "会话隔离的离线 HTTP 场景回放：声明多步依赖、捕获和替换动态变量、取消/失败后继处理、保存重载及旧 replay 兼容。",
+    "difficulty_reason": "动态值身份必须从响应传播到后续请求；全局 replay 队列不等于多会话依赖调度。交错会话、响应消费、任务取消和不可变录制共同构成自然剩余工作。",
+    "shortcut_risk": "原生 addon、metadata 和回放队列可承担大量功能；若现成工作流/捕获插件已完整覆盖，不应禁止使用。简单 token 替换不是高难交付。",
+    "judge_plan": "loopback 服务用显式 barrier 驱动交错并记录 token/ID/请求顺序；外部观察失败后未发出的依赖请求、连接清理与重载重复性，回归旧 client/server replay。",
+    "residual_milestones": [
+      "场景校验、变量作用域和依赖调度连接到 client/server replay，保证多会话响应归属。",
+      "取消/失败清理、保存重载与重复执行报告闭环，保持录制内容及旧命令语义。"
+    ],
+    "first_probe": "最小 addon 捕获 JSON ID 并替换 path/header，跑两个交错会话加一次中途取消；同时允许原生插件组合。",
+    "stop_condition": "若正常配置/薄 addon 已使隔离、依赖失败、取消和重载全成立，则重设范围为短题。",
+    "evidence": [
+      {
+        "path": "sources/30_mitmproxy/files/mitmproxy/addons/clientplayback.py",
+        "line": 174,
+        "claim": "现有执行器使用全局请求队列与串行或无限并发模式",
+        "url": "https://github.com/mitmproxy/mitmproxy/blob/77355977e5ea540b51ed029a40ed1dc2f1c2ba7b/mitmproxy/addons/clientplayback.py#L174",
+        "upstream_path": "mitmproxy/addons/clientplayback.py"
+      },
+      {
+        "path": "sources/30_mitmproxy/files/test/mitmproxy/addons/test_serverplayback.py",
+        "line": 209,
+        "claim": "原生测试覆盖队列顺序与响应消费",
+        "url": "https://github.com/mitmproxy/mitmproxy/blob/77355977e5ea540b51ed029a40ed1dc2f1c2ba7b/test/mitmproxy/addons/test_serverplayback.py#L209",
+        "upstream_path": "test/mitmproxy/addons/test_serverplayback.py"
+      }
+    ],
+    "caveat": "缺口是拟议产品合同，不是断言插件生态不存在能力。完整取消、持久化跨模块关系待主验证；没有运行或构造 starter。",
+    "read_scope": [
+      {
+        "path": "research/software-materials-expansion-20261015/sources/30_mitmproxy/files/mitmproxy/addons/clientplayback.py",
+        "line_start": 174,
+        "line_end": 230,
+        "kind": "implementation"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/30_mitmproxy/files/test/mitmproxy/addons/test_serverplayback.py",
+        "line_start": 209,
+        "line_end": 254,
+        "kind": "test_or_spec"
+      }
+    ]
+  },
+  {
+    "id": "41_curl",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "medium",
+    "recommended_scope": "HTTP/1.1 传输 CLI 的有限但完整兼容旅程：重定向/重试/续传/输出文件和稳定错误退出；先冻结精确可执行选项合同。",
+    "difficulty_reason": "下载写入状态与重试、Range、错误分类相互影响，正确性不仅是收到 HTTP body；保留 partial file、避免重复写入及失败退出会跨越传输和 CLI。",
+    "shortcut_risk": "libcurl 绑定是合法强基线；很多网络/协议语义直接获得，不能以禁 libcurl 人为制造难度。当前有限选项可能只剩适配。",
+    "judge_plan": "可控本地 HTTP 故障服务记录实际请求/Range/重定向链；比较目标文件字节、stdout/stderr、退出码。用明确时钟或短固定时间预算避免退避等待计难度。",
+    "residual_milestones": [
+      "完成请求选项到传输状态映射及重定向/重试的错误优先级。",
+      "在中断→重试→续传旅程上维护输出文件位置和字节完整性，并保留 CLI 退出行为。"
+    ],
+    "first_probe": "直接用 libcurl 绑定加参数解析器完成一条断连后续传和一条重定向后重试旅程。",
+    "stop_condition": "若绑定已提供全部需要的状态，仅需薄参数映射就通过合同，降为 C 或换更完整自然交付。",
+    "evidence": [
+      {
+        "path": "sources/41_curl/files/src/tool_operate.c",
+        "line": 332,
+        "claim": "输出文件在重试中可否续传的严格前提",
+        "url": "https://github.com/curl/curl/blob/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c/src/tool_operate.c#L332"
+      },
+      {
+        "path": "sources/41_curl/files/tests/data/test207",
+        "line": 38,
+        "claim": "chunked传输提前断开返回CURLE_PARTIAL_FILE",
+        "url": "https://github.com/curl/curl/blob/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c/tests/data/test207#L38"
+      }
+    ],
+    "caveat": "高上限来自可能的 CLI 状态交互，实际剩余实现量未证实；测试207只证明提前断开的已有行为。",
+    "read_scope": [
+      {
+        "path": "research/software-materials-expansion-20261015/sources/41_curl/files/src/tool_operate.c",
+        "line_start": 332,
+        "line_end": 380,
+        "kind": "implementation"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/41_curl/files/tests/data/test207",
+        "line_start": 1,
+        "line_end": 62,
+        "kind": "test_or_spec"
+      }
+    ]
+  },
+  {
+    "id": "42_cmark_gfm",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "medium",
+    "recommended_scope": "可嵌入 GFM 库与 CLI 的解析→AST/源位置→扩展节点→HTML 一致兼容，明确受支持扩展及分块输入。",
+    "difficulty_reason": "文本到节点的边界在 table/inline、转义和 Unicode 中要同时满足结构、源位置及渲染；单纯 HTML 转换不能自动得到兼容 AST/API。",
+    "shortcut_risk": "成熟 Markdown 实现和 AST/sourcepos 适配可大幅降低工作量；主流解析库若已经对齐合同，不应再禁库。",
+    "judge_plan": "固定 reference 差分 AST/源位置/HTML，另检查源跨度与父子结构，以及任意合法分块边界下结果一致；规范样例不能直接全复制隐藏评测。",
+    "residual_milestones": [
+      "选定成熟解析基线并统一 table/inline 扩展的节点和源跨度语义。",
+      "实现 API/CLI、分块输入和渲染选项共同合同，覆盖节点修改后渲染。"
+    ],
+    "first_probe": "用一个成熟 GFM 库适配 table+inline 的 AST/sourcepos，并让同一文档分块喂入后比较三种输出。",
+    "stop_condition": "若 parser 已提供精确源跨度及扩展 AST，仅需字段改名，则降为 C；若需靠完整手写 CommonMark 才撑大则重审作者成本。",
+    "evidence": [
+      {
+        "path": "sources/42_cmark_gfm/files/extensions/table.c",
+        "line": 189,
+        "claim": "table行解析与inline内容、空cell和pipe处理",
+        "url": "https://github.com/github/cmark-gfm/blob/27d942c8b0a62d192f616e5bf3578f4b6a89e180/extensions/table.c#L189"
+      },
+      {
+        "path": "sources/42_cmark_gfm/files/api_test/main.c",
+        "line": 996,
+        "claim": "source position API场景",
+        "url": "https://github.com/github/cmark-gfm/blob/27d942c8b0a62d192f616e5bf3578f4b6a89e180/api_test/main.c#L996"
+      }
+    ],
+    "caveat": "B 的关键未知是成熟库行为差距；分块和修改 API 尚未具体锁定。测试文本 CC-BY-SA 与代码许可需分别处理。",
+    "read_scope": [
+      {
+        "path": "research/software-materials-expansion-20261015/sources/42_cmark_gfm/files/extensions/table.c",
+        "line_start": 189,
+        "line_end": 236,
+        "kind": "implementation"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/42_cmark_gfm/files/api_test/main.c",
+        "line_start": 996,
+        "line_end": 1045,
+        "kind": "test_or_spec"
+      }
+    ]
+  },
+  {
+    "id": "43_tox",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "medium",
+    "recommended_scope": "共享 CI 的资源租约+依赖矩阵+可恢复完成记录，限定本机资源容量和可声明输入；失败与 SIGINT 后资源可再次使用。",
+    "difficulty_reason": "完成集合、依赖就绪、资源容量和中断回收需要统一调度状态；恢复只能复用真实成功且输入未变的环境，可能形成跨运行身份语义。",
+    "shortcut_risk": "tox 已有 depends、线程池、中断；filelock/flock+result_json+缓存脚本可能足额。若成熟 CI 资源组可直接满足，应作为合法竞争方案。",
+    "judge_plan": "独立 helper 记录获取/释放、并发容量和命令副作用；barrier 驱动失败/中断再启动，改变一个输入后检查只重跑受影响环境。",
+    "residual_milestones": [
+      "将资源租约纳入 depends 就绪判断和执行生命周期，处理取消及正常归还。",
+      "持久化完成身份与输入指纹，重启后筛出可复用结果并与变化依赖一致。"
+    ],
+    "first_probe": "先用 flock+现有 journal/results 包装依赖矩阵，做一次持锁 SIGINT 后恢复与一次输入变更重跑。",
+    "stop_condition": "若简单包装已覆盖容量、无泄漏和恢复的完整合同，则降级；若需未声明外部状态推断才能恢复，停止该规格。",
+    "evidence": [
+      {
+        "path": "sources/43_tox/files/src/tox/session/cmd/run/common.py",
+        "line": 424,
+        "claim": "已有线程池、完成集合和就绪环境调度",
+        "url": "https://github.com/tox-dev/tox/blob/d947dd4e43388f727bb534c3f0ad7997d76b4767/src/tox/session/cmd/run/common.py#L424",
+        "upstream_path": "src/tox/session/cmd/run/common.py"
+      },
+      {
+        "path": "sources/43_tox/files/tests/session/cmd/test_depends.py",
+        "line": 15,
+        "claim": "真实项目测试检查 wheel 构建环境与 depends 拓扑",
+        "url": "https://github.com/tox-dev/tox/blob/d947dd4e43388f727bb534c3f0ad7997d76b4767/tests/session/cmd/test_depends.py#L15",
+        "upstream_path": "tests/session/cmd/test_depends.py"
+      },
+      {
+        "path": "sources/43_tox/files/src/tox/session/cmd/run/common.py",
+        "line": 231,
+        "claim": "已有中断及 journal/结果处理，必须复用而非重做",
+        "url": "https://github.com/tox-dev/tox/blob/d947dd4e43388f727bb534c3f0ad7997d76b4767/src/tox/session/cmd/run/common.py#L231",
+        "upstream_path": "src/tox/session/cmd/run/common.py"
+      }
+    ],
+    "caveat": "恢复语义是拟议合同，不是断言现有插件完全缺失。未读插件钩子全链，调度与恢复耦合待主验证。",
+    "read_scope": [
+      {
+        "path": "research/software-materials-expansion-20261015/sources/43_tox/files/src/tox/session/cmd/run/common.py",
+        "line_start": 424,
+        "line_end": 480,
+        "kind": "implementation"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/43_tox/files/tests/session/cmd/test_depends.py",
+        "line_start": 15,
+        "line_end": 68,
+        "kind": "test_or_spec"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/43_tox/files/src/tox/session/cmd/run/common.py",
+        "line_start": 231,
+        "line_end": 278,
+        "kind": "implementation"
+      }
+    ]
+  },
+  {
+    "id": "44_hatch",
+    "tier": "C",
+    "potential": "medium",
+    "authoring_cost": "medium",
+    "recommended_scope": "离线多环境 bundle 的可移交安装交付，可作为短题素材；在成熟 locker/wheelhouse 基线上先找确实无法闭合的业务需求。",
+    "difficulty_reason": "平台/环境/工件身份和缺失诊断有一定广度，但当前范围的核心解析、哈希、extras/groups、来源处理已经委托成熟 uv/pip。打包目录本身不足以支撑高难。",
+    "shortcut_risk": "PEP751 锁与 uv/pip 离线缓存、wheelhouse、普通归档脚本天然组合；禁止这些会改变真实任务价值。",
+    "judge_plan": "预装离线环境中迁移目录，禁网安装并运行脚本，检查输入锁/工件身份和错误位置；不能用 venv 跨架构搬运误设规格。",
+    "residual_milestones": [
+      "收齐已声明目标平台和环境的锁定 wheels/项目工件并记录身份。",
+      "迁移包后离线安装运行，对缺失或不支持工件给可审计诊断。"
+    ],
+    "first_probe": "原生 env lock+uv/pip wheelhouse 归档，换目录禁网安装两个环境并执行项目命令。",
+    "stop_condition": "若正常工具链直接完成，不继续堆更多环境数；若多平台没有实际可复现实验资源，停止该范围。",
+    "evidence": [
+      {
+        "path": "sources/44_hatch/files/src/hatch/env/lockers/uv.py",
+        "line": 66,
+        "claim": "现有 uv compile 使用哈希、extras/groups 与源参数",
+        "url": "https://github.com/pypa/hatch/blob/ac9c0c9544795b380c2a5f63f80c1f46db3c5d4c/src/hatch/env/lockers/uv.py#L66",
+        "upstream_path": "src/hatch/env/lockers/uv.py"
+      },
+      {
+        "path": "sources/44_hatch/files/tests/cli/env/test_lock.py",
+        "line": 376,
+        "claim": "真实测试已有锁文件内容同步判定",
+        "url": "https://github.com/pypa/hatch/blob/ac9c0c9544795b380c2a5f63f80c1f46db3c5d4c/tests/cli/env/test_lock.py#L376",
+        "upstream_path": "tests/cli/env/test_lock.py"
+      }
+    ],
+    "caveat": "读取测试是 locker 同步单元回归，不是离线 bundle 运行证据；不能当上游缺失 dependency locking。",
+    "read_scope": [
+      {
+        "path": "research/software-materials-expansion-20261015/sources/44_hatch/files/src/hatch/env/lockers/uv.py",
+        "line_start": 66,
+        "line_end": 112,
+        "kind": "implementation"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/44_hatch/files/tests/cli/env/test_lock.py",
+        "line_start": 376,
+        "line_end": 425,
+        "kind": "test_or_spec"
+      }
+    ]
+  },
+  {
+    "id": "45_celery",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "可审计 workflow 取消与声明式补偿：固定外部副作用 API、幂等键与 outbox，允许重投递，观察取消前后和失败恢复。",
+    "difficulty_reason": "任务、结果后端、外部副作用之间的确认窗口使取消与补偿不是一个 revoke 调用；多步/并行完成状态和恢复记录可形成真正状态工作。",
+    "shortcut_risk": "Canvas errback、stamped revoke 和成熟工作流框架均可直接复用；若只是组合现成 saga，则当前新增部分不足。不能要求任意任务 exactly-once。",
+    "judge_plan": "真实离线 broker/worker+独立副作用账本，显式 barrier 控制提交/确认/取消窗口；检查未开始步骤不执行、已确认副作用按合同补偿及重投递不重复。",
+    "residual_milestones": [
+      "固定 workflow 身份、取消门与副作用确认/outbox 的持久化状态，接入 Canvas 生命周期。",
+      "实现声明补偿的重试和幂等恢复，在并行局部失败与 worker 重启下可审计。"
+    ],
+    "first_probe": "用原生 revoke/errback+事务 outbox 做一条有副作用的取消链；强制一次确认边界重投递，看成熟组合是否全部完成。",
+    "stop_condition": "若成熟框架/短 saga 适配已覆盖合同则重设；若独立 oracle 无法区分确认与补偿或只能靠时序睡眠，先停止构题。",
+    "evidence": [
+      {
+        "path": "sources/45_celery/files/celery/backends/base.py",
+        "line": 1403,
+        "claim": "backend 已汇集 chord 部分结果并处理失败回调",
+        "url": "https://github.com/celery/celery/blob/4b7a3652e3297730c0e018ce3038e0121de983bc/celery/backends/base.py#L1403",
+        "upstream_path": "celery/backends/base.py"
+      },
+      {
+        "path": "sources/45_celery/files/t/unit/tasks/test_canvas.py",
+        "line": 1140,
+        "claim": "原生测试覆盖 chord header 失败传播到后继链",
+        "url": "https://github.com/celery/celery/blob/4b7a3652e3297730c0e018ce3038e0121de983bc/t/unit/tasks/test_canvas.py#L1140",
+        "upstream_path": "t/unit/tasks/test_canvas.py"
+      }
+    ],
+    "caveat": "有高上限但作者成本高；已读原生测试主要 mock backend，不能代表真实 broker 故障恢复已健康。",
+    "read_scope": [
+      {
+        "path": "research/software-materials-expansion-20261015/sources/45_celery/files/celery/backends/base.py",
+        "line_start": 1403,
+        "line_end": 1454,
+        "kind": "implementation"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/45_celery/files/t/unit/tasks/test_canvas.py",
+        "line_start": 1140,
+        "line_end": 1191,
+        "kind": "test_or_spec"
+      }
+    ]
+  },
+  {
+    "id": "46_fastify",
+    "tier": "C",
+    "potential": "medium",
+    "authoring_cost": "low",
+    "recommended_scope": "先评估作用域队列、deadline 和断连清理的标准插件交付，只有完整产品策略确有剩余语义时扩范围。",
+    "difficulty_reason": "队列位置、handler 预算和下游 AbortSignal 组合有状态，但已有 handlerTimeout 信号在 hooks 前建立，作用域 hooks 也现成；当前交付更可能是队列插件。",
+    "shortcut_risk": "handlerTimeout/request.signal+scoped hooks+p-limit/AbortSignal 是强合法方案；不能冒称 Fastify 没有超时/取消，或禁用普通并发库。",
+    "judge_plan": "本地 HTTP+受控 handler 记录排队/开始/释放事件，断连、超时与正常请求交错，观察公共路由可继续及队列资源归还。",
+    "residual_milestones": [
+      "实现作用域队列和总预算，把排队到处理的 deadline 映射到已有生命周期。",
+      "断连/超时撤销未开始项和协作式下游任务，清理额度并回归 hook 顺序。"
+    ],
+    "first_probe": "以 scoped hooks、已有 request.signal 和标准并发控制库写最短插件，执行排队取消与 handler 超时两个旅程。",
+    "stop_condition": "若标准插件完整通过就作为短题；若难度只来自强迫中断不协作用户代码，则重设合同。",
+    "evidence": [
+      {
+        "path": "sources/46_fastify/files/lib/route.js",
+        "line": 534,
+        "claim": "原生 handlerTimeout 已创建 AbortController 并在断连时 abort",
+        "url": "https://github.com/fastify/fastify/blob/37df44a421817e7bb048fce834bf691abb0999d6/lib/route.js#L534",
+        "upstream_path": "lib/route.js"
+      },
+      {
+        "path": "sources/46_fastify/files/test/hooks.test.js",
+        "line": 3419,
+        "claim": "原生测试覆盖 abort hook 的 root/child/route 顺序",
+        "url": "https://github.com/fastify/fastify/blob/37df44a421817e7bb048fce834bf691abb0999d6/test/hooks.test.js#L3419",
+        "upstream_path": "test/hooks.test.js"
+      }
+    ],
+    "caveat": "这里只读 timeout 建立和 abort hook 继承测试；没有断言全部下游资源可强制取消。",
+    "read_scope": [
+      {
+        "path": "research/software-materials-expansion-20261015/sources/46_fastify/files/lib/route.js",
+        "line_start": 534,
+        "line_end": 585,
+        "kind": "implementation"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/46_fastify/files/test/hooks.test.js",
+        "line_start": 3419,
+        "line_end": 3475,
+        "kind": "test_or_spec"
+      }
+    ]
+  },
+  {
+    "id": "47_task",
+    "tier": "A",
+    "potential": "high",
+    "authoring_cost": "medium",
+    "recommended_scope": "Task 本地内容寻址工件缓存的完整交付：对已声明可缓存任务恢复被删产物，按编译后任务/声明输入身份命中，失败/取消不发布，保留依赖和非缓存任务行为。",
+    "difficulty_reason": "现有 source checksum 只判 up-to-date，与工件恢复不同。输入身份必须贯穿变量编译、依赖执行、产物归档和发布；中途失败不能留下可命中成功条目。这个闭环比简单 sha256+tar 多一层生命周期。",
+    "shortcut_risk": "成熟本地缓存或包装器可复用归档/散列；如果合法工具能识别整个 Task 调用身份并保证失败原子发布，应接受并降级，不能靠强制改核心来撑难。",
+    "judge_plan": "独立 helper 统计命令实际运行和输出字节：首次产物、删除后恢复、输入/声明环境变化 miss、失败或取消后重跑、并发同 key；不信自报 hit 计数。",
+    "residual_milestones": [
+      "定义声明性任务缓存身份并在编译后接入依赖和执行流程，恢复实际产物及元信息。",
+      "设计成功条目的暂存/原子发布及并发恢复，处理失败、取消、损坏条目和非缓存回归。"
+    ],
+    "first_probe": "先用 sha256+tar 包装现有 Task，覆盖删输出恢复、变量变更以及一次命令失败；定位包装仍无法获得的调用身份或生命周期语义。",
+    "stop_condition": "若正常包装已满足所有观测合同，或只能靠隐式外部状态决定命中，则降级或重设声明范围。",
+    "evidence": [
+      {
+        "path": "sources/47_task/files/internal/fingerprint/sources_checksum.go",
+        "line": 31,
+        "claim": "已有 source checksum 与 generates 存在性判定",
+        "url": "https://github.com/go-task/task/blob/ad2782e1709f0bcf8fbbe0d8e00c2d239141e099/internal/fingerprint/sources_checksum.go#L31",
+        "upstream_path": "internal/fingerprint/sources_checksum.go"
+      },
+      {
+        "path": "sources/47_task/files/task_test.go",
+        "line": 502,
+        "claim": "原生测试覆盖重复运行 up-to-date 与 checksum 文件不重写",
+        "url": "https://github.com/go-task/task/blob/ad2782e1709f0bcf8fbbe0d8e00c2d239141e099/task_test.go#L502",
+        "upstream_path": "task_test.go"
+      },
+      {
+        "path": "sources/47_task/files/task.go",
+        "line": 127,
+        "claim": "实际任务执行入口负责依赖、命令及释放",
+        "url": "https://github.com/go-task/task/blob/ad2782e1709f0bcf8fbbe0d8e00c2d239141e099/task.go#L127",
+        "upstream_path": "task.go"
+      }
+    ],
+    "caveat": "高难依据是可闭合交付链；未写缓存原型，也未证明成熟缓存工具无解。缓存键与动态变量/依赖交互待主验证。",
+    "read_scope": [
+      {
+        "path": "research/software-materials-expansion-20261015/sources/47_task/files/internal/fingerprint/sources_checksum.go",
+        "line_start": 31,
+        "line_end": 88,
+        "kind": "implementation"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/47_task/files/task_test.go",
+        "line_start": 502,
+        "line_end": 550,
+        "kind": "test_or_spec"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/47_task/files/task.go",
+        "line_start": 127,
+        "line_end": 310,
+        "kind": "implementation"
+      }
+    ]
+  },
+  {
+    "id": "48_apisix",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "单节点多 worker 的配置版本包预检、激活和回退，route/service/upstream/plugin_config 对单请求保持自洽；不用跨节点瞬时原子目标。",
+    "difficulty_reason": "已有逐资源验证和 worker 应用状态；包的全有或全无校验、跨资源引用和在途请求看到的版本要跨配置加载与请求缓存。真实剩余工作可能很实质，但还未证明文件原子替换不能解决。",
+    "shortcut_risk": "完整 YAML 原子替换+原生 schema/checker/digest+外部预检可能足够；现有控制面同样合法。不能把已有 worker 状态报告当新增。",
+    "judge_plan": "独立版本后端+持续 loopback 请求观察每个请求的 route/service/upstream 版本组合；更新坏引用或未知插件后旧包仍服务，重启 worker 再回退；状态只是辅助。",
+    "residual_milestones": [
+      "包级预检聚合 schema、插件与资源引用错误，保持 last-good，并对完整包激活。",
+      "验证跨资源/worker 生命周期的请求自洽和恢复回退，补齐缓存或发布机制中被探针证实的缺口。"
+    ],
+    "first_probe": "先用全量原子文件替换+短预检，同时发版本标记请求；注入一个未知插件并重启一个 worker，检查是否已有完整 last-good 语义。",
+    "stop_condition": "若成熟原生流程和预检包装已全解则降级；若无法在稳定离线 OpenResty 环境重现，则暂不构题。",
+    "evidence": [
+      {
+        "path": "sources/48_apisix/files/apisix/core/config_yaml.lua",
+        "line": 305,
+        "claim": "资源按 schema/checker 逐项验证后插入",
+        "url": "https://github.com/apache/apisix/blob/64a4afdd1353bd302f03cc8f0f780b8a78176137/apisix/core/config_yaml.lua#L305",
+        "upstream_path": "apisix/core/config_yaml.lua"
+      },
+      {
+        "path": "sources/48_apisix/files/t/admin/standalone-plugin-validation.t",
+        "line": 48,
+        "claim": "原生测试明确缺失 plugin 会导致 standalone 路由匹配失败",
+        "url": "https://github.com/apache/apisix/blob/64a4afdd1353bd302f03cc8f0f780b8a78176137/t/admin/standalone-plugin-validation.t#L48",
+        "upstream_path": "t/admin/standalone-plugin-validation.t"
+      },
+      {
+        "path": "sources/48_apisix/files/apisix/core/config_yaml.lua",
+        "line": 164,
+        "claim": "已有内存配置版本更新",
+        "url": "https://github.com/apache/apisix/blob/64a4afdd1353bd302f03cc8f0f780b8a78176137/apisix/core/config_yaml.lua#L164",
+        "upstream_path": "apisix/core/config_yaml.lua"
+      }
+    ],
+    "caveat": "代码和测试证明逐资源非法项可阻止路由，不证明现有激活会产生混合版本；跨请求缓存与worker一致性待主验证。",
+    "read_scope": [
+      {
+        "path": "research/software-materials-expansion-20261015/sources/48_apisix/files/apisix/core/config_yaml.lua",
+        "line_start": 305,
+        "line_end": 365,
+        "kind": "implementation"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/48_apisix/files/t/admin/standalone-plugin-validation.t",
+        "line_start": 48,
+        "line_end": 104,
+        "kind": "test_or_spec"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/48_apisix/files/apisix/core/config_yaml.lua",
+        "line_start": 150,
+        "line_end": 209,
+        "kind": "implementation"
+      }
+    ]
+  },
+  {
+    "id": "49_dbt",
+    "tier": "C",
+    "potential": "medium",
+    "authoring_cost": "high",
+    "recommended_scope": "先把现有 state/select/defer/explain 打包重放看作适配素材；需找到真实新产品能力，才进入高难任务设计。",
+    "difficulty_reason": "选择与 defer 的关系图语义很丰富，但已读固定 Rust v2 分支本身有 state 过滤、defer-state 优先级、ephemeral/inline 排除和 explain 版本检查。当前审查包可能只剩归档与路径适配。",
+    "shortcut_risk": "原生命令+manifest/JSONL 归档和重放脚本是强基线；不能把已有 state/defer/explain 改名为缺失。",
+    "judge_plan": "固定小图 oracle 比较选择集合/生产关系和编译结果，迁移目录禁网重放；版本错误需稳定拒绝。作者先证明 Rust 开源构建离线健康。",
+    "residual_milestones": [
+      "固定 artifact 身份和选择/defer 输入，收齐本地可重放审查材料。",
+      "跨目录重放并校验旧格式/输入漂移和原因链，明确哪些现有命令可直接复用。"
+    ],
+    "first_probe": "仅用当前原生命令和归档脚本生成、迁移并重放一份含 state 与独立 defer-state 的审查包。",
+    "stop_condition": "若已有输出直接形成完整审查包则不升格；若构建或行为依赖未固定云服务，则暂停此范围。",
+    "evidence": [
+      {
+        "path": "sources/49_dbt/files/crates/dbt-scheduler/src/node_selector.rs",
+        "line": 68,
+        "claim": "已有 manifest select/exclude 与 state 条件过滤",
+        "url": "https://github.com/dbt-labs/dbt/blob/8843d3dfca9a2ea2646a6273701a89ffffd4b11e/crates/dbt-scheduler/src/node_selector.rs#L68",
+        "upstream_path": "crates/dbt-scheduler/src/node_selector.rs"
+      },
+      {
+        "path": "sources/49_dbt/files/crates/dbt-state/src/explain/tests.rs",
+        "line": 29,
+        "claim": "原生测试已有 explain JSONL、错误行号与记录版本检查",
+        "url": "https://github.com/dbt-labs/dbt/blob/8843d3dfca9a2ea2646a6273701a89ffffd4b11e/crates/dbt-state/src/explain/tests.rs#L29",
+        "upstream_path": "crates/dbt-state/src/explain/tests.rs"
+      },
+      {
+        "path": "sources/49_dbt/files/crates/dbt-defer/src/lib.rs",
+        "line": 63,
+        "claim": "已有本地/云 defer state 优先级及关系重写流程",
+        "url": "https://github.com/dbt-labs/dbt/blob/8843d3dfca9a2ea2646a6273701a89ffffd4b11e/crates/dbt-defer/src/lib.rs#L63",
+        "upstream_path": "crates/dbt-defer/src/lib.rs"
+      }
+    ],
+    "caveat": "canonical main 是 Rust v2，不能从 Python dbt-core 旧知识推断缺口。解释记录测试不证明实际数据库行为；本次没有运行。",
+    "read_scope": [
+      {
+        "path": "research/software-materials-expansion-20261015/sources/49_dbt/files/crates/dbt-scheduler/src/node_selector.rs",
+        "line_start": 68,
+        "line_end": 124,
+        "kind": "implementation"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/49_dbt/files/crates/dbt-state/src/explain/tests.rs",
+        "line_start": 29,
+        "line_end": 85,
+        "kind": "test_or_spec"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/49_dbt/files/crates/dbt-defer/src/lib.rs",
+        "line_start": 63,
+        "line_end": 111,
+        "kind": "implementation"
+      }
+    ]
+  },
+  {
+    "id": "71_fd",
+    "tier": "C",
+    "potential": "medium",
+    "authoring_cost": "low",
+    "recommended_scope": "限定 POSIX 查找/ignore/输出/exec 的完整行为替代，但作为高难储备先验证是否超过成熟库加小型 CLI。",
+    "difficulty_reason": "字节路径、ignore precedence 和 exec argv/失败聚合有真实细节；然而上游已把遍历与批量执行委托成熟组件，这个有限范围可能无足够跨阶段剩余工作。",
+    "shortcut_risk": "ignore/walk/regex/process、find 等常规组合合法；不能禁止成熟遍历库，不能把非确定输出顺序变成隐藏字节一致约束。",
+    "judge_plan": "独立文件树清单+helper 记录 argv/副作用/退出码，与固定 fd 对比；只在合同保证时比较顺序，使用空格/换行/前导减号路径。",
+    "residual_milestones": [
+      "将多 root、隐藏和 ignore 规则与路径输出语义统一。",
+      "将占位符、批量 argv 边界、子进程失败及 NUL 输出连成可用 CLI。"
+    ],
+    "first_probe": "成熟 ignore/walk 加常规进程执行器，完成嵌套 ignore 和带特殊路径的 batch exec，比较真实 argv。",
+    "stop_condition": "若薄 CLI 完整满足当前工作流，则作为中短题；不要继续堆 flags 或目录数量制造难度。",
+    "evidence": [
+      {
+        "path": "sources/71_fd/files/src/exec/job.rs",
+        "line": 45,
+        "claim": "已有批量执行路径",
+        "url": "https://github.com/sharkdp/fd/blob/14dcd92fb76ca0ebc2e82671a275f67c790d25fc/src/exec/job.rs#L45",
+        "upstream_path": "src/exec/job.rs"
+      },
+      {
+        "path": "sources/71_fd/files/tests/tests.rs",
+        "line": 1974,
+        "claim": "原生占位符执行测试",
+        "url": "https://github.com/sharkdp/fd/blob/14dcd92fb76ca0ebc2e82671a275f67c790d25fc/tests/tests.rs#L1974",
+        "upstream_path": "tests/tests.rs"
+      }
+    ],
+    "caveat": "当前读到 batch 只是 paths→execute_batch，未读 execute_batch 内部参数上限与输出隔离，不能声称复杂性已全部确认。",
+    "read_scope": [
+      {
+        "path": "research/software-materials-expansion-20261015/sources/71_fd/files/src/exec/job.rs",
+        "line_start": 45,
+        "line_end": 63,
+        "kind": "implementation"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/71_fd/files/tests/tests.rs",
+        "line_start": 1974,
+        "line_end": 2030,
+        "kind": "test_or_spec"
+      }
+    ]
+  },
+  {
+    "id": "74_sqlfluff",
+    "tier": "A",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "固定一至两种方言及自然规则族，交付 Jinja 模板 SQL 的源位置诊断、可安全修复、冲突合并、收敛及 CLI；规则必须覆盖真实格式/结构交互。",
+    "difficulty_reason": "源模板与渲染 SQL 不是一一映射，修复还要回写原源且不能破坏模板。已有实现显式跟踪切片、保持首次诊断并区分多轮规则阶段，说明难点是表示和阶段间一致性。",
+    "shortcut_risk": "成熟 SQL parser/formatter 与 Jinja 可复用；若所选规则只是几条格式变换和保护占位符，仍可能短题。应明确行为替代的目标边界，不能直接委托目标 SQLFluff，也不能事后禁其他库。",
+    "judge_plan": "固定 reference 比较原源诊断/最终修复，独立检查只编辑可改源区域和二次 fix 幂等；可执行 SQL 子集再核对语义。分开给解析、诊断、修复阶段反馈。",
+    "residual_milestones": [
+      "建立模板→渲染 SQL→解析节点的可用源映射和规则诊断归属，处理空渲染与重复/分支片段。",
+      "实现冲突补丁回写和规则多轮收敛，保持初始诊断、模板原文与 CLI 配置行为。"
+    ],
+    "first_probe": "把候选规则映射到成熟替代 parser/formatter，用空渲染占位符加相交修复完成一条完整源回写旅程，看适配缺口是否仍真实。",
+    "stop_condition": "若有限规则集可由成熟格式器+占位符保护完整完成则降级；若不能独立定义可改源区或修复冲突合同，则先收紧规格。",
+    "evidence": [
+      {
+        "path": "sources/74_sqlfluff/files/src/sqlfluff/core/linter/linter.py",
+        "line": 457,
+        "claim": "fix 流程保留初始诊断、检测版本循环并限制轮数",
+        "url": "https://github.com/sqlfluff/sqlfluff/blob/1fdd794c925efa62f93ad78ff0d35ea41c60bea7/src/sqlfluff/core/linter/linter.py#L457"
+      },
+      {
+        "path": "sources/74_sqlfluff/files/test/core/linter/fix_test.py",
+        "line": 211,
+        "claim": "空 Jinja 占位符相邻引号时安全修复源文本的回归",
+        "url": "https://github.com/sqlfluff/sqlfluff/blob/1fdd794c925efa62f93ad78ff0d35ea41c60bea7/test/core/linter/fix_test.py#L211"
+      },
+      {
+        "path": "sources/74_sqlfluff/files/src/sqlfluff/core/templaters/jinja.py",
+        "line": 835,
+        "claim": "渲染结果保留 raw/templated 切片，slice_file 依赖 Jinja 分析与运行跟踪",
+        "url": "https://github.com/sqlfluff/sqlfluff/blob/1fdd794c925efa62f93ad78ff0d35ea41c60bea7/src/sqlfluff/core/templaters/jinja.py#L835"
+      }
+    ],
+    "caveat": "这是行为兼容新实现范围，starter 未构造。读到的是模板映射入口，未读 tracer 内部算法；断言分支/重复映射全难度待主验证。与 Jinja/dbt 共享谱系需按族划分。",
+    "read_scope": [
+      {
+        "path": "research/software-materials-expansion-20261015/sources/74_sqlfluff/files/src/sqlfluff/core/linter/linter.py",
+        "line_start": 457,
+        "line_end": 510,
+        "kind": "implementation"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/74_sqlfluff/files/test/core/linter/fix_test.py",
+        "line_start": 211,
+        "line_end": 251,
+        "kind": "test_or_spec"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/74_sqlfluff/files/src/sqlfluff/core/templaters/jinja.py",
+        "line_start": 825,
+        "line_end": 903,
+        "kind": "implementation"
+      }
+    ]
+  },
+  {
+    "id": "75_pandoc",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "限定 Markdown/JSON AST/HTML 的完整 reader→共享 AST→filter→writer 兼容，明确 metadata、脚注/引用、嵌套块与选项；先关闭多格式无界范围。",
+    "difficulty_reason": "YAML 字符串被再次当 Markdown 解析，脚注有解析状态和嵌套归属；同一节点语义跨 reader/filter/writer 传播，可能超过通用 Markdown→HTML。但目前选项/扩展边界尚未锁定。",
+    "shortcut_risk": "成熟 Markdown、AST 和 HTML writer 组合可能直接覆盖有限合同，不能任意禁库。GPL 目标委托边界与允许组件需提前写清。",
+    "judge_plan": "冻结 reference 的规范化 AST/HTML，独立检查节点/链接/脚注层级和 filter 效果；不要求 Markdown 文本往返完全一致，不把构建耗时记难度。",
+    "residual_milestones": [
+      "将 metadata 与正文的扩展、引用/脚注归入共同 AST 和选项语义。",
+      "完成 filter 后跨 JSON/HTML 写出及 CLI 诊断，保留属性/链接层级并限定规范化规则。"
+    ],
+    "first_probe": "成熟 reader/AST/writer 组合先做 YAML Markdown metadata+嵌套脚注+filter 的单条完整旅程，比较 AST 与 HTML。",
+    "stop_condition": "若只需 AST 字段适配则降为 C；若为了撑难只能加入大量无关格式，停止此范围。",
+    "evidence": [
+      {
+        "path": "sources/75_pandoc/files/src/Text/Pandoc/Readers/Markdown.hs",
+        "line": 67,
+        "claim": "Markdown reader 与 YAML metadata 共用文档解析状态",
+        "url": "https://github.com/jgm/pandoc/blob/35742c0001ab2da45cebae1c37eacc2439f147ed/src/Text/Pandoc/Readers/Markdown.hs#L67"
+      },
+      {
+        "path": "sources/75_pandoc/files/test/Tests/Readers/Markdown.hs",
+        "line": 514,
+        "claim": "脚注缩进、文本归属及递归脚注的 AST 回归",
+        "url": "https://github.com/jgm/pandoc/blob/35742c0001ab2da45cebae1c37eacc2439f147ed/test/Tests/Readers/Markdown.hs#L514"
+      }
+    ],
+    "caveat": "尚未阅读 HTML writer 主逻辑或锁定 filter API，跨 reader/writer 完整缺口待主验证；Haskell 工具链只影响作者成本。",
+    "read_scope": [
+      {
+        "path": "research/software-materials-expansion-20261015/sources/75_pandoc/files/src/Text/Pandoc/Readers/Markdown.hs",
+        "line_start": 67,
+        "line_end": 111,
+        "kind": "implementation"
+      },
+      {
+        "path": "research/software-materials-expansion-20261015/sources/75_pandoc/files/test/Tests/Readers/Markdown.hs",
+        "line_start": 510,
+        "line_end": 550,
+        "kind": "test_or_spec"
+      }
+    ]
+  }
+]

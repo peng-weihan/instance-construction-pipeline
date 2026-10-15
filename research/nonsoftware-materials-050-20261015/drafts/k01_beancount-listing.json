@@ -1,0 +1,19 @@
+{
+  "repo": "beancount/beancount",
+  "revision": "9747213802acb733ce53acc6e963f5961f47d6cd",
+  "matching_paths": [
+    "COPYING",
+    "beancount/ops/balance_test.py",
+    "beancount/parser/booking_full.py",
+    "beancount/parser/booking_full_test.py",
+    "beancount/scripts/check_examples_test.py",
+    "beancount/scripts/example.py",
+    "beancount/scripts/example_test.py",
+    "examples/example.beancount",
+    "examples/simple/basic.beancount",
+    "examples/simple/starter.beancount",
+    "examples/vesting/vesting.beancount"
+  ],
+  "match_count": 11,
+  "tree_truncated": false
+}

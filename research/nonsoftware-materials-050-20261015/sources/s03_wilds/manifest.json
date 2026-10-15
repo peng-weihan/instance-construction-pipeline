@@ -1,0 +1,51 @@
+{
+  "repo": "p-lambda/wilds",
+  "revision": "472677590de351857197a9bf24958838c39c272b",
+  "resolved_utc": "2026-10-15T14:58:13.800817+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:03.225945+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "cada6b2bda85569e61429008acc6ce3ccac16e8317e282fa2c6e59c1d16836c5",
+    "truncated": false,
+    "blob_count": 144
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 1067,
+      "sha256": "d50171d83ee8189792a89c3e79fcb2a8f94275fc8f99447b2f854bfde9fe6e27",
+      "url": "https://github.com/p-lambda/wilds/blob/472677590de351857197a9bf24958838c39c272b/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 21984,
+      "sha256": "befd022854937da1b49c41a67a0faaaa4a88e862aec9e03518f21ec207885ff3",
+      "url": "https://github.com/p-lambda/wilds/blob/472677590de351857197a9bf24958838c39c272b/README.md"
+    },
+    {
+      "path": "dataset_preprocessing/iwildcam/create_split.py",
+      "bytes": 8591,
+      "sha256": "6c64cb9239637b3eb5b30d1b1ca5bab55f6aa1c7240e9cee1a39f3ebfe171d0a",
+      "url": "https://github.com/p-lambda/wilds/blob/472677590de351857197a9bf24958838c39c272b/dataset_preprocessing/iwildcam/create_split.py"
+    },
+    {
+      "path": "wilds/common/metrics/all_metrics.py",
+      "bytes": 15411,
+      "sha256": "4fe677510f6e7e11005e0e73f16189c5a5c8a5664fe126055426dcbe5c873d72",
+      "url": "https://github.com/p-lambda/wilds/blob/472677590de351857197a9bf24958838c39c272b/wilds/common/metrics/all_metrics.py"
+    },
+    {
+      "path": "wilds/datasets/iwildcam_dataset.py",
+      "bytes": 6438,
+      "sha256": "336609f892219714c37782e1b2010e6089e066eefe25b513693688b2710b2636",
+      "url": "https://github.com/p-lambda/wilds/blob/472677590de351857197a9bf24958838c39c272b/wilds/datasets/iwildcam_dataset.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

@@ -1,0 +1,151 @@
+{
+  "checks": [
+    {
+      "case": "nullable-asc",
+      "rows": 8193,
+      "passed": true,
+      "evidence": "Python comparator equals SQLite SQL ORDER BY with explicit null policy",
+      "expected_sha256": "cd3fbc5c6b57eb8c3b1e30563e87eeca7e155c6e085890a56a318c6b42f2047a"
+    },
+    {
+      "case": "nullable-desc",
+      "rows": 8193,
+      "passed": true,
+      "evidence": "Python comparator equals SQLite SQL ORDER BY with explicit null policy",
+      "expected_sha256": "01f6213379d999fa1e50443cd7f8ee79f12aba5de31eb0613f5366866852a069"
+    },
+    {
+      "case": "null-first",
+      "rows": 8193,
+      "passed": true,
+      "evidence": "Python comparator equals SQLite SQL ORDER BY with explicit null policy",
+      "expected_sha256": "c94d0151587a804f4ad12a6e7238e40ec671085e3816f5672b4beaf38cf01f34"
+    },
+    {
+      "case": "desc-null-last",
+      "rows": 8193,
+      "passed": true,
+      "evidence": "Python comparator equals SQLite SQL ORDER BY with explicit null policy",
+      "expected_sha256": "07e2cad9fdac0933787ecf143d7e7ac5b5f25bfdde367ee8af52246ef6d62b95"
+    },
+    {
+      "case": "k-one",
+      "rows": 8193,
+      "passed": true,
+      "evidence": "Python comparator equals SQLite SQL ORDER BY with explicit null policy",
+      "expected_sha256": "9c3ca5bc2c26fcd9172952bd8aa766fab5536cab70be2461cef465813f82a335"
+    },
+    {
+      "case": "k-above-n",
+      "rows": 313,
+      "passed": true,
+      "evidence": "Python comparator equals SQLite SQL ORDER BY with explicit null policy",
+      "expected_sha256": "8e256c7e4bbb75d970ca180b5ce832272b8c5d3dd7b82a33f6d65d2b58162a1f"
+    },
+    {
+      "case": "full-sort",
+      "rows": 4099,
+      "passed": true,
+      "evidence": "Python comparator equals SQLite SQL ORDER BY with explicit null policy",
+      "expected_sha256": "4ad0d54cd94f84863e336d77ee9cd3c0e655788744e8d6d16389482f3abe326c"
+    },
+    {
+      "case": "batch-boundary",
+      "rows": 16391,
+      "passed": true,
+      "evidence": "Python comparator equals SQLite SQL ORDER BY with explicit null policy",
+      "expected_sha256": "d6a6abd730fba05bb13b92c2275b1f0b5470877102630f1e1e966475308f8fc8"
+    },
+    {
+      "case": "wide-row",
+      "rows": 8193,
+      "passed": true,
+      "evidence": "Python comparator equals SQLite SQL ORDER BY with explicit null policy",
+      "expected_sha256": "c3dcd83f1ec3ae73785a479ce2bdb2c5ad71fb2993ff04b29581ba1fb3774711"
+    },
+    {
+      "case": "prefix-early-exit",
+      "rows": 65539,
+      "passed": true,
+      "evidence": "Python comparator equals SQLite SQL ORDER BY with explicit null policy",
+      "expected_sha256": "e7de81d87912a8b78d8b4743c6d6c8e9f71d61a0f0f3eb53ddba7b84dcce6280"
+    },
+    {
+      "case": "single-partition",
+      "rows": 8193,
+      "passed": true,
+      "evidence": "Python comparator equals SQLite SQL ORDER BY with explicit null policy",
+      "expected_sha256": "cd3fbc5c6b57eb8c3b1e30563e87eeca7e155c6e085890a56a318c6b42f2047a"
+    },
+    {
+      "case": "all-null-primary",
+      "rows": 8193,
+      "passed": true,
+      "evidence": "Python comparator equals SQLite SQL ORDER BY with explicit null policy",
+      "expected_sha256": "0e58bb4b2340fda5e33af6f12b6bb3dc7be88528cf2e7347101fbaafe4dd69fe"
+    }
+  ],
+  "semantic_classifier_probes": [
+    {
+      "case": "nullable-asc",
+      "short_fetch_rejected": true,
+      "inverted_null_policy_rejected": true
+    },
+    {
+      "case": "nullable-desc",
+      "short_fetch_rejected": true,
+      "inverted_null_policy_rejected": true
+    },
+    {
+      "case": "null-first",
+      "short_fetch_rejected": true,
+      "inverted_null_policy_rejected": true
+    },
+    {
+      "case": "desc-null-last",
+      "short_fetch_rejected": true,
+      "inverted_null_policy_rejected": true
+    },
+    {
+      "case": "k-one",
+      "short_fetch_rejected": true,
+      "inverted_null_policy_rejected": true
+    },
+    {
+      "case": "k-above-n",
+      "short_fetch_rejected": true,
+      "inverted_null_policy_rejected": true
+    },
+    {
+      "case": "full-sort",
+      "short_fetch_rejected": true,
+      "inverted_null_policy_rejected": true
+    },
+    {
+      "case": "batch-boundary",
+      "short_fetch_rejected": true,
+      "inverted_null_policy_rejected": true
+    },
+    {
+      "case": "wide-row",
+      "short_fetch_rejected": true,
+      "inverted_null_policy_rejected": true
+    },
+    {
+      "case": "prefix-early-exit",
+      "short_fetch_rejected": true,
+      "inverted_null_policy_rejected": false
+    },
+    {
+      "case": "single-partition",
+      "short_fetch_rejected": true,
+      "inverted_null_policy_rejected": true
+    },
+    {
+      "case": "all-null-primary",
+      "short_fetch_rejected": true,
+      "inverted_null_policy_rejected": true
+    }
+  ],
+  "scope": "Python workload/oracle check only; no DataFusion binary executed; no performance observation"
+}

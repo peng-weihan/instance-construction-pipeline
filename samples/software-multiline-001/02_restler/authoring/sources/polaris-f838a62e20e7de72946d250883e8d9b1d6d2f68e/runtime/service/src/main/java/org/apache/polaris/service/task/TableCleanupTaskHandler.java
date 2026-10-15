@@ -1,0 +1,307 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.polaris.service.task;
+
+import static org.apache.polaris.core.config.FeatureConfiguration.TABLE_METADATA_CLEANUP_BATCH_SIZE;
+
+import java.time.Clock;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import org.apache.iceberg.ManifestFile;
+import org.apache.iceberg.PartitionStatisticsFile;
+import org.apache.iceberg.Snapshot;
+import org.apache.iceberg.StatisticsFile;
+import org.apache.iceberg.TableMetadata;
+import org.apache.iceberg.TableMetadataParser;
+import org.apache.iceberg.io.FileIO;
+import org.apache.polaris.core.PolarisCallContext;
+import org.apache.polaris.core.StructuredLogKeys;
+import org.apache.polaris.core.context.CallContext;
+import org.apache.polaris.core.entity.AsyncTaskType;
+import org.apache.polaris.core.entity.PolarisBaseEntity;
+import org.apache.polaris.core.entity.PolarisEntitySubType;
+import org.apache.polaris.core.entity.PolarisEntityType;
+import org.apache.polaris.core.entity.TaskEntity;
+import org.apache.polaris.core.entity.table.IcebergTableLikeEntity;
+import org.apache.polaris.core.persistence.MetaStoreManagerFactory;
+import org.apache.polaris.core.persistence.PolarisMetaStoreManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * Table cleanup handler resolves the latest {@link TableMetadata} file for a dropped table and
+ * schedules a deletion task for <i>each</i> Snapshot found in the {@link TableMetadata}. Manifest
+ * cleanup tasks are scheduled in a batch so tasks should be stored atomically.
+ */
+public class TableCleanupTaskHandler implements TaskHandler {
+  private static final Logger LOGGER = LoggerFactory.getLogger(TableCleanupTaskHandler.class);
+  private final TaskExecutor taskExecutor;
+  private final Clock clock;
+  private final MetaStoreManagerFactory metaStoreManagerFactory;
+  private final TaskFileIOSupplier fileIOSupplier;
+
+  public TableCleanupTaskHandler(
+      TaskExecutor taskExecutor,
+      Clock clock,
+      MetaStoreManagerFactory metaStoreManagerFactory,
+      TaskFileIOSupplier fileIOSupplier) {
+    this.taskExecutor = taskExecutor;
+    this.clock = clock;
+    this.metaStoreManagerFactory = metaStoreManagerFactory;
+    this.fileIOSupplier = fileIOSupplier;
+  }
+
+  @Override
+  public boolean canHandleTask(TaskEntity task) {
+    return task.getTaskType() == AsyncTaskType.ENTITY_CLEANUP_SCHEDULER
+        && tryGetTableEntity(task).isPresent();
+  }
+
+  private Optional<IcebergTableLikeEntity> tryGetTableEntity(TaskEntity task) {
+    return Optional.ofNullable(task.readData(PolarisBaseEntity.class))
+        .filter(entity -> entity.getType().equals(PolarisEntityType.TABLE_LIKE))
+        .map(IcebergTableLikeEntity::of);
+  }
+
+  @Override
+  public void handleTask(TaskEntity cleanupTask, CallContext callContext) {
+    IcebergTableLikeEntity entity = tryGetTableEntity(cleanupTask).orElseThrow();
+
+    if (entity.getSubType() == PolarisEntitySubType.ICEBERG_VIEW) {
+      handleViewCleanup(cleanupTask, entity);
+    } else {
+      handleTableCleanup(cleanupTask, entity, callContext);
+    }
+  }
+
+  private void handleTableCleanup(
+      TaskEntity cleanupTask, IcebergTableLikeEntity tableEntity, CallContext callContext) {
+    LOGGER
+        .atInfo()
+        .addKeyValue(StructuredLogKeys.TABLE_IDENTIFIER, tableEntity.getTableIdentifier())
+        .addKeyValue(StructuredLogKeys.METADATA_LOCATION, tableEntity.getMetadataLocation())
+        .log("Handling table metadata cleanup task");
+
+    // It's likely the cleanupTask has already been completed, but wasn't dropped successfully.
+    // Log a
+    // warning and move on
+    try (FileIO fileIO = fileIOSupplier.apply(cleanupTask, tableEntity.getTableIdentifier())) {
+      if (!TaskUtils.exists(tableEntity.getMetadataLocation(), fileIO)) {
+        LOGGER
+            .atWarn()
+            .addKeyValue(StructuredLogKeys.TABLE_IDENTIFIER, tableEntity.getTableIdentifier())
+            .addKeyValue(StructuredLogKeys.METADATA_LOCATION, tableEntity.getMetadataLocation())
+            .log("Table metadata cleanup scheduled, but metadata file does not exist");
+        return;
+      }
+
+      TableMetadata tableMetadata =
+          TableMetadataParser.read(fileIO, tableEntity.getMetadataLocation());
+
+      PolarisMetaStoreManager metaStoreManager =
+          metaStoreManagerFactory.getOrCreateMetaStoreManager(callContext.getRealmContext());
+      PolarisCallContext polarisCallContext = callContext.getPolarisCallContext();
+
+      Stream<TaskEntity> manifestCleanupTasks =
+          getManifestTaskStream(
+              cleanupTask,
+              tableMetadata,
+              fileIO,
+              tableEntity,
+              metaStoreManager,
+              polarisCallContext);
+
+      Stream<TaskEntity> metadataFileCleanupTasks =
+          getMetadataTaskStream(
+              cleanupTask, tableMetadata, tableEntity, metaStoreManager, callContext);
+
+      List<TaskEntity> taskEntities =
+          Stream.concat(manifestCleanupTasks, metadataFileCleanupTasks).toList();
+
+      List<PolarisBaseEntity> createdTasks =
+          metaStoreManager
+              .createEntitiesIfNotExist(polarisCallContext, null, taskEntities)
+              .getEntities();
+      if (createdTasks != null) {
+        LOGGER
+            .atInfo()
+            .addKeyValue(StructuredLogKeys.TABLE_IDENTIFIER, tableEntity.getTableIdentifier())
+            .addKeyValue(StructuredLogKeys.METADATA_LOCATION, tableEntity.getMetadataLocation())
+            .addKeyValue(StructuredLogKeys.TASK_COUNT, taskEntities.size())
+            .log(
+                "Successfully queued tasks to delete manifests, previous metadata, and statistics files - deleting table metadata file");
+        for (PolarisBaseEntity createdTask : createdTasks) {
+          taskExecutor.addTaskHandlerContext(createdTask.getId(), polarisCallContext);
+        }
+
+        fileIO.deleteFile(tableEntity.getMetadataLocation());
+
+        return;
+      }
+    }
+    throw new RuntimeException(
+        "Failed to create sub cleanup tasks for table " + tableEntity.getTableIdentifier());
+  }
+
+  private void handleViewCleanup(TaskEntity cleanupTask, IcebergTableLikeEntity viewEntity) {
+    LOGGER
+        .atInfo()
+        .addKeyValue(StructuredLogKeys.VIEW_IDENTIFIER, viewEntity.getTableIdentifier())
+        .addKeyValue(StructuredLogKeys.METADATA_LOCATION, viewEntity.getMetadataLocation())
+        .log("Handling view metadata cleanup task");
+
+    try (FileIO fileIO = fileIOSupplier.apply(cleanupTask, viewEntity.getTableIdentifier())) {
+      if (!TaskUtils.exists(viewEntity.getMetadataLocation(), fileIO)) {
+        LOGGER
+            .atWarn()
+            .addKeyValue(StructuredLogKeys.VIEW_IDENTIFIER, viewEntity.getTableIdentifier())
+            .addKeyValue(StructuredLogKeys.METADATA_LOCATION, viewEntity.getMetadataLocation())
+            .log("View metadata cleanup scheduled, but metadata file does not exist");
+        return;
+      }
+
+      fileIO.deleteFile(viewEntity.getMetadataLocation());
+      LOGGER
+          .atInfo()
+          .addKeyValue(StructuredLogKeys.VIEW_IDENTIFIER, viewEntity.getTableIdentifier())
+          .addKeyValue(StructuredLogKeys.METADATA_LOCATION, viewEntity.getMetadataLocation())
+          .log("Successfully deleted view metadata file");
+
+      return;
+    }
+  }
+
+  private Stream<TaskEntity> getManifestTaskStream(
+      TaskEntity cleanupTask,
+      TableMetadata tableMetadata,
+      FileIO fileIO,
+      IcebergTableLikeEntity tableEntity,
+      PolarisMetaStoreManager metaStoreManager,
+      PolarisCallContext polarisCallContext) {
+    // read the manifest list for each snapshot. dedupe the manifest files and schedule a
+    // cleanupTask
+    // for each manifest file and its data files to be deleted
+    return tableMetadata.snapshots().stream()
+        .flatMap(sn -> sn.allManifests(fileIO).stream())
+        // distinct by manifest path, since multiple snapshots will contain the same
+        // manifest
+        .collect(Collectors.toMap(ManifestFile::path, Function.identity(), (mf1, mf2) -> mf1))
+        .values()
+        .stream()
+        .filter(mf -> TaskUtils.exists(mf.path(), fileIO))
+        .map(
+            mf -> {
+              String taskName = childTaskName("manifest-file-cleanup", cleanupTask);
+              LOGGER
+                  .atDebug()
+                  .addKeyValue(StructuredLogKeys.TASK_NAME, taskName)
+                  .addKeyValue(StructuredLogKeys.TABLE_IDENTIFIER, tableEntity.getTableIdentifier())
+                  .addKeyValue(
+                      StructuredLogKeys.METADATA_LOCATION, tableEntity.getMetadataLocation())
+                  .addKeyValue(StructuredLogKeys.MANIFEST_FILE, mf.path())
+                  .log("Queueing task to delete manifest file");
+              return new TaskEntity.Builder()
+                  .setName(taskName)
+                  .setCreateTimestamp(clock.millis())
+                  .withTaskType(AsyncTaskType.MANIFEST_FILE_CLEANUP)
+                  .withData(
+                      ManifestFileCleanupTaskHandler.ManifestCleanupTask.buildFrom(
+                          tableEntity.getTableIdentifier(), mf))
+                  .setId(metaStoreManager.generateNewEntityId(polarisCallContext).getId())
+                  // copy the internal properties, which will have storage info
+                  .setInternalProperties(cleanupTask.getInternalPropertiesAsMap())
+                  .build();
+            });
+  }
+
+  private Stream<TaskEntity> getMetadataTaskStream(
+      TaskEntity cleanupTask,
+      TableMetadata tableMetadata,
+      IcebergTableLikeEntity tableEntity,
+      PolarisMetaStoreManager metaStoreManager,
+      CallContext callContext) {
+    PolarisCallContext polarisCallContext = callContext.getPolarisCallContext();
+    int configuredBatchSize =
+        callContext.getRealmConfig().getConfig(TABLE_METADATA_CLEANUP_BATCH_SIZE);
+    int batchSize = Math.max(1, configuredBatchSize);
+    if (batchSize != configuredBatchSize) {
+      LOGGER
+          .atWarn()
+          .addKeyValue(StructuredLogKeys.CONFIGURED_BATCH_SIZE, configuredBatchSize)
+          .addKeyValue(StructuredLogKeys.EFFECTIVE_BATCH_SIZE, batchSize)
+          .log("Invalid TABLE_METADATA_CLEANUP_BATCH_SIZE; clamping to minimum value");
+    }
+    return getMetadataFileBatches(tableMetadata, batchSize).stream()
+        .map(
+            metadataBatch -> {
+              String taskName = childTaskName("batch-file-cleanup", cleanupTask);
+              LOGGER
+                  .atDebug()
+                  .addKeyValue(StructuredLogKeys.TASK_NAME, taskName)
+                  .addKeyValue(StructuredLogKeys.TABLE_IDENTIFIER, tableEntity.getTableIdentifier())
+                  .addKeyValue(StructuredLogKeys.METADATA_FILES, metadataBatch.toString())
+                  .log(
+                      "Queueing task to delete metadata files (prev metadata and statistics files)");
+              return new TaskEntity.Builder()
+                  .setName(taskName)
+                  .setId(metaStoreManager.generateNewEntityId(polarisCallContext).getId())
+                  .setCreateTimestamp(clock.millis())
+                  .withTaskType(AsyncTaskType.BATCH_FILE_CLEANUP)
+                  .withData(
+                      new BatchFileCleanupTaskHandler.BatchFileCleanupTask(
+                          tableEntity.getTableIdentifier(),
+                          metadataBatch,
+                          BatchFileCleanupTaskHandler.BatchFileType.TABLE_METADATA))
+                  .setInternalProperties(cleanupTask.getInternalPropertiesAsMap())
+                  .build();
+            });
+  }
+
+  private List<List<String>> getMetadataFileBatches(TableMetadata tableMetadata, int batchSize) {
+    List<List<String>> result = new ArrayList<>();
+    List<String> metadataFiles =
+        Stream.of(
+                tableMetadata.previousFiles().stream().map(TableMetadata.MetadataLogEntry::file),
+                tableMetadata.snapshots().stream().map(Snapshot::manifestListLocation),
+                tableMetadata.statisticsFiles().stream().map(StatisticsFile::path),
+                tableMetadata.partitionStatisticsFiles().stream()
+                    .map(PartitionStatisticsFile::path))
+            .flatMap(s -> s)
+            .toList();
+
+    for (int i = 0; i < metadataFiles.size(); i += batchSize) {
+      result.add(metadataFiles.subList(i, Math.min(i + batchSize, metadataFiles.size())));
+    }
+    return result;
+  }
+
+  /**
+   * Child cleanup names are indexed by NoSQL and must stay within {@code IndexKey}'s 500-byte
+   * limit. The files to delete are already in the task payload, so the name only needs to be
+   * unique.
+   */
+  private static String childTaskName(String kind, TaskEntity parent) {
+    return kind + "_" + parent.getId() + "_" + UUID.randomUUID();
+  }
+}

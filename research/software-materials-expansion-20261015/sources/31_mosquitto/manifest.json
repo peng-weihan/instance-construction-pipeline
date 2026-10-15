@@ -1,0 +1,74 @@
+{
+  "repo": "eclipse-mosquitto/mosquitto",
+  "revision": "83f2620f0b955b89aadce32cceb96a8e81950f5e",
+  "resolved_utc": "2026-10-15T13:08:12.290508+00:00",
+  "retrieved_utc": "2026-10-15T13:08:53.932923+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "359c42c2d4f4f32157bff1a08416b36c19690542b36b6efbf2a73e2b7ef3481f",
+    "truncated": false,
+    "blob_count": 1943
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE.txt",
+      "bytes": 204,
+      "sha256": "33d1851e40fddba7eff95bcc01d1a178a87340a1126893012892913d5e6fdfa6",
+      "url": "https://github.com/eclipse-mosquitto/mosquitto/blob/83f2620f0b955b89aadce32cceb96a8e81950f5e/LICENSE.txt"
+    },
+    {
+      "path": "NOTICE.md",
+      "bytes": 2411,
+      "sha256": "23df9d41ae01a04740637d30a63761f7b415703999169a1b4de6de5d1a8483f8",
+      "url": "https://github.com/eclipse-mosquitto/mosquitto/blob/83f2620f0b955b89aadce32cceb96a8e81950f5e/NOTICE.md"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5319,
+      "sha256": "a214fc32f8d23e629bb6175677d97d9fdd681a9f0fc373abd39c3024204b6b71",
+      "url": "https://github.com/eclipse-mosquitto/mosquitto/blob/83f2620f0b955b89aadce32cceb96a8e81950f5e/README.md"
+    },
+    {
+      "path": "src/database.c",
+      "bytes": 44769,
+      "sha256": "e997744b3bc4b46db8f361ea77419c51324c2f827f13df20742a4229f5a37925",
+      "url": "https://github.com/eclipse-mosquitto/mosquitto/blob/83f2620f0b955b89aadce32cceb96a8e81950f5e/src/database.c"
+    },
+    {
+      "path": "src/persist_read.c",
+      "bytes": 15124,
+      "sha256": "87c1b51756099a4e708b99c51c45c0857a7a41ac3048a68d8db023405219afb5",
+      "url": "https://github.com/eclipse-mosquitto/mosquitto/blob/83f2620f0b955b89aadce32cceb96a8e81950f5e/src/persist_read.c"
+    },
+    {
+      "path": "src/persist_write.c",
+      "bytes": 10687,
+      "sha256": "c9f61fb563109c06fa864d7b1e73cb5864f418a8853709f693854e2513c7f1ce",
+      "url": "https://github.com/eclipse-mosquitto/mosquitto/blob/83f2620f0b955b89aadce32cceb96a8e81950f5e/src/persist_write.c"
+    },
+    {
+      "path": "src/subs.c",
+      "bytes": 22064,
+      "sha256": "7c8b9b281de96c1306889affaa7ee26560ce8391268b24ec2f9ca781c50f3125",
+      "url": "https://github.com/eclipse-mosquitto/mosquitto/blob/83f2620f0b955b89aadce32cceb96a8e81950f5e/src/subs.c"
+    },
+    {
+      "path": "test/broker/05-session-expiry-v5.py",
+      "bytes": 4120,
+      "sha256": "c545a17f9740ffdec8a0c432af336bd22dca6f80b61ca4881164ed3aacd5ed68",
+      "url": "https://github.com/eclipse-mosquitto/mosquitto/blob/83f2620f0b955b89aadce32cceb96a8e81950f5e/test/broker/05-session-expiry-v5.py"
+    },
+    {
+      "path": "test/broker/15-persist-client-msg-out-v5-0.py",
+      "bytes": 5388,
+      "sha256": "2612901cb197a0c602ae6dc34b46d80a742f6b35cdc3757a81ddf10d77093b97",
+      "url": "https://github.com/eclipse-mosquitto/mosquitto/blob/83f2620f0b955b89aadce32cceb96a8e81950f5e/test/broker/15-persist-client-msg-out-v5-0.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

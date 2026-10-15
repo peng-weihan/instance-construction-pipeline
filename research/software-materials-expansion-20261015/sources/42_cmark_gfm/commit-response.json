@@ -1,0 +1,106 @@
+{
+  "sha": "27d942c8b0a62d192f616e5bf3578f4b6a89e180",
+  "node_id": "C_kwDOBHwjItoAKDI3ZDk0MmM4YjBhNjJkMTkyZjYxNmU1YmYzNTc4ZjRiNmE4OWUxODA",
+  "commit": {
+    "author": {
+      "name": "Kevin Backhouse",
+      "email": "kevinbackhouse@github.com",
+      "date": "2026-09-28T14:25:04Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-09-28T14:25:04Z"
+    },
+    "message": "Merge pull request #394 from iceray00/fix-autolink-pointer-overflow\n\nautolink: fix unsigned pointer overflow in validate_protocol",
+    "tree": {
+      "sha": "169c1201f63267a140f644917b448b6c0d17f0b3",
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/trees/169c1201f63267a140f644917b448b6c0d17f0b3"
+    },
+    "url": "https://api.github.com/repos/github/cmark-gfm/git/commits/27d942c8b0a62d192f616e5bf3578f4b6a89e180",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqunjACRC1aQ7uu5UhlAAAJ+AQAEd6DjRe+2c9YDulAPQIjgCu\nVfilsUAn9Kh5EOHD3jofjvhSm6l7L+Adp5hAoaTGkjsyHZCQ6lCrwZ9vVqVncsw9\n7Dt0NCd8mRVz8U9oRJKaAWMAP1mOFWkG5HqXtmaQ4tefoamcthqbxAi5ICmwPXwZ\nq40CDxQh1o2q9l1Y2cBosKuy0AqKCRt90G459g4HL4s6m79nEHlPJ+szkPqCcAjg\nUOZ59MbOpTZkh7QE3UVQCPlH+jBjF0Iqk1l2a9ELpTIwK4X/lemq9/ZQeIgbv4xW\ncNr0bTZEqxGJZsEOlKyCqfwCaxGsHJsNELC021jr4n+eGhbwQXIyj6bPU19WSWnD\nzCgnzf4Qrk8Rf7vwDbUxC8iuiGZt+DesvuvvVBwRRgIzGnsHQSUG44y9DLb0za9p\nU74cc4laOMDcD9S+FgMhzijKZppLGBWt7eUPAyulhI4lcwOut4hUKLQHPm7pICRv\nlcWaZ1b3Ll92bouPKbs2xtNJBwfbeZHNisTdX1DSR6GVoTkZywS/m9x+UwxTheFy\n9dgO/VeELcgjnrLLytOPak7afZ/4AXtQyJ37/wFVY21Zw32TKw+HWJDcaqkLkydO\nURqNsM2dpQV9sZiQ0izwovURHuU7XTvOvkT8Y70vWo6NFDP9hKbj68fwMtlZ78XA\nmp7EO2naQ2/MHdyhyiY4\n=ulY8\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 169c1201f63267a140f644917b448b6c0d17f0b3\nparent 499789b49373bfa045d0e7547e5ee63444c77bca\nparent 46829933c318b4c3108581e82469fe4474f744a9\nauthor Kevin Backhouse <kevinbackhouse@github.com> 1790605504 +0100\ncommitter GitHub <noreply@github.com> 1790605504 +0100\n\nMerge pull request #394 from iceray00/fix-autolink-pointer-overflow\n\nautolink: fix unsigned pointer overflow in validate_protocol",
+      "verified_at": "2026-09-28T14:25:05Z"
+    }
+  },
+  "url": "https://api.github.com/repos/github/cmark-gfm/commits/27d942c8b0a62d192f616e5bf3578f4b6a89e180",
+  "html_url": "https://github.com/github/cmark-gfm/commit/27d942c8b0a62d192f616e5bf3578f4b6a89e180",
+  "comments_url": "https://api.github.com/repos/github/cmark-gfm/commits/27d942c8b0a62d192f616e5bf3578f4b6a89e180/comments",
+  "author": {
+    "login": "kevinbackhouse",
+    "id": 4358136,
+    "node_id": "MDQ6VXNlcjQzNTgxMzY=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/4358136?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/kevinbackhouse",
+    "html_url": "https://github.com/kevinbackhouse",
+    "followers_url": "https://api.github.com/users/kevinbackhouse/followers",
+    "following_url": "https://api.github.com/users/kevinbackhouse/following{/other_user}",
+    "gists_url": "https://api.github.com/users/kevinbackhouse/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/kevinbackhouse/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/kevinbackhouse/subscriptions",
+    "organizations_url": "https://api.github.com/users/kevinbackhouse/orgs",
+    "repos_url": "https://api.github.com/users/kevinbackhouse/repos",
+    "events_url": "https://api.github.com/users/kevinbackhouse/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/kevinbackhouse/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": true
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "499789b49373bfa045d0e7547e5ee63444c77bca",
+      "url": "https://api.github.com/repos/github/cmark-gfm/commits/499789b49373bfa045d0e7547e5ee63444c77bca",
+      "html_url": "https://github.com/github/cmark-gfm/commit/499789b49373bfa045d0e7547e5ee63444c77bca"
+    },
+    {
+      "sha": "46829933c318b4c3108581e82469fe4474f744a9",
+      "url": "https://api.github.com/repos/github/cmark-gfm/commits/46829933c318b4c3108581e82469fe4474f744a9",
+      "html_url": "https://github.com/github/cmark-gfm/commit/46829933c318b4c3108581e82469fe4474f744a9"
+    }
+  ],
+  "stats": {
+    "total": 5,
+    "additions": 4,
+    "deletions": 1
+  },
+  "files": [
+    {
+      "sha": "dff00413bd5c8d0259a7efba3c5060a87e0b9b8f",
+      "filename": "extensions/autolink.c",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "changes": 5,
+      "blob_url": "https://github.com/github/cmark-gfm/blob/27d942c8b0a62d192f616e5bf3578f4b6a89e180/extensions%2Fautolink.c",
+      "raw_url": "https://github.com/github/cmark-gfm/raw/27d942c8b0a62d192f616e5bf3578f4b6a89e180/extensions%2Fautolink.c",
+      "contents_url": "https://api.github.com/repos/github/cmark-gfm/contents/extensions%2Fautolink.c?ref=27d942c8b0a62d192f616e5bf3578f4b6a89e180",
+      "patch": "@@ -312,7 +312,10 @@ static bool validate_protocol(const char protocol[], uint8_t *data, size_t rewin\n     return true;\n   }\n \n-  char prev_char = data[-((ptrdiff_t)rewind) - len - 1];\n+  // Compute the offset as a signed value: with size_t operands the index\n+  // becomes a huge unsigned number and adding it to `data` wraps the pointer,\n+  // which is undefined behaviour even though the address computed is in bounds.\n+  char prev_char = data[-((ptrdiff_t)(rewind + len + 1))];\n \n   // Make sure the character before the protocol is non-alphanumeric\n   return !cmark_isalnum(prev_char);"
+    }
+  ]
+}

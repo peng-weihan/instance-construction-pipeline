@@ -1,0 +1,20 @@
+[
+  {
+    "stage": "source_frozen",
+    "source": {
+      "commit": "66ebb8dc045fd9dce9b329913f8af664c11bbcba",
+      "source": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/specialize-source",
+      "snapshot_sha256": "a51295e21f1bdff7fb3c74d1d885ae824dec4aabadb34db07e072d14e183e625"
+    }
+  },
+  {
+    "stage": "base_validation"
+  },
+  {
+    "stage": "specialized_validation"
+  },
+  {
+    "stage": "internally_verified",
+    "task": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/specialize/specialized/task"
+  }
+]

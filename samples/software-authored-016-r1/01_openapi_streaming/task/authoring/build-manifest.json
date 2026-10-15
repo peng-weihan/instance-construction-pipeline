@@ -1,0 +1,3111 @@
+{
+  "base": {
+    "image": "python:3.12.8-slim-bookworm",
+    "digest": "sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+    "manifest_url": "https://registry-1.docker.io/v2/library/python/manifests/3.12.8-slim-bookworm",
+    "platforms": [
+      {
+        "architecture": "amd64",
+        "os": "linux"
+      },
+      {
+        "architecture": "unknown",
+        "os": "unknown"
+      },
+      {
+        "architecture": "arm",
+        "os": "linux",
+        "variant": "v5"
+      },
+      {
+        "architecture": "unknown",
+        "os": "unknown"
+      },
+      {
+        "architecture": "arm",
+        "os": "linux",
+        "variant": "v7"
+      },
+      {
+        "architecture": "unknown",
+        "os": "unknown"
+      },
+      {
+        "architecture": "arm64",
+        "os": "linux",
+        "variant": "v8"
+      },
+      {
+        "architecture": "unknown",
+        "os": "unknown"
+      },
+      {
+        "architecture": "386",
+        "os": "linux"
+      },
+      {
+        "architecture": "unknown",
+        "os": "unknown"
+      },
+      {
+        "architecture": "ppc64le",
+        "os": "linux"
+      },
+      {
+        "architecture": "unknown",
+        "os": "unknown"
+      },
+      {
+        "architecture": "s390x",
+        "os": "linux"
+      },
+      {
+        "architecture": "unknown",
+        "os": "unknown"
+      }
+    ],
+    "manifest_bytes_sha256": "2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+    "auth_credentials_saved": false
+  },
+  "toolchain": "CPython 3.12; local checks on 3.12.3; pinned container would use 3.12.8",
+  "images_built": false,
+  "arm_runtime_verified": false,
+  "container_runtime_verified": false,
+  "network": {
+    "agent": "no-network",
+    "verifier": "no-network",
+    "build_dependency_install": "offline --no-index --require-hashes; initial immutable base-image pull may require registry access"
+  },
+  "contexts": {
+    "environment": {
+      "path": "environment",
+      "dockerfile": "environment/Dockerfile",
+      "file_count": 539,
+      "bytes": 66671014,
+      "self_contained": true,
+      "files": [
+        {
+          "path": "Dockerfile",
+          "bytes": 691,
+          "sha256": "c0ab4539abd86260beea2ccaee832087b26e44b235d3d99b00638896e2f7d816"
+        },
+        {
+          "path": "public/config.json",
+          "bytes": 105,
+          "sha256": "2ac5c317e78031bbfda42ed139829d907dc952d4dddd9731719e4eaafda20eab"
+        },
+        {
+          "path": "public/smoke.py",
+          "bytes": 1056,
+          "sha256": "11b43d70b39ba9aab778b1be878227d280096a274640502f17762a0e08b74c7e"
+        },
+        {
+          "path": "public/stream-contract.json",
+          "bytes": 4226,
+          "sha256": "5e6d57a7211d0d1aef839a47d2d2e7e799b114acc7cdc3bbe23c304cbd584dda"
+        },
+        {
+          "path": "public/worker.py",
+          "bytes": 8988,
+          "sha256": "5e6cf6cce1a49a4596099a6a7597a12e7c884c6b461f7b34d6ca454ddd01d2d9"
+        },
+        {
+          "path": "requirements-hashed.txt",
+          "bytes": 4233,
+          "sha256": "685a6e712d3481ea6c99540f403f27c5ac58204b652486c2297a2b9db6f1e6af"
+        },
+        {
+          "path": "submission/.github/FUNDING.yml",
+          "bytes": 64,
+          "sha256": "6c94215177ad726d56eeb7ce0b99cb66d5a362527b1bd0a8f642742aa38d23a0"
+        },
+        {
+          "path": "submission/.github/ISSUE_TEMPLATE/bug_report.md",
+          "bytes": 647,
+          "sha256": "0707f3b922490f87db283e973802741687ddcc37812cbd3456d4ce11aa23d4bc"
+        },
+        {
+          "path": "submission/.github/ISSUE_TEMPLATE/config.yml",
+          "bytes": 307,
+          "sha256": "f4a49073655e3be3001059a97af8234b77ba89d161c907eb308040323127b2bd"
+        },
+        {
+          "path": "submission/.github/renovate.json",
+          "bytes": 708,
+          "sha256": "363d6aed6c4098ce1b913975a3d8a6381f635051cc18dfd6f2211202c4db9477"
+        },
+        {
+          "path": "submission/.github/workflows/checks.yml",
+          "bytes": 6288,
+          "sha256": "c194b9a2f7b34a44e02b3442999ed03bee267f9a2379b77e2613b930d075f76e"
+        },
+        {
+          "path": "submission/.github/workflows/fuzz.yml",
+          "bytes": 822,
+          "sha256": "7c27f17132cfb5f7712756231a9c55a768ec5640fbe64491b3bbc64fac7404ef"
+        },
+        {
+          "path": "submission/.github/workflows/release.yml",
+          "bytes": 630,
+          "sha256": "6bf4fb3d8c39424aee4ee379fc9fe06698e496ca242ddd117c0cbbc00df154d4"
+        },
+        {
+          "path": "submission/.gitignore",
+          "bytes": 359,
+          "sha256": "6f544b158046a703e95e7df4acc6723ffe0394d597cb6e42481895a6214a81b3"
+        },
+        {
+          "path": "submission/CHANGELOG.md",
+          "bytes": 66790,
+          "sha256": "d8bfe97e16a0f42c31a1a67b90aa7f204273fd614743de1a829a332ee9fa4488"
+        },
+        {
+          "path": "submission/CODE_OF_CONDUCT.md",
+          "bytes": 3381,
+          "sha256": "dbece42ff3d9c95c33bebfb32786c940a71b0794f3e28c519c4e18edcb3d400d"
+        },
+        {
+          "path": "submission/CONTRIBUTING.md",
+          "bytes": 7440,
+          "sha256": "60ae36c9c91e76abaf7281b2a98bb87618b9d259e0e34a9ca2bca62907cea934"
+        },
+        {
+          "path": "submission/LICENSE",
+          "bytes": 1075,
+          "sha256": "e1da71418a98d030776936ae46ba9846ebba05536c3d225d61e513dec1faa506"
+        },
+        {
+          "path": "submission/README.md",
+          "bytes": 10377,
+          "sha256": "0db70b7a141fbe516d03277eda5075b2495b3028875e8b7d787eeb5d209a9025"
+        },
+        {
+          "path": "submission/SECURITY.md",
+          "bytes": 515,
+          "sha256": "a87290fceeb85c33f6760f44c6aa163b2cc557926c212ef774df712ea891bd47"
+        },
+        {
+          "path": "submission/end_to_end_tests/3.1_specific.openapi.yaml",
+          "bytes": 2223,
+          "sha256": "d3969a93a7dbf73a2c6285e2d5c2572c7265270d536518475fbddc02b084ae7d"
+        },
+        {
+          "path": "submission/end_to_end_tests/__init__.py",
+          "bytes": 230,
+          "sha256": "567841143714168d8243c1c7a2eda0146bfb95b20583c18134e020ed4f9cc0a1"
+        },
+        {
+          "path": "submission/end_to_end_tests/__snapshots__/test_end_to_end.ambr",
+          "bytes": 2944,
+          "sha256": "e7fee2213266fd9aadfc6c33d945ffd5a794db6a6db16c4497ada48a1865bba2"
+        },
+        {
+          "path": "submission/end_to_end_tests/baseline_openapi_3.0.json",
+          "bytes": 81062,
+          "sha256": "5f5e67d0a5083f455be5c901f8940cefd5076e3da0a49ff679074e180736d662"
+        },
+        {
+          "path": "submission/end_to_end_tests/baseline_openapi_3.1.yaml",
+          "bytes": 73981,
+          "sha256": "7a0a583e51da6152ad09090bd4743a79fe6c4579197fe219a5151b7a7f903560"
+        },
+        {
+          "path": "submission/end_to_end_tests/config.yml",
+          "bytes": 368,
+          "sha256": "a95287bacbc2ad77bc84aa93022b8a0234d282900bc55ed0691cecfef59064dd"
+        },
+        {
+          "path": "submission/end_to_end_tests/custom_post_hooks.config.yml",
+          "bytes": 49,
+          "sha256": "b4b8408c23e5aeb5c67d6aa401f3293e28ec0374231de930257251f2e4c73450"
+        },
+        {
+          "path": "submission/end_to_end_tests/docstrings_on_attributes.config.yml",
+          "bytes": 31,
+          "sha256": "4483610cfe74cc4dd7b9ed5855814a41f4962e521e6b7055dbb286e5dd06b278"
+        },
+        {
+          "path": "submission/end_to_end_tests/docstrings_on_attributes.yml",
+          "bytes": 1008,
+          "sha256": "6ad323e6c7f6507f5203f1ac5e637060c32ef73ddd440dc440b629416197b3d0"
+        },
+        {
+          "path": "submission/end_to_end_tests/documents_with_errors/bad-status-code.yaml",
+          "bytes": 321,
+          "sha256": "25a2c33c00f10cf40237877906246dfb1ca3c5ca735ab672344094dcc6602f9e"
+        },
+        {
+          "path": "submission/end_to_end_tests/documents_with_errors/circular-body-ref.yaml",
+          "bytes": 464,
+          "sha256": "c06e648acdb8fb0e8955e6cc3db423199fe1c00aab9914f8be03ddd4ccdadb83"
+        },
+        {
+          "path": "submission/end_to_end_tests/documents_with_errors/invalid-uuid-defaults.yaml",
+          "bytes": 620,
+          "sha256": "4a984123b2ba8830f9340fbcff3a29a29f44eb75a713edade971750548100ef7"
+        },
+        {
+          "path": "submission/end_to_end_tests/documents_with_errors/missing-body-ref.yaml",
+          "bytes": 404,
+          "sha256": "da776d9fe5da82e30448722d3f90fe5d7b2a237e7c69d0e5fb1e39503d5d07d3"
+        },
+        {
+          "path": "submission/end_to_end_tests/documents_with_errors/optional-path-param.yaml",
+          "bytes": 439,
+          "sha256": "91c76e7fef2e85d09064d5cf460845b8a4c6f0d3b11ee67a09ba814aa48d65dc"
+        },
+        {
+          "path": "submission/end_to_end_tests/escapes.openapi.yaml",
+          "bytes": 5715,
+          "sha256": "7160bd29c21749e9d64faab32bd5888655dd922e18def4f2c2fa4e823830b358"
+        },
+        {
+          "path": "submission/end_to_end_tests/functional_tests/README.md",
+          "bytes": 3840,
+          "sha256": "4c11cc45e198db053db73447055ac0a2937a1808a37a284cbc60b48601787277"
+        },
+        {
+          "path": "submission/end_to_end_tests/functional_tests/generated_code_execution/test_arrays.py",
+          "bytes": 4736,
+          "sha256": "4e625a1fa3b1b98afaddd7cdf1ed943caf446fc0346eede727f0a57ce8abf366"
+        },
+        {
+          "path": "submission/end_to_end_tests/functional_tests/generated_code_execution/test_defaults.py",
+          "bytes": 3890,
+          "sha256": "5f5f18296542f116653cc49a25ac3f1b4f601bb9153606d2721957ad2e017eda"
+        },
+        {
+          "path": "submission/end_to_end_tests/functional_tests/generated_code_execution/test_docstrings.py",
+          "bytes": 4738,
+          "sha256": "2fc46a21e6ac3969bdbf710b73b50f59ca3fabab056872fe4e9031c41d74f294"
+        },
+        {
+          "path": "submission/end_to_end_tests/functional_tests/generated_code_execution/test_enums_and_consts.py",
+          "bytes": 12400,
+          "sha256": "29b5fb3b8d0bf09c361811f2461a0c0a0c3cfeab750ca9606a98d07554ba4ddf"
+        },
+        {
+          "path": "submission/end_to_end_tests/functional_tests/generated_code_execution/test_path_parameters.py",
+          "bytes": 5512,
+          "sha256": "18137b01bf43501fc0bf2ec77ee1679457278ad23a15cfc399a98ec1716aa902"
+        },
+        {
+          "path": "submission/end_to_end_tests/functional_tests/generated_code_execution/test_properties.py",
+          "bytes": 8407,
+          "sha256": "c6cfe2ea2d912f7305cfa7eca0a3206f9901b8571334a96c8fb027bb3ee49b41"
+        },
+        {
+          "path": "submission/end_to_end_tests/functional_tests/generated_code_execution/test_unions.py",
+          "bytes": 4271,
+          "sha256": "4d99fa2700884b0bbf37528ae7a2e814dbab84a48a651a84701fce6529eb7556"
+        },
+        {
+          "path": "submission/end_to_end_tests/functional_tests/generator_failure_cases/test_invalid_arrays.py",
+          "bytes": 671,
+          "sha256": "01f5dc31bf11ce8a3604eb168adef1b7a2dd0ef1aaed5176116e8132ec7749b3"
+        },
+        {
+          "path": "submission/end_to_end_tests/functional_tests/generator_failure_cases/test_invalid_defaults.py",
+          "bytes": 3201,
+          "sha256": "4246e02b61d2f8da77678d00b6e351c3649e84847fb75ecd144574e373b9e906"
+        },
+        {
+          "path": "submission/end_to_end_tests/functional_tests/generator_failure_cases/test_invalid_enums_and_consts.py",
+          "bytes": 4188,
+          "sha256": "1efac9e03b69e1d7dda387fb477285f202290fae4e4b536a2cae75bd07bc5b0f"
+        },
+        {
+          "path": "submission/end_to_end_tests/functional_tests/generator_failure_cases/test_invalid_references.py",
+          "bytes": 794,
+          "sha256": "20596eb03e0dd2e7727a109e9d97a2810b4de8b715842919fca6319ce987acfc"
+        },
+        {
+          "path": "submission/end_to_end_tests/functional_tests/generator_failure_cases/test_invalid_spec_format.py",
+          "bytes": 2439,
+          "sha256": "fff79533a5c6227dd2af5646998d81e42d2dc343cb319e30f12b80b65946b252"
+        },
+        {
+          "path": "submission/end_to_end_tests/functional_tests/generator_failure_cases/test_invalid_unions.py",
+          "bytes": 966,
+          "sha256": "32173f0f5ceed23cd53181b5b318d65eae485ce65357d8f19ef8c48b55e9c77d"
+        },
+        {
+          "path": "submission/end_to_end_tests/functional_tests/helpers.py",
+          "bytes": 4789,
+          "sha256": "508ac79b360ad893a353139f5790f187c2d04bf331d0e654f8609767414d2ca5"
+        },
+        {
+          "path": "submission/end_to_end_tests/generated_client.py",
+          "bytes": 5547,
+          "sha256": "3718c37a0327b4f3fdf00333289184bee47f8ec5fa072e43c32c2ef8d64696a5"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/custom-templates/README.md",
+          "bytes": 18,
+          "sha256": "fa6da56142edd24360576cafae9f6d36f351b64154a43261ad1b29326717ce08"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/custom-templates/my_test_api_client/api/__init__.py",
+          "bytes": 1999,
+          "sha256": "af720c2b3be286892b7c8e9da6fdf584466481b53507734202a030023831f3df"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/custom-templates/my_test_api_client/api/bodies/__init__.py",
+          "bytes": 802,
+          "sha256": "198481a27e855a6dbf5d31a16be120e64e0bbb14e473a4e0d282da8d1878f08a"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/custom-templates/my_test_api_client/api/config/__init__.py",
+          "bytes": 295,
+          "sha256": "97bdd04d707af1f46d24747d4157d50466e9be805dfc1d60bebe0a4828d24f64"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/custom-templates/my_test_api_client/api/default/__init__.py",
+          "bytes": 1004,
+          "sha256": "bef9615fe20dbe3bc70f9c8fd0e4f0262050ba1a5b98373f8a5f0098f0526d0b"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/custom-templates/my_test_api_client/api/defaults/__init__.py",
+          "bytes": 305,
+          "sha256": "cfefbcc8bff2609698e43cc5b66a01044bde7b461181b3b35ec84b0af4bb8bb1"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/custom-templates/my_test_api_client/api/enums/__init__.py",
+          "bytes": 505,
+          "sha256": "1648caf6995ae6fcdb8d6de4f3897ddd2b8e93a6b8500aae02c5fc3a917dc6cd"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/custom-templates/my_test_api_client/api/location/__init__.py",
+          "bytes": 416,
+          "sha256": "5233166064bb640c3ce8937986a8c4f25a8d2fe57e0088e4bbfe665e56ba7dea"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/custom-templates/my_test_api_client/api/naming/__init__.py",
+          "bytes": 515,
+          "sha256": "09410ac04d1cf5bd4fb6e4f0c8b4730b6bb8d0f63b0d5e6268ce9e60d8e96779"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/custom-templates/my_test_api_client/api/parameter_references/__init__.py",
+          "bytes": 373,
+          "sha256": "7a7a212f24d3884c21463538a80e544a369ffab695f6e34cfed50c4c42dff2c7"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/custom-templates/my_test_api_client/api/parameters/__init__.py",
+          "bytes": 971,
+          "sha256": "823b0cb569d6953f14e50d79c851082f339e04476e12f35777a4e9a4373e98d1"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/custom-templates/my_test_api_client/api/responses/__init__.py",
+          "bytes": 1368,
+          "sha256": "d95341fc92c9da39ad2031510bf633c99cfe26d7af29ffa4a5934fc899ff68b2"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/custom-templates/my_test_api_client/api/tag1/__init__.py",
+          "bytes": 233,
+          "sha256": "33d7f2d637638fba156ceb1ea4c22650b1721e891f59dfeb753fcd00b9258cd7"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/custom-templates/my_test_api_client/api/tag2/__init__.py",
+          "bytes": 233,
+          "sha256": "2262a465ab941db62e0d270b75f8c9f1feb0a5cb9b1e3880bbd5714b4919b9ed"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/custom-templates/my_test_api_client/api/tests/__init__.py",
+          "bytes": 3932,
+          "sha256": "422e9bcf515ad7aa155d80fef4c9027e88d8624097c50197300ae755911d9513"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/custom-templates/my_test_api_client/api/true_/__init__.py",
+          "bytes": 195,
+          "sha256": "fc37adf193b277af682c1ab979a2ca158eec5c152f0698efb9a0df38c2c3e0ca"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/custom-templates/my_test_api_client/models/__init__.py",
+          "bytes": 431,
+          "sha256": "19e800d02a5e173d6b67edeff6f481c9d09abff9cf78cb7c25cc30ebb9df0d97"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/docstrings-on-attributes-golden-record/.gitignore",
+          "bytes": 195,
+          "sha256": "4b066f97dab229a1cdf588f0690ac1b26a40725375d6eb1ff46a21cf5485560f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/docstrings-on-attributes-golden-record/README.md",
+          "bytes": 5035,
+          "sha256": "6071fa22b5b6273fe82fbcc9de5e5c6dd8c43c37f053902cd5373f9f0900546e"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/docstrings-on-attributes-golden-record/my_test_api_client/__init__.py",
+          "bytes": 154,
+          "sha256": "17d8480e3abced1d0e50fc739e6ef2bc6fdbb658f50b137dc7e211e3b8d245fd"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/docstrings-on-attributes-golden-record/my_test_api_client/api/__init__.py",
+          "bytes": 45,
+          "sha256": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/docstrings-on-attributes-golden-record/my_test_api_client/client.py",
+          "bytes": 12145,
+          "sha256": "677547bc180fcc16a3f7aafd3ad6cbd527a294b62cff7384c717c680522b6c99"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/docstrings-on-attributes-golden-record/my_test_api_client/errors.py",
+          "bytes": 546,
+          "sha256": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/docstrings-on-attributes-golden-record/my_test_api_client/models/__init__.py",
+          "bytes": 251,
+          "sha256": "22aca34e8f128889f3747fc78e9917cfe1a701190c94a6b7bd1efb08e47e96fd"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/docstrings-on-attributes-golden-record/my_test_api_client/models/model_with_description.py",
+          "bytes": 2646,
+          "sha256": "48eca93ffe20595f2a7c969eb6353995222124d1d5cbfff25a7b22dc7bf33d9d"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/docstrings-on-attributes-golden-record/my_test_api_client/models/model_with_no_description.py",
+          "bytes": 1982,
+          "sha256": "9c222b319b0ec2a077eeba87a9cbde657d2cf5438621274d03464ad22c71507d"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/docstrings-on-attributes-golden-record/my_test_api_client/py.typed",
+          "bytes": 25,
+          "sha256": "f19254b31662b8ecb5a0979586c4d64214c6ffaa535475579398492fbf5e6d39"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/docstrings-on-attributes-golden-record/my_test_api_client/types.py",
+          "bytes": 1343,
+          "sha256": "d167b834fbe121801246943795ee359e625e100566e36fb654a773949e0e8289"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/docstrings-on-attributes-golden-record/pyproject.toml",
+          "bytes": 515,
+          "sha256": "0768059fd5dcf519fc0238e6b944e938a7f9d8d2294c4f36331125dfaf3c0461"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/.gitignore",
+          "bytes": 195,
+          "sha256": "4b066f97dab229a1cdf588f0690ac1b26a40725375d6eb1ff46a21cf5485560f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/README.md",
+          "bytes": 4984,
+          "sha256": "c317218b305d45792ed5f05e4ac2962d0606e451d3834b20baae9feee090f485"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/__init__.py",
+          "bytes": 152,
+          "sha256": "d898cd8da8b5e1ecd8ee6642840c516926d06391d53ab3dd9394f622480cd1bd"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/api/__init__.py",
+          "bytes": 45,
+          "sha256": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/api/default/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/api/default/get_weird_responses.py",
+          "bytes": 1969,
+          "sha256": "5589abf03009705fd4b3e8c15968f1a94e736125d92c7cc6a148a60995e1a573"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/api/default/misc_metadata_escapes.py",
+          "bytes": 3655,
+          "sha256": "309eb4b117ad5fa7bb3fe4707edf5d906da983a5764b5bf8e1f0e60749d47711"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/api/default/non_string_example.py",
+          "bytes": 2499,
+          "sha256": "d88caf574d91bdfd78e6aa1c83ee71aea50a1ea04d8274648ff2fba473aedf50"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/api/default/property_escapes.py",
+          "bytes": 2597,
+          "sha256": "0e105ca40c246bb49de63b5c2947b78790d3d69f3f76c1b8d3c2eb78d4026c17"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/api/printtag_escape/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/api/printtag_escape/with_braces_path.py",
+          "bytes": 3508,
+          "sha256": "612919415b931441183e426b03d0fc5297072e535a198974b799ee925eb3de81"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/client.py",
+          "bytes": 12306,
+          "sha256": "7f0534c4917c92d1bafeebc215987723a2eab2683758a3fcf4e0d4753ba70750"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/errors.py",
+          "bytes": 546,
+          "sha256": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/models/__init__.py",
+          "bytes": 821,
+          "sha256": "33a61ee6c5a4cb4bdbcad354722b4af8d56dcd64ff3375f93afe5d20e7cc1e28"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/models/misc_metadata_escapes_body.py",
+          "bytes": 1290,
+          "sha256": "9db5beeb41fed8925e401bbe79710a03c14654cd358926b78da7622ea0cdf949"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/models/non_string_example_body.py",
+          "bytes": 2416,
+          "sha256": "46b24398c6f2cc3b92bf7c3d6f909287bedb3f3212c216d77eff5a566683e396"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/models/non_string_example_body_dict_example.py",
+          "bytes": 1428,
+          "sha256": "84043e42b81328caf87bdaf4dea48934e6443d2adcf1d37e02f3cc7b383d0618"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/models/property_escapes_model_title_printuh_oh.py",
+          "bytes": 3611,
+          "sha256": "90d296433ea0fe28f6d8280c8ecb36f6997c0c471d0835d7458e3f1e985abe28"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/models/property_escapes_model_title_printuh_oh_escaped_enum.py",
+          "bytes": 240,
+          "sha256": "64f4a84bb86262f14bf1dc209f211f94edd71e7747235a92b6983d81e5b22df8"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/models/schema_printuh_oh.py",
+          "bytes": 1247,
+          "sha256": "5cf8030b86fba559279dece3e95ee2c646e61d05cde575e53fad17fdac120c69"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/models/with_braces_path_body.py",
+          "bytes": 1265,
+          "sha256": "2b4fa61b58f4642ef1387990e1c979e24eb4737086776bd887c3226808a4b475"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/py.typed",
+          "bytes": 25,
+          "sha256": "f19254b31662b8ecb5a0979586c4d64214c6ffaa535475579398492fbf5e6d39"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/escapes_client/types.py",
+          "bytes": 1343,
+          "sha256": "d167b834fbe121801246943795ee359e625e100566e36fb654a773949e0e8289"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/escapes-client/pyproject.toml",
+          "bytes": 503,
+          "sha256": "8a9c880f5fb531961b879e7f878eb6a77789ae9baf34929c37b9d5a9ec8af784"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/.gitignore",
+          "bytes": 195,
+          "sha256": "4b066f97dab229a1cdf588f0690ac1b26a40725375d6eb1ff46a21cf5485560f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/README.md",
+          "bytes": 5035,
+          "sha256": "f122cbf2463cc1cafcb255fa8fbb8d535f173969490a4af3f2dbc52cfe6c16ca"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/__init__.py",
+          "bytes": 154,
+          "sha256": "75def402fd7f6e38e8868e80bb7f4eb7e6c1e856b919d5b5c3ab36816f728e4a"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/api/__init__.py",
+          "bytes": 45,
+          "sha256": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/api/enums/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/api/enums/bool_enum_tests_bool_enum_post.py",
+          "bytes": 2441,
+          "sha256": "739222e35ee3c585a212bd8a4a72b66559c00d1683998bc0df9897ac9a1d20ca"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/api/enums/int_enum_tests_int_enum_post.py",
+          "bytes": 2567,
+          "sha256": "1440061e028fafb8ff2082813eb2b0e72558a9199d840dc0ca28aff9ebf3db09"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/api/tests/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/api/tests/get_user_list.py",
+          "bytes": 8558,
+          "sha256": "f499307f6c6268cec97717e1f5e677f61d001d4461c59fd6a9c934203413b4ef"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/api/tests/post_user_list.py",
+          "bytes": 4220,
+          "sha256": "e227fee44a8e4a07cc42ea7c148c271379bd642211bf38f14d34996cb0a25b61"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/client.py",
+          "bytes": 12306,
+          "sha256": "7f0534c4917c92d1bafeebc215987723a2eab2683758a3fcf4e0d4753ba70750"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/errors.py",
+          "bytes": 546,
+          "sha256": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/models/__init__.py",
+          "bytes": 683,
+          "sha256": "4f385b8a1ea732489294140025c3599ebfc578657180caea529acc99e1465b76"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/models/a_model.py",
+          "bytes": 4520,
+          "sha256": "062db0d9d71987052b7f2a4dc0e59bd72149b30dc8a53285e653082c296f3671"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/models/an_all_of_enum.py",
+          "bytes": 420,
+          "sha256": "c231c5b0c98b3498b031a74159de7e67a951a66be8339e2f11da815f3af0f11c"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/models/an_enum.py",
+          "bytes": 333,
+          "sha256": "c277c8bed8544a144f327331d3ae608703bcd78c47674e05983be292554fbb68"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/models/an_enum_with_null.py",
+          "bytes": 397,
+          "sha256": "7ceaab663b720b74f0e282057961b80ad6a0f04d20e2eddf1e5b358abd4cbf29"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/models/an_int_enum.py",
+          "bytes": 320,
+          "sha256": "ba36e3881cae6c933e71263289e260ef43194c3853ab10c0355464cd13a7558d"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/models/different_enum.py",
+          "bytes": 364,
+          "sha256": "40682e57d2f6e346c9a93ffe2926c337e8792496522f234b7eb1940329e1c051"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/models/get_user_list_int_enum_header.py",
+          "bytes": 435,
+          "sha256": "9721a5844beb4939285dfe9dbbcd8b4bacd4ad8c99ff2d815a030f47e8ea3b7c"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/models/get_user_list_string_enum_header.py",
+          "bytes": 484,
+          "sha256": "7ef05eab189911225fd446205fc2e368ca98119987867e8103f0d3380c4c11c6"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/models/post_user_list_body.py",
+          "bytes": 11661,
+          "sha256": "f1a971c3e5f94550f844c2ed07467bc341e624487841bcdc806ad7fa34a9c606"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/py.typed",
+          "bytes": 25,
+          "sha256": "f19254b31662b8ecb5a0979586c4d64214c6ffaa535475579398492fbf5e6d39"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/my_enum_api_client/types.py",
+          "bytes": 1343,
+          "sha256": "d167b834fbe121801246943795ee359e625e100566e36fb654a773949e0e8289"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-enum-api-client/pyproject.toml",
+          "bytes": 515,
+          "sha256": "a33d7a178ce80110d3b3bc1c9c4edb203672757e18e9a48fb9e80c6c860da86c"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/.gitignore",
+          "bytes": 195,
+          "sha256": "4b066f97dab229a1cdf588f0690ac1b26a40725375d6eb1ff46a21cf5485560f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/README.md",
+          "bytes": 5035,
+          "sha256": "6071fa22b5b6273fe82fbcc9de5e5c6dd8c43c37f053902cd5373f9f0900546e"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/__init__.py",
+          "bytes": 154,
+          "sha256": "17d8480e3abced1d0e50fc739e6ef2bc6fdbb658f50b137dc7e211e3b8d245fd"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/__init__.py",
+          "bytes": 45,
+          "sha256": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/bodies/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/bodies/json_like.py",
+          "bytes": 2688,
+          "sha256": "e2b51fddb3dbc8bf6b1e085bde787bc42c8c70abe9a0285fffc4080c95edb0e3"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/bodies/optional_body.py",
+          "bytes": 2639,
+          "sha256": "e9b42d7e3bac472ee6d3895ab236f1670782919d40c3a2269ab4515807e444b5"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/bodies/post_bodies_multiple.py",
+          "bytes": 3996,
+          "sha256": "555602c978f5e556d02a468073e810a2faf494aa8c15fcd3d7de60a6ca8dd6f2"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/bodies/refs.py",
+          "bytes": 2698,
+          "sha256": "23e00828ad93f1fa499ccadbfa89a838d4ab02e0eac8344b213c1d9b15e6e1cb"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/config/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/config/content_type_override.py",
+          "bytes": 3658,
+          "sha256": "9c8098132c815354beb4698aee6200d9e5b5e80325f7aafacc6e0d78fe20870d"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/default/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/default/get_common_parameters.py",
+          "bytes": 2461,
+          "sha256": "a6ff0e8f33ceac51d331e73f56b6bc3fd35bb2a1ff1505a7e2ba7898234a3422"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/default/get_models_allof.py",
+          "bytes": 3272,
+          "sha256": "921af3bc0f391a37b7e56cab22219640707689264e5141aac41c8898e572b488"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/default/get_models_oneof_with_required_const.py",
+          "bytes": 4917,
+          "sha256": "69b69fca20c0abe810317f56e19be34d75f98240f17569418cf998e8edc5d197"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/default/post_common_parameters.py",
+          "bytes": 2462,
+          "sha256": "b7a967070eef4965310606896403f3cc77593b63f89cec25643cbb1e9c494369"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/default/post_types_unions_duplicate_types.py",
+          "bytes": 3904,
+          "sha256": "026678d4bfe9b75ef91fe1054ffba1ad059be1fbb536b0f28fb0981e29043096"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/default/reserved_parameters.py",
+          "bytes": 2658,
+          "sha256": "4740934ab5152a4e7549f04e64e2d003558d182ac59aa6663086e79bf44c551c"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/defaults/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/defaults/defaults_tests_defaults_post.py",
+          "bytes": 12269,
+          "sha256": "090ef269ed73366147215574aa8c7e06d855874208548a3538a9350d76e4472a"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/enums/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/enums/bool_enum_tests_bool_enum_post.py",
+          "bytes": 2441,
+          "sha256": "739222e35ee3c585a212bd8a4a72b66559c00d1683998bc0df9897ac9a1d20ca"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/enums/int_enum_tests_int_enum_post.py",
+          "bytes": 2568,
+          "sha256": "96d66ca1f81a9a5865037f04efd37b1d41e3ca5ebf7738a22c241fefc8e6e614"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/location/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/location/get_location_header_types.py",
+          "bytes": 5036,
+          "sha256": "d087b6f298da3a54356f592fa562994743c6421fdaf7e95added96b28e1e600a"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/location/get_location_query_optionality.py",
+          "bytes": 4665,
+          "sha256": "f8a482d5cd5395f5ea392d7281baa77732347765a5f97ec72d1c0e9ab0ba77c0"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/naming/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/naming/hyphen_in_path.py",
+          "bytes": 2393,
+          "sha256": "4c6fe551a777d8f3afc191ddc0cb8e287ebd38f3ba865e6ad99b8c813cd52e81"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/naming/mixed_case.py",
+          "bytes": 4150,
+          "sha256": "80ae47bc3e9a55b20b94a58780e7d73f674bdffb017abfd1ef67d839cb20adc8"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/naming/post_naming_property_conflict_with_import.py",
+          "bytes": 4655,
+          "sha256": "cb61dbaab85bbf6b20f2bd152137435b65eca8233170c7935c8fa912e6258c63"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/parameter_references/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/parameter_references/get_parameter_references_path_param.py",
+          "bytes": 4079,
+          "sha256": "6cfd84667407ec9f1161e6d533f4bba5c2a2f20057950f67c72f1c8ac674648e"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/parameters/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/parameters/delete_common_parameters_overriding_param.py",
+          "bytes": 2819,
+          "sha256": "a7b5564f02df11afe06ace846005baf26e826ba8db3131c6d4f4b4e655b0f134"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/parameters/get_common_parameters_overriding_param.py",
+          "bytes": 3237,
+          "sha256": "33a3c74e0c83db26e368228f1f2ff07dfcfb03a8ac841b7ca4c05e8924c70e52"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/parameters/get_same_name_multiple_locations_param.py",
+          "bytes": 3604,
+          "sha256": "859d7fb7a35273fe66637967d7dbcf71a5cf255a314fbe30bd1669b566258c4d"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/parameters/multiple_path_parameters.py",
+          "bytes": 2919,
+          "sha256": "d402e292a7361a77ef5efd9f31ff3338fed52d327ccaba95a1aac529dc5c1596"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/responses/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/responses/default_status_code.py",
+          "bytes": 2823,
+          "sha256": "3e9c31e2725a00da8ea775d3c231702abe1099ae480582fda964ac055a7d1364"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/responses/post_responses_unions_simple_before_complex.py",
+          "bytes": 3723,
+          "sha256": "0954c929c180ab3698ade55eaddcaadc8296f936e9b64f29c54ac95b5573fd27"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/responses/reference_response.py",
+          "bytes": 3157,
+          "sha256": "f94a6769c5ab5c33aad4257c5b30af41a00fcb5a011aadde70363d0a10eebf90"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/responses/status_code_patterns.py",
+          "bytes": 3992,
+          "sha256": "4b9e0ac1b096454a67035a551c45ebf060bc72583807b0348d35c9fdef85aab3"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/responses/status_code_precedence.py",
+          "bytes": 3502,
+          "sha256": "77525da9100bbe1d6adb71e08abffe841ea0f013e1c0bf5f5836cbb403a8a2da"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/responses/text_response.py",
+          "bytes": 2981,
+          "sha256": "f75fdc7e8d7831ce42355ee59f2644bafd93a2a566e819a46d42039f87d20dbf"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tag1/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tag1/get_tag_with_number.py",
+          "bytes": 2026,
+          "sha256": "3d1625bb51d6e43c9e111738d50b8da434211a195ccfbfb83ae3524442af0c4e"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tag2/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tag2/get_tag_with_number.py",
+          "bytes": 2026,
+          "sha256": "3d1625bb51d6e43c9e111738d50b8da434211a195ccfbfb83ae3524442af0c4e"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tests/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tests/callback_test.py",
+          "bytes": 4390,
+          "sha256": "d24de843fb841830724ae46f17d7f2cea0e6b5234ea88077c910df7e01632907"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tests/description_with_backslash.py",
+          "bytes": 2159,
+          "sha256": "5d9de72e87f44434c2d8a8626ec52e84936d8eaf0f3fda314ee65d3141ac11b8"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tests/get_basic_list_of_booleans.py",
+          "bytes": 3257,
+          "sha256": "2443559e8df055da6bfb78b75f77305e7a224ae0f887c46bbc4318cb825734c0"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tests/get_basic_list_of_floats.py",
+          "bytes": 3250,
+          "sha256": "7ff542057e1261947195aeadf05872917f46f35a194984296d63d9103f5fd267"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tests/get_basic_list_of_integers.py",
+          "bytes": 3246,
+          "sha256": "0021bbf902af739d36a31d24e624ad1f364e1a5f40184541f6f573279728a2f3"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tests/get_basic_list_of_strings.py",
+          "bytes": 3237,
+          "sha256": "6b5c0f1882eb086b3ab9eec48878c3ca56dacb7f306cc907ae39527ddc051a92"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tests/get_user_list.py",
+          "bytes": 7980,
+          "sha256": "9f1203d3c864c128a49b3e99247d0aaa5361a356fc2f2a5b5a9b5eb93e427255"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tests/json_body_tests_json_body_post.py",
+          "bytes": 4275,
+          "sha256": "28235a2e3f9783e22d14d72a46c03b1a4fe48cf192a0a094d723515527c77efd"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tests/no_response_tests_no_response_get.py",
+          "bytes": 2052,
+          "sha256": "1210b82c55780ed76d5713e07c97e5a8e17b0125830cd2acae54c9a92fc17ca2"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tests/octet_stream_tests_octet_stream_get.py",
+          "bytes": 3046,
+          "sha256": "a5b87ec19ce6644da1bb19f88f10ffa9742c0888c7be7d7410a8d55ecdff469e"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tests/octet_stream_tests_octet_stream_post.py",
+          "bytes": 4771,
+          "sha256": "91003b8a9bbc78fa1a173af640f86e07644844069b9aeb9c08d64a35e8330e38"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tests/post_form_data.py",
+          "bytes": 2511,
+          "sha256": "f436f8715808ae5bd9ba1415442f67debabb9df9df985209202a9ec3aade3898"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tests/post_form_data_inline.py",
+          "bytes": 2675,
+          "sha256": "224b85c595a17a2e77d17e5f79c8786827cbbcf17a0046b26641676b4122bfdf"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tests/post_tests_json_body_string.py",
+          "bytes": 3929,
+          "sha256": "03cba6d8abafb148f9e6006225d80bcdfdddc841be6af9f11d8e15534e7971b1"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tests/test_inline_objects.py",
+          "bytes": 4082,
+          "sha256": "7d9fc93231bb2b2f5cfc5cb8ac2308cd12d806c64097ece3204a8bd8d759202f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tests/token_with_cookie_auth_token_with_cookie_get.py",
+          "bytes": 2481,
+          "sha256": "31624e1570a9ccc585686537d9be69176045362c3a9c166e643e824338f5d0ba"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tests/unsupported_content_tests_unsupported_content_get.py",
+          "bytes": 2076,
+          "sha256": "a6078d246ba42eec8213ed1e3da454cb414c57e9da82082f6202b51a47ecc67b"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/tests/upload_file_tests_upload_post.py",
+          "bytes": 4280,
+          "sha256": "ac83853919cc1e0cf9a54359664ce531f45a9971f5010d6264ec32d1ab39515a"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/true_/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/api/true_/false_.py",
+          "bytes": 2398,
+          "sha256": "9089d32e21a644c66cd8d637becb493e411b76e4e2e7dbe6ddd04d4b48a93a7a"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/client.py",
+          "bytes": 12306,
+          "sha256": "7f0534c4917c92d1bafeebc215987723a2eab2683758a3fcf4e0d4753ba70750"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/errors.py",
+          "bytes": 546,
+          "sha256": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/__init__.py",
+          "bytes": 9972,
+          "sha256": "a1a0fb6a7041715b35f6bf24f27e92aedf82d61fef6492a334dd27098e76b271"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/a_discriminated_union_type_1.py",
+          "bytes": 1679,
+          "sha256": "c1366f1c90df586ca9d7fdba8a18266f7dec35aa6a7c27efa4370519b8bfab39"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/a_discriminated_union_type_2.py",
+          "bytes": 1679,
+          "sha256": "b640b4ed4b0bd6e968744499faa7a11b9e7d1ac9471931fd46bb8c83c7398faf"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/a_form_data.py",
+          "bytes": 1985,
+          "sha256": "837b75851de451138e1b4ac54944e0516d900008c5f7fc7bad7aeded5f00385f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/a_model.py",
+          "bytes": 23792,
+          "sha256": "ae59abc017e43a8272384b925181791dbf200306101c81c4b3da8969d1c38a02"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/a_model_with_properties_reference_that_are_not_object.py",
+          "bytes": 16165,
+          "sha256": "afce30845a72cec3f64be891cb18d4808d6bcfe8d3c145da4c76f169fc23fce1"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/all_of_has_properties_but_no_type.py",
+          "bytes": 2720,
+          "sha256": "b880310b51f1c19c024564f3f38bff30198ee900b08c8e34143691b39abd3e0a"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/all_of_has_properties_but_no_type_type_enum.py",
+          "bytes": 173,
+          "sha256": "26c91828876104d6fd9554cb3a7bfadd290b9708b0b5184f40d06443e9c4503e"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/all_of_required_base.py",
+          "bytes": 1801,
+          "sha256": "48c43df186d44d4f0aa15286c1ae04a10056fe380e3e2ee9cc0f8bb99da8b7f3"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/all_of_required_derived.py",
+          "bytes": 1783,
+          "sha256": "ca806e00235ef5bbf46e6345a9af12c6f1a0655196d40ff71d11744982d5b15a"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/all_of_sub_model.py",
+          "bytes": 2554,
+          "sha256": "55099ef8685c3b0a945a3748c28e091aeb05f327aa3ca3c003aa13a633854a89"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/all_of_sub_model_type_enum.py",
+          "bytes": 159,
+          "sha256": "efc8ebc6cb7c65383db4f83f302a5fc91ea5f0ff68ed95492824db17936129a4"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/an_all_of_enum.py",
+          "bytes": 223,
+          "sha256": "ba9b5cf1cab5c3a84e313da719533cad0aceda62a0840e36c00e5e900f1aefed"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/an_array_with_a_circular_ref_in_items_object_a_item.py",
+          "bytes": 3347,
+          "sha256": "1b7b20075ab68ca53479df25739c1d320b68897a00c58e5eba5b237b6ef8284b"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/an_array_with_a_circular_ref_in_items_object_additional_properties_a_item.py",
+          "bytes": 3723,
+          "sha256": "d8f8d5b39637396a07867252d20c925908143acffb8f6fbff829971ce374fe4c"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/an_array_with_a_circular_ref_in_items_object_additional_properties_b_item.py",
+          "bytes": 3723,
+          "sha256": "0cc331bc31ccc73eb36f54abf140c73d585c4b169d266722c7748ab0d959a248"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/an_array_with_a_circular_ref_in_items_object_b_item.py",
+          "bytes": 3347,
+          "sha256": "4f10ccd51e1857abd671381bbdad18b7541b385039895ba710ad48b10fc70d6e"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/an_array_with_a_recursive_ref_in_items_object_additional_properties_item.py",
+          "bytes": 3259,
+          "sha256": "aeabe05d0edf2582133d9901fe9c81014f87778f7d57c36666d1efdb18544ef6"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/an_array_with_a_recursive_ref_in_items_object_item.py",
+          "bytes": 3035,
+          "sha256": "5b2fca5ff8f2de8c428028c18659e9ddb0b6459e22b1a300a5b9acc82341f954"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/an_enum.py",
+          "bytes": 178,
+          "sha256": "eb12c5fc01835df002c4c1f9c13414ad9549642bf79b69c8da1fd96ef6256f88"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/an_enum_with_null.py",
+          "bytes": 186,
+          "sha256": "954db15efadbb54b70afaddae5d0cc9adf36aaaaae3c650aab351bd3e780a756"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/an_int_enum.py",
+          "bytes": 173,
+          "sha256": "39a28510e5bfa0c4dfcf8986fbb0a9a637d90a99e24dafc640135468f09df6a9"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/another_all_of_sub_model.py",
+          "bytes": 3090,
+          "sha256": "98156740026326023f0b6e028bb7ab9dee9eaf9c5dd8ecb93f3d9897a9599451"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/another_all_of_sub_model_type.py",
+          "bytes": 156,
+          "sha256": "e4ff865d542df0c7159ed1297370de56e2d703387384fb55f1b97aeeac21d110"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/another_all_of_sub_model_type_enum.py",
+          "bytes": 150,
+          "sha256": "6d6dff6ce7f445340bf8239269ad7889bd8ec95771cff10c950c76d29de0de03"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/body_upload_file_tests_upload_post.py",
+          "bytes": 17250,
+          "sha256": "9454851e8cfcf42d2953531620a1b81c44392fac559e23ebdfb1ea60548a89fa"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/body_upload_file_tests_upload_post_additional_property.py",
+          "bytes": 1728,
+          "sha256": "945d2e19ec5dfa7b421ef82aed820bae48611d1c17249f6ab08952afa89df293"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/body_upload_file_tests_upload_post_some_nullable_object.py",
+          "bytes": 1731,
+          "sha256": "33dfe83ed167c8b4ce64228d37a7cdcd49f0c1d17839f2c106068bb31f302f51"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/body_upload_file_tests_upload_post_some_object.py",
+          "bytes": 1768,
+          "sha256": "5bf6a9e384de8f25e5f20dd8aeb604a7e110cea664943a171deada3d08b376d5"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/body_upload_file_tests_upload_post_some_optional_object.py",
+          "bytes": 1664,
+          "sha256": "828ecea4407321c536aebf02f4c58da7de72152b72a336fe8fe15692787d6566"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/different_enum.py",
+          "bytes": 167,
+          "sha256": "ac82640f01883de99d8d60d51b782a5424d7225db7afedc3baedcc53553f7fa7"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/extended.py",
+          "bytes": 24764,
+          "sha256": "2cf3156ac10e88433ba40bfc44a4d347dc1fabe5d15cfe9c180f5a302dbc1774"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/free_form_model.py",
+          "bytes": 1237,
+          "sha256": "c5ac93aba419259803afe43cccd2cd3cd018f3fef35ed9be2c6501265bedf42a"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/get_location_header_types_int_enum_header.py",
+          "bytes": 189,
+          "sha256": "b24c8802d535d7293a1f0e4face15cfd5e0fe3b27d4db2751b211c4707562e61"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/get_location_header_types_string_enum_header.py",
+          "bytes": 196,
+          "sha256": "ad7e7e14c5ae8da4f9add9ada39032330b4e0cf125d166c089fa4b11976c59c9"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/get_models_allof_response_200.py",
+          "bytes": 3337,
+          "sha256": "569a4de9dc589dfddee0564dc84704b2ed584521f47fd2dcba5a6c10c529cf1c"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/get_models_oneof_with_required_const_response_200_type_0.py",
+          "bytes": 2114,
+          "sha256": "6fcdda371a2b58340fafb3d211c199529f55ec55ae12d1608f6059de095edcf4"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/get_models_oneof_with_required_const_response_200_type_1.py",
+          "bytes": 2131,
+          "sha256": "81727c36135f827bff9debc923efddd0e7469aee9586caea02676bd3eda5640f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/http_validation_error.py",
+          "bytes": 1604,
+          "sha256": "a9707913a516954a5a94219fcef72a4bee8ed943017f78d638a469b14667b921"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/import_.py",
+          "bytes": 1199,
+          "sha256": "b5e53315e5bab9c4bf5a05ae70db89922568da260734981af1108eaf5d29b1a4"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/json_like_body.py",
+          "bytes": 1516,
+          "sha256": "eced9ce88d2f1765a126a1d7fe86ff27f3f4256bcf1fb4bbc6d7c67ee4beffd9"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/mixed_case_response_200.py",
+          "bytes": 1925,
+          "sha256": "c49760ac0f47a183a7e5f3b77f4da4dab171b66f6a262da9c15af48ffea342ab"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_from_all_of.py",
+          "bytes": 3379,
+          "sha256": "b299124bbd915d536778411a59ca49692da917e4f898c2ff18d9c37d6f453e40"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_name.py",
+          "bytes": 1214,
+          "sha256": "829e9fd41c82fed95e88b6a3fbb061c00c6aea62e7e3d0b23bfce97b42d9890d"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_reference_with_periods.py",
+          "bytes": 1349,
+          "sha256": "19cbdc628e8476716fc90b859d25129b8950f3babed77423bdd554dc02ba0bc4"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_additional_properties_inlined.py",
+          "bytes": 2617,
+          "sha256": "07f0ae68bc3ceccbc668448d1b87955a38f91d18ca2856e144d8c0978b24780b"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_additional_properties_inlined_additional_property.py",
+          "bytes": 1903,
+          "sha256": "e82b82579118d5074e126413d4803f63c6bc0b6c212c9019af3fa00345312bff"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_additional_properties_refed.py",
+          "bytes": 1677,
+          "sha256": "30b5b35813ea7b64f0ca7532045b19e148c061752e3fa3ead11eb999bff3b09d"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_any_json_properties.py",
+          "bytes": 3767,
+          "sha256": "bbf11577278a1cc53d29994143cb8e88b939d625dcecf635d594edd7cd88d214"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_any_json_properties_additional_property_type_0.py",
+          "bytes": 1435,
+          "sha256": "a8a1ac6cf6866bfaee35d68fccab4d47582ed9cdb62c53cedae53d1452133eb4"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_backslash_in_description.py",
+          "bytes": 1391,
+          "sha256": "4954bcbcb9a84115f482a012c12d520e31370f2c69db5ed344bd83abf347c4cf"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_circular_ref_a.py",
+          "bytes": 2194,
+          "sha256": "e1354b5cea19ca19546918dc16b431b31baef17c636cbe400360b7d313e38e12"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_circular_ref_b.py",
+          "bytes": 2194,
+          "sha256": "2539d0441c2fdf81e46178a45e192f0a407098ecd2c6300aca445422a604d20b"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_circular_ref_in_additional_properties_a.py",
+          "bytes": 2192,
+          "sha256": "2915dafd1077893e2430a5f04b4b6d88f5889898e3b970926573b6899c9434ad"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_circular_ref_in_additional_properties_b.py",
+          "bytes": 2192,
+          "sha256": "dc783cfc7ab68980f5ef3a2ef1733fae80284e0e427d08b624b64bb7033c4844"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_date_time_property.py",
+          "bytes": 2022,
+          "sha256": "023bc76b72edd6927641bf2fd93dd2d38782c4df2d054551878933e1f54e1e19"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_discriminated_union.py",
+          "bytes": 4108,
+          "sha256": "832d288737cdf9582f951092ca17381bb61639d5ae873c6d2af29f9e9afde64f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_merged_properties.py",
+          "bytes": 4039,
+          "sha256": "96e61fbd58f1ef7e957c3209448cdf6a112b231774aaca067d1ed7152678644e"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_merged_properties_string_to_enum.py",
+          "bytes": 167,
+          "sha256": "c6ca802052cf896e262d1a0aa983a9daef27cfda174eb76d6482d2b720477219"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_no_properties.py",
+          "bytes": 518,
+          "sha256": "7d095ccf2837f2ed279b46e385aa7772f8d62dff545e006cdc9438c9b13df7e3"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_primitive_additional_properties.py",
+          "bytes": 2641,
+          "sha256": "04d83cb92ef929a8703ad00c456ab5b7efe8cd182ec4a19077e014af8970c4ce"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_primitive_additional_properties_a_date_holder.py",
+          "bytes": 1804,
+          "sha256": "42c99744351c8ed1c88475299518fa16ac29cea02a5ed25816f32f1498ba2177"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_property_ref.py",
+          "bytes": 2030,
+          "sha256": "689c943d56b25de79542afa35db13ea5004c36f397216f39dc1bba5df3c29cab"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_recursive_ref.py",
+          "bytes": 2006,
+          "sha256": "1b560d648d56001a8399b144c37de0803bff718c5c9ec4dd9e03b21ceb88fc22"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_recursive_ref_in_additional_properties.py",
+          "bytes": 1867,
+          "sha256": "395f819e3c13f7798c3f807c76c90baf478c361d48e4f3d9999939a12f99a84d"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_union_property.py",
+          "bytes": 1889,
+          "sha256": "05a087552570a6a68c85b9a786c6067f8a48a05e0c2bdfcd86721cbefd884d92"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_union_property_inlined.py",
+          "bytes": 2727,
+          "sha256": "a3c0fccdc90694f3e721d3102a56110c34938f50c609e7e8caeacc00fbec7bac"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_union_property_inlined_apples.py",
+          "bytes": 1695,
+          "sha256": "dcc513576a676d43976122e5074baa1594e522b0a74f6256e1f196bb049800eb"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/model_with_union_property_inlined_bananas.py",
+          "bytes": 1711,
+          "sha256": "896cd227a918d3c07e5a173e834a3b2965f70a0687be76c222af01cf4181fa07"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/none.py",
+          "bytes": 1188,
+          "sha256": "e0f152309bda54c103d4378a9fb522a12f570c06e1434b84e430b095e290e6e3"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/octet_stream_tests_octet_stream_post_response_200.py",
+          "bytes": 2008,
+          "sha256": "633d4d6427ed61941dd7660453c78f6f03d450641beaf43bb16abd67b71e83b7"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/optional_body_body.py",
+          "bytes": 1252,
+          "sha256": "3306f888ba67921af78ad3c26842bab73b19c118ade6bf13cb5f12b3e63eb2cc"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/post_bodies_multiple_data_body.py",
+          "bytes": 1592,
+          "sha256": "afda0f20e1c98be01aad6a9f4881cd7f2a0f7bc54b18661dc5b8f2c25a299d3a"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/post_bodies_multiple_files_body.py",
+          "bytes": 1997,
+          "sha256": "e9cfdca0999d269ce881638f57f35faaa03d6c076d42fb0c04a2009e4c52b628"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/post_bodies_multiple_json_body.py",
+          "bytes": 1592,
+          "sha256": "242a6069961fb30036d59e1be13f6bc3939bb1f1e46befc651238ca35b9ba440"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/post_form_data_inline_body.py",
+          "bytes": 2046,
+          "sha256": "5615e251d66be2c9d0cee0685223452fccb5523efb04812a11b9e18b178b12e8"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/post_naming_property_conflict_with_import_body.py",
+          "bytes": 2070,
+          "sha256": "fb38fa3c6dd3c1b513582eac5f6bb82982f13da68ff61bbd8efbc6e50f40eda4"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/post_naming_property_conflict_with_import_response_200.py",
+          "bytes": 2108,
+          "sha256": "8acb3661ea35ae5be63862fa2ad31cfb490f55daad95b17ea05c62247376cea4"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/post_responses_unions_simple_before_complex_response_200.py",
+          "bytes": 3059,
+          "sha256": "56ebfede8068de824faa043259cd49d7f7620c2b6da7ccd5ff498ee65a96700c"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/post_responses_unions_simple_before_complex_response_200a_type_1.py",
+          "bytes": 1468,
+          "sha256": "cf7e04ea1e16adf7beb0c7e0a21264fb02673313ec58ef1fb8916d6ae3dbdf26"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/status_code_patterns_response_2xx.py",
+          "bytes": 2124,
+          "sha256": "2cc2c333826317c81f3340ad01adbeaa75ff2ceb4db3c562d9dd894fd906e396"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/status_code_patterns_response_2xx_status.py",
+          "bytes": 189,
+          "sha256": "995549b7f0196eb84f75b722107448499108fedb9245ff776b74092d8589f2b5"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/status_code_patterns_response_4xx.py",
+          "bytes": 1651,
+          "sha256": "f4640f5c83bf937b91a68fcc5888a407095e1d0c49c542f31b2a91f1b2a3621b"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/test_inline_objects_body.py",
+          "bytes": 930,
+          "sha256": "17b2904f9f65b8ed2e92f9aebbbd19ef1d0ede6f803f787dea0a40c98f1ff2a1"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/test_inline_objects_response_200.py",
+          "bytes": 960,
+          "sha256": "fd67189b113d234b043b4e11e2c7bad7d82e066ef9d9ac7848ccf0fb1d09359a"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/models/validation_error.py",
+          "bytes": 1077,
+          "sha256": "9e2168a5469a2e595b32def25282146077963bb7c38e3b3b331dac5fefcc5439"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/py.typed",
+          "bytes": 25,
+          "sha256": "f19254b31662b8ecb5a0979586c4d64214c6ffaa535475579398492fbf5e6d39"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/my_test_api_client/types.py",
+          "bytes": 1343,
+          "sha256": "d167b834fbe121801246943795ee359e625e100566e36fb654a773949e0e8289"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/my-test-api-client/pyproject.toml",
+          "bytes": 515,
+          "sha256": "0768059fd5dcf519fc0238e6b944e938a7f9d8d2294c4f36331125dfaf3c0461"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/test-3-1-features-client/.gitignore",
+          "bytes": 195,
+          "sha256": "4b066f97dab229a1cdf588f0690ac1b26a40725375d6eb1ff46a21cf5485560f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/test-3-1-features-client/README.md",
+          "bytes": 5113,
+          "sha256": "9ed51786e18726d94a404ad39e89399415f27f582d14a39e4a79b04f69a7d438"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/test-3-1-features-client/pyproject.toml",
+          "bytes": 539,
+          "sha256": "5bb9f1f6ab0bdd2785d04b80845ca94677cf249874e961fb2e4d28ed45847998"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/test-3-1-features-client/test_3_1_features_client/__init__.py",
+          "bytes": 160,
+          "sha256": "4459d3409b081669f1c3e4772b0629e9916a606cefd54ee643773f311f33e237"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/test-3-1-features-client/test_3_1_features_client/api/__init__.py",
+          "bytes": 45,
+          "sha256": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/test-3-1-features-client/test_3_1_features_client/api/const/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/test-3-1-features-client/test_3_1_features_client/api/const/post_const_path.py",
+          "bytes": 6735,
+          "sha256": "ceda5d06527936fdfd1ae56d6cde38a7cd6ef3174316cebbb049546e738e3605"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/test-3-1-features-client/test_3_1_features_client/api/prefix_items/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/test-3-1-features-client/test_3_1_features_client/api/prefix_items/post_prefix_items.py",
+          "bytes": 3601,
+          "sha256": "0b34f3a0dabcd4e1d2dc21a9f957c0379eec16ceace023de4d4a805f5e8821c0"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/test-3-1-features-client/test_3_1_features_client/client.py",
+          "bytes": 12306,
+          "sha256": "7f0534c4917c92d1bafeebc215987723a2eab2683758a3fcf4e0d4753ba70750"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/test-3-1-features-client/test_3_1_features_client/errors.py",
+          "bytes": 546,
+          "sha256": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/test-3-1-features-client/test_3_1_features_client/models/__init__.py",
+          "bytes": 234,
+          "sha256": "0e858ab6feac5ee5d2047a934adac9e363369a72c2b01ff651e05c67a82cb8d4"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/test-3-1-features-client/test_3_1_features_client/models/post_const_path_body.py",
+          "bytes": 3412,
+          "sha256": "58af630f707df54e88febe205085aee30b813cfb0ab957886473ebd4842ed1f4"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/test-3-1-features-client/test_3_1_features_client/models/post_prefix_items_body.py",
+          "bytes": 4591,
+          "sha256": "f4d52df7ced31129b16f5b3fe98cc5c3eccbf386761ad0a36cd81d0521e759cd"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/test-3-1-features-client/test_3_1_features_client/py.typed",
+          "bytes": 25,
+          "sha256": "f19254b31662b8ecb5a0979586c4d64214c6ffaa535475579398492fbf5e6d39"
+        },
+        {
+          "path": "submission/end_to_end_tests/golden-records/test-3-1-features-client/test_3_1_features_client/types.py",
+          "bytes": 1343,
+          "sha256": "d167b834fbe121801246943795ee359e625e100566e36fb654a773949e0e8289"
+        },
+        {
+          "path": "submission/end_to_end_tests/literal_enums.config.yml",
+          "bytes": 20,
+          "sha256": "50faab50dcb4178b5697187ee366b3be0bf851106c35711225f7019fc8929d7d"
+        },
+        {
+          "path": "submission/end_to_end_tests/metadata_snapshots/pdm.pyproject.toml",
+          "bytes": 437,
+          "sha256": "7c20c2f63ae8d6c19eeb1a4f5e7d3f4127f88ac01a6cd0b0175b79738a95ab34"
+        },
+        {
+          "path": "submission/end_to_end_tests/metadata_snapshots/poetry.pyproject.toml",
+          "bytes": 539,
+          "sha256": "5bb9f1f6ab0bdd2785d04b80845ca94677cf249874e961fb2e4d28ed45847998"
+        },
+        {
+          "path": "submission/end_to_end_tests/metadata_snapshots/setup.py",
+          "bytes": 598,
+          "sha256": "8f9e9c8ef10d2ae5242f50ed739f50e4f75b1a27b917625fce33be739fc6fc4d"
+        },
+        {
+          "path": "submission/end_to_end_tests/metadata_snapshots/uv.pyproject.toml",
+          "bytes": 498,
+          "sha256": "6957e435b6d2a22cabef20c12d00390572d246a1165a660009718be8d8e9288e"
+        },
+        {
+          "path": "submission/end_to_end_tests/openapi_3.1_enums.yaml",
+          "bytes": 6342,
+          "sha256": "cc1f89fa2ce2f3d5c61e05e93c9ab5cd65749bb4cd4429e187bda16d2c9b5cc9"
+        },
+        {
+          "path": "submission/end_to_end_tests/regen_golden_record.py",
+          "bytes": 5216,
+          "sha256": "c255701913d9bab46e6da6a4a5639e2d0617d341ad9bda10f1e93f776959b3c1"
+        },
+        {
+          "path": "submission/end_to_end_tests/test_custom_templates/README.md.jinja",
+          "bytes": 18,
+          "sha256": "e211c1a7450058b0fc6d01f5406be751727127db0af2b1bf89f23aa527d84ab0"
+        },
+        {
+          "path": "submission/end_to_end_tests/test_custom_templates/api_init.py.jinja",
+          "bytes": 401,
+          "sha256": "9e8f839806b2b03f20915c3f71a8aa50e00307e8d0d863e26a17aa483c6f9e1c"
+        },
+        {
+          "path": "submission/end_to_end_tests/test_custom_templates/endpoint_init.py.jinja",
+          "bytes": 717,
+          "sha256": "362f67157e7fa5e2fd993e1c49889bb9e74a1a79b95b89c302dff01e50e30410"
+        },
+        {
+          "path": "submission/end_to_end_tests/test_custom_templates/models_init.py.jinja",
+          "bytes": 885,
+          "sha256": "b619e952b1ab0247a521851e1ecce3709b7f16b112e4a8e22a869f4bce37c47f"
+        },
+        {
+          "path": "submission/end_to_end_tests/test_end_to_end.py",
+          "bytes": 10041,
+          "sha256": "0cde721157cfc7dc24e73c1d572c626f8fb62669fe4aa830577bdf852e00855e"
+        },
+        {
+          "path": "submission/fuzz/test_codegen.py",
+          "bytes": 14215,
+          "sha256": "e1af2c3fdede2a6e2018a26e4747eb4a89b7e61985f8c69f8ccaaa2c824b0ccf"
+        },
+        {
+          "path": "submission/integration-tests/.gitignore",
+          "bytes": 195,
+          "sha256": "4b066f97dab229a1cdf588f0690ac1b26a40725375d6eb1ff46a21cf5485560f"
+        },
+        {
+          "path": "submission/integration-tests/README.md",
+          "bytes": 4063,
+          "sha256": "75fae8d3f49b0d7294b44b8fa6e655c98db7efd5171673d8dad82d2f4c641b34"
+        },
+        {
+          "path": "submission/integration-tests/config.yaml",
+          "bytes": 93,
+          "sha256": "b99f2fb35452035a982067335dc38eab57eeba5fc2931f8b46264e1bc41cf092"
+        },
+        {
+          "path": "submission/integration-tests/integration_tests/__init__.py",
+          "bytes": 162,
+          "sha256": "68f72c3d900307a98b79c2a74c2db3918f1334c9b131ac0792c2acdcce14b156"
+        },
+        {
+          "path": "submission/integration-tests/integration_tests/api/__init__.py",
+          "bytes": 45,
+          "sha256": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0"
+        },
+        {
+          "path": "submission/integration-tests/integration_tests/api/body/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/integration-tests/integration_tests/api/body/post_body_multipart.py",
+          "bytes": 4500,
+          "sha256": "1d2b784cc89973e54af9c5acd8e426c372a66749057adb4ae73182f0b023339c"
+        },
+        {
+          "path": "submission/integration-tests/integration_tests/api/parameters/__init__.py",
+          "bytes": 56,
+          "sha256": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f"
+        },
+        {
+          "path": "submission/integration-tests/integration_tests/api/parameters/post_parameters_header.py",
+          "bytes": 5632,
+          "sha256": "060821f9b4f31777899a4614958c82fe5ee87fbbace5d4c5c0c2091e3b486e6a"
+        },
+        {
+          "path": "submission/integration-tests/integration_tests/client.py",
+          "bytes": 12306,
+          "sha256": "7f0534c4917c92d1bafeebc215987723a2eab2683758a3fcf4e0d4753ba70750"
+        },
+        {
+          "path": "submission/integration-tests/integration_tests/errors.py",
+          "bytes": 546,
+          "sha256": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad"
+        },
+        {
+          "path": "submission/integration-tests/integration_tests/models/__init__.py",
+          "bytes": 578,
+          "sha256": "a16c16961f322e1d9aa32d92671b000ff62f981a371ba627f750cf9d89dc3115"
+        },
+        {
+          "path": "submission/integration-tests/integration_tests/models/an_object.py",
+          "bytes": 1655,
+          "sha256": "f02e78257904433bdd6a7923b76982e07de299fbe3b33ecc3735aca7aa71dedd"
+        },
+        {
+          "path": "submission/integration-tests/integration_tests/models/file.py",
+          "bytes": 2146,
+          "sha256": "ab318047ae5f0b530dd648802eb7e26654b69ecdf45225de67922c775730628a"
+        },
+        {
+          "path": "submission/integration-tests/integration_tests/models/post_body_multipart_body.py",
+          "bytes": 4337,
+          "sha256": "93d77ec1e1aa891280c693f34713d06cdcbabf741bdfaabf72ab8f62da8a4a93"
+        },
+        {
+          "path": "submission/integration-tests/integration_tests/models/post_body_multipart_response_200.py",
+          "bytes": 3616,
+          "sha256": "9e65e0daaeff0c79cea86b6a753f99d70544c933099cbb5bcc53ce2f1b516be5"
+        },
+        {
+          "path": "submission/integration-tests/integration_tests/models/post_parameters_header_response_200.py",
+          "bytes": 2363,
+          "sha256": "e9dd7555930e010eefc473f842d6a54f654f2a43310794d3b2490ede80badb18"
+        },
+        {
+          "path": "submission/integration-tests/integration_tests/models/problem.py",
+          "bytes": 1917,
+          "sha256": "57dea69220787398bcf437449e30af494ca77951a5fd04a767afffe8dd289311"
+        },
+        {
+          "path": "submission/integration-tests/integration_tests/models/public_error.py",
+          "bytes": 3909,
+          "sha256": "80fbe9fd964a361b4b7f43628505dbe901f099917a62a8c9dfb72529450ea061"
+        },
+        {
+          "path": "submission/integration-tests/integration_tests/py.typed",
+          "bytes": 25,
+          "sha256": "f19254b31662b8ecb5a0979586c4d64214c6ffaa535475579398492fbf5e6d39"
+        },
+        {
+          "path": "submission/integration-tests/integration_tests/types.py",
+          "bytes": 1343,
+          "sha256": "d167b834fbe121801246943795ee359e625e100566e36fb654a773949e0e8289"
+        },
+        {
+          "path": "submission/integration-tests/pdm.lock",
+          "bytes": 30291,
+          "sha256": "21de4669ba9a23a69d7e2d027ad5918896a8881fe7a0c65b813714e6eefc0c05"
+        },
+        {
+          "path": "submission/integration-tests/pdm.minimal.lock",
+          "bytes": 11461,
+          "sha256": "47d45eed921ef7500fdc788c74a6b6fcbf4328e05856dc5b386a03dea4a25d81"
+        },
+        {
+          "path": "submission/integration-tests/pyproject.toml",
+          "bytes": 613,
+          "sha256": "d50265be85956dd3f3d56482fb7d8c80444cc668a837668af5eb74dd503a39b1"
+        },
+        {
+          "path": "submission/integration-tests/tests/conftest.py",
+          "bytes": 144,
+          "sha256": "995aeea225bfeaf73f8bd3b5dc544f21b88e6f54237725e2b9f59fea4f89da16"
+        },
+        {
+          "path": "submission/integration-tests/tests/test_api/test_body/test_post_body_multipart.py",
+          "bytes": 3984,
+          "sha256": "8ea76d37a8ac886646632843cf594ea8feb18582b5abcf41f1116a3a626a4dac"
+        },
+        {
+          "path": "submission/integration-tests/tests/test_api/test_parameters/test_post_parameters_header.py",
+          "bytes": 963,
+          "sha256": "91c1b0dee6ec0b08e62e96cd0c165a416e749a6d885216b3f6d51a18c8c2834f"
+        },
+        {
+          "path": "submission/knope.toml",
+          "bytes": 459,
+          "sha256": "6dc580ffd4b51bc5d39e1465e2c36853f971e39e07a99376c7f1294b8700c842"
+        },
+        {
+          "path": "submission/openapi_python_client/__init__.py",
+          "bytes": 14557,
+          "sha256": "00546863473964eb7bdde5f5a178cd70f622fdced704623a26f4a12c7fbff31e"
+        },
+        {
+          "path": "submission/openapi_python_client/__main__.py",
+          "bytes": 28,
+          "sha256": "c1c0ab2f83e31b9d6be7054aa8985ca093d32df1d6d3035b0f7d43ad43743162"
+        },
+        {
+          "path": "submission/openapi_python_client/cli.py",
+          "bytes": 5513,
+          "sha256": "e7bdd10c8075f850e4de19bcb46ca47d8bac97a1ab76daa5363a36f6288ec519"
+        },
+        {
+          "path": "submission/openapi_python_client/config.py",
+          "bytes": 4236,
+          "sha256": "7ddfe4c815ad3e5efbad5be9893ad2c09eb3f0e2611082ca0611e080bbe363c0"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/__init__.py",
+          "bytes": 177,
+          "sha256": "7696358d899614f06e6ed8ca099225836b870bf0cb0be2a97ee30d75017c4547"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/bodies.py",
+          "bytes": 4664,
+          "sha256": "336b91867c9f2bdd389b3b006fa6f10dbe9f135a020d81a073d1cb53f6ba1436"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/errors.py",
+          "bytes": 1191,
+          "sha256": "08e3e93515a33c651696079bc097ad061b95cb63641d0eb7596289f5291c8a6c"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/openapi.py",
+          "bytes": 23877,
+          "sha256": "529d09c27147354fafefc04767d3b04759f07c059a6e2346aadb27858ea3ccb5"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/__init__.py",
+          "bytes": 17551,
+          "sha256": "206c45a25d7563f717f49c9f7438c19d29809e496a5850238a433327710cb7ac"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/any.py",
+          "bytes": 1532,
+          "sha256": "fcee0abba5211a48117a492ca3ac7197d1b26a38d53e31cda4bedfe068046812"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/boolean.py",
+          "bytes": 2224,
+          "sha256": "7d3bf0f1727f44f883791a1067f4ef30424aeeefc98dbd72e15571b7c8e7945c"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/const.py",
+          "bytes": 3910,
+          "sha256": "b1a6397280a3e3d80d99429cdfe366159b42246d2e9f2d33a2fb6c7b268e44bc"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/date.py",
+          "bytes": 2505,
+          "sha256": "74442c8db76246746f77488be3b356de90e54295b0a9a169a5a46f472950fd96"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/datetime.py",
+          "bytes": 2555,
+          "sha256": "a7add13ddf95ff7c4792841bb69cd63f09cbdcac98d282765b08d2632cb301e0"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/enum_property.py",
+          "bytes": 9107,
+          "sha256": "eae49cbded56135d3297525bd794d4b4ba21b26fcd665aa2e05339fb8231f097"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/file.py",
+          "bytes": 2158,
+          "sha256": "899194d210552e8765d671db6029de575249cde4bcf91cede7b674acfc5e5fad"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/float.py",
+          "bytes": 2383,
+          "sha256": "8e340a00e672530bd9c33de717f7a59701eb62ae87b5333e8a72f42ee495301f"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/int.py",
+          "bytes": 2358,
+          "sha256": "655566d6169dda23976aba3d0129427cef3c459a20acf286418599430c555395"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/list_property.py",
+          "bytes": 5967,
+          "sha256": "cf6376ad2ff4f1ffc0b122f728eee032ff25ec7cd990d56a920b6e325251632b"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/literal_enum_property.py",
+          "bytes": 7712,
+          "sha256": "41f00b999dd0d39ba81e5ebc698c90d13257b2fee9ed0905d11c5fc0d78a4f0f"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/merge_properties.py",
+          "bytes": 9773,
+          "sha256": "c784c34145c1e83e807b5af6ef266574df6afa5cf9ead12739b1e59d98846341"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/model_property.py",
+          "bytes": 17349,
+          "sha256": "9bb705cc708e2813f87af9e9b3a5e91dd04ee3e1c52d3f59ad29534df0968058"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/none.py",
+          "bytes": 1912,
+          "sha256": "f231beef71e16e4d0b79abfde077440c01d388b2f99d0432eab77daabb8863a6"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/property.py",
+          "bytes": 971,
+          "sha256": "b5435a0bef7a10a4aaa6ea96ff835e129f4b1bbfcf314784d033a421753cf4cd"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/protocol.py",
+          "bytes": 7181,
+          "sha256": "ad8d906cacac2e23ab98e0e887bea070c999c716a78fc06b08532dbf8cb30509"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/schemas.py",
+          "bytes": 9129,
+          "sha256": "3a1870dd8b25bae3be54a3818cc8feba4d06a092570d699f5fe5162cbace0cb3"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/string.py",
+          "bytes": 2048,
+          "sha256": "fa8706056ad644a4fb1d1f069129be954db280971078a2179d8144b2aecb9519"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/union.py",
+          "bytes": 9097,
+          "sha256": "e154ef4b08175da59076391566407f16992da50877048f36e8388eb3b5a0c7db"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/properties/uuid.py",
+          "bytes": 2610,
+          "sha256": "9ac06c14ae31a7c01e4ccac10389edec592a4ced11d816c4f958d5404f9b9ce1"
+        },
+        {
+          "path": "submission/openapi_python_client/parser/responses.py",
+          "bytes": 9016,
+          "sha256": "dec4696f96d99e43efcea8d65453a288c0436bb6ce6c320d965fd57f0162a1c2"
+        },
+        {
+          "path": "submission/openapi_python_client/py.typed",
+          "bytes": 26,
+          "sha256": "f0f8f2675695a10a5156fb7bd66bafbaae6a13e8d315990af862c792175e6e67"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/3.0.3.md",
+          "bytes": 126244,
+          "sha256": "d1adb9faafc714355cb313a730e19e4e8ebb2b816d2c7a8c7c8e54f15c277898"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/3.1.0.md",
+          "bytes": 131397,
+          "sha256": "3b84a5436c2ec7949aebc43d8eb09c658109e5172a5e7889f694a2c6d475e517"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/__init__.py",
+          "bytes": 559,
+          "sha256": "051e23f366bd6ada8e235e2c504bcedbb0ad70ef1ef8ee0c2a3e73d9c6e5f036"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/data_type.py",
+          "bytes": 452,
+          "sha256": "f98255c3fe3ba6c0abe7b25df80da8db4ce5b64b1bfa0349041c235f3e9261d5"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/LICENSE",
+          "bytes": 1064,
+          "sha256": "ca8cbaa3027b6c0ad54958e908da14d33b8688ddcb031a8d550d7f640ba639ff"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/README.md",
+          "bytes": 1996,
+          "sha256": "2da9b342f018c0bcc9c6eb55067d617dfa6ab9e3de2a825da9949729fcf013fb"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/__init__.py",
+          "bytes": 2076,
+          "sha256": "9f4eac79235e8d297d16120167e446529d212c4cfd69d5f51dd6e18e0dcea896"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/callback.py",
+          "bytes": 628,
+          "sha256": "e5d07aa43ad98c949823680010e3a6efaa903bb1b224f09a46e78a3c9886f4eb"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/components.py",
+          "bytes": 4666,
+          "sha256": "81f54635f061e5a76e8953975abf9144b8b49b34a0a4b1024bf3188e13839ea5"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/contact.py",
+          "bytes": 692,
+          "sha256": "fd920b02315b65f746995975d49a5b39a42f936685170919a5ac2e82ed52144b"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/discriminator.py",
+          "bytes": 1330,
+          "sha256": "9fbc37538f00ec09425a5ab6397fecb89857088c0da64bcf41468fb309a01cdd"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/encoding.py",
+          "bytes": 1384,
+          "sha256": "0c805ce56f3c2d568065daeab8bcbbd3ad71ee598fa86c0042d6aee1ebcac8b0"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/example.py",
+          "bytes": 1085,
+          "sha256": "5394eed0856d04479def98bb52a955667a70858bfb073601531e7266c54146a7"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/external_documentation.py",
+          "bytes": 616,
+          "sha256": "afd6ed854d4e08281e346edcc7f0aac8e8ea7207502ba2a2e89dd94c8d98ad75"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/header.py",
+          "bytes": 1775,
+          "sha256": "b758b8c7f5d45cf801842d425e45c0fb4adde6701a461469dfbd9279c2808962"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/info.py",
+          "bytes": 1532,
+          "sha256": "b1e1316beb534989ede66c67310bab4b40ee882d8fb22aaa7bf618152401d5a8"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/license.py",
+          "bytes": 567,
+          "sha256": "8e5e848818fb727576768fcc42e3ac60c174a43b304220ec9383a0675df35c3f"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/link.py",
+          "bytes": 1742,
+          "sha256": "4e5ad3cbb53c990736d3cfc616c2428c06415d520bc96114ba5810ec0b7ac128"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/media_type.py",
+          "bytes": 2143,
+          "sha256": "0aa654da3d0d24a7a559590af3a91f12d144886733adec1b1cce96b0464ccffa"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/oauth_flow.py",
+          "bytes": 1231,
+          "sha256": "2ee8e4fb28ee793ea5ed11fd818de52ea452b99f70dd68bec0c049598397ed4f"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/oauth_flows.py",
+          "bytes": 584,
+          "sha256": "1a92bb3f6abcb6d083aaaaa8a464aa34499456941b1cc4597626cd30dc5f0271"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/open_api.py",
+          "bytes": 1754,
+          "sha256": "95a75150362ef6bb9470aee7a7201239f0f25fe5e52f922af224fcf7e263a530"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/operation.py",
+          "bytes": 3672,
+          "sha256": "f899822b6a1da1f38717399c0d0b26e9b242df95b3dfd20a957bbebb251a1337"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/parameter.py",
+          "bytes": 3317,
+          "sha256": "0dcab346994e5136f05163550050b0e31f13768079f4f1a29eb00d26c906f68d"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/path_item.py",
+          "bytes": 3001,
+          "sha256": "53522603ab61631917f590093f543b5fc58703ee0d46e4073477cc5bfc300604"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/paths.py",
+          "bytes": 554,
+          "sha256": "24cb16923c642a0535b5452bdafa86e656cbd4ec4a38ccadb2688dc978848a61"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/reference.py",
+          "bytes": 1504,
+          "sha256": "57f709eb4abcb7e7dc2198a1d312f8a5641eb9414857f26e6b05edf9c788e836"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/request_body.py",
+          "bytes": 2821,
+          "sha256": "0ce55bbdecfa5178f0297a4c6fd8153e9c5fcd65589cc03c5aaeeabf8268cc9c"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/response.py",
+          "bytes": 2517,
+          "sha256": "01062581d0e7a94a4b5a4e06bbbde888bf13a46adb803a9fabe3ced041aec971"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/responses.py",
+          "bytes": 868,
+          "sha256": "5659c50f5533f0359b74d54ef83c43caff0423eecee7f0fa45375ad81b6ff98f"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/schema.py",
+          "bytes": 8954,
+          "sha256": "4b2ca38aef52e26b128501732f2f71eec17717b4d478e69e138ebaa6b190e6e2"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/security_requirement.py",
+          "bytes": 942,
+          "sha256": "f3d58afbc6657f2c783fffb24925ddcec38caaa0c5582c2df948ad0adf8467dd"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/security_scheme.py",
+          "bytes": 1952,
+          "sha256": "e62e28d0a932fb9aa95507fd0b07871a89dd8c5a29ad38038faf07917878fe97"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/server.py",
+          "bytes": 1436,
+          "sha256": "357ff40eaa79d4e16346ba0c8fabc9c40d135b60c4d8ab75ce7da7cbae2d929b"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/server_variable.py",
+          "bytes": 581,
+          "sha256": "e9cfa1fc7076f07a8267494114ec9ec774814ca5452ff4c071a53e12131876c7"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/tag.py",
+          "bytes": 829,
+          "sha256": "f7d1c40823e80f1807bef0f5ffbb399670ab267697cbd7943b5509bfa7991dcd"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/openapi_schema_pydantic/xml.py",
+          "bytes": 1054,
+          "sha256": "f0e78f8b44ab522bfd3e126a8954b7e1182f8687855a3102b1cf573c40872581"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/parameter_location.py",
+          "bytes": 212,
+          "sha256": "2613333002300d6b10ee7cd82d484864267aeba67c6dd8585f3b23574d63028b"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/ref.py",
+          "bytes": 1805,
+          "sha256": "eea323403c04492fb636016413796836e29ee0a15eb32a2a510f83d15f044ac8"
+        },
+        {
+          "path": "submission/openapi_python_client/schema/untrusted_string.py",
+          "bytes": 1994,
+          "sha256": "067ffd4af2d43703a9e76d065e38f55c7ec02cc2a84bdb65765ebfc15c455d0e"
+        },
+        {
+          "path": "submission/openapi_python_client/strings.py",
+          "bytes": 9702,
+          "sha256": "d4ea3863b6e00f0f98f2ff014a96c7892315fa459cb355d7869fb9a464b517e5"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/.gitignore.jinja",
+          "bytes": 195,
+          "sha256": "4b066f97dab229a1cdf588f0690ac1b26a40725375d6eb1ff46a21cf5485560f"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/README.md.jinja",
+          "bytes": 5976,
+          "sha256": "db57918c4d3b23d2a6f1904b124fdeb90fad0baf2a78bec7bfa0617d48fd623c"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/api_init.py.jinja",
+          "bytes": 47,
+          "sha256": "f3b0290732b219be73b204cc3a44170eab0b64299a485a093306c6cc20d064cc"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/client.py.jinja",
+          "bytes": 8295,
+          "sha256": "4eac65762f21014a7fbf59e730f1be6d28c9c85ddc1c40b458b6ff5f67a64c9e"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/endpoint_init.py.jinja",
+          "bytes": 58,
+          "sha256": "c1837a037fdbbd85b5dc1d49f58bd80a672fe4496cfaaf84d3b91927027b56da"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/endpoint_macros.py.jinja",
+          "bytes": 7708,
+          "sha256": "58edb8b4913db6ed4863c633fb39365364494398c8156c77151c6676f1b28fee"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/endpoint_module.py.jinja",
+          "bytes": 5319,
+          "sha256": "c1b2628053eb4875ba59566baa5ae907666f9cbfafa308d93f970a4404b7cd52"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/errors.py.jinja",
+          "bytes": 546,
+          "sha256": "b6ba7ea79aa7d7f24b47119985d1ed20268d3da0ab70309ee138088a106b6af9"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/helpers.jinja",
+          "bytes": 210,
+          "sha256": "4e6ada7b7a8806e739faa7b1f330c1db2b924180a3003df0a4e048edcb549f02"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/int_enum.py.jinja",
+          "bytes": 224,
+          "sha256": "cf8776855b1d826971501d5f6d5b38c3cb496aad9276684b8ece268db67918bc"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/literal_enum.py.jinja",
+          "bytes": 641,
+          "sha256": "04f2eb9334dd543ab7fa91a1fe3a73e7d5f2cf50e09d864429ddb58e506c8b68"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/model.py.jinja",
+          "bytes": 8689,
+          "sha256": "fd1c79680d51c06cfbb89809ad123750ba9add98b688036c04cabbf1f8ba40a0"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/models_init.py.jinja",
+          "bytes": 233,
+          "sha256": "4f64a3d6e1b15a561be5573c1b7702eb928c0e4fa6b67107d20e57a74c44d51a"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/package_init.py.jinja",
+          "bytes": 207,
+          "sha256": "ac15907e32dc39bd9b83ea6f2002fb87514f2182b97f88231b5a9c47321f6210"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/property_templates/any_property.py.jinja",
+          "bytes": 135,
+          "sha256": "1f5f9a325f4cc6cf73fa05d0530f4c08d36b1987b01b5a74b38ddf958e181ed0"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/property_templates/boolean_property.py.jinja",
+          "bytes": 225,
+          "sha256": "df1821adba9279487e424d6f75a59bfd1c4638136385f2857fd1013a630e0735"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/property_templates/const_property.py.jinja",
+          "bytes": 651,
+          "sha256": "d296884c11f3aafad6772d8cb71de0a3d08ad36c9ad197c0e727082f86f32659"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/property_templates/date_property.py.jinja",
+          "bytes": 1141,
+          "sha256": "927595c05d7caa8004dc3f0ec9d8f12d79dc6afb9d0ab2ad52bf1f8a84a45e17"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/property_templates/datetime_property.py.jinja",
+          "bytes": 1165,
+          "sha256": "c789d11d8ea26cb5ab637470b1c11049652bf6438434e36325212e40304d7ff9"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/property_templates/enum_property.py.jinja",
+          "bytes": 1171,
+          "sha256": "28f1074bdd5f0d7e66618c7e3e5b6e3b75467adf25a971922905df0bf3dcf126"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/property_templates/file_property.py.jinja",
+          "bytes": 972,
+          "sha256": "c7e4a756b15108885ae3dac10c330a8d093bf42215f80cefb012fa5f75dba0aa"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/property_templates/float_property.py.jinja",
+          "bytes": 207,
+          "sha256": "bcc65b46da262043ef9cacbde5f4f840d411aee7efe7181d4a767def148ddfc5"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/property_templates/helpers.jinja",
+          "bytes": 395,
+          "sha256": "a321c953d7101a1b18ed77f543b39aa57e86e265b7a913545f6c052a12b6331b"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/property_templates/int_property.py.jinja",
+          "bytes": 207,
+          "sha256": "bcc65b46da262043ef9cacbde5f4f840d411aee7efe7181d4a767def148ddfc5"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/property_templates/list_property.py.jinja",
+          "bytes": 2870,
+          "sha256": "4390b5f673fdb10d1ae7f47fd2720a88dce53a4c64a6137549559566f9107a2c"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/property_templates/literal_enum_property.py.jinja",
+          "bytes": 1209,
+          "sha256": "1b3096b7187246cf42383db9e659269e1861b2a54b26cb837e9bdcb788693630"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/property_templates/model_property.py.jinja",
+          "bytes": 1412,
+          "sha256": "9f6efdbfb6212ee4cbaf25149c275d04b262cb03dc69c31bc301282a58167f68"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/property_templates/property_macros.py.jinja",
+          "bytes": 601,
+          "sha256": "c79a9954579902a214d7caecf5b7c00912d1f20b941238d290099fcb027233f9"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/property_templates/union_property.py.jinja",
+          "bytes": 4324,
+          "sha256": "03790f2710deaeb219c18e518ae183ad4a41eda1f78cf625d139edff7546cd26"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/property_templates/uuid_property.py.jinja",
+          "bytes": 1096,
+          "sha256": "e56511359f8d3c68858c7f80718299ccc4bc9663b5ccb802b5fd472cc883d9a2"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/pyproject.toml.jinja",
+          "bytes": 255,
+          "sha256": "ac1685ab4a2a946796f8d7aca8f785fc11829c4101e0fd90abde6f22b18e1504"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/pyproject_pdm.toml.jinja",
+          "bytes": 401,
+          "sha256": "0434c8de96360da0e229a5aca5f115592d6ff215c1ccb7ad89f40b2967225f1b"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/pyproject_poetry.toml.jinja",
+          "bytes": 491,
+          "sha256": "04924d377f9f0c0de7e9c72742937052eeee09cec2bec8cbfaed36fba4a36893"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/pyproject_ruff.toml.jinja",
+          "bytes": 74,
+          "sha256": "3a015f09df426b762c53c59d0b1a89a09742244b73003a710317cc821ab39fcd"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/pyproject_uv.toml.jinja",
+          "bytes": 456,
+          "sha256": "fe450930297be4dc1e30cff73fbc734264a047dab984cb256edafc5aa1dc3033"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/setup.py.jinja",
+          "bytes": 631,
+          "sha256": "9135c7603886823136b114ea0862cbab0a4980dc2905041c9ac5b784347c44a6"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/str_enum.py.jinja",
+          "bytes": 233,
+          "sha256": "e4979a5e6b338351eda8bdac534017cfbeb51a809b494fd3c632db39414817fc"
+        },
+        {
+          "path": "submission/openapi_python_client/templates/types.py.jinja",
+          "bytes": 1350,
+          "sha256": "93df9d75883a4eafac77dd21bc6907f3ef612e3f7841e08656618dcf6c4ce494"
+        },
+        {
+          "path": "submission/pdm.lock",
+          "bytes": 103065,
+          "sha256": "dc4f2b30baa55d321d2d052257b1a3883d8bdea8a768266e70037509e2be3c58"
+        },
+        {
+          "path": "submission/pdm.minimal.lock",
+          "bytes": 66359,
+          "sha256": "8e647b346a62edfb854d603147c4077ab80db8ac90ef1b19f14f020f51be5a32"
+        },
+        {
+          "path": "submission/pyproject.toml",
+          "bytes": 3813,
+          "sha256": "ce1a113eb2a184bbc24f8c8fa8d44e642ba6a137034ce9ce8c16c1118ecca2b2"
+        },
+        {
+          "path": "submission/tests/__init__.py",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "submission/tests/conftest.py",
+          "bytes": 9982,
+          "sha256": "3e42f009e23a99eb6ee4d3ac2dd2b5929011fb5653a4f3d522d478871d6803f0"
+        },
+        {
+          "path": "submission/tests/test___init__.py",
+          "bytes": 3235,
+          "sha256": "1d540709c6a86a4ef68a5f0556a74bfe13dd83e8fc01e11ca266e987d2ca22a0"
+        },
+        {
+          "path": "submission/tests/test_cli.py",
+          "bytes": 1316,
+          "sha256": "dfcdf654040065da25e5f75cc42acf3f9715fe177ea33e4bcb675102e3af0d24"
+        },
+        {
+          "path": "submission/tests/test_config.py",
+          "bytes": 2092,
+          "sha256": "beda8da2354eadcee54bc1b674acb9f60940913da5f8abbb289a0b1a3d11cc35"
+        },
+        {
+          "path": "submission/tests/test_parser/test_bodies.py",
+          "bytes": 2438,
+          "sha256": "c5ac0cf820728ca70d47e62c9bdc7b93854456a85e9b9b9e5f6202ffb7632a6b"
+        },
+        {
+          "path": "submission/tests/test_parser/test_openapi.py",
+          "bytes": 15607,
+          "sha256": "618e66a9b9525832abba2feb770b890ede6e673561c9eb42373135901d14547f"
+        },
+        {
+          "path": "submission/tests/test_parser/test_properties/test_enum_property.py",
+          "bytes": 1257,
+          "sha256": "b31d6035b419ca2c091f0e637b4c4fda691c3a2c2cde6704de463d82c9c26414"
+        },
+        {
+          "path": "submission/tests/test_parser/test_properties/test_file.py",
+          "bytes": 527,
+          "sha256": "37764286e2ea30a3c58033af6edd157c44c557383dea5be707ec836053871649"
+        },
+        {
+          "path": "submission/tests/test_parser/test_properties/test_init.py",
+          "bytes": 13050,
+          "sha256": "b5a728ce6031fff7c9dd41a1f1087b026e446d04968626e358abc650d3ce20dc"
+        },
+        {
+          "path": "submission/tests/test_parser/test_properties/test_merge_properties.py",
+          "bytes": 11970,
+          "sha256": "2f2ec2edb716f4ea52a90424756a3667453f0916dbbbbc72307d78689406d96d"
+        },
+        {
+          "path": "submission/tests/test_parser/test_properties/test_model_property.py",
+          "bytes": 29207,
+          "sha256": "5bcaf63231ae7839bd515c8def654979ab76afc80463a10bd415b16d3a2f32ac"
+        },
+        {
+          "path": "submission/tests/test_parser/test_properties/test_none.py",
+          "bytes": 953,
+          "sha256": "11f6c3ebde100cbd3f098d0a20c4566d1db4a2a743f18a3bb68a12fae2568fa6"
+        },
+        {
+          "path": "submission/tests/test_parser/test_properties/test_protocol.py",
+          "bytes": 4162,
+          "sha256": "f44df9ae86c4b1850c3c69f7536f37b86bec063bd928734708ee5f25652ad17f"
+        },
+        {
+          "path": "submission/tests/test_parser/test_properties/test_schemas.py",
+          "bytes": 4978,
+          "sha256": "2a45119e32b984284e2c896f547fe0d0d8385ee9cd1cd56972795aab802f30af"
+        },
+        {
+          "path": "submission/tests/test_parser/test_properties/test_union.py",
+          "bytes": 2902,
+          "sha256": "fba6f17be4cdcb2ac54d3905d1848e87721081efab81563a08026cb5a496f8a6"
+        },
+        {
+          "path": "submission/tests/test_parser/test_responses.py",
+          "bytes": 6283,
+          "sha256": "211957e66d33cef1af07ad88dcf7de16fef83ab7f837e24527f1dc40174cb949"
+        },
+        {
+          "path": "submission/tests/test_schema/test_data_type.py",
+          "bytes": 831,
+          "sha256": "0510d4d6899b1ed389bfea360ca3e33dd3b191b008327a889abb6859266b8f35"
+        },
+        {
+          "path": "submission/tests/test_schema/test_noisy_refs.py",
+          "bytes": 2982,
+          "sha256": "c2ce46e8cd1a537095436717b16db7e1d9eb903c393653656e7319be4d8da1c3"
+        },
+        {
+          "path": "submission/tests/test_schema/test_open_api.py",
+          "bytes": 1384,
+          "sha256": "615b352a4d823fe9468e6ec76d37f472914082f2dbaa71b76a5dee00a1aedc10"
+        },
+        {
+          "path": "submission/tests/test_schema/test_schema.py",
+          "bytes": 2495,
+          "sha256": "f9f06fe38323325d95cf554a0adf40d5205cb46d2c1afedec6210a996672a272"
+        },
+        {
+          "path": "submission/tests/test_schema/test_untrusted_string.py",
+          "bytes": 1106,
+          "sha256": "fee22da486837f41d0d3fa46e32f1376dc04896027bb26f2806966cb71114c5d"
+        },
+        {
+          "path": "submission/tests/test_strings.py",
+          "bytes": 12879,
+          "sha256": "d277ae685726f1e512233d795c294e23a8ed73e54166395d8626d10079e35c8a"
+        },
+        {
+          "path": "submission/tests/test_templates/__init__.py",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "submission/tests/test_templates/conftest.py",
+          "bytes": 340,
+          "sha256": "ff080e6d7a1c5df5ea534ca37a54a1378db217cf6c5710f8154f2b3dc813eb3c"
+        },
+        {
+          "path": "submission/tests/test_templates/test_endpoint_macros.py",
+          "bytes": 1599,
+          "sha256": "a5cbefda6f570f26664a8464820e3cbe3d38f231a78b841e4bc5c9f8fb14c777"
+        },
+        {
+          "path": "submission/tests/test_templates/test_model_template.py",
+          "bytes": 1509,
+          "sha256": "b8a9a3ad6628d5cbd12d4411f59c5556c2ad105aa90870af3ab33ac84a48936c"
+        },
+        {
+          "path": "submission/tests/test_templates/test_property_templates/test_date_property/date_property_template.py.jinja",
+          "bytes": 266,
+          "sha256": "7a92544b49fe1d0a1adee8d3e4ee5ac50b833883201fa1e9aacfe0a51bd25429"
+        },
+        {
+          "path": "submission/tests/test_templates/test_property_templates/test_date_property/required_not_null.py",
+          "bytes": 176,
+          "sha256": "b7de441530d306c439c4025da8b0adbfab21ff7f42698155ea4b1ddcd9e45b32"
+        },
+        {
+          "path": "submission/tests/test_templates/test_property_templates/test_date_property/test_date_property.py",
+          "bytes": 928,
+          "sha256": "c50a9e12744e6834760bb51eae6e14e4ec64e221cf3f925da9e8251470b0bf1a"
+        },
+        {
+          "path": "submission/tests/test_templates/test_property_templates/test_datetime_property/datetime_property_template.py.jinja",
+          "bytes": 270,
+          "sha256": "45d99b583d7cfbac7990b54f42ad9e8dd7f6ea23e0b1c3933a5bfc2bc2e3fc5d"
+        },
+        {
+          "path": "submission/tests/test_templates/test_property_templates/test_datetime_property/required_not_null.py",
+          "bytes": 180,
+          "sha256": "3aa22afbf6c3eac4740648e52ef0e687c5933bc5941ee3078b6e231067cccc8e"
+        },
+        {
+          "path": "submission/tests/test_templates/test_property_templates/test_datetime_property/test_datetime_property.py",
+          "bytes": 952,
+          "sha256": "d4b39b6e1b3f841f79ea4dfa4dba018ec640a41b7ee1610207495403ee07045c"
+        },
+        {
+          "path": "submission/tests/test_templates/test_property_templates/test_uuid_property/__init__.py",
+          "bytes": 41,
+          "sha256": "40fa3df8e816f1d786742e46ee62575e82ac1c62a2fd5228e5401f166dd9df18"
+        },
+        {
+          "path": "submission/tests/test_templates/test_property_templates/test_uuid_property/test_uuid_multipart.py",
+          "bytes": 2669,
+          "sha256": "d36f855bfd225b94d1549c42bac0cfa3810fd06fa9b962f82a1da17d6cc4b00b"
+        },
+        {
+          "path": "wheelhouse/annotated_doc-0.0.5-py3-none-any.whl",
+          "bytes": 5302,
+          "sha256": "117bac03a25ede5df5440e855b32d556049ca169ead221505badf432fed4b101"
+        },
+        {
+          "path": "wheelhouse/annotated_types-0.8.0-py3-none-any.whl",
+          "bytes": 13427,
+          "sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0"
+        },
+        {
+          "path": "wheelhouse/anyio-4.15.1-py3-none-any.whl",
+          "bytes": 132079,
+          "sha256": "6152fdbbf9a77fdec97731721bebf7c4c44f7c29b424b0065826173efc7ed101"
+        },
+        {
+          "path": "wheelhouse/ast_serialize-0.13.0-cp39-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+          "bytes": 1292779,
+          "sha256": "7d7376c611055f5ee44e5e13a2620dbc6846f47c583952c1704c8805154c2d2f"
+        },
+        {
+          "path": "wheelhouse/ast_serialize-0.13.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "bytes": 1312759,
+          "sha256": "4f55668338bcb871e83ee21ba865fb08b7b4b13af9312742f9878c39f9d84ee3"
+        },
+        {
+          "path": "wheelhouse/attrs-26.1.0-py3-none-any.whl",
+          "bytes": 67548,
+          "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309"
+        },
+        {
+          "path": "wheelhouse/certifi-2026.7.22-py3-none-any.whl",
+          "bytes": 136983,
+          "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775"
+        },
+        {
+          "path": "wheelhouse/h11-0.16.0-py3-none-any.whl",
+          "bytes": 37515,
+          "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"
+        },
+        {
+          "path": "wheelhouse/httpcore-1.0.9-py3-none-any.whl",
+          "bytes": 78784,
+          "sha256": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55"
+        },
+        {
+          "path": "wheelhouse/httpx-0.28.1-py3-none-any.whl",
+          "bytes": 73517,
+          "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad"
+        },
+        {
+          "path": "wheelhouse/hypothesis-6.169.3-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+          "bytes": 1112941,
+          "sha256": "fdb2746c8648d95fab3015489f69d690fca8af425079f001cf9a8f9dbbac564b"
+        },
+        {
+          "path": "wheelhouse/hypothesis-6.169.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "bytes": 1155788,
+          "sha256": "aa14284f1ffe9dc24315ccde318c621999a4fc61290f8db803b018c0421dd5e9"
+        },
+        {
+          "path": "wheelhouse/idna-3.20-py3-none-any.whl",
+          "bytes": 69583,
+          "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c"
+        },
+        {
+          "path": "wheelhouse/iniconfig-2.3.1-py3-none-any.whl",
+          "bytes": 7552,
+          "sha256": "9121e2c1fdb355232495be3194c8dfe87ccc2d5dee45947b78e68f499790d7a7"
+        },
+        {
+          "path": "wheelhouse/jinja2-3.1.6-py3-none-any.whl",
+          "bytes": 134899,
+          "sha256": "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67"
+        },
+        {
+          "path": "wheelhouse/librt-0.16.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+          "bytes": 503185,
+          "sha256": "ff7baa55f8e7c69851419e50a666015d02a74198716fd45c0125a2112e0a389f"
+        },
+        {
+          "path": "wheelhouse/librt-0.16.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "bytes": 531952,
+          "sha256": "36e53948e99bbe3ffea257124cfcae1cfb01831555c9a9c903c9f9a72db7fd07"
+        },
+        {
+          "path": "wheelhouse/markdown_it_py-4.2.0-py3-none-any.whl",
+          "bytes": 91687,
+          "sha256": "9f7ebbcd14fe59494226453aed97c1070d83f8d24b6fc3a3bcf9a38092641c4a"
+        },
+        {
+          "path": "wheelhouse/markupsafe-3.0.4-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+          "bytes": 24363,
+          "sha256": "6a45c3d514f2436064db00d7fc8778d888f0236ebfed649b53d13a59e69ad51b"
+        },
+        {
+          "path": "wheelhouse/markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "bytes": 22985,
+          "sha256": "8e124f974786f831d6043728e38296969d3579db8896fe004682f5758e613581"
+        },
+        {
+          "path": "wheelhouse/mdurl-0.1.2-py3-none-any.whl",
+          "bytes": 9979,
+          "sha256": "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"
+        },
+        {
+          "path": "wheelhouse/mypy-2.4.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+          "bytes": 14464697,
+          "sha256": "29243242cf72582b65f9582ad9e56e8cb281566ed3519f4cd70bb8b9f2977e90"
+        },
+        {
+          "path": "wheelhouse/mypy-2.4.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "bytes": 15552257,
+          "sha256": "29eb0b9427a6b11b992e452f6cceb8af724f4dceb47e779d0b35e405e996ea5e"
+        },
+        {
+          "path": "wheelhouse/mypy_extensions-1.1.0-py3-none-any.whl",
+          "bytes": 4963,
+          "sha256": "1be4cccdb0f2482337c4743e60421de3a356cd97508abadd57d47403e94f5505"
+        },
+        {
+          "path": "wheelhouse/openapi_python_client-0.29.1-py3-none-any.whl",
+          "bytes": 189927,
+          "sha256": "c23f84d8cc80e7754a7539e426a618c25bb8d87c7cde019c5c209c68be8a7454"
+        },
+        {
+          "path": "wheelhouse/packaging-26.3-py3-none-any.whl",
+          "bytes": 129956,
+          "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+        },
+        {
+          "path": "wheelhouse/pathspec-1.1.1-py3-none-any.whl",
+          "bytes": 57328,
+          "sha256": "a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189"
+        },
+        {
+          "path": "wheelhouse/pluggy-1.6.0-py3-none-any.whl",
+          "bytes": 20538,
+          "sha256": "e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746"
+        },
+        {
+          "path": "wheelhouse/pydantic-2.14.1-py3-none-any.whl",
+          "bytes": 488106,
+          "sha256": "9195d967ec791692a04438115466764fb8b9a27b31f14a760437694f40d6b454"
+        },
+        {
+          "path": "wheelhouse/pydantic_core-2.50.1-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+          "bytes": 2048429,
+          "sha256": "c18db21573bd2c6489f9a544b7499f0df2853958c568e5e783536ee1f690af41"
+        },
+        {
+          "path": "wheelhouse/pydantic_core-2.50.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "bytes": 2160157,
+          "sha256": "93ba4e9d8210d941c200431a56b2c0400b131865947903937ed3ec5404307d2e"
+        },
+        {
+          "path": "wheelhouse/pygments-2.21.0-py3-none-any.whl",
+          "bytes": 1250147,
+          "sha256": "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9"
+        },
+        {
+          "path": "wheelhouse/pytest-9.1.1-py3-none-any.whl",
+          "bytes": 386536,
+          "sha256": "37a86b45efb9a47a61a36449063e8e18d0cab3161329fc099eb21783169c4f0c"
+        },
+        {
+          "path": "wheelhouse/pytest_mock-3.16.0-py3-none-any.whl",
+          "bytes": 10016,
+          "sha256": "007cfeb257801d88d9c0b2a7b5a15a15e73b71968dfd72e7bf8c4a2f8393aec8"
+        },
+        {
+          "path": "wheelhouse/python_multipart-0.0.32-py3-none-any.whl",
+          "bytes": 30042,
+          "sha256": "ff6d3f776f16878c894e52e107296ffc890e913c611b1a4ec6c44e2821fe2e23"
+        },
+        {
+          "path": "wheelhouse/rich-15.0.0-py3-none-any.whl",
+          "bytes": 310654,
+          "sha256": "33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb"
+        },
+        {
+          "path": "wheelhouse/ruamel_yaml-0.19.1-py3-none-any.whl",
+          "bytes": 118102,
+          "sha256": "27592957fedf6e0b62f281e96effd28043345e0e66001f97683aa9a40c667c93"
+        },
+        {
+          "path": "wheelhouse/ruff-0.17.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+          "bytes": 9953190,
+          "sha256": "13ee90156522998c3037059d8f66885c8adeeaf7643bdce2caceee196ecd23e0"
+        },
+        {
+          "path": "wheelhouse/ruff-0.17.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "bytes": 10386314,
+          "sha256": "bc73e7c133e82d55b5f15897b2a442d72c0cb4a0c886c46801ce3c247150b60c"
+        },
+        {
+          "path": "wheelhouse/shellingham-1.5.4-py2.py3-none-any.whl",
+          "bytes": 9755,
+          "sha256": "7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686"
+        },
+        {
+          "path": "wheelhouse/sortedcontainers-2.4.0-py2.py3-none-any.whl",
+          "bytes": 29575,
+          "sha256": "a163dcaede0f1c021485e957a39245190e74249897e2ae4b2aa38595db237ee0"
+        },
+        {
+          "path": "wheelhouse/syrupy-6.1.1-py3-none-any.whl",
+          "bytes": 63436,
+          "sha256": "6ac9ac6a42d70ae44156f5f157a9563b9bb8cc96dcf9364327f330463bff889a"
+        },
+        {
+          "path": "wheelhouse/typer-0.27.3-py3-none-any.whl",
+          "bytes": 123312,
+          "sha256": "e50022f28b82a86313e54501317a1db64bf8f8d036ff8cfe5ca7e47675454aff"
+        },
+        {
+          "path": "wheelhouse/typing_extensions-4.16.0-py3-none-any.whl",
+          "bytes": 45571,
+          "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+        },
+        {
+          "path": "wheelhouse/typing_inspection-0.4.4-py3-none-any.whl",
+          "bytes": 14750,
+          "sha256": "65b8397ba37ccbce054456aaccddfc91e6e3083c92824df348d96ca832f3f147"
+        }
+      ]
+    },
+    "verifier": {
+      "path": "verifier",
+      "dockerfile": "verifier/Dockerfile",
+      "file_count": 60,
+      "bytes": 64750895,
+      "self_contained": true,
+      "files": [
+        {
+          "path": "Dockerfile",
+          "bytes": 880,
+          "sha256": "ec1d41ef3db18f47dfe2bb814c4fb3ffe439a8a6398dd04630f665098f8bed15"
+        },
+        {
+          "path": "NOTICE",
+          "bytes": 1135,
+          "sha256": "3468a3ce29ca8bba3369c61b9ecaaf765be261813dca811430c38c92ad230cc7"
+        },
+        {
+          "path": "private/config.json",
+          "bytes": 105,
+          "sha256": "2ac5c317e78031bbfda42ed139829d907dc952d4dddd9731719e4eaafda20eab"
+        },
+        {
+          "path": "private/integrity.json",
+          "bytes": 786,
+          "sha256": "489a0c93206963e21d7d6c037e3eaa7104adf229a43d426a7f74cf7f776b7236"
+        },
+        {
+          "path": "private/native/tests/__init__.py",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "private/native/tests/conftest.py",
+          "bytes": 9982,
+          "sha256": "3e42f009e23a99eb6ee4d3ac2dd2b5929011fb5653a4f3d522d478871d6803f0"
+        },
+        {
+          "path": "private/native/tests/test_parser/test_openapi.py",
+          "bytes": 15607,
+          "sha256": "618e66a9b9525832abba2feb770b890ede6e673561c9eb42373135901d14547f"
+        },
+        {
+          "path": "private/native/tests/test_parser/test_responses.py",
+          "bytes": 6283,
+          "sha256": "211957e66d33cef1af07ad88dcf7de16fef83ab7f837e24527f1dc40174cb949"
+        },
+        {
+          "path": "private/reference.patch",
+          "bytes": 10351,
+          "sha256": "75f9d373337e5fb2d3ba39e3e3fcce313a034000533522cf81a33502347cec2c"
+        },
+        {
+          "path": "private/score-spec.json",
+          "bytes": 4035,
+          "sha256": "488615cb6d745a238a21d06542c1b90c8c4725d512a2cc81c2cf6e6d1276f125"
+        },
+        {
+          "path": "private/stream-contract.json",
+          "bytes": 4226,
+          "sha256": "5e6d57a7211d0d1aef839a47d2d2e7e799b114acc7cdc3bbe23c304cbd584dda"
+        },
+        {
+          "path": "requirements-hashed.txt",
+          "bytes": 4233,
+          "sha256": "685a6e712d3481ea6c99540f403f27c5ac58204b652486c2297a2b9db6f1e6af"
+        },
+        {
+          "path": "tests/grader.py",
+          "bytes": 20731,
+          "sha256": "84d9141b949709b2b024578036b714de353f6e479449c472a88843624b55eb30"
+        },
+        {
+          "path": "tests/test.sh",
+          "bytes": 188,
+          "sha256": "776a2e2b9d30e7a551376bf569e04f1e09ef2f7d8756630fe7f0d7abddd80fb9"
+        },
+        {
+          "path": "tests/worker.py",
+          "bytes": 8988,
+          "sha256": "5e6cf6cce1a49a4596099a6a7597a12e7c884c6b461f7b34d6ca454ddd01d2d9"
+        },
+        {
+          "path": "wheelhouse/annotated_doc-0.0.5-py3-none-any.whl",
+          "bytes": 5302,
+          "sha256": "117bac03a25ede5df5440e855b32d556049ca169ead221505badf432fed4b101"
+        },
+        {
+          "path": "wheelhouse/annotated_types-0.8.0-py3-none-any.whl",
+          "bytes": 13427,
+          "sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0"
+        },
+        {
+          "path": "wheelhouse/anyio-4.15.1-py3-none-any.whl",
+          "bytes": 132079,
+          "sha256": "6152fdbbf9a77fdec97731721bebf7c4c44f7c29b424b0065826173efc7ed101"
+        },
+        {
+          "path": "wheelhouse/ast_serialize-0.13.0-cp39-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+          "bytes": 1292779,
+          "sha256": "7d7376c611055f5ee44e5e13a2620dbc6846f47c583952c1704c8805154c2d2f"
+        },
+        {
+          "path": "wheelhouse/ast_serialize-0.13.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "bytes": 1312759,
+          "sha256": "4f55668338bcb871e83ee21ba865fb08b7b4b13af9312742f9878c39f9d84ee3"
+        },
+        {
+          "path": "wheelhouse/attrs-26.1.0-py3-none-any.whl",
+          "bytes": 67548,
+          "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309"
+        },
+        {
+          "path": "wheelhouse/certifi-2026.7.22-py3-none-any.whl",
+          "bytes": 136983,
+          "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775"
+        },
+        {
+          "path": "wheelhouse/h11-0.16.0-py3-none-any.whl",
+          "bytes": 37515,
+          "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"
+        },
+        {
+          "path": "wheelhouse/httpcore-1.0.9-py3-none-any.whl",
+          "bytes": 78784,
+          "sha256": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55"
+        },
+        {
+          "path": "wheelhouse/httpx-0.28.1-py3-none-any.whl",
+          "bytes": 73517,
+          "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad"
+        },
+        {
+          "path": "wheelhouse/hypothesis-6.169.3-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+          "bytes": 1112941,
+          "sha256": "fdb2746c8648d95fab3015489f69d690fca8af425079f001cf9a8f9dbbac564b"
+        },
+        {
+          "path": "wheelhouse/hypothesis-6.169.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "bytes": 1155788,
+          "sha256": "aa14284f1ffe9dc24315ccde318c621999a4fc61290f8db803b018c0421dd5e9"
+        },
+        {
+          "path": "wheelhouse/idna-3.20-py3-none-any.whl",
+          "bytes": 69583,
+          "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c"
+        },
+        {
+          "path": "wheelhouse/iniconfig-2.3.1-py3-none-any.whl",
+          "bytes": 7552,
+          "sha256": "9121e2c1fdb355232495be3194c8dfe87ccc2d5dee45947b78e68f499790d7a7"
+        },
+        {
+          "path": "wheelhouse/jinja2-3.1.6-py3-none-any.whl",
+          "bytes": 134899,
+          "sha256": "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67"
+        },
+        {
+          "path": "wheelhouse/librt-0.16.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+          "bytes": 503185,
+          "sha256": "ff7baa55f8e7c69851419e50a666015d02a74198716fd45c0125a2112e0a389f"
+        },
+        {
+          "path": "wheelhouse/librt-0.16.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "bytes": 531952,
+          "sha256": "36e53948e99bbe3ffea257124cfcae1cfb01831555c9a9c903c9f9a72db7fd07"
+        },
+        {
+          "path": "wheelhouse/markdown_it_py-4.2.0-py3-none-any.whl",
+          "bytes": 91687,
+          "sha256": "9f7ebbcd14fe59494226453aed97c1070d83f8d24b6fc3a3bcf9a38092641c4a"
+        },
+        {
+          "path": "wheelhouse/markupsafe-3.0.4-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+          "bytes": 24363,
+          "sha256": "6a45c3d514f2436064db00d7fc8778d888f0236ebfed649b53d13a59e69ad51b"
+        },
+        {
+          "path": "wheelhouse/markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "bytes": 22985,
+          "sha256": "8e124f974786f831d6043728e38296969d3579db8896fe004682f5758e613581"
+        },
+        {
+          "path": "wheelhouse/mdurl-0.1.2-py3-none-any.whl",
+          "bytes": 9979,
+          "sha256": "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"
+        },
+        {
+          "path": "wheelhouse/mypy-2.4.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+          "bytes": 14464697,
+          "sha256": "29243242cf72582b65f9582ad9e56e8cb281566ed3519f4cd70bb8b9f2977e90"
+        },
+        {
+          "path": "wheelhouse/mypy-2.4.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "bytes": 15552257,
+          "sha256": "29eb0b9427a6b11b992e452f6cceb8af724f4dceb47e779d0b35e405e996ea5e"
+        },
+        {
+          "path": "wheelhouse/mypy_extensions-1.1.0-py3-none-any.whl",
+          "bytes": 4963,
+          "sha256": "1be4cccdb0f2482337c4743e60421de3a356cd97508abadd57d47403e94f5505"
+        },
+        {
+          "path": "wheelhouse/openapi_python_client-0.29.1-py3-none-any.whl",
+          "bytes": 189927,
+          "sha256": "c23f84d8cc80e7754a7539e426a618c25bb8d87c7cde019c5c209c68be8a7454"
+        },
+        {
+          "path": "wheelhouse/packaging-26.3-py3-none-any.whl",
+          "bytes": 129956,
+          "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+        },
+        {
+          "path": "wheelhouse/pathspec-1.1.1-py3-none-any.whl",
+          "bytes": 57328,
+          "sha256": "a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189"
+        },
+        {
+          "path": "wheelhouse/pluggy-1.6.0-py3-none-any.whl",
+          "bytes": 20538,
+          "sha256": "e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746"
+        },
+        {
+          "path": "wheelhouse/pydantic-2.14.1-py3-none-any.whl",
+          "bytes": 488106,
+          "sha256": "9195d967ec791692a04438115466764fb8b9a27b31f14a760437694f40d6b454"
+        },
+        {
+          "path": "wheelhouse/pydantic_core-2.50.1-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+          "bytes": 2048429,
+          "sha256": "c18db21573bd2c6489f9a544b7499f0df2853958c568e5e783536ee1f690af41"
+        },
+        {
+          "path": "wheelhouse/pydantic_core-2.50.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "bytes": 2160157,
+          "sha256": "93ba4e9d8210d941c200431a56b2c0400b131865947903937ed3ec5404307d2e"
+        },
+        {
+          "path": "wheelhouse/pygments-2.21.0-py3-none-any.whl",
+          "bytes": 1250147,
+          "sha256": "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9"
+        },
+        {
+          "path": "wheelhouse/pytest-9.1.1-py3-none-any.whl",
+          "bytes": 386536,
+          "sha256": "37a86b45efb9a47a61a36449063e8e18d0cab3161329fc099eb21783169c4f0c"
+        },
+        {
+          "path": "wheelhouse/pytest_mock-3.16.0-py3-none-any.whl",
+          "bytes": 10016,
+          "sha256": "007cfeb257801d88d9c0b2a7b5a15a15e73b71968dfd72e7bf8c4a2f8393aec8"
+        },
+        {
+          "path": "wheelhouse/python_multipart-0.0.32-py3-none-any.whl",
+          "bytes": 30042,
+          "sha256": "ff6d3f776f16878c894e52e107296ffc890e913c611b1a4ec6c44e2821fe2e23"
+        },
+        {
+          "path": "wheelhouse/rich-15.0.0-py3-none-any.whl",
+          "bytes": 310654,
+          "sha256": "33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb"
+        },
+        {
+          "path": "wheelhouse/ruamel_yaml-0.19.1-py3-none-any.whl",
+          "bytes": 118102,
+          "sha256": "27592957fedf6e0b62f281e96effd28043345e0e66001f97683aa9a40c667c93"
+        },
+        {
+          "path": "wheelhouse/ruff-0.17.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+          "bytes": 9953190,
+          "sha256": "13ee90156522998c3037059d8f66885c8adeeaf7643bdce2caceee196ecd23e0"
+        },
+        {
+          "path": "wheelhouse/ruff-0.17.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "bytes": 10386314,
+          "sha256": "bc73e7c133e82d55b5f15897b2a442d72c0cb4a0c886c46801ce3c247150b60c"
+        },
+        {
+          "path": "wheelhouse/shellingham-1.5.4-py2.py3-none-any.whl",
+          "bytes": 9755,
+          "sha256": "7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686"
+        },
+        {
+          "path": "wheelhouse/sortedcontainers-2.4.0-py2.py3-none-any.whl",
+          "bytes": 29575,
+          "sha256": "a163dcaede0f1c021485e957a39245190e74249897e2ae4b2aa38595db237ee0"
+        },
+        {
+          "path": "wheelhouse/syrupy-6.1.1-py3-none-any.whl",
+          "bytes": 63436,
+          "sha256": "6ac9ac6a42d70ae44156f5f157a9563b9bb8cc96dcf9364327f330463bff889a"
+        },
+        {
+          "path": "wheelhouse/typer-0.27.3-py3-none-any.whl",
+          "bytes": 123312,
+          "sha256": "e50022f28b82a86313e54501317a1db64bf8f8d036ff8cfe5ca7e47675454aff"
+        },
+        {
+          "path": "wheelhouse/typing_extensions-4.16.0-py3-none-any.whl",
+          "bytes": 45571,
+          "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+        },
+        {
+          "path": "wheelhouse/typing_inspection-0.4.4-py3-none-any.whl",
+          "bytes": 14750,
+          "sha256": "65b8397ba37ccbce054456aaccddfc91e6e3083c92824df348d96ca832f3f147"
+        }
+      ]
+    }
+  },
+  "source": {
+    "baseline": "0a283fe21eeaa23046faf622d4ff4b2c826d2edb",
+    "reference": "1e114ab2d00e83f07faef3398f5a1e2e51465b95"
+  },
+  "dependency_manifest": "dependency-manifest.json",
+  "project_wheel": {
+    "origin_revision": "0a283fe21eeaa23046faf622d4ff4b2c826d2edb",
+    "filename": "openapi_python_client-0.29.1-py3-none-any.whl",
+    "sha256": "c23f84d8cc80e7754a7539e426a618c25bb8d87c7cde019c5c209c68be8a7454"
+  },
+  "docker_build_commands": [
+    "docker build --network=none -f environment/Dockerfile -t edgebench-openapi-streaming-work:1.0.0-draft environment",
+    "docker build --network=none -f verifier/Dockerfile -t edgebench-openapi-streaming-judge:1.0.0-draft verifier"
+  ],
+  "build_commands_executed": false,
+  "native_entry": "/tests/test.sh -> /opt/venv/bin/python -I /tests/grader.py",
+  "tests_copies_match": true
+}

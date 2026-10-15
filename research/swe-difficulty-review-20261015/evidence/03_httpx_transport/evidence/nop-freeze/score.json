@@ -1,0 +1,586 @@
+{
+  "valid": true,
+  "score": 0.46746031746031746,
+  "pass_rate": 0.391304347826087,
+  "checks": [
+    {
+      "name": "retry_status_sync",
+      "group": "budget",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts",
+        "closes"
+      ]
+    },
+    {
+      "name": "retry_status_async",
+      "group": "budget",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts",
+        "closes"
+      ]
+    },
+    {
+      "name": "budget_last_status_sync",
+      "group": "budget",
+      "passed": false,
+      "failures": [
+        "exception"
+      ]
+    },
+    {
+      "name": "budget_last_status_async",
+      "group": "budget",
+      "passed": false,
+      "failures": [
+        "exception"
+      ]
+    },
+    {
+      "name": "redirect_budget_sync",
+      "group": "budget",
+      "passed": false,
+      "failures": [
+        "exception"
+      ]
+    },
+    {
+      "name": "redirect_budget_async",
+      "group": "budget",
+      "passed": false,
+      "failures": [
+        "exception"
+      ]
+    },
+    {
+      "name": "auth_budget_sync",
+      "group": "budget",
+      "passed": false,
+      "failures": [
+        "exception"
+      ]
+    },
+    {
+      "name": "auth_budget_async",
+      "group": "budget",
+      "passed": false,
+      "failures": [
+        "exception"
+      ]
+    },
+    {
+      "name": "auth_redirect_retry_sync",
+      "group": "budget",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts",
+        "paths",
+        "closes"
+      ]
+    },
+    {
+      "name": "auth_redirect_retry_async",
+      "group": "budget",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts",
+        "paths",
+        "closes"
+      ]
+    },
+    {
+      "name": "connect_retry_sync",
+      "group": "budget",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts",
+        "closes"
+      ]
+    },
+    {
+      "name": "connect_retry_async",
+      "group": "budget",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts",
+        "closes"
+      ]
+    },
+    {
+      "name": "unsafe_method_sync",
+      "group": "budget",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "unsafe_method_async",
+      "group": "budget",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "custom_methods_statuses_sync",
+      "group": "budget",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts",
+        "closes"
+      ]
+    },
+    {
+      "name": "custom_methods_statuses_async",
+      "group": "budget",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts",
+        "closes"
+      ]
+    },
+    {
+      "name": "empty_retry_set_sync",
+      "group": "budget",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "empty_retry_set_async",
+      "group": "budget",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "retry_stream_sync",
+      "group": "replay",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts",
+        "bodies"
+      ]
+    },
+    {
+      "name": "retry_stream_async",
+      "group": "replay",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts",
+        "bodies"
+      ]
+    },
+    {
+      "name": "limit_overflow_sync",
+      "group": "replay",
+      "passed": false,
+      "failures": [
+        "exception"
+      ]
+    },
+    {
+      "name": "limit_overflow_async",
+      "group": "replay",
+      "passed": false,
+      "failures": [
+        "exception"
+      ]
+    },
+    {
+      "name": "overflow_without_retry_sync",
+      "group": "replay",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "overflow_without_retry_async",
+      "group": "replay",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "bytes_ignore_limit_sync",
+      "group": "replay",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts",
+        "bodies"
+      ]
+    },
+    {
+      "name": "bytes_ignore_limit_async",
+      "group": "replay",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts",
+        "bodies"
+      ]
+    },
+    {
+      "name": "partial_body_sync",
+      "group": "replay",
+      "passed": false,
+      "failures": [
+        "exception"
+      ]
+    },
+    {
+      "name": "partial_body_async",
+      "group": "replay",
+      "passed": false,
+      "failures": [
+        "exception"
+      ]
+    },
+    {
+      "name": "redirect_replay_sync",
+      "group": "replay",
+      "passed": false,
+      "failures": [
+        "status",
+        "history",
+        "bodies"
+      ]
+    },
+    {
+      "name": "redirect_replay_async",
+      "group": "replay",
+      "passed": false,
+      "failures": [
+        "status",
+        "history",
+        "bodies"
+      ]
+    },
+    {
+      "name": "auth_replay_sync",
+      "group": "replay",
+      "passed": false,
+      "failures": [
+        "status",
+        "history",
+        "bodies"
+      ]
+    },
+    {
+      "name": "auth_replay_async",
+      "group": "replay",
+      "passed": false,
+      "failures": [
+        "status",
+        "history",
+        "bodies"
+      ]
+    },
+    {
+      "name": "redirect_drop_body_sync",
+      "group": "replay",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "redirect_drop_body_async",
+      "group": "replay",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "foreign_auth_sync",
+      "group": "origin",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts",
+        "authorization",
+        "proxy_authorization"
+      ]
+    },
+    {
+      "name": "foreign_auth_async",
+      "group": "origin",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts",
+        "authorization",
+        "proxy_authorization"
+      ]
+    },
+    {
+      "name": "foreign_redirect_hooks_sync",
+      "group": "origin",
+      "passed": false,
+      "failures": [
+        "authorization"
+      ]
+    },
+    {
+      "name": "foreign_redirect_hooks_async",
+      "group": "origin",
+      "passed": false,
+      "failures": [
+        "authorization"
+      ]
+    },
+    {
+      "name": "same_origin_auth_sync",
+      "group": "origin",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "same_origin_auth_async",
+      "group": "origin",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "privacy_sync",
+      "group": "events",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts",
+        "Missing structured trace"
+      ]
+    },
+    {
+      "name": "privacy_async",
+      "group": "events",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts",
+        "Missing structured trace"
+      ]
+    },
+    {
+      "name": "transport_events_sync",
+      "group": "events",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts",
+        "Missing structured trace"
+      ]
+    },
+    {
+      "name": "transport_events_async",
+      "group": "events",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts",
+        "Missing structured trace"
+      ]
+    },
+    {
+      "name": "terminal_events_sync",
+      "group": "events",
+      "passed": false,
+      "failures": [
+        "exception",
+        "Missing structured trace"
+      ]
+    },
+    {
+      "name": "terminal_events_async",
+      "group": "events",
+      "passed": false,
+      "failures": [
+        "exception",
+        "Missing structured trace"
+      ]
+    },
+    {
+      "name": "no_follow_sync",
+      "group": "compatibility",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "no_follow_async",
+      "group": "compatibility",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "legacy_disabled_sync",
+      "group": "compatibility",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "legacy_disabled_async",
+      "group": "compatibility",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "send_override_sync",
+      "group": "compatibility",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts"
+      ]
+    },
+    {
+      "name": "send_override_async",
+      "group": "compatibility",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts"
+      ]
+    },
+    {
+      "name": "send_disable_sync",
+      "group": "compatibility",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "send_disable_async",
+      "group": "compatibility",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "per_send_reset_sync",
+      "group": "compatibility",
+      "passed": false,
+      "failures": [
+        "per-send results",
+        "physical attempts"
+      ]
+    },
+    {
+      "name": "per_send_reset_async",
+      "group": "compatibility",
+      "passed": false,
+      "failures": [
+        "per-send results",
+        "physical attempts"
+      ]
+    },
+    {
+      "name": "stream_ownership_sync",
+      "group": "cleanup",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "stream_ownership_async",
+      "group": "cleanup",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "discard_retry_no_read_sync",
+      "group": "cleanup",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts",
+        "closes",
+        "reads"
+      ]
+    },
+    {
+      "name": "discard_retry_no_read_async",
+      "group": "cleanup",
+      "passed": false,
+      "failures": [
+        "status",
+        "physical attempts",
+        "closes",
+        "reads"
+      ]
+    },
+    {
+      "name": "read_error_no_retry_sync",
+      "group": "cleanup",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "read_error_no_retry_async",
+      "group": "cleanup",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "protocol_error_no_retry_sync",
+      "group": "cleanup",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "protocol_error_no_retry_async",
+      "group": "cleanup",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "cancel_read_async",
+      "group": "cleanup",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "cancel_close_async",
+      "group": "cleanup",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "concurrent_async",
+      "group": "compatibility",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "validation",
+      "group": "compatibility",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "name": "native_regressions",
+      "group": "native_regressions",
+      "passed": true,
+      "details": {
+        "passed": 160,
+        "total": 160,
+        "exit_code": 0
+      }
+    }
+  ],
+  "metrics": {
+    "group_fractions": {
+      "budget": 0.2222222222222222,
+      "replay": 0.25,
+      "origin": 0.3333333333333333,
+      "events": 0.0,
+      "cleanup": 0.8,
+      "compatibility": 0.6666666666666666,
+      "native_regressions": 1.0
+    },
+    "native": {
+      "passed": 160,
+      "total": 160,
+      "exit_code": 0
+    }
+  },
+  "summary": "Deterministic semantic groups and frozen upstream regressions"
+}

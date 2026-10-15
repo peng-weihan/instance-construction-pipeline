@@ -1,0 +1,663 @@
+[
+  {
+    "id": "37_tokio",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "保留 Runtime/Handle/JoinHandle、Future/Waker、计时 API 及健康 I/O，在宿主运行时中恢复任务通知/取消/引用所有权与计时器/关闭的关联生命周期；先只覆盖可确定观测的单线程与受控并发范围。",
+    "difficulty_reason": "transition_to_running/idle 同时改变通知位、运行位和引用计数：单独修 spawn 或 sleep 不足，取消后再次通知、poll 中唤醒、关闭时资源回收必须共同一致。但定时器与任务核之间的具体缺口闭包尚未选定，项目并发复杂不自动转成题目难度。",
+    "shortcut_risk": "锁式状态机、串行 scheduler、futures 工具是合法基线，可能覆盖有限合同。替代运行时薄包装还要保持宿主 Future/Waker、JoinHandle 取消与资源析构语义，不能只比较任务输出；但完整健康 Tokio 副本若在环境中可用可直接击穿，尚未排除。",
+    "judge_plan": "虚拟时间与手工 poll 控制轨迹，核对完成至多一次、JoinError/取消、唤醒后进展和 drop 计数；多线程只验证固定同步屏障下的不变量。选定 loom 检查须由健康参考先稳定通过，不匹配偶然调度顺序。阶段分任务/计时/关闭，再评交叉轨迹。",
+    "residual_milestones": [
+      "恢复基本 poll→通知→重新排队→join 的任务状态与所有权。",
+      "恢复 sleep/reset/取消及 shutdown 间的唤醒与资源释放，并使同一宿主任务流继续正常。"
+    ],
+    "first_probe": "最便宜先在健康版本重复运行暂停时间+取消/析构轨迹，确认完全可控；接着以粗粒度锁/串行调度实现同一公开子集，检查是否很快全覆盖。",
+    "stop_condition": "gold 有偶发超时/依赖 wall-clock，或粗锁基线完整满足合同且剩余只有局部原子优化，则停止当前范围；不能靠吞吐门槛补难。",
+    "evidence": [
+      {
+        "path": "sources/37_tokio/files/tokio/src/runtime/task/state.rs",
+        "line": 117,
+        "claim": "running/idle、通知、取消和引用计数协同",
+        "url": "https://github.com/tokio-rs/tokio/blob/52ac7816230efabcae6fcc09cbe7ae630a48eddf/tokio/src/runtime/task/state.rs#L117"
+      },
+      {
+        "path": "sources/37_tokio/files/tokio/tests/time_sleep.rs",
+        "line": 21,
+        "claim": "原生暂停时间与计时器测试",
+        "url": "https://github.com/tokio-rs/tokio/blob/52ac7816230efabcae6fcc09cbe7ae630a48eddf/tokio/tests/time_sleep.rs#L21"
+      }
+    ],
+    "caveat": "定向源码与原生测试选读支持语义潜力；健康 gold、缺损 starter、隐藏评分和求解试验均未完成，未证明长程难度。恢复范围是作者待构造的关联缺口，不是上游尚未实现的功能。公开上游源码的直接取回/整库替换是共同泄漏风险，不能靠任意禁用普通依赖来宣称题难。",
+    "read_scope": [
+      {
+        "path": "sources/37_tokio/files/tokio/src/runtime/task/state.rs",
+        "start": 110,
+        "end": 180,
+        "total_lines": 657,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/37_tokio/files/tokio/tests/time_sleep.rs",
+        "start": 18,
+        "end": 70,
+        "total_lines": 447,
+        "kind": "test"
+      }
+    ]
+  },
+  {
+    "id": "38_tantivy",
+    "tier": "A",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "在既有 schema/query/Directory 宿主中恢复 writer/segment 发布、删除可见性、显式 reader reload、旧 searcher 生命周期和提交失败后的重开；限定查询语言及排序并列合同。",
+    "difficulty_reason": "同一文档写入、提交发布、reader 世代与旧视图保留形成跨操作状态：正常查询通过以后，失败的提交不可泄漏、新旧视图同时合法、文件回收不能破坏读者。源码实际以 META_LOCK 保护 segment 打开，原生 failpoint 检查失败提交不暴露文档，提供自然剩余里程碑。",
+    "shortcut_risk": "全量重建/内存快照与成熟搜索库都允许，先作为强基线。它们仍要适配宿主 Directory、schema/collector、旧 Searcher 与失败发布行为；这是公开集成目标，不要求某种私有 segment 布局。若 snapshot+重建适配足额通过应降级，不能无依据增加性能门槛。完整原版可取回风险仍在。",
+    "judge_plan": "Manual reload+固定小文档集合，用独立查询/删除集合模型和健康版本差分；注入元数据保存失败、 reopen、保留旧 searcher，检查各视图与资源可用性。阶段分基础写查/提交删除/reload旧视图/失败恢复，不用提交后 sleep 等自动 reload。",
+    "residual_milestones": [
+      "恢复建索引、commit/delete 与 Manual reload 的文档可见性。",
+      "恢复失败发布后重开与继续写，保证旧 searcher 在新提交及 segment 生命周期变化后仍正确。"
+    ],
+    "first_probe": "先用内存 Directory 在健康版本跑 A提交→旧searcher→B/删除→reload→save_metas失败→reopen 的纵向轨迹，再试全量重建+视图快照基线。",
+    "stop_condition": "强基线仅薄封装即可覆盖全部公开语义，或失败恢复无法离线稳定注入，停止当前缺口设计；若必须规定内部文件名/布局才能区分解法则重设。",
+    "evidence": [
+      {
+        "path": "sources/38_tantivy/files/src/reader/mod.rs",
+        "line": 15,
+        "claim": "reload策略及commit返回不保证自动reload已完成",
+        "url": "https://github.com/quickwit-oss/tantivy/blob/8a4cfc40f5b7446c0700471aa50290dbb7f8ea97/src/reader/mod.rs#L15"
+      },
+      {
+        "path": "sources/38_tantivy/files/tests/failpoints/mod.rs",
+        "line": 42,
+        "claim": "保存元数据失败后新文档不可见的原生回归",
+        "url": "https://github.com/quickwit-oss/tantivy/blob/8a4cfc40f5b7446c0700471aa50290dbb7f8ea97/tests/failpoints/mod.rs#L42"
+      },
+      {
+        "path": "sources/38_tantivy/files/src/reader/mod.rs",
+        "line": 198,
+        "claim": "打开 segment 时取得 META_LOCK，避免 GC 在打开过程中移除文件。",
+        "url": "https://github.com/quickwit-oss/tantivy/blob/8a4cfc40f5b7446c0700471aa50290dbb7f8ea97/src/reader/mod.rs#L198"
+      }
+    ],
+    "caveat": "定向源码与原生测试选读支持语义潜力；健康 gold、缺损 starter、隐藏评分和求解试验均未完成，未证明长程难度。恢复范围是作者待构造的关联缺口，不是上游尚未实现的功能。公开上游源码的直接取回/整库替换是共同泄漏风险，不能靠任意禁用普通依赖来宣称题难。",
+    "read_scope": [
+      {
+        "path": "sources/38_tantivy/files/src/reader/mod.rs",
+        "start": 1,
+        "end": 80,
+        "total_lines": 318,
+        "kind": "specification"
+      },
+      {
+        "path": "sources/38_tantivy/files/src/reader/mod.rs",
+        "start": 180,
+        "end": 250,
+        "total_lines": 318,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/38_tantivy/files/tests/failpoints/mod.rs",
+        "start": 42,
+        "end": 105,
+        "total_lines": 124,
+        "kind": "test"
+      }
+    ]
+  },
+  {
+    "id": "39_rustls",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "有限 TLS1.3 宿主连接公开 API：完整握手→ticket 消费/恢复→early/application data→部分 I/O 与关闭；保留可信 crypto provider、证书 fixtures，不恢复密码原语。",
+    "difficulty_reason": "early data 的剩余长度、状态推进与记录对齐，以及多次连接共享 ticket store 的单次消费，都是单握手成功后仍存在的跨消息/连接状态。规范和互通层次很深，但收敛到可离线确定评价的宿主行为比模板/编辑/校验链成本高，且与原 TLS 类素材相近。",
+    "shortcut_risk": "正常 TLS 库和 crypto provider 应允许；成熟 TLS 适配有机会覆盖线上协议，却还需匹配宿主 Rust 配置/证书回调、ticket store、非阻塞部分 I/O 和错误 API。不能未经试验证明不可薄包装；同版完整 rustls 副本尤其可直接覆盖。",
+    "judge_plan": "固定证书、可控输入分片和 provider，在内存 client/server pair 与独立对端间核对握手类型、ticket 使用、early-data拒绝/接受、应用字节与关闭错误；不逐字节匹配含随机性的密文。阶段分完整握手/恢复/early data/部分 I/O 与关闭。",
+    "residual_milestones": [
+      "恢复完整 TLS1.3 连接及应用读写，与保留 provider 和宿主 API 协同。",
+      "恢复共享 store 的 ticket 消费、early-data 长度/次序与分片输入，再闭合错误和 close 生命周期。"
+    ],
+    "first_probe": "先离线编译健康 provider 并运行现有 ticket 不复用 pair 测试；加入自拟分片/close轨迹，做成熟 TLS API 适配成本试验。",
+    "stop_condition": "确定性 harness 无法构建、重复已有 TLS 任务而无新契约，或成熟 TLS 适配直接通过，停止当前方向；不得把密码构建/证书排障耗时算求解难度。",
+    "evidence": [
+      {
+        "path": "sources/39_rustls/files/rustls/src/server/tls13.rs",
+        "line": 1245,
+        "claim": "early-data上限及EndOfEarlyData推进状态",
+        "url": "https://github.com/rustls/rustls/blob/d37c3c338fe30c3fdc70f0696997909ffd15f5b8/rustls/src/server/tls13.rs#L1245"
+      },
+      {
+        "path": "sources/39_rustls/files/rustls-test/tests/api/resume.rs",
+        "line": 327,
+        "claim": "ticket使用、并行尝试和耗尽后不恢复的测试",
+        "url": "https://github.com/rustls/rustls/blob/d37c3c338fe30c3fdc70f0696997909ffd15f5b8/rustls-test/tests/api/resume.rs#L327"
+      }
+    ],
+    "caveat": "定向源码与原生测试选读支持语义潜力；健康 gold、缺损 starter、隐藏评分和求解试验均未完成，未证明长程难度。恢复范围是作者待构造的关联缺口，不是上游尚未实现的功能。公开上游源码的直接取回/整库替换是共同泄漏风险，不能靠任意禁用普通依赖来宣称题难。",
+    "read_scope": [
+      {
+        "path": "sources/39_rustls/files/rustls/src/server/tls13.rs",
+        "start": 1240,
+        "end": 1300,
+        "total_lines": 1752,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/39_rustls/files/rustls-test/tests/api/resume.rs",
+        "start": 327,
+        "end": 403,
+        "total_lines": 1624,
+        "kind": "test"
+      }
+    ]
+  },
+  {
+    "id": "64_nushell",
+    "tier": "A",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "保留词法/AST/IR 编译、命令注册及 typed Value/Stack 公共 API，恢复 IR 执行、PipelineData 流转与闭包/自定义命令 return/scope 边界；只引入固定离线 testbin，不扩成 shell 全量重写。",
+    "difficulty_reason": "IR 调用须保存并恢复外层 scope_regions/PC，return 要在闭包边界吸收；typed table/list 经 each 与外部 stdin 往返说明数据形态和控制流相连。简单算术或单条管线成功后，嵌套作用域、字节流、异常后的调用者恢复仍是实质工作。",
+    "shortcut_risk": "旧 AST evaluator/健康 nu 子进程是必须试的强基线。字符串 subprocess 无法直接携带宿主 Value/Span、Stack、已注册 Rust 命令和流错误/资源状态，适配可能实质复杂；但若合同只比终端 stdout 即容易被包装击穿。不得为卡基线引入私有 IR 字节布局，完整同版引擎替换风险仍在。",
+    "judge_plan": "健康固定 workspace API/脚本差分，独立核对类型、span/metadata、闭包 return边界、宿主回调副作用和下一次执行的变量/错误状态。固定 testbin 显式控制 stdin/stdout；阶段分值管线/闭包/外部流/错误后恢复，不依赖 shell 环境。",
+    "residual_milestones": [
+      "恢复 typed 值、table/list 与嵌套 each/custom command 在 IR 下的管线传递。",
+      "恢复 return/error/finally 边界和 caller scope/PC，再打通外部字节流及提前终止后的清理。"
+    ],
+    "first_probe": "先健康构建并跑结构化each→固定testbin→结果访问和return后调用者继续两条纵向轨迹；再检查旧evaluator/nu subprocess能否携带宿主数据与注册命令完成。",
+    "stop_condition": "旧 evaluator 或几个转发调用已完整覆盖，或缺口导致parser/无关命令不可起步，则停止当前缺口；若依赖不确定外部程序而难稳定评分也先缩退。",
+    "evidence": [
+      {
+        "path": "sources/64_nushell/files/crates/nu-engine/src/eval_ir.rs",
+        "line": 48,
+        "claim": "IR block 维护递归限制及嵌套 scope/PC 状态恢复。",
+        "url": "https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/crates/nu-engine/src/eval_ir.rs#L48",
+        "upstream_path": "crates/nu-engine/src/eval_ir.rs"
+      },
+      {
+        "path": "sources/64_nushell/files/crates/nu-engine/src/eval.rs",
+        "line": 642,
+        "claim": "eval_block 走 IR；early-return wrapper 吸收 return 标志。",
+        "url": "https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/crates/nu-engine/src/eval.rs#L642",
+        "upstream_path": "crates/nu-engine/src/eval.rs"
+      },
+      {
+        "path": "sources/64_nushell/files/tests/shell/pipeline/commands/internal.rs",
+        "line": 10,
+        "claim": "测试组合 table/list、each closure、external stdin 与结果访问。",
+        "url": "https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/tests/shell/pipeline/commands/internal.rs#L10",
+        "upstream_path": "tests/shell/pipeline/commands/internal.rs"
+      },
+      {
+        "path": "sources/64_nushell/files/crates/nu-protocol/tests/test_pipeline_data.rs",
+        "line": 4,
+        "claim": "测试 PipelineData→Value 的值与 span 转换。",
+        "url": "https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/crates/nu-protocol/tests/test_pipeline_data.rs#L4",
+        "upstream_path": "crates/nu-protocol/tests/test_pipeline_data.rs"
+      }
+    ],
+    "caveat": "定向源码与原生测试选读支持语义潜力；健康 gold、缺损 starter、隐藏评分和求解试验均未完成，未证明长程难度。恢复范围是作者待构造的关联缺口，不是上游尚未实现的功能。公开上游源码的直接取回/整库替换是共同泄漏风险，不能靠任意禁用普通依赖来宣称题难。",
+    "read_scope": [
+      {
+        "path": "sources/64_nushell/files/crates/nu-engine/src/eval_ir.rs",
+        "start": 40,
+        "end": 130,
+        "total_lines": 2287,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/64_nushell/files/crates/nu-engine/src/eval.rs",
+        "start": 630,
+        "end": 680,
+        "total_lines": 1024,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/64_nushell/files/tests/shell/pipeline/commands/internal.rs",
+        "start": 1,
+        "end": 85,
+        "total_lines": 1085,
+        "kind": "test"
+      },
+      {
+        "path": "sources/64_nushell/files/crates/nu-protocol/tests/test_pipeline_data.rs",
+        "start": 1,
+        "end": 15,
+        "total_lines": 15,
+        "kind": "test"
+      }
+    ]
+  },
+  {
+    "id": "65_ruff",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "medium",
+    "recommended_scope": "只在固定 Python 版本/功能集中恢复 token→表达式/statement suites→recoverable AST/ranges→既有 formatter/linter 消费链；不得仅删除 list helper 或优先级表再称长程。",
+    "difficulty_reason": "解析时 recovery_context 要保存恢复，嵌套 list 的终止 token、indent平衡与进展相互作用；正常合法语法通过后，错误输入仍要保留可消费 AST 和后续语句。此范围有高上限，但当前证据不足以确认关联缺口不会退化为小型 parser helper 修复，且与 Syn/M5 parser 素材机制重复。",
+    "shortcut_risk": "CPython ast/其它 Rust Python parser 是合法基线；合法子集+AST映射可能覆盖大半。恢复诊断、Ruff typed AST/ranges 及下游消费不自然等价于标准AST，但差异必须由公开输入/行为而非私有快照证明。同版 parser crate 或完整原版替换可击穿。",
+    "judge_plan": "固定健康 Ruff 的 API 差分，分别检查合法 AST/ranges、recoverable错误后的语句/诊断位置和下游格式化/规则结果；CPython只作为共同合法子集参考。阶段分合法表达式/语句组合/错误恢复/下游闭合，避免精确匹配不承诺的错误文案。",
+    "residual_milestones": [
+      "恢复合法表达式与 statement/suite 的组合、优先级和源码范围。",
+      "恢复嵌套错误进展/终止及后续语句可用性，使formatter/linter能消费公开承诺的部分树。"
+    ],
+    "first_probe": "先跑健康版本自拟合法+损坏语法工作流，再做CPython/替代parser到目标AST的适配；实际挖除前看剩余是否超过局部list helper。",
+    "stop_condition": "替代parser薄适配完成合同，或缺口只剩少数恢复helper/一个语法点，降 C 并重设；若健康版本不承诺下游接受错误树，不将该行为加入评分。",
+    "evidence": [
+      {
+        "path": "sources/65_ruff/files/crates/ruff_python_parser/src/parser/mod.rs",
+        "line": 723,
+        "claim": "parse_list 保存 recovery context、保证进展并处理 enclosing terminator/缩进。",
+        "url": "https://github.com/astral-sh/ruff/blob/3514027edb659bbc3c787d355be9d130e5587f15/crates/ruff_python_parser/src/parser/mod.rs#L723",
+        "upstream_path": "crates/ruff_python_parser/src/parser/mod.rs"
+      },
+      {
+        "path": "sources/65_ruff/files/crates/ruff_python_parser/src/parser/tests.rs",
+        "line": 363,
+        "claim": "真实测试检查深嵌套解析保留前后合法语句。",
+        "url": "https://github.com/astral-sh/ruff/blob/3514027edb659bbc3c787d355be9d130e5587f15/crates/ruff_python_parser/src/parser/tests.rs#L363",
+        "upstream_path": "crates/ruff_python_parser/src/parser/tests.rs"
+      },
+      {
+        "path": "sources/65_ruff/files/crates/ruff_python_parser/tests/fixtures.rs",
+        "line": 19,
+        "claim": "fixture harness 分别验证合法/非法输入并检查 AST/错误快照。",
+        "url": "https://github.com/astral-sh/ruff/blob/3514027edb659bbc3c787d355be9d130e5587f15/crates/ruff_python_parser/tests/fixtures.rs#L19",
+        "upstream_path": "crates/ruff_python_parser/tests/fixtures.rs"
+      }
+    ],
+    "caveat": "定向源码与原生测试选读支持语义潜力；健康 gold、缺损 starter、隐藏评分和求解试验均未完成，未证明长程难度。恢复范围是作者待构造的关联缺口，不是上游尚未实现的功能。公开上游源码的直接取回/整库替换是共同泄漏风险，不能靠任意禁用普通依赖来宣称题难。",
+    "read_scope": [
+      {
+        "path": "sources/65_ruff/files/crates/ruff_python_parser/src/parser/mod.rs",
+        "start": 710,
+        "end": 810,
+        "total_lines": 1788,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/65_ruff/files/crates/ruff_python_parser/src/parser/tests.rs",
+        "start": 350,
+        "end": 405,
+        "total_lines": 543,
+        "kind": "test"
+      },
+      {
+        "path": "sources/65_ruff/files/crates/ruff_python_parser/tests/fixtures.rs",
+        "start": 1,
+        "end": 105,
+        "total_lines": 812,
+        "kind": "test"
+      }
+    ]
+  },
+  {
+    "id": "66_syn",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "medium",
+    "recommended_scope": "保留 proc_macro2、AST类型和打印器/visitor，恢复 ParseBuffer 消费/分叉与 Expr/Item 递归调用的连贯子集，交付真实proc-macro消费者能使用的 tokens→AST→print/visit→Rust编译链；只做语法，不要求rustc语义分析。",
+    "difficulty_reason": "fork 在不消费父流的同时隔离 unexpected 状态，expression atom 要区分 group/closure/path/macro/struct，且与items和括号/结合性相连。完整链可有高难上限，但若只是 fork 或运算符优先级，工作量很局部；需要通过真实宏消费者证明恢复范围。",
+    "shortcut_risk": "另一个Rust parser、quote/proc_macro2及现存健康syn依赖合法。替代parser往往不是同一TokenStream/group/span/AST类型，适配可能多阶段，但不能据此排除薄适配；完整同版syn副本直接能覆盖，残留健康版本必须检查为出题泄漏。",
+    "judge_plan": "健康固定syn的AST/print差分，加 parse-print-parse结构不变量和小型proc-macro消费者编译；合法语法与span合同明确分开，不比较不承诺的错误字符串。阶段分表达式/Items嵌套/分叉失败/宏消费；feature flags固定。",
+    "residual_milestones": [
+      "恢复分叉不消费父流及表达式/Item/宏token边界的正确解析。",
+      "恢复嵌套组合、括号和跨度，使打印/visitor及真实宏消费者保持类型一致并编译。"
+    ],
+    "first_probe": "先健康版本跑同一proc-macro小工作流，尝试替代parser映射；若恢复只改fork/precedence或现有完整parser转发即可，立即缩退。",
+    "stop_condition": "只剩局部语法修复、缺乏真实消费者的剩余工作，或与Ruff恢复题高度同构且无新能力信号，则降C重设；不要通过随意增加Rust语法点凑时长。",
+    "evidence": [
+      {
+        "path": "sources/66_syn/files/src/parse.rs",
+        "line": 967,
+        "claim": "fork 克隆 cursor 状态并独立设置 unexpected 记录。",
+        "url": "https://github.com/dtolnay/syn/blob/7c44a5565b4421035101cc16184e9af08ab5fc77/src/parse.rs#L967",
+        "upstream_path": "src/parse.rs"
+      },
+      {
+        "path": "sources/66_syn/files/src/expr.rs",
+        "line": 1901,
+        "claim": "atom_expr 联合 lookahead、group、closure、path/macro/struct 与控制表达式。",
+        "url": "https://github.com/dtolnay/syn/blob/7c44a5565b4421035101cc16184e9af08ab5fc77/src/expr.rs#L1901",
+        "upstream_path": "src/expr.rs"
+      },
+      {
+        "path": "sources/66_syn/files/tests/test_expr.rs",
+        "line": 770,
+        "claim": "测试二元与赋值结合性并拒绝无括号链式比较。",
+        "url": "https://github.com/dtolnay/syn/blob/7c44a5565b4421035101cc16184e9af08ab5fc77/tests/test_expr.rs#L770",
+        "upstream_path": "tests/test_expr.rs"
+      }
+    ],
+    "caveat": "定向源码与原生测试选读支持语义潜力；健康 gold、缺损 starter、隐藏评分和求解试验均未完成，未证明长程难度。恢复范围是作者待构造的关联缺口，不是上游尚未实现的功能。公开上游源码的直接取回/整库替换是共同泄漏风险，不能靠任意禁用普通依赖来宣称题难。",
+    "read_scope": [
+      {
+        "path": "sources/66_syn/files/src/parse.rs",
+        "start": 945,
+        "end": 990,
+        "total_lines": 1420,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/66_syn/files/src/expr.rs",
+        "start": 1901,
+        "end": 1965,
+        "total_lines": 4249,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/66_syn/files/tests/test_expr.rs",
+        "start": 770,
+        "end": 825,
+        "total_lines": 1721,
+        "kind": "test"
+      }
+    ]
+  },
+  {
+    "id": "67_petgraph",
+    "tier": "C",
+    "potential": "medium",
+    "authoring_cost": "low",
+    "recommended_scope": "当前只保留为可变图稳定索引练习素材；若再立项，需以真实增删→遍历/算法→含空洞序列化→继续增删的宿主工作流自然扩展，而非扩大API数量。",
+    "difficulty_reason": "节点删除既清incident edges又将槽接回free list；原生测试核对其他索引保持、clear_edges后空槽复用。这些是不平凡不变量，但可由直白Vec<Option<_>>/邻接集合实现；现有范围缺乏必须跨很长工程链的证据。",
+    "shortcut_risk": "标准容器重建与现有Graph wrapper风险高，完整算法模块可保留调用。稳定外部索引可通过映射表实现；不能要求内部free-list布局/遍历偶然顺序来挡简单方案。成熟图库及全量重算应允许。",
+    "judge_plan": "独立节点/边集合模型生成操作轨迹，健康petgraph差分核对索引、双向邻接、自环/并行边、holes与序列化后继续操作；算法比较集合/路径合法性，不比较未承诺的遍历顺序。",
+    "residual_milestones": [
+      "恢复稳定索引下增删及自环/并行边的双向邻接一致。",
+      "恢复空洞序列化和visitor索引域，再让保留算法在后续mutation后继续正确。"
+    ],
+    "first_probe": "先用简单标准容器或Graph+稳定ID映射实现同一操作轨迹；这是最便宜的高难否证，优先于制作复杂缺损starter。",
+    "stop_condition": "若简单基线覆盖全部行为即停止高难方向；只有真实公开工作负载证明现有方案的剩余缺口才能重开，不无依据追加性能限制。",
+    "evidence": [
+      {
+        "path": "sources/67_petgraph/files/crates/petgraph/src/graph_impl/stable_graph/mod.rs",
+        "line": 365,
+        "claim": "节点插入复用 vacant 槽，删除节点清理 incident edges 并接回 free list。",
+        "url": "https://github.com/petgraph/petgraph/blob/b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495/crates/petgraph/src/graph_impl/stable_graph/mod.rs#L365",
+        "upstream_path": "crates/petgraph/src/graph_impl/stable_graph/mod.rs"
+      },
+      {
+        "path": "sources/67_petgraph/files/crates/petgraph/tests/stable_graph.rs",
+        "line": 38,
+        "claim": "真实测试删除中间节点后 iterator 保留其他原索引。",
+        "url": "https://github.com/petgraph/petgraph/blob/b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495/crates/petgraph/tests/stable_graph.rs#L38",
+        "upstream_path": "crates/petgraph/tests/stable_graph.rs"
+      },
+      {
+        "path": "sources/67_petgraph/files/crates/petgraph/tests/stable_graph.rs",
+        "line": 86,
+        "claim": "clear_edges 后继续复用 node vacancy 并检查邻接为空。",
+        "url": "https://github.com/petgraph/petgraph/blob/b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495/crates/petgraph/tests/stable_graph.rs#L86",
+        "upstream_path": "crates/petgraph/tests/stable_graph.rs"
+      }
+    ],
+    "caveat": "定向源码与原生测试选读支持语义潜力；健康 gold、缺损 starter、隐藏评分和求解试验均未完成，未证明长程难度。恢复范围是作者待构造的关联缺口，不是上游尚未实现的功能。公开上游源码的直接取回/整库替换是共同泄漏风险，不能靠任意禁用普通依赖来宣称题难。",
+    "read_scope": [
+      {
+        "path": "sources/67_petgraph/files/crates/petgraph/src/graph_impl/stable_graph/mod.rs",
+        "start": 350,
+        "end": 440,
+        "total_lines": 2643,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/67_petgraph/files/crates/petgraph/tests/stable_graph.rs",
+        "start": 30,
+        "end": 112,
+        "total_lines": 1310,
+        "kind": "test"
+      }
+    ]
+  },
+  {
+    "id": "68_jinja",
+    "tier": "A",
+    "potential": "high",
+    "authoring_cost": "medium",
+    "recommended_scope": "保留lexer/AST/loader及Environment/Template公开API，关联恢复继承/block/super/scoped/include的编译与Context调用，再闭合同一多模板工作流的macro/async/escape及generator关闭。",
+    "difficulty_reason": "继承会把parent blocks接入当前Context链，scoped block要派生上下文；super必须按当前block找到下一层。render基本成功后，动态parent、loop局部、宏回调、同步/异步生成和close/aclose仍共同约束同一运行时。状态都能通过渲染/回调/生成器观察，比Tokio/Rustls更易稳定评分。",
+    "shortcut_risk": "MarkupSafe、Python AST/codegen、async工具允许。替代引擎要支持宿主loader、context-aware Python callbacks、Template/Undefined/Markup及async generator API，难以仅字符串转发；但包装健康Jinja同版本可能直接成功，需在基线探针实查。不要匹配私有生成Python文本或禁用正常库来防包装。",
+    "judge_plan": "固定健康Jinja差分render/generate/render_async/generate_async，独立检查loader调用、context回调观测、转义、yield后异常与close/aclose清理。以可控async函数替代网络I/O；阶段分继承/上下文宏/escape异步/生命周期，不比较私有codegen文本。",
+    "residual_milestones": [
+      "恢复多级继承、动态parent、scoped locals与super链的共享Context。",
+      "恢复macro/include/import上下文隔离，并使同一模板同步/异步流式输出、escape与终止清理保持一致。"
+    ],
+    "first_probe": "健康Python环境先跑dynamic extends+scoped super、async macro两条纵向轨迹；尝试现存健康引擎/替代引擎保留宿主callbacks的最薄包装。",
+    "stop_condition": "环境中健康引擎/旧编译缓存可直接覆盖，或关联缺口只剩几个compiler visitor，即停止当前mask；若async关闭无稳定公开可观察行为则缩减评分，不推测资源泄漏。",
+    "evidence": [
+      {
+        "path": "sources/68_jinja/files/src/jinja2/compiler.py",
+        "line": 945,
+        "claim": "block codegen 选择 scoped context，并处理 required/async generator cleanup。",
+        "url": "https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/src/jinja2/compiler.py#L945",
+        "upstream_path": "src/jinja2/compiler.py"
+      },
+      {
+        "path": "sources/68_jinja/files/src/jinja2/compiler.py",
+        "line": 994,
+        "claim": "extends 载入 parent 并将其 blocks 接入当前 context 链。",
+        "url": "https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/src/jinja2/compiler.py#L994",
+        "upstream_path": "src/jinja2/compiler.py"
+      },
+      {
+        "path": "sources/68_jinja/files/src/jinja2/runtime.py",
+        "line": 145,
+        "claim": "Context 保存 vars/parent/block stacks，super 根据当前 block 找下一级。",
+        "url": "https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/src/jinja2/runtime.py#L145",
+        "upstream_path": "src/jinja2/runtime.py"
+      },
+      {
+        "path": "sources/68_jinja/files/tests/test_inheritance.py",
+        "line": 148,
+        "claim": "测试动态继承与 scoped/super 在循环中的上下文行为。",
+        "url": "https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/tests/test_inheritance.py#L148",
+        "upstream_path": "tests/test_inheritance.py"
+      },
+      {
+        "path": "sources/68_jinja/files/tests/test_async.py",
+        "line": 26,
+        "claim": "真实测试结合 async 和普通函数调用渲染。",
+        "url": "https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/tests/test_async.py#L26",
+        "upstream_path": "tests/test_async.py"
+      }
+    ],
+    "caveat": "定向源码与原生测试选读支持语义潜力；健康 gold、缺损 starter、隐藏评分和求解试验均未完成，未证明长程难度。恢复范围是作者待构造的关联缺口，不是上游尚未实现的功能。公开上游源码的直接取回/整库替换是共同泄漏风险，不能靠任意禁用普通依赖来宣称题难。",
+    "read_scope": [
+      {
+        "path": "sources/68_jinja/files/src/jinja2/compiler.py",
+        "start": 945,
+        "end": 1040,
+        "total_lines": 1992,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/68_jinja/files/src/jinja2/runtime.py",
+        "start": 145,
+        "end": 215,
+        "total_lines": 1062,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/68_jinja/files/tests/test_inheritance.py",
+        "start": 148,
+        "end": 215,
+        "total_lines": 410,
+        "kind": "test"
+      },
+      {
+        "path": "sources/68_jinja/files/tests/test_async.py",
+        "start": 20,
+        "end": 66,
+        "total_lines": 720,
+        "kind": "test"
+      }
+    ]
+  },
+  {
+    "id": "69_helix",
+    "tier": "A",
+    "potential": "high",
+    "authoring_cost": "medium",
+    "recommended_scope": "仅纯helix-core：保留Rope和编辑动作壳，恢复ChangeSet compose/invert/apply、Selection anchor/head affinity映射以及History分支/changes_since/undo-redo，交付Unicode多选择区编辑内核；不含GUI/LSP/grammar。",
+    "difficulty_reason": "ChangeSet组合负责docA→docB→docC，invert必须重建被删除Unicode文本；Selection按方向给anchor/head不同粘性，History存原选区与逆操作并跨LCA组合。一次编辑或线性undo成功后，选择区坐标与分支历史仍有实质剩余。纯core轨迹与代数不变量使评分比并发/密码协议更可控。",
+    "shortcut_risk": "Ropey、标准diff和完整文档快照式历史都是合法强基线。快照足以恢复文本，但要在宿主Transaction/Selection接口上保留坐标映射、分支changes_since和多选择区语义仍需适配；必须实际试验，不能凭内部实现推断难度。完整健康core替换依旧能击穿。",
+    "judge_plan": "健康固定core的操作轨迹差分与独立文本/选择区模型，验证compose与顺序apply等价、invert恢复、undo-redo及跨分支文档/选区。Unicode用明确字符坐标，受控timestamp；不评上游未实现的ChangeSet::map，不要求私有操作规范化布局。",
+    "residual_milestones": [
+      "恢复单次/复合编辑、Unicode反演和方向相关选择区映射。",
+      "恢复undo后分叉、分支间changes_since/LCA组合与原选区恢复，并检验空事务和多次执行。"
+    ],
+    "first_probe": "健康core跑中文/emoji多选择区→复合编辑→undo→分支→changes_since；以snapshot+标准diff为强基线，看是否只需薄API映射即可完成。",
+    "stop_condition": "快照/diff适配直接足额覆盖，或缺口只剩compose单算法则重设；任何测试依赖ChangeSet::map TODO、GUI时序或未承诺的操作布局则删除该测试/暂停。",
+    "evidence": [
+      {
+        "path": "sources/69_helix/files/helix-core/src/transaction.rs",
+        "line": 163,
+        "claim": "compose 连接 docA→docB 和 docB→docC 的操作流。",
+        "url": "https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/helix-core/src/transaction.rs#L163",
+        "upstream_path": "helix-core/src/transaction.rs"
+      },
+      {
+        "path": "sources/69_helix/files/helix-core/src/transaction.rs",
+        "line": 312,
+        "claim": "invert/apply 以 Rope 字符计数恢复删除文字并更新文档。",
+        "url": "https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/helix-core/src/transaction.rs#L312",
+        "upstream_path": "helix-core/src/transaction.rs"
+      },
+      {
+        "path": "sources/69_helix/files/helix-core/src/selection.rs",
+        "line": 479,
+        "claim": "selection 映射后 normalize，并对 anchor/head 使用方向相关 affinity。",
+        "url": "https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/helix-core/src/selection.rs#L479",
+        "upstream_path": "helix-core/src/selection.rs"
+      },
+      {
+        "path": "sources/69_helix/files/helix-core/src/history.rs",
+        "line": 85,
+        "claim": "提交保存 transaction inversion 和原 selection，维护 parent/last_child。",
+        "url": "https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/helix-core/src/history.rs#L85",
+        "upstream_path": "helix-core/src/history.rs"
+      },
+      {
+        "path": "sources/69_helix/files/helix-core/src/history.rs",
+        "line": 393,
+        "claim": "真实 Unicode 编辑测试验证连续 undo/redo 与根节点 no-op。",
+        "url": "https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/helix-core/src/history.rs#L393",
+        "upstream_path": "helix-core/src/history.rs"
+      }
+    ],
+    "caveat": "定向源码与原生测试选读支持语义潜力；健康 gold、缺损 starter、隐藏评分和求解试验均未完成，未证明长程难度。恢复范围是作者待构造的关联缺口，不是上游尚未实现的功能。公开上游源码的直接取回/整库替换是共同泄漏风险，不能靠任意禁用普通依赖来宣称题难。",
+    "read_scope": [
+      {
+        "path": "sources/69_helix/files/helix-core/src/transaction.rs",
+        "start": 150,
+        "end": 225,
+        "total_lines": 1186,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/69_helix/files/helix-core/src/transaction.rs",
+        "start": 312,
+        "end": 375,
+        "total_lines": 1186,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/69_helix/files/helix-core/src/selection.rs",
+        "start": 470,
+        "end": 520,
+        "total_lines": 1458,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/69_helix/files/helix-core/src/history.rs",
+        "start": 80,
+        "end": 145,
+        "total_lines": 634,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/69_helix/files/helix-core/src/history.rs",
+        "start": 393,
+        "end": 465,
+        "total_lines": 634,
+        "kind": "test"
+      }
+    ]
+  },
+  {
+    "id": "70_pydantic_core",
+    "tier": "A",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "主仓pydantic-core子项目中保留Python SchemaValidator/SchemaSerializer/core_schema API及基础类型，关联恢复schema编译→strict/lax/JSON-Python校验→smart union模型选择→模型身份/结构化错误→serializer字段策略；冻结有限schema功能集。",
+    "difficulty_reason": "smart union每个分支重设exactness/fields_set_count再恢复外层状态，按有效字段数和精确性选最佳模型；serializer又按确切类型/instance和model上下文走不同路径。验证成功不等于模型身份、序列化和下一次调用都正确，形成可观测跨表示链。其输入/输出确定性较强，但PyO3/Rust构建提高作者成本。",
+    "shortcut_risk": "JSON Schema/其它校验库、Rust/Python数据工具允许。它们不天然保持宿主Python模型实例身份、自定义回调、strict/lax精确选择及序列化策略，需要实质适配；但同版pydantic_core wheel或完整引擎可直接覆盖，先检查依赖闭包，不能任意禁成熟校验器来抬难度。",
+    "judge_plan": "健康固定核心差分validate_python/validate_json与SchemaSerializer to_python/to_json；独立核对返回类型/身份、嵌套error locations、回调副作用、bytes/JSON模式及跨调用隔离。阶段分基础schema/嵌套union模型/错误状态恢复/序列化闭合，不依赖私有repr。",
+    "residual_milestones": [
+      "恢复嵌套schema与多分支校验，保留strict/lax/JSON-Python选择、实例身份和结构化错误。",
+      "恢复同一模型的serializer配置/字段策略，并在union失败与重复调用后保持验证/序列化上下文隔离。"
+    ],
+    "first_probe": "先匹配Python/Rust/PyO3离线健康构建，跑模型union身份保持→序列化bytes/JSON的纵向轨迹；再用最强普通校验库适配同一合同，检查wheel/健康副本泄漏。",
+    "stop_condition": "健康wheel/残余完整引擎薄包装可通过、缺口只剩union比较器，或工具链无法稳定复现则停止当前mask；不能把Rust/Python构建排障计成高难。",
+    "evidence": [
+      {
+        "path": "sources/70_pydantic_core_current/files/pydantic-core/src/validators/union.rs",
+        "line": 103,
+        "claim": "smart union 选择使用字段计数/精确性并恢复验证状态",
+        "url": "https://github.com/pydantic/pydantic/blob/8cd3bec6c7e1d360d92193841613465d30f63955/pydantic-core/src/validators/union.rs#L103"
+      },
+      {
+        "path": "sources/70_pydantic_core_current/files/pydantic-core/tests/validators/test_union.py",
+        "line": 56,
+        "claim": "原生模型 union 测试检查实际模型身份",
+        "url": "https://github.com/pydantic/pydantic/blob/8cd3bec6c7e1d360d92193841613465d30f63955/pydantic-core/tests/validators/test_union.py#L56"
+      },
+      {
+        "path": "sources/70_pydantic_core_current/files/pydantic-core/src/serializers/type_serializers/model.rs",
+        "line": 142,
+        "claim": "模型serializer按exact type/instance检查兼容性，并以scoped model状态调用嵌套serializer。",
+        "url": "https://github.com/pydantic/pydantic/blob/8cd3bec6c7e1d360d92193841613465d30f63955/pydantic-core/src/serializers/type_serializers/model.rs#L142"
+      },
+      {
+        "path": "sources/70_pydantic_core_current/files/pydantic-core/tests/serializers/test_model.py",
+        "line": 39,
+        "claim": "原生测试区分Python/JSON模式，对基础模型与子类的bytes字段序列化作明确断言。",
+        "url": "https://github.com/pydantic/pydantic/blob/8cd3bec6c7e1d360d92193841613465d30f63955/pydantic-core/tests/serializers/test_model.py#L39"
+      }
+    ],
+    "caveat": "定向源码与原生测试选读支持语义潜力；健康 gold、缺损 starter、隐藏评分和求解试验均未完成，未证明长程难度。恢复范围是作者待构造的关联缺口，不是上游尚未实现的功能。公开上游源码的直接取回/整库替换是共同泄漏风险，不能靠任意禁用普通依赖来宣称题难。",
+    "read_scope": [
+      {
+        "path": "sources/70_pydantic_core_current/files/pydantic-core/src/validators/union.rs",
+        "start": 90,
+        "end": 200,
+        "total_lines": 431,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/70_pydantic_core_current/files/pydantic-core/tests/validators/test_union.py",
+        "start": 40,
+        "end": 110,
+        "total_lines": 1426,
+        "kind": "test"
+      },
+      {
+        "path": "sources/70_pydantic_core_current/files/pydantic-core/src/serializers/type_serializers/model.rs",
+        "start": 110,
+        "end": 200,
+        "total_lines": 298,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/70_pydantic_core_current/files/pydantic-core/tests/serializers/test_model.py",
+        "start": 1,
+        "end": 105,
+        "total_lines": 1286,
+        "kind": "test"
+      }
+    ]
+  }
+]

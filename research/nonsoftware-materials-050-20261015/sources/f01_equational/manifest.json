@@ -1,0 +1,69 @@
+{
+  "repo": "teorth/equational_theories",
+  "revision": "1aec8a7acf223b7c56e4830977b6e90d4ef1924b",
+  "resolved_utc": "2026-10-15T14:58:51.679104+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:52.813532+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "ac340f9c8971c1c5a6cfb13fdcd5877a33686f64eb0162d52e6b74c7779d119f",
+    "truncated": false,
+    "blob_count": 2441
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 11377,
+      "sha256": "c6be243aa954228fc83b68a08e769bf3c561a64fb515cbbd470046d006c18bbf",
+      "url": "https://github.com/teorth/equational_theories/blob/1aec8a7acf223b7c56e4830977b6e90d4ef1924b/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 12555,
+      "sha256": "2b89710eda2e50ac592c319049c5c1f2a80aeaba864cbdb62842facfc064753e",
+      "url": "https://github.com/teorth/equational_theories/blob/1aec8a7acf223b7c56e4830977b6e90d4ef1924b/README.md"
+    },
+    {
+      "path": "equational_theories/Completeness.lean",
+      "bytes": 9008,
+      "sha256": "2c7166401d4d8ade7809272e20923f2cbcc55c7b33085143c0a99411da793aa6",
+      "url": "https://github.com/teorth/equational_theories/blob/1aec8a7acf223b7c56e4830977b6e90d4ef1924b/equational_theories/Completeness.lean"
+    },
+    {
+      "path": "equational_theories/FreeMagma.lean",
+      "bytes": 10073,
+      "sha256": "216cb059fe3efe8088f72b8670ff5253d2b18ada5408d07d4991a02f1cfc11f9",
+      "url": "https://github.com/teorth/equational_theories/blob/1aec8a7acf223b7c56e4830977b6e90d4ef1924b/equational_theories/FreeMagma.lean"
+    },
+    {
+      "path": "equational_theories/MagmaLaw.lean",
+      "bytes": 14231,
+      "sha256": "40786a1934a5d268f04d96758f1cac06c4a9ecef2b8bcf36b97c422e65b513d7",
+      "url": "https://github.com/teorth/equational_theories/blob/1aec8a7acf223b7c56e4830977b6e90d4ef1924b/equational_theories/MagmaLaw.lean"
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3440,
+      "sha256": "626e94a17eaad383390a8a1f05718dce2c655f611c160c3bd0939fa0ca3b4d76",
+      "url": "https://github.com/teorth/equational_theories/blob/1aec8a7acf223b7c56e4830977b6e90d4ef1924b/lake-manifest.json"
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 798,
+      "sha256": "9617309fceb1d337d60e55457de1583afe5a4fde3b22eaa1796de616f0b93c16",
+      "url": "https://github.com/teorth/equational_theories/blob/1aec8a7acf223b7c56e4830977b6e90d4ef1924b/lakefile.toml"
+    },
+    {
+      "path": "lean-toolchain",
+      "bytes": 25,
+      "sha256": "7dc000621e0046d1aada809e2b7177e64454645cf4c741e9daaf79c99ec2e7a2",
+      "url": "https://github.com/teorth/equational_theories/blob/1aec8a7acf223b7c56e4830977b6e90d4ef1924b/lean-toolchain"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

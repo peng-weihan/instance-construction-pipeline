@@ -1,0 +1,10 @@
+{
+  "healthy": true,
+  "tests": {
+    "tests/test_regression.py::test_plain": "passed"
+  },
+  "errors": [],
+  "returncode": 0,
+  "timed_out": false,
+  "evidence": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/ablation/ablation/validation/C6"
+}

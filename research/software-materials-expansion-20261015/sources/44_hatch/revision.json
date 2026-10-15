@@ -1,0 +1,6 @@
+{
+  "repo": "pypa/hatch",
+  "revision": "ac9c0c9544795b380c2a5f63f80c1f46db3c5d4c",
+  "resolved_utc": "2026-10-15T13:30:26.485379+00:00",
+  "metadata_method": "shallow bare git with blob:none"
+}

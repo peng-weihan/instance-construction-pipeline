@@ -1,0 +1,7 @@
+{
+  "agent_image": "edgekv-work:author-v1",
+  "verifier_image": "edgekv-judge:author-v1",
+  "artifacts": ["/home/workspace/edgekv/submission"],
+  "selection": "valid_then_score",
+  "score_direction": "maximize"
+}

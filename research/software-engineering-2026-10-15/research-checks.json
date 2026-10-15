@@ -1,0 +1,19 @@
+{
+  "task_rows": 36,
+  "public": 12,
+  "mechanisms": {
+    "正确性约束下性能优化": 6,
+    "从规格构建系统能力": 12,
+    "缺失或退化实现恢复": 3,
+    "多目标工程演进": 13,
+    "行为等价重实现与移植": 2
+  },
+  "source_files_sha256_checked": 29,
+  "source_manifests": 4,
+  "new_teacher_runs": 0,
+  "new_complete_tasks": 0,
+  "six_hour_difficulty_verified": false,
+  "local_markdown_missing_links": [],
+  "restler_audit_present": true,
+  "all_research_reports_complete": true
+}

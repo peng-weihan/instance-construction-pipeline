@@ -1,0 +1,15 @@
+{
+  "command": [
+    "./gradlew",
+    "--offline",
+    "projects"
+  ],
+  "cwd": "authoring/sources/polaris-f838a62e20e7de72946d250883e8d9b1d6d2f68e",
+  "env": {
+    "GRADLE_USER_HOME": "authoring/gradle-home"
+  },
+  "exit": 1,
+  "stdout": "polaris-build.stdout",
+  "stderr": "polaris-build.stderr",
+  "result": "No Java Runtime found; no service build/start occurred"
+}

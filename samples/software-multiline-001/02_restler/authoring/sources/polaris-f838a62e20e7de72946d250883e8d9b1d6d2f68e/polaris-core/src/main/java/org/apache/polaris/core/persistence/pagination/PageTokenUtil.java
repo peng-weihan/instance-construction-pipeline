@@ -1,0 +1,305 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+package org.apache.polaris.core.persistence.pagination;
+
+import static com.google.common.base.Preconditions.checkArgument;
+import static java.lang.String.format;
+import static java.util.Collections.unmodifiableMap;
+
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.google.common.annotations.VisibleForTesting;
+import java.util.Base64;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Optional;
+import java.util.OptionalInt;
+import java.util.ServiceLoader;
+import java.util.function.BooleanSupplier;
+import org.jspecify.annotations.Nullable;
+import tools.jackson.databind.DatabindContext;
+import tools.jackson.databind.JavaType;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.jsontype.impl.TypeIdResolverBase;
+import tools.jackson.dataformat.smile.SmileMapper;
+
+public final class PageTokenUtil {
+
+  private static final ObjectMapper SMILE_MAPPER =
+      SmileMapper.builder().findAndAddModules().build();
+
+  /** Constant for {@link PageToken#readEverything()}. */
+  static final PageToken READ_EVERYTHING =
+      new PageToken() {
+        @Override
+        public OptionalInt pageSize() {
+          return OptionalInt.empty();
+        }
+
+        @Override
+        public Optional<Token> value() {
+          return Optional.empty();
+        }
+
+        @Override
+        public int hashCode() {
+          return 1;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+          if (!(obj instanceof PageToken other)) {
+            return false;
+          }
+          return other.pageSize().isEmpty() && other.value().isEmpty();
+        }
+
+        @Override
+        public String toString() {
+          return "PageToken(everything)";
+        }
+      };
+
+  static PageToken fromLimit(int limit) {
+    return new PageToken() {
+      @Override
+      public OptionalInt pageSize() {
+        return OptionalInt.of(limit);
+      }
+
+      @Override
+      public Optional<Token> value() {
+        return Optional.empty();
+      }
+
+      @Override
+      public int hashCode() {
+        return 2;
+      }
+
+      @Override
+      public boolean equals(Object obj) {
+        if (!(obj instanceof PageToken other)) {
+          return false;
+        }
+        return other.pageSize().equals(pageSize()) && other.value().isEmpty();
+      }
+
+      @Override
+      public String toString() {
+        return "PageToken(limit = " + limit + ")";
+      }
+    };
+  }
+
+  private PageTokenUtil() {}
+
+  /**
+   * Reduces a requested page size to {@code maxPageSize}, defaulting an absent request to it, so
+   * that a listing cannot return an unbounded response. A {@code maxPageSize} of zero or less means
+   * unlimited and leaves the request untouched.
+   */
+  public static OptionalInt boundPageSize(OptionalInt requestedPageSize, int maxPageSize) {
+    if (maxPageSize <= 0) {
+      return requestedPageSize;
+    }
+    return OptionalInt.of(Math.min(requestedPageSize.orElse(maxPageSize), maxPageSize));
+  }
+
+  /**
+   * Decodes a {@link PageToken} from API request parameters for the page-size and a serialized page
+   * token.
+   */
+  static PageToken decodePageRequest(
+      @Nullable String requestedPageToken,
+      @Nullable Integer requestedPageSize,
+      int maxPageSize,
+      BooleanSupplier shouldDecodeToken) {
+    if (!shouldDecodeToken.getAsBoolean()) {
+      // Pagination disabled: the request is ignored wholesale, invalid page sizes included.
+      return READ_EVERYTHING;
+    }
+    if (requestedPageSize != null) {
+      checkArgument(requestedPageSize >= 0, "Invalid page size");
+    }
+    if (requestedPageToken != null && !requestedPageToken.isEmpty()) {
+      var pageToken = deserializePageToken(requestedPageToken);
+      // A token carries the page size it was minted with, so bound that too: otherwise a token
+      // issued before the maximum was configured, or a crafted one, would escape it.
+      OptionalInt requested =
+          requestedPageSize != null ? OptionalInt.of(requestedPageSize) : pageToken.pageSize();
+      OptionalInt pageSize = boundPageSize(requested, maxPageSize);
+      return pageSize.equals(pageToken.pageSize())
+          ? pageToken
+          : ImmutablePageToken.builder().from(pageToken).pageSize(pageSize).build();
+    }
+    OptionalInt pageSize =
+        boundPageSize(
+            requestedPageSize != null ? OptionalInt.of(requestedPageSize) : OptionalInt.empty(),
+            maxPageSize);
+    // Without a maximum an unsized request reads everything, as the Iceberg REST specification
+    // requires. With one configured, pagination is applied instead so that no single listing can
+    // return an unbounded response.
+    return pageSize.isPresent() ? fromLimit(pageSize.getAsInt()) : READ_EVERYTHING;
+  }
+
+  /**
+   * Decodes a client-supplied page token. Page tokens are opaque to clients, so any decoding
+   * failure is client input that cannot be interpreted and must surface as an {@link
+   * IllegalArgumentException} (mapped to HTTP 400), never as a server error.
+   */
+  private static PageToken deserializePageToken(String requestedPageToken) {
+    PageToken pageToken;
+    try {
+      var bytes = Base64.getUrlDecoder().decode(requestedPageToken);
+      pageToken = SMILE_MAPPER.readValue(bytes, PageToken.class);
+    } catch (RuntimeException e) {
+      // Deliberately broad: the input is untrusted bytes fed to a binary parser. Besides the
+      // expected failures (IllegalArgumentException for non-base64, JacksonException for a payload
+      // that is not a serialized PageToken, IllegalStateException for an unknown token type id),
+      // corrupted SMILE can surface as e.g. ArrayIndexOutOfBoundsException from the parser. All of
+      // them mean the same thing: the client sent a token we cannot interpret.
+      throw new IllegalArgumentException("Invalid page token", e);
+    }
+    // A SMILE-encoded null deserializes "successfully" to null; reject it here rather than letting
+    // callers fail on it later.
+    checkArgument(pageToken != null, "Invalid page token");
+    return pageToken;
+  }
+
+  /**
+   * Returns the encoded ({@link String} serialized) {@link PageToken} built from the given {@link
+   * PageToken currentPageToken}, the page token of the current request, and {@link Token
+   * nextToken}, the token for the next page.
+   *
+   * @param currentPageToken page token of the currently handled API request, must not be {@code
+   *     null}
+   * @param nextToken token for the next page, can be {@code null}, in which case the result will be
+   *     {@code null}
+   * @return base-64/url-encoded serialized {@link PageToken} for the next page.
+   */
+  static @Nullable String encodePageToken(PageToken currentPageToken, @Nullable Token nextToken) {
+    if (nextToken == null) {
+      return null;
+    }
+
+    return serializePageToken(
+        ImmutablePageToken.builder()
+            .pageSize(currentPageToken.pageSize())
+            .value(nextToken)
+            .build());
+  }
+
+  /**
+   * Serializes the given {@link PageToken pageToken}
+   *
+   * @return base-64/url-encoded serialized {@link PageToken} for the next page.
+   */
+  @VisibleForTesting
+  static @Nullable String serializePageToken(PageToken pageToken) {
+    if (pageToken == null) {
+      return null;
+    }
+
+    var serialized = SMILE_MAPPER.writeValueAsBytes(pageToken);
+    return Base64.getUrlEncoder().encodeToString(serialized);
+  }
+
+  /** Lazily initialized registry of all token-types. */
+  private static final class Registry {
+    private static final Map<String, Token.TokenType> BY_ID;
+
+    static {
+      var byId = new HashMap<String, Token.TokenType>();
+      var loader = ServiceLoader.load(Token.TokenType.class);
+      loader.stream()
+          .map(ServiceLoader.Provider::get)
+          .forEach(
+              tokenType -> {
+                var ex = byId.put(tokenType.id(), tokenType);
+                if (ex != null) {
+                  throw new IllegalStateException(
+                      format("Duplicate token type ID: from %s and %s", tokenType, ex));
+                }
+              });
+      BY_ID = unmodifiableMap(byId);
+    }
+  }
+
+  /**
+   * Jackson type-id resolver, resolves a {@link Token#getT() token type value} to a concrete Java
+   * type, consulting the {@link Registry}.
+   */
+  static final class TokenTypeIdResolver extends TypeIdResolverBase {
+    private JavaType baseType;
+
+    public TokenTypeIdResolver() {}
+
+    @Override
+    public void init(JavaType bt) {
+      baseType = bt;
+    }
+
+    @Override
+    public String idFromValue(DatabindContext databindContext, Object value) {
+      return getId(value);
+    }
+
+    @Override
+    public String idFromValueAndType(
+        DatabindContext databindContext, Object value, Class<?> suggestedType) {
+      return getId(value);
+    }
+
+    @Override
+    public JsonTypeInfo.Id getMechanism() {
+      return JsonTypeInfo.Id.CUSTOM;
+    }
+
+    private String getId(Object value) {
+      if (value instanceof Token token) {
+        return token.getT();
+      }
+
+      return null;
+    }
+
+    @Override
+    public JavaType typeFromId(DatabindContext context, String id) {
+      var idLower = id.toLowerCase(Locale.ROOT);
+      var asType = Registry.BY_ID.get(idLower);
+      if (asType == null) {
+        throw new IllegalStateException("Cannot deserialize paging token value of type " + idLower);
+      }
+      if (baseType.getRawClass().isAssignableFrom(asType.javaType())) {
+        return context.constructSpecializedType(baseType, asType.javaType());
+      }
+
+      // This is rather a "test-only" code path, but it might happen in real life as well, when
+      // calling the ObjectMapper with a "too specific" type and not just Change.class.
+      // So we can get here for example, if the baseType (induced by the type passed to
+      // ObjectMapper), is GenericChange.class, but the type is a "well known" type like
+      // ChangeRename.class.
+      @SuppressWarnings("unchecked")
+      var concrete = (Class<? extends Token>) baseType.getRawClass();
+      return context.constructSpecializedType(baseType, concrete);
+    }
+  }
+}

@@ -1,0 +1,146 @@
+[
+  {
+    "group": "polling",
+    "id": "polling_01",
+    "behavior": "Location on 201 returns resource payload",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "polling",
+    "id": "polling_02",
+    "behavior": "Location on 202 takes precedence over Azure-AsyncOperation",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "polling",
+    "id": "polling_03",
+    "behavior": "Azure status InProgress then Succeeded triggers resource GET",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "polling",
+    "id": "polling_04",
+    "behavior": "Failed status sets resource_error",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "polling",
+    "id": "polling_05",
+    "behavior": "deadline exhaustion terminates polling",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "polling",
+    "id": "polling_06",
+    "behavior": "disabled setting and zero timeout bypass polling",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "polling",
+    "id": "polling_07",
+    "behavior": "DELETE polling opt-in does not fetch deleted resource",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "polling",
+    "id": "polling_08",
+    "behavior": "missing token is not literal None in request",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "polling",
+    "id": "polling_09",
+    "behavior": "non-HTTPS polling URL rejected",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "polling",
+    "id": "polling_10",
+    "behavior": "malformed poll JSON does not crash fuzzing",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "create_once",
+    "id": "create_once_01",
+    "behavior": "missing endpoint raises InvalidCreateOnce with accumulated destructors",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "create_once",
+    "id": "create_once_02",
+    "behavior": "invalid rendering raises FailedToCreateResource",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "create_once",
+    "id": "create_once_03",
+    "behavior": "generator prerequisites computed in dependency order",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "create_once",
+    "id": "create_once_04",
+    "behavior": "consumers lock generated dynamic values",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "create_once",
+    "id": "create_once_05",
+    "behavior": "producers and destructors excluded from fuzzing",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "create_once",
+    "id": "create_once_06",
+    "behavior": "smoke-test coverage metadata preserved",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "create_once",
+    "id": "create_once_07",
+    "behavior": "saved resources survive normal garbage collection",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "create_once",
+    "id": "create_once_08",
+    "behavior": "no configured endpoints returns without side effects",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "cache",
+    "id": "cache_01",
+    "behavior": "nested pause raises",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "cache",
+    "id": "cache_02",
+    "behavior": "stop without reset preserves saved cache",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "cache",
+    "id": "cache_03",
+    "behavior": "stop with reset releases saved cache",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "cache",
+    "id": "cache_04",
+    "behavior": "clear while paused raises",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "cache",
+    "id": "cache_05",
+    "behavior": "release merges lists under optional lock",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  },
+  {
+    "group": "cache",
+    "id": "cache_06",
+    "behavior": "second global save raises",
+    "oracle": "pinned original implementation; future deterministic mocked transport/clock"
+  }
+]

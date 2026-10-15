@@ -1,0 +1,12 @@
+{
+  "source_path": "/Users/raymone/Desktop/01_Research/swe-factory",
+  "copied_path": "/Users/raymone/Desktop/edgebench/upstream/swe-factory",
+  "copy_method": "cp -a",
+  "working_tree_identical": true,
+  "comparison_scope": "All entries except .git internals; contents, symlink targets and modes.",
+  "entries": 2555,
+  "working_tree_sha256": "69cf5d0c90c2369d282989d3a89211f479e7d8841093d1f60a716cab3d22b359",
+  "git_commit": "661d5b978a30e6d3517ad8232451353bb5e81ce1",
+  "git_status": "",
+  "pipeline_execution_this_session": false
+}

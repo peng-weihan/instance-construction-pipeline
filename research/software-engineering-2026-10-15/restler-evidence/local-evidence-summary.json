@@ -1,0 +1,718 @@
+{
+  "scope": "Read-only local design audit and pre-existing history summary; no model snapshot or actual remote judge hash retrieved",
+  "sources": {
+    "samples/long-horizon-built-007/restler_resilient_execution/private/behavior_cases.json": "63b934f4e23a764c72246fcf25096abcbbbda215b0082d82dbd9f0f23458248a",
+    "runs/remaining-three-001/current-review/restler/history.json": "5f90fc1385ec5b7c590209b6691e041145ffd56df2c7a33be7b00b50769429c2"
+  },
+  "suite_counts": {
+    "public": {
+      "policy": 1,
+      "retry": 1,
+      "idempotency": 1,
+      "async": 1,
+      "leases": 1,
+      "trace": 1,
+      "replay": 1
+    },
+    "feedback": {
+      "policy": 7,
+      "retry": 6,
+      "idempotency": 8,
+      "async": 3,
+      "leases": 6,
+      "trace": 2,
+      "replay": 4
+    },
+    "audit": {
+      "policy": 1,
+      "retry": 1,
+      "idempotency": 1,
+      "async": 1,
+      "leases": 1,
+      "trace": 1,
+      "replay": 1
+    }
+  },
+  "case_contracts": {
+    "public": [
+      {
+        "name": "global_override",
+        "group": "policy",
+        "op": "policy",
+        "expect": {
+          "policy.max_attempts": 7
+        }
+      },
+      {
+        "name": "retry_503",
+        "group": "retry",
+        "op": "send",
+        "expect": {
+          "calls.length": 3,
+          "waits": [
+            1.0,
+            2.0
+          ],
+          "terminal": "succeeded"
+        }
+      },
+      {
+        "name": "idempotency_GET",
+        "group": "idempotency",
+        "op": "send",
+        "expect": {
+          "calls.length": 2,
+          "terminal": "succeeded"
+        }
+      },
+      {
+        "name": "async_completion_final_get",
+        "group": "async",
+        "op": "async",
+        "expect": {
+          "statuses": [
+            "200",
+            "200"
+          ],
+          "error": false,
+          "waited": true,
+          "calls.length": 4
+        }
+      },
+      {
+        "name": "reverse_dependency",
+        "group": "leases",
+        "op": "lease",
+        "expect": {
+          "deleted": [
+            "leaf",
+            "child",
+            "parent"
+          ],
+          "retained": []
+        }
+      },
+      {
+        "name": "redacted_trace",
+        "group": "trace",
+        "op": "send",
+        "expect": {
+          "secret_free": true,
+          "trace_schema": true,
+          "calls.length": 2
+        }
+      },
+      {
+        "name": "replay_deterministic",
+        "group": "replay",
+        "op": "replay",
+        "expect": {
+          "same": true,
+          "trace_schema": true
+        }
+      }
+    ],
+    "feedback": [
+      {
+        "name": "global_override",
+        "group": "policy",
+        "op": "policy",
+        "expect": {
+          "policy.max_attempts": 7
+        }
+      },
+      {
+        "name": "method_override",
+        "group": "policy",
+        "op": "policy",
+        "expect": {
+          "policy.max_attempts": 2
+        }
+      },
+      {
+        "name": "reject_max_attempts",
+        "group": "policy",
+        "op": "policy",
+        "expect": {
+          "exception_present": true
+        }
+      },
+      {
+        "name": "reject_deadline_seconds",
+        "group": "policy",
+        "op": "policy",
+        "expect": {
+          "exception_present": true
+        }
+      },
+      {
+        "name": "reject_retry_statuses",
+        "group": "policy",
+        "op": "policy",
+        "expect": {
+          "exception_present": true
+        }
+      },
+      {
+        "name": "reject_jitter_fraction",
+        "group": "policy",
+        "op": "policy",
+        "expect": {
+          "exception_present": true
+        }
+      },
+      {
+        "name": "reject_extra",
+        "group": "policy",
+        "op": "policy",
+        "expect": {
+          "exception_present": true
+        }
+      },
+      {
+        "name": "retry_503",
+        "group": "retry",
+        "op": "send",
+        "expect": {
+          "calls.length": 3,
+          "waits": [
+            1.0,
+            2.0
+          ],
+          "terminal": "succeeded"
+        }
+      },
+      {
+        "name": "max_attempts",
+        "group": "retry",
+        "op": "send",
+        "expect": {
+          "calls.length": 2,
+          "terminal": "failed"
+        }
+      },
+      {
+        "name": "retry_after_seconds",
+        "group": "retry",
+        "op": "send",
+        "expect": {
+          "waits": [
+            4.0
+          ],
+          "calls.length": 2
+        }
+      },
+      {
+        "name": "retry_after_date",
+        "group": "retry",
+        "op": "send",
+        "expect": {
+          "waits": [
+            5.0
+          ]
+        }
+      },
+      {
+        "name": "malformed_retry_after",
+        "group": "retry",
+        "op": "send",
+        "expect": {
+          "waits": [
+            1.0
+          ]
+        }
+      },
+      {
+        "name": "deadline_blocks_sleep",
+        "group": "retry",
+        "op": "send",
+        "expect": {
+          "calls.length": 1,
+          "waits": [],
+          "terminal": "timed_out"
+        }
+      },
+      {
+        "name": "idempotency_GET",
+        "group": "idempotency",
+        "op": "send",
+        "expect": {
+          "calls.length": 2,
+          "terminal": "succeeded"
+        }
+      },
+      {
+        "name": "idempotency_HEAD",
+        "group": "idempotency",
+        "op": "send",
+        "expect": {
+          "calls.length": 2,
+          "terminal": "succeeded"
+        }
+      },
+      {
+        "name": "idempotency_PUT",
+        "group": "idempotency",
+        "op": "send",
+        "expect": {
+          "calls.length": 2,
+          "terminal": "succeeded"
+        }
+      },
+      {
+        "name": "idempotency_DELETE",
+        "group": "idempotency",
+        "op": "send",
+        "expect": {
+          "calls.length": 2,
+          "terminal": "succeeded"
+        }
+      },
+      {
+        "name": "idempotency_POST",
+        "group": "idempotency",
+        "op": "send",
+        "expect": {
+          "calls.length": 1,
+          "terminal": "failed"
+        }
+      },
+      {
+        "name": "idempotency_PATCH",
+        "group": "idempotency",
+        "op": "send",
+        "expect": {
+          "calls.length": 1,
+          "terminal": "failed"
+        }
+      },
+      {
+        "name": "idempotency_explicit",
+        "group": "idempotency",
+        "op": "send",
+        "expect": {
+          "calls.length": 2,
+          "terminal": "succeeded",
+          "secret_free": true
+        }
+      },
+      {
+        "name": "unsafe_network_reset",
+        "group": "idempotency",
+        "op": "send",
+        "expect": {
+          "calls.length": 1,
+          "terminal": "failed"
+        }
+      },
+      {
+        "name": "async_completion_final_get",
+        "group": "async",
+        "op": "async",
+        "expect": {
+          "statuses": [
+            "200",
+            "200"
+          ],
+          "error": false,
+          "waited": true,
+          "calls.length": 4
+        }
+      },
+      {
+        "name": "shared_deadline",
+        "group": "async",
+        "op": "async",
+        "expect": {
+          "error": true,
+          "terminal": "timed_out",
+          "calls.length": 2
+        }
+      },
+      {
+        "name": "cancellation",
+        "group": "async",
+        "op": "send",
+        "expect": {
+          "calls.length": 0,
+          "terminal": "cancelled"
+        }
+      },
+      {
+        "name": "reverse_dependency",
+        "group": "leases",
+        "op": "lease",
+        "expect": {
+          "deleted": [
+            "leaf",
+            "child",
+            "parent"
+          ],
+          "retained": []
+        }
+      },
+      {
+        "name": "shared_parent_retained",
+        "group": "leases",
+        "op": "lease",
+        "expect": {
+          "deleted": [
+            "child"
+          ],
+          "retained": [
+            "parent"
+          ]
+        }
+      },
+      {
+        "name": "leased_child_blocks_parent",
+        "group": "leases",
+        "op": "lease",
+        "expect": {
+          "deleted": [],
+          "retained": [
+            "parent",
+            "child"
+          ]
+        }
+      },
+      {
+        "name": "cycle_rejected",
+        "group": "leases",
+        "op": "lease",
+        "expect": {
+          "exception_present": true
+        }
+      },
+      {
+        "name": "rollback_via_restler",
+        "group": "leases",
+        "op": "workflow",
+        "expect": {
+          "completed": [
+            "parent"
+          ],
+          "failed": "child",
+          "deleted": [
+            "parent"
+          ],
+          "calls.length": 3
+        }
+      },
+      {
+        "name": "full_workflow_cleanup",
+        "group": "leases",
+        "op": "workflow",
+        "expect": {
+          "completed": [
+            "parent",
+            "child"
+          ],
+          "deleted": [
+            "child",
+            "parent"
+          ],
+          "calls.length": 4
+        }
+      },
+      {
+        "name": "redacted_trace",
+        "group": "trace",
+        "op": "send",
+        "expect": {
+          "secret_free": true,
+          "trace_schema": true,
+          "calls.length": 2
+        }
+      },
+      {
+        "name": "trace_failure",
+        "group": "trace",
+        "op": "send",
+        "expect": {
+          "trace_schema": true,
+          "terminal": "failed"
+        }
+      },
+      {
+        "name": "replay_deterministic",
+        "group": "replay",
+        "op": "replay",
+        "expect": {
+          "same": true,
+          "trace_schema": true
+        }
+      },
+      {
+        "name": "ordinary_success",
+        "group": "replay",
+        "op": "send",
+        "expect": {
+          "status": "200",
+          "calls.length": 1,
+          "waits": []
+        }
+      },
+      {
+        "name": "legacy_policy_disabled",
+        "group": "replay",
+        "op": "legacy",
+        "expect": {
+          "status": "200",
+          "calls.length": 1,
+          "waits": []
+        }
+      },
+      {
+        "name": "legacy_retry_compatibility",
+        "group": "replay",
+        "op": "legacy",
+        "expect": {
+          "status": "200",
+          "calls.length": 2,
+          "waits": [
+            5
+          ]
+        }
+      }
+    ],
+    "audit": [
+      {
+        "name": "audit_path_default",
+        "group": "policy",
+        "op": "policy",
+        "expect": {
+          "policy.deadline_seconds": 4
+        }
+      },
+      {
+        "name": "audit_capped_backoff",
+        "group": "retry",
+        "op": "send",
+        "expect": {
+          "waits": [
+            0.5,
+            1,
+            1,
+            1
+          ],
+          "calls.length": 5
+        }
+      },
+      {
+        "name": "audit_patch_key",
+        "group": "idempotency",
+        "op": "send",
+        "expect": {
+          "calls.length": 2,
+          "terminal": "succeeded"
+        }
+      },
+      {
+        "name": "audit_late_response",
+        "group": "async",
+        "op": "send",
+        "expect": {
+          "calls.length": 1,
+          "terminal": "timed_out"
+        }
+      },
+      {
+        "name": "audit_cleanup_budget",
+        "group": "leases",
+        "op": "lease",
+        "expect": {
+          "deleted": [],
+          "retained": [
+            "a",
+            "b"
+          ]
+        }
+      },
+      {
+        "name": "audit_unauthorized_trace",
+        "group": "trace",
+        "op": "send",
+        "expect": {
+          "secret_free": true,
+          "trace_schema": true,
+          "terminal": "failed"
+        }
+      },
+      {
+        "name": "audit_replay_retry_after",
+        "group": "replay",
+        "op": "replay",
+        "expect": {
+          "same": true,
+          "trace_schema": true
+        }
+      }
+    ]
+  },
+  "early_history": [
+    {
+      "type": "submission",
+      "kind": "agent",
+      "round": "agent-1",
+      "status": "completed",
+      "snapshot_time_seconds": 320.6163014189806,
+      "snapshot_sha256": "4cdd30977ec8815322eb3c2f14a61584b82f27bd90dbf2747ddf91ee15b40c5c",
+      "snapshot_path": "/ws/users/raymone/edgebench/restler-agent-001/run-6h-001/evaluation/submissions/agent-1/snapshot",
+      "snapshot_capture_started_sec": null,
+      "snapshot_capture_finished_sec": 320.6163032319164,
+      "snapshot_atomic": false,
+      "failed_checks": [
+        "deadline_blocks_sleep",
+        "rollback_via_restler",
+        "redacted_trace",
+        "trace_failure",
+        "replay_deterministic"
+      ],
+      "stages": {},
+      "score": 0.8041666666666667,
+      "valid": true,
+      "pass_rate": 0.8611111111111112,
+      "verifier_seconds": 20.75742049398832,
+      "feedback_time_seconds": 341.386391702923
+    },
+    {
+      "type": "submission",
+      "kind": "agent",
+      "round": "agent-2",
+      "status": "completed",
+      "snapshot_time_seconds": 496.41500129096676,
+      "snapshot_sha256": "2d202dd2bf45fe060f74635ffe16dd211a55dce73c0efb755227b6ba8baa1e3b",
+      "snapshot_path": "/ws/users/raymone/edgebench/restler-agent-001/run-6h-001/evaluation/submissions/agent-2/snapshot",
+      "snapshot_capture_started_sec": null,
+      "snapshot_capture_finished_sec": 496.41500411590096,
+      "snapshot_atomic": false,
+      "failed_checks": [
+        "redacted_trace",
+        "trace_failure",
+        "replay_deterministic"
+      ],
+      "stages": {},
+      "score": 0.8625,
+      "valid": true,
+      "pass_rate": 0.9166666666666666,
+      "verifier_seconds": 25.91060100996401,
+      "feedback_time_seconds": 522.3370688529685
+    },
+    {
+      "type": "submission",
+      "kind": "auto",
+      "round": "auto-1",
+      "status": "completed",
+      "snapshot_time_seconds": 600.7814395940001,
+      "snapshot_sha256": "9d1db460fb4bc1ac207a37b7b8bc748b346f5a811fe8e22d96d7047f1fc0b204",
+      "snapshot_path": "/ws/users/raymone/edgebench/restler-agent-001/run-6h-001/evaluation/submissions/auto-1/snapshot",
+      "snapshot_capture_started_sec": 599.638016553,
+      "snapshot_capture_finished_sec": 600.7814395940001,
+      "snapshot_atomic": false,
+      "capture_started_cloud_monotonic": 648.43991512,
+      "capture_finished_cloud_monotonic": 649.583338161,
+      "capture_started_cloud_utc": "2026-10-14T15:10:44.686021+00:00",
+      "capture_finished_cloud_utc": "2026-10-14T15:10:45.829447+00:00",
+      "snapshot_capture_host_started_sec": 599.5055292398902,
+      "snapshot_capture_host_finished_sec": 601.2059266299475,
+      "failed_checks": [
+        "redacted_trace",
+        "trace_failure",
+        "replay_deterministic"
+      ],
+      "stages": {},
+      "score": 0.8625,
+      "valid": true,
+      "pass_rate": 0.9166666666666666,
+      "verifier_seconds": 16.882542954059318,
+      "feedback_time_seconds": 618.1744525159011
+    },
+    {
+      "type": "submission",
+      "kind": "agent",
+      "round": "agent-3",
+      "status": "completed",
+      "snapshot_time_seconds": 686.6078222509241,
+      "snapshot_sha256": "86ebbfefc79add289d2d9684b3df4ed93c28100ef149761da6172319bccd7b55",
+      "snapshot_path": "/ws/users/raymone/edgebench/restler-agent-001/run-6h-001/evaluation/submissions/agent-3/snapshot",
+      "snapshot_capture_started_sec": null,
+      "snapshot_capture_finished_sec": 686.6078235539608,
+      "snapshot_atomic": false,
+      "failed_checks": [
+        "redacted_trace",
+        "trace_failure",
+        "replay_deterministic"
+      ],
+      "stages": {},
+      "score": 0.8625,
+      "valid": true,
+      "pass_rate": 0.9166666666666666,
+      "verifier_seconds": 18.98975398298353,
+      "feedback_time_seconds": 705.6097317669773
+    },
+    {
+      "type": "submission",
+      "kind": "agent",
+      "round": "agent-4",
+      "status": "completed",
+      "snapshot_time_seconds": 848.6149418558925,
+      "snapshot_sha256": "121e9406e028f00a74845fbfde094bf7114ba32946bc933ed7c4040b2f9a4343",
+      "snapshot_path": "/ws/users/raymone/edgebench/restler-agent-001/run-6h-001/evaluation/submissions/agent-4/snapshot",
+      "snapshot_capture_started_sec": null,
+      "snapshot_capture_finished_sec": 848.6149431489175,
+      "snapshot_atomic": false,
+      "failed_checks": [],
+      "stages": {},
+      "score": 1.0,
+      "valid": true,
+      "pass_rate": 1.0,
+      "verifier_seconds": 23.326667765970342,
+      "feedback_time_seconds": 871.9549120699521
+    },
+    {
+      "type": "submission",
+      "kind": "auto",
+      "round": "auto-2",
+      "status": "completed",
+      "snapshot_time_seconds": 1200.940221763,
+      "snapshot_sha256": "d0927e001ead1d5c6fc917bf35d63fcb3cb8a6867995d9dceacfbf846068a919",
+      "snapshot_path": "/ws/users/raymone/edgebench/restler-agent-001/run-6h-001/evaluation/submissions/auto-2/snapshot",
+      "snapshot_capture_started_sec": 1199.634431986,
+      "snapshot_capture_finished_sec": 1200.940221763,
+      "snapshot_atomic": false,
+      "capture_started_cloud_monotonic": 1248.436330553,
+      "capture_finished_cloud_monotonic": 1249.74212033,
+      "capture_started_cloud_utc": "2026-10-14T15:20:44.682437+00:00",
+      "capture_finished_cloud_utc": "2026-10-14T15:20:45.988231+00:00",
+      "snapshot_capture_host_started_sec": 1199.5044323028997,
+      "snapshot_capture_host_finished_sec": 1201.4419815159636,
+      "failed_checks": [],
+      "stages": {},
+      "score": 1.0,
+      "valid": true,
+      "pass_rate": 1.0,
+      "verifier_seconds": 18.819775476003997,
+      "feedback_time_seconds": 1220.3535606709775
+    },
+    {
+      "type": "submission",
+      "kind": "agent",
+      "round": "agent-5",
+      "status": "completed",
+      "snapshot_time_seconds": 1321.7397787799127,
+      "snapshot_sha256": "3246bed0a7f8c0b94e0ae14d4faa7a670594255a5e6600a5b018ceeddb1420b0",
+      "snapshot_path": "/ws/users/raymone/edgebench/restler-agent-001/run-6h-001/evaluation/submissions/agent-5/snapshot",
+      "snapshot_capture_started_sec": null,
+      "snapshot_capture_finished_sec": 1321.739779521944,
+      "snapshot_atomic": false,
+      "failed_checks": [],
+      "stages": {},
+      "score": 1.0,
+      "valid": true,
+      "pass_rate": 1.0,
+      "verifier_seconds": 17.31788061396219,
+      "feedback_time_seconds": 1339.0698164389469
+    }
+  ]
+}

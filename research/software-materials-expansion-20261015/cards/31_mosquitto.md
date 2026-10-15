@@ -1,0 +1,23 @@
+# 31 · Mosquitto：持久会话与消息投递引擎
+
+- 路线：M2 规格驱动系统；优先级 `build_scope_probe`，仅建议先检查 starter 边界。
+- 固定版本：[83f2620f0b955b89aadce32cceb96a8e81950f5e](https://github.com/eclipse-mosquitto/mosquitto/tree/83f2620f0b955b89aadce32cceb96a8e81950f5e)。完整文件树未截断；源码片段及 SHA-256 见 `sources/31_mosquitto/manifest.json`。
+- 已有能力：原项目已经具备 QoS 投递、断线会话、订阅匹配、retain 和持久恢复，不能把它们写成上游待新增功能。
+- 拟题完整子系统：在独立 starter 中保留 MQTT 报文编解码、socket reactor、认证接口，要求实现单 broker 的会话—订阅—消息路由—QoS 1/2 确认—重连—快照恢复闭环。
+- 明确边界：冻结 MQTT 5.0 功能清单；单进程、无 bridge/集群/WebSocket/TLS、无共享订阅/Will；支持普通通配订阅、retained、Session/Message Expiry、Receive Maximum、QoS 0/1/2。不是“完整 MQTT”。
+- starter 尚未制作：上述边界是从已有系统/规范抽取的新任务设计假设，不是发现了上游缺失；若采用删实现路线须改列恢复任务。
+- 状态链：连接身份/clean start → 会话订阅 → 逐订阅 QoS/retain 处理 → queued/inflight 与 packet id → ack 状态迁移 → 重连重发 → 快照中的消息引用/会话截止时间 → 恢复后续发。
+- 源码证据：[database.c:1071](https://github.com/eclipse-mosquitto/mosquitto/blob/83f2620f0b955b89aadce32cceb96a8e81950f5e/src/database.c#L1071) 重连重建 quota，QoS 2 等待 PUBCOMP 转为重发 PUBREL；`src/persist_write.c:170–216` 保存过期时间和四类消息队列；`src/subs.c:68–105` 订阅处理进入 outgoing 插入。
+- 测试实读：[15-persist-client-msg-out-v5-0.py:60](https://github.com/eclipse-mosquitto/mosquitto/blob/83f2620f0b955b89aadce32cceb96a8e81950f5e/test/broker/15-persist-client-msg-out-v5-0.py#L60) 覆盖离线订阅、publish、终止/重启、重连收到 QoS 1/2、再连无余留消息。这里只是已读测试证据，不复制成新题测试。
+- 组合场景 1：持久订阅客户端离线，发布多个 QoS/带过期的消息，保存后重启，接收窗口较小的客户端重连；检查 session-present、顺序、过期过滤和窗口补充。
+- 组合场景 2：QoS 2 在 PUBREC/PUBREL 边界断连，同 client id 恢复，重发确认再重启；检查一次交付语义与包标识生命周期。
+- 组合场景 3：重叠通配订阅与 retained 更新/删除交织，随后 clean-start 与 session-expiry 发生；检查订阅选项、消息引用释放及会话清理。
+- 初版完成后的改进假设 A：网络收发通了以后，补齐跨重连/恢复的 QoS 状态、quota、剩余过期时间，使同一交付在多个生命周期中一致。
+- 初版完成后的改进假设 B：正常恢复通了以后，补齐快照引用完整性、缺损文件处理、资源回收与多客户端交错，避免孤立功能测试通过却整体失序。
+- 独立判据：[OASIS MQTT 5.0](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html) 的 3.1.2.11.2/3.1.2.11.3、4.1、4.3、4.4 等条款定义会话/确认/重发；冻结 Mosquitto 作为额外互通参考，独立客户端驱动并比较允许的观察集合，不能要求规范允许差异的调度顺序。
+- 官方运行语义另核对：[mosquitto.conf](https://www.mosquitto.org/man/mosquitto-conf-5.html)。上游正常终止保存测试不能推出任意断电 durable 保证；题面须明确只要求成功快照后的恢复。
+- 强合法廉价基线：在相同接口外包一层 stock Mosquitto broker，或配置现成 broker；MQTT 客户端库可处理报文，SQLite 可保存状态。若题面只要黑盒协议，这条路线可能完全成立，必须允许并实测。
+- 首个否证：先用现成 broker + 最薄启动/配置/快照 wrapper 跑自拟全部端到端场景；若已足额满足交付，取消从零实现方案，转成有真实宿主集成要求的恢复题，或降级素材。
+- 离线/架构成本：需固定 broker、客户端库、C 工具链和快照格式；无外部服务，loopback 即可。虚拟时间与真实 socket 时间需统一；不应靠不必要的私有 API 制造难度。
+- 许可观察：根 `LICENSE.txt:1–4` 与 `src/database.c:13` 标示 `EPL-2.0 OR BSD-3-Clause`；本次未做完整依赖/再分发审查。
+- 状态：素材已核对；未构题、未 build/运行、未验证六小时难度；与原 EdgeBench 仅对照跨表示/跨生命周期机制，不复用题目与答案。

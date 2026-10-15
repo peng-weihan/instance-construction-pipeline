@@ -1,0 +1,6 @@
+{% macro docstring(content) %}
+{# This macro returns the provided content as a docstring unless it's empty, then it emits nothing. #}
+{% if (content | trim) %}
+""" {{ content }} """
+{%- endif -%}
+{% endmacro %}

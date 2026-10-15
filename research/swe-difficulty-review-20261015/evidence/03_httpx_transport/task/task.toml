@@ -1,0 +1,45 @@
+schema_version = "1.4"
+artifacts = [{ source = "/home/workspace/httpx/submission/httpx", destination = "submission/httpx", exclude = ["__pycache__", "*.pyc"] }]
+
+[task]
+name = "edgebench/httpx-execution-ledger"
+version = "1.0.0-draft"
+description = "Implement an opt-in logical-send execution policy in the real HTTPX clients"
+
+[metadata]
+reward_type = "bounded_continuous"
+score_spec = "authoring/score-spec.json"
+source_revision = "b5addb64f0161ff6bfe94c124ef76f6a1fba5254"
+agent_build_context = "environment"
+verifier_build_context = "verifier"
+status = "constructed_unverified"
+required_model = "gpt-6.1-sol"
+
+[agent]
+timeout_sec = 21600
+user = "1000:1000"
+network_mode = "no-network"
+
+[environment]
+docker_image = "edgebench-httpx-ledger-agent:1.0.0-draft"
+workdir = "/home/workspace/httpx"
+network_mode = "no-network"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 2048
+storage_mb = 2048
+
+[verifier]
+timeout_sec = 900
+user = "0:0"
+environment_mode = "separate"
+network_mode = "no-network"
+
+[verifier.environment]
+docker_image = "edgebench-httpx-ledger-verifier:1.0.0-draft"
+workdir = "/home/workspace/httpx"
+network_mode = "no-network"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 2048
+storage_mb = 2048

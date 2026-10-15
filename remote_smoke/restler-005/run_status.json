@@ -1,0 +1,12 @@
+{
+  "status": "blocked_before_upload",
+  "reason": "SSH connection closed during handshake before authentication",
+  "ssh_target": "root@173.231.10.234",
+  "observed_public_ip": "118.163.200.42",
+  "remote_files_read": false,
+  "remote_files_modified": false,
+  "docker_builds": 0,
+  "grader_runs": 0,
+  "model_runs": 0,
+  "six_hour_runs": 0
+}

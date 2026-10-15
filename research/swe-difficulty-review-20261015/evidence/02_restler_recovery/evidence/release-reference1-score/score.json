@@ -1,0 +1,81 @@
+{
+  "valid": true,
+  "score": 1.0,
+  "pass_rate": 1.0,
+  "checks": [
+    {
+      "name": "legacy_native_campaign",
+      "passed": true
+    },
+    {
+      "name": "fresh_durable_campaign",
+      "passed": true
+    },
+    {
+      "name": "completed_resume_no_wire",
+      "passed": true
+    },
+    {
+      "name": "pending_create_after_kill",
+      "passed": true
+    },
+    {
+      "name": "dependency_and_delete_recovery",
+      "passed": true
+    },
+    {
+      "name": "lost_response_same_process",
+      "passed": true
+    },
+    {
+      "name": "uuid_replay",
+      "passed": true
+    },
+    {
+      "name": "torn_tail_and_snapshot_fallback",
+      "passed": true
+    },
+    {
+      "name": "corrupt_journal_fails_closed",
+      "passed": true
+    },
+    {
+      "name": "configuration_binding",
+      "passed": true
+    },
+    {
+      "name": "exclusive_owner",
+      "passed": true
+    },
+    {
+      "name": "unsupported_options_fail_closed",
+      "passed": true
+    }
+  ],
+  "metrics": {
+    "compile_exit": 0,
+    "native_operations": 26,
+    "native_live_resources": 14
+  },
+  "diagnostics": {
+    "kill-create": {
+      "first_exit": -9,
+      "resume_exit": 0,
+      "fault_fired": true,
+      "ledger_hits": 1
+    },
+    "kill-delete": {
+      "first_exit": -9,
+      "resume_exit": 0,
+      "fault_fired": true,
+      "ledger_hits": 1
+    },
+    "torn": {
+      "first_exit": -9,
+      "resume_exit": 0,
+      "fault_fired": true,
+      "ledger_hits": 1
+    },
+    "invalid_submission": []
+  }
+}

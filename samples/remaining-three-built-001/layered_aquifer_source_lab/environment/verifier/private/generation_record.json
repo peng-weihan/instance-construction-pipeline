@@ -1,0 +1,11 @@
+{
+  "seed": 2026101405,
+  "synthetic": true,
+  "model": "original finite-volume layered ADE, not a MODFLOW execution",
+  "counts": {
+    "public": 96,
+    "feedback": 96,
+    "audit": 180
+  },
+  "numerically_validated": false
+}

@@ -1,0 +1,15 @@
+{
+  "status": "failed",
+  "task": "restler_resilient_execution",
+  "started_unix": 1791986642.2458837,
+  "model_runs": 0,
+  "six_hour_runs": 0,
+  "accepted": false,
+  "architecture": "x86_64",
+  "agent_image": "edge-raymone-agent:85ba814dac8f",
+  "judge_image": "edge-raymone-judge:85ba814dac8f",
+  "reports": {},
+  "stage": "image_build",
+  "error": "RuntimeError: command failed (1); see agent_build.log",
+  "finished_unix": 1791986695.737808
+}

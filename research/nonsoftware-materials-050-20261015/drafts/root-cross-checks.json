@@ -1,0 +1,92 @@
+[
+  {
+    "path": "sources/s03_wilds/files/wilds/datasets/iwildcam_dataset.py",
+    "start": 16,
+    "end": 45
+  },
+  {
+    "path": "sources/s03_wilds/files/dataset_preprocessing/iwildcam/create_split.py",
+    "start": 100,
+    "end": 124
+  },
+  {
+    "path": "sources/s07_eht/files/ehtim/imaging/imager_utils.py",
+    "start": 513,
+    "end": 543
+  },
+  {
+    "path": "sources/s07_eht/files/examples/example_im_closure.py",
+    "start": 58,
+    "end": 80
+  },
+  {
+    "path": "sources/s08_mne/files/mne/minimum_norm/tests/test_inverse.py",
+    "start": 418,
+    "end": 460
+  },
+  {
+    "path": "sources/f02_brouwer/files/Gametheory/AxiomAudit.lean",
+    "start": 1,
+    "end": 32
+  },
+  {
+    "path": "sources/f06_physlean/files/Physlib/ClassicalMechanics/HamiltonianMechanics/PoissonBracket.lean",
+    "start": 50,
+    "end": 75
+  },
+  {
+    "path": "sources/f06_physlean/files/Physlib/ClassicalMechanics/HamiltonianMechanics/PoissonBracket.lean",
+    "start": 227,
+    "end": 237
+  },
+  {
+    "path": "sources/f10_compcert/files/LICENSE",
+    "start": 1,
+    "end": 45
+  },
+  {
+    "path": "sources/g04_lux/files/luxai_s2/tests/collision.py",
+    "start": 12,
+    "end": 30
+  },
+  {
+    "path": "sources/g04_lux/files/luxai_s2/luxai_s2/env.py",
+    "start": 995,
+    "end": 1015
+  },
+  {
+    "path": "sources/g06_flatland/files/tests/test_flatland_envs_rail_env_policies.py",
+    "start": 13,
+    "end": 35
+  },
+  {
+    "path": "sources/g06_flatland/files/flatland/envs/rail_env.py",
+    "start": 451,
+    "end": 475
+  },
+  {
+    "path": "sources/k07_wntr/files/wntr/sim/core.py",
+    "start": 1190,
+    "end": 1223
+  },
+  {
+    "path": "sources/k07_wntr/files/wntr/tests/test_sim_PDD.py",
+    "start": 21,
+    "end": 43
+  },
+  {
+    "path": "sources/k09_bluesky/files/bluesky/traffic/asas/detection.py",
+    "start": 227,
+    "end": 242
+  },
+  {
+    "path": "sources/k09_bluesky/files/bluesky/traffic/asas/statebased.py",
+    "start": 28,
+    "end": 61
+  },
+  {
+    "path": "sources/k10_urbansim/files/urbansim/models/supplydemand.py",
+    "start": 134,
+    "end": 173
+  }
+]

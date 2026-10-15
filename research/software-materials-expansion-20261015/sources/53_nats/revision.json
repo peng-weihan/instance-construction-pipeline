@@ -1,0 +1,6 @@
+{
+  "repo": "nats-io/nats-server",
+  "revision": "b55d969381aa05a7a59c563797b454d1b6b5fa37",
+  "resolved_utc": "2026-10-15T13:30:18.217587+00:00",
+  "metadata_method": "shallow bare git with blob:none"
+}

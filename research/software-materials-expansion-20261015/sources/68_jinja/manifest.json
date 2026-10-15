@@ -1,0 +1,75 @@
+{
+  "repo": "pallets/jinja",
+  "revision": "5ef70112a1ff19c05324ff889dd30405b1002044",
+  "resolved_utc": "2026-10-15T13:30:29.137252+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:31:12.855109+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "059a24f2497ad5156cdddfc97e42f4b924dca96bdc52df2de4297618edcb9aae",
+    "truncated": false,
+    "blob_count": 107
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE.txt",
+      "bytes": 1475,
+      "sha256": "3b49dcee4105eb37bac10faf1be260408fe85d252b8e9df2e0979fc1e094437b",
+      "url": "https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/LICENSE.txt"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1965,
+      "sha256": "171bcabd913f25f143eae912d6f23f340d0bc887a305655107f28fb29c73ecfa",
+      "url": "https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/README.md"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 4567,
+      "sha256": "b62064bf51527e22712e9b307c6948ce7261ef9cca65d7d7e5c0e0996630dcb3",
+      "url": "https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/pyproject.toml"
+    },
+    {
+      "path": "src/jinja2/compiler.py",
+      "bytes": 73918,
+      "sha256": "cc09c15d1d9b981b226a1074c5b4ff49afb79ae459614178efcfb899adb1c8aa",
+      "url": "https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/src/jinja2/compiler.py"
+    },
+    {
+      "path": "src/jinja2/environment.py",
+      "bytes": 60847,
+      "sha256": "31b30f0d9bf368eff55fe1a908f57d1a52f27ddf94ac9d37ade0351abc2f2b53",
+      "url": "https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/src/jinja2/environment.py"
+    },
+    {
+      "path": "src/jinja2/parser.py",
+      "bytes": 40095,
+      "sha256": "b3f22fe9071e83d6dadb401e747b6777399db83768d4e161c04a3ec404e25cf6",
+      "url": "https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/src/jinja2/parser.py"
+    },
+    {
+      "path": "src/jinja2/runtime.py",
+      "bytes": 34148,
+      "sha256": "e245ee3a0248a9ce883e89e04d079a7de232918bf8bfd50965212a4002301341",
+      "url": "https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/src/jinja2/runtime.py"
+    },
+    {
+      "path": "tests/test_async.py",
+      "bytes": 23791,
+      "sha256": "a5d26539225e291a210af207e36c91f66ae55df89432c951f975752bfd329875",
+      "url": "https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/tests/test_async.py"
+    },
+    {
+      "path": "tests/test_inheritance.py",
+      "bytes": 13504,
+      "sha256": "5c4e38b4a2e951d399bc661abb0bf608fddcc0a3de83b16b78391ef9b8ab13d6",
+      "url": "https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/tests/test_inheritance.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

@@ -1,0 +1,665 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.polaris.service;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.RETURNS_DEEP_STUBS;
+
+import com.google.auth.oauth2.AccessToken;
+import com.google.auth.oauth2.GoogleCredentials;
+import jakarta.enterprise.inject.Instance;
+import jakarta.enterprise.inject.Instance.Handle;
+import jakarta.enterprise.inject.spi.Bean;
+import jakarta.ws.rs.core.SecurityContext;
+import java.security.Principal;
+import java.time.Clock;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
+import java.util.stream.Stream;
+import org.apache.polaris.core.PolarisCallContext;
+import org.apache.polaris.core.PolarisDefaultDiagServiceImpl;
+import org.apache.polaris.core.PolarisDiagnostics;
+import org.apache.polaris.core.auth.AuthorizationDecision;
+import org.apache.polaris.core.auth.AuthorizationState;
+import org.apache.polaris.core.auth.PolarisAuthorizer;
+import org.apache.polaris.core.auth.PolarisPrincipal;
+import org.apache.polaris.core.auth.PolarisPrincipalAttributes;
+import org.apache.polaris.core.catalog.FederatedCatalogFactory;
+import org.apache.polaris.core.catalog.LocalCatalogFactory;
+import org.apache.polaris.core.collection.ImmutableAttributeMap;
+import org.apache.polaris.core.collection.MutableAttributeMap;
+import org.apache.polaris.core.config.RealmConfig;
+import org.apache.polaris.core.config.RealmConfigImpl;
+import org.apache.polaris.core.config.RealmConfigurationSource;
+import org.apache.polaris.core.context.CallContext;
+import org.apache.polaris.core.context.RealmContext;
+import org.apache.polaris.core.credentials.PolarisCredentialManager;
+import org.apache.polaris.core.credentials.connection.ConnectionCredentialVendor;
+import org.apache.polaris.core.entity.PrincipalEntity;
+import org.apache.polaris.core.identity.provider.ServiceIdentityProvider;
+import org.apache.polaris.core.persistence.MetaStoreManagerFactory;
+import org.apache.polaris.core.persistence.PolarisMetaStoreManager;
+import org.apache.polaris.core.persistence.bootstrap.RootCredentialsSet;
+import org.apache.polaris.core.persistence.cache.EntityCache;
+import org.apache.polaris.core.persistence.dao.entity.CreatePrincipalResult;
+import org.apache.polaris.core.persistence.resolver.ResolutionManifestFactory;
+import org.apache.polaris.core.persistence.resolver.ResolutionManifestFactoryImpl;
+import org.apache.polaris.core.persistence.resolver.Resolver;
+import org.apache.polaris.core.persistence.resolver.ResolverFactory;
+import org.apache.polaris.core.secrets.UserSecretsManager;
+import org.apache.polaris.core.secrets.UserSecretsManagerFactory;
+import org.apache.polaris.core.storage.StorageAccessConfig;
+import org.apache.polaris.core.storage.StorageAccessProperty;
+import org.apache.polaris.core.storage.aws.S3CredentialVendingMechanism;
+import org.apache.polaris.core.storage.cache.StorageCredentialCache;
+import org.apache.polaris.core.storage.cache.StorageCredentialCacheConfig;
+import org.apache.polaris.service.admin.PolarisAdminService;
+import org.apache.polaris.service.admin.PolarisServiceImpl;
+import org.apache.polaris.service.admin.api.PolarisCatalogsApi;
+import org.apache.polaris.service.catalog.DefaultAccessDelegationModeResolver;
+import org.apache.polaris.service.catalog.DefaultCatalogPrefixParser;
+import org.apache.polaris.service.catalog.api.IcebergRestCatalogApi;
+import org.apache.polaris.service.catalog.api.IcebergRestCatalogApiService;
+import org.apache.polaris.service.catalog.api.IcebergRestConfigurationApi;
+import org.apache.polaris.service.catalog.api.IcebergRestConfigurationApiService;
+import org.apache.polaris.service.catalog.api.PolarisCatalogGenericTableApi;
+import org.apache.polaris.service.catalog.api.PolarisCatalogGenericTableApiService;
+import org.apache.polaris.service.catalog.config.CatalogConfigHandler;
+import org.apache.polaris.service.catalog.generic.CatalogGenericTableEventServiceDelegator;
+import org.apache.polaris.service.catalog.generic.GenericTableCatalogAdapter;
+import org.apache.polaris.service.catalog.generic.GenericTableCatalogHandler;
+import org.apache.polaris.service.catalog.generic.GenericTableCatalogHandlerFactory;
+import org.apache.polaris.service.catalog.generic.GenericTableConfigEndpoints;
+import org.apache.polaris.service.catalog.generic.ImmutableGenericTableCatalogHandler;
+import org.apache.polaris.service.catalog.iceberg.CatalogHandlerUtils;
+import org.apache.polaris.service.catalog.iceberg.IcebergCatalogAdapter;
+import org.apache.polaris.service.catalog.iceberg.IcebergCatalogHandler;
+import org.apache.polaris.service.catalog.iceberg.IcebergCatalogHandlerFactory;
+import org.apache.polaris.service.catalog.iceberg.IcebergRestCatalogEventServiceDelegator;
+import org.apache.polaris.service.catalog.iceberg.IcebergRestConfigEndpoints;
+import org.apache.polaris.service.catalog.iceberg.IcebergRestConfigurationEventServiceDelegator;
+import org.apache.polaris.service.catalog.iceberg.IcebergViewConfigEndpoints;
+import org.apache.polaris.service.catalog.iceberg.ImmutableIcebergCatalogHandler;
+import org.apache.polaris.service.catalog.io.FileIOFactory;
+import org.apache.polaris.service.catalog.io.MeasuredFileIOFactory;
+import org.apache.polaris.service.catalog.io.StorageAccessConfigProvider;
+import org.apache.polaris.service.catalog.policy.PolicyConfigEndpoints;
+import org.apache.polaris.service.catalog.spi.CatalogConfigEndpointContributor;
+import org.apache.polaris.service.config.ReservedProperties;
+import org.apache.polaris.service.context.catalog.PolarisLocalCatalogFactory;
+import org.apache.polaris.service.credentials.DefaultPolarisCredentialManager;
+import org.apache.polaris.service.credentials.connection.SigV4ConnectionCredentialVendor;
+import org.apache.polaris.service.events.PolarisEventDispatcher;
+import org.apache.polaris.service.events.PolarisEventMetadata;
+import org.apache.polaris.service.events.PolarisEventMetadataFactory;
+import org.apache.polaris.service.events.listeners.InMemoryEventCollector;
+import org.apache.polaris.service.idempotency.IdempotencyConfiguration;
+import org.apache.polaris.service.idempotency.IdempotencyRequestContext;
+import org.apache.polaris.service.identity.provider.DefaultServiceIdentityProvider;
+import org.apache.polaris.service.persistence.InMemoryPolarisMetaStoreManagerFactory;
+import org.apache.polaris.service.secrets.UnsafeInMemorySecretsManagerFactory;
+import org.apache.polaris.service.storage.PolarisStorageIntegrationProviderImpl;
+import org.apache.polaris.service.storage.S3CredentialVendingMechanisms;
+import org.apache.polaris.service.storage.StsCredentialVendingMechanism;
+import org.apache.polaris.service.task.TaskExecutor;
+import org.mockito.Mockito;
+import software.amazon.awssdk.services.sts.StsClient;
+import software.amazon.awssdk.services.sts.model.AssumeRoleRequest;
+import software.amazon.awssdk.services.sts.model.AssumeRoleResponse;
+import software.amazon.awssdk.services.sts.model.Credentials;
+
+public record TestServices(
+    Clock clock,
+    Supplier<PolarisCatalogsApi> catalogsApiSupplier,
+    Supplier<IcebergRestCatalogApi> restApiSupplier,
+    Supplier<PolarisCatalogGenericTableApi> genericTableApiSupplier,
+    Supplier<IcebergRestConfigurationApi> restConfigurationApiSupplier,
+    Supplier<IcebergCatalogAdapter> catalogAdapterSupplier,
+    RealmConfigurationSource configurationSource,
+    PolarisDiagnostics polarisDiagnostics,
+    StorageCredentialCache storageCredentialCache,
+    ResolverFactory resolverFactory,
+    ResolutionManifestFactory resolutionManifestFactory,
+    MetaStoreManagerFactory metaStoreManagerFactory,
+    RealmContext realmContext,
+    RealmConfig realmConfig,
+    PolarisPrincipal principal,
+    SecurityContext securityContext,
+    PolarisMetaStoreManager metaStoreManager,
+    FileIOFactory fileIOFactory,
+    TaskExecutor taskExecutor,
+    PolarisEventDispatcher polarisEventDispatcher,
+    PolarisEventMetadataFactory eventMetadataFactory,
+    StorageAccessConfigProvider storageAccessConfigProvider,
+    Map<String, S3CredentialVendingMechanism> installedMechanisms,
+    S3CredentialVendingMechanisms vendingMechanisms,
+    IdempotencyRequestContext idempotencyRequestContext) {
+
+  public PolarisCatalogsApi catalogsApi() {
+    return catalogsApiSupplier.get();
+  }
+
+  public IcebergRestCatalogApi restApi() {
+    return restApiSupplier.get();
+  }
+
+  public PolarisCatalogGenericTableApi genericTableApi() {
+    return genericTableApiSupplier.get();
+  }
+
+  public IcebergRestConfigurationApi restConfigurationApi() {
+    return restConfigurationApiSupplier.get();
+  }
+
+  public IcebergCatalogAdapter catalogAdapter() {
+    return catalogAdapterSupplier.get();
+  }
+
+  private static final RealmContext TEST_REALM = () -> "test-realm";
+  private static final String GCP_ACCESS_TOKEN = "abc";
+
+  public static Builder builder() {
+    return new Builder();
+  }
+
+  public static class Builder {
+    private final Clock clock = Clock.systemUTC();
+    private final PolarisDiagnostics diagnostics = new PolarisDefaultDiagServiceImpl();
+    private RealmContext realmContext = TEST_REALM;
+    private Map<String, Object> config = Map.of();
+    private StsClient stsClient;
+    private Map<String, S3CredentialVendingMechanism> additionalVendingMechanisms = Map.of();
+    private boolean useEventDelegator = false;
+    private Supplier<FileIOFactory> fileIOFactorySupplier = MeasuredFileIOFactory::new;
+    private UnaryOperator<PolarisMetaStoreManager> metaStoreManagerDecorator =
+        UnaryOperator.identity();
+    private final PolarisEventMetadataFactory eventMetadataFactory =
+        new PolarisEventMetadataFactory() {
+          @Override
+          public PolarisEventMetadata create() {
+            return PolarisEventMetadata.builder()
+                .realmId(realmContext.getRealmIdentifier())
+                .timestamp(clock.instant())
+                .build();
+          }
+
+          @Override
+          public PolarisEventMetadata copy(PolarisEventMetadata original) {
+            return PolarisEventMetadata.builder().from(original).timestamp(clock.instant()).build();
+          }
+        };
+
+    private Builder() {
+      stsClient = Mockito.mock(StsClient.class, RETURNS_DEEP_STUBS);
+      AssumeRoleResponse arr = Mockito.mock(AssumeRoleResponse.class, RETURNS_DEEP_STUBS);
+      Mockito.when(stsClient.assumeRole(any(AssumeRoleRequest.class))).thenReturn(arr);
+      Mockito.when(arr.credentials())
+          .thenReturn(
+              Credentials.builder()
+                  .accessKeyId("test-access-key-id-111")
+                  .secretAccessKey("test-secret-access-key-222")
+                  .sessionToken("test-session-token-333")
+                  .build());
+    }
+
+    public Builder realmContext(RealmContext realmContext) {
+      this.realmContext = realmContext;
+      return this;
+    }
+
+    public Builder config(Map<String, Object> config) {
+      this.config = config;
+      return this;
+    }
+
+    public Builder fileIOFactorySupplier(Supplier<FileIOFactory> fileIOFactorySupplier) {
+      this.fileIOFactorySupplier = fileIOFactorySupplier;
+      return this;
+    }
+
+    public Builder stsClient(StsClient stsClient) {
+      this.stsClient = stsClient;
+      return this;
+    }
+
+    /**
+     * Mechanisms installed in addition to the defaults; an entry with a default identifier replaces
+     * the default. The map behind the registry stays mutable and is exposed as {@code
+     * installedMechanisms()}, so a test can uninstall a mechanism after a catalog selected it.
+     */
+    public Builder additionalVendingMechanisms(
+        Map<String, S3CredentialVendingMechanism> additionalVendingMechanisms) {
+      this.additionalVendingMechanisms = additionalVendingMechanisms;
+      return this;
+    }
+
+    public Builder withEventDelegator(boolean useEventDelegator) {
+      this.useEventDelegator = useEventDelegator;
+      return this;
+    }
+
+    public Builder metaStoreManagerDecorator(UnaryOperator<PolarisMetaStoreManager> decorator) {
+      this.metaStoreManagerDecorator = decorator;
+      return this;
+    }
+
+    public TestServices build() {
+      RealmConfigurationSource configurationSource = (rc, name) -> config.get(name);
+      PolarisAuthorizer authorizer = Mockito.mock(PolarisAuthorizer.class);
+      Mockito.doAnswer(
+              invocation -> {
+                AuthorizationState authzState = invocation.getArgument(0);
+                authzState.getResolutionManifest().resolveAll();
+                return null;
+              })
+          .when(authorizer)
+          .resolveAuthorizationInputs(any(), any());
+      Mockito.when(authorizer.authorize(any(), any())).thenReturn(AuthorizationDecision.allow());
+
+      // Application level
+      StorageCredentialCacheConfig storageCredentialCacheConfig = () -> 10_000;
+      StorageCredentialCache storageCredentialCache =
+          new StorageCredentialCache(storageCredentialCacheConfig);
+
+      RealmConfig realmConfig = new RealmConfigImpl(configurationSource, realmContext);
+
+      Map<String, S3CredentialVendingMechanism> vendingMechanismsMap = new HashMap<>();
+      vendingMechanismsMap.put(
+          S3CredentialVendingMechanism.STS,
+          new StsCredentialVendingMechanism(
+              (destination) -> stsClient, Optional.empty(), storageCredentialCache, realmConfig));
+      vendingMechanismsMap.putAll(additionalVendingMechanisms);
+      S3CredentialVendingMechanisms vendingMechanisms =
+          new S3CredentialVendingMechanisms(vendingMechanismsMap);
+
+      PolarisStorageIntegrationProviderImpl storageIntegrationProvider =
+          new PolarisStorageIntegrationProviderImpl(
+              vendingMechanisms,
+              () -> GoogleCredentials.create(new AccessToken(GCP_ACCESS_TOKEN, new Date())),
+              storageCredentialCache,
+              realmConfig);
+      InMemoryPolarisMetaStoreManagerFactory metaStoreManagerFactory =
+          new InMemoryPolarisMetaStoreManagerFactory(
+              clock, diagnostics, storageIntegrationProvider, RootCredentialsSet.EMPTY);
+
+      UserSecretsManagerFactory userSecretsManagerFactory =
+          new UnsafeInMemorySecretsManagerFactory();
+
+      CallContext callContext =
+          new PolarisCallContext(
+              realmContext,
+              metaStoreManagerFactory.getOrCreateSession(realmContext),
+              configurationSource);
+
+      PolarisMetaStoreManager metaStoreManager =
+          metaStoreManagerDecorator.apply(
+              metaStoreManagerFactory.getOrCreateMetaStoreManager(realmContext));
+
+      CreatePrincipalResult createdPrincipal =
+          metaStoreManager.createPrincipal(
+              callContext.getPolarisCallContext(),
+              new PrincipalEntity.Builder()
+                  .setName("test-principal")
+                  .setCreateTimestamp(Instant.now().toEpochMilli())
+                  .setCredentialRotationRequiredState()
+                  .build());
+
+      PrincipalEntity principalEntity = createdPrincipal.getPrincipal();
+      PolarisPrincipal principal =
+          PolarisPrincipal.of(
+              principalEntity.getName(),
+              ImmutableAttributeMap.builder()
+                  .put(PolarisPrincipalAttributes.PRINCIPAL_ENTITY_ATTRIBUTE_KEY, principalEntity)
+                  .build(),
+              Set.of());
+
+      SecurityContext securityContext =
+          new SecurityContext() {
+            @Override
+            public Principal getUserPrincipal() {
+              return principal;
+            }
+
+            @Override
+            public boolean isUserInRole(String s) {
+              return false;
+            }
+
+            @Override
+            public boolean isSecure() {
+              return true;
+            }
+
+            @Override
+            public String getAuthenticationScheme() {
+              return "";
+            }
+          };
+
+      EntityCache entityCache =
+          metaStoreManagerFactory.getOrCreateEntityCache(realmContext, realmConfig);
+      ResolverFactory resolverFactory =
+          (_principal, referenceCatalogName) ->
+              new Resolver(
+                  diagnostics,
+                  callContext.getPolarisCallContext(),
+                  metaStoreManager,
+                  _principal,
+                  entityCache,
+                  referenceCatalogName);
+
+      ResolutionManifestFactory resolutionManifestFactory =
+          new ResolutionManifestFactoryImpl(diagnostics, realmContext, resolverFactory);
+
+      UserSecretsManager userSecretsManager =
+          userSecretsManagerFactory.getOrCreateUserSecretsManager(realmContext);
+      ServiceIdentityProvider serviceIdentityProvider = new DefaultServiceIdentityProvider();
+
+      // Create credential vendors for testing
+      @SuppressWarnings("unchecked")
+      Instance<ConnectionCredentialVendor> mockCredentialVendors = Mockito.mock(Instance.class);
+      SigV4ConnectionCredentialVendor sigV4Vendor =
+          new SigV4ConnectionCredentialVendor((destination) -> stsClient, serviceIdentityProvider);
+      Mockito.when(
+              mockCredentialVendors.select(
+                  any(org.apache.polaris.service.credentials.connection.AuthType.Literal.class)))
+          .thenReturn(mockCredentialVendors);
+      Mockito.when(mockCredentialVendors.isUnsatisfied()).thenReturn(false);
+      Mockito.when(mockCredentialVendors.get()).thenReturn(sigV4Vendor);
+
+      PolarisCredentialManager credentialManager =
+          new DefaultPolarisCredentialManager(realmContext, mockCredentialVendors);
+
+      StorageAccessConfigProvider storageAccessConfigProvider =
+          new StorageAccessConfigProvider(
+              callContext, principal, realmContext, storageIntegrationProvider);
+      FileIOFactory fileIOFactory = fileIOFactorySupplier.get();
+
+      TaskExecutor taskExecutor = Mockito.mock(TaskExecutor.class);
+
+      PolarisEventDispatcher polarisEventDispatcher = new InMemoryEventCollector();
+
+      IdempotencyConfiguration idempotencyConfiguration =
+          new IdempotencyConfiguration() {
+            @Override
+            public boolean enabled() {
+              return Boolean.parseBoolean(
+                  String.valueOf(config.getOrDefault("polaris.idempotency.enabled", "false")));
+            }
+
+            @Override
+            public Duration ttl() {
+              Object value = config.get("polaris.idempotency.ttl");
+              return value == null ? Duration.ofMinutes(5) : Duration.parse(String.valueOf(value));
+            }
+          };
+
+      IdempotencyRequestContext idempotencyRequestContext =
+          new IdempotencyRequestContext(idempotencyConfiguration);
+      LocalCatalogFactory localCatalogFactory =
+          new PolarisLocalCatalogFactory(
+              diagnostics,
+              resolverFactory,
+              taskExecutor,
+              storageAccessConfigProvider,
+              fileIOFactory,
+              polarisEventDispatcher,
+              eventMetadataFactory,
+              metaStoreManager,
+              callContext,
+              principal,
+              idempotencyRequestContext);
+
+      ReservedProperties reservedProperties = ReservedProperties.NONE;
+
+      CatalogHandlerUtils catalogHandlerUtils = new CatalogHandlerUtils(realmConfig);
+
+      @SuppressWarnings("unchecked")
+      Instance<FederatedCatalogFactory> federatedCatalogFactory = Mockito.mock(Instance.class);
+      Mockito.when(federatedCatalogFactory.select(any())).thenReturn(federatedCatalogFactory);
+      Mockito.when(federatedCatalogFactory.isUnsatisfied()).thenReturn(true);
+
+      MutableAttributeMap eventAttributeMap = new MutableAttributeMap();
+
+      Supplier<CatalogConfigHandler> catalogConfigHandlerSupplier =
+          () -> {
+            @SuppressWarnings("unchecked")
+            Instance<CatalogConfigEndpointContributor> configEndpointContributors =
+                Mockito.mock(Instance.class);
+            CatalogConfigEndpointContributor icebergRestEndpoints =
+                new IcebergRestConfigEndpoints();
+            CatalogConfigEndpointContributor icebergViewEndpoints =
+                new IcebergViewConfigEndpoints();
+            CatalogConfigEndpointContributor genericTableEndpoints =
+                new GenericTableConfigEndpoints(realmConfig);
+            CatalogConfigEndpointContributor policyEndpoints =
+                new PolicyConfigEndpoints(realmConfig);
+            Mockito.when(configEndpointContributors.handlesStream())
+                .thenAnswer(
+                    invocation ->
+                        Stream.of(
+                            endpointContributorHandle(
+                                GenericTableConfigEndpoints.class, genericTableEndpoints),
+                            endpointContributorHandle(PolicyConfigEndpoints.class, policyEndpoints),
+                            endpointContributorHandle(
+                                IcebergRestConfigEndpoints.class, icebergRestEndpoints),
+                            endpointContributorHandle(
+                                IcebergViewConfigEndpoints.class, icebergViewEndpoints)));
+            return new CatalogConfigHandler(
+                new DefaultCatalogPrefixParser(),
+                resolverFactory,
+                configEndpointContributors,
+                idempotencyConfiguration);
+          };
+
+      Supplier<IcebergCatalogAdapter> catalogAdapterSupplier =
+          () -> {
+            IcebergCatalogHandlerFactory handlerFactory =
+                new IcebergCatalogHandlerFactory() {
+                  @Override
+                  public IcebergCatalogHandler createHandler(
+                      String catalogName, PolarisPrincipal principal) {
+                    return ImmutableIcebergCatalogHandler.builder()
+                        .catalogName(catalogName)
+                        .polarisPrincipal(principal)
+                        .diagnostics(diagnostics)
+                        .callContext(callContext)
+                        .prefixParser(new DefaultCatalogPrefixParser())
+                        .resolverFactory(resolverFactory)
+                        .resolutionManifestFactory(resolutionManifestFactory)
+                        .metaStoreManager(metaStoreManager)
+                        .credentialManager(credentialManager)
+                        .localCatalogFactory(localCatalogFactory)
+                        .authorizer(authorizer)
+                        .reservedProperties(reservedProperties)
+                        .catalogHandlerUtils(catalogHandlerUtils)
+                        .federatedCatalogFactories(federatedCatalogFactory)
+                        .storageAccessConfigProvider(storageAccessConfigProvider)
+                        .eventAttributeMap(eventAttributeMap)
+                        .metricsReporter(envelope -> {})
+                        .clock(clock)
+                        .accessDelegationModeResolver(
+                            new DefaultAccessDelegationModeResolver(realmConfig))
+                        .idempotencyRequestContext(idempotencyRequestContext)
+                        .build();
+                  }
+                };
+
+            return new IcebergCatalogAdapter(
+                callContext,
+                new DefaultCatalogPrefixParser(),
+                reservedProperties,
+                handlerFactory,
+                catalogConfigHandlerSupplier.get());
+          };
+
+      Supplier<IcebergRestCatalogApi> restApiSupplier =
+          () -> {
+            IcebergCatalogAdapter catalogService = catalogAdapterSupplier.get();
+            IcebergRestCatalogApiService finalRestCatalogService = catalogService;
+            if (useEventDelegator) {
+              finalRestCatalogService =
+                  new IcebergRestCatalogEventServiceDelegator(
+                      catalogService,
+                      polarisEventDispatcher,
+                      eventMetadataFactory,
+                      new DefaultCatalogPrefixParser(),
+                      eventAttributeMap);
+            }
+            return new IcebergRestCatalogApi(finalRestCatalogService);
+          };
+
+      Supplier<IcebergRestConfigurationApi> restConfigurationApiSupplier =
+          () -> {
+            IcebergCatalogAdapter catalogService = catalogAdapterSupplier.get();
+            IcebergRestConfigurationApiService finalRestConfigurationService = catalogService;
+            if (useEventDelegator) {
+              finalRestConfigurationService =
+                  new IcebergRestConfigurationEventServiceDelegator(
+                      catalogService, polarisEventDispatcher, eventMetadataFactory);
+            }
+            return new IcebergRestConfigurationApi(finalRestConfigurationService);
+          };
+
+      Supplier<PolarisCatalogGenericTableApi> genericTableApiSupplier =
+          () -> {
+            GenericTableCatalogHandlerFactory genericHandlerFactory =
+                new GenericTableCatalogHandlerFactory() {
+                  @Override
+                  public GenericTableCatalogHandler createHandler(
+                      String catalogName, PolarisPrincipal principal) {
+                    return ImmutableGenericTableCatalogHandler.builder()
+                        .catalogName(catalogName)
+                        .polarisPrincipal(principal)
+                        .callContext(callContext)
+                        .resolutionManifestFactory(resolutionManifestFactory)
+                        .metaStoreManager(metaStoreManager)
+                        .authorizer(authorizer)
+                        .credentialManager(credentialManager)
+                        .federatedCatalogFactories(federatedCatalogFactory)
+                        .build();
+                  }
+                };
+            GenericTableCatalogAdapter genericTableCatalogAdapter =
+                new GenericTableCatalogAdapter(
+                    callContext,
+                    new DefaultCatalogPrefixParser(),
+                    reservedProperties,
+                    genericHandlerFactory);
+            PolarisCatalogGenericTableApiService genericTableService = genericTableCatalogAdapter;
+            if (useEventDelegator) {
+              genericTableService =
+                  new CatalogGenericTableEventServiceDelegator(
+                      genericTableCatalogAdapter,
+                      polarisEventDispatcher,
+                      eventMetadataFactory,
+                      new DefaultCatalogPrefixParser());
+            }
+            return new PolarisCatalogGenericTableApi(genericTableService);
+          };
+
+      Supplier<PolarisCatalogsApi> catalogsApiSupplier =
+          () -> {
+            PolarisAdminService adminService =
+                new PolarisAdminService(
+                    callContext,
+                    resolutionManifestFactory,
+                    metaStoreManager,
+                    userSecretsManager,
+                    serviceIdentityProvider,
+                    principal,
+                    authorizer,
+                    reservedProperties,
+                    vendingMechanisms);
+            return new PolarisCatalogsApi(
+                new PolarisServiceImpl(
+                    realmConfig, reservedProperties, adminService, serviceIdentityProvider));
+          };
+
+      return new TestServices(
+          clock,
+          catalogsApiSupplier,
+          restApiSupplier,
+          genericTableApiSupplier,
+          restConfigurationApiSupplier,
+          catalogAdapterSupplier,
+          configurationSource,
+          diagnostics,
+          storageCredentialCache,
+          resolverFactory,
+          resolutionManifestFactory,
+          metaStoreManagerFactory,
+          realmContext,
+          realmConfig,
+          principal,
+          securityContext,
+          metaStoreManager,
+          fileIOFactory,
+          taskExecutor,
+          polarisEventDispatcher,
+          eventMetadataFactory,
+          storageAccessConfigProvider,
+          vendingMechanismsMap,
+          vendingMechanisms,
+          idempotencyRequestContext);
+    }
+  }
+
+  @SuppressWarnings("unchecked")
+  private static Handle<CatalogConfigEndpointContributor> endpointContributorHandle(
+      Class<? extends CatalogConfigEndpointContributor> beanClass,
+      CatalogConfigEndpointContributor contributor) {
+    Handle<CatalogConfigEndpointContributor> handle = Mockito.mock(Handle.class);
+    Bean<CatalogConfigEndpointContributor> bean = Mockito.mock(Bean.class);
+    Mockito.doReturn(beanClass).when(bean).getBeanClass();
+    Mockito.when(handle.getBean()).thenReturn(bean);
+    Mockito.when(handle.get()).thenReturn(contributor);
+    return handle;
+  }
+
+  public PolarisCallContext newCallContext() {
+    return new PolarisCallContext(
+        realmContext,
+        metaStoreManagerFactory.getOrCreateSession(realmContext),
+        configurationSource);
+  }
+
+  /**
+   * A mechanism that vends a fixed fake credential triple: for tests that need an installed second
+   * mechanism. A Mockito mock of the integration would return null from getStorageAccessConfig and
+   * break table creation whenever credential subscoping is not skipped.
+   */
+  public static S3CredentialVendingMechanism fakeMechanism() {
+    return storageConfig ->
+        (grants, refreshEndpoint, context) ->
+            StorageAccessConfig.builder()
+                .putCredential(StorageAccessProperty.AWS_KEY_ID.getPropertyName(), "FAKE_KEY")
+                .putCredential(
+                    StorageAccessProperty.AWS_SECRET_KEY.getPropertyName(), "FAKE_SECRET")
+                .putCredential(StorageAccessProperty.AWS_TOKEN.getPropertyName(), "FAKE_TOKEN")
+                .build();
+  }
+}

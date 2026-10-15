@@ -1,0 +1,75 @@
+{
+  "repo": "nushell/nushell",
+  "revision": "6a4027ff14d55c2a274faa2c53e74ae9921af9a2",
+  "resolved_utc": "2026-10-15T13:30:29.498382+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:33:04.454220+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "34441a2d3f892a7faf0b9e8712473234c23c395bd456a7222a67a332ab9799f5",
+    "truncated": false,
+    "blob_count": 2613
+  },
+  "files_acquired": [
+    {
+      "path": "Cargo.toml",
+      "bytes": 16984,
+      "sha256": "ec421ca8fe9e0f264fe39489520f8679c094cdc60c953e9124787b7cd86fbaf3",
+      "url": "https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/Cargo.toml"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1094,
+      "sha256": "ff5dcaaba6140ec57cafdd4f707cd0d329e727477cf7d5b9ba7a244ec2678b79",
+      "url": "https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 12908,
+      "sha256": "8894a1ff03997ae1e58190fac16fbc6876c1aa8f0ea593fa0dc65e4da20a0939",
+      "url": "https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/README.md"
+    },
+    {
+      "path": "crates/nu-engine/src/eval.rs",
+      "bytes": 39558,
+      "sha256": "467d304658966be137d323997e9fe451b7bbb8260471537de0e894adfbb9c818",
+      "url": "https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/crates/nu-engine/src/eval.rs"
+    },
+    {
+      "path": "crates/nu-engine/src/eval_ir.rs",
+      "bytes": 90826,
+      "sha256": "74923cc5e45b72d23a434a75247892b1d835ea7f206c6f17bc511f638802109f",
+      "url": "https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/crates/nu-engine/src/eval_ir.rs"
+    },
+    {
+      "path": "crates/nu-parser/src/parse_pipelines.rs",
+      "bytes": 6949,
+      "sha256": "6467ede9e011e2de47948a3217cf6d6b64a327c88743aba5642fd71857cdb8e9",
+      "url": "https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/crates/nu-parser/src/parse_pipelines.rs"
+    },
+    {
+      "path": "crates/nu-protocol/src/pipeline/pipeline_data.rs",
+      "bytes": 49884,
+      "sha256": "885063cbde0043b218750fd1e10a9bb0203afd8a9de383810ea417abd7dc6709",
+      "url": "https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/crates/nu-protocol/src/pipeline/pipeline_data.rs"
+    },
+    {
+      "path": "crates/nu-protocol/tests/test_pipeline_data.rs",
+      "bytes": 482,
+      "sha256": "be017f6ef080e747d24ea51e7714ebe04cb90923480e61a12e580e6e864aff2b",
+      "url": "https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/crates/nu-protocol/tests/test_pipeline_data.rs"
+    },
+    {
+      "path": "tests/shell/pipeline/commands/internal.rs",
+      "bytes": 28414,
+      "sha256": "3a46786d6d90ed1260bf5a073e0b679f99c12b7d8928ddfb82076872c12bcecb",
+      "url": "https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/tests/shell/pipeline/commands/internal.rs"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

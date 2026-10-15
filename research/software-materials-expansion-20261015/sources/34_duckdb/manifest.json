@@ -1,0 +1,80 @@
+{
+  "repo": "duckdb/duckdb",
+  "revision": "dda2e4090494101087e7726581928e6af44dbc34",
+  "resolved_utc": "2026-10-15T13:08:13.092654+00:00",
+  "retrieved_utc": "2026-10-15T13:08:56.397830+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "e3c056e9db0b64a262514d1a226d3a837637f9590de81ef0e602c67c73fb02ce",
+    "truncated": false,
+    "blob_count": 16936
+  },
+  "files_acquired": [
+    {
+      "path": "CMakeLists.txt",
+      "bytes": 51683,
+      "sha256": "c3371efefd21f03dd76baa8af97fa492bb78ce6783b648b886a3e070ac5c53bb",
+      "url": "https://github.com/duckdb/duckdb/blob/dda2e4090494101087e7726581928e6af44dbc34/CMakeLists.txt"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1072,
+      "sha256": "075c33400ffcb0c586dd106a029d3e733e9da3693f8fcb9cebfc651c8a2f14e3",
+      "url": "https://github.com/duckdb/duckdb/blob/dda2e4090494101087e7726581928e6af44dbc34/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3480,
+      "sha256": "907b44f4727089c4475a5f9342e76ed2cdb39cac5619feb4ed9c5c065f5cc559",
+      "url": "https://github.com/duckdb/duckdb/blob/dda2e4090494101087e7726581928e6af44dbc34/README.md"
+    },
+    {
+      "path": "benchmark/README.md",
+      "bytes": 4980,
+      "sha256": "730933d8240f445da35a7b112f33dcf2bccef282aa6264e48df7427d6cc42292",
+      "url": "https://github.com/duckdb/duckdb/blob/dda2e4090494101087e7726581928e6af44dbc34/benchmark/README.md"
+    },
+    {
+      "path": "benchmark/benchmark_runner.cpp",
+      "bytes": 15591,
+      "sha256": "791329c19b898fd7a423c5983797b447015206ef0172778f86ad1e93c605ee40",
+      "url": "https://github.com/duckdb/duckdb/blob/dda2e4090494101087e7726581928e6af44dbc34/benchmark/benchmark_runner.cpp"
+    },
+    {
+      "path": "benchmark/tpch/aggregate/lineitem_group_string.benchmark",
+      "bytes": 408,
+      "sha256": "1c6376b2fb0dfc545968bba1a128c34525ba467b2b4415223be93949fcf7eaf0",
+      "url": "https://github.com/duckdb/duckdb/blob/dda2e4090494101087e7726581928e6af44dbc34/benchmark/tpch/aggregate/lineitem_group_string.benchmark"
+    },
+    {
+      "path": "src/execution/aggregate_hashtable.cpp",
+      "bytes": 55379,
+      "sha256": "0b43860ff82b25219ab6cadf3fd2933053b9e173974feb3c4200968f4f34e8d7",
+      "url": "https://github.com/duckdb/duckdb/blob/dda2e4090494101087e7726581928e6af44dbc34/src/execution/aggregate_hashtable.cpp"
+    },
+    {
+      "path": "src/execution/perfect_aggregate_hashtable.cpp",
+      "bytes": 15792,
+      "sha256": "804f8720c0ba4679f8e5d8acb9a6e796156b17fef83d0197a8e1782750f321f7",
+      "url": "https://github.com/duckdb/duckdb/blob/dda2e4090494101087e7726581928e6af44dbc34/src/execution/perfect_aggregate_hashtable.cpp"
+    },
+    {
+      "path": "src/execution/radix_partitioned_hashtable.cpp",
+      "bytes": 57003,
+      "sha256": "fefbf7f63224ae8600e66c6b3c7a0202fbbb2742b2e254b2c9f146ddbc5afd2d",
+      "url": "https://github.com/duckdb/duckdb/blob/dda2e4090494101087e7726581928e6af44dbc34/src/execution/radix_partitioned_hashtable.cpp"
+    },
+    {
+      "path": "test/sql/aggregate/aggregates/aggregate_state_spilling.test_slow",
+      "bytes": 4274,
+      "sha256": "3a49275733e6a881f10a018ce86b492b91bab6ddef221bf4330d38a465f99843",
+      "url": "https://github.com/duckdb/duckdb/blob/dda2e4090494101087e7726581928e6af44dbc34/test/sql/aggregate/aggregates/aggregate_state_spilling.test_slow"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

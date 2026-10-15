@@ -1,0 +1,159 @@
+{
+  "scope": "selected parent static checks only; no image build, Harbor run or difficulty validation",
+  "routes": [
+    {
+      "route": "01_openapi",
+      "task_toml_matches_schema_checked_input": true,
+      "grader_mirror_equal": null,
+      "dockerfiles": [
+        {
+          "path": "01_openapi/environment/Dockerfile",
+          "from": [
+            "FROM --platform=linux/amd64 python@sha256:4766d8b510c428e595d74b9cc5bbb2fae8e26316fffb4adc89908d79aacd58a2"
+          ],
+          "missing_copy_sources": [],
+          "external_context_copy_sources": [],
+          "all_base_images_digest_pinned": true
+        },
+        {
+          "path": "01_openapi/verifier/Dockerfile",
+          "from": [
+            "FROM --platform=linux/amd64 python@sha256:4766d8b510c428e595d74b9cc5bbb2fae8e26316fffb4adc89908d79aacd58a2"
+          ],
+          "missing_copy_sources": [],
+          "external_context_copy_sources": [],
+          "all_base_images_digest_pinned": true
+        }
+      ]
+    },
+    {
+      "route": "02_restler",
+      "task_toml_matches_schema_checked_input": true,
+      "grader_mirror_equal": null,
+      "dockerfiles": [
+        {
+          "path": "02_restler/environment/Dockerfile",
+          "from": [
+            "FROM --platform=linux/amd64 python@sha256:4766d8b510c428e595d74b9cc5bbb2fae8e26316fffb4adc89908d79aacd58a2"
+          ],
+          "missing_copy_sources": [],
+          "external_context_copy_sources": [],
+          "all_base_images_digest_pinned": true
+        },
+        {
+          "path": "02_restler/verifier/Dockerfile",
+          "from": [
+            "FROM --platform=linux/amd64 python@sha256:4766d8b510c428e595d74b9cc5bbb2fae8e26316fffb4adc89908d79aacd58a2"
+          ],
+          "missing_copy_sources": [],
+          "external_context_copy_sources": [],
+          "all_base_images_digest_pinned": true
+        }
+      ]
+    },
+    {
+      "route": "03_wasm",
+      "task_toml_matches_schema_checked_input": true,
+      "grader_mirror_equal": true,
+      "dockerfiles": [
+        {
+          "path": "03_wasm/environment/Dockerfile",
+          "from": [
+            "FROM python:3.12.8-slim-bookworm@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0"
+          ],
+          "missing_copy_sources": [],
+          "external_context_copy_sources": [],
+          "all_base_images_digest_pinned": true
+        },
+        {
+          "path": "03_wasm/verifier/Dockerfile",
+          "from": [
+            "FROM python:3.12.8-slim-bookworm@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0"
+          ],
+          "missing_copy_sources": [],
+          "external_context_copy_sources": [],
+          "all_base_images_digest_pinned": true
+        }
+      ]
+    },
+    {
+      "route": "04_datafusion",
+      "task_toml_matches_schema_checked_input": true,
+      "grader_mirror_equal": true,
+      "dockerfiles": [
+        {
+          "path": "04_datafusion/environment/Dockerfile",
+          "from": [
+            "FROM python:3.12.11-slim-bookworm@sha256:519591d6871b7bc437060736b9f7456b8731f1499a57e22e6c285135ae657bf7 AS py",
+            "FROM rust:1.99.0-bookworm@sha256:114c7a4425406451c2866b6aafe69fe29b1b298832db1277d411ac73c82d04d6"
+          ],
+          "missing_copy_sources": [],
+          "external_context_copy_sources": [],
+          "all_base_images_digest_pinned": true
+        },
+        {
+          "path": "04_datafusion/verifier/Dockerfile",
+          "from": [
+            "FROM python:3.12.11-slim-bookworm@sha256:519591d6871b7bc437060736b9f7456b8731f1499a57e22e6c285135ae657bf7 AS py",
+            "FROM rust:1.99.0-bookworm@sha256:114c7a4425406451c2866b6aafe69fe29b1b298832db1277d411ac73c82d04d6"
+          ],
+          "missing_copy_sources": [],
+          "external_context_copy_sources": [],
+          "all_base_images_digest_pinned": true
+        }
+      ]
+    },
+    {
+      "route": "05_toml",
+      "task_toml_matches_schema_checked_input": true,
+      "grader_mirror_equal": true,
+      "dockerfiles": [
+        {
+          "path": "05_toml/environment/Dockerfile",
+          "from": [
+            "FROM python:3.12.11-slim-bookworm@sha256:519591d6871b7bc437060736b9f7456b8731f1499a57e22e6c285135ae657bf7 AS py",
+            "FROM rust:1.90.0-bookworm@sha256:3914072ca0c3b8aad871db9169a651ccfce30cf58303e5d6f2db16d1d8a7e58f"
+          ],
+          "missing_copy_sources": [],
+          "external_context_copy_sources": [],
+          "all_base_images_digest_pinned": true
+        },
+        {
+          "path": "05_toml/verifier/Dockerfile",
+          "from": [
+            "FROM python:3.12.11-slim-bookworm@sha256:519591d6871b7bc437060736b9f7456b8731f1499a57e22e6c285135ae657bf7 AS py",
+            "FROM rust:1.90.0-bookworm@sha256:3914072ca0c3b8aad871db9169a651ccfce30cf58303e5d6f2db16d1d8a7e58f"
+          ],
+          "missing_copy_sources": [],
+          "external_context_copy_sources": [],
+          "all_base_images_digest_pinned": true
+        }
+      ]
+    },
+    {
+      "route": "06_jq",
+      "task_toml_matches_schema_checked_input": true,
+      "grader_mirror_equal": true,
+      "dockerfiles": [
+        {
+          "path": "06_jq/environment/Dockerfile",
+          "from": [
+            "FROM python:3.12.8-slim-bookworm@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0"
+          ],
+          "missing_copy_sources": [],
+          "external_context_copy_sources": [],
+          "all_base_images_digest_pinned": true
+        },
+        {
+          "path": "06_jq/verifier/Dockerfile",
+          "from": [
+            "FROM python:3.12.8-slim-bookworm@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0"
+          ],
+          "missing_copy_sources": [],
+          "external_context_copy_sources": [],
+          "all_base_images_digest_pinned": true
+        }
+      ]
+    }
+  ]
+}

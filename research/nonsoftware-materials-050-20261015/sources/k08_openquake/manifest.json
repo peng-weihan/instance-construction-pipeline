@@ -1,0 +1,75 @@
+{
+  "repo": "gem/oq-engine",
+  "revision": "cf5abdc04016ca9220d8e916432590c1a4e64249",
+  "resolved_utc": "2026-10-15T14:58:55.775464+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:46.039044+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "2b5e05b98b431d5f7a109bd26d1925b025ba58e0e0af7b924ea56389a312342b",
+    "truncated": false,
+    "blob_count": 10062
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 34520,
+      "sha256": "57c8ff33c9c0cfc3ef00e650a1cc910d7ee479a8bc509f6c9209a7c2a11399d6",
+      "url": "https://github.com/gem/oq-engine/blob/cf5abdc04016ca9220d8e916432590c1a4e64249/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3962,
+      "sha256": "eff430dd8a0dd38a6c5cf9108e3c1f57ff3ce063437b395913276c8f04f14ab0",
+      "url": "https://github.com/gem/oq-engine/blob/cf5abdc04016ca9220d8e916432590c1a4e64249/README.md"
+    },
+    {
+      "path": "openquake/calculators/tests/classical_risk_test.py",
+      "bytes": 6029,
+      "sha256": "7bc2dc8bc6e328bb4c424c7f10007b3ab0e945b5f0c1aaebab29b1e92dc6a188",
+      "url": "https://github.com/gem/oq-engine/blob/cf5abdc04016ca9220d8e916432590c1a4e64249/openquake/calculators/tests/classical_risk_test.py"
+    },
+    {
+      "path": "openquake/qa_tests_data/classical_risk/case_1/expected/avg_losses-mean.csv",
+      "bytes": 309,
+      "sha256": "23a34e2420caacda05920b55ac2f23ff6595374b26bf9e3baeba09352939bcdd",
+      "url": "https://github.com/gem/oq-engine/blob/cf5abdc04016ca9220d8e916432590c1a4e64249/openquake/qa_tests_data/classical_risk/case_1/expected/avg_losses-mean.csv"
+    },
+    {
+      "path": "openquake/qa_tests_data/classical_risk/case_1/exposure_model.xml",
+      "bytes": 1446,
+      "sha256": "1580fb99b54b5d0b9bd0f9ff377eee368c8bec1825d2a494bfe303f94fd15760",
+      "url": "https://github.com/gem/oq-engine/blob/cf5abdc04016ca9220d8e916432590c1a4e64249/openquake/qa_tests_data/classical_risk/case_1/exposure_model.xml"
+    },
+    {
+      "path": "openquake/qa_tests_data/classical_risk/case_1/hazard_curves1.csv",
+      "bytes": 1050,
+      "sha256": "3fde4b85f7fe447728e90f34ca559e3208f0a5b0ddfccadf7f952feaf1978a92",
+      "url": "https://github.com/gem/oq-engine/blob/cf5abdc04016ca9220d8e916432590c1a4e64249/openquake/qa_tests_data/classical_risk/case_1/hazard_curves1.csv"
+    },
+    {
+      "path": "openquake/qa_tests_data/classical_risk/case_1/job.ini",
+      "bytes": 370,
+      "sha256": "271c717e0a185b035a7fb4b35b3c0faa501c87755ca3c99595c583ac6b57f72e",
+      "url": "https://github.com/gem/oq-engine/blob/cf5abdc04016ca9220d8e916432590c1a4e64249/openquake/qa_tests_data/classical_risk/case_1/job.ini"
+    },
+    {
+      "path": "openquake/qa_tests_data/classical_risk/case_1/vulnerability_model.xml",
+      "bytes": 538,
+      "sha256": "c40955b97ac4582de0af28deacef3cb446d19bd2da0bfd1d69b07e22a333b662",
+      "url": "https://github.com/gem/oq-engine/blob/cf5abdc04016ca9220d8e916432590c1a4e64249/openquake/qa_tests_data/classical_risk/case_1/vulnerability_model.xml"
+    },
+    {
+      "path": "openquake/risklib/scientific.py",
+      "bytes": 72188,
+      "sha256": "6e3c035ac470de9e0016dc7a0ff256cbcc8534b969286b512bfc795ae290b7b6",
+      "url": "https://github.com/gem/oq-engine/blob/cf5abdc04016ca9220d8e916432590c1a4e64249/openquake/risklib/scientific.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

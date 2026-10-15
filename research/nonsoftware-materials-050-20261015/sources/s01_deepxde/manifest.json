@@ -1,0 +1,51 @@
+{
+  "repo": "lululxvi/deepxde",
+  "revision": "99b6620386d18cefb1549dddb7b7fe468cfad607",
+  "resolved_utc": "2026-10-15T14:58:13.919265+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:00.207603+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "1187236b5b456009fd64000f553d2c1cb8208840841ae8d0f17cfb0407f11c50",
+    "truncated": false,
+    "blob_count": 306
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 26526,
+      "sha256": "20c17d8b8c48a600800dfd14f95d5cb9ff47066a9641ddeab48dc54aec96e331",
+      "url": "https://github.com/lululxvi/deepxde/blob/99b6620386d18cefb1549dddb7b7fe468cfad607/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 11117,
+      "sha256": "640b4f2a5e015b937d4d54ecf4e32034dc7493b451aa329feb32458814a2a872",
+      "url": "https://github.com/lululxvi/deepxde/blob/99b6620386d18cefb1549dddb7b7fe468cfad607/README.md"
+    },
+    {
+      "path": "deepxde/data/pde.py",
+      "bytes": 15509,
+      "sha256": "c3c66bc189a865db1e1f681b3095a6edd91b01cccd8d6f69b5972e7579d89cc3",
+      "url": "https://github.com/lululxvi/deepxde/blob/99b6620386d18cefb1549dddb7b7fe468cfad607/deepxde/data/pde.py"
+    },
+    {
+      "path": "docs/demos/pinn_inverse/elliptic.inverse.field.rst",
+      "bytes": 4065,
+      "sha256": "4e2ae983653d0174c4de8657b632826d596d798330a676061467d3998c14c6e0",
+      "url": "https://github.com/lululxvi/deepxde/blob/99b6620386d18cefb1549dddb7b7fe468cfad607/docs/demos/pinn_inverse/elliptic.inverse.field.rst"
+    },
+    {
+      "path": "examples/pinn_inverse/elliptic_inverse_field.py",
+      "bytes": 1790,
+      "sha256": "c5abee70fcfb017f15792f3c891ef28301c39ba612cadc44bb71042f1f4304d6",
+      "url": "https://github.com/lululxvi/deepxde/blob/99b6620386d18cefb1549dddb7b7fe468cfad607/examples/pinn_inverse/elliptic_inverse_field.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

@@ -1,0 +1,15 @@
+{
+  "status": "runtime_control_candidates_not_formal_acceptance",
+  "remote_root": "/ws/users/raymone/edgebench/next-two-001",
+  "tasks": {
+    "packing-task-r4": "industrial_nesting_improvement",
+    "lean-task-r3": "brownian_multibranch_proofs",
+    "packing-task-r5": "industrial_nesting_improvement"
+  },
+  "source_archive_sha256": "4e115f68163ddae7a8d83e2df7ed73ae6754b6b2f0a529f2ec3587693b814ce2",
+  "current_tasks": [
+    "packing-task-r5",
+    "lean-task-r3"
+  ],
+  "previous_packing": "packing-task-r4"
+}

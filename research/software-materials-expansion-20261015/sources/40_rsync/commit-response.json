@@ -1,0 +1,149 @@
+{
+  "sha": "b70a61f394d0d4c71ee349a9260b4ed8babbb6be",
+  "node_id": "C_kwDOD-g7vtoAKGI3MGE2MWYzOTRkMGQ0YzcxZWUzNDlhOTI2MGI0ZWQ4YmFiYmI2YmU",
+  "commit": {
+    "author": {
+      "name": "Andrew Tridgell",
+      "email": "andrew@tridgell.net",
+      "date": "2026-10-15T00:59:02Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-10-15T00:59:02Z"
+    },
+    "message": "log: avoid recursive deletion-message overflow (#1130)\n\n* log: avoid recursive deletion-message overflow\n\nA quiet daemon receiver queued one MSG_DELETED per path until the generator hit --max-alloc, so skip names the client did not request. If requested output legitimately fills the queue, keep allocator error reporting from re-entering the same buffer and exhausting the stack. Preserve explicit deletion requests across the daemon max-verbosity clamp.\n\n* NEWS: note daemon deletion-message overflow fix",
+    "tree": {
+      "sha": "2b787343b7049818a4bf7996117a9590fff6c350",
+      "url": "https://api.github.com/repos/RsyncProject/rsync/git/trees/2b787343b7049818a4bf7996117a9590fff6c350"
+    },
+    "url": "https://api.github.com/repos/RsyncProject/rsync/git/commits/b70a61f394d0d4c71ee349a9260b4ed8babbb6be",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJq0CVWCRC1aQ7uu5UhlAAAKEQQAFHM16gU38fZHAmgaN2b8Eim\n+ojk1WEZHSSt4hh/I7XLPyZ/s/qf8TfftydtsVzdUHXT4uTDwaiyfIUKQliz6ZJ5\nDAh56p6MYTT5uha05t1BXq6fwf8Vpd0T2xkO6rv2CXT+dsa75/1kS0776MTScK/n\nGsu+XRl3+4PmfAJrkoBxecv6GXLcQePlk2ca1O5MQsHnmB0K24SSpJFGG8aNX1GD\nfpfFkzZz04rHHIbo0R92n9QaudaByuZ+AOEsDPA3u60s6jH8Q3zOeD+FefV3N6zw\nUWHHQZ1Oekkr+8/5szeAvMwO2mD1gHGihYduWjABGWjYfksxO2vcbYgnrZuKzMLL\neZFoprWj1o5PyrVZljIQHsgm+s3S6ocefkH/tr4biEyx8JKtESkbUPVkMS23JCTk\n4/gjagK/3VktjOsylHRWlwGI9XNM7wgfjM8almS3CX9DBIMW4N1A+Tt7udTE+vLi\nz8k+WnvjDUBqOHXkOxx7a8UFtPYxg1R9OeMTric2mmgSwIe0LdXXeooL/TPZT60r\ndmAeEA96TjrvSQEx4+zSY+JMa+MYRgK7Avl0Gsd/jcPx4WkPQQVaDED78L+wvqZH\nxHFuxOJ+PUTdxWGkBqgv3yASw67ffB9n1jLu9//YUNzRD7SJzQlKetaqso36Av2K\nbuBwK/AA2zAGCK5VqElv\n=7DIQ\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 2b787343b7049818a4bf7996117a9590fff6c350\nparent ab4b7155057b04e06391664c4f306a7862e8cfb2\nauthor Andrew Tridgell <andrew@tridgell.net> 1792025942 +1100\ncommitter GitHub <noreply@github.com> 1792025942 +1000\n\nlog: avoid recursive deletion-message overflow (#1130)\n\n* log: avoid recursive deletion-message overflow\n\nA quiet daemon receiver queued one MSG_DELETED per path until the generator hit --max-alloc, so skip names the client did not request. If requested output legitimately fills the queue, keep allocator error reporting from re-entering the same buffer and exhausting the stack. Preserve explicit deletion requests across the daemon max-verbosity clamp.\n\n* NEWS: note daemon deletion-message overflow fix",
+      "verified_at": "2026-10-15T00:59:03Z"
+    }
+  },
+  "url": "https://api.github.com/repos/RsyncProject/rsync/commits/b70a61f394d0d4c71ee349a9260b4ed8babbb6be",
+  "html_url": "https://github.com/RsyncProject/rsync/commit/b70a61f394d0d4c71ee349a9260b4ed8babbb6be",
+  "comments_url": "https://api.github.com/repos/RsyncProject/rsync/commits/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/comments",
+  "author": {
+    "login": "tridge",
+    "id": 831867,
+    "node_id": "MDQ6VXNlcjgzMTg2Nw==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/831867?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/tridge",
+    "html_url": "https://github.com/tridge",
+    "followers_url": "https://api.github.com/users/tridge/followers",
+    "following_url": "https://api.github.com/users/tridge/following{/other_user}",
+    "gists_url": "https://api.github.com/users/tridge/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/tridge/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/tridge/subscriptions",
+    "organizations_url": "https://api.github.com/users/tridge/orgs",
+    "repos_url": "https://api.github.com/users/tridge/repos",
+    "events_url": "https://api.github.com/users/tridge/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/tridge/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "ab4b7155057b04e06391664c4f306a7862e8cfb2",
+      "url": "https://api.github.com/repos/RsyncProject/rsync/commits/ab4b7155057b04e06391664c4f306a7862e8cfb2",
+      "html_url": "https://github.com/RsyncProject/rsync/commit/ab4b7155057b04e06391664c4f306a7862e8cfb2"
+    }
+  ],
+  "stats": {
+    "total": 157,
+    "additions": 148,
+    "deletions": 9
+  },
+  "files": [
+    {
+      "sha": "0ef7938987120bf0f6c7da2a52e038d8b7593c40",
+      "filename": "NEWS.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "blob_url": "https://github.com/RsyncProject/rsync/blob/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/NEWS.md",
+      "raw_url": "https://github.com/RsyncProject/rsync/raw/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/NEWS.md",
+      "contents_url": "https://api.github.com/repos/RsyncProject/rsync/contents/NEWS.md?ref=b70a61f394d0d4c71ee349a9260b4ed8babbb6be",
+      "patch": "@@ -3,6 +3,9 @@\n ## Changes in this version:\n \n ### BUG FIXES:\n+- Fixed a daemon receiver stack overflow when queued deletion output reached\n+  `--max-alloc`. Quiet daemon transfers no longer queue deletion messages\n+  unless the client requested them.\n - Fixed a `--files-from` pull from a subdirectory of a daemon module, which\n   read each listed file from the module root instead.  It could send, and with\n   `--remove-source-files` delete, a same-named file the module's filter"
+    },
+    {
+      "sha": "42a31ee2917a5b1631fb24c32c2b617033a738b3",
+      "filename": "clientserver.c",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 0,
+      "changes": 6,
+      "blob_url": "https://github.com/RsyncProject/rsync/blob/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/clientserver.c",
+      "raw_url": "https://github.com/RsyncProject/rsync/raw/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/clientserver.c",
+      "contents_url": "https://api.github.com/repos/RsyncProject/rsync/contents/clientserver.c?ref=b70a61f394d0d4c71ee349a9260b4ed8babbb6be",
+      "patch": "@@ -60,6 +60,7 @@ extern int logfile_format_has_o_or_i;\n extern char *bind_address;\n extern char *config_file;\n extern char *logfile_format;\n+extern char *stdout_format;\n extern char *files_from;\n extern char *tmpdir;\n extern char *early_input_file;\n@@ -1222,6 +1223,11 @@ static int rsync_module(int f_in, int f_out, int i, const char *addr, const char\n \t}\n \n #ifndef DEBUG\n+\t/* Remember an explicit deletion-output request before max verbosity\n+\t * clamps INFO_DEL.  stdout_format is also the server-side marker used\n+\t * to decide whether deletion names need to be sent to the client. */\n+\tif (protocol_version >= 29 && INFO_GTE(DEL, 1) && !stdout_format)\n+\t\tstdout_format = \"X\";\n \t/* don't allow the logs to be flooded too fast */\n \tlimit_output_verbosity(lp_max_verbosity(module_id));\n #endif"
+    },
+    {
+      "sha": "7fbd5a60a3362f916833370aa6f620f0af43f49d",
+      "filename": "io.c",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 0,
+      "changes": 7,
+      "blob_url": "https://github.com/RsyncProject/rsync/blob/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/io.c",
+      "raw_url": "https://github.com/RsyncProject/rsync/raw/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/io.c",
+      "contents_url": "https://api.github.com/repos/RsyncProject/rsync/contents/io.c?ref=b70a61f394d0d4c71ee349a9260b4ed8babbb6be",
+      "patch": "@@ -1087,12 +1087,17 @@ void noop_io_until_death(void)\n /* Buffer a message for the multiplexed output stream.  Is not used for (normal) MSG_DATA. */\n int send_msg(enum msgcode code, const char *buf, size_t len, int convert)\n {\n+\tstatic int growing_msg_buffer;\n \tchar *hdr;\n \tsize_t needed, pos;\n \tBOOL want_debug = DEBUG_GTE(IO, 1) && convert >= 0 && (msgs2stderr == 1 || code != MSG_INFO);\n \n \tif (!OUT_MULTIPLEXED)\n \t\treturn 0;\n+\t/* A fatal realloc_xbuf() failure is reported via rprintf(), which would\n+\t * otherwise call send_msg() again and try to grow the same full buffer. */\n+\tif (growing_msg_buffer)\n+\t\treturn 0;\n \n \tif (want_debug) {\n \t\trprintf(FINFO, \"[%s] send_msg(%d, %\" SIZE_T_FMT_MOD \"d)\\n\",\n@@ -1118,7 +1123,9 @@ int send_msg(enum msgcode code, const char *buf, size_t len, int convert)\n \t\telse { /* We sometimes allow the iobuf.msg size to increase to avoid a deadlock. */\n \t\t\tsize_t old_size = iobuf.msg.size;\n \t\t\trestore_iobuf_size(&iobuf.msg);\n+\t\t\tgrowing_msg_buffer = 1;\n \t\t\trealloc_xbuf(&iobuf.msg, iobuf.msg.size * 2);\n+\t\t\tgrowing_msg_buffer = 0;\n \t\t\tif (iobuf.msg.pos + iobuf.msg.len > old_size)\n \t\t\t\tmemcpy(iobuf.msg.buf + old_size, iobuf.msg.buf, iobuf.msg.pos + iobuf.msg.len - old_size);\n \t\t}"
+    },
+    {
+      "sha": "bf30df98dd565491b7c0d4184b169d4445c4bd17",
+      "filename": "log.c",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 9,
+      "changes": 21,
+      "blob_url": "https://github.com/RsyncProject/rsync/blob/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/log.c",
+      "raw_url": "https://github.com/RsyncProject/rsync/raw/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/log.c",
+      "contents_url": "https://api.github.com/repos/RsyncProject/rsync/contents/log.c?ref=b70a61f394d0d4c71ee349a9260b4ed8babbb6be",
+      "patch": "@@ -995,15 +995,18 @@ void log_delete(const char *fname, int mode)\n \n \tfile->mode = mode;\n \n-\tif (am_server && protocol_version >= 29 && len < MAXPATHLEN) {\n-\t\tif (S_ISDIR(mode))\n-\t\t\tlen++; /* directories include trailing null */\n-\t\tsend_msg(MSG_DELETED, fname, len, am_generator);\n-\t} else if (!INFO_GTE(DEL, 1) && !stdout_format)\n-\t\t;\n-\telse {\n-\t\tfmt = stdout_format_has_o_or_i ? stdout_format : \"deleting %n\";\n-\t\tlog_formatted(FCLIENT, fmt, \"del.\", file, fname, ITEM_DELETED, NULL);\n+\tif (INFO_GTE(DEL, 1) || stdout_format) {\n+\t\tif (am_server && protocol_version >= 29 && len < MAXPATHLEN) {\n+\t\t\t/* The generator may be unable to flush these messages until\n+\t\t\t * the sender's file list is complete.  Only queue names that\n+\t\t\t * the client requested as per-item output. */\n+\t\t\tif (S_ISDIR(mode))\n+\t\t\t\tlen++; /* directories include trailing null */\n+\t\t\tsend_msg(MSG_DELETED, fname, len, am_generator);\n+\t\t} else {\n+\t\t\tfmt = stdout_format_has_o_or_i ? stdout_format : \"deleting %n\";\n+\t\t\tlog_formatted(FCLIENT, fmt, \"del.\", file, fname, ITEM_DELETED, NULL);\n+\t\t}\n \t}\n \n \tif (!logfile_name || dry_run || !logfile_format)"
+    },
+    {
+      "sha": "150f9c27b6a4a84de6a7c9c2e685e60b0a7ffe00",
+      "filename": "testsuite/daemon-delete-msg-overflow_test.py",
+      "status": "added",
+      "additions": 120,
+      "deletions": 0,
+      "changes": 120,
+      "blob_url": "https://github.com/RsyncProject/rsync/blob/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/testsuite%2Fdaemon-delete-msg-overflow_test.py",
+      "raw_url": "https://github.com/RsyncProject/rsync/raw/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/testsuite%2Fdaemon-delete-msg-overflow_test.py",
+      "contents_url": "https://api.github.com/repos/RsyncProject/rsync/contents/testsuite%2Fdaemon-delete-msg-overflow_test.py?ref=b70a61f394d0d4c71ee349a9260b4ed8babbb6be",
+      "patch": "@@ -0,0 +1,120 @@\n+#!/usr/bin/env python3\n+\"\"\"A quiet daemon delete must not queue every deleted pathname.\n+\n+The daemon-side generator cannot always flush multiplexed messages while the\n+sender is still producing its file list, so send_msg() lets its message buffer\n+grow.  Sending MSG_DELETED for a quiet transfer made a large recursive delete\n+grow that buffer without bound even though the client would print none of the\n+names.  At --max-alloc the allocation error itself was sent through the same\n+full buffer, recursively exhausting the stack.\n+\n+Use long paths to reach the 1-MiB minimum --max-alloc with a modest number of\n+files.  --delete-excluded and --backup-dir mirror the reported daemon failure.\n+\"\"\"\n+\n+import subprocess\n+\n+from rsyncfns import (\n+    FROMDIR, SCRATCHDIR, TODIR,\n+    build_rsyncd_conf, makepath, rmtree, rsync_argv, start_test_daemon,\n+    test_fail,\n+)\n+\n+\n+DAEMON_PORT = 12969\n+FILE_COUNT = 1400\n+\n+src = FROMDIR\n+dst = TODIR / 'current'\n+history = dst / 'history'\n+\n+rmtree(src)\n+rmtree(TODIR)\n+makepath(src, dst)\n+(src / 'keep').write_text('keep\\n')\n+(dst / 'keep').write_text('keep\\n')\n+\n+# Keep the complete path below the most restrictive systems' practical limits.\n+# The messages total over 1 MiB; more than twice the 512-KiB queue occupancy\n+# that makes its next doubling hit (and be rejected by) --max-alloc=1m.\n+deep = dst / 'runs'\n+for i in range(10):\n+    deep /= f'd{i}-' + 'x' * 76\n+makepath(deep)\n+for i in range(FILE_COUNT):\n+    (deep / f'stale-{i:04d}').touch()\n+\n+conf = build_rsyncd_conf()\n+url = start_test_daemon(conf, DAEMON_PORT)\n+proc = subprocess.run(\n+    rsync_argv(\n+        '-a', '--delete', '--delete-excluded', '--backup',\n+        '--backup-dir=history', '--exclude=/runs/', '--max-alloc=1m',\n+        f'{src}/', f'{url}test-to/current/',\n+    ),\n+    capture_output=True,\n+    text=True,\n+)\n+out = proc.stdout + proc.stderr\n+if proc.returncode != 0:\n+    test_fail(f'quiet daemon delete exited {proc.returncode}:\\n{out}')\n+if out:\n+    test_fail(f'quiet daemon delete unexpectedly listed deleted names:\\n{out}')\n+if (dst / 'runs').exists():\n+    test_fail('excluded destination tree was not deleted')\n+\n+backed_up = history / 'runs'\n+if len(list(backed_up.rglob('stale-*'))) != FILE_COUNT:\n+    test_fail('deleted files were not all moved into the backup directory')\n+\n+# A requested deletion list is still allowed to hit --max-alloc, but reporting\n+# that error must not recurse through the same full queue until the daemon\n+# exhausts its stack.  Restore the files and repeat with deletion output on.\n+backed_up.rename(dst / 'runs')\n+proc = subprocess.run(\n+    rsync_argv(\n+        '-av', '--delete', '--delete-excluded', '--backup',\n+        '--backup-dir=history', '--exclude=/runs/', '--max-alloc=1m',\n+        f'{src}/', f'{url}test-to/current/',\n+    ),\n+    capture_output=True,\n+    text=True,\n+)\n+out = proc.stdout + proc.stderr\n+if proc.returncode == 0:\n+    test_fail('verbose daemon delete unexpectedly stayed below --max-alloc')\n+if 'Segmentation fault' in out:\n+    test_fail(f'verbose daemon delete recursively exhausted its stack:\\n{out}')\n+\n+alloc_errors = (SCRATCHDIR / 'rsyncd.log').read_text().count(\n+    'exceeded --max-alloc='\n+)\n+if alloc_errors != 1:\n+    test_fail(f'expected one daemon --max-alloc error, found {alloc_errors}')\n+\n+# The daemon's max-verbosity clamp applies after parsing the peer's options.\n+# It must not erase the fact that the client explicitly requested deletions.\n+conf_text = conf.read_text()\n+clamped_conf = conf_text.replace('max verbosity = 4', 'max verbosity = 0')\n+if clamped_conf == conf_text:\n+    test_fail('could not lower max verbosity in the daemon configuration')\n+conf.write_text(clamped_conf)\n+rmtree(dst)\n+makepath(dst)\n+(dst / 'keep').write_text('keep\\n')\n+(dst / 'clamped').write_text('delete me\\n')\n+proc = subprocess.run(\n+    rsync_argv(\n+        '-a', '--delete', '--info=del',\n+        f'{src}/', f'{url}test-to/current/',\n+    ),\n+    capture_output=True,\n+    text=True,\n+)\n+out = proc.stdout + proc.stderr\n+if proc.returncode != 0:\n+    test_fail(f'max-verbosity daemon delete exited {proc.returncode}:\\n{out}')\n+if 'deleting clamped' not in proc.stdout:\n+    test_fail(f'max verbosity hid a requested deletion:\\n{out}')\n+\n+print('daemon-delete-msg-overflow: deletion output and allocation failure verified')"
+    }
+  ]
+}

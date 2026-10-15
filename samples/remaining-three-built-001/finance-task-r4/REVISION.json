@@ -1,0 +1,7 @@
+{
+  "previous_revision": "finance-task-r3",
+  "fix": "fresh writable directory and snapshot for every independent historical configuration",
+  "cause": "actual old-image two-worker probe observed a file from the previous episode",
+  "score_formula_constants_and_prices_unchanged": true,
+  "requires_new_six_hour_run": true
+}

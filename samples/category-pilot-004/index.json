@@ -1,0 +1,56 @@
+[
+  {
+    "task_id": "restler_resource_lifecycle",
+    "title": "恢复 RESTler 异步资源与 create-once 生命周期",
+    "category": "Systems & Software Engineering",
+    "files": 475,
+    "status": "constructed_unverified",
+    "runtime_verified": false,
+    "accepted": false
+  },
+  {
+    "task_id": "kolmogorov_holder_modification",
+    "title": "形式化随机过程的 Hölder 连续修正",
+    "category": "Formal Math & Theorem Proving",
+    "files": 116,
+    "status": "constructed_unverified",
+    "runtime_verified": false,
+    "accepted": false
+  },
+  {
+    "task_id": "finite_release_groundwater_inverse",
+    "title": "稀疏观测下的三维有限时源反演",
+    "category": "Scientific Problems & ML",
+    "files": 14,
+    "status": "constructed_unverified",
+    "runtime_verified": false,
+    "accepted": false
+  },
+  {
+    "task_id": "industrial_irregular_strip",
+    "title": "真实切割零件的异形排样求解器优化",
+    "category": "Combinatorial Optimization",
+    "files": 1059,
+    "status": "constructed_unverified",
+    "runtime_verified": false,
+    "accepted": false
+  },
+  {
+    "task_id": "industry_portfolio_risk_lab",
+    "title": "跨市场阶段的行业组合风险校准",
+    "category": "Professional Knowledge Work",
+    "files": 14,
+    "status": "constructed_unverified",
+    "runtime_verified": false,
+    "accepted": false
+  },
+  {
+    "task_id": "microrts_resource_frontier",
+    "title": "资源竞争与瓶颈地形中的长期策略机器人",
+    "category": "Interactive Games & Simulators",
+    "files": 411,
+    "status": "constructed_unverified",
+    "runtime_verified": false,
+    "accepted": false
+  }
+]

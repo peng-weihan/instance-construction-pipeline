@@ -1,0 +1,10 @@
+{
+  "tasks": 12,
+  "model_task_rows": 60,
+  "valid_2h_6h_pairs": 59,
+  "unchanged_2h_6h_pairs": 3,
+  "unchanged_4h_6h_pairs": 8,
+  "median_2h_6h_gain_points": 4.4,
+  "not_our_run": true,
+  "no_independence_or_significance_claim": true
+}

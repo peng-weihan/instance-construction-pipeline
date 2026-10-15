@@ -1,0 +1,447 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.polaris.core.storage.cache;
+
+import static org.apache.polaris.core.config.RealmConfigurationSource.EMPTY_CONFIG;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Supplier;
+import org.apache.iceberg.exceptions.UnprocessableEntityException;
+import org.apache.polaris.core.config.RealmConfig;
+import org.apache.polaris.core.config.RealmConfigImpl;
+import org.apache.polaris.core.context.RealmContext;
+import org.apache.polaris.core.storage.StorageAccessConfig;
+import org.apache.polaris.core.storage.StorageAccessProperty;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
+
+public class StorageCredentialCacheTest {
+  private final RealmContext realmContext = () -> "testRealm";
+  private final RealmConfig realmConfig = new RealmConfigImpl(EMPTY_CONFIG, realmContext);
+  private StorageCredentialCache storageCredentialCache;
+
+  @BeforeEach
+  void beforeEach() {
+    StorageCredentialCacheConfig storageCredentialCacheConfig = () -> 10_000;
+    storageCredentialCache = new StorageCredentialCache(storageCredentialCacheConfig);
+  }
+
+  @Test
+  public void testBadResult() {
+    StorageCredentialCacheKey key =
+        buildKey(
+            "config1",
+            true,
+            Set.of("s3://bucket1/path"),
+            Set.of("s3://bucket3/path"),
+            Optional.empty(),
+            () -> {
+              throw new UnprocessableEntityException(
+                  "Failed to get subscoped credentials: extra_error_info");
+            });
+
+    Assertions.assertThatThrownBy(() -> storageCredentialCache.getOrLoad(key))
+        .isInstanceOf(UnprocessableEntityException.class)
+        .hasMessageContaining("Failed to get subscoped credentials: extra_error_info");
+  }
+
+  @Test
+  public void testCacheHit() {
+    List<StorageAccessConfig> configs = getFakeAccessConfigs(3, /* expireSoon= */ false);
+    AtomicInteger loadCount = new AtomicInteger();
+    Supplier<StorageAccessConfig> loader = () -> configs.get(loadCount.getAndIncrement());
+
+    StorageCredentialCacheKey key =
+        buildKey(
+            "config1",
+            true,
+            Set.of("s3://bucket1/path", "s3://bucket2/path"),
+            Set.of("s3://bucket3/path", "s3://bucket4/path"),
+            Optional.empty(),
+            loader);
+
+    // add an item to the cache
+    storageCredentialCache.getOrLoad(key);
+    Assertions.assertThat(storageCredentialCache.getEstimatedSize()).isEqualTo(1);
+
+    // same key will hit the cache
+    storageCredentialCache.getOrLoad(key);
+    Assertions.assertThat(storageCredentialCache.getEstimatedSize()).isEqualTo(1);
+
+    // same key again — still a hit
+    storageCredentialCache.getOrLoad(key);
+    Assertions.assertThat(storageCredentialCache.getEstimatedSize()).isEqualTo(1);
+
+    // loader should only have been called once
+    Assertions.assertThat(loadCount.get()).isEqualTo(1);
+  }
+
+  @Test
+  public void testCacheHitForSameKeyWithoutPrincipal() {
+    List<StorageAccessConfig> configs = getFakeAccessConfigs(2, /* expireSoon= */ false);
+    AtomicInteger loadCount = new AtomicInteger();
+    Supplier<StorageAccessConfig> loader = () -> configs.get(loadCount.getAndIncrement());
+
+    // Key without principal — same key for different principals
+    StorageCredentialCacheKey key =
+        buildKey(
+            "config1",
+            true,
+            Set.of("s3://bucket1/path", "s3://bucket2/path"),
+            Set.of("s3://bucket3/path", "s3://bucket4/path"),
+            Optional.empty(),
+            loader);
+
+    storageCredentialCache.getOrLoad(key);
+    Assertions.assertThat(storageCredentialCache.getEstimatedSize()).isEqualTo(1);
+
+    // Same key — cache hit regardless of who the caller is
+    storageCredentialCache.getOrLoad(key);
+    Assertions.assertThat(storageCredentialCache.getEstimatedSize()).isEqualTo(1);
+
+    Assertions.assertThat(loadCount.get()).isEqualTo(1);
+  }
+
+  @RepeatedTest(10)
+  public void testCacheEvict() throws Exception {
+    List<StorageAccessConfig> configs = getFakeAccessConfigs(3, /* expireSoon= */ true);
+    AtomicInteger loadCount = new AtomicInteger();
+    Supplier<StorageAccessConfig> loader = () -> configs.get(loadCount.getAndIncrement());
+
+    StorageCredentialCacheKey cacheKey =
+        buildKey(
+            "config1",
+            true,
+            Set.of("s3://bucket1/path", "s3://bucket2/path"),
+            Set.of("s3://bucket/path"),
+            Optional.empty(),
+            loader);
+
+    // the entry will be evicted immediately because the token is expired
+    storageCredentialCache.getOrLoad(cacheKey);
+    Assertions.assertThat(storageCredentialCache.getIfPresent(cacheKey)).isNull();
+
+    storageCredentialCache.getOrLoad(cacheKey);
+    Assertions.assertThat(storageCredentialCache.getIfPresent(cacheKey)).isNull();
+
+    storageCredentialCache.getOrLoad(cacheKey);
+    Assertions.assertThat(storageCredentialCache.getIfPresent(cacheKey)).isNull();
+  }
+
+  @Test
+  public void testCacheGenerateNewEntries() {
+    List<StorageAccessConfig> configs = getFakeAccessConfigs(30, /* expireSoon= */ false);
+    AtomicInteger loadCount = new AtomicInteger();
+    Supplier<StorageAccessConfig> loader = () -> configs.get(loadCount.getAndIncrement());
+
+    List<String> configList = getStorageConfigStrings();
+    int cacheSize = 0;
+
+    // different storage configs will generate new cache entries
+    for (String configStr : configList) {
+      StorageCredentialCacheKey key =
+          buildKey(
+              configStr,
+              true,
+              Set.of("s3://bucket1/path", "s3://bucket2/path"),
+              Set.of("s3://bucket/path"),
+              Optional.empty(),
+              loader);
+      storageCredentialCache.getOrLoad(key);
+      Assertions.assertThat(storageCredentialCache.getEstimatedSize()).isEqualTo(++cacheSize);
+    }
+
+    // changed storage config — cache will generate new entry
+    for (String ignored : configList) {
+      StorageCredentialCacheKey key =
+          buildKey(
+              "newStorageConfig",
+              true,
+              Set.of("s3://bucket1/path", "s3://bucket2/path"),
+              Set.of("s3://bucket/path"),
+              Optional.empty(),
+              loader);
+      storageCredentialCache.getOrLoad(key);
+      // only one new entry since "newStorageConfig" is the same each time
+      if (cacheSize < configList.size() + 1) {
+        Assertions.assertThat(storageCredentialCache.getEstimatedSize()).isEqualTo(++cacheSize);
+      }
+    }
+
+    // allowedListAction changed to FALSE — will generate new entry
+    for (String configStr : configList) {
+      StorageCredentialCacheKey key =
+          buildKey(
+              configStr,
+              false,
+              Set.of("s3://bucket1/path", "s3://bucket2/path"),
+              Set.of("s3://bucket/path"),
+              Optional.empty(),
+              loader);
+      storageCredentialCache.getOrLoad(key);
+      Assertions.assertThat(storageCredentialCache.getEstimatedSize()).isEqualTo(++cacheSize);
+    }
+
+    // different allowedWriteLocations — will generate new entry
+    for (String configStr : configList) {
+      StorageCredentialCacheKey key =
+          buildKey(
+              configStr,
+              false,
+              Set.of("s3://bucket1/path", "s3://bucket2/path"),
+              Set.of("s3://differentbucket/path"),
+              Optional.empty(),
+              loader);
+      storageCredentialCache.getOrLoad(key);
+      Assertions.assertThat(storageCredentialCache.getEstimatedSize()).isEqualTo(++cacheSize);
+    }
+
+    // different allowedReadLocations — will generate new entry
+    for (String configStr : configList) {
+      StorageCredentialCacheKey key =
+          buildKey(
+              configStr,
+              false,
+              Set.of("s3://differentbucket/path", "s3://bucket2/path"),
+              Set.of("s3://bucket/path"),
+              Optional.empty(),
+              loader);
+      storageCredentialCache.getOrLoad(key);
+      Assertions.assertThat(storageCredentialCache.getEstimatedSize()).isEqualTo(++cacheSize);
+    }
+  }
+
+  @Test
+  public void testCacheNotAffectedBy() {
+    List<StorageAccessConfig> configs = getFakeAccessConfigs(20, /* expireSoon= */ false);
+    AtomicInteger loadCount = new AtomicInteger();
+    Supplier<StorageAccessConfig> loader = () -> configs.get(loadCount.getAndIncrement());
+
+    List<String> configList = getStorageConfigStrings();
+    for (String configStr : configList) {
+      StorageCredentialCacheKey key =
+          buildKey(
+              configStr,
+              true,
+              Set.of("s3://bucket1/path", "s3://bucket2/path"),
+              Set.of("s3://bucket3/path", "s3://bucket4/path"),
+              Optional.empty(),
+              loader);
+      storageCredentialCache.getOrLoad(key);
+    }
+    Assertions.assertThat(storageCredentialCache.getEstimatedSize()).isEqualTo(configList.size());
+
+    // same config strings produce cache hits
+    for (String configStr : configList) {
+      StorageCredentialCacheKey key =
+          buildKey(
+              configStr,
+              true,
+              Set.of("s3://bucket1/path", "s3://bucket2/path"),
+              Set.of("s3://bucket3/path", "s3://bucket4/path"),
+              Optional.empty(),
+              loader);
+      storageCredentialCache.getOrLoad(key);
+      Assertions.assertThat(storageCredentialCache.getEstimatedSize()).isEqualTo(configList.size());
+    }
+
+    // order of the allowedReadLocations does not affect the cache
+    for (String configStr : configList) {
+      StorageCredentialCacheKey key =
+          buildKey(
+              configStr,
+              true,
+              Set.of("s3://bucket2/path", "s3://bucket1/path"),
+              Set.of("s3://bucket3/path", "s3://bucket4/path"),
+              Optional.empty(),
+              loader);
+      storageCredentialCache.getOrLoad(key);
+      Assertions.assertThat(storageCredentialCache.getEstimatedSize()).isEqualTo(configList.size());
+    }
+
+    // order of the allowedWriteLocations does not affect the cache
+    for (String configStr : configList) {
+      StorageCredentialCacheKey key =
+          buildKey(
+              configStr,
+              true,
+              Set.of("s3://bucket2/path", "s3://bucket1/path"),
+              Set.of("s3://bucket4/path", "s3://bucket3/path"),
+              Optional.empty(),
+              loader);
+      storageCredentialCache.getOrLoad(key);
+      Assertions.assertThat(storageCredentialCache.getEstimatedSize()).isEqualTo(configList.size());
+    }
+  }
+
+  @Test
+  public void testExtraProperties() {
+    StorageAccessConfig config =
+        StorageAccessConfig.builder()
+            .put(StorageAccessProperty.AWS_SECRET_KEY, "super-secret-123")
+            .put(StorageAccessProperty.AWS_ENDPOINT, "test-endpoint1")
+            .put(StorageAccessProperty.AWS_PATH_STYLE_ACCESS, "true")
+            .build();
+
+    StorageCredentialCacheKey key =
+        buildKey(
+            "config1",
+            true,
+            Set.of("s3://bucket1/path", "s3://bucket2/path"),
+            Set.of("s3://bucket3/path", "s3://bucket4/path"),
+            Optional.empty(),
+            () -> config);
+
+    StorageAccessConfig result = storageCredentialCache.getOrLoad(key);
+    Assertions.assertThat(result.credentials())
+        .containsExactly(Map.entry("s3.secret-access-key", "super-secret-123"));
+    Assertions.assertThat(result.extraProperties())
+        .containsExactlyInAnyOrderEntriesOf(
+            Map.of("s3.endpoint", "test-endpoint1", "s3.path-style-access", "true"));
+  }
+
+  private TestKey buildKey(
+      String storageConfigSerializedStr,
+      boolean allowListAction,
+      Set<String> allowedReadLocations,
+      Set<String> allowedWriteLocations,
+      Optional<String> refreshCredentialsEndpoint,
+      Supplier<StorageAccessConfig> loader) {
+    return new TestKey(
+        realmContext.getRealmIdentifier(),
+        storageConfigSerializedStr,
+        allowListAction,
+        allowedReadLocations,
+        allowedWriteLocations,
+        refreshCredentialsEndpoint,
+        realmConfig,
+        loader);
+  }
+
+  /**
+   * Test cache key. Equality uses the data fields (realmId, storageConfigSerializedStr,
+   * allowListAction, location sets, refreshEndpoint) — the realmConfig and loader supplier are
+   * auxiliary and excluded so behaviour matches a real backend key.
+   */
+  private static final class TestKey implements StorageCredentialCacheKey {
+    private final String realmId;
+    private final String storageConfigSerializedStr;
+    private final boolean allowListAction;
+    private final Set<String> allowedReadLocations;
+    private final Set<String> allowedWriteLocations;
+    private final Optional<String> refreshCredentialsEndpoint;
+    private final RealmConfig realmConfig;
+    private final Supplier<StorageAccessConfig> loader;
+
+    private TestKey(
+        String realmId,
+        String storageConfigSerializedStr,
+        boolean allowListAction,
+        Set<String> allowedReadLocations,
+        Set<String> allowedWriteLocations,
+        Optional<String> refreshCredentialsEndpoint,
+        RealmConfig realmConfig,
+        Supplier<StorageAccessConfig> loader) {
+      this.realmId = realmId;
+      this.storageConfigSerializedStr = storageConfigSerializedStr;
+      this.allowListAction = allowListAction;
+      this.allowedReadLocations = allowedReadLocations;
+      this.allowedWriteLocations = allowedWriteLocations;
+      this.refreshCredentialsEndpoint = refreshCredentialsEndpoint;
+      this.realmConfig = realmConfig;
+      this.loader = loader;
+    }
+
+    @Override
+    public RealmConfig realmConfig() {
+      return realmConfig;
+    }
+
+    @Override
+    public StorageAccessConfig load() {
+      return loader.get();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) return true;
+      if (!(o instanceof TestKey other)) return false;
+      return allowListAction == other.allowListAction
+          && Objects.equals(realmId, other.realmId)
+          && Objects.equals(storageConfigSerializedStr, other.storageConfigSerializedStr)
+          && Objects.equals(allowedReadLocations, other.allowedReadLocations)
+          && Objects.equals(allowedWriteLocations, other.allowedWriteLocations)
+          && Objects.equals(refreshCredentialsEndpoint, other.refreshCredentialsEndpoint);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(
+          realmId,
+          storageConfigSerializedStr,
+          allowListAction,
+          allowedReadLocations,
+          allowedWriteLocations,
+          refreshCredentialsEndpoint);
+    }
+  }
+
+  private static List<StorageAccessConfig> getFakeAccessConfigs(int number, boolean expireSoon) {
+    List<StorageAccessConfig> res = new ArrayList<>();
+    for (int i = 1; res.size() < number; i = i + 3) {
+      int finalI = i;
+      String expireTime =
+          expireSoon
+              ? String.valueOf(System.currentTimeMillis() - 100)
+              : String.valueOf(Long.MAX_VALUE);
+      res.add(
+          StorageAccessConfig.builder()
+              .put(StorageAccessProperty.AWS_KEY_ID, "key_id_" + finalI)
+              .put(StorageAccessProperty.AWS_SECRET_KEY, "key_secret_" + finalI)
+              .put(StorageAccessProperty.AWS_SESSION_TOKEN_EXPIRES_AT_MS, expireTime)
+              .build());
+      if (res.size() == number) return res;
+      res.add(
+          StorageAccessConfig.builder()
+              .put(StorageAccessProperty.AZURE_SAS_TOKEN_BARE, "sas_token_" + finalI)
+              .put(StorageAccessProperty.AZURE_SAS_TOKEN_EXPIRES_AT_MS, expireTime)
+              .build());
+      if (res.size() == number) return res;
+      res.add(
+          StorageAccessConfig.builder()
+              .put(StorageAccessProperty.GCS_ACCESS_TOKEN, "gcs_token_" + finalI)
+              .put(StorageAccessProperty.GCS_ACCESS_TOKEN_EXPIRES_AT_MS, expireTime)
+              .build());
+    }
+    return res;
+  }
+
+  private static List<String> getStorageConfigStrings() {
+    return Arrays.asList("config1", "config2", "config3");
+  }
+}

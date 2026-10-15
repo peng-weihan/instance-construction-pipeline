@@ -1,0 +1,22 @@
+# 55_cel_go · 类型检查与可复用执行计划的 CEL 表达式系统
+
+- 路线/优先级：M2 / `hold`；只作素材判断。
+- 固定版本：[5dcc82d6016cbe8ce7aef7b027538c42ed31c2d6](https://github.com/cel-expr/cel-go/tree/5dcc82d6016cbe8ce7aef7b027538c42ed31c2d6)；完整树/片段哈希见 `sources/55_cel_go_canonical/manifest.json`。
+- 已有功能：canonical CEL-Go 已含环境声明、parse/check、program planning、JSON/protobuf 绑定、求值与成本限制；google/cel-go 当前只读 alias 壳不能当解释器源码。
+- 拟题边界：拟抽取 environment/declarations→parse/check typed AST→plan→反复 activation 求值→错误/unknown/cost limit 的完整表达式执行子系统。冻结 CEL 基础功能和宏/容器合同，不含任意脚本/全新异步扩展。
+- 拟缺口：尚无成熟 CEL 实现无法薄包装的真实缺口，维持 hold；不可把语言实现现有 parse/check/eval 写成上游缺失。
+- 关联链：声明/类型环境→source/AST→overload/type resolution→执行计划→每次独立 activation/frame→value/error/unknown 与成本→复用/释放。
+- 代码/真实测试实读：[cel/env.go:597](https://github.com/cel-expr/cel-go/blob/5dcc82d6016cbe8ce7aef7b027538c42ed31c2d6/cel/env.go#L597) CompileSource 按 ParseSource→Check 流程返回 checked AST。；[cel/program.go:467](https://github.com/cel-expr/cel-go/blob/5dcc82d6016cbe8ce7aef7b027538c42ed31c2d6/cel/program.go#L467) Eval 建立或复用 execution frame、捕获成本/error 并在需要时关闭 frame。；[cel/cel_test.go:2071](https://github.com/cel-expr/cel-go/blob/5dcc82d6016cbe8ce7aef7b027538c42ed31c2d6/cel/cel_test.go#L2071) 真实 CostLimit 测试结合 compile/check/Program/Eval 检查成本边界。
+- 组合场景 1：嵌套 list/map comprehension+声明/overload+多次不同变量 activation，检查计划复用与隔离。
+- 组合场景 2：短路逻辑+缺失属性/unknown/error+partial activation，核对错误是否被决定性分支消除。
+- 组合场景 3：自定义函数/protobuf 绑定+cost limit 触发+下一次求值，核对资源和状态不泄漏。
+- 基础完成后剩余路径假设 1：基本算术之后仍需 typed overload、宏展开、容器、error/unknown 的一致语义。
+- 基础完成后剩余路径假设 2：单次求值之后仍需计划跨 activation 复用、成本观测、取消和 frame 释放；现成库已实现，不能作为困难断言。
+- 参考/判据：CEL 官方三阶段流程和冻结具体功能规范为合同，独立 conformance/手算表达式加至少一个其他实现交叉；不能默认各版本扩展/成本模型一致。
+- 正常强基线：直接使用 cel.dev/cel-go 的 Env.Compile/Program/Eval/CostLimit；其他成熟 CEL 实现也合法，普通 eval 的禁用不等于库包装失效。
+- 首个否证：将完整拟 API/场景映射到 canonical CEL-Go；薄包装成立则维持 hold。若做恢复须另冻结完整健康参考并确定自然相关缺口。
+- 离线/架构成本：固定 Go modules、CEL/protobuf 类型描述、宏与成本模型版本；无外服。canonical 新功能与旧 import 兼容成本须分开。
+- 许可观察：canonical 与旧兼容壳根 LICENSE/源码均为 Apache-2.0；未完整审依赖。
+- 官方资料已核对：[parse/check/evaluate 与 compile once/evaluate many](https://cel.dev/overview/cel-overview)；[当前 canonical 实现](https://github.com/cel-expr/cel-go)
+- 来源迁移证据：google/cel-go@6d32ef54e4f124929730b15d5eb9b9205da58992 README:6–23 明示 canonical 迁移；cel/alias.go:16–20 是生成 forwarder，alias_test.go:25 验证旧新类型兼容。；保留 `sources/55_cel_go/manifest.json`，兼容壳不计第二来源。
+- 状态：source_reviewed_scope_unproven；未构题、未 build/运行、未验证六小时难度；仅对照原 EdgeBench 的机制，不复用原题/测试/答案。

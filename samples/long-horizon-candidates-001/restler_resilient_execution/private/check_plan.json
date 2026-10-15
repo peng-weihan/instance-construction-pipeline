@@ -1,0 +1,74 @@
+{
+  "feature_groups": [
+    {
+      "id": "policy",
+      "weight": 0.1,
+      "required_layers": [
+        "unit",
+        "caller_integration",
+        "cross_feature_regression"
+      ]
+    },
+    {
+      "id": "retry",
+      "weight": 0.15,
+      "required_layers": [
+        "unit",
+        "caller_integration",
+        "cross_feature_regression"
+      ]
+    },
+    {
+      "id": "idempotency",
+      "weight": 0.15,
+      "required_layers": [
+        "unit",
+        "caller_integration",
+        "cross_feature_regression"
+      ]
+    },
+    {
+      "id": "async",
+      "weight": 0.15,
+      "required_layers": [
+        "unit",
+        "caller_integration",
+        "cross_feature_regression"
+      ]
+    },
+    {
+      "id": "leases",
+      "weight": 0.2,
+      "required_layers": [
+        "unit",
+        "caller_integration",
+        "cross_feature_regression"
+      ]
+    },
+    {
+      "id": "trace",
+      "weight": 0.1,
+      "required_layers": [
+        "unit",
+        "caller_integration",
+        "cross_feature_regression"
+      ]
+    },
+    {
+      "id": "replay",
+      "weight": 0.15,
+      "required_layers": [
+        "unit",
+        "caller_integration",
+        "cross_feature_regression"
+      ]
+    }
+  ],
+  "cross_faults": [
+    "retry budget consumed before async completion",
+    "cancellation while shared parent is leased",
+    "creation failure during multi-level cleanup",
+    "schema error before transport",
+    "redaction survives replay"
+  ]
+}

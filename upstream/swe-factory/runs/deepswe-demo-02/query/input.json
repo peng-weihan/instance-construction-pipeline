@@ -1,0 +1,11 @@
+{
+  "route": "query",
+  "local_path": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/query-source",
+  "commit": "ccd27da5cd0bdcd8d776c57382119dafb61e11a8",
+  "test_paths": [
+    "tests"
+  ],
+  "production_paths": [
+    "calc.py"
+  ]
+}

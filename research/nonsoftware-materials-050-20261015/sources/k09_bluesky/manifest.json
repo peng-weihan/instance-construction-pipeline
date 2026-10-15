@@ -1,0 +1,75 @@
+{
+  "repo": "TUDelft-CNS-ATM/bluesky",
+  "revision": "46a2a8a5fa4e0bdd6f6991fefc70dc3512f8fc53",
+  "resolved_utc": "2026-10-15T14:58:55.203115+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:01:10.584896+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "953143c5869d2b7158f9995496e6dce6076fe613dc2b559bd932471b85fff361",
+    "truncated": false,
+    "blob_count": 1094
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 1065,
+      "sha256": "4b366fbcad4728751acaa1d84e728bb5ad79c270f7e442e76b648f54f78c1b85",
+      "url": "https://github.com/TUDelft-CNS-ATM/bluesky/blob/46a2a8a5fa4e0bdd6f6991fefc70dc3512f8fc53/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4005,
+      "sha256": "ae7b651299ec931cdb81b6096685f01210b8c02e0fd1f29679a84e7ba4acc654",
+      "url": "https://github.com/TUDelft-CNS-ATM/bluesky/blob/46a2a8a5fa4e0bdd6f6991fefc70dc3512f8fc53/README.md"
+    },
+    {
+      "path": "bluesky/test/traffic/test_route_wpt.py",
+      "bytes": 11068,
+      "sha256": "48bdad4b038d42065c6d09ee8cc522b1fa118b5ed2f327c81e525ff2fd554d2a",
+      "url": "https://github.com/TUDelft-CNS-ATM/bluesky/blob/46a2a8a5fa4e0bdd6f6991fefc70dc3512f8fc53/bluesky/test/traffic/test_route_wpt.py"
+    },
+    {
+      "path": "bluesky/traffic/asas/detection.py",
+      "bytes": 10494,
+      "sha256": "1e6cc0b142d37fa5ea4553663527abe23f8acf6c6cc4c07423cc2ca9dce3021b",
+      "url": "https://github.com/TUDelft-CNS-ATM/bluesky/blob/46a2a8a5fa4e0bdd6f6991fefc70dc3512f8fc53/bluesky/traffic/asas/detection.py"
+    },
+    {
+      "path": "bluesky/traffic/asas/mvp.py",
+      "bytes": 18181,
+      "sha256": "357d9b49722b7939da2dfa24a49f682612992d23248414b60cebac6a0be08560",
+      "url": "https://github.com/TUDelft-CNS-ATM/bluesky/blob/46a2a8a5fa4e0bdd6f6991fefc70dc3512f8fc53/bluesky/traffic/asas/mvp.py"
+    },
+    {
+      "path": "bluesky/traffic/asas/resolution.py",
+      "bytes": 10601,
+      "sha256": "3956d755928fa98c9cf99a042222ea59e92d8e8eda98c35fb6653a1533dddf93",
+      "url": "https://github.com/TUDelft-CNS-ATM/bluesky/blob/46a2a8a5fa4e0bdd6f6991fefc70dc3512f8fc53/bluesky/traffic/asas/resolution.py"
+    },
+    {
+      "path": "bluesky/traffic/asas/statebased.py",
+      "bytes": 5295,
+      "sha256": "c1597ef8df01885598e7d8980392eb49a08d48906622dbf430fdc48e97081321",
+      "url": "https://github.com/TUDelft-CNS-ATM/bluesky/blob/46a2a8a5fa4e0bdd6f6991fefc70dc3512f8fc53/bluesky/traffic/asas/statebased.py"
+    },
+    {
+      "path": "scenario/ASAS/ASAS-SUPER8-WIND.scn",
+      "bytes": 518,
+      "sha256": "b5dbe62d87b90ebd615f6ca389b2204179764b338cc67de4e70c8425fcb79641",
+      "url": "https://github.com/TUDelft-CNS-ATM/bluesky/blob/46a2a8a5fa4e0bdd6f6991fefc70dc3512f8fc53/scenario/ASAS/ASAS-SUPER8-WIND.scn"
+    },
+    {
+      "path": "scenario/ASAS/ASAS-SUPER8.scn",
+      "bytes": 509,
+      "sha256": "06f32a2819eb4c94c1f3aeeb237c54cfa7af571ef8fe34c49572446726dbd046",
+      "url": "https://github.com/TUDelft-CNS-ATM/bluesky/blob/46a2a8a5fa4e0bdd6f6991fefc70dc3512f8fc53/scenario/ASAS/ASAS-SUPER8.scn"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

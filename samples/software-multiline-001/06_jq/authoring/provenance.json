@@ -1,0 +1,38 @@
+{
+  "sources": [
+    {
+      "repo": "https://github.com/jqlang/jq",
+      "commit": "71c2ab509a8628dbbad4bc7b3f98a64aa90d3297",
+      "tag": "jq-1.7.1"
+    }
+  ],
+  "retained_archives": [
+    {
+      "path": "authoring/sources/jq.tar.gz",
+      "sha256": "eeef5d733152158e735a3c2024bd0d74c5c8a55696e5ee71cfd31a46381f709d",
+      "bytes": 1324134
+    },
+    {
+      "path": "authoring/sources/jq-1.7.1-release.tar.gz",
+      "sha256": "478c9ca129fd2e3443fe27314b455e211e0d8c60bc8ff7df703873deeee580c2",
+      "bytes": 1950645
+    }
+  ],
+  "test_material_origin": "Author-selected compositional CLI probes grounded in official tests and manual; not a verbatim full-suite conversion",
+  "expected_origin": "Unmodified official jq-1.7.1 built locally from the retained official release asset, without optional regex library",
+  "transformations": [
+    "Fixed archive -> extracted original source with notices",
+    "Normative documents only -> work public reference; implementation and hidden data excluded",
+    "jq programs + stdin + argv -> actual stdout/stderr/exit from official executable",
+    "Source family -> eight frozen semantic groups; repeated cases do not increase group weight"
+  ],
+  "splits": {
+    "public": "environment/dev_cases.json, one documented case per group",
+    "private": "verifier/private/cases.json, all scoring cases including development anchors",
+    "independent_test_holdout": "No unseen task-family holdout evidence; not claimed"
+  },
+  "agent_environment_content": "starter, normative profile, public development examples and generic tools; no private oracle or hidden corpus",
+  "host_platform": "macOS-26.6.2-arm64-arm-64bit",
+  "requested_author_model": "gpt-6.1-sol",
+  "provider_receipt_verified": false
+}

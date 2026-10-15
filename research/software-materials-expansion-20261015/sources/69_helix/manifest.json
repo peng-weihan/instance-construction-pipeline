@@ -1,0 +1,69 @@
+{
+  "repo": "helix-editor/helix",
+  "revision": "ba40e547426b0f9896c8bdc699a4ab11f2b37dbc",
+  "resolved_utc": "2026-10-15T13:30:29.462295+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:31:11.510974+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "a197c920bfbcb59aeaba24f3ba70a7245d23ef8e9827dda09a7dc4a8d29862ec",
+    "truncated": false,
+    "blob_count": 2014
+  },
+  "files_acquired": [
+    {
+      "path": "Cargo.toml",
+      "bytes": 1582,
+      "sha256": "8191c3dba9626c4afdb1e46688535234b9d7cce9ab6f1d332a36a28a0b7bb7ea",
+      "url": "https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/Cargo.toml"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 16725,
+      "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5",
+      "url": "https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2697,
+      "sha256": "67979f40c4a95b750497780b83652f8292588ef0c25a740b3942ad4cb9a98639",
+      "url": "https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/README.md"
+    },
+    {
+      "path": "helix-core/Cargo.toml",
+      "bytes": 1525,
+      "sha256": "176192abcd5d3c83095f78adba9535f58f6999a713b022a1edd86e7dca1fcff3",
+      "url": "https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/helix-core/Cargo.toml"
+    },
+    {
+      "path": "helix-core/src/history.rs",
+      "bytes": 21869,
+      "sha256": "764e4d4599f99e777fd43f673a09b9eb65a145935bac4ad5b05c6c90885438cf",
+      "url": "https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/helix-core/src/history.rs"
+    },
+    {
+      "path": "helix-core/src/selection.rs",
+      "bytes": 48971,
+      "sha256": "af97f06ef2e13daaefa42148343abf299e671a98fcfa6686fe16516b1aea2816",
+      "url": "https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/helix-core/src/selection.rs"
+    },
+    {
+      "path": "helix-core/src/syntax.rs",
+      "bytes": 46201,
+      "sha256": "0d8503667450cef0ba38fa5930f4ad47914f2779cbd3fa5dd223faaa6552bc18",
+      "url": "https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/helix-core/src/syntax.rs"
+    },
+    {
+      "path": "helix-core/src/transaction.rs",
+      "bytes": 40331,
+      "sha256": "9538319c6e595d808c61338b69036caac2d420eb07819ec2d964af43550cb4a6",
+      "url": "https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/helix-core/src/transaction.rs"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

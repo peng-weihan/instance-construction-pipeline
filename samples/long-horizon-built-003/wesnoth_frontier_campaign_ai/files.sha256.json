@@ -1,0 +1,792 @@
+[
+  {
+    "path": "README.md",
+    "sha256": "51f28c62bfee3c2ae8ae2b09d543a8e4f70b10a98dbe83dbf27b970e2bc1b81e",
+    "bytes": 1774
+  },
+  {
+    "path": "base_image.lock.json",
+    "sha256": "b9ecc98d2d1101a183f8d6e6c9a327faf540906237bc5bb921e4a4b2292fb9df",
+    "bytes": 637
+  },
+  {
+    "path": "endpoint_notes.md",
+    "sha256": "4fb5e38826f951b651108786f3e3e07f493f953ee4feb3497ffcbd493ed1f61c",
+    "bytes": 412
+  },
+  {
+    "path": "environment/agent/.dockerignore",
+    "sha256": "d05085fb4b693bb7fe824a831dc9bd8de9dee2f42b192c95d637e9f917eb368d",
+    "bytes": 36
+  },
+  {
+    "path": "environment/agent/Dockerfile",
+    "sha256": "789813d28f5856a6e25ccc3d154dea8f02b1e088a30ec9de84a9c38db6569366",
+    "bytes": 1678
+  },
+  {
+    "path": "environment/agent/capture_build.py",
+    "sha256": "753da269f6b211bf842dc29dbeea3bcd185aa871d2478822e08bece9b665d841",
+    "bytes": 789
+  },
+  {
+    "path": "environment/agent/public/COPYING",
+    "sha256": "e6d6a009505e345fe949e1310334fcb0747f28dae2856759de102ab66b722cb4",
+    "bytes": 18011
+  },
+  {
+    "path": "environment/agent/public/adapter.lua",
+    "sha256": "4366f896369a000e20bdc2f5d54471738f11199db5e464d0d76a1e015bb2f0c6",
+    "bytes": 5156
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/ai_helper.lua",
+    "sha256": "e0f97d4f512a7603618799c01cf6bf0829c41d3b0e006ee6f67272a6f32c8791",
+    "bytes": 101993
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/battle_calcs.lua",
+    "sha256": "1797819ad2b469490bf476e5bb4d50a35bce7807f80dca5bb70d4e1464d41a17",
+    "bytes": 75151
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/ca_castle_switch.lua",
+    "sha256": "ebf0befbd95dde081eca55e543a373527a59620eb39d2d504b3e4f9b5aff1c18",
+    "bytes": 11110
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/ca_grab_villages.lua",
+    "sha256": "42ec7807ead059b146c5f828c302f5d7a67752bbb4fd4713e01b913332fd45f2",
+    "bytes": 6243
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/ca_high_xp_attack.lua",
+    "sha256": "10e960e85d0b28299176335d1fe5b09c77f3dd913c823a819c026b859bf9a2be",
+    "bytes": 14012
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/ca_level_up_attack.lua",
+    "sha256": "fcd547020b7462bcd53a9fe216b59ec76f80cb9ca16ee505b25da116f4d16bb7",
+    "bytes": 3463
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/ca_move_to_any_enemy.lua",
+    "sha256": "23772fe3fec9153f4b202abefd539c66c08609bb446d686afcb66972a102c5c5",
+    "bytes": 4550
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/ca_place_healers.lua",
+    "sha256": "3a0cc30e13ea46dbb4abc2e65f5f928b45c9bb754aad67480fc2769b7bf6362a",
+    "bytes": 859
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/ca_recruit_rushers.lua",
+    "sha256": "4cefa462316f8616a1ae60c6e16e8fba536e9440b020b7750fe2775e79ceda4b",
+    "bytes": 47840
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/ca_retreat_injured.lua",
+    "sha256": "eda0ebcd375a691a3569852175b0c83232b3826aa560ea7c738922b8ec9ee068",
+    "bytes": 1849
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/ca_simple_scouting.lua",
+    "sha256": "05d81f6ce2c41b3096279b4ce47cb72fa6b93a1a16a80fe91a7708d7da96023b",
+    "bytes": 2241
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/ca_spread_poison.lua",
+    "sha256": "3386a4de5c7c3d95adfa526374bc48f8e380e768720057bbcb095807aaec37e5",
+    "bytes": 5302
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/ca_village_hunt.lua",
+    "sha256": "4675a7781a19924336fe4b729235803f16d892db4fbaf454009e383750263236",
+    "bytes": 3370
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/cache.lua",
+    "sha256": "f28cf9bea50957f515602c64eb88f711b4df20c7f7a44bfeac5b14d3d7913590",
+    "bytes": 472
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/debug.lua",
+    "sha256": "dca48b1f6d6def1f6445ea894c8c49ff7969760d4ec6153147048dc4956f46f4",
+    "bytes": 681
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/dummy_engine_lua.lua",
+    "sha256": "99643916d4691ee40d954105ed737a5e73884db4d7bfd9b334a87508ec52770b",
+    "bytes": 389
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/extCAexample.lua",
+    "sha256": "6cabbd730b1cbe439aa225f13b298fd0489b75a66f97e15db0c4e71e0ca1fe0f",
+    "bytes": 550
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/generic_recruit_engine.lua",
+    "sha256": "cd34b8489a708711ea05aaf2fa55dcf2e5a454dca34b49004d6c8565b53ce7ca",
+    "bytes": 55609
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/opening.lua",
+    "sha256": "444ca0d2583e3b12a6311c40e0f8bcd679776bd1ec30f41cdea1291dffce8fdc",
+    "bytes": 1068
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/retreat.lua",
+    "sha256": "de9c60391e891a6987d8b4dce25665783098c36bbcb91513b2ceba2812507bc1",
+    "bytes": 12825
+  },
+  {
+    "path": "environment/agent/public/api_examples/ai_lua/stdlib.lua",
+    "sha256": "b66fadec9d9ab247e557e8787c088c6b33707e645d1a133d70010d30283f0c97",
+    "bytes": 4311
+  },
+  {
+    "path": "environment/agent/public/contract.draft.json",
+    "sha256": "33e1da7962f6cc2ca87f569b33584a33623c3aa7529b1bd76c926ee28d8fb603",
+    "bytes": 1218
+  },
+  {
+    "path": "environment/agent/public/instruction.md",
+    "sha256": "f2f45a96da48edeba1fdc5270ecc8ddbfff28cc95614504a1785714ca889516e",
+    "bytes": 1807
+  },
+  {
+    "path": "environment/agent/public/match_contract.json",
+    "sha256": "645550cdc3c39ece8ae1bebc6cff2bd1e39dbda84b5228742be265e599a44f6f",
+    "bytes": 834
+  },
+  {
+    "path": "environment/agent/public/scenarios/frontier_forest_flanks_public.cfg",
+    "sha256": "0efbed94561ab7f90aadeaa91db874a526a3bd0d0c90d48bbd12b2c55c2e46c3",
+    "bytes": 3467
+  },
+  {
+    "path": "environment/agent/public/scenarios/frontier_forest_flanks_public.map",
+    "sha256": "b8c20c2d9aae6415cf79248c62135699245efc1e04fdc42907e71089f511dd68",
+    "bytes": 2974
+  },
+  {
+    "path": "environment/agent/public/scenarios/frontier_open_economy_public.cfg",
+    "sha256": "7e50907eb4c97c34703b331c3030c25cc6f06ad5c7ec8d4abfb63e6e56fe902c",
+    "bytes": 3000
+  },
+  {
+    "path": "environment/agent/public/scenarios/frontier_open_economy_public.map",
+    "sha256": "d82f288720f291083f960c81850ba145d13173a1ffa904f67782d5f9aff92e2b",
+    "bytes": 2509
+  },
+  {
+    "path": "environment/agent/public/scenarios/frontier_river_crossings_public.cfg",
+    "sha256": "fde5c34acba50885aa8083ae9bdeb6d439f44ab415f7d74651c8eedd4c74563d",
+    "bytes": 3012
+  },
+  {
+    "path": "environment/agent/public/scenarios/frontier_river_crossings_public.map",
+    "sha256": "08fbf535d031c33bd46b5287883d3ce181054bb4933e246242001f524c5cb32c",
+    "bytes": 2515
+  },
+  {
+    "path": "environment/agent/public/score_design.json",
+    "sha256": "c7e12f93d7165598213725fb4d37fc5e1e4a3519abdb25d54cc400b92ff687d5",
+    "bytes": 320
+  },
+  {
+    "path": "environment/agent/public/scoring_metadata.json",
+    "sha256": "b95989391872183082e890cd9bb3c32253c69f2715232ab8d663bab76386afe9",
+    "bytes": 690
+  },
+  {
+    "path": "environment/agent/public/submission/policy.lua",
+    "sha256": "d3a973f5871e0cab6d3a019c32e8fde079387f893e0054c584acf9d127bda03c",
+    "bytes": 47
+  },
+  {
+    "path": "environment/verifier/.dockerignore",
+    "sha256": "d05085fb4b693bb7fe824a831dc9bd8de9dee2f42b192c95d637e9f917eb368d",
+    "bytes": 36
+  },
+  {
+    "path": "environment/verifier/Dockerfile",
+    "sha256": "20720bd370f16e20c36705c69bcf29ee9e065499465e486836ec25a4ac819a37",
+    "bytes": 1765
+  },
+  {
+    "path": "environment/verifier/capture_build.py",
+    "sha256": "753da269f6b211bf842dc29dbeea3bcd185aa871d2478822e08bece9b665d841",
+    "bytes": 789
+  },
+  {
+    "path": "environment/verifier/private/audit_scenarios/frontier_forest_flanks_audit.cfg",
+    "sha256": "5be5c943af3f5e93ed5fd3e974cffe219000a01f23687c5d97e3e59d2a8c7959",
+    "bytes": 3450
+  },
+  {
+    "path": "environment/verifier/private/audit_scenarios/frontier_forest_flanks_audit.map",
+    "sha256": "49f56e38c2b26e1d0fe46195df4742c55998ea638a1a973c8c2d9ba0ee3923f0",
+    "bytes": 2959
+  },
+  {
+    "path": "environment/verifier/private/audit_scenarios/frontier_open_economy_audit.cfg",
+    "sha256": "a7dedb7b4e4619332137c454e8271e8d3c4d8ffd3aa36509a8026e6b56a04836",
+    "bytes": 2998
+  },
+  {
+    "path": "environment/verifier/private/audit_scenarios/frontier_open_economy_audit.map",
+    "sha256": "07cd5e2a4ff5c12327ec07741e7c403d492eb84bfcc18541bfbe2ad113c4bc20",
+    "bytes": 2509
+  },
+  {
+    "path": "environment/verifier/private/audit_scenarios/frontier_river_crossings_audit.cfg",
+    "sha256": "7f5dcc753a61443687ec9d8f87c87d273b8fdbc9bcbf362e8631f1a47e27a9b1",
+    "bytes": 3010
+  },
+  {
+    "path": "environment/verifier/private/audit_scenarios/frontier_river_crossings_audit.map",
+    "sha256": "572dc94fd448dd36ef84b9043aa1b2bcc03b1ef47f0fe452983fce6cf467a487",
+    "bytes": 2515
+  },
+  {
+    "path": "environment/verifier/private/feedback_scenarios/frontier_forest_flanks_feedback.cfg",
+    "sha256": "f7e7e2f744dc89cd5f5bf08248519e330537f6f3bb66c81ec3ae08d58dfb19c3",
+    "bytes": 3468
+  },
+  {
+    "path": "environment/verifier/private/feedback_scenarios/frontier_forest_flanks_feedback.map",
+    "sha256": "2d68886eeceba5bd97932d3b70e396ac2852713bebf86df5e50b7f0085f1babe",
+    "bytes": 2971
+  },
+  {
+    "path": "environment/verifier/private/feedback_scenarios/frontier_open_economy_feedback.cfg",
+    "sha256": "91c6f168d21b7f85ae1027403b1320869445f23697b25c53c394f0ba9ad8549f",
+    "bytes": 3004
+  },
+  {
+    "path": "environment/verifier/private/feedback_scenarios/frontier_open_economy_feedback.map",
+    "sha256": "28ce45820fd5630e5776c623de96855038c10ea574cb6250287b07213257763e",
+    "bytes": 2509
+  },
+  {
+    "path": "environment/verifier/private/feedback_scenarios/frontier_river_crossings_feedback.cfg",
+    "sha256": "8d3e56363f251f54d87b426f08c8de10d90eec79526883d8b07317ab6760990d",
+    "bytes": 3016
+  },
+  {
+    "path": "environment/verifier/private/feedback_scenarios/frontier_river_crossings_feedback.map",
+    "sha256": "377e4f223bd0977c9796bc58c847e157ea5687558bc64e3afddbe3c27c8506aa",
+    "bytes": 2515
+  },
+  {
+    "path": "environment/verifier/private/scenarios.json",
+    "sha256": "da49263dfceafd68f1196b8313d844bdabd868764884ec74f26df01c8eb95f69",
+    "bytes": 1923
+  },
+  {
+    "path": "environment/verifier/public/COPYING",
+    "sha256": "e6d6a009505e345fe949e1310334fcb0747f28dae2856759de102ab66b722cb4",
+    "bytes": 18011
+  },
+  {
+    "path": "environment/verifier/public/adapter.lua",
+    "sha256": "4366f896369a000e20bdc2f5d54471738f11199db5e464d0d76a1e015bb2f0c6",
+    "bytes": 5156
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/ai_helper.lua",
+    "sha256": "e0f97d4f512a7603618799c01cf6bf0829c41d3b0e006ee6f67272a6f32c8791",
+    "bytes": 101993
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/battle_calcs.lua",
+    "sha256": "1797819ad2b469490bf476e5bb4d50a35bce7807f80dca5bb70d4e1464d41a17",
+    "bytes": 75151
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/ca_castle_switch.lua",
+    "sha256": "ebf0befbd95dde081eca55e543a373527a59620eb39d2d504b3e4f9b5aff1c18",
+    "bytes": 11110
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/ca_grab_villages.lua",
+    "sha256": "42ec7807ead059b146c5f828c302f5d7a67752bbb4fd4713e01b913332fd45f2",
+    "bytes": 6243
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/ca_high_xp_attack.lua",
+    "sha256": "10e960e85d0b28299176335d1fe5b09c77f3dd913c823a819c026b859bf9a2be",
+    "bytes": 14012
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/ca_level_up_attack.lua",
+    "sha256": "fcd547020b7462bcd53a9fe216b59ec76f80cb9ca16ee505b25da116f4d16bb7",
+    "bytes": 3463
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/ca_move_to_any_enemy.lua",
+    "sha256": "23772fe3fec9153f4b202abefd539c66c08609bb446d686afcb66972a102c5c5",
+    "bytes": 4550
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/ca_place_healers.lua",
+    "sha256": "3a0cc30e13ea46dbb4abc2e65f5f928b45c9bb754aad67480fc2769b7bf6362a",
+    "bytes": 859
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/ca_recruit_rushers.lua",
+    "sha256": "4cefa462316f8616a1ae60c6e16e8fba536e9440b020b7750fe2775e79ceda4b",
+    "bytes": 47840
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/ca_retreat_injured.lua",
+    "sha256": "eda0ebcd375a691a3569852175b0c83232b3826aa560ea7c738922b8ec9ee068",
+    "bytes": 1849
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/ca_simple_scouting.lua",
+    "sha256": "05d81f6ce2c41b3096279b4ce47cb72fa6b93a1a16a80fe91a7708d7da96023b",
+    "bytes": 2241
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/ca_spread_poison.lua",
+    "sha256": "3386a4de5c7c3d95adfa526374bc48f8e380e768720057bbcb095807aaec37e5",
+    "bytes": 5302
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/ca_village_hunt.lua",
+    "sha256": "4675a7781a19924336fe4b729235803f16d892db4fbaf454009e383750263236",
+    "bytes": 3370
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/cache.lua",
+    "sha256": "f28cf9bea50957f515602c64eb88f711b4df20c7f7a44bfeac5b14d3d7913590",
+    "bytes": 472
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/debug.lua",
+    "sha256": "dca48b1f6d6def1f6445ea894c8c49ff7969760d4ec6153147048dc4956f46f4",
+    "bytes": 681
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/dummy_engine_lua.lua",
+    "sha256": "99643916d4691ee40d954105ed737a5e73884db4d7bfd9b334a87508ec52770b",
+    "bytes": 389
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/extCAexample.lua",
+    "sha256": "6cabbd730b1cbe439aa225f13b298fd0489b75a66f97e15db0c4e71e0ca1fe0f",
+    "bytes": 550
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/generic_recruit_engine.lua",
+    "sha256": "cd34b8489a708711ea05aaf2fa55dcf2e5a454dca34b49004d6c8565b53ce7ca",
+    "bytes": 55609
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/opening.lua",
+    "sha256": "444ca0d2583e3b12a6311c40e0f8bcd679776bd1ec30f41cdea1291dffce8fdc",
+    "bytes": 1068
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/retreat.lua",
+    "sha256": "de9c60391e891a6987d8b4dce25665783098c36bbcb91513b2ceba2812507bc1",
+    "bytes": 12825
+  },
+  {
+    "path": "environment/verifier/public/api_examples/ai_lua/stdlib.lua",
+    "sha256": "b66fadec9d9ab247e557e8787c088c6b33707e645d1a133d70010d30283f0c97",
+    "bytes": 4311
+  },
+  {
+    "path": "environment/verifier/public/contract.draft.json",
+    "sha256": "33e1da7962f6cc2ca87f569b33584a33623c3aa7529b1bd76c926ee28d8fb603",
+    "bytes": 1218
+  },
+  {
+    "path": "environment/verifier/public/instruction.md",
+    "sha256": "f2f45a96da48edeba1fdc5270ecc8ddbfff28cc95614504a1785714ca889516e",
+    "bytes": 1807
+  },
+  {
+    "path": "environment/verifier/public/match_contract.json",
+    "sha256": "645550cdc3c39ece8ae1bebc6cff2bd1e39dbda84b5228742be265e599a44f6f",
+    "bytes": 834
+  },
+  {
+    "path": "environment/verifier/public/scenarios/frontier_forest_flanks_public.cfg",
+    "sha256": "0efbed94561ab7f90aadeaa91db874a526a3bd0d0c90d48bbd12b2c55c2e46c3",
+    "bytes": 3467
+  },
+  {
+    "path": "environment/verifier/public/scenarios/frontier_forest_flanks_public.map",
+    "sha256": "b8c20c2d9aae6415cf79248c62135699245efc1e04fdc42907e71089f511dd68",
+    "bytes": 2974
+  },
+  {
+    "path": "environment/verifier/public/scenarios/frontier_open_economy_public.cfg",
+    "sha256": "7e50907eb4c97c34703b331c3030c25cc6f06ad5c7ec8d4abfb63e6e56fe902c",
+    "bytes": 3000
+  },
+  {
+    "path": "environment/verifier/public/scenarios/frontier_open_economy_public.map",
+    "sha256": "d82f288720f291083f960c81850ba145d13173a1ffa904f67782d5f9aff92e2b",
+    "bytes": 2509
+  },
+  {
+    "path": "environment/verifier/public/scenarios/frontier_river_crossings_public.cfg",
+    "sha256": "fde5c34acba50885aa8083ae9bdeb6d439f44ab415f7d74651c8eedd4c74563d",
+    "bytes": 3012
+  },
+  {
+    "path": "environment/verifier/public/scenarios/frontier_river_crossings_public.map",
+    "sha256": "08fbf535d031c33bd46b5287883d3ce181054bb4933e246242001f524c5cb32c",
+    "bytes": 2515
+  },
+  {
+    "path": "environment/verifier/public/score_design.json",
+    "sha256": "c7e12f93d7165598213725fb4d37fc5e1e4a3519abdb25d54cc400b92ff687d5",
+    "bytes": 320
+  },
+  {
+    "path": "environment/verifier/public/scoring_metadata.json",
+    "sha256": "b95989391872183082e890cd9bb3c32253c69f2715232ab8d663bab76386afe9",
+    "bytes": 690
+  },
+  {
+    "path": "environment/verifier/public/submission/policy.lua",
+    "sha256": "d3a973f5871e0cab6d3a019c32e8fde079387f893e0054c584acf9d127bda03c",
+    "bytes": 47
+  },
+  {
+    "path": "environment/verifier/verifier/adapter.lua",
+    "sha256": "4366f896369a000e20bdc2f5d54471738f11199db5e464d0d76a1e015bb2f0c6",
+    "bytes": 5156
+  },
+  {
+    "path": "environment/verifier/verifier/custom_ai.cfg",
+    "sha256": "eda4ef25e6af4402145c9995358c1ef1c9648855f31c6f514f9e2ad7b845ca44",
+    "bytes": 1164
+  },
+  {
+    "path": "environment/verifier/verifier/entry.py",
+    "sha256": "cd1d5a69d7ee140b3a2b2d9d3672c2c3be96c4bbb3a08d176c0603abceec20f1",
+    "bytes": 1042
+  },
+  {
+    "path": "environment/verifier/verifier/grader.py",
+    "sha256": "ec8983f3c15661ef757ca278df17efe890d4b69d6ab371aca1428bb2d9301583",
+    "bytes": 3349
+  },
+  {
+    "path": "environment/verifier/verifier/runtime.py",
+    "sha256": "c380b1e65faf1a1f2c7c91745d250147dd55c2ebc5ba11af56ca7dddc4533813",
+    "bytes": 6505
+  },
+  {
+    "path": "evidence.json",
+    "sha256": "4da2f5e37288a54e8be8399847ce565b0cbca1a0716e5c231eccadfd928d0e10",
+    "bytes": 456
+  },
+  {
+    "path": "feedback_schema.json",
+    "sha256": "1cc153cd6043de42b0ed79ba98663f4ec3f10d8577a7350a1a93e4d4c88258bd",
+    "bytes": 439
+  },
+  {
+    "path": "instruction.md",
+    "sha256": "f2f45a96da48edeba1fdc5270ecc8ddbfff28cc95614504a1785714ca889516e",
+    "bytes": 1807
+  },
+  {
+    "path": "private/audit_scenarios/frontier_forest_flanks_audit.cfg",
+    "sha256": "5be5c943af3f5e93ed5fd3e974cffe219000a01f23687c5d97e3e59d2a8c7959",
+    "bytes": 3450
+  },
+  {
+    "path": "private/audit_scenarios/frontier_forest_flanks_audit.map",
+    "sha256": "49f56e38c2b26e1d0fe46195df4742c55998ea638a1a973c8c2d9ba0ee3923f0",
+    "bytes": 2959
+  },
+  {
+    "path": "private/audit_scenarios/frontier_open_economy_audit.cfg",
+    "sha256": "a7dedb7b4e4619332137c454e8271e8d3c4d8ffd3aa36509a8026e6b56a04836",
+    "bytes": 2998
+  },
+  {
+    "path": "private/audit_scenarios/frontier_open_economy_audit.map",
+    "sha256": "07cd5e2a4ff5c12327ec07741e7c403d492eb84bfcc18541bfbe2ad113c4bc20",
+    "bytes": 2509
+  },
+  {
+    "path": "private/audit_scenarios/frontier_river_crossings_audit.cfg",
+    "sha256": "7f5dcc753a61443687ec9d8f87c87d273b8fdbc9bcbf362e8631f1a47e27a9b1",
+    "bytes": 3010
+  },
+  {
+    "path": "private/audit_scenarios/frontier_river_crossings_audit.map",
+    "sha256": "572dc94fd448dd36ef84b9043aa1b2bcc03b1ef47f0fe452983fce6cf467a487",
+    "bytes": 2515
+  },
+  {
+    "path": "private/feedback_scenarios/frontier_forest_flanks_feedback.cfg",
+    "sha256": "f7e7e2f744dc89cd5f5bf08248519e330537f6f3bb66c81ec3ae08d58dfb19c3",
+    "bytes": 3468
+  },
+  {
+    "path": "private/feedback_scenarios/frontier_forest_flanks_feedback.map",
+    "sha256": "2d68886eeceba5bd97932d3b70e396ac2852713bebf86df5e50b7f0085f1babe",
+    "bytes": 2971
+  },
+  {
+    "path": "private/feedback_scenarios/frontier_open_economy_feedback.cfg",
+    "sha256": "91c6f168d21b7f85ae1027403b1320869445f23697b25c53c394f0ba9ad8549f",
+    "bytes": 3004
+  },
+  {
+    "path": "private/feedback_scenarios/frontier_open_economy_feedback.map",
+    "sha256": "28ce45820fd5630e5776c623de96855038c10ea574cb6250287b07213257763e",
+    "bytes": 2509
+  },
+  {
+    "path": "private/feedback_scenarios/frontier_river_crossings_feedback.cfg",
+    "sha256": "8d3e56363f251f54d87b426f08c8de10d90eec79526883d8b07317ab6760990d",
+    "bytes": 3016
+  },
+  {
+    "path": "private/feedback_scenarios/frontier_river_crossings_feedback.map",
+    "sha256": "377e4f223bd0977c9796bc58c847e157ea5687558bc64e3afddbe3c27c8506aa",
+    "bytes": 2515
+  },
+  {
+    "path": "private/scenarios.json",
+    "sha256": "da49263dfceafd68f1196b8313d844bdabd868764884ec74f26df01c8eb95f69",
+    "bytes": 1923
+  },
+  {
+    "path": "public/COPYING",
+    "sha256": "e6d6a009505e345fe949e1310334fcb0747f28dae2856759de102ab66b722cb4",
+    "bytes": 18011
+  },
+  {
+    "path": "public/adapter.lua",
+    "sha256": "4366f896369a000e20bdc2f5d54471738f11199db5e464d0d76a1e015bb2f0c6",
+    "bytes": 5156
+  },
+  {
+    "path": "public/api_examples/ai_lua/ai_helper.lua",
+    "sha256": "e0f97d4f512a7603618799c01cf6bf0829c41d3b0e006ee6f67272a6f32c8791",
+    "bytes": 101993
+  },
+  {
+    "path": "public/api_examples/ai_lua/battle_calcs.lua",
+    "sha256": "1797819ad2b469490bf476e5bb4d50a35bce7807f80dca5bb70d4e1464d41a17",
+    "bytes": 75151
+  },
+  {
+    "path": "public/api_examples/ai_lua/ca_castle_switch.lua",
+    "sha256": "ebf0befbd95dde081eca55e543a373527a59620eb39d2d504b3e4f9b5aff1c18",
+    "bytes": 11110
+  },
+  {
+    "path": "public/api_examples/ai_lua/ca_grab_villages.lua",
+    "sha256": "42ec7807ead059b146c5f828c302f5d7a67752bbb4fd4713e01b913332fd45f2",
+    "bytes": 6243
+  },
+  {
+    "path": "public/api_examples/ai_lua/ca_high_xp_attack.lua",
+    "sha256": "10e960e85d0b28299176335d1fe5b09c77f3dd913c823a819c026b859bf9a2be",
+    "bytes": 14012
+  },
+  {
+    "path": "public/api_examples/ai_lua/ca_level_up_attack.lua",
+    "sha256": "fcd547020b7462bcd53a9fe216b59ec76f80cb9ca16ee505b25da116f4d16bb7",
+    "bytes": 3463
+  },
+  {
+    "path": "public/api_examples/ai_lua/ca_move_to_any_enemy.lua",
+    "sha256": "23772fe3fec9153f4b202abefd539c66c08609bb446d686afcb66972a102c5c5",
+    "bytes": 4550
+  },
+  {
+    "path": "public/api_examples/ai_lua/ca_place_healers.lua",
+    "sha256": "3a0cc30e13ea46dbb4abc2e65f5f928b45c9bb754aad67480fc2769b7bf6362a",
+    "bytes": 859
+  },
+  {
+    "path": "public/api_examples/ai_lua/ca_recruit_rushers.lua",
+    "sha256": "4cefa462316f8616a1ae60c6e16e8fba536e9440b020b7750fe2775e79ceda4b",
+    "bytes": 47840
+  },
+  {
+    "path": "public/api_examples/ai_lua/ca_retreat_injured.lua",
+    "sha256": "eda0ebcd375a691a3569852175b0c83232b3826aa560ea7c738922b8ec9ee068",
+    "bytes": 1849
+  },
+  {
+    "path": "public/api_examples/ai_lua/ca_simple_scouting.lua",
+    "sha256": "05d81f6ce2c41b3096279b4ce47cb72fa6b93a1a16a80fe91a7708d7da96023b",
+    "bytes": 2241
+  },
+  {
+    "path": "public/api_examples/ai_lua/ca_spread_poison.lua",
+    "sha256": "3386a4de5c7c3d95adfa526374bc48f8e380e768720057bbcb095807aaec37e5",
+    "bytes": 5302
+  },
+  {
+    "path": "public/api_examples/ai_lua/ca_village_hunt.lua",
+    "sha256": "4675a7781a19924336fe4b729235803f16d892db4fbaf454009e383750263236",
+    "bytes": 3370
+  },
+  {
+    "path": "public/api_examples/ai_lua/cache.lua",
+    "sha256": "f28cf9bea50957f515602c64eb88f711b4df20c7f7a44bfeac5b14d3d7913590",
+    "bytes": 472
+  },
+  {
+    "path": "public/api_examples/ai_lua/debug.lua",
+    "sha256": "dca48b1f6d6def1f6445ea894c8c49ff7969760d4ec6153147048dc4956f46f4",
+    "bytes": 681
+  },
+  {
+    "path": "public/api_examples/ai_lua/dummy_engine_lua.lua",
+    "sha256": "99643916d4691ee40d954105ed737a5e73884db4d7bfd9b334a87508ec52770b",
+    "bytes": 389
+  },
+  {
+    "path": "public/api_examples/ai_lua/extCAexample.lua",
+    "sha256": "6cabbd730b1cbe439aa225f13b298fd0489b75a66f97e15db0c4e71e0ca1fe0f",
+    "bytes": 550
+  },
+  {
+    "path": "public/api_examples/ai_lua/generic_recruit_engine.lua",
+    "sha256": "cd34b8489a708711ea05aaf2fa55dcf2e5a454dca34b49004d6c8565b53ce7ca",
+    "bytes": 55609
+  },
+  {
+    "path": "public/api_examples/ai_lua/opening.lua",
+    "sha256": "444ca0d2583e3b12a6311c40e0f8bcd679776bd1ec30f41cdea1291dffce8fdc",
+    "bytes": 1068
+  },
+  {
+    "path": "public/api_examples/ai_lua/retreat.lua",
+    "sha256": "de9c60391e891a6987d8b4dce25665783098c36bbcb91513b2ceba2812507bc1",
+    "bytes": 12825
+  },
+  {
+    "path": "public/api_examples/ai_lua/stdlib.lua",
+    "sha256": "b66fadec9d9ab247e557e8787c088c6b33707e645d1a133d70010d30283f0c97",
+    "bytes": 4311
+  },
+  {
+    "path": "public/contract.draft.json",
+    "sha256": "33e1da7962f6cc2ca87f569b33584a33623c3aa7529b1bd76c926ee28d8fb603",
+    "bytes": 1218
+  },
+  {
+    "path": "public/instruction.md",
+    "sha256": "f2f45a96da48edeba1fdc5270ecc8ddbfff28cc95614504a1785714ca889516e",
+    "bytes": 1807
+  },
+  {
+    "path": "public/match_contract.json",
+    "sha256": "645550cdc3c39ece8ae1bebc6cff2bd1e39dbda84b5228742be265e599a44f6f",
+    "bytes": 834
+  },
+  {
+    "path": "public/scenarios/frontier_forest_flanks_public.cfg",
+    "sha256": "0efbed94561ab7f90aadeaa91db874a526a3bd0d0c90d48bbd12b2c55c2e46c3",
+    "bytes": 3467
+  },
+  {
+    "path": "public/scenarios/frontier_forest_flanks_public.map",
+    "sha256": "b8c20c2d9aae6415cf79248c62135699245efc1e04fdc42907e71089f511dd68",
+    "bytes": 2974
+  },
+  {
+    "path": "public/scenarios/frontier_open_economy_public.cfg",
+    "sha256": "7e50907eb4c97c34703b331c3030c25cc6f06ad5c7ec8d4abfb63e6e56fe902c",
+    "bytes": 3000
+  },
+  {
+    "path": "public/scenarios/frontier_open_economy_public.map",
+    "sha256": "d82f288720f291083f960c81850ba145d13173a1ffa904f67782d5f9aff92e2b",
+    "bytes": 2509
+  },
+  {
+    "path": "public/scenarios/frontier_river_crossings_public.cfg",
+    "sha256": "fde5c34acba50885aa8083ae9bdeb6d439f44ab415f7d74651c8eedd4c74563d",
+    "bytes": 3012
+  },
+  {
+    "path": "public/scenarios/frontier_river_crossings_public.map",
+    "sha256": "08fbf535d031c33bd46b5287883d3ce181054bb4933e246242001f524c5cb32c",
+    "bytes": 2515
+  },
+  {
+    "path": "public/score_design.json",
+    "sha256": "c7e12f93d7165598213725fb4d37fc5e1e4a3519abdb25d54cc400b92ff687d5",
+    "bytes": 320
+  },
+  {
+    "path": "public/scoring_metadata.json",
+    "sha256": "b95989391872183082e890cd9bb3c32253c69f2715232ab8d663bab76386afe9",
+    "bytes": 690
+  },
+  {
+    "path": "public/submission/policy.lua",
+    "sha256": "d3a973f5871e0cab6d3a019c32e8fde079387f893e0054c584acf9d127bda03c",
+    "bytes": 47
+  },
+  {
+    "path": "solution/policy.lua",
+    "sha256": "8bec5a24d746ea8b70ea5339c9ab7e887555d1c6a64b834100e8dee8add78102",
+    "bytes": 2168
+  },
+  {
+    "path": "source_provenance.json",
+    "sha256": "6b692d24442090b274313de6f4c3e9df79e3968883c1f1a515ceece77fc2cbe3",
+    "bytes": 1534
+  },
+  {
+    "path": "task.toml",
+    "sha256": "109f79dbb3d06f45646c8829541a8985073d3b5636dbccc88daea98b3db7162b",
+    "bytes": 1197
+  },
+  {
+    "path": "tools/start_run.py",
+    "sha256": "062d6b640839a9f3638930f8127081d5a32440630308fa69f367d884e4a7f9aa",
+    "bytes": 432
+  },
+  {
+    "path": "tools/submit.py",
+    "sha256": "dbbb0ea14b018d50207154f0f5cde9d45f443fdf26ca5a8df3adcc541e7edcf9",
+    "bytes": 3556
+  },
+  {
+    "path": "verifier/adapter.lua",
+    "sha256": "4366f896369a000e20bdc2f5d54471738f11199db5e464d0d76a1e015bb2f0c6",
+    "bytes": 5156
+  },
+  {
+    "path": "verifier/custom_ai.cfg",
+    "sha256": "eda4ef25e6af4402145c9995358c1ef1c9648855f31c6f514f9e2ad7b845ca44",
+    "bytes": 1164
+  },
+  {
+    "path": "verifier/entry.py",
+    "sha256": "cd1d5a69d7ee140b3a2b2d9d3672c2c3be96c4bbb3a08d176c0603abceec20f1",
+    "bytes": 1042
+  },
+  {
+    "path": "verifier/grader.py",
+    "sha256": "ec8983f3c15661ef757ca278df17efe890d4b69d6ab371aca1428bb2d9301583",
+    "bytes": 3349
+  },
+  {
+    "path": "verifier/runtime.py",
+    "sha256": "c380b1e65faf1a1f2c7c91745d250147dd55c2ebc5ba11af56ca7dddc4533813",
+    "bytes": 6505
+  }
+]

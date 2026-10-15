@@ -1,0 +1,82 @@
+{
+  "id": "13_toml_lossless",
+  "repo": "toml-rs/toml",
+  "revision": "ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+  "family": "implementation_recovery",
+  "new_source": false,
+  "title": "无损解析、span与结构化编辑的跨层恢复",
+  "files": [
+    "README.md",
+    "crates/toml_parser/README.md",
+    "crates/toml_edit/README.md",
+    "crates/toml_edit/src/document.rs",
+    "crates/toml_edit/src/table.rs"
+  ],
+  "retrieved_utc": "2026-10-15T09:20:48.198567+00:00",
+  "files_acquired": [
+    {
+      "path": "README.md",
+      "bytes": 554,
+      "sha256": "b8c1ee4046e8047e77723a84fb4f1bee8c2e5b92049ee1c38a36c3d8aa1bd284",
+      "url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/README.md"
+    },
+    {
+      "path": "crates/toml_parser/README.md",
+      "bytes": 808,
+      "sha256": "7fd2ecd4079f236e6d25f3550ff65048006ff08a13bd389aab5d28f02888e40d",
+      "url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates/toml_parser/README.md"
+    },
+    {
+      "path": "crates/toml_edit/README.md",
+      "bytes": 1819,
+      "sha256": "d8254b85a52b5c5967a67f287d634eea352ec42cc7296b5dcc62230460ba1b7f",
+      "url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates/toml_edit/README.md"
+    },
+    {
+      "path": "crates/toml_edit/src/document.rs",
+      "bytes": 5911,
+      "sha256": "d118ec5d04ca50dee3752bba29e74f29fd42394407f8c04c9e9b52473ea1eaf0",
+      "url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates/toml_edit/src/document.rs"
+    },
+    {
+      "path": "crates/toml_edit/src/table.rs",
+      "bytes": 26656,
+      "sha256": "e571872a057f76ace965baacc1b473744195559c90998e98953c8be74bfb45c5",
+      "url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates/toml_edit/src/table.rs"
+    },
+    {
+      "path": "LICENSE-APACHE",
+      "bytes": 11349,
+      "sha256": "249fdb6694467dd615b259f7ddde07be3f8ae5a72cecebb0e24f6629af4215fe",
+      "url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/LICENSE-APACHE"
+    },
+    {
+      "path": "LICENSE-MIT",
+      "bytes": 1062,
+      "sha256": "6efb0476a1cc085077ed49357026d8c173bf33017278ef440f222fb9cbcb66e6",
+      "url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/LICENSE-MIT"
+    },
+    {
+      "path": "crates/toml_edit/tests/testsuite/edit.rs",
+      "bytes": 59547,
+      "sha256": "3b9a7701970574b329cae6d560f4ba790af2dd84bbeba5c6504f9bc859b7af68",
+      "url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates/toml_edit/tests/testsuite/edit.rs"
+    }
+  ],
+  "missing_paths": [
+    "LICENSE",
+    "LICENSE.txt",
+    "LICENSE.md",
+    "COPYING"
+  ],
+  "runtime_validation": false,
+  "six_hour_difficulty_verified": false,
+  "tree_manifest": {
+    "path": "git-tree.json",
+    "sha256": "a445453e3841d0a0f8975d94aa1f713ee0f67c09d4be683c57d973f4be213849",
+    "blob_count": 1652,
+    "truncated": false
+  },
+  "resolved_initial_404_paths": {},
+  "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+}

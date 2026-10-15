@@ -1,0 +1,12 @@
+{
+  "source_sha256": "00213a0f32a454e32cb76ad29b87fc203e1817090386b2375326b01e6186f906",
+  "upstream_declared_source": "yfinance",
+  "independently_verified_market_prices": false,
+  "counts": {
+    "train": 2414,
+    "dev": 1006,
+    "feedback": 756,
+    "audit": 752
+  },
+  "rights": "repository MIT covers code; underlying market-data terms not established"
+}

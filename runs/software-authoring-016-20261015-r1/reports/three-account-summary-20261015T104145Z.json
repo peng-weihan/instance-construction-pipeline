@@ -1,0 +1,318 @@
+{
+  "observed_utc": "2026-10-15T10:41:45.800594+00:00",
+  "source_receipt": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/reports/raymone123-actual-unused-account-review-20261015T104132387573Z/ACTUAL-UNUSED-ACCOUNT-REVIEW.json",
+  "accounts": [
+    {
+      "account": "raymone/1",
+      "limit": 10,
+      "registered_leases": 6,
+      "external_reserved": 4,
+      "registered_native_roots": 2,
+      "unregistered_native_roots": 3,
+      "external_reserved_not_matched_to_current_native_roots": 1,
+      "unregistered_native_above_external_reservation": 0,
+      "nominal_spare_slots": 0,
+      "conservative_spare_after_observed_native": 0,
+      "actual_running_cloud_count": 4,
+      "actual_native_count": 5,
+      "actual_observed_total": 9,
+      "cloud": [
+        {
+          "host_pid": 64181,
+          "task_path": "/ws/users/ytli/edgebench/dev/game-growth-batch-20261014/new-open-opt-dynamic-pdp-offline-20261015-v1/pilot-1h/task",
+          "jobs_dir": "/ws/users/ytli/edgebench/dev/game-growth-batch-20261014/new-open-opt-dynamic-pdp-offline-20261015-v1/pilot-1h/jobs",
+          "SDK_running": true,
+          "native_model_process_observed": true,
+          "registered": true
+        },
+        {
+          "host_pid": 1125828,
+          "task_path": "/ws/users/ytli/edgebench/dev/game-growth-batch-20261014/new-quadruped-visual-run-rl-20261015-v1/screen-1/task",
+          "jobs_dir": "/ws/users/ytli/edgebench/dev/game-growth-batch-20261014/new-quadruped-visual-run-rl-20261015-v1/screen-1/jobs",
+          "SDK_running": true,
+          "native_model_process_observed": true,
+          "registered": true
+        },
+        {
+          "host_pid": 3418236,
+          "task_path": "/ws/users/raymone/edgebench/remaining-three-001/science-pilot/run-6h-001/task",
+          "jobs_dir": "/ws/users/raymone/edgebench/remaining-three-001/science-pilot/run-6h-001/jobs",
+          "SDK_running": true,
+          "native_model_process_observed": true,
+          "registered": true
+        },
+        {
+          "host_pid": 3683329,
+          "task_path": "/ws/users/raymone/edgebench/remaining-three-001/finance-pilot-r3/run-6h-001/task",
+          "jobs_dir": "/ws/users/raymone/edgebench/remaining-three-001/finance-pilot-r3/run-6h-001/jobs",
+          "SDK_running": true,
+          "native_model_process_observed": true,
+          "registered": true
+        }
+      ],
+      "native": [
+        {
+          "native_pid": 83598,
+          "cwd": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/02_restler_recovery",
+          "registered": true,
+          "lease_job": "02_restler_recovery",
+          "foreground_primary": false
+        },
+        {
+          "native_pid": 83639,
+          "cwd": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/05_uv_resolution",
+          "registered": true,
+          "lease_job": "05_uv_resolution",
+          "foreground_primary": false
+        },
+        {
+          "native_pid": 165106,
+          "cwd": "/workspace/project",
+          "registered": false,
+          "lease_job": null,
+          "foreground_primary": false
+        },
+        {
+          "native_pid": 262048,
+          "cwd": "/ws/users/raymone/tb21-production-20261015/batches/pool-eight-20261015/workers/g01/author-workspace",
+          "registered": false,
+          "lease_job": null,
+          "foreground_primary": false,
+          "progress": {
+            "task_id": "pyav-edit-session-delivery",
+            "stage": "harbor-preflight",
+            "status": "waiting_for_shared_slot_before_verifier_image_build"
+          },
+          "candidate": {
+            "repository": "https://github.com/PyAV-Org/PyAV",
+            "task_slug": "pyav-edit-session-delivery",
+            "worker_id": "g01"
+          }
+        },
+        {
+          "native_pid": 262054,
+          "cwd": "/ws/users/raymone/tb21-production-20261015/batches/pool-eight-20261015/workers/n01/author-workspace",
+          "registered": false,
+          "lease_job": null,
+          "foreground_primary": false,
+          "progress": {
+            "task_id": "sundials-reactor-event-restarts",
+            "stage": "final-preflight-queued",
+            "updated_at": "2026-10-15T10:03:56.912690+00:00"
+          },
+          "candidate": {
+            "repository": "https://github.com/LLNL/sundials",
+            "task_slug": "sundials-reactor-event-restarts",
+            "worker_id": "n01"
+          }
+        }
+      ],
+      "SDK_errors": [],
+      "Docker_bindings": 0
+    },
+    {
+      "account": "raymone/2",
+      "limit": 10,
+      "registered_leases": 7,
+      "external_reserved": 0,
+      "registered_native_roots": 0,
+      "unregistered_native_roots": 2,
+      "external_reserved_not_matched_to_current_native_roots": 0,
+      "unregistered_native_above_external_reservation": 2,
+      "nominal_spare_slots": 3,
+      "conservative_spare_after_observed_native": 1,
+      "actual_running_cloud_count": 7,
+      "actual_native_count": 2,
+      "actual_observed_total": 9,
+      "cloud": [
+        {
+          "host_pid": 768557,
+          "task_path": "/ws/users/wcgu/edgebench/dev/task/1013/materials-100-20261013/math/root-full-family-authoring/tasks/SharpFullChain/owner-revisions/v007/task/runs/6h/20261015T052445Z-77908321/task-snapshot",
+          "jobs_dir": "/ws/users/wcgu/edgebench/dev/task/1013/materials-100-20261013/math/root-full-family-authoring/tasks/SharpFullChain/owner-revisions/v007/task/runs/6h/20261015T052445Z-77908321/jobs",
+          "SDK_running": true,
+          "native_model_process_observed": true,
+          "registered": true
+        },
+        {
+          "host_pid": 1287582,
+          "task_path": "/ws/users/wcgu/edgebench/dev/task/1013/lean-thorp-routing-chain/owner-revisions/v002/task/runs/6h/20261015T055046Z-c93b3be0/task-snapshot",
+          "jobs_dir": "/ws/users/wcgu/edgebench/dev/task/1013/lean-thorp-routing-chain/owner-revisions/v002/task/runs/6h/20261015T055046Z-c93b3be0/jobs",
+          "SDK_running": true,
+          "native_model_process_observed": true,
+          "registered": true
+        },
+        {
+          "host_pid": 1391000,
+          "task_path": "/ws/users/wcgu/edgebench/dev/task/1013/materials-100-20261013/math/full-family-authoring/tasks/MaxCutFull/owner-revisions/v011/task/runs/6h/20261015T055548Z-351d8380/task-snapshot",
+          "jobs_dir": "/ws/users/wcgu/edgebench/dev/task/1013/materials-100-20261013/math/full-family-authoring/tasks/MaxCutFull/owner-revisions/v011/task/runs/6h/20261015T055548Z-351d8380/jobs",
+          "SDK_running": true,
+          "native_model_process_observed": true,
+          "registered": true
+        },
+        {
+          "host_pid": 1756911,
+          "task_path": "/ws/users/wcgu/edgebench/dev/task/1013/lean-thorp-routing-chain/owner-revisions/v002/task/runs/6h/20261015T062019Z-8e60cb35/task-snapshot",
+          "jobs_dir": "/ws/users/wcgu/edgebench/dev/task/1013/lean-thorp-routing-chain/owner-revisions/v002/task/runs/6h/20261015T062019Z-8e60cb35/jobs",
+          "SDK_running": true,
+          "native_model_process_observed": true,
+          "registered": true
+        },
+        {
+          "host_pid": 2900487,
+          "task_path": "/ws/users/wcgu/edgebench/dev/task/1013/materials-100-20261013/math/tasks/HardSphere/owner-revisions/v008/task/runs/6h/20261015T072257Z-93e18ce7/task-snapshot",
+          "jobs_dir": "/ws/users/wcgu/edgebench/dev/task/1013/materials-100-20261013/math/tasks/HardSphere/owner-revisions/v008/task/runs/6h/20261015T072257Z-93e18ce7/jobs",
+          "SDK_running": true,
+          "native_model_process_observed": true,
+          "registered": true
+        },
+        {
+          "host_pid": 2925351,
+          "task_path": "/ws/users/wcgu/edgebench/dev/task/1013/materials-100-20261013/math/tasks/HardSphere/owner-revisions/v008/task/runs/6h/20261015T072426Z-0598fd05/task-snapshot",
+          "jobs_dir": "/ws/users/wcgu/edgebench/dev/task/1013/materials-100-20261013/math/tasks/HardSphere/owner-revisions/v008/task/runs/6h/20261015T072426Z-0598fd05/jobs",
+          "SDK_running": true,
+          "native_model_process_observed": true,
+          "registered": true
+        },
+        {
+          "host_pid": 3969574,
+          "task_path": "/ws/users/wcgu/edgebench/dev/task/1013/materials-100-20261013/math/root-full-family-authoring/tasks/PartitionFullChain/owner-revisions/v005/task/runs/6h/20261015T082715Z-cea21748/task-snapshot",
+          "jobs_dir": "/ws/users/wcgu/edgebench/dev/task/1013/materials-100-20261013/math/root-full-family-authoring/tasks/PartitionFullChain/owner-revisions/v005/task/runs/6h/20261015T082715Z-cea21748/jobs",
+          "SDK_running": true,
+          "native_model_process_observed": true,
+          "registered": true
+        }
+      ],
+      "native": [
+        {
+          "native_pid": 262049,
+          "cwd": "/ws/users/raymone/tb21-production-20261015/batches/pool-eight-20261015/workers/n02/author-workspace",
+          "registered": false,
+          "lease_job": null,
+          "foreground_primary": false,
+          "progress": {
+            "task_id": "highs-incumbent-model-revisions",
+            "stage": "preflight-recalibration-waiting-shared-slot",
+            "updated_at": "2026-10-15T10:33:40.152629+00:00"
+          },
+          "candidate": {
+            "repository": "https://github.com/ERGO-Code/HiGHS",
+            "task_slug": "highs-incumbent-model-revisions",
+            "worker_id": "n02"
+          }
+        },
+        {
+          "native_pid": 262053,
+          "cwd": "/ws/users/raymone/tb21-production-20261015/batches/pool-eight-20261015/workers/r03/author-workspace",
+          "registered": false,
+          "lease_job": null,
+          "foreground_primary": false,
+          "progress": {
+            "task_id": "zodb-checkpoint-handoff",
+            "stage": "harbor-preflight",
+            "updated_utc": "2026-10-15T10:39:02.531031+00:00"
+          },
+          "candidate": {
+            "repository": "https://github.com/zopefoundation/ZODB",
+            "task_slug": "zodb-object-graph-rescue",
+            "worker_id": "r03"
+          }
+        }
+      ],
+      "SDK_errors": [],
+      "Docker_bindings": 0
+    },
+    {
+      "account": "raymone/3",
+      "limit": 10,
+      "registered_leases": 9,
+      "external_reserved": 1,
+      "registered_native_roots": 2,
+      "unregistered_native_roots": 0,
+      "external_reserved_not_matched_to_current_native_roots": 1,
+      "unregistered_native_above_external_reservation": 0,
+      "nominal_spare_slots": 0,
+      "conservative_spare_after_observed_native": 0,
+      "actual_running_cloud_count": 5,
+      "actual_native_count": 2,
+      "actual_observed_total": 7,
+      "cloud": [
+        {
+          "host_pid": 220981,
+          "task_path": "/ws/users/wcgu/edgebench/dev/task/1013/lean-unique-games-chain/owner-revisions/v002/task/runs/6h/20261015T090312Z-ed6a2664/task-snapshot",
+          "jobs_dir": "/ws/users/wcgu/edgebench/dev/task/1013/lean-unique-games-chain/owner-revisions/v002/task/runs/6h/20261015T090312Z-ed6a2664/jobs",
+          "SDK_running": true,
+          "native_model_process_observed": true,
+          "registered": true
+        },
+        {
+          "host_pid": 222884,
+          "task_path": "/ws/users/wcgu/edgebench/dev/task/1013/materials-100-20261013/math/tasks/HardSphere/owner-revisions/v008/task/runs/6h/20261015T044427Z-c68ad8e1/task-snapshot",
+          "jobs_dir": "/ws/users/wcgu/edgebench/dev/task/1013/materials-100-20261013/math/tasks/HardSphere/owner-revisions/v008/task/runs/6h/20261015T044427Z-c68ad8e1/jobs",
+          "SDK_running": true,
+          "native_model_process_observed": true,
+          "registered": true
+        },
+        {
+          "host_pid": 225141,
+          "task_path": "/ws/users/wcgu/edgebench/dev/task/1013/lean-unique-games-chain/owner-revisions/v002/task/runs/6h/20261015T090344Z-3299fc27/task-snapshot",
+          "jobs_dir": "/ws/users/wcgu/edgebench/dev/task/1013/lean-unique-games-chain/owner-revisions/v002/task/runs/6h/20261015T090344Z-3299fc27/jobs",
+          "SDK_running": true,
+          "native_model_process_observed": true,
+          "registered": true
+        },
+        {
+          "host_pid": 258957,
+          "task_path": "/ws/users/wcgu/edgebench/dev/task/1013/materials-100-20261013/math/root-full-family-authoring/tasks/BorsukFullChain/owner-revisions/v006/task/runs/6h/20261015T044709Z-056732a4/task-snapshot",
+          "jobs_dir": "/ws/users/wcgu/edgebench/dev/task/1013/materials-100-20261013/math/root-full-family-authoring/tasks/BorsukFullChain/owner-revisions/v006/task/runs/6h/20261015T044709Z-056732a4/jobs",
+          "SDK_running": true,
+          "native_model_process_observed": true,
+          "registered": true
+        },
+        {
+          "host_pid": 4076043,
+          "task_path": "/ws/users/wcgu/edgebench/dev/task/1013/materials-100-20261013/math/root-full-family-authoring/tasks/BinFullChain/owner-revisions/v007/task/runs/6h/20261015T084413Z-ccfc8418/task-snapshot",
+          "jobs_dir": "/ws/users/wcgu/edgebench/dev/task/1013/materials-100-20261013/math/root-full-family-authoring/tasks/BinFullChain/owner-revisions/v007/task/runs/6h/20261015T084413Z-ccfc8418/jobs",
+          "SDK_running": true,
+          "native_model_process_observed": true,
+          "registered": true
+        }
+      ],
+      "native": [
+        {
+          "native_pid": 83707,
+          "cwd": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/06_wasm_validation",
+          "registered": true,
+          "lease_job": "06_wasm_validation",
+          "foreground_primary": false
+        },
+        {
+          "native_pid": 4175455,
+          "cwd": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions",
+          "registered": true,
+          "lease_job": "09_valkey_transactions",
+          "foreground_primary": false
+        }
+      ],
+      "SDK_errors": [],
+      "Docker_bindings": 0
+    }
+  ],
+  "ownership_note": "Only active science and finance six-hour runs were started in this conversation; four current native authors are this software batch. Other active runs are existing workflows inspected read-only.",
+  "anomalies": [
+    {
+      "account": "raymone/1",
+      "task": "sqlite-selective-ledger-undo",
+      "condition": "Docker Codex PID165106 alive; task progress says stopped-platform-rejection"
+    },
+    {
+      "account": "raymone/3",
+      "host_pid": 3038765,
+      "condition": "host exited; own prior Lean run; current ledger destroyed=true"
+    },
+    {
+      "account": "raymone/3",
+      "host_pid": 2855005,
+      "condition": "host exited; running cloud status not located; reservation not removed"
+    }
+  ]
+}

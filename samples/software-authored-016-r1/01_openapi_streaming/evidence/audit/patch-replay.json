@@ -1,0 +1,12 @@
+{
+  "exit_code": 0,
+  "changed_files": [
+    "openapi_python_client/parser/openapi.py",
+    "openapi_python_client/parser/responses.py",
+    "openapi_python_client/templates/endpoint_macros.py.jinja",
+    "openapi_python_client/templates/endpoint_module.py.jinja",
+    "openapi_python_client/templates/streaming_endpoint.py.jinja"
+  ],
+  "matches_reference": true,
+  "stdout": "patching file openapi_python_client/parser/openapi.py\npatching file openapi_python_client/parser/responses.py\npatching file openapi_python_client/templates/endpoint_macros.py.jinja\npatching file openapi_python_client/templates/endpoint_module.py.jinja\npatching file openapi_python_client/templates/streaming_endpoint.py.jinja\n"
+}

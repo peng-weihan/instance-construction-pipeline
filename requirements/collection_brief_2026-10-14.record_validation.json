@@ -1,0 +1,11 @@
+{
+  "scope": "Document consistency only; not benchmark acceptance",
+  "visible_requirements": 27,
+  "missing_groups": 7,
+  "source_excerpt_checks": "passed",
+  "replacement_characters_preserved": 6,
+  "sha256": {
+    "collection_brief_2026-10-14.raw.txt": "08b1c2f2c79e63d1a37a882b37c55f0adf2c2cd5029d156abaa7a9fcfbab6de9",
+    "collection_brief_2026-10-14.requirements.json": "9f0511fdc9b1a8e247c8ce137e13b2b6acd484d6e925ddf2aa801f4147ac082d"
+  }
+}

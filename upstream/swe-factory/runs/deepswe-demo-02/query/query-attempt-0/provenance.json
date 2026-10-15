@@ -1,0 +1,29 @@
+{
+  "source": {
+    "commit": "ccd27da5cd0bdcd8d776c57382119dafb61e11a8",
+    "source": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/query-source",
+    "snapshot_sha256": "a51295e21f1bdff7fb3c74d1d885ae824dec4aabadb34db07e072d14e183e625"
+  },
+  "problem_sha256": "a51295e21f1bdff7fb3c74d1d885ae824dec4aabadb34db07e072d14e183e625",
+  "task_sha256": "ba3520dce7c9c29951f1f6b47ce6b8d504df2823658f4c63de91889f81595a8e",
+  "verification": {
+    "passed": true,
+    "fail_to_pass": [
+      "tests/test_target.py::test_child",
+      "tests/test_target.py::test_override",
+      "tests/test_target.py::test_parent",
+      "tests/test_target.py::test_unicode"
+    ],
+    "pass_to_pass": [
+      "tests/test_regression.py::test_plain"
+    ],
+    "errors": [],
+    "base_missing_ids": []
+  },
+  "packaged": {
+    "nop": 0.0,
+    "oracle": 1.0
+  },
+  "outer_harbor_verified": false,
+  "near_miss_status": "not_run"
+}

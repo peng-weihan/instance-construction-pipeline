@@ -1,0 +1,86 @@
+{
+  "repo": "simdjson/simdjson",
+  "revision": "9c003534b1be3bc4f1322bfa7a770a7ffbf247d9",
+  "resolved_utc": "2026-10-15T13:08:18.537098+00:00",
+  "retrieved_utc": "2026-10-15T13:09:07.602641+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "96fff7905dd0740ee4034f3ec9e37ec608940914194c09f8ad479c6c3f1cc03c",
+    "truncated": false,
+    "blob_count": 785
+  },
+  "files_acquired": [
+    {
+      "path": "CMakeLists.txt",
+      "bytes": 21422,
+      "sha256": "eb29d67a6a86f824efea29210cdacca2a3465d16919b49f61af8127ecee4ffb4",
+      "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/CMakeLists.txt"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 11355,
+      "sha256": "5fa8894e890bd77958f93b165433e0fb0dffa5bc982bfb147e4748e95bad24e5",
+      "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/LICENSE"
+    },
+    {
+      "path": "LICENSE-MIT",
+      "bytes": 1065,
+      "sha256": "9ed0a34979f22fc33fc13d942233f22d44906c236d876bd05fadf18cb5abf7da",
+      "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/LICENSE-MIT"
+    },
+    {
+      "path": "README.md",
+      "bytes": 15330,
+      "sha256": "64c3d33964c1a37a2dc50e50b1607aeb8f20a02f61572dc69ba1e75da1b10101",
+      "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/README.md"
+    },
+    {
+      "path": "benchmark/bench_stream_formats.cpp",
+      "bytes": 9873,
+      "sha256": "84326f34d4c4e91f72027c4c39d9c0eadcf2dbf53439d9e2b211f3bc3e3c77ae",
+      "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/benchmark/bench_stream_formats.cpp"
+    },
+    {
+      "path": "dependencies/CMakeLists.txt",
+      "bytes": 5011,
+      "sha256": "06074381e6fa607a06594e8198a9137aaf484fb674c25ea6677ba6d638e08f11",
+      "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/dependencies/CMakeLists.txt"
+    },
+    {
+      "path": "doc/performance.md",
+      "bytes": 20008,
+      "sha256": "be055d1cb600efb8b8d97159bb6c7c4ba0a0812d50f21ab06e878566da6f3038",
+      "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/doc/performance.md"
+    },
+    {
+      "path": "include/simdjson/generic/ondemand/parser-inl.h",
+      "bytes": 14526,
+      "sha256": "ba740af9b1f7a0100e434188286f9a101bf2b96ef4dfdb7676624f079d46f2a5",
+      "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/include/simdjson/generic/ondemand/parser-inl.h"
+    },
+    {
+      "path": "src/generic/stage1/json_structural_indexer.h",
+      "bytes": 20192,
+      "sha256": "4b41941b2c7bdb45a072b8c17a9d52aadc8d71c00af28390e6f3929dfe4c8211",
+      "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/src/generic/stage1/json_structural_indexer.h"
+    },
+    {
+      "path": "src/implementation.cpp",
+      "bytes": 13315,
+      "sha256": "b38b437a6a45404fa83f3cc45842065ee038799096a61053d145e783f07284a0",
+      "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/src/implementation.cpp"
+    },
+    {
+      "path": "tests/ondemand/ondemand_document_stream_tests.cpp",
+      "bytes": 113466,
+      "sha256": "3d695627e41091983e80ecf33e70a1edbd0867ba9d141205425cb7ed45f46a96",
+      "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/tests/ondemand/ondemand_document_stream_tests.cpp"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

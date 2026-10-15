@@ -1,0 +1,173 @@
+{
+  "sha": "ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+  "node_id": "C_kwDOBbdZltoAKGNlYWM2ZTQ0MTI0MjBkNWE1YzE5ZTRmNzI5M2FkMDA1Y2YxYTMxYjI",
+  "commit": {
+    "author": {
+      "name": "Ed Page",
+      "email": "eopage@gmail.com",
+      "date": "2026-10-09T02:46:13Z"
+    },
+    "committer": {
+      "name": "Ed Page",
+      "email": "eopage@gmail.com",
+      "date": "2026-10-09T02:46:13Z"
+    },
+    "message": "chore: Release",
+    "tree": {
+      "sha": "9b0a314c1e0d1457e84de21ae5b52baf08e0202b",
+      "url": "https://api.github.com/repos/toml-rs/toml/git/trees/9b0a314c1e0d1457e84de21ae5b52baf08e0202b"
+    },
+    "url": "https://api.github.com/repos/toml-rs/toml/git/commits/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/toml-rs/toml/commits/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+  "html_url": "https://github.com/toml-rs/toml/commit/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+  "comments_url": "https://api.github.com/repos/toml-rs/toml/commits/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/comments",
+  "author": {
+    "login": "epage",
+    "id": 60961,
+    "node_id": "MDQ6VXNlcjYwOTYx",
+    "avatar_url": "https://avatars.githubusercontent.com/u/60961?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/epage",
+    "html_url": "https://github.com/epage",
+    "followers_url": "https://api.github.com/users/epage/followers",
+    "following_url": "https://api.github.com/users/epage/following{/other_user}",
+    "gists_url": "https://api.github.com/users/epage/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/epage/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/epage/subscriptions",
+    "organizations_url": "https://api.github.com/users/epage/orgs",
+    "repos_url": "https://api.github.com/users/epage/repos",
+    "events_url": "https://api.github.com/users/epage/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/epage/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "epage",
+    "id": 60961,
+    "node_id": "MDQ6VXNlcjYwOTYx",
+    "avatar_url": "https://avatars.githubusercontent.com/u/60961?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/epage",
+    "html_url": "https://github.com/epage",
+    "followers_url": "https://api.github.com/users/epage/followers",
+    "following_url": "https://api.github.com/users/epage/following{/other_user}",
+    "gists_url": "https://api.github.com/users/epage/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/epage/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/epage/subscriptions",
+    "organizations_url": "https://api.github.com/users/epage/orgs",
+    "repos_url": "https://api.github.com/users/epage/repos",
+    "events_url": "https://api.github.com/users/epage/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/epage/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "0fe9e93d6d6299400e168681f7cdd7515c0693d2",
+      "url": "https://api.github.com/repos/toml-rs/toml/commits/0fe9e93d6d6299400e168681f7cdd7515c0693d2",
+      "html_url": "https://github.com/toml-rs/toml/commit/0fe9e93d6d6299400e168681f7cdd7515c0693d2"
+    }
+  ],
+  "stats": {
+    "total": 37,
+    "additions": 23,
+    "deletions": 14
+  },
+  "files": [
+    {
+      "sha": "e9b359467c0c38fbb583e2bc4cc79f156996ad5b",
+      "filename": "Cargo.lock",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 6,
+      "changes": 12,
+      "blob_url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/Cargo.lock",
+      "raw_url": "https://github.com/toml-rs/toml/raw/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/Cargo.lock",
+      "contents_url": "https://api.github.com/repos/toml-rs/toml/contents/Cargo.lock?ref=ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+      "patch": "@@ -862,7 +862,7 @@ dependencies = [\n  \"serde-untagged\",\n  \"serde_core\",\n  \"serde_derive\",\n- \"toml 1.1.7+spec-1.1.0\",\n+ \"toml 1.1.8+spec-1.1.0\",\n ]\n \n [[package]]\n@@ -963,7 +963,7 @@ dependencies = [\n \n [[package]]\n name = \"toml\"\n-version = \"1.1.7+spec-1.1.0\"\n+version = \"1.1.8+spec-1.1.0\"\n dependencies = [\n  \"anstream 1.0.0\",\n  \"anstyle\",\n@@ -1029,7 +1029,7 @@ dependencies = [\n  \"serde_json\",\n  \"serde_spanned\",\n  \"toml 0.5.11\",\n- \"toml 1.1.7+spec-1.1.0\",\n+ \"toml 1.1.8+spec-1.1.0\",\n  \"toml_edit\",\n  \"toml_parser\",\n ]\n@@ -1044,7 +1044,7 @@ dependencies = [\n \n [[package]]\n name = \"toml_edit\"\n-version = \"0.25.16+spec-1.1.0\"\n+version = \"0.25.17+spec-1.1.0\"\n dependencies = [\n  \"anstream 1.0.0\",\n  \"anstyle\",\n@@ -1056,7 +1056,7 @@ dependencies = [\n  \"serde_json\",\n  \"serde_spanned\",\n  \"snapbox\",\n- \"toml 1.1.7+spec-1.1.0\",\n+ \"toml 1.1.8+spec-1.1.0\",\n  \"toml-test-data\",\n  \"toml-test-harness\",\n  \"toml_datetime\",\n@@ -1076,7 +1076,7 @@ dependencies = [\n \n [[package]]\n name = \"toml_parser\"\n-version = \"1.1.4+spec-1.1.0\"\n+version = \"1.1.5+spec-1.1.0\"\n dependencies = [\n  \"anstream 1.0.0\",\n  \"anstyle\","
+    },
+    {
+      "sha": "b08f29b64ecccd36dc463621d230ef3ad8d3be88",
+      "filename": "crates/toml/CHANGELOG.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "changes": 5,
+      "blob_url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates%2Ftoml%2FCHANGELOG.md",
+      "raw_url": "https://github.com/toml-rs/toml/raw/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates%2Ftoml%2FCHANGELOG.md",
+      "contents_url": "https://api.github.com/repos/toml-rs/toml/contents/crates%2Ftoml%2FCHANGELOG.md?ref=ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+      "patch": "@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).\n <!-- next-header -->\n ## [Unreleased] - ReleaseDate\n \n+## [1.1.8] - 2026-10-09\n+\n ### Fixes\n \n - *(ser)* Ensure keys are always encoded\n@@ -552,7 +554,8 @@ Changes:\n Minor doc fix (#409)\n \n <!-- next-url -->\n-[Unreleased]: https://github.com/toml-rs/toml/compare/toml-v1.1.7...HEAD\n+[Unreleased]: https://github.com/toml-rs/toml/compare/toml-v1.1.8...HEAD\n+[1.1.8]: https://github.com/toml-rs/toml/compare/toml-v1.1.7...toml-v1.1.8\n [1.1.7]: https://github.com/toml-rs/toml/compare/toml-v1.1.6...toml-v1.1.7\n [1.1.6]: https://github.com/toml-rs/toml/compare/toml-v1.1.5...toml-v1.1.6\n [1.1.5]: https://github.com/toml-rs/toml/compare/toml-v1.1.4...toml-v1.1.5"
+    },
+    {
+      "sha": "185744846a3491ba1cadbaa5a51ef7067e10f6f2",
+      "filename": "crates/toml/Cargo.toml",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "blob_url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates%2Ftoml%2FCargo.toml",
+      "raw_url": "https://github.com/toml-rs/toml/raw/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates%2Ftoml%2FCargo.toml",
+      "contents_url": "https://api.github.com/repos/toml-rs/toml/contents/crates%2Ftoml%2FCargo.toml?ref=ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+      "patch": "@@ -1,6 +1,6 @@\n [package]\n name = \"toml\"\n-version = \"1.1.7+spec-1.1.0\"\n+version = \"1.1.8+spec-1.1.0\"\n description = \"\"\"\n A native Rust encoder and decoder of TOML-formatted files and streams. Provides\n implementations of the standard Serialize/Deserialize traits for TOML data to\n@@ -51,7 +51,7 @@ preserve_order = [\"dep:indexmap\", \"std\"]\n [dependencies]\n serde_core = { version = \"1.0.228\", default-features = false, features = [\"alloc\"], optional = true }\n indexmap = { version = \"2.13.0\", default-features = false, optional = true }\n-toml_parser = { version = \"1.1.4\", path = \"../toml_parser\", default-features = false, features = [\"alloc\"], optional = true }\n+toml_parser = { version = \"1.1.5\", path = \"../toml_parser\", default-features = false, features = [\"alloc\"], optional = true }\n winnow = { version = \"1.0.0\", default-features = false, optional = true }\n anstream = { version = \"1.0.0\", optional = true }\n anstyle = { version = \"1.0.14\", optional = true }"
+    },
+    {
+      "sha": "d3dcd48cf7247bb20bf9bec3a34b2f26de5d9c9c",
+      "filename": "crates/toml_edit/CHANGELOG.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "changes": 5,
+      "blob_url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates%2Ftoml_edit%2FCHANGELOG.md",
+      "raw_url": "https://github.com/toml-rs/toml/raw/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates%2Ftoml_edit%2FCHANGELOG.md",
+      "contents_url": "https://api.github.com/repos/toml-rs/toml/contents/crates%2Ftoml_edit%2FCHANGELOG.md?ref=ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+      "patch": "@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).\n <!-- next-header -->\n ## [Unreleased] - ReleaseDate\n \n+## [0.25.17] - 2026-10-09\n+\n ## [0.25.16] - 2026-10-08\n \n ## [0.25.15] - 2026-09-11\n@@ -1031,7 +1033,8 @@ This release was sponsored by Futurewei\n - `array.push` now returns a `Result`.\n \n <!-- next-url -->\n-[Unreleased]: https://github.com/toml-rs/toml/compare/v0.25.16...HEAD\n+[Unreleased]: https://github.com/toml-rs/toml/compare/v0.25.17...HEAD\n+[0.25.17]: https://github.com/toml-rs/toml/compare/v0.25.16...v0.25.17\n [0.25.16]: https://github.com/toml-rs/toml/compare/v0.25.15...v0.25.16\n [0.25.15]: https://github.com/toml-rs/toml/compare/v0.25.14...v0.25.15\n [0.25.14]: https://github.com/toml-rs/toml/compare/v0.25.13...v0.25.14"
+    },
+    {
+      "sha": "61628b0135c596e0091f16aa615c661ae6940984",
+      "filename": "crates/toml_edit/Cargo.toml",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "blob_url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates%2Ftoml_edit%2FCargo.toml",
+      "raw_url": "https://github.com/toml-rs/toml/raw/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates%2Ftoml_edit%2FCargo.toml",
+      "contents_url": "https://api.github.com/repos/toml-rs/toml/contents/crates%2Ftoml_edit%2FCargo.toml?ref=ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+      "patch": "@@ -1,6 +1,6 @@\n [package]\n name = \"toml_edit\"\n-version = \"0.25.16+spec-1.1.0\"\n+version = \"0.25.17+spec-1.1.0\"\n description = \"Yet another format-preserving TOML parser.\"\n categories = [\"encoding\", \"parser-implementations\", \"parsing\", \"config\"]\n keywords = [\"encoding\", \"toml\"]\n@@ -45,7 +45,7 @@ serde_core = { version = \"1.0.228\", optional = true }\n toml_datetime = { version = \"1.1.2\", path = \"../toml_datetime\" }\n serde_spanned = { version = \"1.1.2\", path = \"../serde_spanned\", features = [\"serde\"], optional = true }\n toml_writer = { version = \"1.1.3\", path = \"../toml_writer\", optional = true }\n-toml_parser = { version = \"1.1.4\", path = \"../toml_parser\", optional = true }\n+toml_parser = { version = \"1.1.5\", path = \"../toml_parser\", optional = true }\n anstream = { version = \"1.0.0\", optional = true }\n anstyle = { version = \"1.0.14\", optional = true }\n "
+    },
+    {
+      "sha": "0ca9cd0b7afd6ac4f8019517c737d92f99b7f736",
+      "filename": "crates/toml_parser/CHANGELOG.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "changes": 5,
+      "blob_url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates%2Ftoml_parser%2FCHANGELOG.md",
+      "raw_url": "https://github.com/toml-rs/toml/raw/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates%2Ftoml_parser%2FCHANGELOG.md",
+      "contents_url": "https://api.github.com/repos/toml-rs/toml/contents/crates%2Ftoml_parser%2FCHANGELOG.md?ref=ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+      "patch": "@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).\n <!-- next-header -->\n ## [Unreleased] - ReleaseDate\n \n+## [1.1.5] - 2026-10-09\n+\n ### Fixes\n \n - `unsafe`: Remove possile unsoundness\n@@ -116,7 +118,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).\n ## [1.0.0] - 2025-07-08\n \n <!-- next-url -->\n-[Unreleased]: https://github.com/toml-rs/toml/compare/toml_parser-v1.1.4...HEAD\n+[Unreleased]: https://github.com/toml-rs/toml/compare/toml_parser-v1.1.5...HEAD\n+[1.1.5]: https://github.com/toml-rs/toml/compare/toml_parser-v1.1.4...toml_parser-v1.1.5\n [1.1.4]: https://github.com/toml-rs/toml/compare/toml_parser-v1.1.3...toml_parser-v1.1.4\n [1.1.3]: https://github.com/toml-rs/toml/compare/toml_parser-v1.1.2...toml_parser-v1.1.3\n [1.1.2]: https://github.com/toml-rs/toml/compare/toml_parser-v1.1.1...toml_parser-v1.1.2"
+    },
+    {
+      "sha": "c042feaa6662126a17f42dabdbb225531c770359",
+      "filename": "crates/toml_parser/Cargo.toml",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates%2Ftoml_parser%2FCargo.toml",
+      "raw_url": "https://github.com/toml-rs/toml/raw/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates%2Ftoml_parser%2FCargo.toml",
+      "contents_url": "https://api.github.com/repos/toml-rs/toml/contents/crates%2Ftoml_parser%2FCargo.toml?ref=ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+      "patch": "@@ -1,6 +1,6 @@\n [package]\n name = \"toml_parser\"\n-version = \"1.1.4+spec-1.1.0\"\n+version = \"1.1.5+spec-1.1.0\"\n description = \"Yet another format-preserving TOML parser.\"\n categories = [\"encoding\", \"parser-implementations\", \"parsing\", \"config\"]\n keywords = [\"encoding\", \"toml\", \"no_std\"]"
+    }
+  ]
+}

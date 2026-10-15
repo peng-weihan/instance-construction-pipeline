@@ -1,0 +1,101 @@
+{
+  "sha": "52ac7816230efabcae6fcc09cbe7ae630a48eddf",
+  "node_id": "C_kwDOBAsbddoAKDUyYWM3ODE2MjMwZWZhYmNhZTZmY2MwOWNiZTdhZTYzMGE0OGVkZGY",
+  "commit": {
+    "author": {
+      "name": "Guy Bedford",
+      "email": "guybedford@gmail.com",
+      "date": "2026-10-14T09:16:45Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-10-14T09:16:45Z"
+    },
+    "message": "ci: run the emscripten JSPI tests as an auto-initialized ES module (#8640)",
+    "tree": {
+      "sha": "4c42b2cf5d62f8ce1b086c2d1e63658188f19b1e",
+      "url": "https://api.github.com/repos/tokio-rs/tokio/git/trees/4c42b2cf5d62f8ce1b086c2d1e63658188f19b1e"
+    },
+    "url": "https://api.github.com/repos/tokio-rs/tokio/git/commits/52ac7816230efabcae6fcc09cbe7ae630a48eddf",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqz0h9CRC1aQ7uu5UhlAAAP0cQAJqqaIKv9ltg277eunbj6Kk3\n4sv+Clg4I4el+a74MHFGAum4jKqEPpS9KR3wvalDQ1TSJwlumf4h4E0Hi41JROUx\nodtfdFfxY+TVVj3MbgQiwH1QQn8ujdUAAYec6Et3N4y9RS3t+cUaan9jW9gFs8XG\nBkHmUTNrku7UBKbYAsjgQdeKZmfxPHmPK7+FRhmoxxPEnI/P7e8bGdhW5Marhvfm\nf/1KyXs8DUrFltnY+o2TLBO6Q5FOvl5S6a67yGFBD56Tc/jf/7yJyX6zrXLQufRy\nFEMbDyFhfQcRoJ2X5FHk58jOqx2bqCZIp+UTQ3Be6JZKvkjABZEHbblBapYfiNxN\nDAvCvu47aKSmpawVXenip8HMgF9FVy0eEY1SnQnXTCXmTK3tIZaJMFyyS44VC+W1\n/KaBAa4lU2M4kKn5N/kyRoB6xuyni6DckVk4Yg9qMidf8/CivufJWGXu7m/Ct8RO\nhyWy6eUa7UN6IZv4dAvHnCagerBpWc+hLRtl3N5a8lOvn9oj3CIyn4ZCl8ZAXBzd\njZnEt2K0vah/BjxR+ICkoB8ofivNpmHt8BNttiQcdF9zdldkguOEDk8WDssgSfxZ\nYMU+i9+WivwV/9AJcVWT+yvdmCMffV8r6ViSrH7BXiRmNE2uWNdohgbTr7ksH2r+\nX0GxmTMys4uGRahSWx+1\n=WH1v\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 4c42b2cf5d62f8ce1b086c2d1e63658188f19b1e\nparent 4890d027f8a566ccf081e7f019ed766f780df1af\nauthor Guy Bedford <guybedford@gmail.com> 1791969405 -0700\ncommitter GitHub <noreply@github.com> 1791969405 +0200\n\nci: run the emscripten JSPI tests as an auto-initialized ES module (#8640)",
+      "verified_at": "2026-10-14T09:16:45Z"
+    }
+  },
+  "url": "https://api.github.com/repos/tokio-rs/tokio/commits/52ac7816230efabcae6fcc09cbe7ae630a48eddf",
+  "html_url": "https://github.com/tokio-rs/tokio/commit/52ac7816230efabcae6fcc09cbe7ae630a48eddf",
+  "comments_url": "https://api.github.com/repos/tokio-rs/tokio/commits/52ac7816230efabcae6fcc09cbe7ae630a48eddf/comments",
+  "author": {
+    "login": "guybedford",
+    "id": 598730,
+    "node_id": "MDQ6VXNlcjU5ODczMA==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/598730?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/guybedford",
+    "html_url": "https://github.com/guybedford",
+    "followers_url": "https://api.github.com/users/guybedford/followers",
+    "following_url": "https://api.github.com/users/guybedford/following{/other_user}",
+    "gists_url": "https://api.github.com/users/guybedford/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/guybedford/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/guybedford/subscriptions",
+    "organizations_url": "https://api.github.com/users/guybedford/orgs",
+    "repos_url": "https://api.github.com/users/guybedford/repos",
+    "events_url": "https://api.github.com/users/guybedford/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/guybedford/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "4890d027f8a566ccf081e7f019ed766f780df1af",
+      "url": "https://api.github.com/repos/tokio-rs/tokio/commits/4890d027f8a566ccf081e7f019ed766f780df1af",
+      "html_url": "https://github.com/tokio-rs/tokio/commit/4890d027f8a566ccf081e7f019ed766f780df1af"
+    }
+  ],
+  "stats": {
+    "total": 2,
+    "additions": 1,
+    "deletions": 1
+  },
+  "files": [
+    {
+      "sha": "39d73f8cb19cd61a81380d5398ad38e6db1977b0",
+      "filename": ".github/workflows/ci.yml",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/tokio-rs/tokio/blob/52ac7816230efabcae6fcc09cbe7ae630a48eddf/.github%2Fworkflows%2Fci.yml",
+      "raw_url": "https://github.com/tokio-rs/tokio/raw/52ac7816230efabcae6fcc09cbe7ae630a48eddf/.github%2Fworkflows%2Fci.yml",
+      "contents_url": "https://api.github.com/repos/tokio-rs/tokio/contents/.github%2Fworkflows%2Fci.yml?ref=52ac7816230efabcae6fcc09cbe7ae630a48eddf",
+      "patch": "@@ -1232,7 +1232,7 @@ jobs:\n         working-directory: tokio\n         env:\n           CARGO_TARGET_WASM32_UNKNOWN_EMSCRIPTEN_RUNNER: node\n-          RUSTFLAGS: \"-Dwarnings -Clink-args=-sALLOW_MEMORY_GROWTH=1 -Clink-args=-sEXIT_RUNTIME=1 -Clink-args=-sJSPI -Clink-args=-sSTACK_SIZE=1048576\"\n+          RUSTFLAGS: \"-Dwarnings -Clink-args=-sALLOW_MEMORY_GROWTH=1 -Clink-args=-sEXIT_RUNTIME=1 -Clink-args=-sJSPI -Clink-args=-sSTACK_SIZE=1048576 -Clink-args=-sMODULARIZE=instance -Clink-args=-sAUTO_INIT -Clink-args=-Wno-experimental\"\n \n       - name: Test tokio for emscripten (non-JSPI)\n         run: cargo test -p tokio --target wasm32-unknown-emscripten --features \"rt,time,sync,macros,fs,io-util,io-std,test-util\" --test rt_emscripten_block_on --test sync_emscripten_blocking"
+    }
+  ]
+}

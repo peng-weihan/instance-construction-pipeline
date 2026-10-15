@@ -1,0 +1,21 @@
+# 64_nushell · 结构化管线与闭包执行链恢复
+
+- 路线/优先级：M4 / `build_scope_probe`；只作素材判断。
+- 固定版本：[6a4027ff14d55c2a274faa2c53e74ae9921af9a2](https://github.com/nushell/nushell/tree/6a4027ff14d55c2a274faa2c53e74ae9921af9a2)；完整树/片段哈希见 `sources/64_nushell/manifest.json`。
+- 已有功能：上游已具备结构化 Value/ListStream/ByteStream、parser→IR、调用栈/闭包、外部命令与错误处理；普通脚本主要走 IR，不应只删除旧 AST eval 分支。
+- 拟题边界：拟在健康固定 workspace 副本中保留 lexer/AST/IR 编译和命令注册，连贯移除 IR block/call 执行、PipelineData 转移/收集与闭包 return/scope 恢复链；恢复真实 typed pipeline 工作流，不扩成重写整个 shell。
+- 拟缺口：未创建缺损 starter；自然关联缺口需经过健康参考运行及差分后才确定，当前不能称可构造完成。
+- 关联链：source→IR/registers→PipelineData 形态/metadata→custom command/closure stack→stream/external conversion→error/return unwind→调用者状态恢复。
+- 代码/真实测试实读：[crates/nu-engine/src/eval_ir.rs:48](https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/crates/nu-engine/src/eval_ir.rs#L48) IR block 维护递归限制及嵌套 scope/PC 状态恢复。；[crates/nu-engine/src/eval.rs:642](https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/crates/nu-engine/src/eval.rs#L642) eval_block 走 IR；early-return wrapper 吸收 return 标志。；[tests/shell/pipeline/commands/internal.rs:10](https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/tests/shell/pipeline/commands/internal.rs#L10) 测试组合 table/list、each closure、external stdin 与结果访问。；[crates/nu-protocol/tests/test_pipeline_data.rs:4](https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/crates/nu-protocol/tests/test_pipeline_data.rs#L4) 测试 PipelineData→Value 的值与 span 转换。
+- 组合场景 1：table/list→嵌套 each closure→外部字节流→结构化结果，保留类型/metadata/错误位置。
+- 组合场景 2：闭包/自定义命令内 early return+try/finally+上层继续执行，核对 return 不穿透边界。
+- 组合场景 3：流提前停止/错误+下一条管线+环境/变量作用域恢复，核对可重复执行。
+- 基础完成后剩余路径假设 1：简单值管线恢复后仍需 stream/metadata/collect 与外部进程边界一致。
+- 基础完成后剩余路径假设 2：正常调用恢复后仍需递归、return/error/finally unwind 与嵌套 scope/寄存器所有权。
+- 参考/判据：固定健康 workspace 的 API/脚本结果差分，加独立类型/metadata/控制流与资源计数断言；本次只读测试，健康参考未运行。
+- 正常强基线：保留旧 AST evaluator 或调 stock nu subprocess 可能绕过部分工作；标准进程/stream 库合法。typed PipelineData/Stack 合同是否足以区分须验证，不能任意加私有接口卡 wrapper。
+- 首个否证：先离线构建/跑未改健康参考的拟工作流，再检查旧 evaluator/残留 nu binary 是否足额覆盖；若几个转发调用能恢复或缺口破坏无关功能，则缩退/hold。
+- 离线/架构成本：Rust workspace/lock/vendor、固定外部 testbin；不需要网络服务。大工作区构建与平台进程差异是成本，未测时长。
+- 许可观察：根 LICENSE 为 MIT；workspace 依赖未完整审查。
+- 官方资料已核对：[结构化值与外部管线](https://www.nushell.sh/book/pipelines.html)；[list/record/table 数据模型](https://www.nushell.sh/book/nu_fundamentals.html)
+- 状态：source_reviewed_healthy_reference_unrun；未构题、未 build/运行、未验证六小时难度；仅对照原 EdgeBench 的机制，不复用原题/测试/答案。

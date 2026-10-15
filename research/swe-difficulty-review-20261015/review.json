@@ -1,0 +1,79 @@
+{
+  "created_utc": "2026-10-15T12:28:46.360590+00:00",
+  "review_type": "read_only_scope_and_difficulty_evidence_review",
+  "new_teacher_runs": 0,
+  "new_dynamic_controls": 0,
+  "formal_qc_pass": false,
+  "six_hour_difficulty_verified_tasks": 0,
+  "source_recheck": {
+    "files": 88,
+    "all_unchanged": true
+  },
+  "decisions": {
+    "01_openapi_streaming": {
+      "decision": "hold_expand_scope_or_short_horizon",
+      "starter": 0.03,
+      "independent_cheap": 0.6,
+      "active_ceiling": 1.0,
+      "potential": "low_current_scope"
+    },
+    "02_restler_recovery": {
+      "decision": "priority_source_for_larger_system_task",
+      "starter": 0.1,
+      "independent_cheap_full_score": null,
+      "active_ceiling": 1.0,
+      "potential": "medium_unverified"
+    },
+    "03_httpx_transport": {
+      "decision": "priority_source_for_larger_system_task",
+      "starter": 0.46746031746031746,
+      "independent_cheap_full_score": null,
+      "active_ceiling": 1.0,
+      "potential": "medium_unverified"
+    },
+    "04_pytest_fixtures": {
+      "decision": "hold_stronger_wrapper_probe_and_scope",
+      "starter": 0.5,
+      "upstream_without_feature": 0.0,
+      "active_ceiling": 1.0,
+      "potential": "medium_low_current_scope"
+    },
+    "09_valkey_transactions": {
+      "decision": "hold_scope_bounded_python_service",
+      "starter": 0.36,
+      "independent_cheap_full_score": null,
+      "active_ceiling": 1.0,
+      "potential": "medium_low_current_scope"
+    },
+    "10_datafusion_sort": {
+      "decision": "hold_missing_performance_reward",
+      "starter": 0.25,
+      "reference": 0.25,
+      "active_ceiling": 0.25,
+      "performance_enabled": false,
+      "potential": "not_measurable_under_current_score"
+    },
+    "12_croaring_kernels": {
+      "decision": "hold_missing_performance_reward",
+      "starter": 0.4,
+      "reference": 0.4,
+      "active_ceiling": 0.4,
+      "performance_enabled": false,
+      "potential": "not_measurable_under_current_score"
+    },
+    "14_tree_sitter_incremental": {
+      "decision": "reject_current_contract_for_long_horizon",
+      "starter": 0.14090909090909093,
+      "full_reparse_complete_apis": 1.0,
+      "full_reparse_on_ablated_starter": 0.46861471861471865,
+      "active_ceiling": 1.0,
+      "potential": "low_falsified_incrementality_requirement"
+    }
+  },
+  "official_curves": {
+    "model": "GPT-5.5",
+    "not_our_run": true,
+    "source": "research/software-engineering-2026-10-15/official-software-time-scores.csv"
+  },
+  "scope_supplement": "requirements/software_long_horizon_scope_2026-10-15.md"
+}

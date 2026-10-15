@@ -1,0 +1,41 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+________________________________ test_one_layer ________________________________
+
+    def test_one_layer():
+>       assert merge_many({"a": 1}) == {"a": 1}
+E       AssertionError: assert {} == {'a': 1}
+E         
+E         Right contains 1 more item:
+E         {'a': 1}
+E         Use -v to get more diff
+
+tests/test_specialized.py:3: AssertionError
+______________________________ test_three_layers _______________________________
+
+    def test_three_layers():
+>       assert merge_many({"a": 1}, {"b": 2}, {"a": 3}) == {"a": 3, "b": 2}
+E       AssertionError: assert {} == {'a': 3, 'b': 2}
+E         
+E         Right contains 2 more items:
+E         {'a': 3, 'b': 2}
+E         Use -v to get more diff
+
+tests/test_specialized.py:5: AssertionError
+_______________________________ test_empty_layer _______________________________
+
+    def test_empty_layer():
+>       assert merge_many({}, {"b": 2}, {}) == {"b": 2}
+E       AssertionError: assert {} == {'b': 2}
+E         
+E         Right contains 1 more item:
+E         {'b': 2}
+E         Use -v to get more diff
+
+tests/test_specialized.py:7: AssertionError
+- generated xml file: /Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/specialize/specialized/validation/C2/workspace/.factory-report.xml -
+=========================== short test summary info ============================
+FAILED tests/test_specialized.py::test_one_layer - AssertionError: assert {} ...
+FAILED tests/test_specialized.py::test_three_layers - AssertionError: assert ...
+FAILED tests/test_specialized.py::test_empty_layer - AssertionError: assert {...
+3 failed in 0.04s

@@ -1,0 +1,19 @@
+{
+  "checked_utc": "2026-10-14T15:02:27.874531+00:00",
+  "status": "learning_running",
+  "account": "raymone/1",
+  "model": "gpt-6.1-sol",
+  "observed_models": [
+    "gpt-6.1-sol"
+  ],
+  "actual_learning_started_utc": "2026-10-14T15:00:45.048006+00:00",
+  "budget_seconds": 21600,
+  "interval_seconds": 600,
+  "formal_acceptance": false,
+  "completed_six_hour_trajectories": 0,
+  "tool_calls": 5,
+  "tool_outputs": 5,
+  "host_harbor_pid": 3711483,
+  "host_harbor_process_present": true,
+  "score_records": 0
+}

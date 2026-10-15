@@ -1,0 +1,1 @@
+{"agent_image":"edgebench/toml-string-recovery-work:pilot","verifier_image":"edgebench/toml-string-recovery-judge:pilot","artifacts":["/home/workspace/toml-string-recovery/submission"],"selection":"valid_then_score","score_direction":"maximize","snapshot_contract":"file snapshots only; no persistent judge state","status":"not_executed"}

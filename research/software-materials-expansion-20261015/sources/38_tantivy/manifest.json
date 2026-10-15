@@ -1,0 +1,56 @@
+{
+  "repo": "tantivy-search/tantivy",
+  "revision": "8a4cfc40f5b7446c0700471aa50290dbb7f8ea97",
+  "resolved_utc": "2026-10-15T13:08:21.732685+00:00",
+  "retrieved_utc": "2026-10-15T13:09:13.287467+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "0eaf87d2c343cecd790be342d7f28bafc4833da23ddd59f7ceb6a4f7ae40f515",
+    "truncated": false,
+    "blob_count": 616
+  },
+  "files_acquired": [
+    {
+      "path": "Cargo.toml",
+      "bytes": 6251,
+      "sha256": "06a87ce347f0e812d150003fb74e88da5d52ce9d489692bfeed969b83df63386",
+      "url": "https://github.com/tantivy-search/tantivy/blob/8a4cfc40f5b7446c0700471aa50290dbb7f8ea97/Cargo.toml"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1099,
+      "sha256": "acacd14bebbffdb30d62443c282fb4da3e81915a9f69c63d5d745a029f44de8a",
+      "url": "https://github.com/tantivy-search/tantivy/blob/8a4cfc40f5b7446c0700471aa50290dbb7f8ea97/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7954,
+      "sha256": "dcdc08ce8e41040d0b1eddcc2627c0128ec8527e9a990a7ff343836e03099dd3",
+      "url": "https://github.com/tantivy-search/tantivy/blob/8a4cfc40f5b7446c0700471aa50290dbb7f8ea97/README.md"
+    },
+    {
+      "path": "src/indexer/index_writer.rs",
+      "bytes": 108857,
+      "sha256": "15061f5d21ef4588fd9403db1b771fa6311d3f938c9bccdf2bfa6a43d4412b5c",
+      "url": "https://github.com/tantivy-search/tantivy/blob/8a4cfc40f5b7446c0700471aa50290dbb7f8ea97/src/indexer/index_writer.rs"
+    },
+    {
+      "path": "src/reader/mod.rs",
+      "bytes": 11786,
+      "sha256": "25e7f14985a5c92806a7ca484cdcae3afdd9d09a3b8c34672ef97dc17b3dfc69",
+      "url": "https://github.com/tantivy-search/tantivy/blob/8a4cfc40f5b7446c0700471aa50290dbb7f8ea97/src/reader/mod.rs"
+    },
+    {
+      "path": "tests/failpoints/mod.rs",
+      "bytes": 4779,
+      "sha256": "2fdaad5318afb420830546782bdf52dc45ea7c2c1eb810947f575fdf704a7db9",
+      "url": "https://github.com/tantivy-search/tantivy/blob/8a4cfc40f5b7446c0700471aa50290dbb7f8ea97/tests/failpoints/mod.rs"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

@@ -1,0 +1,69 @@
+{
+  "repo": "scipopt/scip",
+  "revision": "38028b9ebdb05b2cf4928e259278934a7c7c52ba",
+  "resolved_utc": "2026-10-15T14:59:33.648748+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:02:05.244301+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "9281e11b676e323ce7b9828f49573bdfc018abdf32fde1258a23b160d0ef78a4",
+    "truncated": false,
+    "blob_count": 2957
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "url": "https://github.com/scipopt/scip/blob/38028b9ebdb05b2cf4928e259278934a7c7c52ba/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1353,
+      "sha256": "c05cf30343fcdcfc767a592e0e1e8a433f5ccb284fe97245cbb6f491e9af3989",
+      "url": "https://github.com/scipopt/scip/blob/38028b9ebdb05b2cf4928e259278934a7c7c52ba/README.md"
+    },
+    {
+      "path": "examples/SCFLP/INSTALL.md",
+      "bytes": 173,
+      "sha256": "0de4c2807ca875abc33afec4e0719c92189231445e4a1267a6104efeb3c3dce9",
+      "url": "https://github.com/scipopt/scip/blob/38028b9ebdb05b2cf4928e259278934a7c7c52ba/examples/SCFLP/INSTALL.md"
+    },
+    {
+      "path": "examples/SCFLP/check/testset/short.test",
+      "bytes": 54,
+      "sha256": "8025c464ce90ea8766f54670b3d262d71ebda60f381b35263994849130e2f537",
+      "url": "https://github.com/scipopt/scip/blob/38028b9ebdb05b2cf4928e259278934a7c7c52ba/examples/SCFLP/check/testset/short.test"
+    },
+    {
+      "path": "examples/SCFLP/data/cap41.cap",
+      "bytes": 9995,
+      "sha256": "1edeee6a8fb3919bb9d09495db02f9758bbab835285290e4d4f70c337eeeed49",
+      "url": "https://github.com/scipopt/scip/blob/38028b9ebdb05b2cf4928e259278934a7c7c52ba/examples/SCFLP/data/cap41.cap"
+    },
+    {
+      "path": "examples/SCFLP/doc/xternal_scflp.c",
+      "bytes": 9540,
+      "sha256": "77b1714416be152ad2e606d691ce57b968cb36d179e9137cee1fb4ed7d330210",
+      "url": "https://github.com/scipopt/scip/blob/38028b9ebdb05b2cf4928e259278934a7c7c52ba/examples/SCFLP/doc/xternal_scflp.c"
+    },
+    {
+      "path": "examples/SCFLP/src/probdata_scflp.c",
+      "bytes": 42468,
+      "sha256": "732d168942016150576a417336b1493c85aec0d95813a32669a7308eccddda76",
+      "url": "https://github.com/scipopt/scip/blob/38028b9ebdb05b2cf4928e259278934a7c7c52ba/examples/SCFLP/src/probdata_scflp.c"
+    },
+    {
+      "path": "examples/SCFLP/src/reader_scflp.c",
+      "bytes": 18693,
+      "sha256": "2da0fa9cea91a4df0a2711ee837e7548d2217b0472bd2eeabbe96aa4d9d64c86",
+      "url": "https://github.com/scipopt/scip/blob/38028b9ebdb05b2cf4928e259278934a7c7c52ba/examples/SCFLP/src/reader_scflp.c"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

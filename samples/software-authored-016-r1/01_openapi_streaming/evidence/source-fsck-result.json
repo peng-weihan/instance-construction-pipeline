@@ -1,0 +1,11 @@
+{
+  "command": [
+    "git",
+    "-C",
+    "material-src/openapi-python-client",
+    "fsck",
+    "--no-reflogs"
+  ],
+  "exit_code": 0,
+  "output": ""
+}

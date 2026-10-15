@@ -1,0 +1,24 @@
+{
+  "schema_source": "../guidance/harbor-0.23.0-task-config.py",
+  "schema_version": "1.4",
+  "schema_status": "field inspection completed; external model validation pending",
+  "work": {
+    "context": "environment",
+    "command": "docker build -f environment/Dockerfile -t edgebench/toml-string-recovery-work:pilot environment",
+    "built": false
+  },
+  "judge": {
+    "context": "verifier",
+    "command": "docker build -f verifier/Dockerfile -t edgebench/toml-string-recovery-judge:pilot verifier",
+    "built": false
+  },
+  "base_image_indexes": "base-images.json",
+  "prepared_dependency_closure": "environment/vendor.tar.gz; probe Cargo.lock pins all production dependencies",
+  "prepare_command": "python3 authoring/prepare.py",
+  "fetching": "all source and dependencies are already bundled; no runtime fetch",
+  "tests_byte_identical": true,
+  "isolation": "Docker recipe compiles/runs as uid1000; actual container UID/private-read/reward-write probes not run",
+  "host_build": "Rust1.90.0 official standalone ARM toolchain, two jobs",
+  "linux_toolchain_compatibility": "not_verified",
+  "oci_manifest_list": "base manifests pinned; work/judge images not built"
+}

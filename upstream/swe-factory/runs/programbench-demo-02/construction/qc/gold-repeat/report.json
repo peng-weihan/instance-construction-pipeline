@@ -1,0 +1,21 @@
+{
+  "healthy": true,
+  "tests": {
+    "tests/test_2fe81b_core.py::test_bytes_0": "passed",
+    "tests/test_2fe81b_core.py::test_bytes_1": "passed",
+    "tests/test_2fe81b_core.py::test_bytes_2": "passed",
+    "tests/test_2fe81b_core.py::test_bytes_3": "passed",
+    "tests/test_2fe81b_core.py::test_bytes_4": "passed",
+    "tests/test_2fe81b_core.py::test_bytes_5": "passed",
+    "tests/test_2fe81b_core.py::test_bytes_6": "passed",
+    "tests/test_2fe81b_core.py::test_bytes_7": "passed",
+    "tests/test_2fe81b_core.py::test_bytes_8": "passed",
+    "tests/test_2fe81b_core.py::test_bytes_9": "passed",
+    "tests/test_2fe81b_core.py::test_weak_exit": "passed",
+    "tests/test_2fe81b_core.py::test_error": "passed"
+  },
+  "errors": [],
+  "returncode": 0,
+  "timed_out": false,
+  "evidence": "/Users/raymone/Desktop/01_Research/swe-factory/runs/programbench-demo-02/construction/qc/gold-repeat"
+}

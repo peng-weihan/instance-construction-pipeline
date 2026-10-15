@@ -1,0 +1,7 @@
+{
+  "valid": false,
+  "score": null,
+  "summary": "infrastructure/reference error",
+  "error": "InfrastructureError('explicit author infrastructure fault control')",
+  "traceback": "Traceback (most recent call last):\n  File \"/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/tests/grader.py\", line 160, in main\n    if args.inject_infrastructure_failure:raise InfrastructureError('explicit author infrastructure fault control')\n                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nInfrastructureError: explicit author infrastructure fault control\n"
+}

@@ -1,0 +1,21 @@
+{
+  "healthy": true,
+  "tests": {
+    "runs/programbench-demo-01/construction/qc/dummy/workspace/tests/test_28b382_core.py::test_bytes_0": "failed",
+    "runs/programbench-demo-01/construction/qc/dummy/workspace/tests/test_28b382_core.py::test_bytes_1": "failed",
+    "runs/programbench-demo-01/construction/qc/dummy/workspace/tests/test_28b382_core.py::test_bytes_2": "failed",
+    "runs/programbench-demo-01/construction/qc/dummy/workspace/tests/test_28b382_core.py::test_bytes_3": "failed",
+    "runs/programbench-demo-01/construction/qc/dummy/workspace/tests/test_28b382_core.py::test_bytes_4": "failed",
+    "runs/programbench-demo-01/construction/qc/dummy/workspace/tests/test_28b382_core.py::test_bytes_5": "failed",
+    "runs/programbench-demo-01/construction/qc/dummy/workspace/tests/test_28b382_core.py::test_bytes_6": "failed",
+    "runs/programbench-demo-01/construction/qc/dummy/workspace/tests/test_28b382_core.py::test_bytes_7": "failed",
+    "runs/programbench-demo-01/construction/qc/dummy/workspace/tests/test_28b382_core.py::test_bytes_8": "failed",
+    "runs/programbench-demo-01/construction/qc/dummy/workspace/tests/test_28b382_core.py::test_bytes_9": "failed",
+    "runs/programbench-demo-01/construction/qc/dummy/workspace/tests/test_28b382_core.py::test_weak_exit": "passed",
+    "runs/programbench-demo-01/construction/qc/dummy/workspace/tests/test_28b382_core.py::test_error": "failed"
+  },
+  "errors": [],
+  "returncode": 1,
+  "timed_out": false,
+  "evidence": "/Users/raymone/Desktop/01_Research/swe-factory/runs/programbench-demo-01/construction/qc/dummy"
+}

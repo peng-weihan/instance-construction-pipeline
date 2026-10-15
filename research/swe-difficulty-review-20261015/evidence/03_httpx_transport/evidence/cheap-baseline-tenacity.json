@@ -1,0 +1,25 @@
+{
+  "library": "tenacity==9.1.2",
+  "results": [
+    {
+      "mode": "outer",
+      "observed": [
+        "https://a.test/start",
+        "https://a.test/leaf",
+        "https://a.test/start"
+      ],
+      "status": 503,
+      "budget_2_respected": false
+    },
+    {
+      "mode": "transport",
+      "observed": [
+        "https://a.test/start",
+        "https://a.test/leaf",
+        "https://a.test/leaf"
+      ],
+      "status": 503,
+      "budget_2_respected": false
+    }
+  ]
+}

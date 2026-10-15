@@ -1,0 +1,799 @@
+[
+  {
+    "id": "31_mosquitto",
+    "tier": "C",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "当前泛化 broker 合同重设范围；可保留嵌入宿主事务存储/事件调度的持久会话引擎，或自然连通的受损会话子系统恢复。宿主 ABI 与持久点约束须来自真实应用目标，不能临时挡原工具。",
+    "difficulty_reason": "发送窗口、QoS 确认阶段、会话过期与持久点共同约束同一投递历史；重连并非重新发送即可。但现库存没有宿主约束或可构建 starter，尚不能说明这些工程由求解者承担。",
+    "shortcut_risk": "stock Mosquitto 配置、启停和快照 wrapper 很可能覆盖当前合同；这说明当前范围不足，不说明所有 MQTT 素材无潜力。SQLite/客户端库应允许。",
+    "judge_plan": "独立 MQTT 客户端按事件轨迹驱动，检查允许交付、窗口、重连遗留与成功快照恢复；宿主嵌入题同时观察事务/时钟接口。不能将正常终止恢复冒充任意断电保证。",
+    "residual_milestones": [
+      "如果宿主边界成立：基本路由后闭合 QoS 1/2 确认、重连和窗口。",
+      "让会话过期、离线队列和持久点恢复共享一致状态。"
+    ],
+    "first_probe": "先把全合同映射到 stock broker；对真实宿主需求列出不能薄适配的接口，再测试一次离线→QoS 2 断连→快照→恢复旅程。",
+    "stop_condition": "普通服务包装已满足全部真实需求且找不到自然集成缺口，停止当前系统题；不靠禁止 broker 加难。",
+    "evidence": [
+      {
+        "path": "sources/31_mosquitto/files/src/database.c",
+        "line": 1071,
+        "claim": "重连重新计算 quota；等待 PUBCOMP 的 QoS 2 状态转为重发 PUBREL。",
+        "url": "https://github.com/eclipse-mosquitto/mosquitto/blob/83f2620f0b955b89aadce32cceb96a8e81950f5e/src/database.c#L1071",
+        "upstream_path": "src/database.c"
+      },
+      {
+        "path": "sources/31_mosquitto/files/test/broker/15-persist-client-msg-out-v5-0.py",
+        "line": 60,
+        "claim": "测试覆盖离线订阅、publish、终止/重启、重连 QoS 1/2 交付及二次重连无遗留。",
+        "url": "https://github.com/eclipse-mosquitto/mosquitto/blob/83f2620f0b955b89aadce32cceb96a8e81950f5e/test/broker/15-persist-client-msg-out-v5-0.py#L60",
+        "upstream_path": "test/broker/15-persist-client-msg-out-v5-0.py"
+      }
+    ],
+    "caveat": "定向选读，不是全仓审计。无 starter/健康参考/求解难度实测。",
+    "read_scope": [
+      {
+        "path": "sources/31_mosquitto/files/src/database.c",
+        "start": 1071,
+        "end": 1119,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/31_mosquitto/files/test/broker/15-persist-client-msg-out-v5-0.py",
+        "start": 30,
+        "end": 109,
+        "kind": "test_or_spec"
+      }
+    ]
+  },
+  {
+    "id": "32_bmv2",
+    "tier": "C",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "当前离线子集解释器合同重设为真实宿主内的 packet/控制状态执行接口，或连通模块恢复；冻结 JSON feature manifest，不笼统重写 P4。",
+    "difficulty_reason": "packet 表示穿过 parser、匹配键、动作、状态与输出；位宽、有效位或截断一处不统一就破坏后段，控制更新又形成跨事件状态。这是高难上限；没有具体 starter 时仍可能由 bm_sim 全部承担。",
+    "shortcut_risk": "直接链接 bm_sim 或 simple_switch 加离线适配可能全解现合同；语言重写或禁现成执行器并非独立高难依据。",
+    "judge_plan": "预编译新 P4 fixture 为固定 JSON；参考/候选跑相同包与控制事件，对比字节、端口和寄存器/计数器；独立位级模型补短包与截断案例。",
+    "residual_milestones": [
+      "真实宿主或恢复边界成立后：统一位级 parser 表示与 match/action 读写。",
+      "闭合动态表更新、跨包状态和 checksum/deparser。"
+    ],
+    "first_probe": "用 stock BMv2 做最薄文件包 I/O 适配，完成解析→表项改写→状态动作→输出轨迹；再核查宿主是否有实际不可替代的内存/状态接口。",
+    "stop_condition": "薄适配覆盖全部真实需求则当前范围停止；工具链/健康参考不稳定也不进入求解校准。",
+    "evidence": [
+      {
+        "path": "sources/32_bmv2/files/src/bm_sim/match_tables.cpp",
+        "line": 85,
+        "claim": "lookup 确定动作、命中信息和下一控制节点。",
+        "url": "https://github.com/p4lang/behavioral-model/blob/7f4e1daca12b7fe52897687764b7e74ded7dab55/src/bm_sim/match_tables.cpp#L85",
+        "upstream_path": "src/bm_sim/match_tables.cpp"
+      },
+      {
+        "path": "sources/32_bmv2/files/tests/test_parser.cpp",
+        "line": 201,
+        "claim": "解析 Ethernet/IPv4/TCP 并核对有效位和字段。",
+        "url": "https://github.com/p4lang/behavioral-model/blob/7f4e1daca12b7fe52897687764b7e74ded7dab55/tests/test_parser.cpp#L201",
+        "upstream_path": "tests/test_parser.cpp"
+      }
+    ],
+    "caveat": "定向选读，未核验完整 loader/parser/deparser 链。无 starter 或运行实测。",
+    "read_scope": [
+      {
+        "path": "sources/32_bmv2/files/src/bm_sim/match_tables.cpp",
+        "start": 75,
+        "end": 123,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/32_bmv2/files/tests/test_parser.cpp",
+        "start": 201,
+        "end": 246,
+        "kind": "test_or_spec"
+      }
+    ]
+  },
+  {
+    "id": "33_avro",
+    "tier": "C",
+    "potential": "high",
+    "authoring_cost": "medium",
+    "recommended_scope": "当前 schema/codec/resolution/OCF CLI 重设；可保留与宿主类型身份/投影执行计划集成的系统或受损连通实现，需先找到真实产物缺口。",
+    "difficulty_reason": "writer/reader 双 schema 使字段位置、跳过、递归类型和默认值跨解码阶段传播，OCF 又加块状态；但库接口已经承担这些语义，单纯提供 CLI 未证明残余工程。",
+    "shortcut_risk": "官方 Avro 库/fastavro 加 CLI 和 zlib 可能足额完成；不能为了复杂性临时禁止。",
+    "judge_plan": "冻结两个语言实现双向互读；规范手算字节与坏文件检查 resolution/块边界；不要求随机 sync marker 或压缩字节一致。",
+    "residual_milestones": [
+      "若重设后有缺口：统一递归类型、字段跳过、reader 默认和数值提升执行计划。",
+      "把计划接入跨块 OCF/seek、错误与资源边界。"
+    ],
+    "first_probe": "先用官方库映射全部 API，跑一条 schema 演进跨块旅程；再评估宿主类型/执行计划需求是否只是 adapter。",
+    "stop_condition": "普通库包装已完成真实目标则停止当前题；不能仅增加类型或 codec 数量。",
+    "evidence": [
+      {
+        "path": "sources/33_avro/files/lang/c++/impl/parsing/ResolvingDecoder.cc",
+        "line": 160,
+        "claim": "按 writer 字段生成读取/跳过动作，reader 新字段生成默认值字节与 fieldOrder。",
+        "url": "https://github.com/apache/avro/blob/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/lang/c++/impl/parsing/ResolvingDecoder.cc#L160",
+        "upstream_path": "lang/c++/impl/parsing/ResolvingDecoder.cc"
+      },
+      {
+        "path": "sources/33_avro/files/doc/content/en/docs/1.12.0/Specification/_index.md",
+        "line": 681,
+        "claim": "规定递归 resolution/union 匹配/default/数值提升。",
+        "url": "https://github.com/apache/avro/blob/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/doc/content/en/docs/1.12.0/Specification/_index.md#L681",
+        "upstream_path": "doc/content/en/docs/1.12.0/Specification/_index.md"
+      }
+    ],
+    "caveat": "本次实现+规范核验，未再读原生测试；无 starter/运行实验。",
+    "read_scope": [
+      {
+        "path": "sources/33_avro/files/lang/c++/impl/parsing/ResolvingDecoder.cc",
+        "start": 160,
+        "end": 214,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/33_avro/files/doc/content/en/docs/1.12.0/Specification/_index.md",
+        "start": 681,
+        "end": 731,
+        "kind": "test_or_spec"
+      }
+    ]
+  },
+  {
+    "id": "40_rsync",
+    "tier": "A",
+    "potential": "high",
+    "authoring_cost": "medium",
+    "recommended_scope": "M5 独立可部署本地目录同步替代实现：目录作用域 filter/保护/delete、硬链接、更新、dry-run/itemize 与多次同步结果；固定 POSIX，先排远程协议。独立部署契约需公开，普通文件/校验库允许。",
+    "difficulty_reason": "排除/保护不是同一集合过滤，删除决策依赖目录作用域；内容同步还需保持硬链接身份，第二次运行必须按现有目标状态决定更新和输出。基础复制通过后，这些决策仍共享一套状态模型，可自然产生持续工程。",
+    "shortcut_risk": "标准库全量 copy 加 ignore/path 库是强合法基线；无需默认要求 delta 传输或极高性能。目标 rsync 的薄转发若满足真实部署约束，也应接受并重定位题目。",
+    "judge_plan": "冻结 reference 与独立树快照，比较内容/类型/链接等价类、约定时间权限、退出码和 itemize；独立临时根、locale/umask；不引入 root chown/平台偶然差异。",
+    "residual_milestones": [
+      "在基本复制后统一 per-dir filter、保护、删除、错误时禁止删除和 dry-run 决策。",
+      "跨次改写/新建/删除与硬链接组重建，保持文件树、副作用和 itemize 一致。"
+    ],
+    "first_probe": "健康 reference 跑过滤+硬链接+第二次同步，再用普通全量复制/ignore 组合覆盖同旅程；量出真实剩余状态决策。",
+    "stop_condition": "薄组合全解则降级；若合同仅剩参数翻译或必须靠远程/root/计时噪声拉难度则停止当前方向。",
+    "evidence": [
+      {
+        "path": "sources/40_rsync/files/generator.c",
+        "line": 320,
+        "claim": "目录作用域filter及遇I/O错误时的删除决策",
+        "url": "https://github.com/RsyncProject/rsync/blob/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/generator.c#L320"
+      },
+      {
+        "path": "sources/40_rsync/files/testsuite/delete_test.py",
+        "line": 88,
+        "claim": "保护规则与exclude在delete-excluded下的不同效果",
+        "url": "https://github.com/RsyncProject/rsync/blob/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/testsuite/delete_test.py#L88"
+      },
+      {
+        "path": "sources/40_rsync/files/testsuite/hardlinks_test.py",
+        "line": 43,
+        "claim": "改写后再次同步仍保持硬链接及跨批次场景",
+        "url": "https://github.com/RsyncProject/rsync/blob/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/testsuite/hardlinks_test.py#L43"
+      }
+    ],
+    "caveat": "硬链接测试选读也含远程路径，但建议范围仅本地；无健康运行/独立 starter/求解实测。",
+    "read_scope": [
+      {
+        "path": "sources/40_rsync/files/generator.c",
+        "start": 320,
+        "end": 363,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/40_rsync/files/testsuite/delete_test.py",
+        "start": 86,
+        "end": 105,
+        "kind": "test_or_spec"
+      },
+      {
+        "path": "sources/40_rsync/files/testsuite/hardlinks_test.py",
+        "start": 20,
+        "end": 75,
+        "kind": "test_or_spec"
+      }
+    ]
+  },
+  {
+    "id": "50_thrift",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "建议按 M4 恢复题细化：跨文件 include/type/constant/service 共享语义→JSON 反射和固定 Python 生成；保留 lexer/语法框架与低层 runtime。",
+    "difficulty_reason": "同一符号身份跨 include 图、typedef/常量、service 继承和两个输出消费端一致，才形成持续剩余工程；只补 lexer 或单 generator 不足。尚无可构建连通掩码。",
+    "shortcut_risk": "现成 thrift CLI 的 JSON/Python 输出或 AST adapter 可能覆盖全部；正常 parser/序列化依赖保持允许。",
+    "judge_plan": "健康 upstream 对照 IDL→反射与生成模块运行；独立 schema 图检查绑定/requiredness/继承和错误；新跨文件组合单独保留。",
+    "residual_milestones": [
+      "制作可构建连通缺口，使 include 绑定、类型/常量语义有共同剩余工作。",
+      "共享语义同时供反射和 Python 生成消费，验证错误/继承路径。"
+    ],
+    "first_probe": "制作最小可构建掩码和跨 include IDL，再用官方 CLI 包装/AST adapter 尝试整份交付。",
+    "stop_condition": "掩码退化成几个字符串/AST adapter 或无法独立观察共享语义则搁置；不加非标准语法。",
+    "evidence": [
+      {
+        "path": "sources/50_thrift/files/compiler/cpp/src/thrift/thrifty.yy",
+        "line": 324,
+        "claim": "include在独立解析阶段加入program图",
+        "url": "https://github.com/apache/thrift/blob/f4d8e8c3fa56ef04d7462e26d3b8226127edb2fe/compiler/cpp/src/thrift/thrifty.yy#L324",
+        "upstream_path": "compiler/cpp/src/thrift/thrifty.yy"
+      },
+      {
+        "path": "sources/50_thrift/files/compiler/cpp/tests/cpp/t_cpp_parser_string_constant_tests.cc",
+        "line": 37,
+        "claim": "真实解析测试检查AST常量及lexer错误信息",
+        "url": "https://github.com/apache/thrift/blob/f4d8e8c3fa56ef04d7462e26d3b8226127edb2fe/compiler/cpp/tests/cpp/t_cpp_parser_string_constant_tests.cc#L37",
+        "upstream_path": "compiler/cpp/tests/cpp/t_cpp_parser_string_constant_tests.cc"
+      }
+    ],
+    "caveat": "原 route=M2 不改，建议 M4。已读测试仅直接证实字符串常量 AST 与 lexer 错误；跨 include/service 回归证据仍需补。无掩码/健康运行/求解实测。",
+    "read_scope": [
+      {
+        "path": "sources/50_thrift/files/compiler/cpp/src/thrift/thrifty.yy",
+        "start": 310,
+        "end": 355,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/50_thrift/files/compiler/cpp/tests/cpp/t_cpp_parser_string_constant_tests.cc",
+        "start": 28,
+        "end": 85,
+        "kind": "test_or_spec"
+      }
+    ]
+  },
+  {
+    "id": "51_capnproto",
+    "tier": "A",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "建议 M4 恢复进程内 schema 生命周期：同 ID 升降级、stub 依赖、旧 handle、dynamic struct/list/union 与静态绑定互通；首轮无需 RPC。",
+    "difficulty_reason": "加载更新影响既有 schema handle 和动态值解释；版本方向、依赖、布局默认和 union 必须共享身份/生命周期。CLI 或预生成静态 schema 无法直接代替同进程可观察契约，有明确值得制作 starter 的语义依据。",
+    "shortcut_risk": "保留低层 wire/layout 和静态绑定是强正常基线；完整库再链接、保留过多 loader 或过窄合同会掏空恢复工作。",
+    "judge_plan": "同进程保留旧 handle 后加载新/旧/不兼容 schema，再动态读取并静态互读；独立布局/演进变换与健康 upstream 双判据；遵守 load/loadOnce 公布的并发限制。",
+    "residual_milestones": [
+      "建立健康且身份/兼容判断连通的恢复边界，保持 wire 原语可用。",
+      "旧 handle、stub、动态 union/default 和静态 cast 共同通过升级/拒绝/读取轨迹。"
+    ],
+    "first_probe": "静态绑定+简单 loader adapter 跑持有旧 handle→加载新 schema→动态读取→静态互读，再确认掩码剩余工作是否真的跨层。",
+    "stop_condition": "正常 adapter 全解或只剩单处身份映射则降级；禁止把规范不保证的任意 load 并发当故障。",
+    "evidence": [
+      {
+        "path": "sources/51_capnproto/files/c++/src/capnp/schema-loader.h",
+        "line": 97,
+        "claim": "load文档说明新旧schema替换、stub及兼容/失效限制",
+        "url": "https://github.com/capnproto/capnproto/blob/b5ee48b9f3586fc83af8c429623e2c0d2435ec59/c++/src/capnp/schema-loader.h#L97",
+        "upstream_path": "c++/src/capnp/schema-loader.h"
+      },
+      {
+        "path": "sources/51_capnproto/files/c++/src/capnp/schema-loader.c++",
+        "line": 622,
+        "claim": "CompatibilityChecker维护新旧/等价及方向冲突",
+        "url": "https://github.com/capnproto/capnproto/blob/b5ee48b9f3586fc83af8c429623e2c0d2435ec59/c++/src/capnp/schema-loader.c++#L622",
+        "upstream_path": "c++/src/capnp/schema-loader.c++"
+      },
+      {
+        "path": "sources/51_capnproto/files/c++/src/capnp/schema-loader-test.c++",
+        "line": 193,
+        "claim": "原生测试覆盖upgrade/downgrade及不兼容加载",
+        "url": "https://github.com/capnproto/capnproto/blob/b5ee48b9f3586fc83af8c429623e2c0d2435ec59/c++/src/capnp/schema-loader-test.c++#L193",
+        "upstream_path": "c++/src/capnp/schema-loader-test.c++"
+      }
+    ],
+    "caveat": "原 route=M2 不改，建议实际 M4。定向选读，无可构建掩码/运行/难度实测。",
+    "read_scope": [
+      {
+        "path": "sources/51_capnproto/files/c++/src/capnp/schema-loader.c++",
+        "start": 622,
+        "end": 683,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/51_capnproto/files/c++/src/capnp/schema-loader-test.c++",
+        "start": 193,
+        "end": 252,
+        "kind": "test_or_spec"
+      },
+      {
+        "path": "sources/51_capnproto/files/c++/src/capnp/schema-loader.h",
+        "start": 97,
+        "end": 169,
+        "kind": "test_or_spec"
+      },
+      {
+        "path": "sources/51_capnproto/files/c++/src/capnp/dynamic.c++",
+        "start": 173,
+        "end": 218,
+        "kind": "implementation"
+      }
+    ]
+  },
+  {
+    "id": "52_flecs",
+    "tier": "A",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "建议 M4 恢复一帧 ECS 世界演进：defer 可见性→merge/add/set/remove/delete→observer 重入→查询结果与 changed；固定单 stage，保留实体存储与即时操作基础。",
+    "difficulty_reason": "命令提交会触发 observer，observer 又排新命令；可见性、entity 存活/代次和查询变化必须共同解释同一历史。原生测试确认 merge 后不仅 TagA 生效，observer 创建的 Position 也必须可见，说明普通单层队列需真实闭环。",
+    "shortcut_risk": "缓冲队列+保留 immediate APIs+uncached 全扫描是合法强基线；若已覆盖全部语义，不能靠禁止扫描或扩大 entity 数量维持高难。",
+    "judge_plan": "健康参考与独立小型 world 状态机驱动命令序列，检查 defer 前中后可见性、observer 事件/副作用、删除复用与查询 changed；性能不默认进入评分。",
+    "residual_milestones": [
+      "建立可构建的命令/提交/监控连通恢复缺口，保留正常即时 ECS 操作。",
+      "闭合 observer 再入队、删除/复用、查询字段与变化状态，避免一个操作的副作用污染下一帧。"
+    ],
+    "first_probe": "用通用缓冲队列调用 immediate API 并全扫描查询，跑 defer→observer 加组件→再次 merge→delete/reuse，检查实际剩余语义。",
+    "stop_condition": "简单队列+扫描完整覆盖则降级或收缩；缓存性能只有稳定强基线实测后才能另开目标。",
+    "evidence": [
+      {
+        "path": "sources/52_flecs/files/src/commands.c",
+        "line": 1199,
+        "claim": "flush处理stage队列、实体存活、批处理与递归合并",
+        "url": "https://github.com/SanderMertens/flecs/blob/cc2924199858433cbf9fdaca25b291883ebd09de/src/commands.c#L1199",
+        "upstream_path": "src/commands.c"
+      },
+      {
+        "path": "sources/52_flecs/files/test/core/src/Commands.c",
+        "line": 36,
+        "claim": "原生测试规定defer新实体在merge前后组件可见性",
+        "url": "https://github.com/SanderMertens/flecs/blob/cc2924199858433cbf9fdaca25b291883ebd09de/test/core/src/Commands.c#L36",
+        "upstream_path": "test/core/src/Commands.c"
+      },
+      {
+        "path": "sources/52_flecs/files/test/core/src/Commands.c",
+        "line": 3092,
+        "claim": "merge 触发 observer，回调创建 Position 后该组件立即在已合并 world 可观察。",
+        "url": "https://github.com/SanderMertens/flecs/blob/cc2924199858433cbf9fdaca25b291883ebd09de/test/core/src/Commands.c#L3092"
+      }
+    ],
+    "caveat": "原 route=M2 不改，建议 M4。只选读关键链，不是完整 ECS 审计；无掩码/运行/求解实测。",
+    "read_scope": [
+      {
+        "path": "sources/52_flecs/files/src/commands.c",
+        "start": 1199,
+        "end": 1264,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/52_flecs/files/test/core/src/Commands.c",
+        "start": 1,
+        "end": 68,
+        "kind": "test_or_spec"
+      },
+      {
+        "path": "sources/52_flecs/files/test/core/src/Commands.c",
+        "start": 3092,
+        "end": 3158,
+        "kind": "test_or_spec"
+      },
+      {
+        "path": "sources/52_flecs/files/src/query/cache/change_detection.c",
+        "start": 79,
+        "end": 125,
+        "kind": "implementation"
+      }
+    ]
+  },
+  {
+    "id": "53_nats",
+    "tier": "C",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "当前泛化单节点 JetStream 子集重设范围；可保留宿主事务日志/虚拟时钟/进程内状态 API 集成或自然连通受损 consumer/store 恢复，先给实际 starter。",
+    "difficulty_reason": "ack/pending/ack floor、重投窗口和 retention 作用于同一序列历史；不能把 ack 当独立 delete。现库存只提出黑盒服务子集，这些状态可由完整 nats-server 承担，尚无求解者剩余工程证据。",
+    "shortcut_risk": "stock nats-server -js+客户端/CLI 已很强；持久化后端成熟不是反证，但若全部合同只包服务就不足。标准存储/客户端库保持允许。",
+    "judge_plan": "单节点固定事件和可控时钟驱动 append→pull→ack/timeout→retention→成功持久点恢复，观察消息/sequence/consumer 状态；先排 Raft 和故障断电未规定行为。",
+    "residual_milestones": [
+      "如果真实宿主/恢复缺口成立：统一 append、sequence、consumer 读取与 pending/ack floor。",
+      "将 backoff、MaxDeliver/MaxAckPending、retention 和持久恢复放入同一生命周期。"
+    ],
+    "first_probe": "逐条 API 映射 stock broker；以 durable pull→部分 ack→超时→重启轨迹测试最薄包装，列清宿主需求中仍欠缺的状态接口。",
+    "stop_condition": "正常服务适配已全解且没有真实集成需求则停止该范围；不能靠禁服务或引入集群堆难度。",
+    "evidence": [
+      {
+        "path": "sources/53_nats/files/server/consumer.go",
+        "line": 3745,
+        "claim": "ack 处理检查 sequence/pending，更新 ack floor、重投队列和窗口通知。",
+        "url": "https://github.com/nats-io/nats-server/blob/b55d969381aa05a7a59c563797b454d1b6b5fa37/server/consumer.go#L3745",
+        "upstream_path": "server/consumer.go"
+      },
+      {
+        "path": "sources/53_nats/files/server/jetstream_consumer_test.go",
+        "line": 982,
+        "claim": "真实测试检查 BackOff/MaxDeliver 的有效组合和更新约束。",
+        "url": "https://github.com/nats-io/nats-server/blob/b55d969381aa05a7a59c563797b454d1b6b5fa37/server/jetstream_consumer_test.go#L982",
+        "upstream_path": "server/jetstream_consumer_test.go"
+      }
+    ],
+    "caveat": "测试选读直接验证 BackOff/MaxDeliver 配置，不代表完整 redelivery/恢复已验证；无运行实验。",
+    "read_scope": [
+      {
+        "path": "sources/53_nats/files/server/consumer.go",
+        "start": 3745,
+        "end": 3811,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/53_nats/files/server/jetstream_consumer_test.go",
+        "start": 982,
+        "end": 1041,
+        "kind": "test_or_spec"
+      }
+    ]
+  },
+  {
+    "id": "54_graphql",
+    "tier": "C",
+    "potential": "high",
+    "authoring_cost": "medium",
+    "recommended_scope": "当前通用 GraphQL 服务内核重新限定；可考虑真实宿主 resolver/typed-value/事件资源生命周期的执行引擎集成或受损 completion/error 链恢复。不能仅加 HTTP endpoint。",
+    "difficulty_reason": "结果类型递归决定 list/object/abstract completion 与 null 冒泡，错误 path 必须保留原位置，订阅还跨事件重用执行；但 graphql-js/其他成熟实现的公开 API 正好提供该闭环。",
+    "shortcut_risk": "buildSchema/execute/subscribe 加 resolver adapter 可能完成当前合同，规格复杂不等于剩余复杂；普通官方库应先试。",
+    "judge_plan": "冻结规范子集与确定 resolver/event stream；比较 data/errors 的 path/location、null 冒泡及事件取消后资源；不同允许的错误顺序不要误判。",
+    "residual_milestones": [
+      "真实宿主/恢复边界成立后：共享类型/coercion/field collection 与 nested completion。",
+      "让同步/异步异常、list/non-null 冒泡与 subscription 事件完成及清理一致。"
+    ],
+    "first_probe": "完整 API 合同映射官方库，用嵌套非空错误+变量 coercion+取消订阅旅程测普通 resolver 包装的余量。",
+    "stop_condition": "普通 GraphQL 库已满足实际宿主需求则停止当前系统题；不能追加任意 resolver DSL 迫使重写。",
+    "evidence": [
+      {
+        "path": "sources/54_graphql/files/src/execution/Executor.ts",
+        "line": 765,
+        "claim": "completeValue 根据 non-null/list/leaf/abstract/object 递归完成结果。",
+        "url": "https://github.com/graphql/graphql-js/blob/e35a025d6e947ed2db0c1378e130f2bd0438732c/src/execution/Executor.ts#L765",
+        "upstream_path": "src/execution/Executor.ts"
+      },
+      {
+        "path": "sources/54_graphql/files/src/execution/__tests__/nonnull-test.ts",
+        "line": 175,
+        "claim": "测试检查非空字段失败令最近 nullable 父对象为 null，并保留 path/location。",
+        "url": "https://github.com/graphql/graphql-js/blob/e35a025d6e947ed2db0c1378e130f2bd0438732c/src/execution/__tests__/nonnull-test.ts#L175",
+        "upstream_path": "src/execution/__tests__/nonnull-test.ts"
+      }
+    ],
+    "caveat": "本次未读 subscription 实现；取消/资源目标为候选重设方向，不能当已核验缺口。无运行或难度证据。",
+    "read_scope": [
+      {
+        "path": "sources/54_graphql/files/src/execution/Executor.ts",
+        "start": 765,
+        "end": 832,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/54_graphql/files/src/execution/__tests__/nonnull-test.ts",
+        "start": 175,
+        "end": 225,
+        "kind": "test_or_spec"
+      }
+    ]
+  },
+  {
+    "id": "55_cel_go",
+    "tier": "C",
+    "potential": "high",
+    "authoring_cost": "medium",
+    "recommended_scope": "当前通用 CEL compile/eval API 重设；可保留与真实宿主对象/unknown/成本记账接口相关的运行时集成，或 typed AST→plan→activation 受损链恢复。固定基础 CEL 功能集。",
+    "difficulty_reason": "检查后的类型/重载选择必须传到执行，unknown/error 与短路和成本计量交互；反复 activation 又要求隔离状态。但 canonical CEL-Go 已通过 Compile/Program/Eval/CostLimit 暴露该链，现范围未说明残余工程。",
+    "shortcut_risk": "正常 CEL-Go 或其他实现包装极强；禁普通 eval 不能排除规范库，不能把旧 google/cel-go 转发壳再算一种素材。",
+    "judge_plan": "固定声明/表达式/activation 与 CEL 规范例，小型独立解释模型加 canonical 差分；比较值、error/unknown 和明确成本合同，不对实现内部计数臆造统一要求。",
+    "residual_milestones": [
+      "真实集成/恢复边界成立后：类型检查/重载信息接到可复用 plan 与 activation。",
+      "unknown/error/短路、成本与取消处理在重复求值中保持隔离。"
+    ],
+    "first_probe": "用 canonical Env.Compile→Program→Eval/CostLimit 完整覆盖拟 API，检查宿主对象/记账要求是否还有非适配工作。",
+    "stop_condition": "正常 CEL API 全解实际目标则停止当前范围；不要靠增加宏/异步草案功能堆量。",
+    "evidence": [
+      {
+        "path": "sources/55_cel_go_canonical/files/cel/env.go",
+        "line": 597,
+        "claim": "CompileSource 按 ParseSource→Check 流程返回 checked AST。",
+        "url": "https://github.com/cel-expr/cel-go/blob/5dcc82d6016cbe8ce7aef7b027538c42ed31c2d6/cel/env.go#L597",
+        "upstream_path": "cel/env.go"
+      },
+      {
+        "path": "sources/55_cel_go_canonical/files/cel/cel_test.go",
+        "line": 2071,
+        "claim": "真实 CostLimit 测试结合 compile/check/Program/Eval 检查成本边界。",
+        "url": "https://github.com/cel-expr/cel-go/blob/5dcc82d6016cbe8ce7aef7b027538c42ed31c2d6/cel/cel_test.go#L2071",
+        "upstream_path": "cel/cel_test.go"
+      }
+    ],
+    "caveat": "实际来源目录 sources/55_cel_go_canonical；旧来源不重复计数。只读基础链，未核验全 checker/planner。无运行实验。",
+    "read_scope": [
+      {
+        "path": "sources/55_cel_go_canonical/files/cel/env.go",
+        "start": 597,
+        "end": 628,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/55_cel_go_canonical/files/cel/program.go",
+        "start": 467,
+        "end": 511,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/55_cel_go_canonical/files/cel/cel_test.go",
+        "start": 2071,
+        "end": 2120,
+        "kind": "test_or_spec"
+      }
+    ]
+  },
+  {
+    "id": "56_flatbuffers",
+    "tier": "C",
+    "potential": "high",
+    "authoring_cost": "medium",
+    "recommended_scope": "当前 .fbs→binary/reflection/verifier CLI 重设；仅在真实新语言后端/宿主 ABI 与动态对象布局集成、或连通受损实现恢复时继续。",
+    "difficulty_reason": "schema 身份、默认/union、offset/vtable/alignment 与验证必须对同一二进制解释一致；构造与读取互相制约。现成 flatc/runtime/reflection 已覆盖这些接口，原复杂性并未自然转成 starter 的剩余工作。",
+    "shortcut_risk": "flatc --binary/--json/--schema、生成代码/runtime 和 reflection 的薄组合可能全解；新增格式数量或禁工具不能替代真实缺口。",
+    "judge_plan": "固定官方格式与演进合同，两种语言 runtime 互读，加独立 offset/边界损坏生成器；合法二进制物理布局不唯一，比较语义/有效性，不苛求同一字节布局。",
+    "residual_milestones": [
+      "若重设后有真实缺口：统一 schema graph、union/default 与构造布局。",
+      "将验证/边界/递归资源限制接到读取，并验证新旧 schema 互通。"
+    ],
+    "first_probe": "完整映射 flatc/reflection API，做 schema 演进+union+坏 offset 旅程；再衡量真实新宿主的绑定工作是否只是 wrapper。",
+    "stop_condition": "普通工具组合满足全部真实目标则停止当前范围；新后端若无独立健康判据也先不构题。",
+    "evidence": [
+      {
+        "path": "sources/56_flatbuffers/files/include/flatbuffers/verifier.h",
+        "line": 147,
+        "claim": "验证 vector 长度/溢出、table vtable、root offset/identifier。",
+        "url": "https://github.com/google/flatbuffers/blob/b8431fbcd7a5c71817f314e18b332c0648554efa/include/flatbuffers/verifier.h#L147",
+        "upstream_path": "include/flatbuffers/verifier.h"
+      },
+      {
+        "path": "sources/56_flatbuffers/files/tests/parser_test.cpp",
+        "line": 833,
+        "claim": "真实 union 解析测试含 tag 顺序、namespace 及语言生成能力差异。",
+        "url": "https://github.com/google/flatbuffers/blob/b8431fbcd7a5c71817f314e18b332c0648554efa/tests/parser_test.cpp#L833",
+        "upstream_path": "tests/parser_test.cpp"
+      }
+    ],
+    "caveat": "定向选读，不宣称已覆盖 builder/reflection/演进实现；无运行证据。",
+    "read_scope": [
+      {
+        "path": "sources/56_flatbuffers/files/include/flatbuffers/verifier.h",
+        "start": 147,
+        "end": 213,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/56_flatbuffers/files/tests/parser_test.cpp",
+        "start": 833,
+        "end": 887,
+        "kind": "test_or_spec"
+      }
+    ]
+  },
+  {
+    "id": "72_yq",
+    "tier": "A",
+    "potential": "high",
+    "authoring_cost": "medium",
+    "recommended_scope": "M5 多文档 YAML 更新兼容：限定选择/递归/绝对和相对赋值/删除/合并表达式，联动 node identity、alias、tag/style/comment 与原位文件更新；不声称支持全部 yq。",
+    "difficulty_reason": "相对赋值的 RHS 在各 LHS 节点上下文求值，递归更新须 children-first；alias/merge key 又使多个路径共享对象，不能仅解析成 JSON 再改值。原生测试确有 alias 传递变化及自引用/tag 保留，基础读写后仍有共同语义工作。",
+    "shortcut_risk": "成熟 round-trip YAML AST 加查询/表达式库是应允许的强基线；若选择子集被普通 jq+AST adapter 全覆盖则降级。不能追加未承诺的全字节保真要求。",
+    "judge_plan": "冻结 yq 差分+独立解析后 tree/alias 验证，文本只精确比较明示承诺的 comment/tag/style；多文档和原位失败时同时检查文件、stdout 与退出码。",
+    "residual_milestones": [
+      "建立选择上下文/相对赋值/递归更新统一模型，使 node identity 和 alias 变更一致。",
+      "把选择与更新接入多文档 decoder/encoder、metadata/注释样式及原位文件副作用。"
+    ],
+    "first_probe": "成熟 YAML AST+查询库完成多文档 select→相对递归更新→alias 关联更新→原位失败旅程，看看余量是否只有格式 adapter。",
+    "stop_condition": "正常 AST/查询组合全解或剩余仅少量 CLI 文案则降级；不能靠任意空格/白行差异扩难。",
+    "evidence": [
+      {
+        "path": "sources/72_yq/files/pkg/yqlib/operator_assign.go",
+        "line": 32,
+        "claim": "绝对/相对赋值分支与 children-first 更新",
+        "url": "https://github.com/mikefarah/yq/blob/a814ff5166040ec745a96bddd79ee31c3a548e83/pkg/yqlib/operator_assign.go#L32",
+        "upstream_path": "pkg/yqlib/operator_assign.go"
+      },
+      {
+        "path": "sources/72_yq/files/pkg/yqlib/operator_assign_test.go",
+        "line": 12,
+        "claim": "原生表达式场景含创建、alias 与自引用",
+        "url": "https://github.com/mikefarah/yq/blob/a814ff5166040ec745a96bddd79ee31c3a548e83/pkg/yqlib/operator_assign_test.go#L12",
+        "upstream_path": "pkg/yqlib/operator_assign_test.go"
+      }
+    ],
+    "caveat": "本次直接核验赋值与测试，decoder/encoder/comment/in-place 仍为待验证集成范围；不能当已证难度。无运行实验。",
+    "read_scope": [
+      {
+        "path": "sources/72_yq/files/pkg/yqlib/operator_assign.go",
+        "start": 1,
+        "end": 82,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/72_yq/files/pkg/yqlib/operator_assign_test.go",
+        "start": 1,
+        "end": 90,
+        "kind": "test_or_spec"
+      }
+    ]
+  },
+  {
+    "id": "73_restic",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "M5 本地固定格式仓库的独立兼容客户端：init→backup→增量 snapshot→选择 restore→check；先定 Linux 元数据子集及 v1/v2。云后端/账号不进入首版。",
+    "difficulty_reason": "快照树、内容寻址 blob、pack/index 和加密格式互相引用，增量不能破坏旧快照，恢复还要选择/overwrite/元数据一致。真互操作范围可很深；但成熟后端与原客户端组合是否已完成全部交付仍未知，作者成本高。",
+    "shortcut_risk": "加密/分块/存储/格式库与合法现成工具包装先试；成熟 local backend 本身不降低潜力，但若整工具代理满足真实部署契约，不能事后禁掉。纯备份文件夹不等于仓库互操作。",
+    "judge_plan": "上游与候选写出的 repo 双向打开，独立目录清单和引用可达模型验证 snapshot/恢复；比较已提交状态与明示失败原子性，不比较随机 IV 密文和生成时间。",
+    "residual_milestones": [
+      "确定可独立观察的格式边界，并闭合 chunk/blob→pack/index→snapshot tree 的读写引用。",
+      "增量/选择恢复/元数据与中断后旧快照可读性共同成立；具体失败点合同先公开。"
+    ],
+    "first_probe": "先用成熟组件/薄工具组合跑双方写库→第二次局部更新→恢复旧/新快照→check；确认真实需求中仍有仓库层实现。",
+    "stop_condition": "普通组件/整工具适配全解、格式范围不能独立判定或健康参考无法离线稳定，暂不构题。",
+    "evidence": [
+      {
+        "path": "sources/73_restic/files/internal/archiver/archiver.go",
+        "line": 864,
+        "claim": "已有 chunker/uploader 与文件树 worker",
+        "url": "https://github.com/restic/restic/blob/9da3b87b07706956e8dc5fd5cb259b99ec940f51/internal/archiver/archiver.go#L864",
+        "upstream_path": "internal/archiver/archiver.go"
+      },
+      {
+        "path": "sources/73_restic/files/cmd/restic/cmd_restore_integration_test.go",
+        "line": 102,
+        "claim": "原生集成测试连接 backup/check/选择 restore",
+        "url": "https://github.com/restic/restic/blob/9da3b87b07706956e8dc5fd5cb259b99ec940f51/cmd/restic/cmd_restore_integration_test.go#L102",
+        "upstream_path": "cmd/restic/cmd_restore_integration_test.go"
+      },
+      {
+        "path": "sources/73_restic/files/doc/design.rst",
+        "line": 35,
+        "claim": "仓库格式要求原子写入，且随机 IV 使加密文件字节不适合作为等价条件",
+        "url": "https://github.com/restic/restic/blob/9da3b87b07706956e8dc5fd5cb259b99ec940f51/doc/design.rst#L35",
+        "upstream_path": "doc/design.rst"
+      }
+    ],
+    "caveat": "只读 archiver/restore integration/格式片段；pack/index 与中断原子性的完整实现未核验。无健康运行/求解实测。",
+    "read_scope": [
+      {
+        "path": "sources/73_restic/files/internal/archiver/archiver.go",
+        "start": 864,
+        "end": 930,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/73_restic/files/cmd/restic/cmd_restore_integration_test.go",
+        "start": 102,
+        "end": 170,
+        "kind": "test_or_spec"
+      },
+      {
+        "path": "sources/73_restic/files/doc/design.rst",
+        "start": 35,
+        "end": 79,
+        "kind": "test_or_spec"
+      }
+    ]
+  },
+  {
+    "id": "76_miller",
+    "tier": "A",
+    "potential": "high",
+    "authoring_cost": "medium",
+    "recommended_scope": "M5 typed CSV/JSON→限定 DSL begin/main/end→filter/group/join→writer/CLI 的记录流兼容；选有状态完整工作流，不以全部 verbs 数量为目标。",
+    "difficulty_reason": "join 的缺失/空值、重复键和未匹配记录输出与 end-of-stream 绑定，DSL 状态又跨记录/阶段传播；SQL join 可解决一层，但不能自动解决 Miller 类型/顺序/DSL 环境与输出副作用的共同契约。",
+    "shortcut_risk": "DuckDB/awk/pandas 和 parser 库都是合法强基线；若选定 DSL 只是若干可翻译关系表达式，则该题可能比预想容易。流式资源限制必须有真实目标和实测依据。",
+    "judge_plan": "冻结 Miller 差分+独立小型记录/关系模型；比较类型、缺失/空值、顺序、EOS 汇总和约定输出/错误；原生 fixture 作种子，新组合独立生成。",
+    "residual_milestones": [
+      "基本投影/filter 后统一 typed value、DSL 作用域和 begin/main/end 跨记录状态。",
+      "联接重复/缺失/空值与未配对输出，接 group、EOS 和跨格式 writer，保证组合语义。"
+    ],
+    "first_probe": "用普通关系工具适配完整 begin→状态 main→join→end 工作流，明确 DSL/类型/顺序仍需的真实实现。",
+    "stop_condition": "普通关系工具+小 adapter 全解则降级；不要通过外部 prepipe、shell 或数值边缘偶然性强行扩难。",
+    "evidence": [
+      {
+        "path": "sources/76_miller/files/pkg/transformers/join.go",
+        "line": 18,
+        "claim": "join 配对/空值/有序与无序模式已有不同合同",
+        "url": "https://github.com/johnkerl/miller/blob/3fa2b291fc7bd93f491c93c2453e7d50a18d645d/pkg/transformers/join.go#L18"
+      },
+      {
+        "path": "sources/76_miller/files/pkg/dsl/cst/root.go",
+        "line": 433,
+        "claim": "DSL begin/main/end 作用域执行分离",
+        "url": "https://github.com/johnkerl/miller/blob/3fa2b291fc7bd93f491c93c2453e7d50a18d645d/pkg/dsl/cst/root.go#L433"
+      },
+      {
+        "path": "sources/76_miller/files/test/cases/verb-join-mixed-format/0001/cmd",
+        "line": 1,
+        "claim": "原生跨格式 join 命令与配套 expected",
+        "url": "https://github.com/johnkerl/miller/blob/3fa2b291fc7bd93f491c93c2453e7d50a18d645d/test/cases/verb-join-mixed-format/0001/cmd#L1"
+      }
+    ],
+    "caveat": "原 fixture 名为 mixed-format，但本次所读 0001 命令实际为 JSON 双输入；未核验 CSV 路径/DSL 原生测试。阶段方法本身不能证明完整 DSL 难度，无运行证据。",
+    "read_scope": [
+      {
+        "path": "sources/76_miller/files/pkg/transformers/join.go",
+        "start": 18,
+        "end": 60,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/76_miller/files/pkg/transformers/join.go",
+        "start": 399,
+        "end": 458,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/76_miller/files/pkg/dsl/cst/root.go",
+        "start": 433,
+        "end": 485,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/76_miller/files/test/cases/verb-join-mixed-format/0001/cmd",
+        "start": 1,
+        "end": 1,
+        "kind": "test_or_spec"
+      },
+      {
+        "path": "sources/76_miller/files/test/cases/verb-join-mixed-format/0001/expout",
+        "start": 1,
+        "end": 22,
+        "kind": "test_or_spec"
+      }
+    ]
+  },
+  {
+    "id": "77_wireshark",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "M5 合成 PCAP 的有限离线分析替代：Ethernet/IP/TCP 加明确应用协议，跨帧重组→字段/类型过滤→固定 TShark 输出；首版先选健康参考可稳定支持的协议，不含 GUI/实时捕获。",
+    "difficulty_reason": "分段与应用消息边界不同，一个 frame 可有完整/半个多条消息；第二遍分析要引用第一遍完成的重组并回填帧归属，多个会话不能串状态。具备高难语义上限，但参考能力/过滤范围和成熟重组库剩余量未测。",
+    "shortcut_risk": "Scapy/dpkt/PCAP、现成 TCP/协议重组库先试；仅单帧解析很可能薄适配就够。若目标工具代理满足部署合同也应降级，不能按 dissector 数量或编译时间推难度。",
+    "judge_plan": "固定无 GUI TShark+独立合成包/消息生成器，观测重组消息字节、字段、多会话和一次/二次分析帧归属；固定所需 nghttp2 等能力，不比较主机名或无关时戳。",
+    "residual_milestones": [
+      "健康离线 reference/fixture 建成后，闭合 TCP/应用消息边界和多会话重组。",
+      "将重组状态接两遍分析、字段类型/display-filter 与 CLI，错误片段不污染其他会话。"
+    ],
+    "first_probe": "先离线启动健康 reference 跑一条可控跨帧消息，再用成熟协议/重组库薄适配同场景；同时检查选定过滤子集是否仍需新状态逻辑。",
+    "stop_condition": "健康参考过重不稳定、库适配全解或范围必须膨胀成全协议集合才显难，则搁置本版。",
+    "evidence": [
+      {
+        "path": "sources/77_wireshark/files/epan/reassemble.c",
+        "line": 2464,
+        "claim": "按片序号进入通用重组状态逻辑",
+        "url": "https://github.com/wireshark/wireshark/blob/455e49bcca6882e317d83d76feb86cf88a27df1f/epan/reassemble.c#L2464"
+      },
+      {
+        "path": "sources/77_wireshark/files/test/suite_dissection.py",
+        "line": 381,
+        "claim": "原生 HTTP2/gRPC 流式多帧重组与二次分析测试",
+        "url": "https://github.com/wireshark/wireshark/blob/455e49bcca6882e317d83d76feb86cf88a27df1f/test/suite_dissection.py#L381"
+      }
+    ],
+    "caveat": "定向选读通用重组与 HTTP2/gRPC 测试，TCP 和 display-filter 实现未读；nghttp2/两遍依赖直接可见，但未实际构建/运行。",
+    "read_scope": [
+      {
+        "path": "sources/77_wireshark/files/epan/reassemble.c",
+        "start": 2412,
+        "end": 2462,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/77_wireshark/files/epan/reassemble.c",
+        "start": 2464,
+        "end": 2520,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/77_wireshark/files/test/suite_dissection.py",
+        "start": 381,
+        "end": 430,
+        "kind": "test_or_spec"
+      }
+    ]
+  }
+]

@@ -1,0 +1,24 @@
+diff --git a/tests/test_boundary.py b/tests/test_boundary.py
+new file mode 100644
+index 0000000..a8115b4
+--- /dev/null
++++ b/tests/test_boundary.py
+@@ -0,0 +1,3 @@
++from calc import combine
++def test_none_value():
++    assert combine({"a": 1}, {"a": None}) == {"a": None}
+diff --git a/tests/test_target.py b/tests/test_target.py
+new file mode 100644
+index 0000000..7b371a5
+--- /dev/null
++++ b/tests/test_target.py
+@@ -0,0 +1,9 @@
++from calc import combine
++def test_parent():
++    assert combine({"a": 1}, {}) == {"a": 1}
++def test_child():
++    assert combine({}, {"b": 2}) == {"b": 2}
++def test_override():
++    assert combine({"a": 1, "b": 2}, {"a": 3}) == {"a": 3, "b": 2}
++def test_unicode():
++    assert combine({"名字": "甲"}, {"名字": "乙"}) == {"名字": "乙"}

@@ -1,0 +1,63 @@
+{
+  "reason": "infrastructure_or_probe_completion",
+  "uid_scope": 1500,
+  "exclusive_sandbox_only": true,
+  "learning_started_monotonic": 59.497263225,
+  "learning_started_utc": "2026-10-14T22:38:19.242059+00:00",
+  "launches": [
+    {
+      "pid": 207,
+      "spawned_monotonic": 59.50760812,
+      "spawned_utc": "2026-10-14T22:38:19.252432+00:00"
+    },
+    {
+      "pid": 12104,
+      "spawned_monotonic": 3738.525133374,
+      "spawned_utc": "2026-10-14T23:39:38.269991+00:00"
+    }
+  ],
+  "learning_deadline_monotonic": 21659.497263225,
+  "first_stop_dispatch_monotonic": 15243.338893472,
+  "all_stop_dispatched_monotonic": 15243.345078625,
+  "stop_dispatch_lateness_sec": -6416.158369752999,
+  "learning_window_sec": 21600,
+  "actual_stop_dispatch_elapsed_sec": 15183.841630247001,
+  "actual_all_stop_dispatched_elapsed_sec": 15183.8478154,
+  "paused_before_termination": true,
+  "stopped_processes": [
+    {
+      "pid": 12104,
+      "start_ticks": "373851"
+    },
+    {
+      "pid": 12107,
+      "start_ticks": "373853"
+    },
+    {
+      "pid": 12108,
+      "start_ticks": "373853"
+    },
+    {
+      "pid": 12109,
+      "start_ticks": "373853"
+    },
+    {
+      "pid": 12217,
+      "start_ticks": "374589"
+    },
+    {
+      "pid": 17388,
+      "start_ticks": "1456819"
+    },
+    {
+      "pid": 17389,
+      "start_ticks": "1456822"
+    },
+    {
+      "pid": 19286,
+      "start_ticks": "1513745"
+    }
+  ],
+  "surviving_learning_processes": [],
+  "finished_utc": "2026-10-15T02:51:23.106630+00:00"
+}

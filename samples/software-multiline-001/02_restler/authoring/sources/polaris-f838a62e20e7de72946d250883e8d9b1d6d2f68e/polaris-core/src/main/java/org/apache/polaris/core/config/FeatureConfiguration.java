@@ -1,0 +1,840 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.polaris.core.config;
+
+import java.util.List;
+import java.util.Optional;
+import org.apache.polaris.core.admin.model.AuthenticationParameters;
+import org.apache.polaris.core.admin.model.StorageConfigInfo;
+import org.apache.polaris.core.connection.ConnectionType;
+import org.apache.polaris.core.persistence.cache.EntityWeigher;
+import org.apache.polaris.core.storage.aws.S3CredentialVendingMechanism;
+
+/**
+ * Configurations for features within Polaris. These configurations are intended to be customized
+ * and many expose user-facing catalog-level configurations. These configurations are stable over
+ * time.
+ *
+ * @param <T>
+ */
+public class FeatureConfiguration<T> extends PolarisConfiguration<T> {
+  protected FeatureConfiguration(
+      String key,
+      String description,
+      T defaultValue,
+      Optional<String> catalogConfig,
+      Optional<String> catalogConfigUnsafe) {
+    super(key, description, defaultValue, catalogConfig, catalogConfigUnsafe);
+  }
+
+  /**
+   * Helper for the common scenario of gating a feature with a boolean FeatureConfiguration, where
+   * we want to throw an UnsupportedOperationException if it's not enabled.
+   */
+  public static void enforceFeatureEnabledOrThrow(
+      RealmConfig realmConfig, FeatureConfiguration<Boolean> featureConfig) {
+    boolean enabled = realmConfig.getConfig(featureConfig);
+    if (!enabled) {
+      throw new UnsupportedOperationException("Feature not enabled: " + featureConfig.key());
+    }
+  }
+
+  public static final FeatureConfiguration<Boolean>
+      ENFORCE_PRINCIPAL_CREDENTIAL_ROTATION_REQUIRED_CHECKING =
+          PolarisConfiguration.<Boolean>builder()
+              .key("ENFORCE_PRINCIPAL_CREDENTIAL_ROTATION_REQUIRED_CHECKING")
+              .description(
+                  "If set to true, require that principals must rotate their credentials before being used "
+                      + "for anything else.")
+              .defaultValue(false)
+              .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> SKIP_CREDENTIAL_SUBSCOPING_INDIRECTION =
+      PolarisConfiguration.<Boolean>builder()
+          .key("SKIP_CREDENTIAL_SUBSCOPING_INDIRECTION")
+          .description(
+              "Test/dev-only. If true, bypass credential subscoping entirely: FileIO falls back to\n"
+                  + "   the server's ambient credentials (pod IAM role, env vars, credential files).\n"
+                  + "   Intended for tests with fake storage paths (no real STS). NOT for production:\n"
+                  + "   those credentials are handed to every client, breaking defense-in-depth. For\n"
+                  + "   S3-compatible storage without STS, set stsUnavailable: true on the storage config\n"
+                  + "   instead.")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> INCLUDE_PRINCIPAL_NAME_IN_SUBSCOPED_CREDENTIAL =
+      PolarisConfiguration.<Boolean>builder()
+          .key("INCLUDE_PRINCIPAL_NAME_IN_SUBSCOPED_CREDENTIAL")
+          .description(
+              "If set to true, principal name will be included in temporary subscoped credentials.\n"
+                  + "Currently only AWS credentials are supported for which session name of the generated credentials \n"
+                  + "will look like 'polaris-<principal>' rather than simple 'polaris'.\n"
+                  + "Note that enabling this feature leads to degradation in temporary credential caching as \n"
+                  + "catalog will no longer be able to reuse credentials for multiple principals.")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  /**
+   * The set of fields that are supported as AWS STS session tag labels in credential vending.
+   *
+   * <p>Supported values:
+   *
+   * <ul>
+   *   <li>{@code realm} - The realm identifier for the request
+   *   <li>{@code catalog} - The name of the catalog vending credentials
+   *   <li>{@code namespace} - The namespace being accessed (dot-separated)
+   *   <li>{@code table} - The table name being accessed
+   *   <li>{@code principal} - The principal name requesting credentials
+   *   <li>{@code roles} - Comma-separated list of activated principal roles
+   *   <li>{@code trace_id} - OpenTelemetry trace ID (WARNING: disables credential caching)
+   * </ul>
+   */
+  public static final List<String> SUPPORTED_SESSION_TAG_FIELDS =
+      List.<String>of("realm", "catalog", "namespace", "table", "principal", "roles", "trace_id");
+
+  /**
+   * The config name for the trace ID session tag field. Included as a constant because callers need
+   * to check for its presence specifically — enabling it populates the trace ID into the credential
+   * vending context, which effectively eliminates credential cache reuse since each request has a
+   * unique trace ID.
+   */
+  public static final String SESSION_TAG_FIELD_TRACE_ID = "trace_id";
+
+  public static final FeatureConfiguration<List<String>> SESSION_TAGS_IN_SUBSCOPED_CREDENTIAL =
+      PolarisConfiguration.<List<String>>builder()
+          .key("SESSION_TAGS_IN_SUBSCOPED_CREDENTIAL")
+          .description(
+              "A comma-separated list of fields to include as session tags in AWS STS AssumeRole requests\n"
+                  + "for credential vending. These tags appear in CloudTrail events, enabling correlation between\n"
+                  + "catalog operations and S3 data access. An empty list (default) disables session tags entirely.\n"
+                  + "Requires the IAM role trust policy to allow sts:TagSession action.\n"
+                  + "\n"
+                  + "Supported fields: "
+                  + String.join(", ", SUPPORTED_SESSION_TAG_FIELDS)
+                  + "\n"
+                  + "\n"
+                  + "Note: each additional field may contribute to AWS STS packed policy size (max 2048 characters).\n"
+                  + "Fields with long values (e.g. deeply nested namespaces) can cause STS policy size limit errors.\n"
+                  + "Choose only the fields needed for your CloudTrail correlation requirements.\n"
+                  + "\n"
+                  + "WARNING: Including 'trace_id' effectively eliminates credential cache reuse because every\n"
+                  + "request has a unique trace ID. This may significantly increase latency and STS API costs.")
+          .defaultValue(List.<String>of())
+          .buildFeatureConfiguration();
+
+  /**
+   * The set of fields supported for composing the AWS STS role session name during credential
+   * vending.
+   *
+   * <p>Supported values:
+   *
+   * <ul>
+   *   <li>{@code realm} - The realm identifier for the request
+   *   <li>{@code catalog} - The name of the catalog vending credentials
+   *   <li>{@code namespace} - The namespace being accessed (dot-separated)
+   *   <li>{@code table} - The table name being accessed
+   *   <li>{@code principal} - The principal name requesting credentials
+   * </ul>
+   */
+  public static final List<String> SUPPORTED_SESSION_NAME_FIELDS =
+      List.<String>of("realm", "catalog", "namespace", "table", "principal");
+
+  /**
+   * Ordered list of fields to include in the session name during credential vending. Applies to
+   * systems that support session-based sub-scoped credentials (e.g. S3 with STS). Fields are joined
+   * with {@code -} and prefixed with {@code p-} by default. The result is truncated to 64
+   * characters; any budget unused by a short field is carried forward to subsequent fields.
+   *
+   * <p>When empty (default), falls back to {@link #INCLUDE_PRINCIPAL_NAME_IN_SUBSCOPED_CREDENTIAL}
+   * behaviour for backward compatibility.
+   *
+   * <p>Supported fields: realm, catalog, namespace, table, principal.
+   *
+   * <p><b>Field order is significant.</b> The fields appear in the session name in the order they
+   * are listed. Changing the order changes the session name structure, which affects CloudTrail
+   * queries and log correlation.
+   *
+   * <p>The prefix can be customised by including a {@code prefix-X} token anywhere in the list
+   * (e.g. {@code ["prefix-myorg", "catalog", "principal"]} → {@code myorg-catalog-principal}).
+   * Defaults to {@code p-}.
+   *
+   * <p>Example: setting {@code ["realm","catalog","table","principal"]} produces session names like
+   * {@code p-acme-hr_catalog-employee-etl_writer} (truncated to 64 chars).
+   *
+   * <p>Note: enabling this flag causes the session name to vary per request context, which may
+   * reduce credential cache reuse depending on which fields are configured.
+   */
+  public static final FeatureConfiguration<List<String>>
+      SESSION_NAME_FIELDS_IN_SUBSCOPED_CREDENTIAL =
+          PolarisConfiguration.<List<String>>builder()
+              .key("SESSION_NAME_FIELDS_IN_SUBSCOPED_CREDENTIAL")
+              .description(
+                  "Ordered list of fields to include in the session name during credential vending.\n"
+                      + "Applies to systems that support session-based sub-scoped credentials (e.g. S3 with STS).\n"
+                      + "Fields are joined with '-' and prefixed with 'p-' by default. The result is truncated to\n"
+                      + "64 characters (the AWS STS session name limit); budget unused by a short field flows to\n"
+                      + "subsequent fields.\n"
+                      + "When empty (default), falls back to INCLUDE_PRINCIPAL_NAME_IN_SUBSCOPED_CREDENTIAL behaviour.\n"
+                      + "\n"
+                      + "Supported fields: "
+                      + String.join(", ", SUPPORTED_SESSION_NAME_FIELDS)
+                      + "\n"
+                      + "\n"
+                      + "Field order is significant: fields appear in the session name in the order listed.\n"
+                      + "Changing the order changes the session name structure and will affect CloudTrail queries.\n"
+                      + "\n"
+                      + "To customise the prefix, include a 'prefix-X' token (e.g. 'prefix-myorg' sets the prefix\n"
+                      + "to 'myorg-'). Defaults to 'p-'.\n"
+                      + "\n"
+                      + "Example: [\"realm\",\"catalog\",\"table\",\"principal\"] produces session names like\n"
+                      + "'p-acme-hr_catalog-employee-etl_writer' (truncated to 64 chars).\n"
+                      + "\n"
+                      + "Note: enabling this flag may reduce credential cache reuse when context-specific fields\n"
+                      + "(e.g. table, namespace) are included, since credentials are keyed partly on session name.")
+              .defaultValue(List.<String>of())
+              .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> GCS_PRINCIPAL_ATTRIBUTION_ENABLED =
+      PolarisConfiguration.<Boolean>builder()
+          .key("GCS_PRINCIPAL_ATTRIBUTION_ENABLED")
+          .description(
+              "Enables GCS principal attribution via Workload Identity Federation.\n"
+                  + "When true, credential vending chains a catalog-signed JWT through an STS token\n"
+                  + "exchange and service-account impersonation so the Polaris principal appears in GCS\n"
+                  + "Data Access audit logs (serviceAccountDelegationInfo.principalSubject).\n"
+                  + "Requires GCS_PRINCIPAL_ATTRIBUTION_WIF_AUDIENCE, GCS_PRINCIPAL_ATTRIBUTION_TOKEN_ISSUER,\n"
+                  + "and GCS_PRINCIPAL_ATTRIBUTION_SIGNING_KEY_FILE to also be set;\n"
+                  + "a missing required value is a fatal configuration error.\n"
+                  + "Also requires a gcpServiceAccount on the catalog StorageConfiguration.\n"
+                  + "Default: false (attribution disabled).")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<String> GCS_PRINCIPAL_ATTRIBUTION_WIF_AUDIENCE =
+      PolarisConfiguration.<String>builder()
+          .key("GCS_PRINCIPAL_ATTRIBUTION_WIF_AUDIENCE")
+          .description(
+              "Full resource name of the Workload Identity Pool provider used for GCS principal\n"
+                  + "attribution, e.g.\n"
+                  + "//iam.googleapis.com/projects/<num>/locations/global/workloadIdentityPools/<pool>/providers/<provider>.\n"
+                  + "Used as both the attribution JWT 'aud' claim and the STS token-exchange audience.\n"
+                  + "Required when GCS_PRINCIPAL_ATTRIBUTION_ENABLED=true; ignored otherwise.")
+          .defaultValue("")
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<String> GCS_PRINCIPAL_ATTRIBUTION_TOKEN_ISSUER =
+      PolarisConfiguration.<String>builder()
+          .key("GCS_PRINCIPAL_ATTRIBUTION_TOKEN_ISSUER")
+          .description(
+              "Issuer (iss claim) of catalog-minted GCS attribution JWTs; must match the issuer\n"
+                  + "configured on the Workload Identity Pool OIDC provider. The provider verifies\n"
+                  + "signatures against its uploaded JWKS, so no public discovery endpoint is required.\n"
+                  + "Required when GCS_PRINCIPAL_ATTRIBUTION_ENABLED=true; ignored otherwise.")
+          .defaultValue("")
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<String> GCS_PRINCIPAL_ATTRIBUTION_SIGNING_KEY_FILE =
+      PolarisConfiguration.<String>builder()
+          .key("GCS_PRINCIPAL_ATTRIBUTION_SIGNING_KEY_FILE")
+          .description(
+              "Filesystem path to the PKCS#8 PEM RSA private key used to sign GCS attribution JWTs\n"
+                  + "(RS256). The corresponding public key must be published in the Workload Identity\n"
+                  + "Pool provider's uploaded JWKS. Required when GCS_PRINCIPAL_ATTRIBUTION_ENABLED=true; ignored otherwise.")
+          .defaultValue("")
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<String> GCS_PRINCIPAL_ATTRIBUTION_SIGNING_KEY_ID =
+      PolarisConfiguration.<String>builder()
+          .key("GCS_PRINCIPAL_ATTRIBUTION_SIGNING_KEY_ID")
+          .description(
+              "Key ID (kid) written into the header of GCS attribution JWTs so the Workload Identity\n"
+                  + "Pool provider can select the right public key from its JWKS during key rotation\n"
+                  + "(when the JWKS holds both the old and new keys). Must match the kid of the JWKS\n"
+                  + "entry for the configured signing key. Empty omits the header (only safe with a\n"
+                  + "single-key JWKS).")
+          .defaultValue("")
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ALLOW_SETTING_S3_ENDPOINTS =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ALLOW_SETTING_S3_ENDPOINTS")
+          .description(
+              "If set to true (default), Polaris will permit S3 storage configurations to have custom endpoints.\n"
+                  + "If set to false, Polaris will not accept catalog create and update requests that contain \n"
+                  + "S3 endpoint properties.")
+          .defaultValue(true)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ALLOW_TABLE_LOCATION_OVERLAP =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ALLOW_TABLE_LOCATION_OVERLAP")
+          .catalogConfig("polaris.config.allow.overlapping.table.location")
+          .legacyCatalogConfig("allow.overlapping.table.location")
+          .description(
+              "If set to true, Polaris allows table or view locations to overlap existing table "
+                  + "or namespace locations. This disables Polaris location-overlap protection "
+                  + "for table-like objects in the catalog and should only be used for "
+                  + "compatibility cases where storage isolation is enforced outside Polaris.")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ALLOW_NAMESPACE_LOCATION_OVERLAP =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ALLOW_NAMESPACE_LOCATION_OVERLAP")
+          .description(
+              "If set to true, allow one namespace's location to reside within another namespace's location. "
+                  + "This is only enforced within a parent catalog or namespace.")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ALLOW_EXTERNAL_METADATA_FILE_LOCATION =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ALLOW_EXTERNAL_METADATA_FILE_LOCATION")
+          .catalogConfig("polaris.config.allow.external.metadata.file.location")
+          .description(
+              "If set to true, Polaris allows metadata files to be located outside the table's "
+                  + "default metadata directory. This relaxes the normal check that metadata "
+                  + "stays under the table location and should only be used when metadata is "
+                  + "intentionally stored in separately controlled locations.")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ALLOW_OVERLAPPING_CATALOG_URLS =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ALLOW_OVERLAPPING_CATALOG_URLS")
+          .description("If set to true, allows catalog URLs to overlap.")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ALLOW_UNSTRUCTURED_TABLE_LOCATION =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ALLOW_UNSTRUCTURED_TABLE_LOCATION")
+          .catalogConfig("polaris.config.allow.unstructured.table.location")
+          .legacyCatalogConfig("allow.unstructured.table.location")
+          .description(
+              "If set to true, Polaris allows caller-specified table and view locations outside "
+                  + "the structured namespace layout. This removes the default constraint that "
+                  + "confines new table locations to the parent namespace location. Allowed-"
+                  + "location validation still applies, but this should only be enabled for "
+                  + "catalogs that must support externally managed or migrated table locations.")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  /**
+   * @deprecated since 1.7.0, will be removed in 1.8.0. Use {@link
+   *     #ALLOW_EXTERNAL_METADATA_FILE_LOCATION} instead. This legacy flag is retained as a
+   *     compatibility alias for external metadata file locations.
+   */
+  @SuppressWarnings("DeprecatedIsStillUsed")
+  @Deprecated(since = "1.7.0", forRemoval = true)
+  public static final FeatureConfiguration<Boolean> ALLOW_EXTERNAL_TABLE_LOCATION =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ALLOW_EXTERNAL_TABLE_LOCATION")
+          .catalogConfig("polaris.config.allow.external.table.location")
+          .legacyCatalogConfig("allow.external.table.location")
+          .description(
+              "Deprecated. Use ALLOW_EXTERNAL_METADATA_FILE_LOCATION instead. When enabled, this "
+                  + "legacy compatibility flag relaxes metadata location checks; it does not "
+                  + "control whether table locations may escape the structured namespace layout. "
+                  + "Use ALLOW_UNSTRUCTURED_TABLE_LOCATION for that behavior.")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ALLOW_CLIENT_SPECIFIED_TABLE_LOCATION =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ALLOW_CLIENT_SPECIFIED_TABLE_LOCATION")
+          .catalogConfig("polaris.config.allow.client-specified.table.location")
+          .description(
+              "If set to true (the default), Polaris honors a `location` (and the "
+                  + "`write.data.path` / `write.metadata.path` properties) explicitly supplied in a "
+                  + "create or update request, subject to the usual structured-location, "
+                  + "allowed-location, metadata-location, and overlap validation. If set to false, "
+                  + "such requests are rejected, regardless of the other location compatibility flags. "
+                  + "This setting does not apply to federated catalogs.")
+          .defaultValue(true)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ALLOW_EXTERNAL_CATALOG_CREDENTIAL_VENDING =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ALLOW_EXTERNAL_CATALOG_CREDENTIAL_VENDING")
+          .catalogConfig("polaris.config.enable.credential.vending")
+          .legacyCatalogConfig("enable.credential.vending")
+          .description("If set to true, allow credential vending for external catalogs.")
+          .defaultValue(true)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ALLOW_WILDCARD_LOCATION =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ALLOW_WILDCARD_LOCATION")
+          .description(
+              "Indicates whether asterisks ('*') in configured allowed locations are processed "
+                  + "as meaning 'any location'. If enabled and '*' is present in an allowed-"
+                  + "locations list, Polaris accepts every requested location. This removes the "
+                  + "normal location allowlist boundary and should only be used for tightly "
+                  + "controlled compatibility or test scenarios.")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<List<String>> SUPPORTED_CATALOG_STORAGE_TYPES =
+      PolarisConfiguration.<List<String>>builder()
+          .key("SUPPORTED_CATALOG_STORAGE_TYPES")
+          .catalogConfig("polaris.config.supported.storage.types")
+          .legacyCatalogConfig("supported.storage.types")
+          .description("The list of supported storage types for a catalog")
+          .defaultValue(
+              List.of(
+                  StorageConfigInfo.StorageTypeEnum.S3.name(),
+                  StorageConfigInfo.StorageTypeEnum.AZURE.name(),
+                  StorageConfigInfo.StorageTypeEnum.GCS.name()))
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<List<String>>
+      SUPPORTED_S3_CREDENTIAL_VENDING_MECHANISMS =
+          PolarisConfiguration.<List<String>>builder()
+              .key("SUPPORTED_S3_CREDENTIAL_VENDING_MECHANISMS")
+              .description(
+                  "The credential vending mechanisms an S3 catalog in this realm may name explicitly. Names\n"
+                      + "are case-sensitive and must match a mechanism's identifier exactly, for example STS.\n"
+                      + "Apache Polaris supports STS, which is STS AssumeRole. A catalog that\n"
+                      + "leaves credentialVendingMechanism empty uses the server's default mechanism and is\n"
+                      + "always allowed. Realm-level only; catalog properties cannot widen it. Enforced at\n"
+                      + "catalog create and update, and when the server builds the storage integration that\n"
+                      + "vends credentials for a catalog. A listed mechanism with no implementation in this\n"
+                      + "server is reported at startup and refused at catalog create and update and whenever\n"
+                      + "a credential is vended for a catalog that names it.")
+              .defaultValue(List.of(S3CredentialVendingMechanism.STS))
+              .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> CLEANUP_ON_NAMESPACE_DROP =
+      PolarisConfiguration.<Boolean>builder()
+          .key("CLEANUP_ON_NAMESPACE_DROP")
+          .catalogConfig("polaris.config.cleanup.on.namespace.drop")
+          .legacyCatalogConfig("cleanup.on.namespace.drop")
+          .description("If set to true, clean up data when a namespace is dropped")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> CLEANUP_ON_CATALOG_DROP =
+      PolarisConfiguration.<Boolean>builder()
+          .key("CLEANUP_ON_CATALOG_DROP")
+          .catalogConfig("polaris.config.cleanup.on.catalog.drop")
+          .legacyCatalogConfig("cleanup.on.catalog.drop")
+          .description("If set to true, clean up data when a catalog is dropped")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> DROP_WITH_PURGE_ENABLED =
+      PolarisConfiguration.<Boolean>builder()
+          .key("DROP_WITH_PURGE_ENABLED")
+          .catalogConfig("polaris.config.drop-with-purge.enabled")
+          .legacyCatalogConfig("drop-with-purge.enabled")
+          .description(
+              "If set to true, allows Iceberg tables to be dropped with the purge parameter set to"
+                  + " true.")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> PURGE_VIEW_METADATA_ON_DROP =
+      PolarisConfiguration.<Boolean>builder()
+          .key("PURGE_VIEW_METADATA_ON_DROP")
+          .catalogConfig("polaris.config.purge-view-metadata-on-drop")
+          .description(
+              "If set to true, Polaris will attempt to delete view metadata files when a view is dropped.")
+          .defaultValue(true)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Long> POLARIS_TASK_TIMEOUT_MILLIS =
+      PolarisConfiguration.<Long>builder()
+          .key("POLARIS_TASK_TIMEOUT_MILLIS")
+          .description(
+              "Polaris task expiry timeout (milliseconds). Older unfinished tasks may not be processed.")
+          .defaultValue(300_000L)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Integer> STORAGE_CREDENTIAL_DURATION_SECONDS =
+      PolarisConfiguration.<Integer>builder()
+          .key("STORAGE_CREDENTIAL_DURATION_SECONDS")
+          .description(
+              "The duration of time that vended storage credentials are valid for. Support for"
+                  + " longer (or shorter) durations is dependent on the storage provider. GCS"
+                  + " currently does not respect this value.")
+          .defaultValue(60 * 60) // 1 hour
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Integer> STORAGE_CREDENTIAL_CACHE_DURATION_SECONDS =
+      PolarisConfiguration.<Integer>builder()
+          .key("STORAGE_CREDENTIAL_CACHE_DURATION_SECONDS")
+          .description(
+              "How long to store storage credentials in the local cache. This should be less than "
+                  + STORAGE_CREDENTIAL_DURATION_SECONDS.key())
+          .defaultValue(30 * 60) // 30 minutes
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Integer> MAX_METADATA_REFRESH_RETRIES =
+      PolarisConfiguration.<Integer>builder()
+          .key("MAX_METADATA_REFRESH_RETRIES")
+          .description(
+              "How many times to retry refreshing metadata when the previous error was retryable")
+          .defaultValue(2)
+          .buildFeatureConfiguration();
+
+  public static final PolarisConfiguration<Boolean> LIST_PAGINATION_ENABLED =
+      PolarisConfiguration.<Boolean>builder()
+          .key("LIST_PAGINATION_ENABLED")
+          .catalogConfig("polaris.config.list-pagination-enabled")
+          .description("If set to true, pagination for APIs like listTables is enabled.")
+          .defaultValue(true)
+          .buildFeatureConfiguration();
+
+  public static final PolarisConfiguration<Integer> LIST_PAGINATION_MAX_PAGE_SIZE =
+      PolarisConfiguration.<Integer>builder()
+          .key("LIST_PAGINATION_MAX_PAGE_SIZE")
+          .catalogConfig("polaris.config.list-pagination-max-page-size")
+          .description(
+              "The largest page size a client may request for APIs like listTables. Larger requested"
+                  + " page sizes are reduced to this value. The Iceberg REST specification treats the"
+                  + " requested page size as an upper bound. For local catalogs this takes effect only"
+                  + " when LIST_PAGINATION_ENABLED is true; with pagination disabled the requested page"
+                  + " size is ignored and the full result set is returned. For federated catalogs it"
+                  + " always applies, because Polaris paginates those listings itself. Values <= 0 mean"
+                  + " unlimited (no max page size enforced), which is the default. A request that"
+                  + " supplies neither pageToken nor pageSize asks for the complete listing, so when"
+                  + " the result does not fit the maximum it is rejected rather than truncated and"
+                  + " answered with a continuation token. An empty pageToken starts a paginated"
+                  + " listing and is capped like any other paginated request.")
+          .defaultValue(-1)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ENABLE_GENERIC_TABLES =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ENABLE_GENERIC_TABLES")
+          .description("If true, the generic-tables endpoints are enabled")
+          .defaultValue(true)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Long> ENTITY_CACHE_WEIGHER_TARGET =
+      PolarisConfiguration.<Long>builder()
+          .key("ENTITY_CACHE_WEIGHER_TARGET")
+          .description(
+              "The maximum weight for the entity cache. This is a heuristic value without any particular"
+                  + " unit of measurement. It roughly correlates with the total heap size of cached values. Fine-tuning"
+                  + " requires experimentation in the specific deployment environment")
+          .defaultValue(100 * EntityWeigher.WEIGHT_PER_MB)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ENABLE_CATALOG_FEDERATION =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ENABLE_CATALOG_FEDERATION")
+          .description(
+              "If true, allows creating and using ExternalCatalogs containing ConnectionConfigInfos"
+                  + " to perform federation to remote catalogs.")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ENABLE_SUB_CATALOG_RBAC_FOR_FEDERATED_CATALOGS =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ENABLE_SUB_CATALOG_RBAC_FOR_FEDERATED_CATALOGS")
+          .description(
+              "When enabled, allows RBAC operations to create synthetic entities for"
+                  + " entities in federated catalogs that don't exist in the local metastore.")
+          .catalogConfig("polaris.config.enable-sub-catalog-rbac-for-federated-catalogs")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ENABLE_POLICY_STORE =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ENABLE_POLICY_STORE")
+          .description("If true, the policy-store endpoints are enabled")
+          .defaultValue(true)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ENABLE_SEMANTIC_MODELS =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ENABLE_SEMANTIC_MODELS")
+          .description(
+              "If true, the semantic-model (Apache Ossie) endpoints are enabled. This is a beta feature: "
+                  + "the API is under active development and may change in a backward-incompatible "
+                  + "way. It is disabled by default; enable it with caution and report any issues "
+                  + "encountered.")
+          .defaultValue(false) // beta feature, keep it off by default
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ENABLE_OPENLINEAGE_INGEST =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ENABLE_OPENLINEAGE_INGEST")
+          .description(
+              "If true, the OpenLineage ingest endpoints are enabled and advertised to clients in "
+                  + "the catalog configuration response during endpoint discovery. If false, the "
+                  + "endpoints return 501 Not Implemented and are not advertised. The routes are "
+                  + "always mounted when the OpenLineage extension is assembled into the server; "
+                  + "this flag is the runtime switch that turns the feature on or off.")
+          .defaultValue(true)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<List<String>> SUPPORTED_CATALOG_CONNECTION_TYPES =
+      PolarisConfiguration.<List<String>>builder()
+          .key("SUPPORTED_CATALOG_CONNECTION_TYPES")
+          .description("The list of supported catalog connection types for federation")
+          .defaultValue(List.of(ConnectionType.ICEBERG_REST.name()))
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<List<String>>
+      SUPPORTED_EXTERNAL_CATALOG_AUTHENTICATION_TYPES =
+          PolarisConfiguration.<List<String>>builder()
+              .key("SUPPORTED_EXTERNAL_CATALOG_AUTHENTICATION_TYPES")
+              .description("The list of supported authentication types for catalog federation")
+              .defaultValue(
+                  List.of(
+                      AuthenticationParameters.AuthenticationTypeEnum.OAUTH.name(),
+                      AuthenticationParameters.AuthenticationTypeEnum.BEARER.name(),
+                      AuthenticationParameters.AuthenticationTypeEnum.GCP.name(),
+                      AuthenticationParameters.AuthenticationTypeEnum.SIGV4.name()))
+              .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Integer> ICEBERG_COMMIT_MAX_RETRIES =
+      PolarisConfiguration.<Integer>builder()
+          .key("ICEBERG_COMMIT_MAX_RETRIES")
+          .catalogConfig("polaris.config.iceberg-commit-max-retries")
+          .description("The max number of times to try committing to an Iceberg table")
+          .defaultValue(4)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ALLOW_SPECIFYING_FILE_IO_IMPL =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ALLOW_SPECIFYING_FILE_IO_IMPL")
+          .description(
+              "Config key for whether to allow setting the FILE_IO_IMPL using catalog properties. "
+                  + "Must only be enabled in dev/test environments, should not be in production systems.")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ALLOW_INSECURE_STORAGE_TYPES =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ALLOW_INSECURE_STORAGE_TYPES")
+          .description(
+              "Allow usage of FileIO implementations that are considered insecure. "
+                  + "Enabling this setting may expose the service to possibly severe security risks! "
+                  + "This should only be set to 'true' for tests!")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ICEBERG_ROLLBACK_COMPACTION_ON_CONFLICTS =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ICEBERG_ROLLBACK_COMPACTION_ON_CONFLICTS")
+          .catalogConfig("polaris.config.rollback.compaction.on-conflicts.enabled")
+          .description(
+              "Rollback replace snapshots created by compaction which have "
+                  + "polaris.internal.conflict-resolution.by-operation-type.replace property set to rollback "
+                  + "in their snapshot summary")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  /**
+   * @deprecated since 1.8.0, for removal. Polaris now always appends a trailing slash to table and
+   *     namespace base locations, so this flag no longer changes behavior. The configuration key is
+   *     retained only so existing catalog properties and feature-config entries continue to be
+   *     accepted (and ignored) instead of rejected. A production-readiness warning is emitted when
+   *     it is explicitly set to {@code false} in the server feature configuration — the {@code
+   *     polaris.features} defaults or a realm override — since that is the surface {@code
+   *     ProductionReadinessChecks} inspects at startup; the equivalent per-catalog property ({@code
+   *     polaris.config.add-trailing-slash-to-location}) is accepted and ignored without a warning.
+   *     Scheduled for removal in a future release.
+   */
+  @Deprecated(since = "1.8.0", forRemoval = true)
+  public static final FeatureConfiguration<Boolean> ADD_TRAILING_SLASH_TO_LOCATION =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ADD_TRAILING_SLASH_TO_LOCATION")
+          .catalogConfig("polaris.config.add-trailing-slash-to-location")
+          .description(
+              "Deprecated and ignored: Polaris always appends a trailing slash to table and "
+                  + "namespace base locations. Retained so existing configuration remains accepted "
+                  + "rather than rejected.")
+          .defaultValue(true)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ALLOW_OPTIMIZED_SIBLING_CHECK =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ALLOW_OPTIMIZED_SIBLING_CHECK")
+          .description(
+              "When set to true, Polaris permits OPTIMIZED_SIBLING_CHECK to be enabled after "
+                  + "explicit operator acknowledgment. Only acknowledge this when the realm has "
+                  + "the required index and backfill state; enabling the check in previously used "
+                  + "realms without that state may lead to incorrect overlap validation. This "
+                  + "flag is temporary and will be removed when Polaris can backfill the required "
+                  + "data automatically.")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> OPTIMIZED_SIBLING_CHECK =
+      PolarisConfiguration.<Boolean>builder()
+          .key("OPTIMIZED_SIBLING_CHECK")
+          .description(
+              "When set, Polaris uses an index to perform sibling overlap checks between tables, "
+                  + "views, and namespaces. This is not a bypass mode, but enabling or disabling "
+                  + "it can change overlap-detection coverage for non-standard location layouts. "
+                  + "Only enable it when the required index and backfill state is known to be "
+                  + "correct. Locations written by Polaris always end with a slash; locations "
+                  + "stored by older versions without one are still handled. Supported by the "
+                  + "JDBC and NoSQL metastore implementations.")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> DEFAULT_LOCATION_OBJECT_STORAGE_PREFIX_ENABLED =
+      PolarisConfiguration.<Boolean>builder()
+          .key("DEFAULT_LOCATION_OBJECT_STORAGE_PREFIX_ENABLED")
+          .catalogConfig("polaris.config.default-table-location-object-storage-prefix.enabled")
+          .description(
+              "When enabled, Iceberg tables and views created without a location specified will have a prefix "
+                  + "applied to the location within the catalog's base location, rather than a location directly "
+                  + "inside the parent namespace. Note that this requires ALLOW_UNSTRUCTURED_TABLE_LOCATION to be "
+                  + "enabled, but with OPTIMIZED_SIBLING_CHECK enabled "
+                  + "it is still possible to enforce the uniqueness of table locations within a catalog.")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> DEFAULT_UNIQUE_TABLE_LOCATION_ENABLED =
+      PolarisConfiguration.<Boolean>builder()
+          .key("DEFAULT_UNIQUE_TABLE_LOCATION_ENABLED")
+          .catalogConfig("polaris.config.default-unique-table-location.enabled")
+          .description(
+              "When enabled, a managed location generated for a table or view created without an "
+                  + "explicit location is given a unique, unpredictable suffix, so that no two "
+                  + "tables share a path prefix. When disabled (the default), the generated "
+                  + "location is the legacy `<namespace location>/<table name>` form.")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ENABLE_CREDENTIAL_RESET =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ENABLE_CREDENTIAL_RESET")
+          .description(
+              "Flag to enable or disable the API to reset principal credentials. "
+                  + "Defaults to enabled, but service providers may want to disable it.")
+          .defaultValue(true)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean>
+      ALLOW_SETTING_SUB_CATALOG_RBAC_FOR_FEDERATED_CATALOGS =
+          PolarisConfiguration.<Boolean>builder()
+              .key("ALLOW_SETTING_SUB_CATALOG_RBAC_FOR_FEDERATED_CATALOGS")
+              .description(
+                  "If set to true (default), Polaris will allow setting or changing "
+                      + "catalog property polaris.config.enable-sub-catalog-rbac-for-federated-catalogs. "
+                      + "If set to false, Polaris will disallow setting or changing the above catalog property")
+              .defaultValue(true)
+              .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean>
+      ALLOW_DROPPING_NON_EMPTY_PASSTHROUGH_FACADE_CATALOG =
+          PolarisConfiguration.<Boolean>builder()
+              .key("ALLOW_DROPPING_NON_EMPTY_PASSTHROUGH_FACADE_CATALOG")
+              .description(
+                  "If enabled, allow dropping a passthrough-facade catalog even if it contains namespaces or tables. "
+                      + "passthrough-facade catalogs may contain leftover entities when syncing with source catalog. "
+                      + "In the short term these entities will be ignored, in the long term there will be method/background job to clean them up.")
+              .catalogConfig("polaris.config.allow-dropping-non-empty-passthrough-facade-catalog")
+              .defaultValue(false)
+              .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ENABLE_FINE_GRAINED_UPDATE_TABLE_PRIVILEGES =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ENABLE_FINE_GRAINED_UPDATE_TABLE_PRIVILEGES")
+          .catalogConfig("polaris.config.enable-fine-grained-update-table-privileges")
+          .description(
+              "When true, enables finer grained update table privileges which are passed to the authorizer for update table operations")
+          .defaultValue(true)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ALLOW_FEDERATED_CATALOGS_CREDENTIAL_VENDING =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ALLOW_FEDERATED_CATALOGS_CREDENTIAL_VENDING")
+          .catalogConfig("polaris.config.allow-federated-catalogs-credential-vending")
+          .description(
+              "If set to true (default), allow credential vending for external catalogs. Note this requires ALLOW_EXTERNAL_CATALOG_CREDENTIAL_VENDING to be true first.")
+          .defaultValue(true)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Integer> AZURE_TIMEOUT_MILLIS =
+      PolarisConfiguration.<Integer>builder()
+          .key("AZURE_TIMEOUT_MILLIS")
+          .description(
+              "Timeout in milliseconds for Azure API requests. "
+                  + "Prevents indefinite blocking when Azure endpoints are slow or unresponsive. "
+                  + "Used internally by Azure storage integration for credential vending and other operations.")
+          .defaultValue(15000)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Integer> AZURE_RETRY_COUNT =
+      PolarisConfiguration.<Integer>builder()
+          .key("AZURE_RETRY_COUNT")
+          .description(
+              "Number of retry attempts for Azure API requests. "
+                  + "Uses exponential backoff with jitter to handle transient failures.")
+          .defaultValue(3)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Integer> AZURE_RETRY_DELAY_MILLIS =
+      PolarisConfiguration.<Integer>builder()
+          .key("AZURE_RETRY_DELAY_MILLIS")
+          .description(
+              "Initial delay in milliseconds before first retry for Azure API requests. "
+                  + "Delay doubles with each retry (exponential backoff).")
+          .defaultValue(2000)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Double> AZURE_RETRY_JITTER_FACTOR =
+      PolarisConfiguration.<Double>builder()
+          .key("AZURE_RETRY_JITTER_FACTOR")
+          .description(
+              "Jitter factor (0.0 to 1.0) applied to retry delays for Azure API requests. "
+                  + "The jitter is applied as a random percentage of the computed exponential backoff delay. "
+                  + "For example, 0.5 means up to 50% random jitter will be added to each retry delay. "
+                  + "Helps prevent thundering herd when multiple requests fail simultaneously.")
+          .defaultValue(0.5)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Integer> TABLE_METADATA_CLEANUP_BATCH_SIZE =
+      PolarisConfiguration.<Integer>builder()
+          .key("TABLE_METADATA_CLEANUP_BATCH_SIZE")
+          .description("Metadata batch size for tasks that clean up dropped tables' files.")
+          .defaultValue(10)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> RESOLVE_CREDENTIALS_BY_STORAGE_NAME =
+      PolarisConfiguration.<Boolean>builder()
+          .key("RESOLVE_CREDENTIALS_BY_STORAGE_NAME")
+          .description(
+              "If set to true, resolve AWS credentials based on the storageName field "
+                  + "of the storage configuration. "
+                  + "When disabled, the default AWS credentials are used for all storages.")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+
+  public static final FeatureConfiguration<Boolean> ALLOW_UNRESTRICTED_STORAGE_CONFIG_ROLE_CHANGES =
+      PolarisConfiguration.<Boolean>builder()
+          .key("ALLOW_UNRESTRICTED_STORAGE_CONFIG_ROLE_CHANGES")
+          .description(
+              "If set to true, allows unrestricted changes to storage configuration role "
+                  + "properties when updating a catalog, including changing the AWS account ID, "
+                  + "role ARN, external ID, or Azure tenant ID. When false (default), these "
+                  + "changes are restricted: new values can be set when none were previously "
+                  + "configured, but existing values cannot be changed to different ones.")
+          .defaultValue(false)
+          .buildFeatureConfiguration();
+}

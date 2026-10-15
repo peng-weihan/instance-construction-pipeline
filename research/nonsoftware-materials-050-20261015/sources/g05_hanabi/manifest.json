@@ -1,0 +1,57 @@
+{
+  "repo": "google-deepmind/hanabi-learning-environment",
+  "revision": "54e79594f4b6fb40ebb3004289c6db0e34a8b5fb",
+  "resolved_utc": "2026-10-15T14:58:55.049891+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:42.999085+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "f7ea3ac77ca41dcf4814012db2baa592b0dd42209a7fe9620f6af52511bb5632",
+    "truncated": false,
+    "blob_count": 57
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "url": "https://github.com/google-deepmind/hanabi-learning-environment/blob/54e79594f4b6fb40ebb3004289c6db0e34a8b5fb/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 855,
+      "sha256": "b2f2f24864966ec1bd657d021b5022261770ee9abe18d6a36a03d74fb1a06486",
+      "url": "https://github.com/google-deepmind/hanabi-learning-environment/blob/54e79594f4b6fb40ebb3004289c6db0e34a8b5fb/README.md"
+    },
+    {
+      "path": "examples/rl_env_example.py",
+      "bytes": 3170,
+      "sha256": "c1db9378e278f5a4d6d017f9af1916bb16063d6c629529bf768d7b85f1683e70",
+      "url": "https://github.com/google-deepmind/hanabi-learning-environment/blob/54e79594f4b6fb40ebb3004289c6db0e34a8b5fb/examples/rl_env_example.py"
+    },
+    {
+      "path": "hanabi_learning_environment/hanabi_lib/hanabi_game.cc",
+      "bytes": 7037,
+      "sha256": "93c46303ccf4aa090a43254777669c89877dfb2551544f9922ac0d2d5c0b8279",
+      "url": "https://github.com/google-deepmind/hanabi-learning-environment/blob/54e79594f4b6fb40ebb3004289c6db0e34a8b5fb/hanabi_learning_environment/hanabi_lib/hanabi_game.cc"
+    },
+    {
+      "path": "hanabi_learning_environment/hanabi_lib/hanabi_state.cc",
+      "bytes": 11820,
+      "sha256": "f8ca7eb21a117d05086c8a826bb9314a0015cbb36945bf3943c1cb13a71f2639",
+      "url": "https://github.com/google-deepmind/hanabi-learning-environment/blob/54e79594f4b6fb40ebb3004289c6db0e34a8b5fb/hanabi_learning_environment/hanabi_lib/hanabi_state.cc"
+    },
+    {
+      "path": "hanabi_learning_environment/rl_env.py",
+      "bytes": 28438,
+      "sha256": "1de093f95dd0fc2c813afa2a9603788cb655a490ca9100786d637eb1d95e457b",
+      "url": "https://github.com/google-deepmind/hanabi-learning-environment/blob/54e79594f4b6fb40ebb3004289c6db0e34a8b5fb/hanabi_learning_environment/rl_env.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

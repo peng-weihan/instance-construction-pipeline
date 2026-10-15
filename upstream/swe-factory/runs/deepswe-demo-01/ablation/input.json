@@ -1,0 +1,11 @@
+{
+  "route": "ablation",
+  "local_path": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-01/ablation-source",
+  "commit": "3db070ef3ce872393bda448f5b2e98108fff262b",
+  "test_paths": [
+    "tests"
+  ],
+  "production_paths": [
+    "calc.py"
+  ]
+}

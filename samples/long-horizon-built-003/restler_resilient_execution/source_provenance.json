@@ -1,0 +1,47 @@
+{
+  "task_id": "restler_resilient_execution",
+  "category": "Systems & Software Engineering",
+  "title": "RESTler 可恢复执行与资源生命周期路线图",
+  "anchor": "schemathesis_datagen_pipeline",
+  "status": "constructed_unverified",
+  "sources": [
+    {
+      "repository": "https://github.com/microsoft/restler-fuzzer.git",
+      "commit": "6d984deedbc54aad957fa3da0c7e9e5df23a2aee",
+      "files": [
+        {
+          "path": "restler/engine/core/request_utilities.py",
+          "sha256": "ddfc693c9cbfbd575e73c96fb0cbeeeebe7640a865461808e12afdb21dd15037"
+        },
+        {
+          "path": "restler/engine/core/async_request_utilities.py",
+          "sha256": "873c20af483cd075930b71a856be0f1a6e4a24c011ac9ec0476056eb41f8577b"
+        },
+        {
+          "path": "restler/engine/dependencies.py",
+          "sha256": "230b60a1467a7e83858f08ce9ae26b696715169f8f7f92f460c22c624fa9118a"
+        },
+        {
+          "path": "restler/restler_settings.py",
+          "sha256": "710df2936773444f2e55a842b4bfc8f072e16ecc873587951d1a5d1cd8d77d2a"
+        }
+      ],
+      "acquired": true,
+      "runtime_verified": false
+    }
+  ],
+  "authoring": "interactive source inspection + deterministic construction scripts; no independent CLI model run",
+  "long_horizon_potential": "design hypothesis, not an observed six-hour curve",
+  "empirical_training_benefit": null,
+  "accepted": false,
+  "progression": [
+    "配置与确定性调度",
+    "幂等重试、异步 deadline 与清理集成",
+    "可回放诊断、兼容性与组合故障"
+  ],
+  "construction_gaps": [
+    "New-feature reference branch and executable acceptance tests still need construction; old upstream code is not an oracle for new requirements."
+  ],
+  "runtime_verification": "deferred_by_user",
+  "construction_stage": "materials_and_spec_constructed"
+}

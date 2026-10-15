@@ -1,0 +1,67 @@
+{
+  "kind": "actual_offline_singlecell_controls",
+  "status": "completed",
+  "passed": true,
+  "image_id": "sha256:d4c4f1f1bb4ef45d791b644d31381795ca79a2667c367064d5a80a0d49bfaa7d",
+  "model_runs": 0,
+  "formal_native_harbor_controls": false,
+  "results": {
+    "oracle": {
+      "score": 1.0,
+      "valid": true,
+      "seconds": 19.364276758977212
+    },
+    "reference": {
+      "score": 0.3926459008379822,
+      "valid": true,
+      "seconds": 19.403360620955937
+    },
+    "frozen_reference": {
+      "score": 0.3885168478386856,
+      "valid": true,
+      "seconds": 34.03668159607332
+    },
+    "starter": {
+      "score": 0.014380354898376996,
+      "valid": true,
+      "seconds": 19.61301424202975
+    },
+    "uint64": {
+      "score": 0.014380354898376996,
+      "valid": true,
+      "seconds": 34.78652477997821
+    },
+    "empty": {
+      "score": 0,
+      "valid": false,
+      "seconds": 25.18257322104182
+    },
+    "bad_shape": {
+      "score": 0,
+      "valid": false,
+      "seconds": 27.74059003300499
+    },
+    "bad_class": {
+      "score": 0,
+      "valid": false,
+      "seconds": 34.473030515015125
+    },
+    "archive_disguised": {
+      "score": 0,
+      "valid": false,
+      "seconds": 27.266992295044474
+    },
+    "private_symlink": {
+      "score": 0,
+      "valid": false,
+      "seconds": 25.162338125985116
+    }
+  },
+  "five_same_snapshot_scores": [
+    0.3926459008379822,
+    0.3926459008379822,
+    0.3926459008379822,
+    0.3926459008379822,
+    0.3926459008379822
+  ]
+}

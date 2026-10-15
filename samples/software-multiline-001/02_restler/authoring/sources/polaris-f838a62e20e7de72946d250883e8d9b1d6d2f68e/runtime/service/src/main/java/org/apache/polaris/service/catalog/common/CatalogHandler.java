@@ -1,0 +1,563 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.polaris.service.catalog.common;
+
+import static com.google.common.base.Preconditions.checkArgument;
+import static org.apache.polaris.service.catalog.common.ExceptionUtils.alreadyExistsExceptionWithSameNameForTableLikeEntity;
+import static org.apache.polaris.service.catalog.common.ExceptionUtils.entityNameForSubType;
+import static org.apache.polaris.service.catalog.common.ExceptionUtils.noSuchNamespaceException;
+import static org.apache.polaris.service.catalog.common.ExceptionUtils.notFoundExceptionForTableLikeEntity;
+
+import java.util.Arrays;
+import java.util.EnumSet;
+import java.util.List;
+import org.apache.iceberg.catalog.Namespace;
+import org.apache.iceberg.catalog.TableIdentifier;
+import org.apache.iceberg.exceptions.AlreadyExistsException;
+import org.apache.iceberg.exceptions.BadRequestException;
+import org.apache.polaris.core.auth.AuthorizationIntent;
+import org.apache.polaris.core.auth.AuthorizationRequest;
+import org.apache.polaris.core.auth.AuthorizationState;
+import org.apache.polaris.core.auth.PolarisAuthorizableOperation;
+import org.apache.polaris.core.auth.PolarisAuthorizer;
+import org.apache.polaris.core.auth.PolarisPrincipal;
+import org.apache.polaris.core.auth.RenameAuthorizationIntent;
+import org.apache.polaris.core.auth.SingleTargetAuthorizationIntent;
+import org.apache.polaris.core.catalog.PolarisCatalogHelpers;
+import org.apache.polaris.core.config.FeatureConfiguration;
+import org.apache.polaris.core.config.RealmConfig;
+import org.apache.polaris.core.context.CallContext;
+import org.apache.polaris.core.context.RealmContext;
+import org.apache.polaris.core.entity.CatalogEntity;
+import org.apache.polaris.core.entity.PolarisEntitySubType;
+import org.apache.polaris.core.entity.PolarisEntityType;
+import org.apache.polaris.core.persistence.PolarisMetaStoreManager;
+import org.apache.polaris.core.persistence.PolarisResolvedPathWrapper;
+import org.apache.polaris.core.persistence.resolver.PolarisResolutionManifest;
+import org.apache.polaris.core.persistence.resolver.ResolutionManifestFactory;
+import org.apache.polaris.core.persistence.resolver.ResolvedPathKey;
+import org.apache.polaris.core.persistence.resolver.ResolverPath;
+import org.apache.polaris.core.persistence.resolver.ResolverStatus;
+import org.apache.polaris.service.types.PolicyIdentifier;
+import org.immutables.value.Value;
+import org.jspecify.annotations.Nullable;
+
+/**
+ * An ABC for catalog wrappers which provides authorize methods that should be called before a
+ * request is actually forwarded to a catalog. Child types must implement `initializeCatalog` which
+ * will be called after a successful authorization.
+ */
+public abstract class CatalogHandler {
+
+  public abstract String catalogName();
+
+  public abstract PolarisPrincipal polarisPrincipal();
+
+  public abstract CallContext callContext();
+
+  @Value.Derived
+  public RealmConfig realmConfig() {
+    return callContext().getRealmConfig();
+  }
+
+  @Value.Derived
+  public RealmContext realmContext() {
+    return callContext().getRealmContext();
+  }
+
+  public abstract PolarisMetaStoreManager metaStoreManager();
+
+  public abstract ResolutionManifestFactory resolutionManifestFactory();
+
+  public abstract PolarisAuthorizer authorizer();
+
+  protected PolarisResolutionManifest newResolutionManifest() {
+    return resolutionManifestFactory().createResolutionManifest(polarisPrincipal(), catalogName());
+  }
+
+  // Initialized in the authorize methods.
+  @SuppressWarnings("immutables:incompat")
+  protected PolarisResolutionManifest resolutionManifest = null;
+
+  protected boolean shouldDecodeToken() {
+    CatalogEntity catalogEntity = resolutionManifest.getResolvedCatalogEntity();
+    return catalogEntity == null
+        ? realmConfig().getConfig(FeatureConfiguration.LIST_PAGINATION_ENABLED)
+        : realmConfig().getConfig(FeatureConfiguration.LIST_PAGINATION_ENABLED, catalogEntity);
+  }
+
+  /** The configured page size ceiling; zero or less means unlimited. */
+  protected int maxPageSize() {
+    CatalogEntity catalogEntity = resolutionManifest.getResolvedCatalogEntity();
+    return catalogEntity == null
+        ? realmConfig().getConfig(FeatureConfiguration.LIST_PAGINATION_MAX_PAGE_SIZE)
+        : realmConfig()
+            .getConfig(FeatureConfiguration.LIST_PAGINATION_MAX_PAGE_SIZE, catalogEntity);
+  }
+
+  /**
+   * A request that supplies neither {@code pageToken} nor {@code pageSize} asks for the complete
+   * listing, which the Iceberg REST specification answers with every result and a null
+   * next-page-token. When a configured maximum prevents that, fail rather than return a page that
+   * looks complete and is not. An empty {@code pageToken} starts a paginated listing, so it is
+   * capped like any other paginated request.
+   */
+  protected void rejectIncompleteListing(
+      @Nullable String pageToken, @Nullable Integer pageSize, @Nullable String nextPageToken) {
+    if (pageToken == null && pageSize == null && nextPageToken != null) {
+      throw new BadRequestException(
+          "Listing does not fit the maximum page size of %s; supply a pageToken to paginate",
+          maxPageSize());
+    }
+  }
+
+  /** Initialize the catalog once authorized. Called after all `authorize...` methods. */
+  protected abstract void initializeCatalog();
+
+  protected void authorizeBasicNamespaceOperationOrThrow(
+      PolarisAuthorizableOperation op, Namespace namespace) {
+    authorizeBasicNamespaceOperationOrThrow(op, namespace, null, null, null);
+  }
+
+  protected void authorizeBasicNamespaceOperationOrThrow(
+      PolarisAuthorizableOperation op,
+      Namespace namespace,
+      List<Namespace> extraPassthroughNamespaces,
+      List<TableIdentifier> extraPassthroughTableLikes,
+      List<PolicyIdentifier> extraPassThroughPolicies) {
+    resolutionManifest = newResolutionManifest();
+    resolutionManifest.addPath(
+        new ResolverPath(Arrays.asList(namespace.levels()), PolarisEntityType.NAMESPACE));
+
+    if (extraPassthroughNamespaces != null) {
+      for (Namespace ns : extraPassthroughNamespaces) {
+        resolutionManifest.addPassthroughPath(
+            new ResolverPath(
+                Arrays.asList(ns.levels()), PolarisEntityType.NAMESPACE, true /* optional */));
+      }
+    }
+    if (extraPassthroughTableLikes != null) {
+      for (TableIdentifier id : extraPassthroughTableLikes) {
+        resolutionManifest.addPassthroughPath(
+            new ResolverPath(
+                PolarisCatalogHelpers.tableIdentifierToList(id),
+                PolarisEntityType.TABLE_LIKE,
+                true /* optional */));
+      }
+    }
+
+    if (extraPassThroughPolicies != null) {
+      for (PolicyIdentifier id : extraPassThroughPolicies) {
+        resolutionManifest.addPassthroughPath(
+            new ResolverPath(
+                PolarisCatalogHelpers.identifierToList(id.namespace(), id.name()),
+                PolarisEntityType.POLICY,
+                true /* optional */));
+      }
+    }
+
+    AuthorizationRequest authorizationRequest =
+        new AuthorizationRequest(
+            polarisPrincipal(),
+            List.of(
+                new SingleTargetAuthorizationIntent(
+                    op,
+                    namespace.isEmpty()
+                        ? PolarisSecurableMapper.catalog(catalogName())
+                        : PolarisSecurableMapper.namespace(catalogName(), namespace))));
+    AuthorizationState authorizationState = new AuthorizationState(resolutionManifest);
+    authorizer().resolveAuthorizationInputs(authorizationState, authorizationRequest);
+    PolarisResolvedPathWrapper target =
+        resolutionManifest.getResolvedPath(ResolvedPathKey.ofNamespace(namespace), true);
+    if (target == null) {
+      throw noSuchNamespaceException(namespace);
+    }
+    authorizer().authorize(authorizationState, authorizationRequest).throwIfDenied();
+
+    initializeCatalog();
+  }
+
+  protected void authorizeCreateNamespaceUnderNamespaceOperationOrThrow(
+      PolarisAuthorizableOperation op, Namespace namespace) {
+    resolutionManifest = newResolutionManifest();
+
+    Namespace parentNamespace = PolarisCatalogHelpers.getParentNamespace(namespace);
+    resolutionManifest.addPath(
+        new ResolverPath(Arrays.asList(parentNamespace.levels()), PolarisEntityType.NAMESPACE));
+
+    // When creating an entity under a namespace, the authz target is the parentNamespace, but we
+    // must also add the actual path that will be created as an "optional" passthrough resolution
+    // path to indicate that the underlying catalog is "allowed" to check the creation path for
+    // a conflicting entity.
+    resolutionManifest.addPassthroughPath(
+        new ResolverPath(
+            Arrays.asList(namespace.levels()), PolarisEntityType.NAMESPACE, true /* optional */));
+    AuthorizationRequest authorizationRequest =
+        new AuthorizationRequest(
+            polarisPrincipal(),
+            List.of(
+                new SingleTargetAuthorizationIntent(
+                    op,
+                    parentNamespace.isEmpty()
+                        ? PolarisSecurableMapper.catalog(catalogName())
+                        : PolarisSecurableMapper.namespace(catalogName(), parentNamespace))));
+    AuthorizationState authorizationState = new AuthorizationState(resolutionManifest);
+    authorizer().resolveAuthorizationInputs(authorizationState, authorizationRequest);
+    PolarisResolvedPathWrapper target =
+        resolutionManifest.getResolvedPath(ResolvedPathKey.ofNamespace(parentNamespace), true);
+    if (target == null) {
+      throw noSuchNamespaceException(parentNamespace);
+    }
+    authorizer().authorize(authorizationState, authorizationRequest).throwIfDenied();
+
+    initializeCatalog();
+  }
+
+  protected void authorizeCreateTableLikeUnderNamespaceOperationOrThrow(
+      PolarisAuthorizableOperation op, TableIdentifier identifier) {
+    Namespace namespace = identifier.namespace();
+
+    resolutionManifest = newResolutionManifest();
+    resolutionManifest.addPath(
+        new ResolverPath(Arrays.asList(namespace.levels()), PolarisEntityType.NAMESPACE));
+
+    // When creating an entity under a namespace, the authz target is the namespace, but we must
+    // also add the actual path that will be created as an "optional" passthrough resolution path to
+    // indicate that the underlying catalog is "allowed" to check for a conflicting entity at the
+    // creation path.
+    resolutionManifest.addPassthroughPath(
+        new ResolverPath(
+            PolarisCatalogHelpers.tableIdentifierToList(identifier),
+            PolarisEntityType.TABLE_LIKE,
+            true /* optional */));
+    AuthorizationRequest authorizationRequest =
+        new AuthorizationRequest(
+            polarisPrincipal(),
+            List.of(
+                new SingleTargetAuthorizationIntent(
+                    op, PolarisSecurableMapper.namespace(catalogName(), namespace))));
+    AuthorizationState authorizationState = new AuthorizationState(resolutionManifest);
+    authorizer().resolveAuthorizationInputs(authorizationState, authorizationRequest);
+    authorizeResolvedCreateTableLikeUnderNamespaceOperationOrThrow(
+        authorizationState, authorizationRequest, identifier);
+  }
+
+  protected void authorizeResolvedCreateTableLikeUnderNamespaceOperationOrThrow(
+      AuthorizationState authorizationState,
+      AuthorizationRequest authorizationRequest,
+      TableIdentifier identifier) {
+    if (resolutionManifest == null) {
+      throw new IllegalStateException(
+          "Resolved authorization requires resolveAuthorizationInputs to run first");
+    }
+
+    PolarisResolvedPathWrapper target =
+        resolutionManifest.getResolvedPath(
+            ResolvedPathKey.ofNamespace(identifier.namespace()), true);
+    if (target == null) {
+      throw noSuchNamespaceException(identifier.namespace());
+    }
+
+    authorizer().authorize(authorizationState, authorizationRequest).throwIfDenied();
+
+    initializeCatalog();
+  }
+
+  /**
+   * Authorizes a register-table-with-overwrite operation. If the table already exists, {@code
+   * overwriteOp} is authorized against the table entity. If the table does not exist, {@code
+   * fallbackOp} is authorized against the parent namespace.
+   */
+  protected void authorizeRegisterTableOverwriteOrThrow(
+      PolarisAuthorizableOperation overwriteOp,
+      PolarisAuthorizableOperation fallbackOp,
+      TableIdentifier identifier) {
+    Namespace namespace = identifier.namespace();
+    resolutionManifest = newResolutionManifest();
+    resolutionManifest.addPath(
+        new ResolverPath(Arrays.asList(namespace.levels()), PolarisEntityType.NAMESPACE));
+    resolutionManifest.addPassthroughPath(
+        new ResolverPath(
+            PolarisCatalogHelpers.tableIdentifierToList(identifier),
+            PolarisEntityType.TABLE_LIKE,
+            true /* optional */));
+    AuthorizationRequest overwriteRequest =
+        new AuthorizationRequest(
+            polarisPrincipal(),
+            List.of(
+                new SingleTargetAuthorizationIntent(
+                    overwriteOp, PolarisSecurableMapper.tableLike(catalogName(), identifier))));
+    AuthorizationRequest fallbackRequest =
+        new AuthorizationRequest(
+            polarisPrincipal(),
+            List.of(
+                new SingleTargetAuthorizationIntent(
+                    fallbackOp, PolarisSecurableMapper.namespace(catalogName(), namespace))));
+    // Resolve every intent that may be authorized from this shared AuthorizationState. A
+    // request-selective authorizer may use the operation, not just the target securable, to decide
+    // what inputs to resolve.
+    AuthorizationRequest resolutionRequest =
+        new AuthorizationRequest(
+            polarisPrincipal(),
+            List.of(overwriteRequest.intents().getFirst(), fallbackRequest.intents().getFirst()));
+    AuthorizationState authorizationState = new AuthorizationState(resolutionManifest);
+    authorizer().resolveAuthorizationInputs(authorizationState, resolutionRequest);
+    authorizeResolvedRegisterTableOverwriteOrThrow(
+        authorizationState, overwriteRequest, fallbackRequest, identifier);
+  }
+
+  protected void authorizeResolvedRegisterTableOverwriteOrThrow(
+      AuthorizationState authorizationState,
+      AuthorizationRequest overwriteRequest,
+      AuthorizationRequest fallbackRequest,
+      TableIdentifier identifier) {
+    if (resolutionManifest == null) {
+      throw new IllegalStateException(
+          "Resolved authorization requires resolveAuthorizationInputs to run first");
+    }
+
+    Namespace namespace = identifier.namespace();
+
+    // Early check so that a caller that has table-level REGISTER_TABLE_OVERWRITE but not
+    // namespace-level REGISTER_TABLE doesn't get a permission error instead of
+    // "View with same name already exists"
+    PolarisEntitySubType leafSubType =
+        resolutionManifest.getLeafSubType(ResolvedPathKey.ofTableLike(identifier));
+    if (leafSubType == PolarisEntitySubType.ICEBERG_VIEW) {
+      throw alreadyExistsExceptionWithSameNameForTableLikeEntity(
+          identifier, PolarisEntitySubType.ICEBERG_VIEW);
+    }
+
+    PolarisResolvedPathWrapper tableTarget =
+        resolutionManifest.getResolvedPath(
+            ResolvedPathKey.ofTableLike(identifier), PolarisEntitySubType.ICEBERG_TABLE, true);
+
+    if (tableTarget != null) {
+      authorizer().authorize(authorizationState, overwriteRequest).throwIfDenied();
+    } else {
+      PolarisResolvedPathWrapper namespaceTarget =
+          resolutionManifest.getResolvedPath(ResolvedPathKey.ofNamespace(namespace), true);
+      if (namespaceTarget == null) {
+        throw noSuchNamespaceException(namespace);
+      }
+      authorizer().authorize(authorizationState, fallbackRequest).throwIfDenied();
+    }
+
+    initializeCatalog();
+  }
+
+  /**
+   * Ensures resolution manifest is initialized for a table identifier. This allows checking
+   * catalog-level feature flags or other resolved entities before authorization. If already
+   * initialized, this is a no-op.
+   */
+  protected void ensureResolutionManifestForTable(TableIdentifier identifier) {
+    if (resolutionManifest == null) {
+      resolutionManifest = newResolutionManifest();
+
+      // The underlying Catalog is also allowed to fetch "fresh" versions of the target entity.
+      resolutionManifest.addPassthroughPath(
+          new ResolverPath(
+              PolarisCatalogHelpers.tableIdentifierToList(identifier),
+              PolarisEntityType.TABLE_LIKE,
+              true /* optional */));
+    }
+  }
+
+  protected void resolveBasicTableLikeTargetOrThrow(
+      AuthorizationState authorizationState,
+      PolarisAuthorizableOperation op,
+      TableIdentifier identifier) {
+    ensureResolutionManifestForTable(identifier);
+
+    AuthorizationRequest authorizationRequest =
+        new AuthorizationRequest(
+            polarisPrincipal(),
+            List.of(
+                new SingleTargetAuthorizationIntent(
+                    op, PolarisSecurableMapper.tableLike(catalogName(), identifier))));
+    authorizer().resolveAuthorizationInputs(authorizationState, authorizationRequest);
+  }
+
+  protected void authorizeResolvedBasicTableLikeOperationOrThrow(
+      AuthorizationState authorizationState,
+      PolarisAuthorizableOperation op,
+      PolarisEntitySubType subType,
+      TableIdentifier identifier) {
+    PolarisResolvedPathWrapper target =
+        resolutionManifest.getResolvedPath(ResolvedPathKey.ofTableLike(identifier), subType, true);
+    if (target == null) {
+      throw notFoundExceptionForTableLikeEntity(identifier, subType);
+    }
+
+    authorizer()
+        .authorize(
+            authorizationState,
+            new AuthorizationRequest(
+                polarisPrincipal(),
+                List.of(
+                    new SingleTargetAuthorizationIntent(
+                        op, PolarisSecurableMapper.tableLike(catalogName(), identifier)))))
+        .throwIfDenied();
+
+    initializeCatalog();
+  }
+
+  protected void resolveAndAuthorizeBasicTableLikeOperationOrThrow(
+      PolarisAuthorizableOperation op, PolarisEntitySubType subType, TableIdentifier identifier) {
+    ensureResolutionManifestForTable(identifier);
+    AuthorizationState authorizationState = new AuthorizationState(resolutionManifest);
+    resolveBasicTableLikeTargetOrThrow(authorizationState, op, identifier);
+    authorizeResolvedBasicTableLikeOperationOrThrow(authorizationState, op, subType, identifier);
+  }
+
+  protected void authorizeBasicTableLikeOperationsOrThrow(
+      AuthorizationState authorizationState,
+      EnumSet<PolarisAuthorizableOperation> ops,
+      PolarisEntitySubType subType,
+      TableIdentifier identifier) {
+    ensureResolutionManifestForTable(identifier);
+    checkArgument(!ops.isEmpty(), "No operations provided for table-like authorization");
+    resolutionManifest.getPrimaryResolverStatusOrThrow();
+
+    PolarisResolvedPathWrapper target =
+        resolutionManifest.getResolvedPath(ResolvedPathKey.ofTableLike(identifier), subType, true);
+    if (target == null) {
+      throw notFoundExceptionForTableLikeEntity(identifier, subType);
+    }
+
+    for (PolarisAuthorizableOperation op : ops) {
+      AuthorizationRequest authorizationRequest =
+          new AuthorizationRequest(
+              polarisPrincipal(),
+              List.of(
+                  new SingleTargetAuthorizationIntent(
+                      op, PolarisSecurableMapper.tableLike(catalogName(), identifier))));
+      authorizer().authorize(authorizationState, authorizationRequest).throwIfDenied();
+    }
+
+    initializeCatalog();
+  }
+
+  protected void authorizeCollectionOfTableLikeOperationOrThrow(
+      PolarisAuthorizableOperation op,
+      final PolarisEntitySubType subType,
+      List<TableIdentifier> ids) {
+    resolutionManifest = newResolutionManifest();
+    ids.forEach(
+        identifier ->
+            resolutionManifest.addPassthroughPath(
+                new ResolverPath(
+                    PolarisCatalogHelpers.tableIdentifierToList(identifier),
+                    PolarisEntityType.TABLE_LIKE)));
+
+    AuthorizationRequest authorizationRequest =
+        new AuthorizationRequest(
+            polarisPrincipal(),
+            ids.stream()
+                .map(identifier -> PolarisSecurableMapper.tableLike(catalogName(), identifier))
+                .<AuthorizationIntent>map(target -> new SingleTargetAuthorizationIntent(op, target))
+                .toList());
+    AuthorizationState authorizationState = new AuthorizationState(resolutionManifest);
+    authorizer().resolveAuthorizationInputs(authorizationState, authorizationRequest);
+    ResolverStatus status = resolutionManifest.getPrimaryResolverStatusOrThrow();
+
+    // If one of the paths failed to resolve, throw exception based on the one that
+    // we first failed to resolve.
+    if (status.getStatus() == ResolverStatus.StatusEnum.PATH_COULD_NOT_BE_FULLY_RESOLVED) {
+      TableIdentifier identifier =
+          PolarisCatalogHelpers.listToTableIdentifier(
+              status.getFailedToResolvePath().entityNames());
+      throw notFoundExceptionForTableLikeEntity(identifier, subType);
+    }
+
+    for (TableIdentifier identifier : ids) {
+      if (resolutionManifest.getResolvedPath(ResolvedPathKey.ofTableLike(identifier), subType, true)
+          == null) {
+        throw notFoundExceptionForTableLikeEntity(identifier, subType);
+      }
+    }
+    authorizer().authorize(authorizationState, authorizationRequest).throwIfDenied();
+
+    initializeCatalog();
+  }
+
+  protected void authorizeRenameTableLikeOperationOrThrow(
+      PolarisAuthorizableOperation op,
+      PolarisEntitySubType subType,
+      TableIdentifier src,
+      TableIdentifier dst) {
+    resolutionManifest = newResolutionManifest();
+    // Add src, dstParent, and dst(optional)
+    resolutionManifest.addPath(
+        new ResolverPath(
+            PolarisCatalogHelpers.tableIdentifierToList(src), PolarisEntityType.TABLE_LIKE));
+    resolutionManifest.addPath(
+        new ResolverPath(Arrays.asList(dst.namespace().levels()), PolarisEntityType.NAMESPACE));
+    resolutionManifest.addPath(
+        new ResolverPath(
+            PolarisCatalogHelpers.tableIdentifierToList(dst),
+            PolarisEntityType.TABLE_LIKE,
+            true /* optional */));
+    AuthorizationRequest authorizationRequest =
+        new AuthorizationRequest(
+            polarisPrincipal(),
+            List.of(
+                new RenameAuthorizationIntent(
+                    op,
+                    PolarisSecurableMapper.tableLike(catalogName(), src),
+                    PolarisSecurableMapper.namespace(catalogName(), dst.namespace()))));
+    AuthorizationState authorizationState = new AuthorizationState(resolutionManifest);
+    authorizer().resolveAuthorizationInputs(authorizationState, authorizationRequest);
+    ResolverStatus status = resolutionManifest.getPrimaryResolverStatusOrThrow();
+    if (status.getStatus() == ResolverStatus.StatusEnum.PATH_COULD_NOT_BE_FULLY_RESOLVED
+        && status.getFailedToResolvePath().lastEntityType() == PolarisEntityType.NAMESPACE) {
+      throw noSuchNamespaceException(dst.namespace());
+    } else if (resolutionManifest.getResolvedPath(ResolvedPathKey.ofTableLike(src), subType)
+        == null) {
+      throw notFoundExceptionForTableLikeEntity(src, subType);
+    }
+
+    // Normally, since we added the dst as an optional path, we'd expect it to only get resolved
+    // up to its parent namespace, and for there to be no TABLE_LIKE already in the dst in which
+    // case the leafSubType will be NULL_SUBTYPE.
+    // If there is a conflicting TABLE or VIEW, this leafSubType will indicate that conflicting
+    // type.
+    // TODO: Possibly modify the exception thrown depending on whether the caller has privileges
+    // on the parent namespace.
+    PolarisEntitySubType dstLeafSubType =
+        resolutionManifest.getLeafSubType(ResolvedPathKey.ofTableLike(dst));
+
+    switch (dstLeafSubType) {
+      case ICEBERG_TABLE:
+      case PolarisEntitySubType.ICEBERG_VIEW:
+      case PolarisEntitySubType.GENERIC_TABLE:
+        throw new AlreadyExistsException(
+            "Cannot rename %s to %s. %s already exists",
+            src, dst, entityNameForSubType(dstLeafSubType));
+
+      default:
+        break;
+    }
+
+    authorizer().authorize(authorizationState, authorizationRequest).throwIfDenied();
+
+    initializeCatalog();
+  }
+}

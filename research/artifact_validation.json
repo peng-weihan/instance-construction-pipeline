@@ -1,0 +1,12 @@
+{
+  "checked_at_utc": "2026-10-13T17:37:10.533652+00:00",
+  "status": "passed",
+  "inventory_tasks": 134,
+  "public_tasks_classified": 51,
+  "taxonomy_fields": 21,
+  "published_score_cells": 1530,
+  "proposal_families": 3,
+  "local_delivery_links_checked": 50,
+  "source_integrity": "See source_manifest.json and reference_copy_manifest.json.",
+  "scope": "Research artifacts only; no generated-instance or benchmark-runtime validation."
+}

@@ -1,0 +1,7 @@
+{
+  "checked_via": "web.run search and open",
+  "checked_date": "2026-10-15",
+  "url": "https://alembic.sqlalchemy.org/en/latest/autogenerate.html",
+  "observation": "官方文档确认自动生成候选迁移仍需人工审查，rename 不被推断；版本语义以固定源码为准。",
+  "version_note": "rolling official documentation; immutable source SHA is authoritative for task construction"
+}

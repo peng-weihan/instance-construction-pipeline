@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-15",
+  "scope": "All 50 pinned material sources; design potential only",
+  "rubric": "RUBRIC.md",
+  "source_registry_sha256": "549922f358442a1526ae4e89939d57c3a1ca46c29a44fb1e0673c7fbce402353",
+  "not_model_evaluation": true,
+  "new_task_or_runtime_runs": 0,
+  "all_50_covered_once": true,
+  "tier_counts": {
+    "A": 14,
+    "B": 23,
+    "C": 13
+  },
+  "route_tier_counts": {
+    "M1": {
+      "A": 3,
+      "B": 3,
+      "C": 4
+    },
+    "M2": {
+      "A": 2,
+      "B": 1,
+      "C": 7
+    },
+    "M3": {
+      "B": 10
+    },
+    "M4": {
+      "A": 5,
+      "B": 4,
+      "C": 1
+    },
+    "M5": {
+      "A": 4,
+      "B": 5,
+      "C": 1
+    }
+  },
+  "evidence_anchors_checked": 128,
+  "read_ranges_checked": 140,
+  "additional_root_cross_check_ranges": 17,
+  "local_links_checked": 81,
+  "errors": [],
+  "validation_ok": true,
+  "validation_scope": "coverage, schema and provenance locations; no empirical difficulty claim"
+}

@@ -1,0 +1,3 @@
+>>>>> Start Structured Result
+{"failed": 0, "metrics": {"failure_counts": {}}, "pass_rate": 1.0, "passed": 6, "score": 75.26232787802844, "summary": "6/6 feasible; all cases required for a valid submission", "total_tests": 6, "valid": true}
+>>>>> End Structured Result

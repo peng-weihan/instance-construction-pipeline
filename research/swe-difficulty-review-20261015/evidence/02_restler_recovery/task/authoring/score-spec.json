@@ -1,0 +1,99 @@
+{
+  "version": "1.0.0",
+  "kind": "bounded_continuous",
+  "formula": "sum(weight * passed) for the frozen checks; invalid infrastructure => score=null, no reward",
+  "groups": [
+    {
+      "name": "legacy_native_campaign",
+      "weight": 0.1
+    },
+    {
+      "name": "fresh_durable_campaign",
+      "weight": 0.1
+    },
+    {
+      "name": "completed_resume_no_wire",
+      "weight": 0.1
+    },
+    {
+      "name": "pending_create_after_kill",
+      "weight": 0.15
+    },
+    {
+      "name": "dependency_and_delete_recovery",
+      "weight": 0.1
+    },
+    {
+      "name": "lost_response_same_process",
+      "weight": 0.1
+    },
+    {
+      "name": "uuid_replay",
+      "weight": 0.1
+    },
+    {
+      "name": "torn_tail_and_snapshot_fallback",
+      "weight": 0.05
+    },
+    {
+      "name": "corrupt_journal_fails_closed",
+      "weight": 0.05
+    },
+    {
+      "name": "configuration_binding",
+      "weight": 0.05
+    },
+    {
+      "name": "exclusive_owner",
+      "weight": 0.05
+    },
+    {
+      "name": "unsupported_options_fail_closed",
+      "weight": 0.05,
+      "prerequisite": "fresh_durable_campaign"
+    }
+  ],
+  "limits": {
+    "max_generation": 2,
+    "client_timeout_sec": 35,
+    "compile_timeout_sec": 45,
+    "uid": 2001,
+    "gid": 2001,
+    "cpu_sec": 40,
+    "memory_bytes": 1073741824,
+    "output_bytes": 4194304,
+    "open_files": 128,
+    "verifier_timeout_sec": 1200
+  },
+  "faults": {
+    "create_ordinal": 2,
+    "drop_ordinal": 1,
+    "uuid_ordinal": 2,
+    "delete_selector": "first DELETE in independent native uninterrupted audit",
+    "torn_suffix": "{\"incomplete\":",
+    "corrupt_byte_offset": 0,
+    "torn_selector": "first DELETE after generation 1 receipt"
+  },
+  "service": {
+    "source": "microsoft/restler-fuzzer/demo_server",
+    "revision": "6d984deedbc54aad957fa3da0c7e9e5df23a2aee",
+    "protocol": "Idempotency-Key, durable ledger committed before the injected response-loss window",
+    "resource_oracle": "direct SQLite SELECT id,body FROM blogpost plus ordered upstream HTTP audit; checksums and Date headers excluded",
+    "monitor_oracle": "whole native testing_summary.json equality (coverage, object creations, request counters, bug buckets, seed)"
+  },
+  "performance": {
+    "enabled": false,
+    "anchors": null
+  },
+  "expected_controls": {
+    "reference": "all checks (must be measured)",
+    "nop": "legacy only",
+    "volatile_uuid": "uuid_replay fails",
+    "unstable_pending_key": "pending create/delete/UUID/torn recovery fail; in-process retry may still pass"
+  },
+  "test_split": {
+    "public": "native tests and public real-service development probe",
+    "feedback": "frozen named semantic groups above",
+    "author_audit": "native pytest suite, permission probes, same-snapshot repeats; no extra reward"
+  }
+}

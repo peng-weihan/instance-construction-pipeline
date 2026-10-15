@@ -1,0 +1,87 @@
+[
+  {
+    "path": "sources/28_alembic/files/docs/build/autogenerate.rst",
+    "start": 158,
+    "end": 176
+  },
+  {
+    "path": "sources/47_task/files/internal/fingerprint/sources_checksum.go",
+    "start": 31,
+    "end": 88
+  },
+  {
+    "path": "sources/47_task/files/task.go",
+    "start": 205,
+    "end": 264
+  },
+  {
+    "path": "sources/74_sqlfluff/files/test/core/linter/fix_test.py",
+    "start": 211,
+    "end": 251
+  },
+  {
+    "path": "sources/51_capnproto/files/c++/src/capnp/schema-loader.h",
+    "start": 97,
+    "end": 128
+  },
+  {
+    "path": "sources/51_capnproto/files/c++/src/capnp/schema-loader-test.c++",
+    "start": 193,
+    "end": 242
+  },
+  {
+    "path": "sources/52_flecs/files/test/core/src/Commands.c",
+    "start": 3092,
+    "end": 3158
+  },
+  {
+    "path": "sources/72_yq/files/pkg/yqlib/operator_assign.go",
+    "start": 32,
+    "end": 81
+  },
+  {
+    "path": "sources/72_yq/files/pkg/yqlib/operator_assign_test.go",
+    "start": 1,
+    "end": 75
+  },
+  {
+    "path": "sources/76_miller/files/test/cases/verb-join-mixed-format/0001/cmd",
+    "start": 1,
+    "end": 1
+  },
+  {
+    "path": "sources/68_jinja/files/src/jinja2/compiler.py",
+    "start": 960,
+    "end": 1036
+  },
+  {
+    "path": "sources/68_jinja/files/src/jinja2/runtime.py",
+    "start": 175,
+    "end": 210
+  },
+  {
+    "path": "sources/69_helix/files/helix-core/src/selection.rs",
+    "start": 470,
+    "end": 520
+  },
+  {
+    "path": "sources/69_helix/files/helix-core/src/history.rs",
+    "start": 80,
+    "end": 145
+  },
+  {
+    "path": "sources/38_tantivy/files/src/reader/mod.rs",
+    "start": 15,
+    "end": 38
+  },
+  {
+    "path": "sources/38_tantivy/files/src/reader/mod.rs",
+    "start": 198,
+    "end": 210
+  },
+  {
+    "path": "sources/38_tantivy/files/tests/failpoints/mod.rs",
+    "start": 42,
+    "end": 65
+  }
+]

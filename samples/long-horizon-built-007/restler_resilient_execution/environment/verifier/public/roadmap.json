@@ -1,0 +1,37 @@
+[
+  {
+    "id": "policy",
+    "weight": 0.1,
+    "requirement": "按 global→endpoint→HTTP method 继承执行策略，严格验证未知键和类型，错误包含配置路径。"
+  },
+  {
+    "id": "retry",
+    "weight": 0.15,
+    "requirement": "同时支持 Retry-After 秒数/HTTP-date、指数回退、显式上限、可复现 jitter 与统一截止时间。"
+  },
+  {
+    "id": "idempotency",
+    "weight": 0.15,
+    "requirement": "GET/HEAD/PUT/DELETE 可按配置重试；POST/PATCH 仅在显式 idempotency key 策略启用时重试，网络失败不重复提交不安全写入。"
+  },
+  {
+    "id": "async",
+    "weight": 0.15,
+    "requirement": "请求、重试等待、轮询和最终 GET 共享一个 monotonic deadline，统一返回完成/失败/超时/取消状态。"
+  },
+  {
+    "id": "leases",
+    "weight": 0.2,
+    "requirement": "用资源依赖 DAG 管理临时资源和 create-once lease，引用未释放不清理，按逆依赖顺序清理，部分创建失败仍回收已创建资源。"
+  },
+  {
+    "id": "trace",
+    "weight": 0.1,
+    "requirement": "输出稳定 JSONL 状态事件，记录策略决策和因果 request/resource ID，脱敏认证及 idempotency key，不能泄露原始秘密。"
+  },
+  {
+    "id": "replay",
+    "weight": 0.15,
+    "requirement": "提供离线故障轨迹回放；注入时钟与 transport 后产生与原运行一致的规范化决策轨迹；原有未启用策略的行为兼容。"
+  }
+]

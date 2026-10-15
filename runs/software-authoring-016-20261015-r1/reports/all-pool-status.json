@@ -1,0 +1,110 @@
+{
+  "authorized_total": 16,
+  "phase": "task_authoring_only",
+  "pool_pid": 82405,
+  "pool_started_utc": "2026-10-15T10:36:32.814705+00:00",
+  "teacher_runs_started": 0,
+  "events": [
+    {
+      "event": "author_dispatched",
+      "id": "02_restler_recovery",
+      "account": "raymone/1",
+      "worker_pid": 83595,
+      "utc": "2026-10-15T10:36:36.894250+00:00"
+    },
+    {
+      "event": "author_dispatched",
+      "id": "05_uv_resolution",
+      "account": "raymone/1",
+      "worker_pid": 83636,
+      "utc": "2026-10-15T10:36:36.996205+00:00"
+    },
+    {
+      "event": "author_dispatched",
+      "id": "06_wasm_validation",
+      "account": "raymone/3",
+      "worker_pid": 83697,
+      "utc": "2026-10-15T10:36:37.097828+00:00"
+    },
+    {
+      "event": "author_dispatched",
+      "id": "10_datafusion_sort",
+      "account": "raymone/3",
+      "worker_pid": 316917,
+      "utc": "2026-10-15T10:46:31.659291+00:00"
+    },
+    {
+      "event": "author_dispatched",
+      "id": "13_toml_lossless",
+      "account": "raymone/2",
+      "worker_pid": 421942,
+      "utc": "2026-10-15T10:50:34.897473+00:00"
+    },
+    {
+      "event": "author_dispatched",
+      "id": "03_httpx_transport",
+      "account": "raymone/3",
+      "worker_pid": 422138,
+      "utc": "2026-10-15T10:50:35.011254+00:00"
+    },
+    {
+      "event": "author_dispatched",
+      "id": "04_pytest_fixtures",
+      "account": "raymone/1",
+      "worker_pid": 593051,
+      "utc": "2026-10-15T10:52:25.086665+00:00"
+    },
+    {
+      "event": "author_dispatched",
+      "id": "07_arrow_ipc",
+      "account": "raymone/3",
+      "worker_pid": 593185,
+      "utc": "2026-10-15T10:52:25.189446+00:00"
+    }
+  ],
+  "pending": [
+    "08_http2_session",
+    "11_rocksdb_compaction",
+    "12_croaring_kernels",
+    "15_jq_composition",
+    "16_libarchive_cli"
+  ],
+  "running": [
+    "09_valkey_transactions",
+    "02_restler_recovery",
+    "05_uv_resolution",
+    "10_datafusion_sort",
+    "13_toml_lossless",
+    "03_httpx_transport",
+    "04_pytest_fixtures",
+    "07_arrow_ipc"
+  ],
+  "author_returned": [
+    "01_openapi_streaming",
+    "14_tree_sitter_incremental",
+    "06_wasm_validation"
+  ],
+  "failed": [],
+  "updated_utc": "2026-10-15T10:52:25.292562+00:00",
+  "latest_capacity_receipt": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/reports/all-pool-capacity-20261015T105225081020Z.json",
+  "last_capacity": {
+    "raymone/1": {
+      "eligible": true,
+      "spare_slots": 1,
+      "preserved_lease_count": 5,
+      "external_reserved": 4
+    },
+    "raymone/2": {
+      "eligible": false,
+      "spare_slots": 0,
+      "preserved_lease_count": 8,
+      "external_reserved": 2
+    },
+    "raymone/3": {
+      "eligible": true,
+      "spare_slots": 1,
+      "preserved_lease_count": 8,
+      "external_reserved": 1
+    }
+  }
+}

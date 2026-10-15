@@ -1,0 +1,57 @@
+{
+  "repo": "Farama-Foundation/Minigrid",
+  "revision": "b34a5755dbef71e3f1662552259a94b255c1a8bb",
+  "resolved_utc": "2026-10-15T14:58:55.199151+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:41.651805+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "8559de1e0812ee1c4f8f36efdb49db36e677e3192f20ae4ea84a39d14e9c46e3",
+    "truncated": false,
+    "blob_count": 290
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 2507,
+      "sha256": "6c2915ffe9ac7ad36b26a36d03c2297ccc42a3dd914c902b28bfd5ff08c21b7c",
+      "url": "https://github.com/Farama-Foundation/Minigrid/blob/b34a5755dbef71e3f1662552259a94b255c1a8bb/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5583,
+      "sha256": "29c9ac0e91b859739bb267c1f8906803bab45311b1b4cbecfeb7d37196886876",
+      "url": "https://github.com/Farama-Foundation/Minigrid/blob/b34a5755dbef71e3f1662552259a94b255c1a8bb/README.md"
+    },
+    {
+      "path": "minigrid/envs/babyai/core/levelgen.py",
+      "bytes": 6834,
+      "sha256": "770ba6e62475137cf69214780a68966fe374177c3a3f2d83fae37845712f8e16",
+      "url": "https://github.com/Farama-Foundation/Minigrid/blob/b34a5755dbef71e3f1662552259a94b255c1a8bb/minigrid/envs/babyai/core/levelgen.py"
+    },
+    {
+      "path": "minigrid/envs/babyai/core/verifier.py",
+      "bytes": 16608,
+      "sha256": "5917349e31584757a2b7f225cf27e2ab3e7286934e2e1eb35973082ce122d5cd",
+      "url": "https://github.com/Farama-Foundation/Minigrid/blob/b34a5755dbef71e3f1662552259a94b255c1a8bb/minigrid/envs/babyai/core/verifier.py"
+    },
+    {
+      "path": "minigrid/minigrid_env.py",
+      "bytes": 24654,
+      "sha256": "b1a4d14b75cf24eb5efa6dc962aa135ed0df20d9e81205c83c781cf7d48e03ae",
+      "url": "https://github.com/Farama-Foundation/Minigrid/blob/b34a5755dbef71e3f1662552259a94b255c1a8bb/minigrid/minigrid_env.py"
+    },
+    {
+      "path": "tests/test_envs.py",
+      "bytes": 12181,
+      "sha256": "2c9cb9a8c7038bce4f787153c1be51f60c936cf8f39c6cbd208d2c41d5c5500b",
+      "url": "https://github.com/Farama-Foundation/Minigrid/blob/b34a5755dbef71e3f1662552259a94b255c1a8bb/tests/test_envs.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

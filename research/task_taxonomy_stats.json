@@ -1,0 +1,305 @@
+{
+  "snapshot": "6cc5a7f1b3288ce52484ad828177b8cc86b05b75",
+  "tasks": 51,
+  "official_categories": {
+    "Scientific Problems & ML": 4,
+    "Systems & Software Engineering": 12,
+    "Combinatorial Optimization": 15,
+    "Professional Knowledge Work": 4,
+    "Formal Math & Theorem Proving": 8,
+    "Interactive Games & Simulators": 8
+  },
+  "research_mechanisms": {
+    "学习与科学拟合": 5,
+    "性能优化": 5,
+    "软件功能构建": 7,
+    "算法与策略求解": 21,
+    "专业交付物": 2,
+    "形式证明": 8,
+    "直接环境交互": 3
+  },
+  "parser": {
+    "structured_json": 27,
+    "score_sum": 18,
+    "pytest_v": 3,
+    "": 3
+  },
+  "internet_true": 1,
+  "game_mode_true": 3,
+  "work_judge_task_pairs": 51,
+  "image_tag_references": 102,
+  "inline_eval_wrappers": 10,
+  "coverage": [
+    {
+      "file": "data/EdgeBench/bipedalwalker_locomotion_rl.json",
+      "total_lines": 40,
+      "read_lines": 40
+    },
+    {
+      "file": "data/EdgeBench/borden_source_inversion.json",
+      "total_lines": 33,
+      "read_lines": 33
+    },
+    {
+      "file": "data/EdgeBench/dabic_gravity_inversion.json",
+      "total_lines": 32,
+      "read_lines": 32
+    },
+    {
+      "file": "data/EdgeBench/graph_node_classification.json",
+      "total_lines": 35,
+      "read_lines": 35
+    },
+    {
+      "file": "data/EdgeBench/ann_vector_search_qps.json",
+      "total_lines": 30,
+      "read_lines": 30
+    },
+    {
+      "file": "data/EdgeBench/arc_compiler_runtime.json",
+      "total_lines": 39,
+      "read_lines": 39
+    },
+    {
+      "file": "data/EdgeBench/exchange_core_throughput.json",
+      "total_lines": 35,
+      "read_lines": 35
+    },
+    {
+      "file": "data/EdgeBench/ffmpeg_swscale_reimplementation.json",
+      "total_lines": 36,
+      "read_lines": 36
+    },
+    {
+      "file": "data/EdgeBench/git_rewrite_in_zig.json",
+      "total_lines": 39,
+      "read_lines": 39
+    },
+    {
+      "file": "data/EdgeBench/integer_compression_codec.json",
+      "total_lines": 38,
+      "read_lines": 38
+    },
+    {
+      "file": "data/EdgeBench/juliet_vulnerability_analyzer.json",
+      "total_lines": 37,
+      "read_lines": 37
+    },
+    {
+      "file": "data/EdgeBench/rust_multicrate_reconstruction.json",
+      "total_lines": 40,
+      "read_lines": 40
+    },
+    {
+      "file": "data/EdgeBench/schemathesis_config_modernization.json",
+      "total_lines": 38,
+      "read_lines": 38
+    },
+    {
+      "file": "data/EdgeBench/schemathesis_datagen_pipeline.json",
+      "total_lines": 38,
+      "read_lines": 38
+    },
+    {
+      "file": "data/EdgeBench/schemathesis_reporting_observability.json",
+      "total_lines": 38,
+      "read_lines": 38
+    },
+    {
+      "file": "data/EdgeBench/vliw_kernel_optimization.json",
+      "total_lines": 39,
+      "read_lines": 39
+    },
+    {
+      "file": "data/EdgeBench/ad_placement_optimization.json",
+      "total_lines": 32,
+      "read_lines": 32
+    },
+    {
+      "file": "data/EdgeBench/apple_incremental_game.json",
+      "total_lines": 32,
+      "read_lines": 32
+    },
+    {
+      "file": "data/EdgeBench/equivalence_class_divide_and_conquer.json",
+      "total_lines": 35,
+      "read_lines": 35
+    },
+    {
+      "file": "data/EdgeBench/grid_turing_robot.json",
+      "total_lines": 32,
+      "read_lines": 32
+    },
+    {
+      "file": "data/EdgeBench/jagua_nesting_optimization.json",
+      "total_lines": 34,
+      "read_lines": 34
+    },
+    {
+      "file": "data/EdgeBench/molecular_self_assembly.json",
+      "total_lines": 32,
+      "read_lines": 32
+    },
+    {
+      "file": "data/EdgeBench/order_addition_permutation_optimization.json",
+      "total_lines": 33,
+      "read_lines": 33
+    },
+    {
+      "file": "data/EdgeBench/smt_solver.json",
+      "total_lines": 44,
+      "read_lines": 44
+    },
+    {
+      "file": "data/EdgeBench/treant_forest.json",
+      "total_lines": 32,
+      "read_lines": 32
+    },
+    {
+      "file": "data/EdgeBench/tree_block_partitioning.json",
+      "total_lines": 35,
+      "read_lines": 35
+    },
+    {
+      "file": "data/EdgeBench/triangulation_coloring_optimization.json",
+      "total_lines": 32,
+      "read_lines": 32
+    },
+    {
+      "file": "data/EdgeBench/vehicle_routing_time_windows.json",
+      "total_lines": 38,
+      "read_lines": 38
+    },
+    {
+      "file": "data/EdgeBench/vibrating_path_graph_coloring.json",
+      "total_lines": 32,
+      "read_lines": 32
+    },
+    {
+      "file": "data/EdgeBench/warehouse_forklift_routing.json",
+      "total_lines": 32,
+      "read_lines": 32
+    },
+    {
+      "file": "data/EdgeBench/wireless_electricity_layout.json",
+      "total_lines": 32,
+      "read_lines": 32
+    },
+    {
+      "file": "data/EdgeBench/college_english_exam_bank.json",
+      "total_lines": 51,
+      "read_lines": 51
+    },
+    {
+      "file": "data/EdgeBench/cta_risk_budget_optimization.json",
+      "total_lines": 57,
+      "read_lines": 57
+    },
+    {
+      "file": "data/EdgeBench/k12_math_recommendation.json",
+      "total_lines": 38,
+      "read_lines": 38
+    },
+    {
+      "file": "data/EdgeBench/portfolio_risk_calibration.json",
+      "total_lines": 35,
+      "read_lines": 35
+    },
+    {
+      "file": "data/EdgeBench/carleson_formalization.json",
+      "total_lines": 31,
+      "read_lines": 31
+    },
+    {
+      "file": "data/EdgeBench/combinatorial_games_formalization.json",
+      "total_lines": 31,
+      "read_lines": 31
+    },
+    {
+      "file": "data/EdgeBench/flt_regular_formalization.json",
+      "total_lines": 31,
+      "read_lines": 31
+    },
+    {
+      "file": "data/EdgeBench/lean_analysis_proofs.json",
+      "total_lines": 31,
+      "read_lines": 31
+    },
+    {
+      "file": "data/EdgeBench/new_foundations_consistency.json",
+      "total_lines": 31,
+      "read_lines": 31
+    },
+    {
+      "file": "data/EdgeBench/ordinal_notation_well_foundedness.json",
+      "total_lines": 53,
+      "read_lines": 53
+    },
+    {
+      "file": "data/EdgeBench/pfr_formalization.json",
+      "total_lines": 31,
+      "read_lines": 31
+    },
+    {
+      "file": "data/EdgeBench/sphere_eversion_formalization.json",
+      "total_lines": 31,
+      "read_lines": 31
+    },
+    {
+      "file": "data/EdgeBench/anchorhead_text_adventure.json",
+      "total_lines": 29,
+      "read_lines": 29
+    },
+    {
+      "file": "data/EdgeBench/dcss_dungeon_ai.json",
+      "total_lines": 34,
+      "read_lines": 34
+    },
+    {
+      "file": "data/EdgeBench/nethack_dungeon_agent.json",
+      "total_lines": 30,
+      "read_lines": 30
+    },
+    {
+      "file": "data/EdgeBench/openrct2_theme_park_ai.json",
+      "total_lines": 30,
+      "read_lines": 30
+    },
+    {
+      "file": "data/EdgeBench/openttd_transport_ai.json",
+      "total_lines": 30,
+      "read_lines": 30
+    },
+    {
+      "file": "data/EdgeBench/trinity_text_adventure.json",
+      "total_lines": 29,
+      "read_lines": 29
+    },
+    {
+      "file": "data/EdgeBench/tryst_text_adventure.json",
+      "total_lines": 29,
+      "read_lines": 29
+    },
+    {
+      "file": "data/EdgeBench/wesnoth_tactical_ai.json",
+      "total_lines": 33,
+      "read_lines": 33
+    },
+    {
+      "file": "data/EdgeBench/tasks.jsonl",
+      "total_lines": 51,
+      "read_lines": 51
+    },
+    {
+      "file": "data/EdgeBench/README.md",
+      "total_lines": 214,
+      "read_lines": 214
+    },
+    {
+      "file": "data/EdgeBench/BENCHMARK.yaml",
+      "total_lines": 130,
+      "read_lines": 130
+    }
+  ],
+  "coverage_note": "Coverage records full manual review of physical JSON/document lines, not container contents. Escaped multiline fields were reviewed as text."
+}

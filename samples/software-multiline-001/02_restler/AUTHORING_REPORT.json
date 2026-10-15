@@ -1,0 +1,226 @@
+{
+  "task_id": "restler_campaign_recovery",
+  "status": "hold_for_evidence",
+  "source_revision": {
+    "restler": "6d984deedbc54aad957fa3da0c7e9e5df23a2aee",
+    "polaris": "f838a62e20e7de72946d250883e8d9b1d6d2f68e"
+  },
+  "author_model_requested": "gpt-6.1-sol",
+  "provider_receipt_verified": false,
+  "reference_status": "actual native CLI generation-boundary checkpoint implementation; full HTTP/Polaris lifecycle reference missing",
+  "local_controls": {
+    "starter": {
+      "formal_score": null,
+      "valid": false,
+      "component_pass_rate": 0.3333333333333333,
+      "component_checks": [
+        {
+          "name": "native_smoke",
+          "passed": true
+        },
+        {
+          "name": "native_replay",
+          "passed": true
+        },
+        {
+          "name": "commit",
+          "passed": false
+        },
+        {
+          "name": "resume",
+          "passed": false
+        },
+        {
+          "name": "corruption",
+          "passed": false,
+          "detail": "no committed checkpoint"
+        },
+        {
+          "name": "input_mismatch",
+          "passed": false,
+          "detail": "no committed checkpoint"
+        }
+      ]
+    },
+    "reference-draft": {
+      "formal_score": null,
+      "valid": false,
+      "component_pass_rate": 1.0,
+      "component_checks": [
+        {
+          "name": "native_smoke",
+          "passed": true
+        },
+        {
+          "name": "native_replay",
+          "passed": true
+        },
+        {
+          "name": "commit",
+          "passed": true
+        },
+        {
+          "name": "resume",
+          "passed": true
+        },
+        {
+          "name": "corruption",
+          "passed": true
+        },
+        {
+          "name": "input_mismatch",
+          "passed": true
+        }
+      ]
+    },
+    "no-restore": {
+      "formal_score": null,
+      "valid": false,
+      "component_pass_rate": 0.5,
+      "component_checks": [
+        {
+          "name": "native_smoke",
+          "passed": true
+        },
+        {
+          "name": "native_replay",
+          "passed": true
+        },
+        {
+          "name": "commit",
+          "passed": true
+        },
+        {
+          "name": "resume",
+          "passed": false
+        },
+        {
+          "name": "corruption",
+          "passed": false
+        },
+        {
+          "name": "input_mismatch",
+          "passed": false
+        }
+      ]
+    },
+    "ignore-fingerprint": {
+      "formal_score": null,
+      "valid": false,
+      "component_pass_rate": 0.8333333333333334,
+      "component_checks": [
+        {
+          "name": "native_smoke",
+          "passed": true
+        },
+        {
+          "name": "native_replay",
+          "passed": true
+        },
+        {
+          "name": "commit",
+          "passed": true
+        },
+        {
+          "name": "resume",
+          "passed": true
+        },
+        {
+          "name": "corruption",
+          "passed": true
+        },
+        {
+          "name": "input_mismatch",
+          "passed": false
+        }
+      ]
+    },
+    "empty": {
+      "formal_score": null,
+      "valid": false,
+      "component_pass_rate": 0.0,
+      "component_checks": [
+        {
+          "name": "native_smoke",
+          "passed": false,
+          "detail": "missing native engine"
+        },
+        {
+          "name": "native_replay",
+          "passed": false,
+          "detail": "missing native engine"
+        },
+        {
+          "name": "commit",
+          "passed": false,
+          "detail": "missing native engine"
+        },
+        {
+          "name": "resume",
+          "passed": false,
+          "detail": "missing native engine"
+        },
+        {
+          "name": "corruption",
+          "passed": false,
+          "detail": "missing native engine"
+        },
+        {
+          "name": "input_mismatch",
+          "passed": false,
+          "detail": "missing native engine"
+        }
+      ]
+    }
+  },
+  "native_baseline": {
+    "smoke_and_trace_replay": "2 passed in 1.18s",
+    "evidence": "authoring/evidence/native-controls.stdout"
+  },
+  "actual_recovery_evidence": {
+    "entry": "real restler/restler.py BFS via full engine",
+    "first_generation": 2,
+    "second_process_resumed_through_generation": 3,
+    "corrupt_and_changed_inputs": "nonzero exits with concrete diagnostics",
+    "evidence": "authoring/evidence/reference-draft/score.json"
+  },
+  "failures_preserved": [
+    "native-baseline failed initially because upstream subprocess uses python and PATH lacked venv; fixed command PATH, not source",
+    "first hand-run checkpoint committed generation2 then existing CLI GC summary failed without GC configured; rerun proper GC setting passed",
+    "first component checks incorrectly looked only in stderr while RESTler emits fuzzer traceback on stdout; corrected diagnostic stream observation and reran controls",
+    "Polaris gradlew offline project discovery failed with no Java Runtime"
+  ],
+  "evidence": [
+    "authoring/evidence/control-summary.json",
+    "authoring/evidence/native-controls.stdout",
+    "authoring/evidence/polaris-build.command.json",
+    "authoring/evidence/polaris-build.stderr"
+  ],
+  "unverified": [
+    "actual HTTP transport crash/recovery",
+    "Polaris process startup/reset",
+    "server state continuity across process boundaries",
+    "resource lease/ownership GC",
+    "checkpoint atomicity under real forced kill",
+    "container builds/UID/network enforcement",
+    "Harbor oracle/NOP",
+    "six-hour difficulty/trajectories"
+  ],
+  "blockers": [
+    "No installed JDK21; pinned Gradle/Maven/JDK runtime closure and Polaris startup/reset not constructed",
+    "Full request-journal/idempotency/lease reference not implemented",
+    "Formal trusted external-state grader absent",
+    "Native component regression tests are currently taken from the exact control candidate tree; final judge must independently freeze native fixtures and cannot trust mutable solver tests. Component controls only establish behavior of recorded known source variants, not adversarial grading robustness."
+  ],
+  "formal_reward": null,
+  "component_pass_rate_is_not_acceptance": true,
+  "task_toml_schema": "uses supplied Harbor0.23.0 fields; parent schema validation pending; metadata marks do_not_launch",
+  "old_tasks_modified": false,
+  "verification_extras": {
+    "toml_parse": "passed with Python3.12 tomllib; Harbor model schema validation delegated to parent",
+    "root_judge_bytes": "all files identical",
+    "context_symlinks": 0,
+    "manifest_file_hashes": "passed",
+    "infrastructure_failure": "02: formal missing service yielded valid=false, score=null, exit2, no reward"
+  }
+}

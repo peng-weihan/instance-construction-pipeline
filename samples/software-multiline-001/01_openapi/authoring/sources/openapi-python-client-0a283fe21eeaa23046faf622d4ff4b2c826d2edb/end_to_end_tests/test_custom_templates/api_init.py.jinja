@@ -1,0 +1,12 @@
+""" Contains methods for accessing the API """
+
+{% for tag in endpoint_collections_by_tag.keys() %}
+from .{{ tag }} import {{ class_name(tag) }}Endpoints
+{% endfor %}
+
+class {{ class_name(package_name) }}Api:
+{% for tag in endpoint_collections_by_tag.keys() %}
+    @classmethod
+    def {{ tag }}(cls) -> type[{{ class_name(tag) }}Endpoints]:
+        return {{ class_name(tag) }}Endpoints
+{% endfor %}

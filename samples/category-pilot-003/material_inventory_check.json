@@ -1,0 +1,404 @@
+{
+  "scope": "static material integrity; not runtime verification or acceptance",
+  "checks": [
+    {
+      "name": "six_categories",
+      "pass": true,
+      "evidence": 6
+    },
+    {
+      "name": "restler_resource_lifecycle/construction.json",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/restler_resource_lifecycle/construction.json"
+    },
+    {
+      "name": "restler_resource_lifecycle/public/instruction.md",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/restler_resource_lifecycle/public/instruction.md"
+    },
+    {
+      "name": "restler_resource_lifecycle/public/evaluation_contract.draft.json",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/restler_resource_lifecycle/public/evaluation_contract.draft.json"
+    },
+    {
+      "name": "restler_resource_lifecycle/SOURCE_TO_TASK.md",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/restler_resource_lifecycle/SOURCE_TO_TASK.md"
+    },
+    {
+      "name": "restler_resource_lifecycle/file_manifest.json",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/restler_resource_lifecycle/file_manifest.json"
+    },
+    {
+      "name": "restler_resource_lifecycle/manifest_hashes",
+      "pass": true,
+      "evidence": {
+        "files": 475,
+        "mismatches": []
+      }
+    },
+    {
+      "name": "restler_resource_lifecycle/submission_paths",
+      "pass": true,
+      "evidence": [
+        "repo/restler/engine/core/async_request_utilities.py",
+        "repo/restler/engine/core/preprocessing.py",
+        "repo/restler/engine/dependencies.py"
+      ]
+    },
+    {
+      "name": "restler_resource_lifecycle/draft_status",
+      "pass": true,
+      "evidence": "constructed_unverified"
+    },
+    {
+      "name": "restler_resource_lifecycle/no_git_in_public",
+      "pass": true,
+      "evidence": "public is a source snapshot"
+    },
+    {
+      "name": "restler_resource_lifecycle/nine_function_holes",
+      "pass": true,
+      "evidence": {
+        "holes": 9,
+        "removed_lines": 324
+      }
+    },
+    {
+      "name": "kolmogorov_holder_modification/construction.json",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/kolmogorov_holder_modification/construction.json"
+    },
+    {
+      "name": "kolmogorov_holder_modification/public/instruction.md",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/kolmogorov_holder_modification/public/instruction.md"
+    },
+    {
+      "name": "kolmogorov_holder_modification/public/evaluation_contract.draft.json",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/kolmogorov_holder_modification/public/evaluation_contract.draft.json"
+    },
+    {
+      "name": "kolmogorov_holder_modification/SOURCE_TO_TASK.md",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/kolmogorov_holder_modification/SOURCE_TO_TASK.md"
+    },
+    {
+      "name": "kolmogorov_holder_modification/file_manifest.json",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/kolmogorov_holder_modification/file_manifest.json"
+    },
+    {
+      "name": "kolmogorov_holder_modification/manifest_hashes",
+      "pass": true,
+      "evidence": {
+        "files": 116,
+        "mismatches": []
+      }
+    },
+    {
+      "name": "kolmogorov_holder_modification/submission_paths",
+      "pass": true,
+      "evidence": [
+        "repo/BrownianMotion/Continuity/KolmogorovChentsov.lean"
+      ]
+    },
+    {
+      "name": "kolmogorov_holder_modification/draft_status",
+      "pass": true,
+      "evidence": "constructed_unverified"
+    },
+    {
+      "name": "kolmogorov_holder_modification/no_git_in_public",
+      "pass": true,
+      "evidence": "public is a source snapshot"
+    },
+    {
+      "name": "kolmogorov_holder_modification/sixteen_proof_holes",
+      "pass": true,
+      "evidence": 16
+    },
+    {
+      "name": "kolmogorov_holder_modification/signatures_preserved",
+      "pass": true,
+      "evidence": "literal original signatures"
+    },
+    {
+      "name": "finite_release_groundwater_inverse/construction.json",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/finite_release_groundwater_inverse/construction.json"
+    },
+    {
+      "name": "finite_release_groundwater_inverse/public/instruction.md",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/finite_release_groundwater_inverse/public/instruction.md"
+    },
+    {
+      "name": "finite_release_groundwater_inverse/public/evaluation_contract.draft.json",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/finite_release_groundwater_inverse/public/evaluation_contract.draft.json"
+    },
+    {
+      "name": "finite_release_groundwater_inverse/SOURCE_TO_TASK.md",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/finite_release_groundwater_inverse/SOURCE_TO_TASK.md"
+    },
+    {
+      "name": "finite_release_groundwater_inverse/file_manifest.json",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/finite_release_groundwater_inverse/file_manifest.json"
+    },
+    {
+      "name": "finite_release_groundwater_inverse/manifest_hashes",
+      "pass": true,
+      "evidence": {
+        "files": 14,
+        "mismatches": []
+      }
+    },
+    {
+      "name": "finite_release_groundwater_inverse/submission_paths",
+      "pass": true,
+      "evidence": [
+        "submission/parameters.json"
+      ]
+    },
+    {
+      "name": "finite_release_groundwater_inverse/draft_status",
+      "pass": true,
+      "evidence": "constructed_unverified"
+    },
+    {
+      "name": "finite_release_groundwater_inverse/no_git_in_public",
+      "pass": true,
+      "evidence": "public is a source snapshot"
+    },
+    {
+      "name": "finite_release_groundwater_inverse/synthetic_label",
+      "pass": true,
+      "evidence": {
+        "public": 108,
+        "feedback": 96,
+        "final": 180
+      }
+    },
+    {
+      "name": "finite_release_groundwater_inverse/public_row_count",
+      "pass": true,
+      "evidence": 108
+    },
+    {
+      "name": "finite_release_groundwater_inverse/feedback_row_count",
+      "pass": true,
+      "evidence": 96
+    },
+    {
+      "name": "finite_release_groundwater_inverse/final_row_count",
+      "pass": true,
+      "evidence": 180
+    },
+    {
+      "name": "industrial_irregular_strip/construction.json",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/industrial_irregular_strip/construction.json"
+    },
+    {
+      "name": "industrial_irregular_strip/public/instruction.md",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/industrial_irregular_strip/public/instruction.md"
+    },
+    {
+      "name": "industrial_irregular_strip/public/evaluation_contract.draft.json",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/industrial_irregular_strip/public/evaluation_contract.draft.json"
+    },
+    {
+      "name": "industrial_irregular_strip/SOURCE_TO_TASK.md",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/industrial_irregular_strip/SOURCE_TO_TASK.md"
+    },
+    {
+      "name": "industrial_irregular_strip/file_manifest.json",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/industrial_irregular_strip/file_manifest.json"
+    },
+    {
+      "name": "industrial_irregular_strip/manifest_hashes",
+      "pass": true,
+      "evidence": {
+        "files": 1059,
+        "mismatches": []
+      }
+    },
+    {
+      "name": "industrial_irregular_strip/submission_paths",
+      "pass": true,
+      "evidence": [
+        "repo/src/irregular",
+        "repo/include/packingsolver/irregular"
+      ]
+    },
+    {
+      "name": "industrial_irregular_strip/draft_status",
+      "pass": true,
+      "evidence": "constructed_unverified"
+    },
+    {
+      "name": "industrial_irregular_strip/no_git_in_public",
+      "pass": true,
+      "evidence": "public is a source snapshot"
+    },
+    {
+      "name": "industrial_irregular_strip/case_source_partition",
+      "pass": true,
+      "evidence": {
+        "public": 3,
+        "feedback": 3,
+        "final": 3
+      }
+    },
+    {
+      "name": "industrial_irregular_strip/nonzero_geometry",
+      "pass": true,
+      "evidence": "area bound sanity only; no collision checks"
+    },
+    {
+      "name": "industry_portfolio_risk_lab/construction.json",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/industry_portfolio_risk_lab/construction.json"
+    },
+    {
+      "name": "industry_portfolio_risk_lab/public/instruction.md",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/industry_portfolio_risk_lab/public/instruction.md"
+    },
+    {
+      "name": "industry_portfolio_risk_lab/public/evaluation_contract.draft.json",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/industry_portfolio_risk_lab/public/evaluation_contract.draft.json"
+    },
+    {
+      "name": "industry_portfolio_risk_lab/SOURCE_TO_TASK.md",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/industry_portfolio_risk_lab/SOURCE_TO_TASK.md"
+    },
+    {
+      "name": "industry_portfolio_risk_lab/file_manifest.json",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/industry_portfolio_risk_lab/file_manifest.json"
+    },
+    {
+      "name": "industry_portfolio_risk_lab/manifest_hashes",
+      "pass": true,
+      "evidence": {
+        "files": 14,
+        "mismatches": []
+      }
+    },
+    {
+      "name": "industry_portfolio_risk_lab/submission_paths",
+      "pass": true,
+      "evidence": [
+        "submission/risk_model.py",
+        "submission/report.md"
+      ]
+    },
+    {
+      "name": "industry_portfolio_risk_lab/draft_status",
+      "pass": true,
+      "evidence": "constructed_unverified"
+    },
+    {
+      "name": "industry_portfolio_risk_lab/no_git_in_public",
+      "pass": true,
+      "evidence": "public is a source snapshot"
+    },
+    {
+      "name": "industry_portfolio_risk_lab/chronological_partition",
+      "pass": true,
+      "evidence": {
+        "public": {
+          "rows": 6553,
+          "first": "19900102",
+          "last": "20151231"
+        },
+        "feedback": {
+          "rows": 1006,
+          "first": "20160104",
+          "last": "20191231"
+        },
+        "final": {
+          "rows": 1508,
+          "first": "20200102",
+          "last": "20251231"
+        }
+      }
+    },
+    {
+      "name": "microrts_resource_frontier/construction.json",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/microrts_resource_frontier/construction.json"
+    },
+    {
+      "name": "microrts_resource_frontier/public/instruction.md",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/microrts_resource_frontier/public/instruction.md"
+    },
+    {
+      "name": "microrts_resource_frontier/public/evaluation_contract.draft.json",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/microrts_resource_frontier/public/evaluation_contract.draft.json"
+    },
+    {
+      "name": "microrts_resource_frontier/SOURCE_TO_TASK.md",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/microrts_resource_frontier/SOURCE_TO_TASK.md"
+    },
+    {
+      "name": "microrts_resource_frontier/file_manifest.json",
+      "pass": true,
+      "evidence": "/Users/raymone/Desktop/edgebench/samples/category-pilot-003/microrts_resource_frontier/file_manifest.json"
+    },
+    {
+      "name": "microrts_resource_frontier/manifest_hashes",
+      "pass": true,
+      "evidence": {
+        "files": 411,
+        "mismatches": []
+      }
+    },
+    {
+      "name": "microrts_resource_frontier/submission_paths",
+      "pass": true,
+      "evidence": [
+        "submission/FrontierAI.java"
+      ]
+    },
+    {
+      "name": "microrts_resource_frontier/draft_status",
+      "pass": true,
+      "evidence": "constructed_unverified"
+    },
+    {
+      "name": "microrts_resource_frontier/no_git_in_public",
+      "pass": true,
+      "evidence": "public is a source snapshot"
+    },
+    {
+      "name": "microrts_resource_frontier/map_format_and_initial_occupancy",
+      "pass": true,
+      "evidence": {
+        "maps": 9,
+        "bad": [],
+        "not_checked": "pathfinding, fairness, game dynamics"
+      }
+    }
+  ],
+  "passed": 66,
+  "total": 66,
+  "runtime_validation_runs": 0,
+  "difficulty_claim": "uncalibrated"
+}

@@ -1,0 +1,1119 @@
+{
+  "sha": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+  "url": "https://api.github.com/repos/encode/httpx/git/trees/b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+  "tree": [
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6c146c91f3959234681585b60da86cf95b920171",
+      "url": "https://api.github.com/repos/encode/httpx/git/trees/6c146c91f3959234681585b60da86cf95b920171"
+    },
+    {
+      "path": ".github/CONTRIBUTING.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2cbd58004b607ecd862db0421d5070a9fe4b826a",
+      "size": 8370,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/2cbd58004b607ecd862db0421d5070a9fe4b826a"
+    },
+    {
+      "path": ".github/FUNDING.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2f87d94ca10327497ac0f4c0093930826ff76642",
+      "size": 15,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/2f87d94ca10327497ac0f4c0093930826ff76642"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8f9ff41084a965159612db5ca7d2259325763a75",
+      "url": "https://api.github.com/repos/encode/httpx/git/trees/8f9ff41084a965159612db5ca7d2259325763a75"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/1-issue.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c0f8af677bbf406c929ea0d50ab90861cd10434",
+      "size": 588,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/5c0f8af677bbf406c929ea0d50ab90861cd10434"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/config.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a491aa350235bfb1e61c406d5657aff63c78b84d",
+      "size": 432,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/a491aa350235bfb1e61c406d5657aff63c78b84d"
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f19bf3c1f830f7ac31dfbc5ac27cf8a9ad4db088",
+      "size": 543,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/f19bf3c1f830f7ac31dfbc5ac27cf8a9ad4db088"
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec7ea763dbe3218a4ff05362e1cee899f9bad916",
+      "size": 275,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/ec7ea763dbe3218a4ff05362e1cee899f9bad916"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c558eafa6d8923843e51bf20611120976ea78283",
+      "url": "https://api.github.com/repos/encode/httpx/git/trees/c558eafa6d8923843e51bf20611120976ea78283"
+    },
+    {
+      "path": ".github/workflows/publish.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a16f25874082aff3f0c3ba398b39cc588ca6f3f2",
+      "size": 606,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/a16f25874082aff3f0c3ba398b39cc588ca6f3f2"
+    },
+    {
+      "path": ".github/workflows/test-suite.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "92e8c360159786cb1dd3381fc24d2525e62d05cd",
+      "size": 809,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/92e8c360159786cb1dd3381fc24d2525e62d05cd"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "49e14ccc8ddce6b1390b122f4a9cdc18cd1a41b4",
+      "size": 120,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/49e14ccc8ddce6b1390b122f4a9cdc18cd1a41b4"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57fa44b8ef2958d095520a2838e182921d038d46",
+      "size": 53273,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/57fa44b8ef2958d095520a2838e182921d038d46"
+    },
+    {
+      "path": "LICENSE.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab79d16a3f4c6c894c028d1f7431811e8711b42b",
+      "size": 1508,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/ab79d16a3f4c6c894c028d1f7431811e8711b42b"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ccecd578c3dfdd4fa1f7fc493309cfc944f7cb3",
+      "size": 4944,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/2ccecd578c3dfdd4fa1f7fc493309cfc944f7cb3"
+    },
+    {
+      "path": "docs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1733f63db0919c0b95cfb1561c8f389e3b7c8978",
+      "url": "https://api.github.com/repos/encode/httpx/git/trees/1733f63db0919c0b95cfb1561c8f389e3b7c8978"
+    },
+    {
+      "path": "docs/CNAME",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6d019fa5df0f14ecd51a910a0341a7e4b946c4db",
+      "size": 21,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/6d019fa5df0f14ecd51a910a0341a7e4b946c4db"
+    },
+    {
+      "path": "docs/advanced",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7c50c02d972b1cb4360f1244823632797161309f",
+      "url": "https://api.github.com/repos/encode/httpx/git/trees/7c50c02d972b1cb4360f1244823632797161309f"
+    },
+    {
+      "path": "docs/advanced/authentication.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "63d26e5f46f87f01c4e01d9416268a4177a3d60b",
+      "size": 8554,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/63d26e5f46f87f01c4e01d9416268a4177a3d60b"
+    },
+    {
+      "path": "docs/advanced/clients.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "90969cefda100f94460f9eef3610b780c68eefdd",
+      "size": 11456,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/90969cefda100f94460f9eef3610b780c68eefdd"
+    },
+    {
+      "path": "docs/advanced/event-hooks.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "28cf353d967a225e155f2488ab7821cf16d53163",
+      "size": 2419,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/28cf353d967a225e155f2488ab7821cf16d53163"
+    },
+    {
+      "path": "docs/advanced/extensions.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9208ccdb38853134b28bcb0047c8d172a80673f",
+      "size": 9447,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/d9208ccdb38853134b28bcb0047c8d172a80673f"
+    },
+    {
+      "path": "docs/advanced/proxies.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2a6b7d5f3695cd296ce6d283ffe07af600b0aceb",
+      "size": 3563,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/2a6b7d5f3695cd296ce6d283ffe07af600b0aceb"
+    },
+    {
+      "path": "docs/advanced/resource-limits.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2002428326930f083872da778394df54e445edb4",
+      "size": 596,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/2002428326930f083872da778394df54e445edb4"
+    },
+    {
+      "path": "docs/advanced/ssl.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3813293f788ea9691bba272824831dadeed0dcaa",
+      "size": 3623,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/3813293f788ea9691bba272824831dadeed0dcaa"
+    },
+    {
+      "path": "docs/advanced/text-encodings.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5565f026956c097233f91527449a28caa9542c0d",
+      "size": 3655,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/5565f026956c097233f91527449a28caa9542c0d"
+    },
+    {
+      "path": "docs/advanced/timeouts.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aedcfb627f5139901638ebf8de30216c2640591e",
+      "size": 2763,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/aedcfb627f5139901638ebf8de30216c2640591e"
+    },
+    {
+      "path": "docs/advanced/transports.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d4e7615d380b94a269babb492ac2dbfe2e39d57e",
+      "size": 14201,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/d4e7615d380b94a269babb492ac2dbfe2e39d57e"
+    },
+    {
+      "path": "docs/api.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f1bd50c993f417119bb9ae14fe60e6856a1a7f2a",
+      "size": 4484,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/f1bd50c993f417119bb9ae14fe60e6856a1a7f2a"
+    },
+    {
+      "path": "docs/async.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f01715d84f6a0c4b8d74bde21b07001cf90d674c",
+      "size": 6416,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/f01715d84f6a0c4b8d74bde21b07001cf90d674c"
+    },
+    {
+      "path": "docs/code_of_conduct.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1647289871edf21168b10c6ba6fd45b012b0ce12",
+      "size": 4635,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/1647289871edf21168b10c6ba6fd45b012b0ce12"
+    },
+    {
+      "path": "docs/compatibility.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9686167574a73033888e528fe1f012475841b5d1",
+      "size": 9891,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/9686167574a73033888e528fe1f012475841b5d1"
+    },
+    {
+      "path": "docs/contributing.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2759019b2fe89794b5123334fe3dbe929ad33179",
+      "size": 8362,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/2759019b2fe89794b5123334fe3dbe929ad33179"
+    },
+    {
+      "path": "docs/css",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "47ff94cbe5f30a8068222e2a0d4e9cee60fe7f98",
+      "url": "https://api.github.com/repos/encode/httpx/git/trees/47ff94cbe5f30a8068222e2a0d4e9cee60fe7f98"
+    },
+    {
+      "path": "docs/css/custom.css",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6e5d919192afbc02540b1259aea0e042617f4788",
+      "size": 187,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/6e5d919192afbc02540b1259aea0e042617f4788"
+    },
+    {
+      "path": "docs/environment_variables.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0364deb0613477a82f40055244f307fbd5b24e76",
+      "size": 2844,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/0364deb0613477a82f40055244f307fbd5b24e76"
+    },
+    {
+      "path": "docs/exceptions.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "151c6e46f1b98c02d04716208437028ec5c053e9",
+      "size": 2112,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/151c6e46f1b98c02d04716208437028ec5c053e9"
+    },
+    {
+      "path": "docs/http2.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3cab09d912093cb1c5ffdd3fdcb4a553aaa7890b",
+      "size": 2570,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/3cab09d912093cb1c5ffdd3fdcb4a553aaa7890b"
+    },
+    {
+      "path": "docs/img",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "23443b5854f129fbcd2a6727957e3a1079970172",
+      "url": "https://api.github.com/repos/encode/httpx/git/trees/23443b5854f129fbcd2a6727957e3a1079970172"
+    },
+    {
+      "path": "docs/img/butterfly.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e5f6b68be369230264f6bd766fb09ef7746209d",
+      "size": 683778,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/5e5f6b68be369230264f6bd766fb09ef7746209d"
+    },
+    {
+      "path": "docs/img/gh-actions-fail-check.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "546f974617f9fdfd4d4a4e14314cf0578b646b64",
+      "size": 247492,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/546f974617f9fdfd4d4a4e14314cf0578b646b64"
+    },
+    {
+      "path": "docs/img/gh-actions-fail-test.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c0971c92479f634872de097e4b192ed8501fed6",
+      "size": 426206,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/0c0971c92479f634872de097e4b192ed8501fed6"
+    },
+    {
+      "path": "docs/img/gh-actions-fail.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e22ca3c3eec893d274430b3f2bf15e51588c09d6",
+      "size": 111066,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/e22ca3c3eec893d274430b3f2bf15e51588c09d6"
+    },
+    {
+      "path": "docs/img/httpx-help.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "32b4ad9d905397f953c41be650310744b172e56a",
+      "size": 364796,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/32b4ad9d905397f953c41be650310744b172e56a"
+    },
+    {
+      "path": "docs/img/httpx-request.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2057d010af0a38b004c908b46f3ac18683b5f5d9",
+      "size": 205436,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/2057d010af0a38b004c908b46f3ac18683b5f5d9"
+    },
+    {
+      "path": "docs/img/logo.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9778d17cc33df3d1f9c0c4e0f69654f9f318774d",
+      "size": 15592,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/9778d17cc33df3d1f9c0c4e0f69654f9f318774d"
+    },
+    {
+      "path": "docs/img/rich-progress.gif",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7c1a8587145a1ac0fa58e2cdc29b91d2c6da368c",
+      "size": 74228,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/7c1a8587145a1ac0fa58e2cdc29b91d2c6da368c"
+    },
+    {
+      "path": "docs/img/speakeasy.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4acb347c9b30007e450dfc5b41e8a04ed85cda9c",
+      "size": 115753,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/4acb347c9b30007e450dfc5b41e8a04ed85cda9c"
+    },
+    {
+      "path": "docs/img/tqdm-progress.gif",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a3b0a8065c15ba826e1506a6fbd0c6ed84bc7c9",
+      "size": 85618,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/7a3b0a8065c15ba826e1506a6fbd0c6ed84bc7c9"
+    },
+    {
+      "path": "docs/index.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "90a4f6b6f76ac4756da1676e9208ecdeed73a2be",
+      "size": 4160,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/90a4f6b6f76ac4756da1676e9208ecdeed73a2be"
+    },
+    {
+      "path": "docs/logging.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b3c5781727e12152bc8b7ee1a85e4f7a5822dedd",
+      "size": 3962,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/b3c5781727e12152bc8b7ee1a85e4f7a5822dedd"
+    },
+    {
+      "path": "docs/overrides",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "554f2226044deaa2ace84f141e287833f8f2278e",
+      "url": "https://api.github.com/repos/encode/httpx/git/trees/554f2226044deaa2ace84f141e287833f8f2278e"
+    },
+    {
+      "path": "docs/overrides/partials",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3ef3e4b27b9d1cb04f889c753e92a12b0de91f93",
+      "url": "https://api.github.com/repos/encode/httpx/git/trees/3ef3e4b27b9d1cb04f889c753e92a12b0de91f93"
+    },
+    {
+      "path": "docs/overrides/partials/nav.html",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d5a413f013d6984712d6e04c8fdb1e57e5156c1b",
+      "size": 1517,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/d5a413f013d6984712d6e04c8fdb1e57e5156c1b"
+    },
+    {
+      "path": "docs/quickstart.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e140b53cd79583afd9425d8ace936b56a68c1fc4",
+      "size": 14706,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/e140b53cd79583afd9425d8ace936b56a68c1fc4"
+    },
+    {
+      "path": "docs/third_party_packages.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "253c312f584c1c2ef9283fae70ed988d03375630",
+      "size": 3332,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/253c312f584c1c2ef9283fae70ed988d03375630"
+    },
+    {
+      "path": "docs/troubleshooting.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2ca15f5640e496fc9a5f2652037e1845ce13231",
+      "size": 2150,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/a2ca15f5640e496fc9a5f2652037e1845ce13231"
+    },
+    {
+      "path": "httpx",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "21eaf49210613909be2f7a864389a312a484d0eb",
+      "url": "https://api.github.com/repos/encode/httpx/git/trees/21eaf49210613909be2f7a864389a312a484d0eb"
+    },
+    {
+      "path": "httpx/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "63225040ba8c1f9cbf01ef6085debe00c99d108d",
+      "size": 2191,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/63225040ba8c1f9cbf01ef6085debe00c99d108d"
+    },
+    {
+      "path": "httpx/__version__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "801bfacf671017cfbebf1ac26ec385daa02ed260",
+      "size": 108,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/801bfacf671017cfbebf1ac26ec385daa02ed260"
+    },
+    {
+      "path": "httpx/_api.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3cda1ecda8629edbdca2e3bc04bc51dba5e1430",
+      "size": 11743,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/c3cda1ecda8629edbdca2e3bc04bc51dba5e1430"
+    },
+    {
+      "path": "httpx/_auth.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d24faed99690d2800651f357d8ada818e91102e",
+      "size": 11907,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/9d24faed99690d2800651f357d8ada818e91102e"
+    },
+    {
+      "path": "httpx/_client.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "13cd9336732a0854dae25b53b34e4b2e749b5897",
+      "size": 65713,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/13cd9336732a0854dae25b53b34e4b2e749b5897"
+    },
+    {
+      "path": "httpx/_config.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "467a6c90ae269babe3af7963d9d7c78b9f012268",
+      "size": 8547,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/467a6c90ae269babe3af7963d9d7c78b9f012268"
+    },
+    {
+      "path": "httpx/_content.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6f479a0885f723b7395843d41164a87041820776",
+      "size": 8161,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/6f479a0885f723b7395843d41164a87041820776"
+    },
+    {
+      "path": "httpx/_decoders.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "899dfada878e1181fca6d3c75a79526a076abb9e",
+      "size": 12041,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/899dfada878e1181fca6d3c75a79526a076abb9e"
+    },
+    {
+      "path": "httpx/_exceptions.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dd7fb6cdb3bfa2efd3de0d80bdbdb3c9d8d838af",
+      "size": 8500,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/dd7fb6cdb3bfa2efd3de0d80bdbdb3c9d8d838af"
+    },
+    {
+      "path": "httpx/_main.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cffa4bb7db0f930f4db56653a061c4d7400ba4e6",
+      "size": 15626,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/cffa4bb7db0f930f4db56653a061c4d7400ba4e6"
+    },
+    {
+      "path": "httpx/_models.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2cc86321a4bc0915bd5e3886b3a69d551bbfc8d0",
+      "size": 44697,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/2cc86321a4bc0915bd5e3886b3a69d551bbfc8d0"
+    },
+    {
+      "path": "httpx/_multipart.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b4761af9b2cf384de5189269927d781a700dbe46",
+      "size": 9843,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/b4761af9b2cf384de5189269927d781a700dbe46"
+    },
+    {
+      "path": "httpx/_status_codes.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "133a6231a5b53fd2f073799ca1bd07c50abe40ae",
+      "size": 5639,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/133a6231a5b53fd2f073799ca1bd07c50abe40ae"
+    },
+    {
+      "path": "httpx/_transports",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "38e10a73288c8a7f899dd7fc934f599dbbef4a34",
+      "url": "https://api.github.com/repos/encode/httpx/git/trees/38e10a73288c8a7f899dd7fc934f599dbbef4a34"
+    },
+    {
+      "path": "httpx/_transports/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a321053b29bcd48698cf2bd74a1d19c8556aefb",
+      "size": 275,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/7a321053b29bcd48698cf2bd74a1d19c8556aefb"
+    },
+    {
+      "path": "httpx/_transports/asgi.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2bc4efae0e1b14620f75f712eb15ecf500d14eef",
+      "size": 5501,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/2bc4efae0e1b14620f75f712eb15ecf500d14eef"
+    },
+    {
+      "path": "httpx/_transports/base.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "66fd99d702480b555c06694fe14715ea6df3dfc3",
+      "size": 2523,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/66fd99d702480b555c06694fe14715ea6df3dfc3"
+    },
+    {
+      "path": "httpx/_transports/default.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fc8c70970a8d7a1101677ac8d9ed209b4a053a5b",
+      "size": 13984,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/fc8c70970a8d7a1101677ac8d9ed209b4a053a5b"
+    },
+    {
+      "path": "httpx/_transports/mock.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c418f59e06cae43abdbb626ec21cafc7e8c6277",
+      "size": 1232,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/8c418f59e06cae43abdbb626ec21cafc7e8c6277"
+    },
+    {
+      "path": "httpx/_transports/wsgi.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8592ffe017a87367cc7578184540096a9682908d",
+      "size": 4825,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/8592ffe017a87367cc7578184540096a9682908d"
+    },
+    {
+      "path": "httpx/_types.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "704dfdffc8ba61eb913fa918072381e410b23c00",
+      "size": 2965,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/704dfdffc8ba61eb913fa918072381e410b23c00"
+    },
+    {
+      "path": "httpx/_urlparse.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bf190fd560ee4fc8a11af371a15fc5f1dc284d34",
+      "size": 18546,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/bf190fd560ee4fc8a11af371a15fc5f1dc284d34"
+    },
+    {
+      "path": "httpx/_urls.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "301d0874d55961649626b9c68194a99b946f8581",
+      "size": 21550,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/301d0874d55961649626b9c68194a99b946f8581"
+    },
+    {
+      "path": "httpx/_utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7fe827da4d071b32ea6da44328629699d6fc88ce",
+      "size": 8285,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/7fe827da4d071b32ea6da44328629699d6fc88ce"
+    },
+    {
+      "path": "httpx/py.typed",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "mkdocs.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "86ca1e53b728a52f728b02eea43c5310bf4c2971",
+      "size": 1857,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/86ca1e53b728a52f728b02eea43c5310bf4c2971"
+    },
+    {
+      "path": "pyproject.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fc3e95ea74e575fca80b0e7be54154088ea085a7",
+      "size": 3640,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/fc3e95ea74e575fca80b0e7be54154088ea085a7"
+    },
+    {
+      "path": "requirements.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ebc6ea7fc5ba1bffe22e9125bc53b5ccd8aea754",
+      "size": 683,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/ebc6ea7fc5ba1bffe22e9125bc53b5ccd8aea754"
+    },
+    {
+      "path": "scripts",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "25546b5e8b2f94084c15350a2a02eba2489545c1",
+      "url": "https://api.github.com/repos/encode/httpx/git/trees/25546b5e8b2f94084c15350a2a02eba2489545c1"
+    },
+    {
+      "path": "scripts/build",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "92378cb9429e9f1d5dd1f40776be7e2d624f856d",
+      "size": 167,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/92378cb9429e9f1d5dd1f40776be7e2d624f856d"
+    },
+    {
+      "path": "scripts/check",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "a4bce0948e5a6882cf365c97ec0678f83b8eb226",
+      "size": 258,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/a4bce0948e5a6882cf365c97ec0678f83b8eb226"
+    },
+    {
+      "path": "scripts/clean",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "f08d02c41cd9f6233aa95f12e4f559f8d3a77abb",
+      "size": 208,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/f08d02c41cd9f6233aa95f12e4f559f8d3a77abb"
+    },
+    {
+      "path": "scripts/coverage",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "25a269107477d373c3802266348170d608e178d9",
+      "size": 203,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/25a269107477d373c3802266348170d608e178d9"
+    },
+    {
+      "path": "scripts/docs",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "4ac3beb7a6248488589ae932e29b2d291ca1d55f",
+      "size": 119,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/4ac3beb7a6248488589ae932e29b2d291ca1d55f"
+    },
+    {
+      "path": "scripts/install",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "58b632403b14940ac26de814b33b4cf7d3928791",
+      "size": 357,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/58b632403b14940ac26de814b33b4cf7d3928791"
+    },
+    {
+      "path": "scripts/lint",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "6d096d760be626da1e675eb105e4b8a586998533",
+      "size": 205,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/6d096d760be626da1e675eb105e4b8a586998533"
+    },
+    {
+      "path": "scripts/publish",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "c0184471a3d3a71d7ef5cdf902e9d8c695d51379",
+      "size": 592,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/c0184471a3d3a71d7ef5cdf902e9d8c695d51379"
+    },
+    {
+      "path": "scripts/sync-version",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "c8eefe1deb3e90102da26ed5c5360e831a2c2204",
+      "size": 469,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/c8eefe1deb3e90102da26ed5c5360e831a2c2204"
+    },
+    {
+      "path": "scripts/test",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "d778a544d2a45588e1f13c6e9a2e9a58fbb7b50f",
+      "size": 243,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/d778a544d2a45588e1f13c6e9a2e9a58fbb7b50f"
+    },
+    {
+      "path": "tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "840bfd4ffbf7a6073dd5454e426213928fdfaae0",
+      "url": "https://api.github.com/repos/encode/httpx/git/trees/840bfd4ffbf7a6073dd5454e426213928fdfaae0"
+    },
+    {
+      "path": "tests/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/client",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a6e038a305ddd8bef055a24454d085e2796d5c09",
+      "url": "https://api.github.com/repos/encode/httpx/git/trees/a6e038a305ddd8bef055a24454d085e2796d5c09"
+    },
+    {
+      "path": "tests/client/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/client/test_async_client.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d7eaa3c58ac4f4b334ebb1764d976f12bd8e6cc",
+      "size": 11670,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/8d7eaa3c58ac4f4b334ebb1764d976f12bd8e6cc"
+    },
+    {
+      "path": "tests/client/test_auth.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "72674e6f4b9da2d68d105e49b5613daf3d35ec5e",
+      "size": 25250,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/72674e6f4b9da2d68d105e49b5613daf3d35ec5e"
+    },
+    {
+      "path": "tests/client/test_client.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "657839018ab3ded203937f970eeeb23f26561775",
+      "size": 14998,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/657839018ab3ded203937f970eeeb23f26561775"
+    },
+    {
+      "path": "tests/client/test_cookies.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f0c8352593795d2e048e75dd1e697979cab6f146",
+      "size": 4943,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/f0c8352593795d2e048e75dd1e697979cab6f146"
+    },
+    {
+      "path": "tests/client/test_event_hooks.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "78fb0484e67783fd3844c059d01203a8e579eefd",
+      "size": 7105,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/78fb0484e67783fd3844c059d01203a8e579eefd"
+    },
+    {
+      "path": "tests/client/test_headers.py",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "47f5a4d7317b08891214b2d64194a37b0a950e16",
+      "size": 8918,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/47f5a4d7317b08891214b2d64194a37b0a950e16"
+    },
+    {
+      "path": "tests/client/test_properties.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f9ca9f247ff07866281d2ad333eec0afb1c737a9",
+      "size": 1976,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/f9ca9f247ff07866281d2ad333eec0afb1c737a9"
+    },
+    {
+      "path": "tests/client/test_proxies.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3e4090dcecb3e805041ec23738d441e2c23e8c23",
+      "size": 9649,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/3e4090dcecb3e805041ec23738d441e2c23e8c23"
+    },
+    {
+      "path": "tests/client/test_queryparams.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1c6d587309fb776b9a582ea9a57ada066f972f26",
+      "size": 1083,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/1c6d587309fb776b9a582ea9a57ada066f972f26"
+    },
+    {
+      "path": "tests/client/test_redirects.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f65827134c6e0c5426f678bba8cc546fcab14652",
+      "size": 17482,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/f65827134c6e0c5426f678bba8cc546fcab14652"
+    },
+    {
+      "path": "tests/common.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "064c25a64559e688ade1467cd70446bd1923f237",
+      "size": 96,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/064c25a64559e688ade1467cd70446bd1923f237"
+    },
+    {
+      "path": "tests/concurrency.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a8ed55829af9f5e1af05a3d72158ef6549e3ceb5",
+      "size": 324,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/a8ed55829af9f5e1af05a3d72158ef6549e3ceb5"
+    },
+    {
+      "path": "tests/conftest.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "858bca13978b88aaf14b80e4f948e7c701ec73fe",
+      "size": 8630,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/858bca13978b88aaf14b80e4f948e7c701ec73fe"
+    },
+    {
+      "path": "tests/fixtures",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f9553ae0446d963f9655cc6f1ff68c45cb63ebde",
+      "url": "https://api.github.com/repos/encode/httpx/git/trees/f9553ae0446d963f9655cc6f1ff68c45cb63ebde"
+    },
+    {
+      "path": "tests/fixtures/.netrc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed65ee7d3d57b02580beae0dc121b795402a0fa7",
+      "size": 73,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/ed65ee7d3d57b02580beae0dc121b795402a0fa7"
+    },
+    {
+      "path": "tests/fixtures/.netrc-nopassword",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5575bee704567189e6d68b1c8a708505aaa6e3e2",
+      "size": 48,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/5575bee704567189e6d68b1c8a708505aaa6e3e2"
+    },
+    {
+      "path": "tests/models",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "11f1b1193fc851e0de7dcbd0297834d2bb5ccb03",
+      "url": "https://api.github.com/repos/encode/httpx/git/trees/11f1b1193fc851e0de7dcbd0297834d2bb5ccb03"
+    },
+    {
+      "path": "tests/models/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/models/test_cookies.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f7abe11ad4433eda02905f695cabfca28b8b90ae",
+      "size": 2917,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/f7abe11ad4433eda02905f695cabfca28b8b90ae"
+    },
+    {
+      "path": "tests/models/test_headers.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a87a446784b003b0e62b87408b9d057773c1b2fe",
+      "size": 6995,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/a87a446784b003b0e62b87408b9d057773c1b2fe"
+    },
+    {
+      "path": "tests/models/test_queryparams.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "29b2ca634d73036db3b10e55e965a915e70de6e6",
+      "size": 3567,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/29b2ca634d73036db3b10e55e965a915e70de6e6"
+    },
+    {
+      "path": "tests/models/test_requests.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b31fe007be25bab60f90491af07e83c819cac5a6",
+      "size": 8183,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/b31fe007be25bab60f90491af07e83c819cac5a6"
+    },
+    {
+      "path": "tests/models/test_responses.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d2972da5bd2e7803cb7ebb789d120acc5f250f9a",
+      "size": 30337,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/d2972da5bd2e7803cb7ebb789d120acc5f250f9a"
+    },
+    {
+      "path": "tests/models/test_url.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "03072e8f5cdb5314ceab580c664d0c890949a365",
+      "size": 26566,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/03072e8f5cdb5314ceab580c664d0c890949a365"
+    },
+    {
+      "path": "tests/models/test_whatwg.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "14af6825868fb55ae2c4cc4c290fcab6b7f3b74d",
+      "size": 1939,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/14af6825868fb55ae2c4cc4c290fcab6b7f3b74d"
+    },
+    {
+      "path": "tests/models/whatwg.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "85a5140f8a8109dda5ca34a82871162bc8f70f0b",
+      "size": 208844,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/85a5140f8a8109dda5ca34a82871162bc8f70f0b"
+    },
+    {
+      "path": "tests/test_api.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "225f384ede71ea938979ead9fd474cf24b8eb6fc",
+      "size": 2631,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/225f384ede71ea938979ead9fd474cf24b8eb6fc"
+    },
+    {
+      "path": "tests/test_asgi.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ffbc91bc00c7c19a1de3fc1f8de59860c29a277e",
+      "size": 7789,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/ffbc91bc00c7c19a1de3fc1f8de59860c29a277e"
+    },
+    {
+      "path": "tests/test_auth.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6b6df922ead467fb5ca147140941297f52360860",
+      "size": 11524,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/6b6df922ead467fb5ca147140941297f52360860"
+    },
+    {
+      "path": "tests/test_config.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22abd4c22c70c3600dd3a4b01b98df181c1bf624",
+      "size": 5561,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/22abd4c22c70c3600dd3a4b01b98df181c1bf624"
+    },
+    {
+      "path": "tests/test_content.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9bfe9837220101f18ea36e3089f06feaa70fa7fd",
+      "size": 17315,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/9bfe9837220101f18ea36e3089f06feaa70fa7fd"
+    },
+    {
+      "path": "tests/test_decoders.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9ffaba189d03052e88a77403bc5b1ebb07f32d3e",
+      "size": 10307,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/9ffaba189d03052e88a77403bc5b1ebb07f32d3e"
+    },
+    {
+      "path": "tests/test_exceptions.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "60c8721c02300f688a407154a5e64ab97a21e8a6",
+      "size": 1847,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/60c8721c02300f688a407154a5e64ab97a21e8a6"
+    },
+    {
+      "path": "tests/test_exported_members.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d9c8a74ca77a5a6b25e20b70a3f70e739218a96",
+      "size": 372,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/8d9c8a74ca77a5a6b25e20b70a3f70e739218a96"
+    },
+    {
+      "path": "tests/test_main.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b1a77d485b4b9d2a19aad640a17d6d84679a1db7",
+      "size": 5544,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/b1a77d485b4b9d2a19aad640a17d6d84679a1db7"
+    },
+    {
+      "path": "tests/test_multipart.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "764f85a253076731d802dc2a81af8e226c0a31f7",
+      "size": 17076,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/764f85a253076731d802dc2a81af8e226c0a31f7"
+    },
+    {
+      "path": "tests/test_status_codes.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "13314db788b536bea62c0b57e5c50a8e05ef713c",
+      "size": 711,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/13314db788b536bea62c0b57e5c50a8e05ef713c"
+    },
+    {
+      "path": "tests/test_timeouts.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "666cc8e376f31d4307137329f741f3c326689edf",
+      "size": 1750,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/666cc8e376f31d4307137329f741f3c326689edf"
+    },
+    {
+      "path": "tests/test_utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f9c215f65a131e9a96cf3be6002e0117a1f59050",
+      "size": 4565,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/f9c215f65a131e9a96cf3be6002e0117a1f59050"
+    },
+    {
+      "path": "tests/test_wsgi.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dc2b52885afe1f6097c503b6d1a5260a58c8e699",
+      "size": 6009,
+      "url": "https://api.github.com/repos/encode/httpx/git/blobs/dc2b52885afe1f6097c503b6d1a5260a58c8e699"
+    }
+  ],
+  "truncated": false
+}

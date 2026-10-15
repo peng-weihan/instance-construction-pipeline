@@ -1,0 +1,135 @@
+{
+  "valid": false,
+  "score": null,
+  "summary": "hold_for_evidence: native component diagnostics available, Polaris HTTP/reset/lifecycle reference and acceptance oracle missing",
+  "component_checks": [
+    {
+      "name": "native_smoke",
+      "passed": true
+    },
+    {
+      "name": "native_replay",
+      "passed": true
+    },
+    {
+      "name": "commit",
+      "passed": false
+    },
+    {
+      "name": "resume",
+      "passed": false
+    },
+    {
+      "name": "corruption",
+      "passed": false,
+      "detail": "no committed checkpoint"
+    },
+    {
+      "name": "input_mismatch",
+      "passed": false,
+      "detail": "no committed checkpoint"
+    }
+  ],
+  "component_pass_rate": 0.3333333333333333,
+  "component_fixed_denominator": 6,
+  "records": [
+    {
+      "phase": "native_smoke",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/02_restler/authoring/venv/bin/python",
+        "-m",
+        "pytest",
+        "unit_tests/test_basic_functionality_end_to_end.py::FunctionalityTests::test_abc_minimal_smoke_test",
+        "-q"
+      ],
+      "cwd": "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-m16vjj6n/restler",
+      "exit": 0,
+      "timeout": false,
+      "stdout": ".                                                                        [100%]\n1 passed in 1.30s\n",
+      "stderr": ""
+    },
+    {
+      "phase": "native_replay",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/02_restler/authoring/venv/bin/python",
+        "-m",
+        "pytest",
+        "unit_tests/test_basic_functionality_end_to_end.py::FunctionalityTests::test_trace_database_replay_file",
+        "-q"
+      ],
+      "cwd": "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-m16vjj6n/restler",
+      "exit": 0,
+      "timeout": false,
+      "stdout": ".                                                                        [100%]\n1 passed in 1.89s\n",
+      "stderr": ""
+    },
+    {
+      "phase": "commit",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/02_restler/authoring/venv/bin/python",
+        "restler.py",
+        "--use_test_socket",
+        "--fuzzing_mode",
+        "bfs",
+        "--restler_grammar",
+        "unit_tests/log_baseline_test_files/abc_test_grammar.py",
+        "--custom_mutations",
+        "unit_tests/log_baseline_test_files/abc_dict.json",
+        "--host",
+        "unittest",
+        "--token_refresh_cmd",
+        "python unit_tests/authentication_test_files/unit_test_server_auth.py",
+        "--token_refresh_interval",
+        "10",
+        "--garbage_collection_interval",
+        "30",
+        "--campaign_checkpoint_file",
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-m16vjj6n/frontier.bin",
+        "--max_sequence_length",
+        "2"
+      ],
+      "cwd": "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-m16vjj6n/restler",
+      "exit": 2,
+      "timeout": false,
+      "stdout": "",
+      "stderr": "usage: restler.py [-h] [--max_sequence_length MAX_SEQUENCE_LENGTH]\n                  [--fuzzing_jobs FUZZING_JOBS] [--target_ip TARGET_IP]\n                  [--target_port TARGET_PORT] [--time_budget TIME_BUDGET]\n                  [--max_request_execution_time MAX_REQUEST_EXECUTION_TIME]\n                  [--fuzzing_mode FUZZING_MODE]\n                  [--ignore_feedback IGNORE_FEEDBACK]\n                  [--ignore_dependencies IGNORE_DEPENDENCIES]\n                  [--garbage_collection_interval GARBAGE_COLLECTION_INTERVAL]\n                  [--dyn_objects_cache_size DYN_OBJECTS_CACHE_SIZE]\n                  [--restler_grammar RESTLER_GRAMMAR]\n                  [--custom_mutations CUSTOM_MUTATIONS] [--settings SETTINGS]\n                  [--path_regex PATH_REGEX]\n                  [--token_refresh_interval TOKEN_REFRESH_INTERVAL]\n                  [--token_refresh_cmd TOKEN_REFRESH_CMD]\n                  [--client_certificate_path CLIENT_CERTIFICATE_PATH]\n                  [--producer_timing_delay PRODUCER_TIMING_DELAY]\n                  [--no_tokens_in_logs NO_TOKENS_IN_LOGS]\n                  [--save_results_in_fixed_dirname SAVE_RESULTS_IN_FIXED_DIRNAME]\n                  [--host HOST] [--no_ssl] [--include_user_agent]\n                  [--enable_checkers ENABLE_CHECKERS [ENABLE_CHECKERS ...]]\n                  [--disable_checkers DISABLE_CHECKERS [DISABLE_CHECKERS ...]]\n                  [--replay_log REPLAY_LOG] [--use_test_socket]\n                  [--test_server TEST_SERVER] [--set_version SET_VERSION]\nrestler.py: error: unrecognized arguments: --campaign_checkpoint_file /var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-m16vjj6n/frontier.bin\n"
+    },
+    {
+      "phase": "resume",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/02_restler/authoring/venv/bin/python",
+        "restler.py",
+        "--use_test_socket",
+        "--fuzzing_mode",
+        "bfs",
+        "--restler_grammar",
+        "unit_tests/log_baseline_test_files/abc_test_grammar.py",
+        "--custom_mutations",
+        "unit_tests/log_baseline_test_files/abc_dict.json",
+        "--host",
+        "unittest",
+        "--token_refresh_cmd",
+        "python unit_tests/authentication_test_files/unit_test_server_auth.py",
+        "--token_refresh_interval",
+        "10",
+        "--garbage_collection_interval",
+        "30",
+        "--campaign_checkpoint_file",
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-m16vjj6n/frontier.bin",
+        "--max_sequence_length",
+        "3",
+        "--campaign_resume"
+      ],
+      "cwd": "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-m16vjj6n/restler",
+      "exit": 2,
+      "timeout": false,
+      "stdout": "",
+      "stderr": "usage: restler.py [-h] [--max_sequence_length MAX_SEQUENCE_LENGTH]\n                  [--fuzzing_jobs FUZZING_JOBS] [--target_ip TARGET_IP]\n                  [--target_port TARGET_PORT] [--time_budget TIME_BUDGET]\n                  [--max_request_execution_time MAX_REQUEST_EXECUTION_TIME]\n                  [--fuzzing_mode FUZZING_MODE]\n                  [--ignore_feedback IGNORE_FEEDBACK]\n                  [--ignore_dependencies IGNORE_DEPENDENCIES]\n                  [--garbage_collection_interval GARBAGE_COLLECTION_INTERVAL]\n                  [--dyn_objects_cache_size DYN_OBJECTS_CACHE_SIZE]\n                  [--restler_grammar RESTLER_GRAMMAR]\n                  [--custom_mutations CUSTOM_MUTATIONS] [--settings SETTINGS]\n                  [--path_regex PATH_REGEX]\n                  [--token_refresh_interval TOKEN_REFRESH_INTERVAL]\n                  [--token_refresh_cmd TOKEN_REFRESH_CMD]\n                  [--client_certificate_path CLIENT_CERTIFICATE_PATH]\n                  [--producer_timing_delay PRODUCER_TIMING_DELAY]\n                  [--no_tokens_in_logs NO_TOKENS_IN_LOGS]\n                  [--save_results_in_fixed_dirname SAVE_RESULTS_IN_FIXED_DIRNAME]\n                  [--host HOST] [--no_ssl] [--include_user_agent]\n                  [--enable_checkers ENABLE_CHECKERS [ENABLE_CHECKERS ...]]\n                  [--disable_checkers DISABLE_CHECKERS [DISABLE_CHECKERS ...]]\n                  [--replay_log REPLAY_LOG] [--use_test_socket]\n                  [--test_server TEST_SERVER] [--set_version SET_VERSION]\nrestler.py: error: unrecognized arguments: --campaign_checkpoint_file /var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-m16vjj6n/frontier.bin --campaign_resume\n"
+    }
+  ],
+  "unexecuted_required_groups": [
+    "external HTTP crash/replay exactly-once semantics",
+    "Polaris principal/role/catalog dependency restoration",
+    "cleanup and resource lifecycle after cancellation"
+  ]
+}

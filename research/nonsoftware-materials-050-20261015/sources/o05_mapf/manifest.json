@@ -1,0 +1,63 @@
+{
+  "repo": "MAPF-Competition/Start-Kit",
+  "revision": "9bc75d9dd9883de049294ab2981bf325bbe19d49",
+  "resolved_utc": "2026-10-15T14:59:33.359490+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:02:03.673787+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "78928e133037039576ae79308697f6f3e6c4839f52a004bab745ea1b3ecedaf6",
+    "truncated": false,
+    "blob_count": 144
+  },
+  "files_acquired": [
+    {
+      "path": "Input_Output_Format.md",
+      "bytes": 16061,
+      "sha256": "0fb65b608525baa387cc99c3e746828e6f2b1d637c9b0c6a8be367dea0b47c86",
+      "url": "https://github.com/MAPF-Competition/Start-Kit/blob/9bc75d9dd9883de049294ab2981bf325bbe19d49/Input_Output_Format.md"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1084,
+      "sha256": "f7f63f9810a4de1d4db59c034bcbbb5f33aa8ec3a1c07b21e774033f6bac2a94",
+      "url": "https://github.com/MAPF-Competition/Start-Kit/blob/9bc75d9dd9883de049294ab2981bf325bbe19d49/LICENSE"
+    },
+    {
+      "path": "Prepare_Your_Submission.md",
+      "bytes": 27006,
+      "sha256": "861f5598b602fb8a4dc6317ade5cd8fc4d76146133e1ba7b6aa0b4372c2d030c",
+      "url": "https://github.com/MAPF-Competition/Start-Kit/blob/9bc75d9dd9883de049294ab2981bf325bbe19d49/Prepare_Your_Submission.md"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5367,
+      "sha256": "9c971952a922a8b3ad6436509c1181b44fe49255ce8362550c75df2cd8d25e86",
+      "url": "https://github.com/MAPF-Competition/Start-Kit/blob/9bc75d9dd9883de049294ab2981bf325bbe19d49/README.md"
+    },
+    {
+      "path": "example_problems/maze.domain/maze-example_40.json",
+      "bytes": 513,
+      "sha256": "2ca71497af37e2efa8a1bf2918f5ef00415f316cd615d8160b0c41b88a7bbc77",
+      "url": "https://github.com/MAPF-Competition/Start-Kit/blob/9bc75d9dd9883de049294ab2981bf325bbe19d49/example_problems/maze.domain/maze-example_40.json"
+    },
+    {
+      "path": "src/ActionModel.cpp",
+      "bytes": 26691,
+      "sha256": "8f6dbd7ac2d8340127791c6cca9faca3c6b86da09ae23b724d1b293451208121",
+      "url": "https://github.com/MAPF-Competition/Start-Kit/blob/9bc75d9dd9883de049294ab2981bf325bbe19d49/src/ActionModel.cpp"
+    },
+    {
+      "path": "src/CompetitionSystem.cpp",
+      "bytes": 15410,
+      "sha256": "1c888012dea23236c19f26528c1c75e9c047f2963de3b49739e225b7ac93feaa",
+      "url": "https://github.com/MAPF-Competition/Start-Kit/blob/9bc75d9dd9883de049294ab2981bf325bbe19d49/src/CompetitionSystem.cpp"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

@@ -1,0 +1,69 @@
+{
+  "repo": "google/re2",
+  "revision": "2da0056814cf180480a19f5cf811e7e1c054bf6d",
+  "resolved_utc": "2026-10-15T13:30:47.393078+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:31:22.072344+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "b9c7cf4a4e9f6324ee0d317d2c2e25c94127b1c8584cb265956b1252682929d8",
+    "truncated": false,
+    "blob_count": 139
+  },
+  "files_acquired": [
+    {
+      "path": "CMakeLists.txt",
+      "bytes": 8888,
+      "sha256": "47cbcf956052d3b09051ed5e5de2131ac02578aa29da1be856628699d2223092",
+      "url": "https://github.com/google/re2/blob/2da0056814cf180480a19f5cf811e7e1c054bf6d/CMakeLists.txt"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1558,
+      "sha256": "6040cda75d90b1738292a631d89934c411ef7ffd543c4d6a1b7edfc8edf29449",
+      "url": "https://github.com/google/re2/blob/2da0056814cf180480a19f5cf811e7e1c054bf6d/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 11420,
+      "sha256": "53b525040a3d69727f9244c3021a54d283d00a09ec955c24dc54c490fda86fa6",
+      "url": "https://github.com/google/re2/blob/2da0056814cf180480a19f5cf811e7e1c054bf6d/README.md"
+    },
+    {
+      "path": "re2/dfa.cc",
+      "bytes": 75170,
+      "sha256": "f3fc8a3ce23561a83dd7025a8c83d608e1696d2361e90a6fb4cb4a0fd4a850d7",
+      "url": "https://github.com/google/re2/blob/2da0056814cf180480a19f5cf811e7e1c054bf6d/re2/dfa.cc"
+    },
+    {
+      "path": "re2/re2.cc",
+      "bytes": 40207,
+      "sha256": "b0f3cd7c638c4c38adb5ac806f9efc27d6d8ef871a0d166dd0099338a44a0c7e",
+      "url": "https://github.com/google/re2/blob/2da0056814cf180480a19f5cf811e7e1c054bf6d/re2/re2.cc"
+    },
+    {
+      "path": "re2/re2.h",
+      "bytes": 42153,
+      "sha256": "59f4d4b5318fcb6acf0c90f17d17e71903a87ec25d75fcf5d13e738beb29490f",
+      "url": "https://github.com/google/re2/blob/2da0056814cf180480a19f5cf811e7e1c054bf6d/re2/re2.h"
+    },
+    {
+      "path": "re2/testing/dfa_test.cc",
+      "bytes": 12455,
+      "sha256": "d6a3163abaafdfef6c4293dc4534383b4643b06737ff95fb4a25472e73a0845c",
+      "url": "https://github.com/google/re2/blob/2da0056814cf180480a19f5cf811e7e1c054bf6d/re2/testing/dfa_test.cc"
+    },
+    {
+      "path": "re2/testing/regexp_benchmark.cc",
+      "bytes": 62705,
+      "sha256": "312cf7c771a8d77a869ea84bb92cfd2872dc3e37b5c8b80c8a6a04c10820c904",
+      "url": "https://github.com/google/re2/blob/2da0056814cf180480a19f5cf811e7e1c054bf6d/re2/testing/regexp_benchmark.cc"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

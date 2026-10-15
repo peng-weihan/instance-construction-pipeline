@@ -1,0 +1,135 @@
+FFFFFFFFFF.F                                                             [100%]
+=================================== FAILURES ===================================
+_________________________________ test_bytes_0 _________________________________
+
+    def test_bytes_0():
+        p = subprocess.run([EXE], input=b'hello', capture_output=True, timeout=5)
+        assert p.returncode == 0
+>       assert p.stdout == b'hello'
+E       AssertionError: assert b'' == b'hello'
+E         
+E         Use -v to get more diff
+
+tests/test_2fe81b_core.py:8: AssertionError
+_________________________________ test_bytes_1 _________________________________
+
+    def test_bytes_1():
+        p = subprocess.run([EXE], input=b'a\n', capture_output=True, timeout=5)
+        assert p.returncode == 0
+>       assert p.stdout == b'a\n'
+E       AssertionError: assert b'' == b'a\n'
+E         
+E         Use -v to get more diff
+
+tests/test_2fe81b_core.py:14: AssertionError
+_________________________________ test_bytes_2 _________________________________
+
+    def test_bytes_2():
+        p = subprocess.run([EXE], input=b'\x00\xff', capture_output=True, timeout=5)
+        assert p.returncode == 0
+>       assert p.stdout == b'\x00\xff'
+E       AssertionError: assert b'' == b'\x00\xff'
+E         
+E         Use -v to get more diff
+
+tests/test_2fe81b_core.py:20: AssertionError
+_________________________________ test_bytes_3 _________________________________
+
+    def test_bytes_3():
+        p = subprocess.run([EXE], input=b'\xe4\xb8\xad\xe6\x96\x87', capture_output=True, timeout=5)
+        assert p.returncode == 0
+>       assert p.stdout == b'\xe4\xb8\xad\xe6\x96\x87'
+E       AssertionError: assert b'' == b'\xe4\xb8\xad\xe6\x96\x87'
+E         
+E         Use -v to get more diff
+
+tests/test_2fe81b_core.py:26: AssertionError
+_________________________________ test_bytes_4 _________________________________
+
+    def test_bytes_4():
+        p = subprocess.run([EXE], input=b' ', capture_output=True, timeout=5)
+        assert p.returncode == 0
+>       assert p.stdout == b' '
+E       AssertionError: assert b'' == b' '
+E         
+E         Use -v to get more diff
+
+tests/test_2fe81b_core.py:32: AssertionError
+_________________________________ test_bytes_5 _________________________________
+
+    def test_bytes_5():
+        p = subprocess.run([EXE], input=b'123', capture_output=True, timeout=5)
+        assert p.returncode == 0
+>       assert p.stdout == b'123'
+E       AssertionError: assert b'' == b'123'
+E         
+E         Use -v to get more diff
+
+tests/test_2fe81b_core.py:38: AssertionError
+_________________________________ test_bytes_6 _________________________________
+
+    def test_bytes_6():
+        p = subprocess.run([EXE], input=b'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', capture_output=True, timeout=5)
+        assert p.returncode == 0
+>       assert p.stdout == b'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+E       AssertionError: assert b'' == b'xxxxxxxxxxx...xxxxxxxxxxxxx'
+E         
+E         Use -v to get more diff
+
+tests/test_2fe81b_core.py:44: AssertionError
+_________________________________ test_bytes_7 _________________________________
+
+    def test_bytes_7():
+        p = subprocess.run([EXE], input=b'a\r\nb', capture_output=True, timeout=5)
+        assert p.returncode == 0
+>       assert p.stdout == b'a\r\nb'
+E       AssertionError: assert b'' == b'a\r\nb'
+E         
+E         Use -v to get more diff
+
+tests/test_2fe81b_core.py:50: AssertionError
+_________________________________ test_bytes_8 _________________________________
+
+    def test_bytes_8():
+        p = subprocess.run([EXE], input=b'Z', capture_output=True, timeout=5)
+        assert p.returncode == 0
+>       assert p.stdout == b'Z'
+E       AssertionError: assert b'' == b'Z'
+E         
+E         Use -v to get more diff
+
+tests/test_2fe81b_core.py:56: AssertionError
+_________________________________ test_bytes_9 _________________________________
+
+    def test_bytes_9():
+        p = subprocess.run([EXE], input=b'!@#', capture_output=True, timeout=5)
+        assert p.returncode == 0
+>       assert p.stdout == b'!@#'
+E       AssertionError: assert b'' == b'!@#'
+E         
+E         Use -v to get more diff
+
+tests/test_2fe81b_core.py:62: AssertionError
+__________________________________ test_error __________________________________
+
+    def test_error():
+        p = subprocess.run([EXE,"--invalid"], capture_output=True, timeout=5)
+>       assert p.returncode == 2
+E       AssertionError: assert 0 == 2
+E        +  where 0 = CompletedProcess(args=['/Users/raymone/Desktop/01_Research/swe-factory/runs/programbench-demo-02/construction/qc/dummy/workspace/executable', '--invalid'], returncode=0, stdout=b'', stderr=b'').returncode
+
+tests/test_2fe81b_core.py:70: AssertionError
+- generated xml file: /Users/raymone/Desktop/01_Research/swe-factory/runs/programbench-demo-02/construction/qc/dummy/workspace/.factory-report.xml -
+=========================== short test summary info ============================
+FAILED tests/test_2fe81b_core.py::test_bytes_0 - AssertionError: assert b'' =...
+FAILED tests/test_2fe81b_core.py::test_bytes_1 - AssertionError: assert b'' =...
+FAILED tests/test_2fe81b_core.py::test_bytes_2 - AssertionError: assert b'' =...
+FAILED tests/test_2fe81b_core.py::test_bytes_3 - AssertionError: assert b'' =...
+FAILED tests/test_2fe81b_core.py::test_bytes_4 - AssertionError: assert b'' =...
+FAILED tests/test_2fe81b_core.py::test_bytes_5 - AssertionError: assert b'' =...
+FAILED tests/test_2fe81b_core.py::test_bytes_6 - AssertionError: assert b'' =...
+FAILED tests/test_2fe81b_core.py::test_bytes_7 - AssertionError: assert b'' =...
+FAILED tests/test_2fe81b_core.py::test_bytes_8 - AssertionError: assert b'' =...
+FAILED tests/test_2fe81b_core.py::test_bytes_9 - AssertionError: assert b'' =...
+FAILED tests/test_2fe81b_core.py::test_error - AssertionError: assert 0 == 2
+11 failed, 1 passed in 0.47s

@@ -1,0 +1,1907 @@
+[
+  {
+    "path": "README.md",
+    "sha256": "d32baea1e9eb8aafa1c74449e161529eaa1d2372bced47d2bee9f2fd5e6e82fe",
+    "bytes": 1763
+  },
+  {
+    "path": "base_image.lock.json",
+    "sha256": "b9ecc98d2d1101a183f8d6e6c9a327faf540906237bc5bb921e4a4b2292fb9df",
+    "bytes": 637
+  },
+  {
+    "path": "endpoint_notes.md",
+    "sha256": "4fb5e38826f951b651108786f3e3e07f493f953ee4feb3497ffcbd493ed1f61c",
+    "bytes": 412
+  },
+  {
+    "path": "environment/agent/.dockerignore",
+    "sha256": "d05085fb4b693bb7fe824a831dc9bd8de9dee2f42b192c95d637e9f917eb368d",
+    "bytes": 36
+  },
+  {
+    "path": "environment/agent/Dockerfile",
+    "sha256": "9e79373b37093fad3c97a4832bdd87c300247e39107a581f52cc815d25f1137a",
+    "bytes": 1288
+  },
+  {
+    "path": "environment/agent/capture_build.py",
+    "sha256": "753da269f6b211bf842dc29dbeea3bcd185aa871d2478822e08bece9b665d841",
+    "bytes": 789
+  },
+  {
+    "path": "environment/agent/public/contract.draft.json",
+    "sha256": "635897e931ee02471580523480fa11b4b384026849fea798c871b16010a3bb8b",
+    "bytes": 1212
+  },
+  {
+    "path": "environment/agent/public/instruction.md",
+    "sha256": "dcd5e7fbb92397fbf6eb8507ae0f74fb92b553eb8f0f50093d683d888ac1d2d5",
+    "bytes": 1097
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/AEEq.lean",
+    "sha256": "4108bd2842fac1aba54333873471a699aa950c03965e687c432297e09a90bfd7",
+    "bytes": 24151
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/Adapted.lean",
+    "sha256": "79d1d7fff2272c9f7ce7b148ef992559ba6e748ed394459b4f6e6e6904ff5faa",
+    "bytes": 16680
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/Algebra.lean",
+    "sha256": "ff7a39360ac8213105b113f9c1dbd761b45e8ed3cad2f8d65af7c8c4f30a40da",
+    "bytes": 1666
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/Analysis.lean",
+    "sha256": "2e1cd784cd7502d3cb372d23c55c7ff110088b933d5a5b08a11d0b19896d7ffe",
+    "bytes": 2433
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/ContinuousBilinForm.lean",
+    "sha256": "6a2092c753f4236b1199eb1ac422c195ba053b18958e38ecd9677f49d4e5fd91",
+    "bytes": 11938
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/ConvergenceInMeasure.lean",
+    "sha256": "84e6bd78ee05fd6f806e154ece96d53d49301426bfbbe5c5c476f47b8290e4d0",
+    "bytes": 1886
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/DenseCountable.lean",
+    "sha256": "a80476377e6c0e2b573816f728db930ccbd8bc2469709ea3b7f03615474c8b58",
+    "bytes": 891
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/ENNReal.lean",
+    "sha256": "45e32bb046b5e29dc428795644c1e24bdfb22f46d1b7a53d71a0db823caebd10",
+    "bytes": 1742
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/EVariationOn.lean",
+    "sha256": "b2a65e63bab306b00f8f058198f5d2c93636aa742115ce77093d685823ebcd6b",
+    "bytes": 9969
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/Filtration.lean",
+    "sha256": "42fdbab526514d1b7cf81797f79c3ee3b3e41f4114047313eef30afb28075f13",
+    "bytes": 1247
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/FiniteInf.lean",
+    "sha256": "5731080f16cb712effaffa72739ff36d4a4835f9385e5bbb8e06d88c6617425d",
+    "bytes": 2324
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/HasGaussianLaw.lean",
+    "sha256": "59b95b043a8744775257896de08f08fac8e62ba51ce97baed6c907fd3168859a",
+    "bytes": 4591
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/HasLaw.lean",
+    "sha256": "8990633ee9f46231cad43abc0b9db39c45a30c53b7d6b27e4020badf160b6a3a",
+    "bytes": 775
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/Indistinguishable.lean",
+    "sha256": "c9fd45be312983cd78cecc9739ee00030bf864e2915aa5c818dcdbf9e4e3b7b0",
+    "bytes": 3340
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/IsStoppingTime.lean",
+    "sha256": "ea7621314358d7be5c38e6531efa0f8f8f90778652141ee54e0bda5471d30f72",
+    "bytes": 3432
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/Jensen.lean",
+    "sha256": "db25e62e2300e0393773aa4fb8e5046ad1ba61b7b539da24aa9fd543fda4f106",
+    "bytes": 7910
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/LeftLimWithin.lean",
+    "sha256": "edeb8b8347b267a65c51790233d2071972c0d8114de9c20e08dae40131c25449",
+    "bytes": 33962
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/LimitProcess.lean",
+    "sha256": "fb714deff4f676368a11f4aec3b597768daa6900fbb72645676c614bafe92cf9",
+    "bytes": 3238
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/LinearAlgebra.lean",
+    "sha256": "9d01184f8cbf9b79e29a7fa28f0ddd73c2d5dc3cbda690a02a7fd90ea7594a64",
+    "bytes": 3295
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/Martingale.lean",
+    "sha256": "4a715788e100997e83430544ac18f351be688a7413d4bf15b25a5faf365c6a65",
+    "bytes": 4901
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/MeanInequalities.lean",
+    "sha256": "396701f3112dea060898d6e5c3e979786f0f541618e22f290118251b00b2106e",
+    "bytes": 2358
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/MeasureTheory.lean",
+    "sha256": "6792d2d55e8d05aa83b0faadd256092129bf834c64c483c76d74af9b7ea46f94",
+    "bytes": 14813
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/Metric.lean",
+    "sha256": "13f5040961175788f8631ba4551a00ef4671a0c172ba85f145c57b025f7b7d9e",
+    "bytes": 2091
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/NNReal.lean",
+    "sha256": "92dbb17acfc90d8544d9021074814bbba164de8c85b4796603a261237bd87336",
+    "bytes": 411
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/Nat.lean",
+    "sha256": "637f1fa12fb1cd584ce886f06b9a5167b5a7e96415740112e0ed60157916be10",
+    "bytes": 310
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/Real.lean",
+    "sha256": "dcc2ba28cc663c7e39b8bd40c8654a8f04beac2f6cabf8e12146934c9a10ae3d",
+    "bytes": 348
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/SeparableSpace.lean",
+    "sha256": "46c1d775aa7c54490d483fdbaa09197272ead6a791e2f5e8edc3d86ce3312b6a",
+    "bytes": 7604
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/SetAlgebra.lean",
+    "sha256": "74f463a045ce2810d397d355cf4018aa0737531f4c1b6b82c6f1a3e5596844d3",
+    "bytes": 13476
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/StandardBorel.lean",
+    "sha256": "ce2ce4d86815471cb59a3f7efbbbf50bd7c3c1e2c600c740ca5bb33417d0756b",
+    "bytes": 2094
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/StoppedProcess.lean",
+    "sha256": "cccdc568cf2fead5fee824a877c1a2cb739d486331c3118d7350d5c64bf088fb",
+    "bytes": 5474
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/StoppedValue.lean",
+    "sha256": "385c44365cfad552d4e82d1b4ef45baf1c554010556890af0d3e0d2e7f9ad052",
+    "bytes": 5782
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/StronglyMeasurablePath.lean",
+    "sha256": "627b70bb8e3a6253e93b0b08d677057479d66ec7a3bf513805b9aa8883e8b5fa",
+    "bytes": 11710
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/Topology.lean",
+    "sha256": "ce23e4180f97416196f30f05f52756ecc46c99737ec9bb674c9ed3f16014e2b6",
+    "bytes": 5509
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/Upcrossing.lean",
+    "sha256": "e57bef654fd047e348f5b5e897bae097984eba55f8c429c4e6577c75eb4b8db5",
+    "bytes": 12220
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Auxiliary/WithLp.lean",
+    "sha256": "f5a1a875c45362327ac040d2581d96297135c69dc89a13c6c6556bdbc06e1e37",
+    "bytes": 887
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Choquet/AnalyticSet.lean",
+    "sha256": "2056b20300054ce003a22d9fc5077b303968250b7474e4440bb22b8b97ee7626",
+    "bytes": 51589
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Choquet/Capacity.lean",
+    "sha256": "2018673fd9c18de6d70c10cbdf00d7c23d0ba463b985e5423b2919178ce864ff",
+    "bytes": 25346
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Choquet/CompactSystem.lean",
+    "sha256": "2a0fc4cca839b7ac3b8c85acaf4c2e198a12d5d55fde833eaff544096ad665eb",
+    "bytes": 23537
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Choquet/Debut.lean",
+    "sha256": "5467cdddbcb23c4dec451fa80bf9a6cf7741de95d6f4c179ab6231a84d981c56",
+    "bytes": 27641
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Choquet/MeasurableSection.lean",
+    "sha256": "c5e7ca9c79202a13523fecd376b4cd9445a1ebc0f2dfac7415440e9a4951ef2d",
+    "bytes": 23582
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Continuity/Chaining.lean",
+    "sha256": "705bf609ae98ad8227985830f9f50fdfef86a01cdc0c925142bbcca4507a047b",
+    "bytes": 13359
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Continuity/CoveringNumber.lean",
+    "sha256": "dd50ae600ba740e011dda40597b5a4a84c1781458b9fdb81a638d88c4a785da4",
+    "bytes": 8884
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Continuity/HasBoundedInternalCoveringNumber.lean",
+    "sha256": "d169aba72155a5b7dfcb89cd13568082f9146da3f8ebdf83c72a2489d969e588",
+    "bytes": 7841
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Continuity/IsKolmogorovProcess.lean",
+    "sha256": "e2ab3360724b02661981dc8d46164ed943d52fbf96b85b5586481077bf90b02f",
+    "bytes": 53754
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "sha256": "1a7a49bd8f70368810f1f7a9c1b42b20d0fdeaf1fbf9f3f125452bc0c1c050ed",
+    "bytes": 42570
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Continuity/KolmogorovChentsovInequality.lean",
+    "sha256": "0e3d9f8b665d5c3b215ad0c6ffdf88f9e7058dbb0ac28c8dc8bd1a30b979a56c",
+    "bytes": 18540
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Continuity/LimitModification.lean",
+    "sha256": "971828f61f311578c0a88233e82504ea7838cdc818bb50a00f26678c0c97868e",
+    "bytes": 18961
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Gaussian/BrownianMotion.lean",
+    "sha256": "5971d281b2e478fdfcf8275679074c6d382ec0e382c2affcfee2770b33d5f0b2",
+    "bytes": 28596
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Gaussian/CovMatrix.lean",
+    "sha256": "5ad3b90b274824fcd2476226ab30b008b9080782278c643275a28776ea3f0d27",
+    "bytes": 3878
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Gaussian/Gaussian.lean",
+    "sha256": "7970de8c7bceb385a286a4dc9b5ddbf377102fdd9943c68baf852a12b66f7a64",
+    "bytes": 934
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Gaussian/GaussianProcess.lean",
+    "sha256": "0a51f1274533938eb90b61d2f038ce6edf1fe5000f883cfbae45542eda123dfe",
+    "bytes": 1754
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Gaussian/IteratedLogarithm.lean",
+    "sha256": "9e9b67c6cd5df3f8e6d40f66d6bd4ed5f4f7d515a34e6231d797daefd3d2b433",
+    "bytes": 15727
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Gaussian/Moment.lean",
+    "sha256": "b0ac8d9e3909883a17b334822a56e50c797c6cbb13cdc90648038f556c332226",
+    "bytes": 747
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Gaussian/MultivariateGaussian.lean",
+    "sha256": "6d79d29246c5ff58f11a8801a1787173de1c3371d6adb7b6b318c2ad5358de6b",
+    "bytes": 2604
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Gaussian/ProjectiveLimit.lean",
+    "sha256": "0383e10ef62ec0f3aaff30cfd64ec9a90c1ab78fbb64f7f23668d693e8e97840",
+    "bytes": 9694
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Gaussian/StochasticProcesses.lean",
+    "sha256": "c5fc98b72eb3044fe49add5b47ce10ec8a9aeb1e47aa11aa32a91a2e0c393f81",
+    "bytes": 2399
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/ApproxSeq.lean",
+    "sha256": "4ad2ae12467f28431e67c024ece07dc8dfdbd5a201f015a2b1a0ebd0b1ccd06e",
+    "bytes": 20093
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/Cadlag.lean",
+    "sha256": "3ba787cbb9baab9f84e1179c93d3efbba2d075881835a5d4a4322ad2cbf26b6f",
+    "bytes": 13263
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/ClassD.lean",
+    "sha256": "ee5f09f1c42251d4e9ed7f51322f1d6a2980cef8a25c335aea658221c4013c6b",
+    "bytes": 48053
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/ContinuousSquareIntegrable.lean",
+    "sha256": "2cbd0812261cc673dd7950cbf6fdf19143b295eee21a256eb8aebf69074ff3cb",
+    "bytes": 20421
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/ConvexWeights.lean",
+    "sha256": "73b9f04ce25e8e91fec4b45d281f6ca5c7f637a1fae5305903c6621b4b0235c8",
+    "bytes": 4220
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/DoobLp.lean",
+    "sha256": "9928b2d502d3cbd7f9774e12eb7936be3e09ff392d0f10765bd6c250dece569c",
+    "bytes": 26519
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/DoobMeyer.lean",
+    "sha256": "d452bfc52e168fde37eb2bb317a23485f3d133e87312b7f66a786fe7344b22b3",
+    "bytes": 189558
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/DoobMeyerClassDL.lean",
+    "sha256": "3789cb7eedf22be7f95ca33f09a59a7e9e73a209cedb4caf1290107440c49778",
+    "bytes": 20638
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/Jump.lean",
+    "sha256": "2707aecf1b2cd4dd359dcfd9a32118e6a2db2cafdb01d767a4babf707d76f047",
+    "bytes": 6032
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/Komlos.lean",
+    "sha256": "9c1c4316e1dc0775f6e86075c5aecfdeeb4687a5c1e7ddae726bf8bfae822f26",
+    "bytes": 29792
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/L2M.lean",
+    "sha256": "aae86a69a9f1c2dd4b4ea70cecf2451bf15edff82a98ab680cd0d924f6ac1fc3",
+    "bytes": 1055
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/LocalMartingale.lean",
+    "sha256": "5ea5530e706b8c1c88a1cbf297b8786885fe3dd89da07c85d5a3ec8ac3a2ffb6",
+    "bytes": 4008
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/LocalMonad.lean",
+    "sha256": "97afc5cc39af641b24b138c54279345ab96de39884680b123fbe248e0251c9e6",
+    "bytes": 2032
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/LocalizingLeastGE.lean",
+    "sha256": "38347bc865ba7cecd4002c756278d7a3f2a510efa6bf848a2644475b845e10cf",
+    "bytes": 8291
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/LocalizingSequence.lean",
+    "sha256": "854d5d39dc97589fc7af670265be92a208b5759f0995f80e517c8cd6952878b5",
+    "bytes": 8706
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/Locally.lean",
+    "sha256": "384c03aeefe5964ff9b9970e96ea29c30c00b9323974638764e2402bbb68a38d",
+    "bytes": 14780
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/MathlibImports.lean",
+    "sha256": "817155c7be8114133ca002c3f387ce210d7fc3fa8e46e5a369cefd704b047985",
+    "bytes": 306
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/MonotoneProcess.lean",
+    "sha256": "b36064eb3230b5aa534d5f396ee05708469d7ba35ce7ae57537bc43e63c8ccdd",
+    "bytes": 15799
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/OptionalSampling.lean",
+    "sha256": "e0c6619113faf1b7d6f3382ce6c30f1c70b75dca5bd6ffcb06b2ea34e70cf367",
+    "bytes": 16910
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/Predictable.lean",
+    "sha256": "f7343bf59842b18db0ffe03631e59c25c7ecac79dc3bd87e0c4147508b36b06c",
+    "bytes": 21757
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/PredictableTime.lean",
+    "sha256": "3e66e0965c07d270c15423466bcfdc96927291e01d4bbb65b7c2ebe746a6d808",
+    "bytes": 10209
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/QuadraticVariation.lean",
+    "sha256": "a070a14b8061f62be4fe43dc9a36e025cf82b200dcc563281f937c3aae59f5ac",
+    "bytes": 5296
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/Quasimartingale/Basic.lean",
+    "sha256": "5697dd9c87bd02d7927572c2ab37889085f1ebf68eee467e97fcf47cce2bd748",
+    "bytes": 10175
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/Quasimartingale/CadlagModification.lean",
+    "sha256": "53707d086fcdda278b1d74af0839831395582272d7fea1fb2fb62c67238d0b4b",
+    "bytes": 78541
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/Quasimartingale/CadlagModificationBanach.lean",
+    "sha256": "4b097eb796dcf093abd937bf40436aca22d8b2a2342cc57f52770464c0bcd62c",
+    "bytes": 24010
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/Quasimartingale/MaximalInequality.lean",
+    "sha256": "26641626dddbc5270fb18f46ce2e5e889d7552d16cbf1f84a1aca3a65c747660",
+    "bytes": 46312
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/SimpleProcess.lean",
+    "sha256": "d2051d8d794fcb397b30afa4baeddc629e4362ce17e5baef8840d1c7902ea0f4",
+    "bytes": 39874
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/SquareIntegrable.lean",
+    "sha256": "1a6fd5d1fbcc6a790d93e87843bbf986b86ed2e06f9de68128cd61eaaf831de2",
+    "bytes": 47102
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/StochasticIntegral.lean",
+    "sha256": "b79092b910b1070f74dfb3420ce1e02e8f56a11d445ef1466a3f6c93101e2e4c",
+    "bytes": 4695
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/StochasticInterval.lean",
+    "sha256": "9fdc08d142298c906b31364f959764e217633c1cf9f0a4f958a5b9565fff0431",
+    "bytes": 8660
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/UniformIntegrable.lean",
+    "sha256": "7259b32e1d8ca78e1b7d7a79c04050a173888af9e82fa066beeb4702f0befc18",
+    "bytes": 26291
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/StochasticIntegral/VariationProcess.lean",
+    "sha256": "565e499a7abdd7a9ee15dd41e38e096ed5e093188c7a472c0e22fdda013ec53d",
+    "bytes": 10811
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Verso/Brownian.lean",
+    "sha256": "3c2407da646799bc7cd63c6fecc1a42febc69287220b8abf8827e36b07ae4fab",
+    "bytes": 3293
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion/Verso/Processes.lean",
+    "sha256": "948bf70d5bed3d6419c3e9eda16ff51519e2d579e4c1e2315bcb099bea18f468",
+    "bytes": 216
+  },
+  {
+    "path": "environment/agent/public/repo/BrownianMotion.lean",
+    "sha256": "85efd718da771868ccd79aaed5a5bf5ef79cb97010a2abfeda1d31f37bdd7109",
+    "bytes": 5119
+  },
+  {
+    "path": "environment/agent/public/repo/CODE_OF_CONDUCT.md",
+    "sha256": "c49fc8d612f5c55f6ee2715634e30f91e74bffc1b984c13d2468ccb67e114aac",
+    "bytes": 5315
+  },
+  {
+    "path": "environment/agent/public/repo/CONTRIBUTING.md",
+    "sha256": "3d89c8f8c35b56e6aa5611e864dac0e5cc297a6aa969f4a63c0c052c81771d75",
+    "bytes": 4270
+  },
+  {
+    "path": "environment/agent/public/repo/LICENSE",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "bytes": 11357
+  },
+  {
+    "path": "environment/agent/public/repo/README.md",
+    "sha256": "8ed11da812d322ff3c8c953a122324d54b9c3185c848096dc5e1fb338a50b47e",
+    "bytes": 2462
+  },
+  {
+    "path": "environment/agent/public/repo/home_page/404.html",
+    "sha256": "3656b4255ad0d31f02645b3f0bf8c3ada9f1c42c2b9740153ae39cb93220c010",
+    "bytes": 418
+  },
+  {
+    "path": "environment/agent/public/repo/home_page/Gemfile",
+    "sha256": "80a35f34f9467693efc189ae8d20ad43496d64d129545d5bbad368b5287f0a8a",
+    "bytes": 802
+  },
+  {
+    "path": "environment/agent/public/repo/home_page/Gemfile.lock",
+    "sha256": "8358b3204e763718ec49a6c6aa9c72997c720c7fe824ab78848aea8471f70b53",
+    "bytes": 8040
+  },
+  {
+    "path": "environment/agent/public/repo/home_page/_config.yml",
+    "sha256": "f5b64df090d6b8f0a9629d05b8e12b80cc88fb4d1ae0233b3a97e1dce1bc29e2",
+    "bytes": 1476
+  },
+  {
+    "path": "environment/agent/public/repo/home_page/_include/mathjax.html",
+    "sha256": "533685885123d28a1f4a7651f0b658a24ec916e3d43fc6cfe4272ebbcf241f82",
+    "bytes": 565
+  },
+  {
+    "path": "environment/agent/public/repo/home_page/_layouts/default.html",
+    "sha256": "93f628960ebe57b528e0240fe17240fda940d1e607d1c47e5db28350de4cbe8d",
+    "bytes": 2077
+  },
+  {
+    "path": "environment/agent/public/repo/home_page/assets/css/style.scss",
+    "sha256": "c5bbf725faae2d551a2e374173648a3ce3fac4ce62a10271475cb03722f791bf",
+    "bytes": 210
+  },
+  {
+    "path": "environment/agent/public/repo/home_page/index.md",
+    "sha256": "ba71f9bd5c078baa112bc901aa0efaeaf0b87052733ca869e68598ec606e7586",
+    "bytes": 597
+  },
+  {
+    "path": "environment/agent/public/repo/home_page/upstreaming.md",
+    "sha256": "078bfe9bd5fc2e6a4735e646bbe236f6df9f261045c2d84b17f407b1b48b6899",
+    "bytes": 77
+  },
+  {
+    "path": "environment/agent/public/repo/lake-manifest.json",
+    "sha256": "11242be2ee0701a8d9e2a0374ade0342c1d1e355472aad65200bca2b6c38944c",
+    "bytes": 4074
+  },
+  {
+    "path": "environment/agent/public/repo/lakefile.toml",
+    "sha256": "c156ba859fc6eddf1b0d657d232ce96b2252399ec7cf71aab644d435a86a9a81",
+    "bytes": 727
+  },
+  {
+    "path": "environment/agent/public/repo/lean-toolchain",
+    "sha256": "02f25adee7c1d6bf2e95b7b5b13f45b9892c7dd53ef470d5372ac60bda3df023",
+    "bytes": 28
+  },
+  {
+    "path": "environment/agent/public/repo/scripts/nolints.json",
+    "sha256": "9081c6afed0ad81a8a15953ebefdee3afff94089193f7c699bee4cf545902884",
+    "bytes": 1300
+  },
+  {
+    "path": "environment/agent/public/score_design.json",
+    "sha256": "2896f0f0b0155160de8613dff03f5ca35236ac1460b2616690002921f8d2bfe6",
+    "bytes": 452
+  },
+  {
+    "path": "environment/agent/public/scoring_metadata.json",
+    "sha256": "7bf5ac91b78e122fda6a5f1655fa228db7630e73bb75bd91b6447b213054cb68",
+    "bytes": 842
+  },
+  {
+    "path": "environment/agent/public/targets.json",
+    "sha256": "13915fe76114a2674577f642eb9737302e4b0ae17ba4e2055f5d37eac668cdc0",
+    "bytes": 17335
+  },
+  {
+    "path": "environment/verifier/.dockerignore",
+    "sha256": "d05085fb4b693bb7fe824a831dc9bd8de9dee2f42b192c95d637e9f917eb368d",
+    "bytes": 36
+  },
+  {
+    "path": "environment/verifier/Dockerfile",
+    "sha256": "f56686e2ca9a9c713f16249347b8a646ed6ca2ceeaadcf6d1b7be65efe6fe94c",
+    "bytes": 1311
+  },
+  {
+    "path": "environment/verifier/capture_build.py",
+    "sha256": "753da269f6b211bf842dc29dbeea3bcd185aa871d2478822e08bece9b665d841",
+    "bytes": 789
+  },
+  {
+    "path": "environment/verifier/private/dependency_audit_pending.json",
+    "sha256": "49a0d808f39ac06efb31be47b2a2745f59b5037b0f333875e0282d58e6519d23",
+    "bytes": 440
+  },
+  {
+    "path": "environment/verifier/private/formal_source_audit.json",
+    "sha256": "c58303d4bf0996fd2677c19856abe110ec14b6af5c5cc14d8a1c07b6d6c7b6e1",
+    "bytes": 3862
+  },
+  {
+    "path": "environment/verifier/private/reference/BrownianMotion/Continuity/CoveringNumber.lean",
+    "sha256": "0a066df0cd9ef5fd55f453578de9866672baea986d65ea86f2fdc4d18e4867ea",
+    "bytes": 16485
+  },
+  {
+    "path": "environment/verifier/private/reference/BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "sha256": "0814a0012d92a1c80ac8681247c106ef6604bffd747b26bb54010d4144283c5b",
+    "bytes": 62838
+  },
+  {
+    "path": "environment/verifier/private/reference/BrownianMotion/Gaussian/BrownianMotion.lean",
+    "sha256": "3dd0eb3d8e550d764a98506b6cd41bc18b376d3a2fbfbe013045463416b0ce58",
+    "bytes": 38228
+  },
+  {
+    "path": "environment/verifier/private/reference/BrownianMotion/Gaussian/CovMatrix.lean",
+    "sha256": "89ec93a4bbf3671bc6eb34803c1000777ec00a600732b878d4623cd0457d7ea8",
+    "bytes": 4611
+  },
+  {
+    "path": "environment/verifier/private/reference/BrownianMotion/Gaussian/Moment.lean",
+    "sha256": "1ec420407465231b2bdee35a8923b5786c22336ca4c7efcf07cef05eab9fbb3c",
+    "bytes": 6737
+  },
+  {
+    "path": "environment/verifier/public/contract.draft.json",
+    "sha256": "635897e931ee02471580523480fa11b4b384026849fea798c871b16010a3bb8b",
+    "bytes": 1212
+  },
+  {
+    "path": "environment/verifier/public/instruction.md",
+    "sha256": "dcd5e7fbb92397fbf6eb8507ae0f74fb92b553eb8f0f50093d683d888ac1d2d5",
+    "bytes": 1097
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/AEEq.lean",
+    "sha256": "4108bd2842fac1aba54333873471a699aa950c03965e687c432297e09a90bfd7",
+    "bytes": 24151
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/Adapted.lean",
+    "sha256": "79d1d7fff2272c9f7ce7b148ef992559ba6e748ed394459b4f6e6e6904ff5faa",
+    "bytes": 16680
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/Algebra.lean",
+    "sha256": "ff7a39360ac8213105b113f9c1dbd761b45e8ed3cad2f8d65af7c8c4f30a40da",
+    "bytes": 1666
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/Analysis.lean",
+    "sha256": "2e1cd784cd7502d3cb372d23c55c7ff110088b933d5a5b08a11d0b19896d7ffe",
+    "bytes": 2433
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/ContinuousBilinForm.lean",
+    "sha256": "6a2092c753f4236b1199eb1ac422c195ba053b18958e38ecd9677f49d4e5fd91",
+    "bytes": 11938
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/ConvergenceInMeasure.lean",
+    "sha256": "84e6bd78ee05fd6f806e154ece96d53d49301426bfbbe5c5c476f47b8290e4d0",
+    "bytes": 1886
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/DenseCountable.lean",
+    "sha256": "a80476377e6c0e2b573816f728db930ccbd8bc2469709ea3b7f03615474c8b58",
+    "bytes": 891
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/ENNReal.lean",
+    "sha256": "45e32bb046b5e29dc428795644c1e24bdfb22f46d1b7a53d71a0db823caebd10",
+    "bytes": 1742
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/EVariationOn.lean",
+    "sha256": "b2a65e63bab306b00f8f058198f5d2c93636aa742115ce77093d685823ebcd6b",
+    "bytes": 9969
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/Filtration.lean",
+    "sha256": "42fdbab526514d1b7cf81797f79c3ee3b3e41f4114047313eef30afb28075f13",
+    "bytes": 1247
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/FiniteInf.lean",
+    "sha256": "5731080f16cb712effaffa72739ff36d4a4835f9385e5bbb8e06d88c6617425d",
+    "bytes": 2324
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/HasGaussianLaw.lean",
+    "sha256": "59b95b043a8744775257896de08f08fac8e62ba51ce97baed6c907fd3168859a",
+    "bytes": 4591
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/HasLaw.lean",
+    "sha256": "8990633ee9f46231cad43abc0b9db39c45a30c53b7d6b27e4020badf160b6a3a",
+    "bytes": 775
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/Indistinguishable.lean",
+    "sha256": "c9fd45be312983cd78cecc9739ee00030bf864e2915aa5c818dcdbf9e4e3b7b0",
+    "bytes": 3340
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/IsStoppingTime.lean",
+    "sha256": "ea7621314358d7be5c38e6531efa0f8f8f90778652141ee54e0bda5471d30f72",
+    "bytes": 3432
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/Jensen.lean",
+    "sha256": "db25e62e2300e0393773aa4fb8e5046ad1ba61b7b539da24aa9fd543fda4f106",
+    "bytes": 7910
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/LeftLimWithin.lean",
+    "sha256": "edeb8b8347b267a65c51790233d2071972c0d8114de9c20e08dae40131c25449",
+    "bytes": 33962
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/LimitProcess.lean",
+    "sha256": "fb714deff4f676368a11f4aec3b597768daa6900fbb72645676c614bafe92cf9",
+    "bytes": 3238
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/LinearAlgebra.lean",
+    "sha256": "9d01184f8cbf9b79e29a7fa28f0ddd73c2d5dc3cbda690a02a7fd90ea7594a64",
+    "bytes": 3295
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/Martingale.lean",
+    "sha256": "4a715788e100997e83430544ac18f351be688a7413d4bf15b25a5faf365c6a65",
+    "bytes": 4901
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/MeanInequalities.lean",
+    "sha256": "396701f3112dea060898d6e5c3e979786f0f541618e22f290118251b00b2106e",
+    "bytes": 2358
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/MeasureTheory.lean",
+    "sha256": "6792d2d55e8d05aa83b0faadd256092129bf834c64c483c76d74af9b7ea46f94",
+    "bytes": 14813
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/Metric.lean",
+    "sha256": "13f5040961175788f8631ba4551a00ef4671a0c172ba85f145c57b025f7b7d9e",
+    "bytes": 2091
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/NNReal.lean",
+    "sha256": "92dbb17acfc90d8544d9021074814bbba164de8c85b4796603a261237bd87336",
+    "bytes": 411
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/Nat.lean",
+    "sha256": "637f1fa12fb1cd584ce886f06b9a5167b5a7e96415740112e0ed60157916be10",
+    "bytes": 310
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/Real.lean",
+    "sha256": "dcc2ba28cc663c7e39b8bd40c8654a8f04beac2f6cabf8e12146934c9a10ae3d",
+    "bytes": 348
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/SeparableSpace.lean",
+    "sha256": "46c1d775aa7c54490d483fdbaa09197272ead6a791e2f5e8edc3d86ce3312b6a",
+    "bytes": 7604
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/SetAlgebra.lean",
+    "sha256": "74f463a045ce2810d397d355cf4018aa0737531f4c1b6b82c6f1a3e5596844d3",
+    "bytes": 13476
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/StandardBorel.lean",
+    "sha256": "ce2ce4d86815471cb59a3f7efbbbf50bd7c3c1e2c600c740ca5bb33417d0756b",
+    "bytes": 2094
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/StoppedProcess.lean",
+    "sha256": "cccdc568cf2fead5fee824a877c1a2cb739d486331c3118d7350d5c64bf088fb",
+    "bytes": 5474
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/StoppedValue.lean",
+    "sha256": "385c44365cfad552d4e82d1b4ef45baf1c554010556890af0d3e0d2e7f9ad052",
+    "bytes": 5782
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/StronglyMeasurablePath.lean",
+    "sha256": "627b70bb8e3a6253e93b0b08d677057479d66ec7a3bf513805b9aa8883e8b5fa",
+    "bytes": 11710
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/Topology.lean",
+    "sha256": "ce23e4180f97416196f30f05f52756ecc46c99737ec9bb674c9ed3f16014e2b6",
+    "bytes": 5509
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/Upcrossing.lean",
+    "sha256": "e57bef654fd047e348f5b5e897bae097984eba55f8c429c4e6577c75eb4b8db5",
+    "bytes": 12220
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Auxiliary/WithLp.lean",
+    "sha256": "f5a1a875c45362327ac040d2581d96297135c69dc89a13c6c6556bdbc06e1e37",
+    "bytes": 887
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Choquet/AnalyticSet.lean",
+    "sha256": "2056b20300054ce003a22d9fc5077b303968250b7474e4440bb22b8b97ee7626",
+    "bytes": 51589
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Choquet/Capacity.lean",
+    "sha256": "2018673fd9c18de6d70c10cbdf00d7c23d0ba463b985e5423b2919178ce864ff",
+    "bytes": 25346
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Choquet/CompactSystem.lean",
+    "sha256": "2a0fc4cca839b7ac3b8c85acaf4c2e198a12d5d55fde833eaff544096ad665eb",
+    "bytes": 23537
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Choquet/Debut.lean",
+    "sha256": "5467cdddbcb23c4dec451fa80bf9a6cf7741de95d6f4c179ab6231a84d981c56",
+    "bytes": 27641
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Choquet/MeasurableSection.lean",
+    "sha256": "c5e7ca9c79202a13523fecd376b4cd9445a1ebc0f2dfac7415440e9a4951ef2d",
+    "bytes": 23582
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Continuity/Chaining.lean",
+    "sha256": "705bf609ae98ad8227985830f9f50fdfef86a01cdc0c925142bbcca4507a047b",
+    "bytes": 13359
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Continuity/CoveringNumber.lean",
+    "sha256": "dd50ae600ba740e011dda40597b5a4a84c1781458b9fdb81a638d88c4a785da4",
+    "bytes": 8884
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Continuity/HasBoundedInternalCoveringNumber.lean",
+    "sha256": "d169aba72155a5b7dfcb89cd13568082f9146da3f8ebdf83c72a2489d969e588",
+    "bytes": 7841
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Continuity/IsKolmogorovProcess.lean",
+    "sha256": "e2ab3360724b02661981dc8d46164ed943d52fbf96b85b5586481077bf90b02f",
+    "bytes": 53754
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "sha256": "1a7a49bd8f70368810f1f7a9c1b42b20d0fdeaf1fbf9f3f125452bc0c1c050ed",
+    "bytes": 42570
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Continuity/KolmogorovChentsovInequality.lean",
+    "sha256": "0e3d9f8b665d5c3b215ad0c6ffdf88f9e7058dbb0ac28c8dc8bd1a30b979a56c",
+    "bytes": 18540
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Continuity/LimitModification.lean",
+    "sha256": "971828f61f311578c0a88233e82504ea7838cdc818bb50a00f26678c0c97868e",
+    "bytes": 18961
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Gaussian/BrownianMotion.lean",
+    "sha256": "5971d281b2e478fdfcf8275679074c6d382ec0e382c2affcfee2770b33d5f0b2",
+    "bytes": 28596
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Gaussian/CovMatrix.lean",
+    "sha256": "5ad3b90b274824fcd2476226ab30b008b9080782278c643275a28776ea3f0d27",
+    "bytes": 3878
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Gaussian/Gaussian.lean",
+    "sha256": "7970de8c7bceb385a286a4dc9b5ddbf377102fdd9943c68baf852a12b66f7a64",
+    "bytes": 934
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Gaussian/GaussianProcess.lean",
+    "sha256": "0a51f1274533938eb90b61d2f038ce6edf1fe5000f883cfbae45542eda123dfe",
+    "bytes": 1754
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Gaussian/IteratedLogarithm.lean",
+    "sha256": "9e9b67c6cd5df3f8e6d40f66d6bd4ed5f4f7d515a34e6231d797daefd3d2b433",
+    "bytes": 15727
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Gaussian/Moment.lean",
+    "sha256": "b0ac8d9e3909883a17b334822a56e50c797c6cbb13cdc90648038f556c332226",
+    "bytes": 747
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Gaussian/MultivariateGaussian.lean",
+    "sha256": "6d79d29246c5ff58f11a8801a1787173de1c3371d6adb7b6b318c2ad5358de6b",
+    "bytes": 2604
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Gaussian/ProjectiveLimit.lean",
+    "sha256": "0383e10ef62ec0f3aaff30cfd64ec9a90c1ab78fbb64f7f23668d693e8e97840",
+    "bytes": 9694
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Gaussian/StochasticProcesses.lean",
+    "sha256": "c5fc98b72eb3044fe49add5b47ce10ec8a9aeb1e47aa11aa32a91a2e0c393f81",
+    "bytes": 2399
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/ApproxSeq.lean",
+    "sha256": "4ad2ae12467f28431e67c024ece07dc8dfdbd5a201f015a2b1a0ebd0b1ccd06e",
+    "bytes": 20093
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/Cadlag.lean",
+    "sha256": "3ba787cbb9baab9f84e1179c93d3efbba2d075881835a5d4a4322ad2cbf26b6f",
+    "bytes": 13263
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/ClassD.lean",
+    "sha256": "ee5f09f1c42251d4e9ed7f51322f1d6a2980cef8a25c335aea658221c4013c6b",
+    "bytes": 48053
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/ContinuousSquareIntegrable.lean",
+    "sha256": "2cbd0812261cc673dd7950cbf6fdf19143b295eee21a256eb8aebf69074ff3cb",
+    "bytes": 20421
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/ConvexWeights.lean",
+    "sha256": "73b9f04ce25e8e91fec4b45d281f6ca5c7f637a1fae5305903c6621b4b0235c8",
+    "bytes": 4220
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/DoobLp.lean",
+    "sha256": "9928b2d502d3cbd7f9774e12eb7936be3e09ff392d0f10765bd6c250dece569c",
+    "bytes": 26519
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/DoobMeyer.lean",
+    "sha256": "d452bfc52e168fde37eb2bb317a23485f3d133e87312b7f66a786fe7344b22b3",
+    "bytes": 189558
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/DoobMeyerClassDL.lean",
+    "sha256": "3789cb7eedf22be7f95ca33f09a59a7e9e73a209cedb4caf1290107440c49778",
+    "bytes": 20638
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/Jump.lean",
+    "sha256": "2707aecf1b2cd4dd359dcfd9a32118e6a2db2cafdb01d767a4babf707d76f047",
+    "bytes": 6032
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/Komlos.lean",
+    "sha256": "9c1c4316e1dc0775f6e86075c5aecfdeeb4687a5c1e7ddae726bf8bfae822f26",
+    "bytes": 29792
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/L2M.lean",
+    "sha256": "aae86a69a9f1c2dd4b4ea70cecf2451bf15edff82a98ab680cd0d924f6ac1fc3",
+    "bytes": 1055
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/LocalMartingale.lean",
+    "sha256": "5ea5530e706b8c1c88a1cbf297b8786885fe3dd89da07c85d5a3ec8ac3a2ffb6",
+    "bytes": 4008
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/LocalMonad.lean",
+    "sha256": "97afc5cc39af641b24b138c54279345ab96de39884680b123fbe248e0251c9e6",
+    "bytes": 2032
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/LocalizingLeastGE.lean",
+    "sha256": "38347bc865ba7cecd4002c756278d7a3f2a510efa6bf848a2644475b845e10cf",
+    "bytes": 8291
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/LocalizingSequence.lean",
+    "sha256": "854d5d39dc97589fc7af670265be92a208b5759f0995f80e517c8cd6952878b5",
+    "bytes": 8706
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/Locally.lean",
+    "sha256": "384c03aeefe5964ff9b9970e96ea29c30c00b9323974638764e2402bbb68a38d",
+    "bytes": 14780
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/MathlibImports.lean",
+    "sha256": "817155c7be8114133ca002c3f387ce210d7fc3fa8e46e5a369cefd704b047985",
+    "bytes": 306
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/MonotoneProcess.lean",
+    "sha256": "b36064eb3230b5aa534d5f396ee05708469d7ba35ce7ae57537bc43e63c8ccdd",
+    "bytes": 15799
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/OptionalSampling.lean",
+    "sha256": "e0c6619113faf1b7d6f3382ce6c30f1c70b75dca5bd6ffcb06b2ea34e70cf367",
+    "bytes": 16910
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/Predictable.lean",
+    "sha256": "f7343bf59842b18db0ffe03631e59c25c7ecac79dc3bd87e0c4147508b36b06c",
+    "bytes": 21757
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/PredictableTime.lean",
+    "sha256": "3e66e0965c07d270c15423466bcfdc96927291e01d4bbb65b7c2ebe746a6d808",
+    "bytes": 10209
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/QuadraticVariation.lean",
+    "sha256": "a070a14b8061f62be4fe43dc9a36e025cf82b200dcc563281f937c3aae59f5ac",
+    "bytes": 5296
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/Quasimartingale/Basic.lean",
+    "sha256": "5697dd9c87bd02d7927572c2ab37889085f1ebf68eee467e97fcf47cce2bd748",
+    "bytes": 10175
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/Quasimartingale/CadlagModification.lean",
+    "sha256": "53707d086fcdda278b1d74af0839831395582272d7fea1fb2fb62c67238d0b4b",
+    "bytes": 78541
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/Quasimartingale/CadlagModificationBanach.lean",
+    "sha256": "4b097eb796dcf093abd937bf40436aca22d8b2a2342cc57f52770464c0bcd62c",
+    "bytes": 24010
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/Quasimartingale/MaximalInequality.lean",
+    "sha256": "26641626dddbc5270fb18f46ce2e5e889d7552d16cbf1f84a1aca3a65c747660",
+    "bytes": 46312
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/SimpleProcess.lean",
+    "sha256": "d2051d8d794fcb397b30afa4baeddc629e4362ce17e5baef8840d1c7902ea0f4",
+    "bytes": 39874
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/SquareIntegrable.lean",
+    "sha256": "1a6fd5d1fbcc6a790d93e87843bbf986b86ed2e06f9de68128cd61eaaf831de2",
+    "bytes": 47102
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/StochasticIntegral.lean",
+    "sha256": "b79092b910b1070f74dfb3420ce1e02e8f56a11d445ef1466a3f6c93101e2e4c",
+    "bytes": 4695
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/StochasticInterval.lean",
+    "sha256": "9fdc08d142298c906b31364f959764e217633c1cf9f0a4f958a5b9565fff0431",
+    "bytes": 8660
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/UniformIntegrable.lean",
+    "sha256": "7259b32e1d8ca78e1b7d7a79c04050a173888af9e82fa066beeb4702f0befc18",
+    "bytes": 26291
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/StochasticIntegral/VariationProcess.lean",
+    "sha256": "565e499a7abdd7a9ee15dd41e38e096ed5e093188c7a472c0e22fdda013ec53d",
+    "bytes": 10811
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Verso/Brownian.lean",
+    "sha256": "3c2407da646799bc7cd63c6fecc1a42febc69287220b8abf8827e36b07ae4fab",
+    "bytes": 3293
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion/Verso/Processes.lean",
+    "sha256": "948bf70d5bed3d6419c3e9eda16ff51519e2d579e4c1e2315bcb099bea18f468",
+    "bytes": 216
+  },
+  {
+    "path": "environment/verifier/public/repo/BrownianMotion.lean",
+    "sha256": "85efd718da771868ccd79aaed5a5bf5ef79cb97010a2abfeda1d31f37bdd7109",
+    "bytes": 5119
+  },
+  {
+    "path": "environment/verifier/public/repo/CODE_OF_CONDUCT.md",
+    "sha256": "c49fc8d612f5c55f6ee2715634e30f91e74bffc1b984c13d2468ccb67e114aac",
+    "bytes": 5315
+  },
+  {
+    "path": "environment/verifier/public/repo/CONTRIBUTING.md",
+    "sha256": "3d89c8f8c35b56e6aa5611e864dac0e5cc297a6aa969f4a63c0c052c81771d75",
+    "bytes": 4270
+  },
+  {
+    "path": "environment/verifier/public/repo/LICENSE",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "bytes": 11357
+  },
+  {
+    "path": "environment/verifier/public/repo/README.md",
+    "sha256": "8ed11da812d322ff3c8c953a122324d54b9c3185c848096dc5e1fb338a50b47e",
+    "bytes": 2462
+  },
+  {
+    "path": "environment/verifier/public/repo/home_page/404.html",
+    "sha256": "3656b4255ad0d31f02645b3f0bf8c3ada9f1c42c2b9740153ae39cb93220c010",
+    "bytes": 418
+  },
+  {
+    "path": "environment/verifier/public/repo/home_page/Gemfile",
+    "sha256": "80a35f34f9467693efc189ae8d20ad43496d64d129545d5bbad368b5287f0a8a",
+    "bytes": 802
+  },
+  {
+    "path": "environment/verifier/public/repo/home_page/Gemfile.lock",
+    "sha256": "8358b3204e763718ec49a6c6aa9c72997c720c7fe824ab78848aea8471f70b53",
+    "bytes": 8040
+  },
+  {
+    "path": "environment/verifier/public/repo/home_page/_config.yml",
+    "sha256": "f5b64df090d6b8f0a9629d05b8e12b80cc88fb4d1ae0233b3a97e1dce1bc29e2",
+    "bytes": 1476
+  },
+  {
+    "path": "environment/verifier/public/repo/home_page/_include/mathjax.html",
+    "sha256": "533685885123d28a1f4a7651f0b658a24ec916e3d43fc6cfe4272ebbcf241f82",
+    "bytes": 565
+  },
+  {
+    "path": "environment/verifier/public/repo/home_page/_layouts/default.html",
+    "sha256": "93f628960ebe57b528e0240fe17240fda940d1e607d1c47e5db28350de4cbe8d",
+    "bytes": 2077
+  },
+  {
+    "path": "environment/verifier/public/repo/home_page/assets/css/style.scss",
+    "sha256": "c5bbf725faae2d551a2e374173648a3ce3fac4ce62a10271475cb03722f791bf",
+    "bytes": 210
+  },
+  {
+    "path": "environment/verifier/public/repo/home_page/index.md",
+    "sha256": "ba71f9bd5c078baa112bc901aa0efaeaf0b87052733ca869e68598ec606e7586",
+    "bytes": 597
+  },
+  {
+    "path": "environment/verifier/public/repo/home_page/upstreaming.md",
+    "sha256": "078bfe9bd5fc2e6a4735e646bbe236f6df9f261045c2d84b17f407b1b48b6899",
+    "bytes": 77
+  },
+  {
+    "path": "environment/verifier/public/repo/lake-manifest.json",
+    "sha256": "11242be2ee0701a8d9e2a0374ade0342c1d1e355472aad65200bca2b6c38944c",
+    "bytes": 4074
+  },
+  {
+    "path": "environment/verifier/public/repo/lakefile.toml",
+    "sha256": "c156ba859fc6eddf1b0d657d232ce96b2252399ec7cf71aab644d435a86a9a81",
+    "bytes": 727
+  },
+  {
+    "path": "environment/verifier/public/repo/lean-toolchain",
+    "sha256": "02f25adee7c1d6bf2e95b7b5b13f45b9892c7dd53ef470d5372ac60bda3df023",
+    "bytes": 28
+  },
+  {
+    "path": "environment/verifier/public/repo/scripts/nolints.json",
+    "sha256": "9081c6afed0ad81a8a15953ebefdee3afff94089193f7c699bee4cf545902884",
+    "bytes": 1300
+  },
+  {
+    "path": "environment/verifier/public/score_design.json",
+    "sha256": "2896f0f0b0155160de8613dff03f5ca35236ac1460b2616690002921f8d2bfe6",
+    "bytes": 452
+  },
+  {
+    "path": "environment/verifier/public/scoring_metadata.json",
+    "sha256": "7bf5ac91b78e122fda6a5f1655fa228db7630e73bb75bd91b6447b213054cb68",
+    "bytes": 842
+  },
+  {
+    "path": "environment/verifier/public/targets.json",
+    "sha256": "13915fe76114a2674577f642eb9737302e4b0ae17ba4e2055f5d37eac668cdc0",
+    "bytes": 17335
+  },
+  {
+    "path": "environment/verifier/verifier/entry.py",
+    "sha256": "cd1d5a69d7ee140b3a2b2d9d3672c2c3be96c4bbb3a08d176c0603abceec20f1",
+    "bytes": 1042
+  },
+  {
+    "path": "environment/verifier/verifier/grader.py",
+    "sha256": "2015ad93d6ac143b6a9f6ea00664429c1edb0d38da938ca809d0668376d65889",
+    "bytes": 3465
+  },
+  {
+    "path": "environment/verifier/verifier/runtime.py",
+    "sha256": "c380b1e65faf1a1f2c7c91745d250147dd55c2ebc5ba11af56ca7dddc4533813",
+    "bytes": 6505
+  },
+  {
+    "path": "evidence.json",
+    "sha256": "4da2f5e37288a54e8be8399847ce565b0cbca1a0716e5c231eccadfd928d0e10",
+    "bytes": 456
+  },
+  {
+    "path": "feedback_schema.json",
+    "sha256": "1cc153cd6043de42b0ed79ba98663f4ec3f10d8577a7350a1a93e4d4c88258bd",
+    "bytes": 439
+  },
+  {
+    "path": "instruction.md",
+    "sha256": "dcd5e7fbb92397fbf6eb8507ae0f74fb92b553eb8f0f50093d683d888ac1d2d5",
+    "bytes": 1097
+  },
+  {
+    "path": "private/dependency_audit_pending.json",
+    "sha256": "49a0d808f39ac06efb31be47b2a2745f59b5037b0f333875e0282d58e6519d23",
+    "bytes": 440
+  },
+  {
+    "path": "private/formal_source_audit.json",
+    "sha256": "c58303d4bf0996fd2677c19856abe110ec14b6af5c5cc14d8a1c07b6d6c7b6e1",
+    "bytes": 3862
+  },
+  {
+    "path": "private/reference/BrownianMotion/Continuity/CoveringNumber.lean",
+    "sha256": "0a066df0cd9ef5fd55f453578de9866672baea986d65ea86f2fdc4d18e4867ea",
+    "bytes": 16485
+  },
+  {
+    "path": "private/reference/BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "sha256": "0814a0012d92a1c80ac8681247c106ef6604bffd747b26bb54010d4144283c5b",
+    "bytes": 62838
+  },
+  {
+    "path": "private/reference/BrownianMotion/Gaussian/BrownianMotion.lean",
+    "sha256": "3dd0eb3d8e550d764a98506b6cd41bc18b376d3a2fbfbe013045463416b0ce58",
+    "bytes": 38228
+  },
+  {
+    "path": "private/reference/BrownianMotion/Gaussian/CovMatrix.lean",
+    "sha256": "89ec93a4bbf3671bc6eb34803c1000777ec00a600732b878d4623cd0457d7ea8",
+    "bytes": 4611
+  },
+  {
+    "path": "private/reference/BrownianMotion/Gaussian/Moment.lean",
+    "sha256": "1ec420407465231b2bdee35a8923b5786c22336ca4c7efcf07cef05eab9fbb3c",
+    "bytes": 6737
+  },
+  {
+    "path": "public/contract.draft.json",
+    "sha256": "635897e931ee02471580523480fa11b4b384026849fea798c871b16010a3bb8b",
+    "bytes": 1212
+  },
+  {
+    "path": "public/instruction.md",
+    "sha256": "dcd5e7fbb92397fbf6eb8507ae0f74fb92b553eb8f0f50093d683d888ac1d2d5",
+    "bytes": 1097
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/AEEq.lean",
+    "sha256": "4108bd2842fac1aba54333873471a699aa950c03965e687c432297e09a90bfd7",
+    "bytes": 24151
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/Adapted.lean",
+    "sha256": "79d1d7fff2272c9f7ce7b148ef992559ba6e748ed394459b4f6e6e6904ff5faa",
+    "bytes": 16680
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/Algebra.lean",
+    "sha256": "ff7a39360ac8213105b113f9c1dbd761b45e8ed3cad2f8d65af7c8c4f30a40da",
+    "bytes": 1666
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/Analysis.lean",
+    "sha256": "2e1cd784cd7502d3cb372d23c55c7ff110088b933d5a5b08a11d0b19896d7ffe",
+    "bytes": 2433
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/ContinuousBilinForm.lean",
+    "sha256": "6a2092c753f4236b1199eb1ac422c195ba053b18958e38ecd9677f49d4e5fd91",
+    "bytes": 11938
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/ConvergenceInMeasure.lean",
+    "sha256": "84e6bd78ee05fd6f806e154ece96d53d49301426bfbbe5c5c476f47b8290e4d0",
+    "bytes": 1886
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/DenseCountable.lean",
+    "sha256": "a80476377e6c0e2b573816f728db930ccbd8bc2469709ea3b7f03615474c8b58",
+    "bytes": 891
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/ENNReal.lean",
+    "sha256": "45e32bb046b5e29dc428795644c1e24bdfb22f46d1b7a53d71a0db823caebd10",
+    "bytes": 1742
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/EVariationOn.lean",
+    "sha256": "b2a65e63bab306b00f8f058198f5d2c93636aa742115ce77093d685823ebcd6b",
+    "bytes": 9969
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/Filtration.lean",
+    "sha256": "42fdbab526514d1b7cf81797f79c3ee3b3e41f4114047313eef30afb28075f13",
+    "bytes": 1247
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/FiniteInf.lean",
+    "sha256": "5731080f16cb712effaffa72739ff36d4a4835f9385e5bbb8e06d88c6617425d",
+    "bytes": 2324
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/HasGaussianLaw.lean",
+    "sha256": "59b95b043a8744775257896de08f08fac8e62ba51ce97baed6c907fd3168859a",
+    "bytes": 4591
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/HasLaw.lean",
+    "sha256": "8990633ee9f46231cad43abc0b9db39c45a30c53b7d6b27e4020badf160b6a3a",
+    "bytes": 775
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/Indistinguishable.lean",
+    "sha256": "c9fd45be312983cd78cecc9739ee00030bf864e2915aa5c818dcdbf9e4e3b7b0",
+    "bytes": 3340
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/IsStoppingTime.lean",
+    "sha256": "ea7621314358d7be5c38e6531efa0f8f8f90778652141ee54e0bda5471d30f72",
+    "bytes": 3432
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/Jensen.lean",
+    "sha256": "db25e62e2300e0393773aa4fb8e5046ad1ba61b7b539da24aa9fd543fda4f106",
+    "bytes": 7910
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/LeftLimWithin.lean",
+    "sha256": "edeb8b8347b267a65c51790233d2071972c0d8114de9c20e08dae40131c25449",
+    "bytes": 33962
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/LimitProcess.lean",
+    "sha256": "fb714deff4f676368a11f4aec3b597768daa6900fbb72645676c614bafe92cf9",
+    "bytes": 3238
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/LinearAlgebra.lean",
+    "sha256": "9d01184f8cbf9b79e29a7fa28f0ddd73c2d5dc3cbda690a02a7fd90ea7594a64",
+    "bytes": 3295
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/Martingale.lean",
+    "sha256": "4a715788e100997e83430544ac18f351be688a7413d4bf15b25a5faf365c6a65",
+    "bytes": 4901
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/MeanInequalities.lean",
+    "sha256": "396701f3112dea060898d6e5c3e979786f0f541618e22f290118251b00b2106e",
+    "bytes": 2358
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/MeasureTheory.lean",
+    "sha256": "6792d2d55e8d05aa83b0faadd256092129bf834c64c483c76d74af9b7ea46f94",
+    "bytes": 14813
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/Metric.lean",
+    "sha256": "13f5040961175788f8631ba4551a00ef4671a0c172ba85f145c57b025f7b7d9e",
+    "bytes": 2091
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/NNReal.lean",
+    "sha256": "92dbb17acfc90d8544d9021074814bbba164de8c85b4796603a261237bd87336",
+    "bytes": 411
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/Nat.lean",
+    "sha256": "637f1fa12fb1cd584ce886f06b9a5167b5a7e96415740112e0ed60157916be10",
+    "bytes": 310
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/Real.lean",
+    "sha256": "dcc2ba28cc663c7e39b8bd40c8654a8f04beac2f6cabf8e12146934c9a10ae3d",
+    "bytes": 348
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/SeparableSpace.lean",
+    "sha256": "46c1d775aa7c54490d483fdbaa09197272ead6a791e2f5e8edc3d86ce3312b6a",
+    "bytes": 7604
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/SetAlgebra.lean",
+    "sha256": "74f463a045ce2810d397d355cf4018aa0737531f4c1b6b82c6f1a3e5596844d3",
+    "bytes": 13476
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/StandardBorel.lean",
+    "sha256": "ce2ce4d86815471cb59a3f7efbbbf50bd7c3c1e2c600c740ca5bb33417d0756b",
+    "bytes": 2094
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/StoppedProcess.lean",
+    "sha256": "cccdc568cf2fead5fee824a877c1a2cb739d486331c3118d7350d5c64bf088fb",
+    "bytes": 5474
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/StoppedValue.lean",
+    "sha256": "385c44365cfad552d4e82d1b4ef45baf1c554010556890af0d3e0d2e7f9ad052",
+    "bytes": 5782
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/StronglyMeasurablePath.lean",
+    "sha256": "627b70bb8e3a6253e93b0b08d677057479d66ec7a3bf513805b9aa8883e8b5fa",
+    "bytes": 11710
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/Topology.lean",
+    "sha256": "ce23e4180f97416196f30f05f52756ecc46c99737ec9bb674c9ed3f16014e2b6",
+    "bytes": 5509
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/Upcrossing.lean",
+    "sha256": "e57bef654fd047e348f5b5e897bae097984eba55f8c429c4e6577c75eb4b8db5",
+    "bytes": 12220
+  },
+  {
+    "path": "public/repo/BrownianMotion/Auxiliary/WithLp.lean",
+    "sha256": "f5a1a875c45362327ac040d2581d96297135c69dc89a13c6c6556bdbc06e1e37",
+    "bytes": 887
+  },
+  {
+    "path": "public/repo/BrownianMotion/Choquet/AnalyticSet.lean",
+    "sha256": "2056b20300054ce003a22d9fc5077b303968250b7474e4440bb22b8b97ee7626",
+    "bytes": 51589
+  },
+  {
+    "path": "public/repo/BrownianMotion/Choquet/Capacity.lean",
+    "sha256": "2018673fd9c18de6d70c10cbdf00d7c23d0ba463b985e5423b2919178ce864ff",
+    "bytes": 25346
+  },
+  {
+    "path": "public/repo/BrownianMotion/Choquet/CompactSystem.lean",
+    "sha256": "2a0fc4cca839b7ac3b8c85acaf4c2e198a12d5d55fde833eaff544096ad665eb",
+    "bytes": 23537
+  },
+  {
+    "path": "public/repo/BrownianMotion/Choquet/Debut.lean",
+    "sha256": "5467cdddbcb23c4dec451fa80bf9a6cf7741de95d6f4c179ab6231a84d981c56",
+    "bytes": 27641
+  },
+  {
+    "path": "public/repo/BrownianMotion/Choquet/MeasurableSection.lean",
+    "sha256": "c5e7ca9c79202a13523fecd376b4cd9445a1ebc0f2dfac7415440e9a4951ef2d",
+    "bytes": 23582
+  },
+  {
+    "path": "public/repo/BrownianMotion/Continuity/Chaining.lean",
+    "sha256": "705bf609ae98ad8227985830f9f50fdfef86a01cdc0c925142bbcca4507a047b",
+    "bytes": 13359
+  },
+  {
+    "path": "public/repo/BrownianMotion/Continuity/CoveringNumber.lean",
+    "sha256": "dd50ae600ba740e011dda40597b5a4a84c1781458b9fdb81a638d88c4a785da4",
+    "bytes": 8884
+  },
+  {
+    "path": "public/repo/BrownianMotion/Continuity/HasBoundedInternalCoveringNumber.lean",
+    "sha256": "d169aba72155a5b7dfcb89cd13568082f9146da3f8ebdf83c72a2489d969e588",
+    "bytes": 7841
+  },
+  {
+    "path": "public/repo/BrownianMotion/Continuity/IsKolmogorovProcess.lean",
+    "sha256": "e2ab3360724b02661981dc8d46164ed943d52fbf96b85b5586481077bf90b02f",
+    "bytes": 53754
+  },
+  {
+    "path": "public/repo/BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "sha256": "1a7a49bd8f70368810f1f7a9c1b42b20d0fdeaf1fbf9f3f125452bc0c1c050ed",
+    "bytes": 42570
+  },
+  {
+    "path": "public/repo/BrownianMotion/Continuity/KolmogorovChentsovInequality.lean",
+    "sha256": "0e3d9f8b665d5c3b215ad0c6ffdf88f9e7058dbb0ac28c8dc8bd1a30b979a56c",
+    "bytes": 18540
+  },
+  {
+    "path": "public/repo/BrownianMotion/Continuity/LimitModification.lean",
+    "sha256": "971828f61f311578c0a88233e82504ea7838cdc818bb50a00f26678c0c97868e",
+    "bytes": 18961
+  },
+  {
+    "path": "public/repo/BrownianMotion/Gaussian/BrownianMotion.lean",
+    "sha256": "5971d281b2e478fdfcf8275679074c6d382ec0e382c2affcfee2770b33d5f0b2",
+    "bytes": 28596
+  },
+  {
+    "path": "public/repo/BrownianMotion/Gaussian/CovMatrix.lean",
+    "sha256": "5ad3b90b274824fcd2476226ab30b008b9080782278c643275a28776ea3f0d27",
+    "bytes": 3878
+  },
+  {
+    "path": "public/repo/BrownianMotion/Gaussian/Gaussian.lean",
+    "sha256": "7970de8c7bceb385a286a4dc9b5ddbf377102fdd9943c68baf852a12b66f7a64",
+    "bytes": 934
+  },
+  {
+    "path": "public/repo/BrownianMotion/Gaussian/GaussianProcess.lean",
+    "sha256": "0a51f1274533938eb90b61d2f038ce6edf1fe5000f883cfbae45542eda123dfe",
+    "bytes": 1754
+  },
+  {
+    "path": "public/repo/BrownianMotion/Gaussian/IteratedLogarithm.lean",
+    "sha256": "9e9b67c6cd5df3f8e6d40f66d6bd4ed5f4f7d515a34e6231d797daefd3d2b433",
+    "bytes": 15727
+  },
+  {
+    "path": "public/repo/BrownianMotion/Gaussian/Moment.lean",
+    "sha256": "b0ac8d9e3909883a17b334822a56e50c797c6cbb13cdc90648038f556c332226",
+    "bytes": 747
+  },
+  {
+    "path": "public/repo/BrownianMotion/Gaussian/MultivariateGaussian.lean",
+    "sha256": "6d79d29246c5ff58f11a8801a1787173de1c3371d6adb7b6b318c2ad5358de6b",
+    "bytes": 2604
+  },
+  {
+    "path": "public/repo/BrownianMotion/Gaussian/ProjectiveLimit.lean",
+    "sha256": "0383e10ef62ec0f3aaff30cfd64ec9a90c1ab78fbb64f7f23668d693e8e97840",
+    "bytes": 9694
+  },
+  {
+    "path": "public/repo/BrownianMotion/Gaussian/StochasticProcesses.lean",
+    "sha256": "c5fc98b72eb3044fe49add5b47ce10ec8a9aeb1e47aa11aa32a91a2e0c393f81",
+    "bytes": 2399
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/ApproxSeq.lean",
+    "sha256": "4ad2ae12467f28431e67c024ece07dc8dfdbd5a201f015a2b1a0ebd0b1ccd06e",
+    "bytes": 20093
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/Cadlag.lean",
+    "sha256": "3ba787cbb9baab9f84e1179c93d3efbba2d075881835a5d4a4322ad2cbf26b6f",
+    "bytes": 13263
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/ClassD.lean",
+    "sha256": "ee5f09f1c42251d4e9ed7f51322f1d6a2980cef8a25c335aea658221c4013c6b",
+    "bytes": 48053
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/ContinuousSquareIntegrable.lean",
+    "sha256": "2cbd0812261cc673dd7950cbf6fdf19143b295eee21a256eb8aebf69074ff3cb",
+    "bytes": 20421
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/ConvexWeights.lean",
+    "sha256": "73b9f04ce25e8e91fec4b45d281f6ca5c7f637a1fae5305903c6621b4b0235c8",
+    "bytes": 4220
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/DoobLp.lean",
+    "sha256": "9928b2d502d3cbd7f9774e12eb7936be3e09ff392d0f10765bd6c250dece569c",
+    "bytes": 26519
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/DoobMeyer.lean",
+    "sha256": "d452bfc52e168fde37eb2bb317a23485f3d133e87312b7f66a786fe7344b22b3",
+    "bytes": 189558
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/DoobMeyerClassDL.lean",
+    "sha256": "3789cb7eedf22be7f95ca33f09a59a7e9e73a209cedb4caf1290107440c49778",
+    "bytes": 20638
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/Jump.lean",
+    "sha256": "2707aecf1b2cd4dd359dcfd9a32118e6a2db2cafdb01d767a4babf707d76f047",
+    "bytes": 6032
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/Komlos.lean",
+    "sha256": "9c1c4316e1dc0775f6e86075c5aecfdeeb4687a5c1e7ddae726bf8bfae822f26",
+    "bytes": 29792
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/L2M.lean",
+    "sha256": "aae86a69a9f1c2dd4b4ea70cecf2451bf15edff82a98ab680cd0d924f6ac1fc3",
+    "bytes": 1055
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/LocalMartingale.lean",
+    "sha256": "5ea5530e706b8c1c88a1cbf297b8786885fe3dd89da07c85d5a3ec8ac3a2ffb6",
+    "bytes": 4008
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/LocalMonad.lean",
+    "sha256": "97afc5cc39af641b24b138c54279345ab96de39884680b123fbe248e0251c9e6",
+    "bytes": 2032
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/LocalizingLeastGE.lean",
+    "sha256": "38347bc865ba7cecd4002c756278d7a3f2a510efa6bf848a2644475b845e10cf",
+    "bytes": 8291
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/LocalizingSequence.lean",
+    "sha256": "854d5d39dc97589fc7af670265be92a208b5759f0995f80e517c8cd6952878b5",
+    "bytes": 8706
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/Locally.lean",
+    "sha256": "384c03aeefe5964ff9b9970e96ea29c30c00b9323974638764e2402bbb68a38d",
+    "bytes": 14780
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/MathlibImports.lean",
+    "sha256": "817155c7be8114133ca002c3f387ce210d7fc3fa8e46e5a369cefd704b047985",
+    "bytes": 306
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/MonotoneProcess.lean",
+    "sha256": "b36064eb3230b5aa534d5f396ee05708469d7ba35ce7ae57537bc43e63c8ccdd",
+    "bytes": 15799
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/OptionalSampling.lean",
+    "sha256": "e0c6619113faf1b7d6f3382ce6c30f1c70b75dca5bd6ffcb06b2ea34e70cf367",
+    "bytes": 16910
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/Predictable.lean",
+    "sha256": "f7343bf59842b18db0ffe03631e59c25c7ecac79dc3bd87e0c4147508b36b06c",
+    "bytes": 21757
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/PredictableTime.lean",
+    "sha256": "3e66e0965c07d270c15423466bcfdc96927291e01d4bbb65b7c2ebe746a6d808",
+    "bytes": 10209
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/QuadraticVariation.lean",
+    "sha256": "a070a14b8061f62be4fe43dc9a36e025cf82b200dcc563281f937c3aae59f5ac",
+    "bytes": 5296
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/Quasimartingale/Basic.lean",
+    "sha256": "5697dd9c87bd02d7927572c2ab37889085f1ebf68eee467e97fcf47cce2bd748",
+    "bytes": 10175
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/Quasimartingale/CadlagModification.lean",
+    "sha256": "53707d086fcdda278b1d74af0839831395582272d7fea1fb2fb62c67238d0b4b",
+    "bytes": 78541
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/Quasimartingale/CadlagModificationBanach.lean",
+    "sha256": "4b097eb796dcf093abd937bf40436aca22d8b2a2342cc57f52770464c0bcd62c",
+    "bytes": 24010
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/Quasimartingale/MaximalInequality.lean",
+    "sha256": "26641626dddbc5270fb18f46ce2e5e889d7552d16cbf1f84a1aca3a65c747660",
+    "bytes": 46312
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/SimpleProcess.lean",
+    "sha256": "d2051d8d794fcb397b30afa4baeddc629e4362ce17e5baef8840d1c7902ea0f4",
+    "bytes": 39874
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/SquareIntegrable.lean",
+    "sha256": "1a6fd5d1fbcc6a790d93e87843bbf986b86ed2e06f9de68128cd61eaaf831de2",
+    "bytes": 47102
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/StochasticIntegral.lean",
+    "sha256": "b79092b910b1070f74dfb3420ce1e02e8f56a11d445ef1466a3f6c93101e2e4c",
+    "bytes": 4695
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/StochasticInterval.lean",
+    "sha256": "9fdc08d142298c906b31364f959764e217633c1cf9f0a4f958a5b9565fff0431",
+    "bytes": 8660
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/UniformIntegrable.lean",
+    "sha256": "7259b32e1d8ca78e1b7d7a79c04050a173888af9e82fa066beeb4702f0befc18",
+    "bytes": 26291
+  },
+  {
+    "path": "public/repo/BrownianMotion/StochasticIntegral/VariationProcess.lean",
+    "sha256": "565e499a7abdd7a9ee15dd41e38e096ed5e093188c7a472c0e22fdda013ec53d",
+    "bytes": 10811
+  },
+  {
+    "path": "public/repo/BrownianMotion/Verso/Brownian.lean",
+    "sha256": "3c2407da646799bc7cd63c6fecc1a42febc69287220b8abf8827e36b07ae4fab",
+    "bytes": 3293
+  },
+  {
+    "path": "public/repo/BrownianMotion/Verso/Processes.lean",
+    "sha256": "948bf70d5bed3d6419c3e9eda16ff51519e2d579e4c1e2315bcb099bea18f468",
+    "bytes": 216
+  },
+  {
+    "path": "public/repo/BrownianMotion.lean",
+    "sha256": "85efd718da771868ccd79aaed5a5bf5ef79cb97010a2abfeda1d31f37bdd7109",
+    "bytes": 5119
+  },
+  {
+    "path": "public/repo/CODE_OF_CONDUCT.md",
+    "sha256": "c49fc8d612f5c55f6ee2715634e30f91e74bffc1b984c13d2468ccb67e114aac",
+    "bytes": 5315
+  },
+  {
+    "path": "public/repo/CONTRIBUTING.md",
+    "sha256": "3d89c8f8c35b56e6aa5611e864dac0e5cc297a6aa969f4a63c0c052c81771d75",
+    "bytes": 4270
+  },
+  {
+    "path": "public/repo/LICENSE",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "bytes": 11357
+  },
+  {
+    "path": "public/repo/README.md",
+    "sha256": "8ed11da812d322ff3c8c953a122324d54b9c3185c848096dc5e1fb338a50b47e",
+    "bytes": 2462
+  },
+  {
+    "path": "public/repo/home_page/404.html",
+    "sha256": "3656b4255ad0d31f02645b3f0bf8c3ada9f1c42c2b9740153ae39cb93220c010",
+    "bytes": 418
+  },
+  {
+    "path": "public/repo/home_page/Gemfile",
+    "sha256": "80a35f34f9467693efc189ae8d20ad43496d64d129545d5bbad368b5287f0a8a",
+    "bytes": 802
+  },
+  {
+    "path": "public/repo/home_page/Gemfile.lock",
+    "sha256": "8358b3204e763718ec49a6c6aa9c72997c720c7fe824ab78848aea8471f70b53",
+    "bytes": 8040
+  },
+  {
+    "path": "public/repo/home_page/_config.yml",
+    "sha256": "f5b64df090d6b8f0a9629d05b8e12b80cc88fb4d1ae0233b3a97e1dce1bc29e2",
+    "bytes": 1476
+  },
+  {
+    "path": "public/repo/home_page/_include/mathjax.html",
+    "sha256": "533685885123d28a1f4a7651f0b658a24ec916e3d43fc6cfe4272ebbcf241f82",
+    "bytes": 565
+  },
+  {
+    "path": "public/repo/home_page/_layouts/default.html",
+    "sha256": "93f628960ebe57b528e0240fe17240fda940d1e607d1c47e5db28350de4cbe8d",
+    "bytes": 2077
+  },
+  {
+    "path": "public/repo/home_page/assets/css/style.scss",
+    "sha256": "c5bbf725faae2d551a2e374173648a3ce3fac4ce62a10271475cb03722f791bf",
+    "bytes": 210
+  },
+  {
+    "path": "public/repo/home_page/index.md",
+    "sha256": "ba71f9bd5c078baa112bc901aa0efaeaf0b87052733ca869e68598ec606e7586",
+    "bytes": 597
+  },
+  {
+    "path": "public/repo/home_page/upstreaming.md",
+    "sha256": "078bfe9bd5fc2e6a4735e646bbe236f6df9f261045c2d84b17f407b1b48b6899",
+    "bytes": 77
+  },
+  {
+    "path": "public/repo/lake-manifest.json",
+    "sha256": "11242be2ee0701a8d9e2a0374ade0342c1d1e355472aad65200bca2b6c38944c",
+    "bytes": 4074
+  },
+  {
+    "path": "public/repo/lakefile.toml",
+    "sha256": "c156ba859fc6eddf1b0d657d232ce96b2252399ec7cf71aab644d435a86a9a81",
+    "bytes": 727
+  },
+  {
+    "path": "public/repo/lean-toolchain",
+    "sha256": "02f25adee7c1d6bf2e95b7b5b13f45b9892c7dd53ef470d5372ac60bda3df023",
+    "bytes": 28
+  },
+  {
+    "path": "public/repo/scripts/nolints.json",
+    "sha256": "9081c6afed0ad81a8a15953ebefdee3afff94089193f7c699bee4cf545902884",
+    "bytes": 1300
+  },
+  {
+    "path": "public/score_design.json",
+    "sha256": "2896f0f0b0155160de8613dff03f5ca35236ac1460b2616690002921f8d2bfe6",
+    "bytes": 452
+  },
+  {
+    "path": "public/scoring_metadata.json",
+    "sha256": "7bf5ac91b78e122fda6a5f1655fa228db7630e73bb75bd91b6447b213054cb68",
+    "bytes": 842
+  },
+  {
+    "path": "public/targets.json",
+    "sha256": "13915fe76114a2674577f642eb9737302e4b0ae17ba4e2055f5d37eac668cdc0",
+    "bytes": 17335
+  },
+  {
+    "path": "solution/reference/BrownianMotion/Continuity/CoveringNumber.lean",
+    "sha256": "6269578d11492d0b8299a05162702c8c6f97a6ca6bbba2fe44972fc0f0620c32",
+    "bytes": 17008
+  },
+  {
+    "path": "solution/reference/BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "sha256": "d4cf5e61dcba4b725b7b74c878e2ebf8f6bd104e57a7f05bd953fd9a0cb59248",
+    "bytes": 64588
+  },
+  {
+    "path": "solution/reference/BrownianMotion/Gaussian/BrownianMotion.lean",
+    "sha256": "e5142a8b075d3296395f591b6e43ecdbc558cff22650811518a70b17b67be69a",
+    "bytes": 38674
+  },
+  {
+    "path": "solution/reference/BrownianMotion/Gaussian/CovMatrix.lean",
+    "sha256": "a0880dc55aad019b0dd3d9cc14ece23424180c70d4ea78c55fabefefb8d6f9ab",
+    "bytes": 5045
+  },
+  {
+    "path": "solution/reference/BrownianMotion/Gaussian/Moment.lean",
+    "sha256": "390863347a16cea00ec9651ed9a1608a29c8b2982c635249c4dd7e788ed5f846",
+    "bytes": 6851
+  },
+  {
+    "path": "solution/solve.py",
+    "sha256": "8fdc7a6523c7c27a83499b29459a11f22beff2f15522d5bc2c646bd960d24aa4",
+    "bytes": 213
+  },
+  {
+    "path": "source_provenance.json",
+    "sha256": "3796e4c4fbc1f2cb770f67f945c32d3b0c8528743847aa28734fa68a7cce63a5",
+    "bytes": 2036
+  },
+  {
+    "path": "task.toml",
+    "sha256": "b2bebca1541199b1c719034c5bee30e695c5b67f1653824e597db133b0b1ad54",
+    "bytes": 1191
+  },
+  {
+    "path": "tools/start_run.py",
+    "sha256": "062d6b640839a9f3638930f8127081d5a32440630308fa69f367d884e4a7f9aa",
+    "bytes": 432
+  },
+  {
+    "path": "tools/submit.py",
+    "sha256": "dbbb0ea14b018d50207154f0f5cde9d45f443fdf26ca5a8df3adcc541e7edcf9",
+    "bytes": 3556
+  },
+  {
+    "path": "verifier/entry.py",
+    "sha256": "cd1d5a69d7ee140b3a2b2d9d3672c2c3be96c4bbb3a08d176c0603abceec20f1",
+    "bytes": 1042
+  },
+  {
+    "path": "verifier/grader.py",
+    "sha256": "2015ad93d6ac143b6a9f6ea00664429c1edb0d38da938ca809d0668376d65889",
+    "bytes": 3465
+  },
+  {
+    "path": "verifier/runtime.py",
+    "sha256": "c380b1e65faf1a1f2c7c91745d250147dd55c2ebc5ba11af56ca7dddc4533813",
+    "bytes": 6505
+  }
+]

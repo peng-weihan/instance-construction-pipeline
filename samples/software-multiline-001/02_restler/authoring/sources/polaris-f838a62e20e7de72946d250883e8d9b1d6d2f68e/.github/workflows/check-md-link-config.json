@@ -1,0 +1,24 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "^https?://localhost.*"
+    },
+    {
+      "_comment": "mvnrepository blocks requests originating from GitHub Actions",
+      "pattern": "https://mvnrepository.com/artifact/org.apache.iceberg/iceberg-spark"
+    },
+    {
+      "_comment": "medium blocks requests originating from GitHub Actions",
+      "pattern": "https://medium.com/"
+    },
+    { 
+      "pattern": "https://kubernetes.io/"
+    },
+    {
+      "pattern": "https://github.com/apache/polaris/settings/secrets"
+    },
+    {
+      "pattern": "https://github.com/apache/polaris-tools/settings/secrets"
+    }
+  ]
+}

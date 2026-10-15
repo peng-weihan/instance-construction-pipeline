@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "required_files": 15,
+  "all_authored_json_parsed": true,
+  "preserved_upstream_jsonc": "environment/starter/lib/binding_web/tsconfig.json",
+  "score_spec_copies_identical": true,
+  "frozen_named_checks": 198,
+  "work_private_answer_absent": true,
+  "self_contained_COPY_sources": {
+    "environment": [
+      "starter/",
+      "grammar/",
+      "public/",
+      "score-spec.json",
+      "toolchain-snapshot.json"
+    ],
+    "verifier": [
+      "public/",
+      "private/",
+      "probe.c",
+      "score-spec.json",
+      "toolchain-snapshot.json",
+      "tests/"
+    ]
+  },
+  "root_judge_tests_identical": true,
+  "reward_structured_score_consistent": true,
+  "safe_reference_archive_paths": true,
+  "scope": "static closure/integrity, not container/runtime/difficulty acceptance"
+}

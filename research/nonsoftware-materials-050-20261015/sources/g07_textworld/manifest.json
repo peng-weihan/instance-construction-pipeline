@@ -1,0 +1,57 @@
+{
+  "repo": "microsoft/TextWorld",
+  "revision": "6d88a0845bc904751d3b7f128d61f21cabdf6f70",
+  "resolved_utc": "2026-10-15T14:58:55.103501+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:41.640474+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "befdbd3f47633956fc1e4dd63c2f5a5d4e40eced1f0538d7aea7801ea10576ef",
+    "truncated": false,
+    "blob_count": 351
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE.txt",
+      "bytes": 1107,
+      "sha256": "1cd8760aca172397e4689d12ad0d846ee8015f617a5fcdb6b00623167859e9b6",
+      "url": "https://github.com/microsoft/TextWorld/blob/6d88a0845bc904751d3b7f128d61f21cabdf6f70/LICENSE.txt"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8103,
+      "sha256": "ee227420d571ba249133882d8781a3b7df709cf7efa488cf29379dc97743f67b",
+      "url": "https://github.com/microsoft/TextWorld/blob/6d88a0845bc904751d3b7f128d61f21cabdf6f70/README.md"
+    },
+    {
+      "path": "textworld/challenges/tests/test_cooking.py",
+      "bytes": 3276,
+      "sha256": "735e90d31f96be9e9f1fd08c5e2f00451f24fd1a3a97092e509067d1cc7bbd3f",
+      "url": "https://github.com/microsoft/TextWorld/blob/6d88a0845bc904751d3b7f128d61f21cabdf6f70/textworld/challenges/tests/test_cooking.py"
+    },
+    {
+      "path": "textworld/challenges/tw_cooking/README.md",
+      "bytes": 433,
+      "sha256": "bbe3ddd4268dd0646daf6ed40157a628d3364487e78ff3e2edc0f219f4fc7e8a",
+      "url": "https://github.com/microsoft/TextWorld/blob/6d88a0845bc904751d3b7f128d61f21cabdf6f70/textworld/challenges/tw_cooking/README.md"
+    },
+    {
+      "path": "textworld/challenges/tw_cooking/cooking.py",
+      "bytes": 49652,
+      "sha256": "80d80402199e76e93e567c6cee88cf3ee42a25e573afa6c1c7d30664a885436a",
+      "url": "https://github.com/microsoft/TextWorld/blob/6d88a0845bc904751d3b7f128d61f21cabdf6f70/textworld/challenges/tw_cooking/cooking.py"
+    },
+    {
+      "path": "textworld/generator/game.py",
+      "bytes": 46981,
+      "sha256": "8d732f5f168dc13439401b8af845b048782b72c3ed0e53fc6a186158932bde33",
+      "url": "https://github.com/microsoft/TextWorld/blob/6d88a0845bc904751d3b7f128d61f21cabdf6f70/textworld/generator/game.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

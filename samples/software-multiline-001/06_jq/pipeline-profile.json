@@ -1,0 +1,9 @@
+{
+  "agent_image": "edgebench-jq-profile-work:pilot-001",
+  "verifier_image": "edgebench-jq-profile-judge:pilot-001",
+  "artifacts": [
+    "/home/workspace/jq-profile/submission/"
+  ],
+  "selection": "valid_then_score",
+  "score_direction": "maximize"
+}

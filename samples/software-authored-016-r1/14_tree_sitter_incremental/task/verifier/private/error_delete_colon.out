@@ -1,0 +1,248 @@
+@initial
+0 module 1 0 0 0 0 0 24 0 0 3 0
+field -
+1 if_statement 1 0 0 0 0 0 17 0 0 1 8
+field -
+2 if 0 0 0 0 0 0 2 0 0 0 2
+field condition
+2 true 1 0 0 0 0 3 7 0 3 0 7
+field -
+2 : 0 0 0 0 0 7 8 0 7 0 8
+field consequence
+2 block 1 0 0 0 0 13 17 1 4 1 8
+field -
+3 pass_statement 1 0 0 0 0 13 17 1 4 1 8
+field -
+4 pass 0 0 0 0 0 13 17 1 4 1 8
+field -
+1 expression_statement 1 0 0 0 0 18 23 2 0 2 5
+field -
+2 assignment 1 0 0 0 0 18 23 2 0 2 5
+field left
+3 identifier 1 0 0 0 0 18 19 2 0 2 1
+field -
+3 = 0 0 0 0 0 20 21 2 2 2 3
+field right
+3 integer 1 0 0 0 0 22 23 2 4 2 5
+@end
+@sexp
+(module (if_statement (true) (block (pass_statement))) (expression_statement (assignment (identifier) (integer))))
+@end
+@edited
+0 module 1 0 0 0 0 0 23 0 0 3 0 1
+field -
+1 if_statement 1 0 0 0 0 0 16 0 0 1 8 1
+field -
+2 if 0 0 0 0 0 0 2 0 0 0 2 0
+field condition
+2 true 1 0 0 0 0 3 7 0 3 0 7 1
+field -
+2 : 0 0 0 0 0 7 7 0 7 0 7 1
+field consequence
+2 block 1 0 0 0 0 12 16 1 4 1 8 0
+field -
+3 pass_statement 1 0 0 0 0 12 16 1 4 1 8 0
+field -
+4 pass 0 0 0 0 0 12 16 1 4 1 8 0
+field -
+1 expression_statement 1 0 0 0 0 17 22 2 0 2 5 0
+field -
+2 assignment 1 0 0 0 0 17 22 2 0 2 5 0
+field left
+3 identifier 1 0 0 0 0 17 18 2 0 2 1 0
+field -
+3 = 0 0 0 0 0 19 20 2 2 2 3 0
+field right
+3 integer 1 0 0 0 0 21 22 2 4 2 5 0
+@end
+@copy
+0 module 1 0 0 0 0 0 24 0 0 3 0 0
+field -
+1 if_statement 1 0 0 0 0 0 17 0 0 1 8 0
+field -
+2 if 0 0 0 0 0 0 2 0 0 0 2 0
+field condition
+2 true 1 0 0 0 0 3 7 0 3 0 7 0
+field -
+2 : 0 0 0 0 0 7 8 0 7 0 8 0
+field consequence
+2 block 1 0 0 0 0 13 17 1 4 1 8 0
+field -
+3 pass_statement 1 0 0 0 0 13 17 1 4 1 8 0
+field -
+4 pass 0 0 0 0 0 13 17 1 4 1 8 0
+field -
+1 expression_statement 1 0 0 0 0 18 23 2 0 2 5 0
+field -
+2 assignment 1 0 0 0 0 18 23 2 0 2 5 0
+field left
+3 identifier 1 0 0 0 0 18 19 2 0 2 1 0
+field -
+3 = 0 0 0 0 0 20 21 2 2 2 3 0
+field right
+3 integer 1 0 0 0 0 22 23 2 4 2 5 0
+@end
+@handle
+0 if_statement 1 0 0 0 0 0 17 0 0 1 8 0
+field -
+1 if 0 0 0 0 0 0 2 0 0 0 2 0
+field condition
+1 true 1 0 0 0 0 3 7 0 3 0 7 0
+field -
+1 : 0 0 0 0 0 7 8 0 7 0 8 0
+field consequence
+1 block 1 0 0 0 0 13 17 1 4 1 8 0
+field -
+2 pass_statement 1 0 0 0 0 13 17 1 4 1 8 0
+field -
+3 pass 0 0 0 0 0 13 17 1 4 1 8 0
+@end
+@included
+0 4294967295 0 0 4294967295 4294967295
+@end
+@parsed
+0 module 1 0 0 0 1 0 23 0 0 3 0
+field -
+1 ERROR 1 1 0 1 1 0 22 0 0 2 5
+field -
+2 if 0 0 0 0 0 0 2 0 0 0 2
+field -
+2 true 1 0 0 0 0 3 7 0 3 0 7
+field -
+2 identifier 1 0 0 0 0 12 16 1 4 1 8
+field -
+2 identifier 1 0 0 0 0 17 18 2 0 2 1
+field -
+2 = 0 0 0 0 0 19 20 2 2 2 3
+field -
+2 integer 1 0 0 0 0 21 22 2 4 2 5
+@end
+@fresh
+0 module 1 0 0 0 1 0 23 0 0 3 0
+field -
+1 ERROR 1 1 0 1 1 0 22 0 0 2 5
+field -
+2 if 0 0 0 0 0 0 2 0 0 0 2
+field -
+2 true 1 0 0 0 0 3 7 0 3 0 7
+field -
+2 identifier 1 0 0 0 0 12 16 1 4 1 8
+field -
+2 identifier 1 0 0 0 0 17 18 2 0 2 1
+field -
+2 = 0 0 0 0 0 19 20 2 2 2 3
+field -
+2 integer 1 0 0 0 0 21 22 2 4 2 5
+@end
+@changed
+0 22 0 0 2 5
+@end
+@edited
+0 module 1 0 0 0 1 0 24 0 0 3 0 1
+field -
+1 ERROR 1 1 0 1 1 0 23 0 0 2 5 1
+field -
+2 if 0 0 0 0 0 0 2 0 0 0 2 0
+field -
+2 true 1 0 0 0 0 3 8 0 3 0 8 1
+field -
+2 identifier 1 0 0 0 0 13 17 1 4 1 8 0
+field -
+2 identifier 1 0 0 0 0 18 19 2 0 2 1 0
+field -
+2 = 0 0 0 0 0 20 21 2 2 2 3 0
+field -
+2 integer 1 0 0 0 0 22 23 2 4 2 5 0
+@end
+@copy
+0 module 1 0 0 0 1 0 23 0 0 3 0 0
+field -
+1 ERROR 1 1 0 1 1 0 22 0 0 2 5 0
+field -
+2 if 0 0 0 0 0 0 2 0 0 0 2 0
+field -
+2 true 1 0 0 0 0 3 7 0 3 0 7 0
+field -
+2 identifier 1 0 0 0 0 12 16 1 4 1 8 0
+field -
+2 identifier 1 0 0 0 0 17 18 2 0 2 1 0
+field -
+2 = 0 0 0 0 0 19 20 2 2 2 3 0
+field -
+2 integer 1 0 0 0 0 21 22 2 4 2 5 0
+@end
+@handle
+0 ERROR 1 1 0 1 1 0 22 0 0 2 5 0
+field -
+1 if 0 0 0 0 0 0 2 0 0 0 2 0
+field -
+1 true 1 0 0 0 0 3 7 0 3 0 7 0
+field -
+1 identifier 1 0 0 0 0 12 16 1 4 1 8 0
+field -
+1 identifier 1 0 0 0 0 17 18 2 0 2 1 0
+field -
+1 = 0 0 0 0 0 19 20 2 2 2 3 0
+field -
+1 integer 1 0 0 0 0 21 22 2 4 2 5 0
+@end
+@included
+0 4294967295 0 0 4294967295 4294967295
+@end
+@parsed
+0 module 1 0 0 0 0 0 24 0 0 3 0
+field -
+1 if_statement 1 0 0 0 0 0 17 0 0 1 8
+field -
+2 if 0 0 0 0 0 0 2 0 0 0 2
+field condition
+2 true 1 0 0 0 0 3 7 0 3 0 7
+field -
+2 : 0 0 0 0 0 7 8 0 7 0 8
+field consequence
+2 block 1 0 0 0 0 13 17 1 4 1 8
+field -
+3 pass_statement 1 0 0 0 0 13 17 1 4 1 8
+field -
+4 pass 0 0 0 0 0 13 17 1 4 1 8
+field -
+1 expression_statement 1 0 0 0 0 18 23 2 0 2 5
+field -
+2 assignment 1 0 0 0 0 18 23 2 0 2 5
+field left
+3 identifier 1 0 0 0 0 18 19 2 0 2 1
+field -
+3 = 0 0 0 0 0 20 21 2 2 2 3
+field right
+3 integer 1 0 0 0 0 22 23 2 4 2 5
+@end
+@fresh
+0 module 1 0 0 0 0 0 24 0 0 3 0
+field -
+1 if_statement 1 0 0 0 0 0 17 0 0 1 8
+field -
+2 if 0 0 0 0 0 0 2 0 0 0 2
+field condition
+2 true 1 0 0 0 0 3 7 0 3 0 7
+field -
+2 : 0 0 0 0 0 7 8 0 7 0 8
+field consequence
+2 block 1 0 0 0 0 13 17 1 4 1 8
+field -
+3 pass_statement 1 0 0 0 0 13 17 1 4 1 8
+field -
+4 pass 0 0 0 0 0 13 17 1 4 1 8
+field -
+1 expression_statement 1 0 0 0 0 18 23 2 0 2 5
+field -
+2 assignment 1 0 0 0 0 18 23 2 0 2 5
+field left
+3 identifier 1 0 0 0 0 18 19 2 0 2 1
+field -
+3 = 0 0 0 0 0 20 21 2 2 2 3
+field right
+3 integer 1 0 0 0 0 22 23 2 4 2 5
+@end
+@changed
+0 23 0 0 2 5
+@end

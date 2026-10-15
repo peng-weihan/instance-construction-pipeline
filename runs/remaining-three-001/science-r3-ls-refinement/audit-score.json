@@ -1,0 +1,39 @@
+{
+  "status": "scored",
+  "score": 0.8918017648059667,
+  "valid": true,
+  "checks": [
+    {
+      "name": "physical_parameters",
+      "pass": true,
+      "summary": ""
+    },
+    {
+      "name": "contaminant/finite_prediction",
+      "pass": true,
+      "summary": ""
+    },
+    {
+      "name": "contaminant/relative_rmse_below_one",
+      "pass": true,
+      "summary": ""
+    },
+    {
+      "name": "contaminant/log_rmse_below_one",
+      "pass": true,
+      "summary": ""
+    }
+  ],
+  "raw_metrics": {
+    "experiments": {
+      "contaminant": {
+        "relative_rmse": 0.3130227190246863,
+        "log_rmse": 0.38035199909384215,
+        "observations": 231,
+        "score": 0.8918017648059667
+      }
+    },
+    "aggregation": "original prediction-quality formula on operational contaminant predictions; calibration is auxiliary data"
+  },
+  "summary": "4/4 named checks passed"
+}

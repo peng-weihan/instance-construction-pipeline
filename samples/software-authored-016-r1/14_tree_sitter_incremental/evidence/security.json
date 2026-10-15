@@ -1,0 +1,17 @@
+{
+  "compile_incbin_blocked": true,
+  "incbin_exit_code": 1,
+  "real_private_open_and_reward_write_denied": {
+    "65534": {
+      "private": true,
+      "reward": true
+    },
+    "65533": {
+      "private": true,
+      "reward": true
+    }
+  },
+  "tested_private": "task/verifier/private/reference.tar",
+  "tested_reward": "evidence/nop/reward.txt",
+  "scope": "local file permissions and UID separation; not container/network certification"
+}

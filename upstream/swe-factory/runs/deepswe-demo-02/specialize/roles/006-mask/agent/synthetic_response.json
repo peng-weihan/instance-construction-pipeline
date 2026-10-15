@@ -1,0 +1,20 @@
+{
+  "status": "ok",
+  "instruction": "Implement merge_many(*layers), combining all dictionaries from left to right. Later values override earlier ones. Preserve combine and plain.",
+  "target_command": [
+    "{python}",
+    "-m",
+    "pytest",
+    "tests/test_specialized.py",
+    "-q"
+  ],
+  "regression_command": [
+    "{python}",
+    "-m",
+    "pytest",
+    "tests/test_regression.py",
+    "tests/test_target.py",
+    "-q"
+  ],
+  "build_command": []
+}

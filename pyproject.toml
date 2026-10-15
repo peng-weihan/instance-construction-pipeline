@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "edgebench-factory-prototype"
+version = "0.1.0"
+description = "Reproducible task generation and quality gates for EdgeBench-style instances"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+edge-factory = "edge_factory.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["edge_factory*"]

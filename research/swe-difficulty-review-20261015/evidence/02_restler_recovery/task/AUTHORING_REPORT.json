@@ -1,0 +1,224 @@
+{
+  "status": "constructed_unverified",
+  "stages": {
+    "material_acquired": true,
+    "constructed_unverified": true,
+    "local_checks_completed": true,
+    "held_for_evidence": false,
+    "rejected": false
+  },
+  "source_revision": "6d984deedbc54aad957fa3da0c7e9e5df23a2aee",
+  "task_path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/02_restler_recovery/task",
+  "teacher_started": false,
+  "subagents_started": false,
+  "container_runtime_verified": false,
+  "ARM_verified": false,
+  "six_hour_difficulty_verified": false,
+  "reference_implemented": true,
+  "reference_mechanism": "native BFS response/UUID/generation replay + stable pending Idempotency-Key",
+  "service": "fixed upstream real FastAPI demo_server; Polaris not claimed",
+  "controls": {
+    "reference_repeat_1": {
+      "valid": true,
+      "score": 1.0,
+      "evidence": "evidence/release-reference1-score/score.json",
+      "passed": [
+        "legacy_native_campaign",
+        "fresh_durable_campaign",
+        "completed_resume_no_wire",
+        "pending_create_after_kill",
+        "dependency_and_delete_recovery",
+        "lost_response_same_process",
+        "uuid_replay",
+        "torn_tail_and_snapshot_fallback",
+        "corrupt_journal_fails_closed",
+        "configuration_binding",
+        "exclusive_owner",
+        "unsupported_options_fail_closed"
+      ],
+      "native_reward_exists": true,
+      "native_matches_score": true
+    },
+    "reference_repeat_2": {
+      "valid": true,
+      "score": 1.0,
+      "evidence": "evidence/release-reference2-score/score.json",
+      "passed": [
+        "legacy_native_campaign",
+        "fresh_durable_campaign",
+        "completed_resume_no_wire",
+        "pending_create_after_kill",
+        "dependency_and_delete_recovery",
+        "lost_response_same_process",
+        "uuid_replay",
+        "torn_tail_and_snapshot_fallback",
+        "corrupt_journal_fails_closed",
+        "configuration_binding",
+        "exclusive_owner",
+        "unsupported_options_fail_closed"
+      ],
+      "native_reward_exists": true,
+      "native_matches_score": true
+    },
+    "nop": {
+      "valid": true,
+      "score": 0.1,
+      "evidence": "evidence/release-nop-score/score.json",
+      "passed": [
+        "legacy_native_campaign"
+      ],
+      "native_reward_exists": true,
+      "native_matches_score": true
+    },
+    "volatile_uuid": {
+      "valid": true,
+      "score": 0.9,
+      "evidence": "evidence/release-volatile-score/score.json",
+      "passed": [
+        "legacy_native_campaign",
+        "fresh_durable_campaign",
+        "completed_resume_no_wire",
+        "pending_create_after_kill",
+        "dependency_and_delete_recovery",
+        "lost_response_same_process",
+        "torn_tail_and_snapshot_fallback",
+        "corrupt_journal_fails_closed",
+        "configuration_binding",
+        "exclusive_owner",
+        "unsupported_options_fail_closed"
+      ],
+      "native_reward_exists": true,
+      "native_matches_score": true
+    },
+    "unstable_pending_key": {
+      "valid": true,
+      "score": 0.6000000000000001,
+      "evidence": "evidence/release-unstable-serialized-score/score.json",
+      "passed": [
+        "legacy_native_campaign",
+        "fresh_durable_campaign",
+        "completed_resume_no_wire",
+        "lost_response_same_process",
+        "corrupt_journal_fails_closed",
+        "configuration_binding",
+        "exclusive_owner",
+        "unsupported_options_fail_closed"
+      ],
+      "native_reward_exists": true,
+      "native_matches_score": true
+    },
+    "syntax_error": {
+      "valid": true,
+      "score": 0,
+      "evidence": "evidence/syntax-final-score/score.json",
+      "passed": [],
+      "native_reward_exists": true,
+      "native_matches_score": true
+    },
+    "infrastructure_failure": {
+      "valid": false,
+      "score": null,
+      "evidence": "evidence/infra-final-score/score.json",
+      "passed": [],
+      "native_reward_exists": false,
+      "native_matches_score": null
+    }
+  },
+  "checks": [
+    {
+      "name": "native_structured_reward_equality",
+      "command": "parse score.json and reward.txt; assert equality; verify invalid infra has no reward files",
+      "result": "all final valid outputs match; invalid infra has neither reward.txt nor reward.json",
+      "evidence": "evidence/reward-contract-audit.json"
+    },
+    {
+      "name": "complete_fixed_source",
+      "command": "git clone --no-checkout ... material-src; git checkout --detach 6d984deedbc54aad957fa3da0c7e9e5df23a2aee",
+      "result": "476 tracked files, exact selected-evidence hashes, clean checkout",
+      "evidence": "evidence/acquire.log"
+    },
+    {
+      "name": "cheap_baseline",
+      "command": "native restler.py --use_test_socket --fuzzing_mode bfs ... --garbage_collection_interval 999",
+      "result": "generation 1 PicklingError in dynamic parser; original baseline fail",
+      "evidence": "evidence/cheap-native-gc.log"
+    },
+    {
+      "name": "strengthened_independent_cheap_baseline",
+      "command": ".venv/bin/python evidence/run_cheap_live.py; .venv/bin/python evidence/run_cheap_crash.py",
+      "result": "unbroken exit 0, 26 operations/14 resources; killed/restarted exits -9 then 0, but 28 operations/16 resources and zero ledger hits",
+      "evidence": "evidence/cheap-crash-result.log"
+    },
+    {
+      "name": "native_units",
+      "command": "PYTHONPATH=task/solution/reference/restler .venv/bin/python -m pytest -q -p no:cacheprovider <candidate_values,restler_settings,retry_handler,grammar_schema_parser,auth_parser>",
+      "result": "43 passed",
+      "evidence": "evidence/native-unit.log"
+    },
+    {
+      "name": "native_end_to_end",
+      "command": "pytest test_basic_functionality_end_to_end.py -k \"test_smoke_test or test_fuzz\"",
+      "result": "2 passed, 25 deselected",
+      "evidence": "evidence/native-e2e.log"
+    },
+    {
+      "name": "public_real_service_probe",
+      "command": ".venv/bin/python task/environment/public/dev_probe.py --source task/solution/reference/restler --work evidence/public-probe-final",
+      "result": "SIGKILL -9, resumed 0, 26 operations, 1 pending ledger hit",
+      "evidence": "evidence/public-probe-final.log"
+    },
+    {
+      "name": "offline_dependency_install",
+      "command": ".install-check/bin/python -m pip install --no-index --find-links task/verifier/wheels --require-hashes -r task/verifier/requirements.lock",
+      "result": "succeeded on local Python 3.12.3 x86_64; ARM64 wheels acquired, not executed",
+      "evidence": "evidence/offline-install-final.log"
+    },
+    {
+      "name": "private_and_reward_permissions",
+      "command": ".venv/bin/python evidence/security_probe.py",
+      "result": "UID 2001 private read denied, reference read denied, reward write denied; py_compile private source denied",
+      "evidence": "evidence/permission-audit.json"
+    },
+    {
+      "name": "patch_inverse",
+      "command": "patch -p1 starter-to-reference.patch; patch -p1 reference-to-starter.patch; tree hashes compare",
+      "result": "exact inverse, 202 files match",
+      "evidence": "evidence/patch-replay.json"
+    },
+    {
+      "name": "schema_and_asset_audit",
+      "command": ".venv/bin/python author_audit.py",
+      "result": "actual supplied schema field membership passed; 126 native test assets preserved; full Harbor instantiation not run",
+      "evidence": "evidence/schema-field-audit.json"
+    }
+  ],
+  "unresolved": [
+    "未执行容器 build/run、原生 Harbor Oracle/NOP 双入口和 ARM 运行。",
+    "尚无六小时模型轨迹，难度与后续增长未接受；顺序 response replay 可能早期饱和。",
+    "本地 host 是 Python 3.12.3；镜像固定 3.12.8 尚待镜像内重验。",
+    "仅覆盖明确的 backend-response/ledger-commit 后窗口；任意服务事务中断、多 worker、异步 GC 在本版合同外。",
+    "目前两次最终语义快照重评分；完整生产五次重评分和独立语义审查尚待后续。"
+  ],
+  "construction_corrections": [
+    {
+      "evidence": "evidence/reference-score/score.json",
+      "finding": "private input directory inaccessible to demoted trusted CLI; invalid experiment, no reward; inputs now copied to public per-run directory"
+    },
+    {
+      "evidence": "evidence/reference2-score/score.json",
+      "finding": "0.9 from incorrect UUID oracle monotonic-ID assumption; original SQLite reuses deleted highest ID; replaced with independent native UUID trace comparison"
+    },
+    {
+      "evidence": "evidence/nop-final-score/score.json",
+      "finding": "earlier NOP got 0.15 because unknown flags counted as unsupported rejection; fixed intended fresh-success prerequisite before final matrix"
+    },
+    {
+      "finding": "trusted baseline source and compiled candidate source sealed root-owned read-only before execution; oracle histories protected after use"
+    },
+    {
+      "finding": "numeric reward now serializes the exact same float as score.json using repr; no independent formula"
+    }
+  ],
+  "scope_audit_note": "Initial network pip downloads did not explicitly set --no-cache-dir; incidental default pip cache writes outside job cannot be ruled out. No shared configuration/package installation was performed; no foreign cache inspected or removed. Final build recipes use --no-cache-dir.",
+  "trajectory": "../trajectory.jsonl (parent-maintained, still streaming; not edited by author)"
+}

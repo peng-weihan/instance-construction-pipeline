@@ -1,0 +1,75 @@
+{
+  "repo": "apache/thrift",
+  "revision": "f4d8e8c3fa56ef04d7462e26d3b8226127edb2fe",
+  "resolved_utc": "2026-10-15T13:30:26.872387+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:31:10.246399+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "cdd32b47c902242801b3c3607bc769f66398f43317e53d5953b17555f2e59515",
+    "truncated": false,
+    "blob_count": 3052
+  },
+  "files_acquired": [
+    {
+      "path": "CMakeLists.txt",
+      "bytes": 4153,
+      "sha256": "1b89cf56430a736d265968ee0fb6dc30f559dec79705ad3abd6fa3154c23cf4b",
+      "url": "https://github.com/apache/thrift/blob/f4d8e8c3fa56ef04d7462e26d3b8226127edb2fe/CMakeLists.txt"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 15661,
+      "sha256": "c866aafb79e8d5885eabb9d44a0105c8fcca35d26c5088025b131a908458a8af",
+      "url": "https://github.com/apache/thrift/blob/f4d8e8c3fa56ef04d7462e26d3b8226127edb2fe/LICENSE"
+    },
+    {
+      "path": "NOTICE",
+      "bytes": 174,
+      "sha256": "c2534e065069887565f871f0648b013a7e5f4a422809faf4ae3c590b7c0bf561",
+      "url": "https://github.com/apache/thrift/blob/f4d8e8c3fa56ef04d7462e26d3b8226127edb2fe/NOTICE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7135,
+      "sha256": "198f8193c3c666aab8afa804d21823f6099cb1fd268b1785b715f8bb5b926647",
+      "url": "https://github.com/apache/thrift/blob/f4d8e8c3fa56ef04d7462e26d3b8226127edb2fe/README.md"
+    },
+    {
+      "path": "compiler/cpp/src/thrift/generate/t_json_generator.cc",
+      "bytes": 22575,
+      "sha256": "a79745df584268ac8c9c552a58eec4ee4f81ad2aa48b4ca794ecb3537e98ae04",
+      "url": "https://github.com/apache/thrift/blob/f4d8e8c3fa56ef04d7462e26d3b8226127edb2fe/compiler/cpp/src/thrift/generate/t_json_generator.cc"
+    },
+    {
+      "path": "compiler/cpp/src/thrift/parse/t_program.h",
+      "bytes": 14032,
+      "sha256": "1df73b7403b1d43e2ac86c0b611a35a1600f16143965fcfab8b221977f8177ee",
+      "url": "https://github.com/apache/thrift/blob/f4d8e8c3fa56ef04d7462e26d3b8226127edb2fe/compiler/cpp/src/thrift/parse/t_program.h"
+    },
+    {
+      "path": "compiler/cpp/src/thrift/thrifty.yy",
+      "bytes": 30812,
+      "sha256": "234f7dc98109d2a82fe07191f609e8ae3fe35d7cd383ebce26521ffcd0a1f836",
+      "url": "https://github.com/apache/thrift/blob/f4d8e8c3fa56ef04d7462e26d3b8226127edb2fe/compiler/cpp/src/thrift/thrifty.yy"
+    },
+    {
+      "path": "compiler/cpp/tests/cpp/t_cpp_parser_string_constant_tests.cc",
+      "bytes": 6501,
+      "sha256": "46de9bab0aefc07815a960ca110676e3d2ac0ca4d9bd945830fd74b221fe5ea7",
+      "url": "https://github.com/apache/thrift/blob/f4d8e8c3fa56ef04d7462e26d3b8226127edb2fe/compiler/cpp/tests/cpp/t_cpp_parser_string_constant_tests.cc"
+    },
+    {
+      "path": "test/ThriftTest.thrift",
+      "bytes": 11746,
+      "sha256": "029a7b6010f3f66f7dd1e71918fe7ab50f6931eeddb3694b380b4b4ced1234dd",
+      "url": "https://github.com/apache/thrift/blob/f4d8e8c3fa56ef04d7462e26d3b8226127edb2fe/test/ThriftTest.thrift"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

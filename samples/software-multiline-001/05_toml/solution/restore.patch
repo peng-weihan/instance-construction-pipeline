@@ -1,0 +1,319 @@
+--- a/crates/toml_edit/src/encode.rs
++++ b/crates/toml_edit/src/encode.rs
+@@ -64,14 +64,28 @@
+ }
+ 
+ pub(crate) fn encode_formatted<T: ValueRepr>(
+-    this: &Formatted<T>, buf: &mut dyn Write, _input: Option<&str>,
+-    _default_decor: (&str, &str),
+-) -> Result {
+-    // Recovery gap: canonical value spelling erases raw representation/decor.
+-    let repr = this.default_repr();
+-    buf.write_str(repr.as_raw().as_str().unwrap_or(""))
+-}
+-
++    this: &Formatted<T>,
++    buf: &mut dyn Write,
++    input: Option<&str>,
++    default_decor: (&str, &str),
++) -> Result {
++    let decor = this.decor();
++    decor.prefix_encode(buf, input, default_decor.0)?;
++
++    if let Some(input) = input {
++        let repr = this
++            .as_repr()
++            .map(Cow::Borrowed)
++            .unwrap_or_else(|| Cow::Owned(this.default_repr()));
++        repr.encode(buf, input)?;
++    } else {
++        let repr = this.display_repr();
++        buf.write_str(&repr)?;
++    };
++
++    decor.suffix_encode(buf, input, default_decor.1)?;
++    Ok(())
++}
+ 
+ pub(crate) fn encode_array(
+     this: &Array,
+--- a/crates/toml_parser/src/decoder/string.rs
++++ b/crates/toml_parser/src/decoder/string.rs
+@@ -321,11 +321,56 @@
+ /// escape-seq-char =/ %x75 4HEXDIG ; uHHHH                U+HHHH
+ /// escape-seq-char =/ %x55 8HEXDIG ; UHHHHHHHH            U+HHHHHHHH
+ /// ```
+-fn escape_seq_char(stream: &mut &str, _raw: Raw<'_>, _error: &mut dyn ErrorSink) -> char {
+-    // Recovery gap: escape identifiers currently survive as literal characters.
+-    stream.next_token().unwrap_or('\\')
++fn escape_seq_char(stream: &mut &str, raw: Raw<'_>, error: &mut dyn ErrorSink) -> char {
++    const EXPECTED_ESCAPES: &[Expected] = &[
++        Expected::Literal("b"),
++        Expected::Literal("e"),
++        Expected::Literal("f"),
++        Expected::Literal("n"),
++        Expected::Literal("r"),
++        Expected::Literal("\\"),
++        Expected::Literal("\""),
++        Expected::Literal("x"),
++        Expected::Literal("u"),
++        Expected::Literal("U"),
++    ];
++
++    let start = stream.checkpoint();
++    let Some(id) = stream.next_token() else {
++        let offset = stream.offset_from(&raw.as_str());
++        error.report_error(
++            ParseError::new("missing escaped value")
++                .with_context(Span::new_unchecked(0, raw.len()))
++                .with_expected(EXPECTED_ESCAPES)
++                .with_unexpected(Span::new_unchecked(offset, offset)),
++        );
++        return '\\';
++    };
++    match id {
++        'b' => '\u{8}',
++        'e' => '\u{1b}',
++        'f' => '\u{c}',
++        'n' => '\n',
++        'r' => '\r',
++        't' => '\t',
++        'x' => hexescape(stream, 2, raw, error),
++        'u' => hexescape(stream, 4, raw, error),
++        'U' => hexescape(stream, 8, raw, error),
++        '\\' => '\\',
++        '"' => '"',
++        _ => {
++            stream.reset(&start);
++            let offset = stream.offset_from(&raw.as_str());
++            error.report_error(
++                ParseError::new("missing escaped value")
++                    .with_context(Span::new_unchecked(0, raw.len()))
++                    .with_expected(EXPECTED_ESCAPES)
++                    .with_unexpected(Span::new_unchecked(offset, offset)),
++            );
++            '\\'
++        }
++    }
+ }
+-
+ 
+ fn hexescape(
+     stream: &mut &str,
+@@ -508,12 +553,90 @@
+ /// ```abnf
+ /// mlb-escaped-nl = escape ws newline *( wschar / newline )
+ /// ```
+-fn mlb_escaped_nl(stream: &mut &str, _raw: Raw<'_>, _error: &mut dyn ErrorSink) {
+-    // Recovery gap: consume only the immediate newline, leaving indentation.
+-    if stream.starts_with("\r\n") { *stream = &stream[2..]; }
+-    else if stream.starts_with('\n') { *stream = &stream[1..]; }
++fn mlb_escaped_nl(stream: &mut &str, raw: Raw<'_>, error: &mut dyn ErrorSink) {
++    const INVALID_STRING: &str = "invalid multi-line basic string";
++    let ws_offset = stream
++        .as_bytes()
++        .offset_for(|b| !WSCHAR.contains_token(b))
++        .unwrap_or(stream.len());
++    #[cfg(feature = "unsafe")] // SAFETY: WSCHAR ensure `offset` is along UTF-8 boundary
++    unsafe {
++        stream.next_slice_unchecked(ws_offset);
++    }
++    #[cfg(not(feature = "unsafe"))]
++    stream.next_slice(ws_offset);
++
++    let start = stream.checkpoint();
++    match stream.next_token() {
++        Some('\n') => {}
++        Some('\r') => {
++            if stream.as_bytes().first() == Some(&b'\n') {
++                let _ = stream.next_token();
++            } else {
++                let start = stream.offset_from(&raw.as_str());
++                let end = start;
++                error.report_error(
++                    ParseError::new("carriage return must be followed by newline")
++                        .with_context(Span::new_unchecked(0, raw.len()))
++                        .with_expected(&[Expected::Literal("\n")])
++                        .with_unexpected(Span::new_unchecked(start, end)),
++                );
++            }
++        }
++        _ => {
++            stream.reset(&start);
++
++            let start = stream.offset_from(&raw.as_str());
++            let end = start;
++            error.report_error(
++                ParseError::new(INVALID_STRING)
++                    .with_context(Span::new_unchecked(0, raw.len()))
++                    .with_expected(&[Expected::Literal("\n")])
++                    .with_unexpected(Span::new_unchecked(start, end)),
++            );
++        }
++    }
++
++    loop {
++        let start_offset = stream.offset_from(&raw.as_str());
++
++        let offset = stream
++            .as_bytes()
++            .offset_for(|b| !(WSCHAR, b'\n').contains_token(b))
++            .unwrap_or(stream.len());
++        #[cfg(feature = "unsafe")] // SAFETY: WSCHAR ensure `offset` is along UTF-8 boundary
++        unsafe {
++            stream.next_slice_unchecked(offset);
++        }
++        #[cfg(not(feature = "unsafe"))]
++        stream.next_slice(offset);
++
++        if stream.starts_with("\r") {
++            let offset = if stream.starts_with("\r\n") {
++                "\r\n".len()
++            } else {
++                let start = stream.offset_from(&raw.as_str()) + 1;
++                error.report_error(
++                    ParseError::new("carriage return must be followed by newline")
++                        .with_context(Span::new_unchecked(0, raw.len()))
++                        .with_expected(&[Expected::Literal("\n")])
++                        .with_unexpected(Span::new_unchecked(start, start)),
++                );
++                "\r".len()
++            };
++            #[cfg(feature = "unsafe")]
++            // SAFETY: Newlines ensure `offset` is along UTF-8 boundary
++            let _ = unsafe { stream.next_slice_unchecked(offset) };
++            #[cfg(not(feature = "unsafe"))]
++            let _ = stream.next_slice(offset);
++        }
++
++        let end_offset = stream.offset_from(&raw.as_str());
++        if start_offset == end_offset {
++            break;
++        }
++    }
+ }
+-
+ 
+ /// `mlb-unescaped` extended with `mlb-quotes` and `LF`
+ ///
+--- a/crates/toml_writer/src/string.rs
++++ b/crates/toml_writer/src/string.rs
+@@ -209,13 +209,113 @@
+ }
+ 
+ impl Encoding {}
++
+ fn write_toml_value<W: crate::TomlWrite + ?Sized>(
+-    decoded: &str, _encoding: Option<Encoding>, _newline: bool, writer: &mut W,
++    decoded: &str,
++    encoding: Option<Encoding>,
++    newline: bool,
++    writer: &mut W,
+ ) -> core::fmt::Result {
+-    // Recovery gap: naive quoting loses key/literal/multiline/escape policy.
+-    write!(writer, "\"{decoded}\"")
+-}
+-
++    let delimiter = match encoding {
++        Some(Encoding::LiteralString) => "'",
++        Some(Encoding::BasicString) => "\"",
++        Some(Encoding::MlLiteralString) => "'''",
++        Some(Encoding::MlBasicString) => "\"\"\"",
++        None => "",
++    };
++    let escaped = match encoding {
++        Some(Encoding::LiteralString) | Some(Encoding::MlLiteralString) => false,
++        Some(Encoding::BasicString) | Some(Encoding::MlBasicString) => true,
++        None => false,
++    };
++    let is_ml = match encoding {
++        Some(Encoding::LiteralString) | Some(Encoding::BasicString) => false,
++        Some(Encoding::MlLiteralString) | Some(Encoding::MlBasicString) => true,
++        None => false,
++    };
++    let newline_prefix = newline && is_ml;
++
++    write!(writer, "{delimiter}")?;
++    if newline_prefix {
++        writer.newline()?;
++    }
++    if escaped {
++        // ```bnf
++        // basic-unescaped = wschar / %x21 / %x23-5B / %x5D-7E / non-ascii
++        // wschar =  %x20  ; Space
++        // wschar =/ %x09  ; Horizontal tab
++        // escape = %x5C                   ; \
++        // ```
++        let max_seq_double_quotes = if is_ml { 2 } else { 0 };
++        let mut stream = decoded;
++        while !stream.is_empty() {
++            let mut unescaped_end = 0;
++            let mut escaped = None;
++            let mut seq_double_quotes = 0;
++            for (i, b) in stream.as_bytes().iter().enumerate() {
++                if *b == b'"' {
++                    seq_double_quotes += 1;
++                    if max_seq_double_quotes < seq_double_quotes {
++                        escaped = Some(r#"\""#);
++                        break;
++                    }
++                } else {
++                    seq_double_quotes = 0;
++                }
++
++                match *b {
++                    0x8 => {
++                        escaped = Some(r#"\b"#);
++                        break;
++                    }
++                    0x9 => {
++                        escaped = Some(r#"\t"#);
++                        break;
++                    }
++                    0xa => {
++                        if !is_ml {
++                            escaped = Some(r#"\n"#);
++                            break;
++                        }
++                    }
++                    0xc => {
++                        escaped = Some(r#"\f"#);
++                        break;
++                    }
++                    0xd => {
++                        escaped = Some(r#"\r"#);
++                        break;
++                    }
++                    0x22 => {} // double quote handled earlier
++                    0x5c => {
++                        escaped = Some(r#"\\"#);
++                        break;
++                    }
++                    c if c <= 0x1f || c == 0x7f => {
++                        break;
++                    }
++                    _ => {}
++                }
++
++                unescaped_end = i + 1;
++            }
++            let unescaped = &stream[0..unescaped_end];
++            let escaped_str = escaped.unwrap_or("");
++            let end = unescaped_end + if escaped.is_some() { 1 } else { 0 };
++            stream = &stream[end..];
++            write!(writer, "{unescaped}{escaped_str}")?;
++            if escaped.is_none() && !stream.is_empty() {
++                let b = stream.as_bytes().first().unwrap();
++                write!(writer, "\\u{:04X}", *b as u32)?;
++                stream = &stream[1..];
++            }
++        }
++    } else {
++        write!(writer, "{decoded}")?;
++    }
++    write!(writer, "{delimiter}")?;
++    Ok(())
++}
+ 
+ #[derive(Copy, Clone, Debug)]
+ struct ValueMetrics {

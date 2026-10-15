@@ -1,0 +1,17 @@
+[
+  {
+    "stage": "acquire"
+  },
+  {
+    "stage": "generate"
+  },
+  {
+    "stage": "build"
+  },
+  {
+    "stage": "probe"
+  },
+  {
+    "stage": "quality_control"
+  }
+]

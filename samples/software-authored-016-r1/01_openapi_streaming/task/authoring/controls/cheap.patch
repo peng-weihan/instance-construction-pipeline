@@ -1,0 +1,63 @@
+--- a/openapi_python_client/parser/responses.py
++++ b/openapi_python_client/parser/responses.py
+@@ -140,6 +140,7 @@
+ 
+     known_content_types = {
+         "application/json": JSON_SOURCE,
++        "application/x-ndjson": JSON_SOURCE,
+         "application/octet-stream": BYTES_SOURCE,
+     }
+     source = known_content_types.get(parsed_content_type)
+--- a/openapi_python_client/templates/endpoint_macros.py.jinja
++++ b/openapi_python_client/templates/endpoint_macros.py.jinja
+@@ -122,8 +122,9 @@
+ {% if endpoint.bodies | length == 1 %}
+ body: {{ endpoint.bodies[0].prop.get_type_string() | as_unembedded_code }}{% if not endpoint.bodies[0].prop.required %} = UNSET{% endif %},
+ {% elif endpoint.bodies | length > 1 %}
++{% set body_required = endpoint.bodies | map(attribute="prop.required") | min %}
+ body:
+-    {%- for body in endpoint.bodies -%}{% set body_required = body_required and body.prop.required %}
++    {%- for body in endpoint.bodies -%}
+     {{ body.prop.get_type_string(no_optional=True) | as_unembedded_code }} {% if not loop.last %} | {% endif %}
+     {%- endfor -%}{% if not body_required %} | Unset = UNSET{% endif %}
+ ,
+--- a/openapi_python_client/templates/endpoint_module.py.jinja
++++ b/openapi_python_client/templates/endpoint_module.py.jinja
+@@ -3,9 +3,12 @@
+ from urllib.parse import quote
+ 
+ import httpx
++import json
++from contextlib import contextmanager, asynccontextmanager
++from collections.abc import Iterator, AsyncIterator
+ 
+ from ...client import AuthenticatedClient, Client
+-from ...types import Response, UNSET
++from ...types import Response, UNSET, Unset
+ from ... import errors
+ 
+ {% for relative in endpoint.relative_imports | sort %}
+@@ -158,3 +161,23 @@
+         {{ kwargs(endpoint) }}
+     )).parsed
+ {% endif %}
++
++@contextmanager
++def stream({{ arguments(endpoint) }}) -> Iterator[Iterator[{{ return_string | as_unembedded_code }}]]:
++    kwargs = _get_kwargs({{ kwargs(endpoint, include_client=False) }})
++    with client.get_httpx_client().stream(**kwargs) as response:
++        def records():
++            for line in response.iter_lines():
++                if line.strip():
++                    yield _parse_response(client=client, response=httpx.Response(response.status_code, json=json.loads(line)))
++        yield records()
++
++@asynccontextmanager
++async def asyncio_stream({{ arguments(endpoint) }}) -> AsyncIterator[AsyncIterator[{{ return_string | as_unembedded_code }}]]:
++    kwargs = _get_kwargs({{ kwargs(endpoint, include_client=False) }})
++    async with client.get_async_httpx_client().stream(**kwargs) as response:
++        async def records():
++            async for line in response.aiter_lines():
++                if line.strip():
++                    yield _parse_response(client=client, response=httpx.Response(response.status_code, json=json.loads(line)))
++        yield records()

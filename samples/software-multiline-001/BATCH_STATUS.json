@@ -1,0 +1,1702 @@
+{
+  "batch": "software-multiline-001",
+  "generated_at_utc": "2026-10-15T09:03:15.915780+00:00",
+  "source_plan_sha256": "75ce7bb8ce19e3aebc9ab53e00df12110ce63912233493683ecb9721a3062cd8",
+  "inventory_only": true,
+  "route_count": 6,
+  "routes": [
+    {
+      "id": "01_openapi",
+      "family": "multi_goal_evolution",
+      "owner": "swe_feature_pilots",
+      "source": "openapi-generators/openapi-python-client",
+      "source_revision": "0a283fe21eeaa23046faf622d4ff4b2c826d2edb",
+      "directory": "01_openapi",
+      "present": [
+        "instruction.md",
+        "task.toml",
+        "source-card.md",
+        "environment/Dockerfile",
+        "verifier/Dockerfile",
+        "tests/test.sh",
+        "solution/solve.sh",
+        "authoring/provenance.json",
+        "authoring/score-spec.json",
+        "authoring/build-manifest.json",
+        "AUTHORING_REPORT.json"
+      ],
+      "missing": [],
+      "file_hashes": {
+        "instruction.md": "1b29d46755aafc1006ed3d8f23f8ce51d24945060b53c1d434d2f507c92716a9",
+        "task.toml": "c4852f1a7e8666c391f996e88d6ca08ce39e7581e3dcdd0e3c96bf3ab27fab6e",
+        "source-card.md": "3b786e63dc1a1755ca9510bf3abe9b8fb8a4d7c6cf2e19c82d1f9f04210d5c06",
+        "environment/Dockerfile": "9c1d5caf85ad53801785b925cee1771936afa2309ca6d526d07a014409d9673a",
+        "verifier/Dockerfile": "75d60025b768c0763c80db646c4583ab873f69ff1f73bf07c4dbe1dd6a8d8179",
+        "tests/test.sh": "3e6a237acb01ffc914bc173a55561deef18f591d10b20885ff3d5cda31955aef",
+        "solution/solve.sh": "cd689dd139cef67ac864f8bc692c5f8c0590421dbe5b40a26c688e9fb3bc497a",
+        "authoring/provenance.json": "d6577024b50c26f82c42ed588b374df72096227075637464329ab7d97b8653a2",
+        "authoring/score-spec.json": "e5fe1361e9e17f24d415a1468e2d753332f6e2cfa7c038fe1754266fdcf7237a",
+        "authoring/build-manifest.json": "10edc7ce79d5fcb6df7227bebc281ff58cac5b865ab6d8bd2a9e62c4648d11ea",
+        "AUTHORING_REPORT.json": "4327776efe4757530e1d96fa41966d29969f44f0de1492f3e7a3b18bedf191d6"
+      },
+      "formal_acceptance": false,
+      "six_hour_difficulty_verified": false,
+      "author_report": {
+        "task_id": "openapi_composition",
+        "status": "construction_success; reject_current_profile_for_long_horizon",
+        "source_revision": "0a283fe21eeaa23046faf622d4ff4b2c826d2edb",
+        "author_model_requested": "gpt-6.1-sol",
+        "provider_receipt_verified": false,
+        "local_controls": {
+          "reference": 1.0,
+          "starter": 0.0,
+          "near-miss-lost-required": 0.8333333333333334,
+          "near-miss-untyped-arrays": 0.8333333333333334,
+          "empty": 0.0
+        },
+        "local_validation": {
+          "unit": {
+            "passed": 321,
+            "skipped": 4,
+            "exit": 0,
+            "stdout": "authoring/evidence/upstream-unit.stdout"
+          },
+          "generated_execution": {
+            "passed": 80,
+            "exit": 0,
+            "stdout": "authoring/evidence/upstream-functional.stdout"
+          }
+        },
+        "evidence": [
+          "authoring/evidence/control-summary.json",
+          "authoring/evidence/reference/score.json",
+          "authoring/evidence/starter/score.json",
+          "authoring/evidence/near-miss-lost-required/score.json",
+          "authoring/evidence/near-miss-untyped-arrays/score.json"
+        ],
+        "reference_changes": [
+          "New integrated composition lowering at GeneratorData.from_dict",
+          "Full real repository and template generation path retained"
+        ],
+        "cheap_route_falsification": "A roughly 130-line lowering pass saturates the frozen six groups. This is credible behavioral construction evidence, but insufficient evidence of six-hour improvement room.",
+        "unverified": [
+          "Docker image build and ENTRYPOINT",
+          "Harbor native oracle/NOP",
+          "Linux UID, memory, permission and network enforcement",
+          "six-hour model trajectory",
+          "multi-run calibration",
+          "unscored full JSON Schema features"
+        ],
+        "blockers": [
+          "No authorized Docker run in this stage",
+          "Cheap normalization exhausts current task profile; reject this profile for six-hour teacher budget"
+        ],
+        "task_toml_schema": "Written against supplied Harbor 0.23.0 model fields; delegated parent schema check pending",
+        "build_contexts": {
+          "work": "environment",
+          "judge": "verifier"
+        },
+        "snapshot_submission": "/home/workspace/openapi_composition/submission",
+        "old_tasks_modified": false,
+        "verification_extras": {
+          "toml_parse": "passed with Python3.12 tomllib; Harbor model schema validation delegated to parent",
+          "root_judge_bytes": "all files identical",
+          "context_symlinks": 0,
+          "manifest_file_hashes": "passed",
+          "infrastructure_failure": "01: deliberately missing httpx yielded valid=false, exit1, no reward"
+        }
+      },
+      "provenance": {
+        "repository": "https://github.com/openapi-generators/openapi-python-client",
+        "commit": "0a283fe21eeaa23046faf622d4ff4b2c826d2edb",
+        "license": "MIT",
+        "original_archive": "authoring/sources/upstream.tar.gz",
+        "transformation": "Full upstream is public starter. Private reference adds parser/composition.py and calls it from GeneratorData.from_dict. Native tests are unchanged. New cases are authored SDK contracts, not copied issue attachments.",
+        "truth_sources": [
+          "OAS 3.1.1 schema intersection/union semantics",
+          "JSON Schema annotation documentation",
+          "Explicit application behavior in instruction.md",
+          "Frozen upstream runtime APIs"
+        ],
+        "author_model_requested": "gpt-6.1-sol",
+        "provider_receipt_verified": false,
+        "runtime_models_started": false,
+        "authoring_mode": "local file/command tools only"
+      },
+      "score_spec": {
+        "reference_mode": "ordinary_oracle_local_behavior_only",
+        "direction": "maximize",
+        "reward_type": "bounded_continuous",
+        "groups": [
+          {
+            "name": "nested",
+            "weight": 0.16666666666666666,
+            "requires": "all independent assertions in tests/cases.py group"
+          },
+          {
+            "name": "union",
+            "weight": 0.16666666666666666,
+            "requires": "all independent assertions in tests/cases.py group"
+          },
+          {
+            "name": "arrays",
+            "weight": 0.16666666666666666,
+            "requires": "all independent assertions in tests/cases.py group"
+          },
+          {
+            "name": "siblings",
+            "weight": 0.16666666666666666,
+            "requires": "all independent assertions in tests/cases.py group"
+          },
+          {
+            "name": "wire",
+            "weight": 0.16666666666666666,
+            "requires": "all independent assertions in tests/cases.py group"
+          },
+          {
+            "name": "conflict",
+            "weight": 0.16666666666666666,
+            "requires": "all independent assertions in tests/cases.py group"
+          }
+        ],
+        "formula": "sum(group_passed)/6",
+        "fixed_denominator": 6,
+        "range": [
+          0,
+          1
+        ],
+        "raw_metric": "passed_semantic_groups",
+        "baseline": {
+          "source": "full fixed upstream",
+          "score": 0.0,
+          "evidence": "authoring/evidence/starter/score.json"
+        },
+        "reference": {
+          "score": 1.0,
+          "evidence": "authoring/evidence/reference/score.json"
+        },
+        "upper_bound": {
+          "value": 1,
+          "kind": "fixed correctness group maximum; achieved on host, not global optimization claim"
+        },
+        "controls": {
+          "reference": 1.0,
+          "starter": 0.0,
+          "near-miss-lost-required": 0.8333333333333334,
+          "near-miss-untyped-arrays": 0.8333333333333334,
+          "empty": 0.0
+        },
+        "missing_or_incorrect_candidate": "valid=true, actual score including zero",
+        "infrastructure_failure": "valid=false, score=null, no reward file",
+        "native_reward": "same scalar as score.json",
+        "regression_scope": "321 unit passed /4 skipped and 80 generated SDK execution passed are author validation; not extra score groups",
+        "difficulty_measurements": null
+      },
+      "toml_parse": "pass",
+      "declared_protocol": {
+        "schema_version": "1.4",
+        "reward_type": "bounded_continuous",
+        "agent_timeout_sec": 21600,
+        "agent_network_mode": "no-network",
+        "environment_network_mode": "no-network",
+        "verifier_network_mode": "no-network",
+        "verifier_environment_mode": "separate",
+        "verifier_environment_network_mode": "no-network",
+        "artifacts": [
+          "/home/workspace/openapi_composition/submission"
+        ]
+      },
+      "contains_legacy_local_schema": false,
+      "inventory_only": true
+    },
+    {
+      "id": "02_restler",
+      "family": "multi_goal_evolution",
+      "owner": "swe_feature_pilots",
+      "source": "microsoft/restler-fuzzer and apache/polaris",
+      "source_revision": "see route provenance",
+      "directory": "02_restler",
+      "present": [
+        "instruction.md",
+        "task.toml",
+        "source-card.md",
+        "environment/Dockerfile",
+        "verifier/Dockerfile",
+        "tests/test.sh",
+        "solution/solve.sh",
+        "authoring/provenance.json",
+        "authoring/score-spec.json",
+        "authoring/build-manifest.json",
+        "AUTHORING_REPORT.json"
+      ],
+      "missing": [],
+      "file_hashes": {
+        "instruction.md": "b1ca358553d6999ea7bc550208a66e2b5509867cedfef1371ee0903a41d5248a",
+        "task.toml": "926f1c4e061da9d81fda7a895ba38935629f30a463d4cdea6bf0c01d2dde251b",
+        "source-card.md": "0b88e702b704aa6c2cc660543f8341192a9d78a9013097e5ab2c2861332aec31",
+        "environment/Dockerfile": "ded44256035874f46d74582e56b526aa06fe4bbc0c0d9408c09cdc74d4d6725e",
+        "verifier/Dockerfile": "2c4b6a6c02a29ee9e124dff6e4b0ceb10a36839757bd1f95daa8c4d0e6e191dc",
+        "tests/test.sh": "3e6a237acb01ffc914bc173a55561deef18f591d10b20885ff3d5cda31955aef",
+        "solution/solve.sh": "4dfe32b25ab01583aad6797e0fe1b2a39c272830031a2710ea45b200e4b089d9",
+        "authoring/provenance.json": "9196cc14917080fca93027236c70a145e519023defbe14bb05d15c6889362379",
+        "authoring/score-spec.json": "8f2305836dad3cc4fc2b574a9c91746f1b0f114c9e0e05976ea384463e666e1a",
+        "authoring/build-manifest.json": "b1d2f5aa0cc4f6e2f759ae7a9a6266da9c56ca8ad8558abf418f5db8687df314",
+        "AUTHORING_REPORT.json": "b9c22d338f6191d68989ce8dcf4c0c3651ffc8b93db6114e7cdb47c5e5b2b73b"
+      },
+      "formal_acceptance": false,
+      "six_hour_difficulty_verified": false,
+      "author_report": {
+        "task_id": "restler_campaign_recovery",
+        "status": "hold_for_evidence",
+        "source_revision": {
+          "restler": "6d984deedbc54aad957fa3da0c7e9e5df23a2aee",
+          "polaris": "f838a62e20e7de72946d250883e8d9b1d6d2f68e"
+        },
+        "author_model_requested": "gpt-6.1-sol",
+        "provider_receipt_verified": false,
+        "reference_status": "actual native CLI generation-boundary checkpoint implementation; full HTTP/Polaris lifecycle reference missing",
+        "local_controls": {
+          "starter": {
+            "formal_score": null,
+            "valid": false,
+            "component_pass_rate": 0.3333333333333333,
+            "component_checks": [
+              {
+                "name": "native_smoke",
+                "passed": true
+              },
+              {
+                "name": "native_replay",
+                "passed": true
+              },
+              {
+                "name": "commit",
+                "passed": false
+              },
+              {
+                "name": "resume",
+                "passed": false
+              },
+              {
+                "name": "corruption",
+                "passed": false,
+                "detail": "no committed checkpoint"
+              },
+              {
+                "name": "input_mismatch",
+                "passed": false,
+                "detail": "no committed checkpoint"
+              }
+            ]
+          },
+          "reference-draft": {
+            "formal_score": null,
+            "valid": false,
+            "component_pass_rate": 1.0,
+            "component_checks": [
+              {
+                "name": "native_smoke",
+                "passed": true
+              },
+              {
+                "name": "native_replay",
+                "passed": true
+              },
+              {
+                "name": "commit",
+                "passed": true
+              },
+              {
+                "name": "resume",
+                "passed": true
+              },
+              {
+                "name": "corruption",
+                "passed": true
+              },
+              {
+                "name": "input_mismatch",
+                "passed": true
+              }
+            ]
+          },
+          "no-restore": {
+            "formal_score": null,
+            "valid": false,
+            "component_pass_rate": 0.5,
+            "component_checks": [
+              {
+                "name": "native_smoke",
+                "passed": true
+              },
+              {
+                "name": "native_replay",
+                "passed": true
+              },
+              {
+                "name": "commit",
+                "passed": true
+              },
+              {
+                "name": "resume",
+                "passed": false
+              },
+              {
+                "name": "corruption",
+                "passed": false
+              },
+              {
+                "name": "input_mismatch",
+                "passed": false
+              }
+            ]
+          },
+          "ignore-fingerprint": {
+            "formal_score": null,
+            "valid": false,
+            "component_pass_rate": 0.8333333333333334,
+            "component_checks": [
+              {
+                "name": "native_smoke",
+                "passed": true
+              },
+              {
+                "name": "native_replay",
+                "passed": true
+              },
+              {
+                "name": "commit",
+                "passed": true
+              },
+              {
+                "name": "resume",
+                "passed": true
+              },
+              {
+                "name": "corruption",
+                "passed": true
+              },
+              {
+                "name": "input_mismatch",
+                "passed": false
+              }
+            ]
+          },
+          "empty": {
+            "formal_score": null,
+            "valid": false,
+            "component_pass_rate": 0.0,
+            "component_checks": [
+              {
+                "name": "native_smoke",
+                "passed": false,
+                "detail": "missing native engine"
+              },
+              {
+                "name": "native_replay",
+                "passed": false,
+                "detail": "missing native engine"
+              },
+              {
+                "name": "commit",
+                "passed": false,
+                "detail": "missing native engine"
+              },
+              {
+                "name": "resume",
+                "passed": false,
+                "detail": "missing native engine"
+              },
+              {
+                "name": "corruption",
+                "passed": false,
+                "detail": "missing native engine"
+              },
+              {
+                "name": "input_mismatch",
+                "passed": false,
+                "detail": "missing native engine"
+              }
+            ]
+          }
+        },
+        "native_baseline": {
+          "smoke_and_trace_replay": "2 passed in 1.18s",
+          "evidence": "authoring/evidence/native-controls.stdout"
+        },
+        "actual_recovery_evidence": {
+          "entry": "real restler/restler.py BFS via full engine",
+          "first_generation": 2,
+          "second_process_resumed_through_generation": 3,
+          "corrupt_and_changed_inputs": "nonzero exits with concrete diagnostics",
+          "evidence": "authoring/evidence/reference-draft/score.json"
+        },
+        "failures_preserved": [
+          "native-baseline failed initially because upstream subprocess uses python and PATH lacked venv; fixed command PATH, not source",
+          "first hand-run checkpoint committed generation2 then existing CLI GC summary failed without GC configured; rerun proper GC setting passed",
+          "first component checks incorrectly looked only in stderr while RESTler emits fuzzer traceback on stdout; corrected diagnostic stream observation and reran controls",
+          "Polaris gradlew offline project discovery failed with no Java Runtime"
+        ],
+        "evidence": [
+          "authoring/evidence/control-summary.json",
+          "authoring/evidence/native-controls.stdout",
+          "authoring/evidence/polaris-build.command.json",
+          "authoring/evidence/polaris-build.stderr"
+        ],
+        "unverified": [
+          "actual HTTP transport crash/recovery",
+          "Polaris process startup/reset",
+          "server state continuity across process boundaries",
+          "resource lease/ownership GC",
+          "checkpoint atomicity under real forced kill",
+          "container builds/UID/network enforcement",
+          "Harbor oracle/NOP",
+          "six-hour difficulty/trajectories"
+        ],
+        "blockers": [
+          "No installed JDK21; pinned Gradle/Maven/JDK runtime closure and Polaris startup/reset not constructed",
+          "Full request-journal/idempotency/lease reference not implemented",
+          "Formal trusted external-state grader absent",
+          "Native component regression tests are currently taken from the exact control candidate tree; final judge must independently freeze native fixtures and cannot trust mutable solver tests. Component controls only establish behavior of recorded known source variants, not adversarial grading robustness."
+        ],
+        "formal_reward": null,
+        "component_pass_rate_is_not_acceptance": true,
+        "task_toml_schema": "uses supplied Harbor0.23.0 fields; parent schema validation pending; metadata marks do_not_launch",
+        "old_tasks_modified": false,
+        "verification_extras": {
+          "toml_parse": "passed with Python3.12 tomllib; Harbor model schema validation delegated to parent",
+          "root_judge_bytes": "all files identical",
+          "context_symlinks": 0,
+          "manifest_file_hashes": "passed",
+          "infrastructure_failure": "02: formal missing service yielded valid=false, score=null, exit2, no reward"
+        }
+      },
+      "provenance": {
+        "repositories": [
+          {
+            "url": "https://github.com/microsoft/restler-fuzzer",
+            "commit": "6d984deedbc54aad957fa3da0c7e9e5df23a2aee",
+            "license": "MIT",
+            "role": "full engine and official native fixtures"
+          },
+          {
+            "url": "https://github.com/apache/polaris",
+            "commit": "f838a62e20e7de72946d250883e8d9b1d6d2f68e",
+            "license": "Apache-2.0",
+            "role": "full intended real target source; not deployed"
+          }
+        ],
+        "transformations": [
+          "full upstream RESTler is starter",
+          "private draft activates real BFS save/load with atomic commit, input/checksum guard",
+          "CLI options configure saver; real driver singleton restoration corrected",
+          "grammar module registered for pickle parser resolution",
+          "official native test socket is used only for component diagnostics, never claimed to be Polaris"
+        ],
+        "truth_sources": [
+          "official native smoke/replay assertions",
+          "explicit generation-boundary contract",
+          "Polaris management API and integration tests for unimplemented full workload"
+        ],
+        "author_model_requested": "gpt-6.1-sol",
+        "provider_receipt_verified": false,
+        "models_started": false,
+        "cloud_or_docker_started": false
+      },
+      "score_spec": {
+        "status": "draft_not_formally_runnable",
+        "direction": "maximize",
+        "reward_type": "bounded_continuous",
+        "formula_draft": "0.10*native_compatibility + 0.20*durable_frontier_integrity + 0.25*observed_crash_replay + 0.25*polaris_dependency_restoration + 0.20*resource_lifecycle",
+        "groups": [
+          {
+            "name": "native_compatibility",
+            "weight": 0.1,
+            "formal_case_closure": false
+          },
+          {
+            "name": "durable_frontier_integrity",
+            "weight": 0.2,
+            "formal_case_closure": false
+          },
+          {
+            "name": "observed_crash_replay",
+            "weight": 0.25,
+            "formal_case_closure": false
+          },
+          {
+            "name": "polaris_dependency_restoration",
+            "weight": 0.25,
+            "formal_case_closure": false
+          },
+          {
+            "name": "resource_lifecycle",
+            "weight": 0.2,
+            "formal_case_closure": false
+          }
+        ],
+        "fixed_denominator": 1.0,
+        "normalization": "weighted mean of fixed semantic groups; unexecuted service groups cannot be dropped",
+        "raw_metrics": [
+          "observed HTTP operations",
+          "confirmed effect counts",
+          "restored producer/consumer bindings",
+          "owned/shared resource states"
+        ],
+        "baseline": null,
+        "reference": null,
+        "attained_upper_bound": null,
+        "null_reason": "Polaris deployment/reset, external observation, real lifecycle reference and formal cases incomplete",
+        "component_diagnostics": {
+          "formula": "passed native component checks / 6",
+          "not_a_formal_reward": true,
+          "controls": {
+            "starter": {
+              "formal_score": null,
+              "valid": false,
+              "component_pass_rate": 0.3333333333333333,
+              "component_checks": [
+                {
+                  "name": "native_smoke",
+                  "passed": true
+                },
+                {
+                  "name": "native_replay",
+                  "passed": true
+                },
+                {
+                  "name": "commit",
+                  "passed": false
+                },
+                {
+                  "name": "resume",
+                  "passed": false
+                },
+                {
+                  "name": "corruption",
+                  "passed": false,
+                  "detail": "no committed checkpoint"
+                },
+                {
+                  "name": "input_mismatch",
+                  "passed": false,
+                  "detail": "no committed checkpoint"
+                }
+              ]
+            },
+            "reference-draft": {
+              "formal_score": null,
+              "valid": false,
+              "component_pass_rate": 1.0,
+              "component_checks": [
+                {
+                  "name": "native_smoke",
+                  "passed": true
+                },
+                {
+                  "name": "native_replay",
+                  "passed": true
+                },
+                {
+                  "name": "commit",
+                  "passed": true
+                },
+                {
+                  "name": "resume",
+                  "passed": true
+                },
+                {
+                  "name": "corruption",
+                  "passed": true
+                },
+                {
+                  "name": "input_mismatch",
+                  "passed": true
+                }
+              ]
+            },
+            "no-restore": {
+              "formal_score": null,
+              "valid": false,
+              "component_pass_rate": 0.5,
+              "component_checks": [
+                {
+                  "name": "native_smoke",
+                  "passed": true
+                },
+                {
+                  "name": "native_replay",
+                  "passed": true
+                },
+                {
+                  "name": "commit",
+                  "passed": true
+                },
+                {
+                  "name": "resume",
+                  "passed": false
+                },
+                {
+                  "name": "corruption",
+                  "passed": false
+                },
+                {
+                  "name": "input_mismatch",
+                  "passed": false
+                }
+              ]
+            },
+            "ignore-fingerprint": {
+              "formal_score": null,
+              "valid": false,
+              "component_pass_rate": 0.8333333333333334,
+              "component_checks": [
+                {
+                  "name": "native_smoke",
+                  "passed": true
+                },
+                {
+                  "name": "native_replay",
+                  "passed": true
+                },
+                {
+                  "name": "commit",
+                  "passed": true
+                },
+                {
+                  "name": "resume",
+                  "passed": true
+                },
+                {
+                  "name": "corruption",
+                  "passed": true
+                },
+                {
+                  "name": "input_mismatch",
+                  "passed": false
+                }
+              ]
+            },
+            "empty": {
+              "formal_score": null,
+              "valid": false,
+              "component_pass_rate": 0.0,
+              "component_checks": [
+                {
+                  "name": "native_smoke",
+                  "passed": false,
+                  "detail": "missing native engine"
+                },
+                {
+                  "name": "native_replay",
+                  "passed": false,
+                  "detail": "missing native engine"
+                },
+                {
+                  "name": "commit",
+                  "passed": false,
+                  "detail": "missing native engine"
+                },
+                {
+                  "name": "resume",
+                  "passed": false,
+                  "detail": "missing native engine"
+                },
+                {
+                  "name": "corruption",
+                  "passed": false,
+                  "detail": "missing native engine"
+                },
+                {
+                  "name": "input_mismatch",
+                  "passed": false,
+                  "detail": "missing native engine"
+                }
+              ]
+            }
+          }
+        },
+        "infrastructure_state": "valid=false, score=null; no reward.txt/reward.json",
+        "ordinary_bad_candidate_future_contract": "valid=true actual score when the complete grader exists",
+        "reference_mode": "incomplete draft; neither ordinary full Oracle nor calibrated open-solution"
+      },
+      "toml_parse": "pass",
+      "declared_protocol": {
+        "schema_version": "1.4",
+        "reward_type": "bounded_continuous",
+        "agent_timeout_sec": 21600,
+        "agent_network_mode": "no-network",
+        "environment_network_mode": "no-network",
+        "verifier_network_mode": "no-network",
+        "verifier_environment_mode": "separate",
+        "verifier_environment_network_mode": "no-network",
+        "artifacts": [
+          "/home/workspace/restler_campaign_recovery/submission"
+        ]
+      },
+      "contains_legacy_local_schema": false,
+      "inventory_only": true
+    },
+    {
+      "id": "03_wasm",
+      "family": "system_implementation",
+      "owner": "swe_system_pilots",
+      "source": "WebAssembly/spec",
+      "source_revision": "d910f03bd6d6477656fc5070b5098e8f909305d3",
+      "directory": "03_wasm",
+      "present": [
+        "instruction.md",
+        "task.toml",
+        "source-card.md",
+        "environment/Dockerfile",
+        "verifier/Dockerfile",
+        "tests/test.sh",
+        "solution/solve.sh",
+        "authoring/provenance.json",
+        "authoring/score-spec.json",
+        "authoring/build-manifest.json",
+        "AUTHORING_REPORT.json"
+      ],
+      "missing": [],
+      "file_hashes": {
+        "instruction.md": "c483253aaaff70e70fd68a6210b0633c7fcdfc05d7f5f6751b9456e07cfc1719",
+        "task.toml": "de89492b971d0d5381a618a34a26516d5421b36e531b7ec5ae07bb1b6cf7f261",
+        "source-card.md": "f295fe1559ba6bebb3ae7fd0c4420fc33025f60f6f5f1a805f8a0624492c4a90",
+        "environment/Dockerfile": "0a65acd28b0e5bfe49292e4a191f73443c195c01a3afcf7c70aaade81a4d78f9",
+        "verifier/Dockerfile": "eef96d95d692200a33716938d10412e066037564941944c2391297d88db5636a",
+        "tests/test.sh": "b8a8e289970b1a957393dea8c2037fa0cbdc0aed5a4ecde5c0ecd7af8fec5cf1",
+        "solution/solve.sh": "d62db27ea40a99ed8b75f8b969295526ecce6bf135c0e3a05a0177cb25c8d5fd",
+        "authoring/provenance.json": "2576fad5cab9ec514badacae300d93a4e56c60c34bb10cfccf807a6118e9a5ff",
+        "authoring/score-spec.json": "8f28b4e7848f4f5f5117c2f45aa1e138d520046581a74b384dfc159f8cd66343",
+        "authoring/build-manifest.json": "4ff454a0aa30b98a77487007b30363ed6b8aabde708a157a42d2514aff1f35ad",
+        "AUTHORING_REPORT.json": "f0c0285700a8344e65113bec98488bb0ab284fde232dc281bc185c440b48c5e2"
+      },
+      "formal_acceptance": false,
+      "six_hour_difficulty_verified": false,
+      "author_report": {
+        "task_id": "wasm-profile",
+        "status": "hold_for_evidence",
+        "stage": "profile_smoke",
+        "source_revision": "d910f03bd6d6477656fc5070b5098e8f909305d3",
+        "author_model": {
+          "requested": "gpt-6.1-sol",
+          "provider_receipt_verified": false
+        },
+        "local_controls": {
+          "scores": {
+            "reference": 1.0,
+            "reference_repeat": 1.0,
+            "starter": 0.125,
+            "nop": 0.0,
+            "no_store": 0.8125,
+            "unsigned_division": 0.9992331288343559
+          },
+          "reference_repeat_equal": true,
+          "syntax_valid_zero": true,
+          "fixture_corruption_invalid_no_reward": true,
+          "container_isolation_verified": false
+        },
+        "evidence": {
+          "raw_case_inputs_and_oracle_outputs": "verifier/private/cases.json",
+          "oracle_generation": "authoring/oracle-evidence.json",
+          "local_scores": "authoring/controls/*/score.json",
+          "commands_stdout_stderr_exit": "authoring/controls/commands.json",
+          "solution_recipe": "solution/solve.sh",
+          "recipe_score": "authoring/controls/recipe_reference/score.json",
+          "fixture_and_syntax_failures": [
+            "authoring/controls/infra_failure/score.json",
+            "authoring/controls/syntax/score.json"
+          ]
+        },
+        "validation_scope": "trusted author controls on macOS host only; not container or Harbor acceptance",
+        "unverified": [
+          "Docker builds and Linux startup",
+          "candidate UID 65534 cannot read a known private file or write reward path",
+          "network runtime enforcement",
+          "Harbor native Oracle and NOP",
+          "periodic adapter snapshot/best-of-run integration",
+          "apt build-package version closure",
+          "Linux numeric/output equivalence for frozen host-generated fixtures",
+          "multi-architecture builds",
+          "independent hidden-corpus/grader audit",
+          "2h and 6h model improvement trajectories",
+          "training utility"
+        ],
+        "blockers": [
+          "No container execution authorized in this round",
+          "Current bounded i32 profile may saturate early; validation/table/linking extensions are not implemented"
+        ],
+        "schema": {
+          "source": "../guidance/harbor-0.23.0-task-config.py",
+          "version": "Harbor 0.23.0",
+          "fields_checked_manually": [
+            "schema_version",
+            "artifacts",
+            "agent.timeout_sec",
+            "network_mode",
+            "environment.workdir",
+            "verifier.environment_mode",
+            "verifier.environment"
+          ],
+          "pydantic_runtime_validation": "pending parent audit",
+          "reward_type_mapping": "metadata.reward_type because Harbor schema has no top-level reward_type"
+        },
+        "scoring": {
+          "formula": "mean(passed[g]/total[g]) across 8 frozen groups",
+          "group_count": 8,
+          "frozen_denominators": {
+            "integer": 163,
+            "traps": 14,
+            "control": 19,
+            "loops": 6,
+            "calls": 5,
+            "memory": 8,
+            "composition": 4,
+            "binary": 4
+          },
+          "case_count": 223,
+          "reference_at_formula_upper_bound_on_host": true,
+          "global_language_conformance_claimed": false
+        },
+        "earlier_local_failure": {
+          "kind": "Darwin RLIMIT_AS lowering rejects with ValueError",
+          "evidence": "authoring/controls/preexec_failure_command.json",
+          "resolution": "Memory limit is Linux-only; macOS host evidence has no address-space isolation claim"
+        },
+        "prohibited_actions_run": {
+          "teacher_model": false,
+          "docker": false,
+          "ssh": false,
+          "cloud": false,
+          "ci": false
+        },
+        "parent_handoff": "Two pilots are not two accepted benchmark tasks",
+        "base_image": {
+          "image": "python:3.12.8-slim-bookworm@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+          "evidence": "authoring/base-image-pin.json",
+          "manifest_index": "authoring/base-image-manifest-index.json",
+          "index_sha256_verified": true,
+          "container_build_verified": false
+        }
+      },
+      "provenance": {
+        "sources": [
+          {
+            "repo": "https://github.com/WebAssembly/spec",
+            "commit": "d910f03bd6d6477656fc5070b5098e8f909305d3",
+            "tag": "v1.0.0"
+          }
+        ],
+        "retained_archives": [
+          {
+            "path": "authoring/sources/spec.tar.gz",
+            "sha256": "2f0b2e82aaa5da1bc8ab4def6f091647a8355ba0961b54265dc071f698d81a34",
+            "bytes": 4949039
+          }
+        ],
+        "test_material_origin": "Official i32 assertion inputs with exact source lines plus explicitly adapted control/call/memory compositions",
+        "expected_origin": "V8 WebAssembly in pinned Node v24.13.1, compiled from WAT with wasmtime==38.0.0; Python reference never produces expected",
+        "transformations": [
+          "Fixed archive -> extracted original source with notices",
+          "Normative documents only -> work public reference; implementation and hidden data excluded",
+          "Scoped WAT -> real binary bytecode -> independent V8 outputs",
+          "Source family -> eight frozen semantic groups; repeated cases do not increase group weight"
+        ],
+        "splits": {
+          "public": "environment/dev_cases.json, one documented case per group",
+          "private": "verifier/private/cases.json, all scoring cases including development anchors",
+          "independent_test_holdout": "No unseen task-family holdout evidence; not claimed"
+        },
+        "agent_environment_content": "starter, normative profile, public development examples and generic tools; no private oracle or hidden corpus",
+        "host_platform": "macOS-26.6.2-arm64-arm-64bit",
+        "requested_author_model": "gpt-6.1-sol",
+        "provider_receipt_verified": false
+      },
+      "score_spec": {
+        "reward_type": "bounded_continuous",
+        "reference_mode": "ordinary_oracle",
+        "formula": "sum((1/8)*passed[g]/total[g] for g in frozen_groups)",
+        "constants": {
+          "group_weight": 0.125,
+          "groups": {
+            "integer": 163,
+            "traps": 14,
+            "control": 19,
+            "loops": 6,
+            "calls": 5,
+            "memory": 8,
+            "composition": 4,
+            "binary": 4
+          },
+          "per_case_wall_sec": 3,
+          "per_case_cpu_sec": 2,
+          "candidate_memory_bytes": 536870912,
+          "candidate_output_file_bytes": 1048576
+        },
+        "unrun_and_failed_cases": "remain in fixed denominator; zero credit",
+        "raw_metric": "behavior checks passed, separately by semantic group",
+        "direction": "maximize",
+        "range": [
+          0,
+          1
+        ],
+        "pass_rate": "sum(passed)/sum(total), not weighted score",
+        "reference_observation": {
+          "score": 1.0,
+          "evidence": "controls/reference/score.json",
+          "host_only": true
+        },
+        "baseline_observation": {
+          "score": 0.125,
+          "evidence": "controls/starter/score.json",
+          "host_only": true
+        },
+        "upper_bound": {
+          "formula_clip": 1,
+          "global_semantic_completeness": "not claimed",
+          "attainment_evidence": "authoring/controls/reference/score.json when present"
+        },
+        "failure_classification": {
+          "missing_or_wrong_submission": "valid=true, computed partial or 0",
+          "broken_dependency_or_fixture": "valid=false, score=null, no reward.txt/reward.json"
+        }
+      },
+      "toml_parse": "pass",
+      "declared_protocol": {
+        "schema_version": "1.4",
+        "reward_type": "bounded_continuous",
+        "agent_timeout_sec": 21600,
+        "agent_network_mode": "no-network",
+        "environment_network_mode": "no-network",
+        "verifier_network_mode": "no-network",
+        "verifier_environment_mode": "separate",
+        "verifier_environment_network_mode": "no-network",
+        "artifacts": [
+          "/home/workspace/wasm-profile/submission/"
+        ]
+      },
+      "contains_legacy_local_schema": false,
+      "grader_mirror_byte_equal": true,
+      "inventory_only": true
+    },
+    {
+      "id": "04_datafusion",
+      "family": "correctness_constrained_performance",
+      "owner": "swe_rust_pilots",
+      "source": "apache/datafusion",
+      "source_revision": "91cd7ffb927b5a4f9fee1907db50a9610759de5b",
+      "directory": "04_datafusion",
+      "present": [
+        "instruction.md",
+        "task.toml",
+        "source-card.md",
+        "environment/Dockerfile",
+        "verifier/Dockerfile",
+        "tests/test.sh",
+        "solution/solve.sh",
+        "authoring/provenance.json",
+        "authoring/score-spec.json",
+        "authoring/build-manifest.json",
+        "AUTHORING_REPORT.json"
+      ],
+      "missing": [],
+      "file_hashes": {
+        "instruction.md": "f6145d2b94fede24e8d3104a5aa75b9430c453334d4291b6d8537e2c97547173",
+        "task.toml": "f0e293c1d14b86172f883989522aa16d1a00c407cc3e694d9e66a017a5d66b0b",
+        "source-card.md": "a6a712b6d188dc08cea9cc770d60b18e95969b2bd4f68ff171ebf33aa9728e9e",
+        "environment/Dockerfile": "87ab81f9b4281b70c45609143ee14a59c5a1ac7958baeacc5b9d0c0ad26a4da8",
+        "verifier/Dockerfile": "adebaa205bb463e63e81c1bcf8aa449c92c14bf0e7eb44bf1f6c7f013ef8970f",
+        "tests/test.sh": "dc9ba58985bb9a35ffd4ec0b6340564377d7326085f855aa51007bb1936807a0",
+        "solution/solve.sh": "6e632f7c4eb7428276b320d1e16bb84697834c3d79e6dfdf8eaac8d3dbe1752e",
+        "authoring/provenance.json": "aea2e5f5ae145573896fa0cb3dbe88046b925d64bf504ff5444a1e3e1959a2df",
+        "authoring/score-spec.json": "0ff9cea74ac50615b0862675121e860518ea128041b6ff11a90719a4f08d96de",
+        "authoring/build-manifest.json": "5e6450a990a332733a24cd5c4dfdd71d37310b126426b937e53cc0a0b6ed4343",
+        "AUTHORING_REPORT.json": "6a8342cc5157cdeaeb2546dbf107765038ae905cace0c1e3da0134d3a997cf71"
+      },
+      "formal_acceptance": false,
+      "six_hour_difficulty_verified": false,
+      "author_report": {
+        "task_id": "datafusion-sort-topk",
+        "route": "04_datafusion",
+        "status": "hold_for_evidence; source_workload_grader_draft",
+        "source_revision": "91cd7ffb927b5a4f9fee1907db50a9610759de5b",
+        "requested_author_model": "gpt-6.1-sol",
+        "provider_receipt_verified": false,
+        "actual_materials": {
+          "full_upstream_source": true,
+          "real_subsystem": [
+            "SortExec",
+            "TopK",
+            "SortPreservingMergeExec"
+          ],
+          "custom_sorter_substitution": false,
+          "correctness_scenarios": 12,
+          "performance_scenarios": 6,
+          "source_near_misses": 2,
+          "strong_starting_point": "unchanged upstream"
+        },
+        "local_controls": {
+          "oracle_crosscheck": "12/12 match SQLite; not DataFusion correctness evidence",
+          "source_near_miss_patch_dry_runs": [
+            {
+              "patch": "invert-null-policy.patch",
+              "dry_run_exit": 0,
+              "stdout": "patching file 'datafusion/physical-plan/src/topk/mod.rs'\n",
+              "stderr": "",
+              "compiled": false,
+              "behavior_verified_on_datafusion": false
+            },
+            {
+              "patch": "short-fetch.patch",
+              "dry_run_exit": 0,
+              "stdout": "patching file 'datafusion/physical-plan/src/sorts/sort.rs'\n",
+              "stderr": "",
+              "compiled": false,
+              "behavior_verified_on_datafusion": false
+            }
+          ],
+          "uncalibrated_grader": {
+            "valid": false,
+            "score": null,
+            "pass_rate": null,
+            "summary": "infrastructure failure: RuntimeError('hold_for_evidence: measured baseline and strong-reference anchors are missing; calibration is disabled')",
+            "checks": [],
+            "metrics": {}
+          },
+          "grader_protocol_component": "correct driver accepted; short-output and inverted-null drivers rejected; macOS protocol-only check with Linux resource preexec skipped; not DataFusion evidence"
+        },
+        "evidence": [
+          "authoring/evidence/oracle-crosscheck.json",
+          "authoring/evidence/near-miss-patch-controls.json",
+          "authoring/evidence/uncalibrated-entry/score.json",
+          "authoring/toolchain-availability.json",
+          "authoring/alternative-version-screening.json",
+          "authoring/evidence/grader-protocol-component.json"
+        ],
+        "unverified": [
+          "Rust probe API/build compatibility",
+          "cargo fetch dependency closure",
+          "actual DataFusion correctness",
+          "candidate/reference/partial binary runtime",
+          "all timings/noise",
+          "strong optimized reference/upper anchor",
+          "Docker permission/resource isolation",
+          "Harbor oracle/NOP and adapter entry",
+          "dual architecture task images",
+          "six-hour trajectory/growth"
+        ],
+        "blockers": [
+          "timing anchors remain null",
+          "crate+probe not built/run; fixed route present but unverified",
+          "dependency archives absent; locked build-time fetch untested"
+        ],
+        "source_screening": {
+          "alternative_50_0_0": {
+            "commit": "10343c18292fc3a9ca62b59c8bb530169fe79b82",
+            "rust_version_lines": [
+              "rust-version = \"1.86.0\""
+            ],
+            "source": "official annotated tag resolved to commit; fixed raw Cargo.toml"
+          },
+          "decision": "preserve pinned main; alternative saved for lower-cost next iteration"
+        },
+        "acceptance": false,
+        "six_hour_calibrated": false,
+        "scores": {
+          "baseline": null,
+          "reference": null,
+          "near_misses": null
+        }
+      },
+      "provenance": {
+        "repository": "https://github.com/apache/datafusion",
+        "revision": "91cd7ffb927b5a4f9fee1907db50a9610759de5b",
+        "archive_url": "https://codeload.github.com/apache/datafusion/tar.gz/91cd7ffb927b5a4f9fee1907db50a9610759de5b",
+        "archive_sha256": "0148e5f8384d6b86c4ffb8249c72acd8abc0f5517a8b5ba5d117e5d42672345f",
+        "license": "Apache-2.0",
+        "notice": "NOTICE.txt retained in complete archives",
+        "requested_author_model": "gpt-6.1-sol",
+        "provider_receipt_verified": false,
+        "workload_origin": "new deterministic Arrow workload informed by official partial_sort benchmark",
+        "expected_origin": "independent Python comparator crosschecked against SQLite explicit ORDER BY for all 12 correctness scenarios",
+        "transformation": "no source degradation; genuine upstream is public B and private open-solution reference",
+        "reference_mode": "open-solution",
+        "timestamp_utc": "2026-10-15T08:56:04.889411+00:00"
+      },
+      "score_spec": {
+        "reference_mode": "open-solution",
+        "reward_type": "bounded_continuous",
+        "direction": "maximize",
+        "correctness_gate": "all 12 correctness workloads and all 18 performance repetitions require exact independent expected rows; candidate failure is valid score0",
+        "raw_metrics": [
+          "external elapsed seconds after READY",
+          "median of 3 repetitions",
+          "per-workload B_i/T_i",
+          "geometric mean speedup"
+        ],
+        "formula": "if correctness: clip(ln(exp(mean_i ln(B_i/T_i)))/ln(R),0,1); requires measured R>1",
+        "fixed_performance_denominator": 6,
+        "fixed_correctness_denominator": 12,
+        "fixed_repetitions": 3,
+        "weights": "six scenarios equally weighted in log space",
+        "bounds": [
+          0,
+          1
+        ],
+        "baseline": {
+          "implementation": "unmodified pinned upstream",
+          "medians_sec": null,
+          "observed": false
+        },
+        "reference": {
+          "implementation": "unmodified pinned upstream open-solution",
+          "raw_score": null,
+          "normalized_score": null,
+          "observed": false
+        },
+        "strong_reference": {
+          "implementation": null,
+          "geomean_speedup": null,
+          "observed": false
+        },
+        "upper_endpoint": {
+          "clip_value": 1,
+          "reachable_evidence": null
+        },
+        "constants": {
+          "baseline_anchor_speedup": 1,
+          "upper_speedup_R": null,
+          "no_invented_1_5x_or_2x": true
+        },
+        "calibration_status": "hold_for_evidence; missing anchors produce invalid score-null with no reward",
+        "performance_is_not_python_oracle_time": true
+      },
+      "toml_parse": "pass",
+      "declared_protocol": {
+        "schema_version": "1.4",
+        "reward_type": "bounded_continuous",
+        "agent_timeout_sec": 21600,
+        "agent_network_mode": "no-network",
+        "environment_network_mode": "no-network",
+        "verifier_network_mode": "no-network",
+        "verifier_environment_mode": "separate",
+        "verifier_environment_network_mode": "no-network",
+        "artifacts": [
+          "/home/workspace/datafusion-sort-topk/submission"
+        ]
+      },
+      "contains_legacy_local_schema": false,
+      "grader_mirror_byte_equal": true,
+      "inventory_only": true
+    },
+    {
+      "id": "05_toml",
+      "family": "implementation_recovery",
+      "owner": "swe_rust_pilots",
+      "source": "toml-rs/toml",
+      "source_revision": "ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+      "directory": "05_toml",
+      "present": [
+        "instruction.md",
+        "task.toml",
+        "source-card.md",
+        "environment/Dockerfile",
+        "verifier/Dockerfile",
+        "tests/test.sh",
+        "solution/solve.sh",
+        "authoring/provenance.json",
+        "authoring/score-spec.json",
+        "authoring/build-manifest.json",
+        "AUTHORING_REPORT.json"
+      ],
+      "missing": [],
+      "file_hashes": {
+        "instruction.md": "3ee0df20313246e02f50f95d02a8d5ad9e77fa22fbbe029945ef9f417948add6",
+        "task.toml": "31ec636be277a901fba5ab5fb98b5137ace09b6b5b0ed3396651fbe1296e94f8",
+        "source-card.md": "38073d05a49e664d41fe1218e5b23052e473b00d130405ce1c0529865ffc40b3",
+        "environment/Dockerfile": "a34eb03baa05e02e1613055fb47a6270ebfbd794bf76e0d946036c88d883f97e",
+        "verifier/Dockerfile": "0f207356168d58bb08727be7c7a1d628183a99d14d8d394a1f7c51e953c84cdd",
+        "tests/test.sh": "dc9ba58985bb9a35ffd4ec0b6340564377d7326085f855aa51007bb1936807a0",
+        "solution/solve.sh": "dcd3e32bedb19eecb0bb2f90958f29894206f898c0d576979063121d23d6b66e",
+        "authoring/provenance.json": "7ee73bf8bf905dd0efdf397318ad230b0509b1566b4c5c58c28206696caa51e3",
+        "authoring/score-spec.json": "e41b866718b249b5348df11c4dbe6049e0d9e5802edae4530d14afcf7329e110",
+        "authoring/build-manifest.json": "3f95d48c2a298dd845882eea59734ac9ea6891e8658046cb1b1c4e758be7cca3",
+        "AUTHORING_REPORT.json": "ef20a70c201eb5dfb9e5e0d26a71587d2936082199864489adb99c5108d38b5c"
+      },
+      "formal_acceptance": false,
+      "six_hour_difficulty_verified": false,
+      "author_report": {
+        "task_id": "toml-string-recovery",
+        "route": "05_toml",
+        "status": "construction_success_host; hold_current_profile_for_long_horizon",
+        "source_revision": "ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+        "requested_author_model": "gpt-6.1-sol",
+        "provider_receipt_verified": false,
+        "actual_source": "complete official workspace archived with full licenses",
+        "actual_changes": {
+          "masked_files": 3,
+          "masked_functions": 4,
+          "removed_lines": 264,
+          "inverse_control": "exact original bytes restored for all three files"
+        },
+        "local_controls": {
+          "reference": {
+            "valid": true,
+            "score": 1.0,
+            "pass_rate": 1.0,
+            "summary": "35/35 behavioral cases passed"
+          },
+          "starter": {
+            "valid": true,
+            "score": 0.02040816326530612,
+            "pass_rate": 0.02857142857142857,
+            "summary": "1/35 behavioral cases passed"
+          },
+          "unicode-ascii-only": {
+            "valid": true,
+            "score": 0.8666666666666666,
+            "pass_rate": 0.8857142857142857,
+            "summary": "31/35 behavioral cases passed"
+          },
+          "discard-formatting": {
+            "valid": true,
+            "score": 0.6,
+            "pass_rate": 0.6571428571428571,
+            "summary": "23/35 behavioral cases passed"
+          },
+          "missing": {
+            "valid": true,
+            "score": 0.0,
+            "pass_rate": 0.0,
+            "summary": "submission workspace missing"
+          },
+          "missing-infrastructure": {
+            "valid": false,
+            "score": null,
+            "pass_rate": null,
+            "summary": "infrastructure failure: RuntimeError('promised cargo missing')"
+          }
+        },
+        "evidence": "authoring/evidence/{reference,starter,unicode-ascii-only,discard-formatting,missing,missing-infrastructure,inverse-control.json}",
+        "unverified": [
+          "Docker build",
+          "Linux isolated compilation and private/reward read/write controls",
+          "Harbor native oracle/NOP and pipeline entry",
+          "x86 and ARM work/judge images",
+          "six-hour model trajectories and growth"
+        ],
+        "blockers": [
+          "container runtime unavailable/forbidden in this batch",
+          "public-source exact recovery may saturate early; no difficulty calibration"
+        ],
+        "acceptance": false,
+        "six_hour_calibrated": false,
+        "source_volume_is_not_difficulty_evidence": true,
+        "selection_decision": "hold_current_profile_for_long_horizon",
+        "difficulty_high_risk": true,
+        "difficulty_evidence": {
+          "assessment_type": "design-screening hypothesis, not solver-duration measurement",
+          "scope": "string helper slice; tokenizer/parser state/AST/container edits remain implemented",
+          "public_simple_baseline_full_score": null,
+          "private_inverse_patch": "author construction control only; not a solver shortcut",
+          "next_step": "low priority until short permitted pilot or broader independently versioned profile"
+        }
+      },
+      "provenance": {
+        "repository": "https://github.com/toml-rs/toml",
+        "revision": "ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+        "archive_url": "https://codeload.github.com/toml-rs/toml/tar.gz/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+        "archive_sha256": "d73b36b701dc465156b8dfa08452e0676da0b5f37c12f7c7c0b7c455ddad3e4a",
+        "licenses": [
+          "MIT",
+          "Apache-2.0"
+        ],
+        "transformation": "authoring/mask-manifest.json",
+        "reference_origin": "unmodified official fixed-commit workspace",
+        "truth_origin": "frozen upstream execution plus tomllib checks on applicable TOML 1.0 input semantics",
+        "requested_author_model": "gpt-6.1-sol",
+        "provider_receipt_verified": false,
+        "toolchain": {
+          "version": "1.90.0",
+          "host": "aarch64-apple-darwin",
+          "official_url": "https://static.rust-lang.org/dist/rust-1.90.0-aarch64-apple-darwin.tar.xz",
+          "sha256": "9772d20d5cd736079a0ee84d00e6697cf2084f0fc4621b011e24e6f2d08d2d7f"
+        },
+        "timestamp_utc": "2026-10-15T08:46:33.827151+00:00"
+      },
+      "score_spec": {
+        "reference_mode": "oracle",
+        "reward_type": "bounded_continuous",
+        "direction": "maximize",
+        "formula": "sum_g (1/7)*(passed_g/denominator_g)",
+        "groups": {
+          "decode": {
+            "weight": 0.14285714285714285,
+            "denominator": 5
+          },
+          "multiline": {
+            "weight": 0.14285714285714285,
+            "denominator": 5
+          },
+          "format": {
+            "weight": 0.14285714285714285,
+            "denominator": 5
+          },
+          "edit": {
+            "weight": 0.14285714285714285,
+            "denominator": 5
+          },
+          "serialize": {
+            "weight": 0.14285714285714285,
+            "denominator": 5
+          },
+          "diagnostic": {
+            "weight": 0.14285714285714285,
+            "denominator": 7
+          },
+          "integration": {
+            "weight": 0.14285714285714285,
+            "denominator": 3
+          }
+        },
+        "denominator_total": 35,
+        "raw_metrics": [
+          "passed cases",
+          "per-group passed and total"
+        ],
+        "bounds": [
+          0,
+          1
+        ],
+        "correctness_gate": "each case independently requires exact expected operation output; failed builds score zero",
+        "baseline": {
+          "valid": true,
+          "score": 0.02040816326530612,
+          "pass_rate": 0.02857142857142857,
+          "summary": "1/35 behavioral cases passed"
+        },
+        "reference": {
+          "valid": true,
+          "score": 1.0,
+          "pass_rate": 1.0,
+          "summary": "35/35 behavioral cases passed"
+        },
+        "upper_endpoint": {
+          "value": 1,
+          "evidence": "pinned upstream host assistance passed 35/35; not container acceptance"
+        },
+        "controls": {
+          "reference": {
+            "valid": true,
+            "score": 1.0,
+            "pass_rate": 1.0,
+            "summary": "35/35 behavioral cases passed"
+          },
+          "starter": {
+            "valid": true,
+            "score": 0.02040816326530612,
+            "pass_rate": 0.02857142857142857,
+            "summary": "1/35 behavioral cases passed"
+          },
+          "unicode-ascii-only": {
+            "valid": true,
+            "score": 0.8666666666666666,
+            "pass_rate": 0.8857142857142857,
+            "summary": "31/35 behavioral cases passed"
+          },
+          "discard-formatting": {
+            "valid": true,
+            "score": 0.6,
+            "pass_rate": 0.6571428571428571,
+            "summary": "23/35 behavioral cases passed"
+          },
+          "missing": {
+            "valid": true,
+            "score": 0.0,
+            "pass_rate": 0.0,
+            "summary": "submission workspace missing"
+          },
+          "missing-infrastructure": {
+            "valid": false,
+            "score": null,
+            "pass_rate": null,
+            "summary": "infrastructure failure: RuntimeError('promised cargo missing')"
+          }
+        },
+        "runtime": "host-only controls; no Docker/Harbor proof",
+        "performance_anchors": null
+      },
+      "toml_parse": "pass",
+      "declared_protocol": {
+        "schema_version": "1.4",
+        "reward_type": "bounded_continuous",
+        "agent_timeout_sec": 21600,
+        "agent_network_mode": "no-network",
+        "environment_network_mode": "no-network",
+        "verifier_network_mode": "no-network",
+        "verifier_environment_mode": "separate",
+        "verifier_environment_network_mode": "no-network",
+        "artifacts": [
+          "/home/workspace/toml-string-recovery/submission"
+        ]
+      },
+      "contains_legacy_local_schema": false,
+      "grader_mirror_byte_equal": true,
+      "inventory_only": true
+    },
+    {
+      "id": "06_jq",
+      "family": "behavioral_reimplementation",
+      "owner": "swe_system_pilots",
+      "source": "jqlang/jq",
+      "source_revision": "71c2ab509a8628dbbad4bc7b3f98a64aa90d3297",
+      "directory": "06_jq",
+      "present": [
+        "instruction.md",
+        "task.toml",
+        "source-card.md",
+        "environment/Dockerfile",
+        "verifier/Dockerfile",
+        "tests/test.sh",
+        "solution/solve.sh",
+        "authoring/provenance.json",
+        "authoring/score-spec.json",
+        "authoring/build-manifest.json",
+        "AUTHORING_REPORT.json"
+      ],
+      "missing": [],
+      "file_hashes": {
+        "instruction.md": "12f4b652d2ee752683091dc640c69aa8fa59ddd25a62d7173cdc6189449cd554",
+        "task.toml": "45783336182a347133337c3e960349028078259279ddc81f0b836835949aff27",
+        "source-card.md": "77bc56f31296d67efc88f62862b8f90bfdafd3024a4ac5b5469b2dfebf1e3796",
+        "environment/Dockerfile": "ce00ee6b53503be0d70bc1da37606eda6fb71b3e3a9f036dfef59eb72a665c05",
+        "verifier/Dockerfile": "e9d67ab589132241dd0beb53934182b44eb14b14f7c6434dd91099b22cb2b4ee",
+        "tests/test.sh": "b8a8e289970b1a957393dea8c2037fa0cbdc0aed5a4ecde5c0ecd7af8fec5cf1",
+        "solution/solve.sh": "6ec276fd92fc16a908c104e4171e9724125d198d65101a6e14cd24106860eda4",
+        "authoring/provenance.json": "25ccbdfd0c1a59e4cd4843d7cdd57aaa00d8c28414798966eba4f4850e474170",
+        "authoring/score-spec.json": "077d18fa809503f304076d4154c4d83d8c77de37fe0718aca299f77cabf37a26",
+        "authoring/build-manifest.json": "1103e15bd963b62cfb233603ed6028367eb4db50758a3497af6d751898e32ab7",
+        "AUTHORING_REPORT.json": "b8fdaa9b8929e65e1391734c32f3fcfe3888800d4b64b7da8b545f22fd763645"
+      },
+      "formal_acceptance": false,
+      "six_hour_difficulty_verified": false,
+      "author_report": {
+        "task_id": "jq-profile",
+        "status": "hold_for_evidence",
+        "stage": "build_pilot",
+        "source_revision": "71c2ab509a8628dbbad4bc7b3f98a64aa90d3297",
+        "author_model": {
+          "requested": "gpt-6.1-sol",
+          "provider_receipt_verified": false
+        },
+        "local_controls": {
+          "scores": {
+            "reference": 1.0,
+            "reference_repeat": 1.0,
+            "starter": 0.32708333333333334,
+            "nop": 0.0,
+            "mask_runtime_errors": 0.29930555555555555,
+            "truncate_stream": 0.27152777777777776
+          },
+          "reference_repeat_equal": true,
+          "syntax_valid_zero": true,
+          "fixture_corruption_invalid_no_reward": true,
+          "container_isolation_verified": false
+        },
+        "evidence": {
+          "raw_case_inputs_and_oracle_outputs": "verifier/private/cases.json",
+          "oracle_generation": "authoring/oracle-evidence.json",
+          "local_scores": "authoring/controls/*/score.json",
+          "commands_stdout_stderr_exit": "authoring/controls/commands.json",
+          "solution_recipe": "solution/solve.sh",
+          "recipe_score": "authoring/controls/recipe_reference/score.json",
+          "fixture_and_syntax_failures": [
+            "authoring/controls/infra_failure/score.json",
+            "authoring/controls/syntax/score.json"
+          ]
+        },
+        "validation_scope": "trusted author controls on macOS host only; not container or Harbor acceptance",
+        "unverified": [
+          "Docker builds and Linux startup",
+          "candidate UID 65534 cannot read a known private file or write reward path",
+          "network runtime enforcement",
+          "Harbor native Oracle and NOP",
+          "periodic adapter snapshot/best-of-run integration",
+          "apt build-package version closure",
+          "Linux numeric/output equivalence for frozen host-generated fixtures",
+          "multi-architecture builds",
+          "independent hidden-corpus/grader audit",
+          "2h and 6h model improvement trajectories",
+          "training utility"
+        ],
+        "blockers": [
+          "No container execution authorized in this round",
+          "Broad compositional jq profile is only sampled by current fixtures; difficulty and pollution/shortcut audit remain unmeasured"
+        ],
+        "schema": {
+          "source": "../guidance/harbor-0.23.0-task-config.py",
+          "version": "Harbor 0.23.0",
+          "fields_checked_manually": [
+            "schema_version",
+            "artifacts",
+            "agent.timeout_sec",
+            "network_mode",
+            "environment.workdir",
+            "verifier.environment_mode",
+            "verifier.environment"
+          ],
+          "pydantic_runtime_validation": "pending parent audit",
+          "reward_type_mapping": "metadata.reward_type because Harbor schema has no top-level reward_type"
+        },
+        "scoring": {
+          "formula": "mean(passed[g]/total[g]) across 8 frozen groups",
+          "group_count": 8,
+          "frozen_denominators": {
+            "streams": 12,
+            "structure": 12,
+            "operators": 12,
+            "bindings": 10,
+            "control": 10,
+            "reductions": 10,
+            "cli": 9,
+            "errors": 9
+          },
+          "case_count": 84,
+          "reference_at_formula_upper_bound_on_host": true,
+          "global_language_conformance_claimed": false
+        },
+        "earlier_local_failure": {
+          "kind": "Darwin RLIMIT_AS lowering rejects with ValueError",
+          "evidence": "authoring/controls/preexec_failure_command.json",
+          "resolution": "Memory limit is Linux-only; macOS host evidence has no address-space isolation claim"
+        },
+        "prohibited_actions_run": {
+          "teacher_model": false,
+          "docker": false,
+          "ssh": false,
+          "cloud": false,
+          "ci": false
+        },
+        "parent_handoff": "Two pilots are not two accepted benchmark tasks",
+        "authoring_cwd_incident": {
+          "description": "First configure ran from workspace root; six known generated outputs were moved into authoring/misplaced-configure; no existing root files were intentionally altered",
+          "retained_evidence": "authoring/misplaced-configure/",
+          "root_temp_files_remaining": false
+        },
+        "base_image": {
+          "image": "python:3.12.8-slim-bookworm@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+          "evidence": "authoring/base-image-pin.json",
+          "manifest_index": "authoring/base-image-manifest-index.json",
+          "index_sha256_verified": true,
+          "container_build_verified": false
+        }
+      },
+      "provenance": {
+        "sources": [
+          {
+            "repo": "https://github.com/jqlang/jq",
+            "commit": "71c2ab509a8628dbbad4bc7b3f98a64aa90d3297",
+            "tag": "jq-1.7.1"
+          }
+        ],
+        "retained_archives": [
+          {
+            "path": "authoring/sources/jq.tar.gz",
+            "sha256": "eeef5d733152158e735a3c2024bd0d74c5c8a55696e5ee71cfd31a46381f709d",
+            "bytes": 1324134
+          },
+          {
+            "path": "authoring/sources/jq-1.7.1-release.tar.gz",
+            "sha256": "478c9ca129fd2e3443fe27314b455e211e0d8c60bc8ff7df703873deeee580c2",
+            "bytes": 1950645
+          }
+        ],
+        "test_material_origin": "Author-selected compositional CLI probes grounded in official tests and manual; not a verbatim full-suite conversion",
+        "expected_origin": "Unmodified official jq-1.7.1 built locally from the retained official release asset, without optional regex library",
+        "transformations": [
+          "Fixed archive -> extracted original source with notices",
+          "Normative documents only -> work public reference; implementation and hidden data excluded",
+          "jq programs + stdin + argv -> actual stdout/stderr/exit from official executable",
+          "Source family -> eight frozen semantic groups; repeated cases do not increase group weight"
+        ],
+        "splits": {
+          "public": "environment/dev_cases.json, one documented case per group",
+          "private": "verifier/private/cases.json, all scoring cases including development anchors",
+          "independent_test_holdout": "No unseen task-family holdout evidence; not claimed"
+        },
+        "agent_environment_content": "starter, normative profile, public development examples and generic tools; no private oracle or hidden corpus",
+        "host_platform": "macOS-26.6.2-arm64-arm-64bit",
+        "requested_author_model": "gpt-6.1-sol",
+        "provider_receipt_verified": false
+      },
+      "score_spec": {
+        "reward_type": "bounded_continuous",
+        "reference_mode": "ordinary_oracle",
+        "formula": "sum((1/8)*passed[g]/total[g] for g in frozen_groups)",
+        "constants": {
+          "group_weight": 0.125,
+          "groups": {
+            "streams": 12,
+            "structure": 12,
+            "operators": 12,
+            "bindings": 10,
+            "control": 10,
+            "reductions": 10,
+            "cli": 9,
+            "errors": 9
+          },
+          "per_case_wall_sec": 3,
+          "per_case_cpu_sec": 2,
+          "candidate_memory_bytes": 536870912,
+          "candidate_output_file_bytes": 1048576
+        },
+        "unrun_and_failed_cases": "remain in fixed denominator; zero credit",
+        "raw_metric": "behavior checks passed, separately by semantic group",
+        "direction": "maximize",
+        "range": [
+          0,
+          1
+        ],
+        "pass_rate": "sum(passed)/sum(total), not weighted score",
+        "reference_observation": {
+          "score": 1.0,
+          "evidence": "controls/reference/score.json",
+          "host_only": true
+        },
+        "baseline_observation": {
+          "score": 0.32708333333333334,
+          "evidence": "controls/starter/score.json",
+          "host_only": true
+        },
+        "upper_bound": {
+          "formula_clip": 1,
+          "global_semantic_completeness": "not claimed",
+          "attainment_evidence": "authoring/controls/reference/score.json when present"
+        },
+        "failure_classification": {
+          "missing_or_wrong_submission": "valid=true, computed partial or 0",
+          "broken_dependency_or_fixture": "valid=false, score=null, no reward.txt/reward.json"
+        }
+      },
+      "toml_parse": "pass",
+      "declared_protocol": {
+        "schema_version": "1.4",
+        "reward_type": "bounded_continuous",
+        "agent_timeout_sec": 21600,
+        "agent_network_mode": "no-network",
+        "environment_network_mode": "no-network",
+        "verifier_network_mode": "no-network",
+        "verifier_environment_mode": "separate",
+        "verifier_environment_network_mode": "no-network",
+        "artifacts": [
+          "/home/workspace/jq-profile/submission/"
+        ]
+      },
+      "contains_legacy_local_schema": false,
+      "grader_mirror_byte_equal": true,
+      "inventory_only": true
+    }
+  ],
+  "teacher_rollouts_started_by_collector": 0,
+  "warning": "File presence, TOML parsing and author reports are not container, Harbor or difficulty acceptance."
+}

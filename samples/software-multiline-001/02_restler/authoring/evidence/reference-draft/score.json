@@ -1,0 +1,197 @@
+{
+  "valid": false,
+  "score": null,
+  "summary": "hold_for_evidence: native component diagnostics available, Polaris HTTP/reset/lifecycle reference and acceptance oracle missing",
+  "component_checks": [
+    {
+      "name": "native_smoke",
+      "passed": true
+    },
+    {
+      "name": "native_replay",
+      "passed": true
+    },
+    {
+      "name": "commit",
+      "passed": true
+    },
+    {
+      "name": "resume",
+      "passed": true
+    },
+    {
+      "name": "corruption",
+      "passed": true
+    },
+    {
+      "name": "input_mismatch",
+      "passed": true
+    }
+  ],
+  "component_pass_rate": 1.0,
+  "component_fixed_denominator": 6,
+  "records": [
+    {
+      "phase": "native_smoke",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/02_restler/authoring/venv/bin/python",
+        "-m",
+        "pytest",
+        "unit_tests/test_basic_functionality_end_to_end.py::FunctionalityTests::test_abc_minimal_smoke_test",
+        "-q"
+      ],
+      "cwd": "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-b49sommh/restler",
+      "exit": 0,
+      "timeout": false,
+      "stdout": ".                                                                        [100%]\n1 passed in 0.61s\n",
+      "stderr": ""
+    },
+    {
+      "phase": "native_replay",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/02_restler/authoring/venv/bin/python",
+        "-m",
+        "pytest",
+        "unit_tests/test_basic_functionality_end_to_end.py::FunctionalityTests::test_trace_database_replay_file",
+        "-q"
+      ],
+      "cwd": "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-b49sommh/restler",
+      "exit": 0,
+      "timeout": false,
+      "stdout": ".                                                                        [100%]\n1 passed in 1.90s\n",
+      "stderr": ""
+    },
+    {
+      "phase": "commit",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/02_restler/authoring/venv/bin/python",
+        "restler.py",
+        "--use_test_socket",
+        "--fuzzing_mode",
+        "bfs",
+        "--restler_grammar",
+        "unit_tests/log_baseline_test_files/abc_test_grammar.py",
+        "--custom_mutations",
+        "unit_tests/log_baseline_test_files/abc_dict.json",
+        "--host",
+        "unittest",
+        "--token_refresh_cmd",
+        "python unit_tests/authentication_test_files/unit_test_server_auth.py",
+        "--token_refresh_interval",
+        "10",
+        "--garbage_collection_interval",
+        "30",
+        "--campaign_checkpoint_file",
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-b49sommh/frontier.bin",
+        "--max_sequence_length",
+        "2"
+      ],
+      "cwd": "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-b49sommh/restler",
+      "exit": 0,
+      "timeout": false,
+      "stdout": "Grammar schema file 'unit_tests/log_baseline_test_files/abc_test_grammar.json' does not exist.\n2026-10-15 16:50:38.052: Initializing: Garbage collection every 30 seconds.\n2026-10-15 16:50:38.124: Generation: 1 \nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nCAMPAIGN_CHECKPOINT committed generation 1\n2026-10-15 16:50:38.144: Generation: 2 \nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nCAMPAIGN_CHECKPOINT committed generation 2\n2026-10-15 16:50:38.224: Terminating garbage collection. Waiting for max 300 seconds. \nDone.\n",
+      "stderr": ""
+    },
+    {
+      "phase": "resume",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/02_restler/authoring/venv/bin/python",
+        "restler.py",
+        "--use_test_socket",
+        "--fuzzing_mode",
+        "bfs",
+        "--restler_grammar",
+        "unit_tests/log_baseline_test_files/abc_test_grammar.py",
+        "--custom_mutations",
+        "unit_tests/log_baseline_test_files/abc_dict.json",
+        "--host",
+        "unittest",
+        "--token_refresh_cmd",
+        "python unit_tests/authentication_test_files/unit_test_server_auth.py",
+        "--token_refresh_interval",
+        "10",
+        "--garbage_collection_interval",
+        "30",
+        "--campaign_checkpoint_file",
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-b49sommh/frontier.bin",
+        "--max_sequence_length",
+        "3",
+        "--campaign_resume"
+      ],
+      "cwd": "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-b49sommh/restler",
+      "exit": 0,
+      "timeout": false,
+      "stdout": "Grammar schema file 'unit_tests/log_baseline_test_files/abc_test_grammar.json' does not exist.\n2026-10-15 16:50:38.664: Initializing: Garbage collection every 30 seconds.\nCAMPAIGN_CHECKPOINT restored generation 2\n2026-10-15 16:50:38.675: Generation: 3 \nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nError parsing header: Restler Test\nCAMPAIGN_CHECKPOINT committed generation 3\n2026-10-15 16:50:39.423: Terminating garbage collection. Waiting for max 300 seconds. \nDone.\n",
+      "stderr": ""
+    },
+    {
+      "phase": "corruption",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/02_restler/authoring/venv/bin/python",
+        "restler.py",
+        "--use_test_socket",
+        "--fuzzing_mode",
+        "bfs",
+        "--restler_grammar",
+        "unit_tests/log_baseline_test_files/abc_test_grammar.py",
+        "--custom_mutations",
+        "unit_tests/log_baseline_test_files/abc_dict.json",
+        "--host",
+        "unittest",
+        "--token_refresh_cmd",
+        "python unit_tests/authentication_test_files/unit_test_server_auth.py",
+        "--token_refresh_interval",
+        "10",
+        "--garbage_collection_interval",
+        "30",
+        "--campaign_checkpoint_file",
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-b49sommh/frontier.bin",
+        "--max_sequence_length",
+        "4",
+        "--campaign_resume"
+      ],
+      "cwd": "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-b49sommh/restler",
+      "exit": 255,
+      "timeout": false,
+      "stdout": "Grammar schema file 'unit_tests/log_baseline_test_files/abc_test_grammar.json' does not exist.\n2026-10-15 16:50:39.999: Initializing: Garbage collection every 30 seconds.\n2026-10-15 16:50:40.005: Terminating garbage collection. Waiting for max 300 seconds. \nTraceback (most recent call last):\n  File \"/private/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-b49sommh/restler/engine/core/fuzzer.py\", line 43, in run\n    self._num_total_sequences = driver.generate_sequences(\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/private/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-b49sommh/restler/engine/core/driver.py\", line 695, in generate_sequences\n    saver.load(req_collection, seq_collection, fuzzing_requests, monitor)\n  File \"/private/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-b49sommh/restler/utils/saver.py\", line 74, in load\n    raise ValueError('campaign checkpoint payload checksum mismatch')\nValueError: campaign checkpoint payload checksum mismatch\n\n",
+      "stderr": ""
+    },
+    {
+      "phase": "input_mismatch",
+      "command": [
+        "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/02_restler/authoring/venv/bin/python",
+        "restler.py",
+        "--use_test_socket",
+        "--fuzzing_mode",
+        "bfs",
+        "--restler_grammar",
+        "unit_tests/log_baseline_test_files/abc_test_grammar.py",
+        "--custom_mutations",
+        "unit_tests/log_baseline_test_files/abc_dict.json",
+        "--host",
+        "unittest",
+        "--token_refresh_cmd",
+        "python unit_tests/authentication_test_files/unit_test_server_auth.py",
+        "--token_refresh_interval",
+        "10",
+        "--garbage_collection_interval",
+        "30",
+        "--campaign_checkpoint_file",
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-b49sommh/frontier.bin",
+        "--max_sequence_length",
+        "4",
+        "--campaign_resume"
+      ],
+      "cwd": "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-b49sommh/restler",
+      "exit": 255,
+      "timeout": false,
+      "stdout": "Grammar schema file 'unit_tests/log_baseline_test_files/abc_test_grammar.json' does not exist.\n2026-10-15 16:50:40.506: Initializing: Garbage collection every 30 seconds.\n2026-10-15 16:50:40.510: Terminating garbage collection. Waiting for max 300 seconds. \nTraceback (most recent call last):\n  File \"/private/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-b49sommh/restler/engine/core/fuzzer.py\", line 43, in run\n    self._num_total_sequences = driver.generate_sequences(\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/private/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-b49sommh/restler/engine/core/driver.py\", line 695, in generate_sequences\n    saver.load(req_collection, seq_collection, fuzzing_requests, monitor)\n  File \"/private/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/restler-native-b49sommh/restler/utils/saver.py\", line 72, in load\n    raise ValueError('campaign checkpoint version or input fingerprint mismatch')\nValueError: campaign checkpoint version or input fingerprint mismatch\n\n",
+      "stderr": ""
+    }
+  ],
+  "unexecuted_required_groups": [
+    "external HTTP crash/replay exactly-once semantics",
+    "Polaris principal/role/catalog dependency restoration",
+    "cleanup and resource lifecycle after cancellation"
+  ]
+}

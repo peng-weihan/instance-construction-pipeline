@@ -1,0 +1,502 @@
+{
+  "observed_utc": "2026-10-15T11:06:37.863492+00:00",
+  "formal_acceptance": false,
+  "score_definition": "best valid completed submission by snapshot time; no score rescaling",
+  "tasks": {
+    "restler": {
+      "observed_learning_hours": 4.0160577492575005,
+      "completed_valid_grades": 50,
+      "best_score": 1.0,
+      "checkpoints": {
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0
+      },
+      "relative_gain_since_2h": 0.0,
+      "last_improvement_hours": 0.23572637273774794,
+      "improvements": [
+        {
+          "hours": 0.0890600837274946,
+          "score": 0.8041666666666667,
+          "round": "agent-1"
+        },
+        {
+          "hours": 0.13789305591415743,
+          "score": 0.8625,
+          "round": "agent-2"
+        },
+        {
+          "hours": 0.23572637273774794,
+          "score": 1.0,
+          "round": "agent-4"
+        }
+      ],
+      "host_process_exists": false,
+      "stop_reason": "infrastructure_or_probe_completion",
+      "history_sha256": "5f90fc1385ec5b7c590209b6691e041145ffd56df2c7a33be7b00b50769429c2"
+    },
+    "lean": {
+      "observed_learning_hours": 6.000000331570557,
+      "completed_valid_grades": 43,
+      "best_score": 1.0,
+      "checkpoints": {
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0,
+        "5": 1.0,
+        "6": 1.0
+      },
+      "relative_gain_since_2h": 0.0,
+      "last_improvement_hours": 0.46379534998666105,
+      "improvements": [
+        {
+          "hours": 0.1665247847627778,
+          "score": 0,
+          "round": "auto-1"
+        },
+        {
+          "hours": 0.23943214959749537,
+          "score": 0.8,
+          "round": "agent-1"
+        },
+        {
+          "hours": 0.46379534998666105,
+          "score": 1.0,
+          "round": "agent-2"
+        }
+      ],
+      "host_process_exists": false,
+      "stop_reason": "learning_budget_exhausted",
+      "history_sha256": "6ad3d9740b9a2675075914b2825c867a317778f8f4372038b7788d407868db87"
+    },
+    "packing": {
+      "observed_learning_hours": 6.0000000689705555,
+      "completed_valid_grades": 116,
+      "best_score": 0.3983375816597537,
+      "checkpoints": {
+        "1": 0.26010128913118746,
+        "2": 0.26010128913118746,
+        "3": 0.3514243687639052,
+        "4": 0.3823555024338498,
+        "5": 0.3983375816597537,
+        "6": 0.3983375816597537
+      },
+      "relative_gain_since_2h": 0.5314710011254264,
+      "last_improvement_hours": 4.250215091449984,
+      "improvements": [
+        {
+          "hours": 0.06813025288222384,
+          "score": 0.26010128913118746,
+          "round": "agent-1"
+        },
+        {
+          "hours": 2.0442332516022077,
+          "score": 0.29116023896572923,
+          "round": "agent-18"
+        },
+        {
+          "hours": 2.21504216184416,
+          "score": 0.29638177386011416,
+          "round": "agent-20"
+        },
+        {
+          "hours": 2.252804190336093,
+          "score": 0.29896223542452477,
+          "round": "agent-21"
+        },
+        {
+          "hours": 2.466427163061938,
+          "score": 0.32083912545793086,
+          "round": "agent-25"
+        },
+        {
+          "hours": 2.519045069344445,
+          "score": 0.33015539841135594,
+          "round": "agent-26"
+        },
+        {
+          "hours": 2.6980450663224715,
+          "score": 0.3496455860688606,
+          "round": "agent-29"
+        },
+        {
+          "hours": 2.8751132581299883,
+          "score": 0.3514243687639052,
+          "round": "agent-31"
+        },
+        {
+          "hours": 3.289472987956639,
+          "score": 0.35890067705513823,
+          "round": "agent-35"
+        },
+        {
+          "hours": 3.5464834418263895,
+          "score": 0.3671362217514638,
+          "round": "agent-37"
+        },
+        {
+          "hours": 3.6857064771608243,
+          "score": 0.377332551490702,
+          "round": "agent-41"
+        },
+        {
+          "hours": 3.9157114951202594,
+          "score": 0.3823555024338498,
+          "round": "agent-44"
+        },
+        {
+          "hours": 4.054648373898591,
+          "score": 0.38995541884833873,
+          "round": "agent-48"
+        },
+        {
+          "hours": 4.250215091449984,
+          "score": 0.3983375816597537,
+          "round": "agent-53"
+        }
+      ],
+      "host_process_exists": false,
+      "stop_reason": "learning_budget_exhausted",
+      "history_sha256": "6435890ebe2c28ebbe5f59d76b8004d0a5c92dd18b19afa02550625ac5f38903"
+    },
+    "game": {
+      "observed_learning_hours": 6.000000056194445,
+      "completed_valid_grades": 198,
+      "best_score": 0.8662878787878788,
+      "checkpoints": {
+        "1": 0.7738636363636364,
+        "2": 0.7803030303030303,
+        "3": 0.7825757575757576,
+        "4": 0.8621212121212122,
+        "5": 0.8655303030303031,
+        "6": 0.8662878787878788
+      },
+      "relative_gain_since_2h": 0.11019417475728166,
+      "last_improvement_hours": 5.449449014187525,
+      "improvements": [
+        {
+          "hours": 0.007173923099439384,
+          "score": 0.5420454545454546,
+          "round": "agent-1"
+        },
+        {
+          "hours": 0.05911782733695064,
+          "score": 0.6303030303030304,
+          "round": "agent-2"
+        },
+        {
+          "hours": 0.24765422030138629,
+          "score": 0.6310606060606061,
+          "round": "agent-7"
+        },
+        {
+          "hours": 0.3519300385522203,
+          "score": 0.7007575757575758,
+          "round": "agent-10"
+        },
+        {
+          "hours": 0.5602731408502829,
+          "score": 0.7030303030303031,
+          "round": "agent-16"
+        },
+        {
+          "hours": 0.6647026909672422,
+          "score": 0.7738636363636364,
+          "round": "agent-19"
+        },
+        {
+          "hours": 1.3248598488275052,
+          "score": 0.7753787878787879,
+          "round": "agent-38"
+        },
+        {
+          "hours": 1.3598076005761202,
+          "score": 0.7780303030303032,
+          "round": "agent-39"
+        },
+        {
+          "hours": 1.6726595825575188,
+          "score": 0.7803030303030303,
+          "round": "agent-48"
+        },
+        {
+          "hours": 2.964081080908072,
+          "score": 0.7825757575757576,
+          "round": "agent-85"
+        },
+        {
+          "hours": 3.347036810198915,
+          "score": 0.8583333333333334,
+          "round": "agent-95"
+        },
+        {
+          "hours": 3.5616139796933406,
+          "score": 0.8621212121212122,
+          "round": "agent-101"
+        },
+        {
+          "hours": 4.201022846834191,
+          "score": 0.8651515151515152,
+          "round": "agent-117"
+        },
+        {
+          "hours": 4.800194252781123,
+          "score": 0.8655303030303031,
+          "round": "agent-131"
+        },
+        {
+          "hours": 5.449449014187525,
+          "score": 0.8662878787878788,
+          "round": "agent-145"
+        }
+      ],
+      "host_process_exists": false,
+      "stop_reason": "learning_budget_exhausted",
+      "history_sha256": "3250259f1e648daa61ab4ec163779897ac7a0d161f0356ccf2615fe704b262d5"
+    },
+    "finance_previous": {
+      "observed_learning_hours": 4.217733786179722,
+      "completed_valid_grades": 95,
+      "best_score": 0.681844094521565,
+      "checkpoints": {
+        "1": 0.6585794837402571,
+        "2": 0.6674936860077185,
+        "3": 0.681844094521565,
+        "4": 0.681844094521565
+      },
+      "relative_gain_since_2h": 0.021498942708621405,
+      "last_improvement_hours": 2.4491586590983205,
+      "improvements": [
+        {
+          "hours": 0.005922673435545423,
+          "score": 0.39329753265088446,
+          "round": "agent-1"
+        },
+        {
+          "hours": 0.06881466974834136,
+          "score": 0.5494469252358161,
+          "round": "agent-2"
+        },
+        {
+          "hours": 0.11707611264638318,
+          "score": 0.5598861634408002,
+          "round": "agent-3"
+        },
+        {
+          "hours": 0.16663248619083335,
+          "score": 0.5915100870915805,
+          "round": "auto-1"
+        },
+        {
+          "hours": 0.2684763576399807,
+          "score": 0.6275384847853936,
+          "round": "agent-6"
+        },
+        {
+          "hours": 0.3471854852358229,
+          "score": 0.6417813545632519,
+          "round": "agent-7"
+        },
+        {
+          "hours": 0.41422838005334295,
+          "score": 0.6417822513404586,
+          "round": "agent-8"
+        },
+        {
+          "hours": 0.6505601149974973,
+          "score": 0.6418673611038849,
+          "round": "agent-13"
+        },
+        {
+          "hours": 0.7406692213580633,
+          "score": 0.6585794837402571,
+          "round": "agent-15"
+        },
+        {
+          "hours": 1.7668004339655616,
+          "score": 0.6585837586001811,
+          "round": "agent-28"
+        },
+        {
+          "hours": 1.8068450711975068,
+          "score": 0.6674936860077185,
+          "round": "agent-29"
+        },
+        {
+          "hours": 2.133244164229707,
+          "score": 0.6781126836662499,
+          "round": "agent-37"
+        },
+        {
+          "hours": 2.2868005748969478,
+          "score": 0.6800103631033131,
+          "round": "agent-41"
+        },
+        {
+          "hours": 2.4491586590983205,
+          "score": 0.681844094521565,
+          "round": "agent-45"
+        }
+      ],
+      "host_process_exists": false,
+      "stop_reason": "infrastructure_or_probe_completion",
+      "history_sha256": "d9c3e54195114cd1c617bec2990375a6d52096ebb089f61c4846df9c3307b2b2"
+    },
+    "science_live": {
+      "observed_learning_hours": 3.28672807,
+      "completed_valid_grades": 93,
+      "best_score": 0.608053476315216,
+      "checkpoints": {
+        "1": 0.6077547405161176,
+        "2": 0.6077547405161176,
+        "3": 0.608053476315216
+      },
+      "relative_gain_since_2h": 0.00049154005585339,
+      "last_improvement_hours": 2.4739591411452664,
+      "improvements": [
+        {
+          "hours": 0.00977983271302138,
+          "score": 0.3926459008379822,
+          "round": "agent-1"
+        },
+        {
+          "hours": 0.0535089585524919,
+          "score": 0.46986239596700424,
+          "round": "agent-2"
+        },
+        {
+          "hours": 0.13095448657052153,
+          "score": 0.5470396545213851,
+          "round": "agent-3"
+        },
+        {
+          "hours": 0.16494820991107392,
+          "score": 0.5493856898256925,
+          "round": "agent-4"
+        },
+        {
+          "hours": 0.47495910306690753,
+          "score": 0.5545539746011926,
+          "round": "agent-11"
+        },
+        {
+          "hours": 0.5850047162810935,
+          "score": 0.5770541670997907,
+          "round": "agent-14"
+        },
+        {
+          "hours": 0.6219560981580354,
+          "score": 0.5965974957036349,
+          "round": "agent-15"
+        },
+        {
+          "hours": 0.7697420018199611,
+          "score": 0.6014922601198517,
+          "round": "agent-19"
+        },
+        {
+          "hours": 0.8432670856544346,
+          "score": 0.6035475058309481,
+          "round": "agent-21"
+        },
+        {
+          "hours": 0.9530753738735802,
+          "score": 0.6076676319430726,
+          "round": "agent-24"
+        },
+        {
+          "hours": 0.9891246403791593,
+          "score": 0.6077547405161176,
+          "round": "agent-25"
+        },
+        {
+          "hours": 2.4739591411452664,
+          "score": 0.608053476315216,
+          "round": "agent-63"
+        }
+      ],
+      "host_process_exists": true,
+      "stop_reason": null,
+      "history_sha256": "353d2859e54de3e8b4804ef787ee0de7b391893d16388f99118cb53ba585e224"
+    },
+    "finance_live": {
+      "observed_learning_hours": 3.0155133269444443,
+      "completed_valid_grades": 77,
+      "best_score": 0.6722446621931999,
+      "checkpoints": {
+        "1": 0.6013119672372508,
+        "2": 0.6534541659036058,
+        "3": 0.6722446621931999
+      },
+      "relative_gain_since_2h": 0.028755645414870523,
+      "last_improvement_hours": 2.605600010434185,
+      "improvements": [
+        {
+          "hours": 0.010714770770864562,
+          "score": 0.39329753265088446,
+          "round": "agent-1"
+        },
+        {
+          "hours": 0.08331453345751572,
+          "score": 0.4592868119447433,
+          "round": "agent-3"
+        },
+        {
+          "hours": 0.2352239756402883,
+          "score": 0.5017399326350717,
+          "round": "agent-5"
+        },
+        {
+          "hours": 0.3596449665736226,
+          "score": 0.5381496471984132,
+          "round": "agent-6"
+        },
+        {
+          "hours": 0.5195474432639053,
+          "score": 0.562613609566606,
+          "round": "agent-8"
+        },
+        {
+          "hours": 0.609161949414734,
+          "score": 0.5636694010536649,
+          "round": "agent-9"
+        },
+        {
+          "hours": 0.9985013135047223,
+          "score": 0.6013119672372508,
+          "round": "auto-6"
+        },
+        {
+          "hours": 1.2969563937555844,
+          "score": 0.627935004097255,
+          "round": "agent-25"
+        },
+        {
+          "hours": 1.5778878484666994,
+          "score": 0.6491976064450435,
+          "round": "agent-30"
+        },
+        {
+          "hours": 1.9455698690625205,
+          "score": 0.6534541659036058,
+          "round": "agent-38"
+        },
+        {
+          "hours": 2.355857864768639,
+          "score": 0.6633629698979143,
+          "round": "agent-47"
+        },
+        {
+          "hours": 2.605600010434185,
+          "score": 0.6722446621931999,
+          "round": "agent-53"
+        }
+      ],
+      "host_process_exists": true,
+      "stop_reason": null,
+      "history_sha256": "30aec06d9c8f832694afc488eceb6822db59102ade8e8d03fe21b4caf60a3fcd"
+    }
+  }
+}

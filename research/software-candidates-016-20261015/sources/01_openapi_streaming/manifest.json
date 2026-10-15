@@ -1,0 +1,70 @@
+{
+  "id": "01_openapi_streaming",
+  "repo": "openapi-generators/openapi-python-client",
+  "revision": "0a283fe21eeaa23046faf622d4ff4b2c826d2edb",
+  "family": "engineering_evolution",
+  "new_source": false,
+  "title": "流式SDK、取消与资源生命周期",
+  "files": [
+    "README.md",
+    "CHANGELOG.md",
+    "pyproject.toml",
+    "end_to_end_tests/functional_tests/README.md"
+  ],
+  "retrieved_utc": "2026-10-15T09:20:28.823045+00:00",
+  "files_acquired": [
+    {
+      "path": "README.md",
+      "bytes": 10377,
+      "sha256": "0db70b7a141fbe516d03277eda5075b2495b3028875e8b7d787eeb5d209a9025",
+      "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/README.md"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 66790,
+      "sha256": "d8bfe97e16a0f42c31a1a67b90aa7f204273fd614743de1a829a332ee9fa4488",
+      "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/CHANGELOG.md"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 3813,
+      "sha256": "ce1a113eb2a184bbc24f8c8fa8d44e642ba6a137034ce9ce8c16c1118ecca2b2",
+      "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/pyproject.toml"
+    },
+    {
+      "path": "end_to_end_tests/functional_tests/README.md",
+      "bytes": 3840,
+      "sha256": "4c11cc45e198db053db73447055ac0a2937a1808a37a284cbc60b48601787277",
+      "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/end_to_end_tests/functional_tests/README.md"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1075,
+      "sha256": "e1da71418a98d030776936ae46ba9846ebba05536c3d225d61e513dec1faa506",
+      "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/LICENSE"
+    },
+    {
+      "path": "openapi_python_client/templates/endpoint_module.py.jinja",
+      "bytes": 5319,
+      "sha256": "c1b2628053eb4875ba59566baa5ae907666f9cbfafa308d93f970a4404b7cd52",
+      "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/openapi_python_client/templates/endpoint_module.py.jinja"
+    }
+  ],
+  "missing_paths": [
+    "LICENSE.txt",
+    "LICENSE.md",
+    "COPYING",
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "runtime_validation": false,
+  "six_hour_difficulty_verified": false,
+  "tree_manifest": {
+    "path": "git-tree.json",
+    "sha256": "7c82022c6d05fddf737355ff3e316b3a534baad8e4117e1d6fd61652dcdb7a91",
+    "blob_count": 488,
+    "truncated": false
+  },
+  "resolved_initial_404_paths": {},
+  "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+}

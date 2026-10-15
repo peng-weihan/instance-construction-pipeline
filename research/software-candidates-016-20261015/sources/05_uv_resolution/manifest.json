@@ -1,0 +1,83 @@
+{
+  "id": "05_uv_resolution",
+  "repo": "astral-sh/uv",
+  "family": "engineering_evolution",
+  "new_source": true,
+  "title": "跨环境依赖解析与增量锁定",
+  "files": [
+    "README.md",
+    "docs/concepts/resolution.md",
+    "crates/uv-resolver/src/lib.rs",
+    "crates/uv/tests/lock/lock.rs"
+  ],
+  "revision": "9385290f1bf895cb3f587118ce92cce9a0585f77",
+  "retrieved_utc": "2026-10-15T09:20:37.384541+00:00",
+  "files_acquired": [
+    {
+      "path": "README.md",
+      "bytes": 9859,
+      "sha256": "57a84a5a635f30e3a26541ebc16ca690944a7750f05713b1af92d3170b58f704",
+      "url": "https://github.com/astral-sh/uv/blob/9385290f1bf895cb3f587118ce92cce9a0585f77/README.md"
+    },
+    {
+      "path": "docs/concepts/resolution.md",
+      "bytes": 41949,
+      "sha256": "20d178235cc8847feae2ea5ab01673d3320ce2927ee6263b6a238847dad1f3e2",
+      "url": "https://github.com/astral-sh/uv/blob/9385290f1bf895cb3f587118ce92cce9a0585f77/docs/concepts/resolution.md"
+    },
+    {
+      "path": "crates/uv-resolver/src/lib.rs",
+      "bytes": 2348,
+      "sha256": "343014d6478a85563421bf1e981c00c80b6f77093a28cb03e15b12b9066c576b",
+      "url": "https://github.com/astral-sh/uv/blob/9385290f1bf895cb3f587118ce92cce9a0585f77/crates/uv-resolver/src/lib.rs"
+    },
+    {
+      "path": "LICENSE-APACHE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "url": "https://github.com/astral-sh/uv/blob/9385290f1bf895cb3f587118ce92cce9a0585f77/LICENSE-APACHE"
+    },
+    {
+      "path": "LICENSE-MIT",
+      "bytes": 1077,
+      "sha256": "860e3d7a86b84e6a7012c7a635fc64df475cebc6cce34dfeb73a5982ec58176c",
+      "url": "https://github.com/astral-sh/uv/blob/9385290f1bf895cb3f587118ce92cce9a0585f77/LICENSE-MIT"
+    },
+    {
+      "path": "crates/uv-resolver/src/resolver/mod.rs",
+      "bytes": 174991,
+      "sha256": "77ab4cedecbd9aa984dd6fad2944310e995b2ff9a4f91762d284f996a152074d",
+      "url": "https://github.com/astral-sh/uv/blob/9385290f1bf895cb3f587118ce92cce9a0585f77/crates/uv-resolver/src/resolver/mod.rs"
+    },
+    {
+      "path": "crates/uv/tests/lock/lock.rs",
+      "bytes": 2076616,
+      "sha256": "7a7493eac5ad40804c067e489bf2303ea1567475c230c5502575d09b17517569",
+      "url": "https://github.com/astral-sh/uv/blob/9385290f1bf895cb3f587118ce92cce9a0585f77/crates/uv/tests/lock/lock.rs"
+    },
+    {
+      "path": "crates/uv/tests/lock_scenarios/lock_conflict.rs",
+      "bytes": 699832,
+      "sha256": "0055c8218ad3be14bd0b51f30ed8f71676bc20e8c2da89a4ecedb3275c78c61e",
+      "url": "https://github.com/astral-sh/uv/blob/9385290f1bf895cb3f587118ce92cce9a0585f77/crates/uv/tests/lock_scenarios/lock_conflict.rs"
+    }
+  ],
+  "missing_paths": [
+    "LICENSE",
+    "LICENSE.txt",
+    "LICENSE.md",
+    "COPYING"
+  ],
+  "runtime_validation": false,
+  "six_hour_difficulty_verified": false,
+  "tree_manifest": {
+    "path": "git-tree.json",
+    "sha256": "43cd93bdb6bab65dba929abea0b272d76bb79ddc033529a11e7c4eb460f3cfb3",
+    "blob_count": 1863,
+    "truncated": false
+  },
+  "resolved_initial_404_paths": {
+    "crates/uv/tests/it/lock.rs": "crates/uv/tests/lock/lock.rs"
+  },
+  "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+}

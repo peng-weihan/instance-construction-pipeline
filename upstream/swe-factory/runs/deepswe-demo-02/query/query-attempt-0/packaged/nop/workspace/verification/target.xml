@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="4" time="0.046" timestamp="2026-09-26T16:33:16.080358+00:00" hostname="raymonedeMacBook-Air.local"><testcase classname="tests.test_target" name="test_parent" file="tests/test_target.py" line="1" time="0.000"><failure message="AssertionError: assert {} == {'a': 1}&#10;  &#10;  Right contains 1 more item:&#10;  {'a': 1}&#10;  Use -v to get more diff">def test_parent():
+&gt;       assert combine({"a": 1}, {}) == {"a": 1}
+E       AssertionError: assert {} == {'a': 1}
+E         
+E         Right contains 1 more item:
+E         {'a': 1}
+E         Use -v to get more diff
+
+tests/test_target.py:3: AssertionError</failure></testcase><testcase classname="tests.test_target" name="test_child" file="tests/test_target.py" line="3" time="0.000"><failure message="AssertionError: assert {} == {'b': 2}&#10;  &#10;  Right contains 1 more item:&#10;  {'b': 2}&#10;  Use -v to get more diff">def test_child():
+&gt;       assert combine({}, {"b": 2}) == {"b": 2}
+E       AssertionError: assert {} == {'b': 2}
+E         
+E         Right contains 1 more item:
+E         {'b': 2}
+E         Use -v to get more diff
+
+tests/test_target.py:5: AssertionError</failure></testcase><testcase classname="tests.test_target" name="test_override" file="tests/test_target.py" line="5" time="0.001"><failure message="AssertionError: assert {} == {'a': 3, 'b': 2}&#10;  &#10;  Right contains 2 more items:&#10;  {'a': 3, 'b': 2}&#10;  Use -v to get more diff">def test_override():
+&gt;       assert combine({"a": 1, "b": 2}, {"a": 3}) == {"a": 3, "b": 2}
+E       AssertionError: assert {} == {'a': 3, 'b': 2}
+E         
+E         Right contains 2 more items:
+E         {'a': 3, 'b': 2}
+E         Use -v to get more diff
+
+tests/test_target.py:7: AssertionError</failure></testcase><testcase classname="tests.test_target" name="test_unicode" file="tests/test_target.py" line="7" time="0.000"><failure message="AssertionError: assert {} == {'名字': '乙'}&#10;  &#10;  Right contains 1 more item:&#10;  {'名字': '乙'}&#10;  Use -v to get more diff">def test_unicode():
+&gt;       assert combine({"名字": "甲"}, {"名字": "乙"}) == {"名字": "乙"}
+E       AssertionError: assert {} == {'名字': '乙'}
+E         
+E         Right contains 1 more item:
+E         {'名字': '乙'}
+E         Use -v to get more diff
+
+tests/test_target.py:9: AssertionError</failure></testcase></testsuite></testsuites>

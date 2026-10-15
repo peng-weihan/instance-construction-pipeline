@@ -1,0 +1,46 @@
+{
+  "reason": "learning_budget_exhausted",
+  "uid_scope": 1500,
+  "exclusive_sandbox_only": true,
+  "learning_started_monotonic": 89.617123433,
+  "learning_started_utc": "2026-10-14T22:27:24.047681+00:00",
+  "launches": [
+    {
+      "pid": 210,
+      "spawned_monotonic": 89.627412804,
+      "spawned_utc": "2026-10-14T22:27:24.058012+00:00"
+    }
+  ],
+  "learning_deadline_monotonic": 21689.617123433,
+  "first_stop_dispatch_monotonic": 21689.617325733,
+  "all_stop_dispatched_monotonic": 21689.620985977,
+  "stop_dispatch_lateness_sec": 0.00020230000154697336,
+  "learning_window_sec": 21600,
+  "actual_stop_dispatch_elapsed_sec": 21600.0002023,
+  "actual_all_stop_dispatched_elapsed_sec": 21600.003862544,
+  "paused_before_termination": true,
+  "stopped_processes": [
+    {
+      "pid": 210,
+      "start_ticks": "8961"
+    },
+    {
+      "pid": 213,
+      "start_ticks": "8963"
+    },
+    {
+      "pid": 214,
+      "start_ticks": "8964"
+    },
+    {
+      "pid": 215,
+      "start_ticks": "8964"
+    },
+    {
+      "pid": 296,
+      "start_ticks": "9757"
+    }
+  ],
+  "surviving_learning_processes": [],
+  "finished_utc": "2026-10-15T04:27:24.087336+00:00"
+}

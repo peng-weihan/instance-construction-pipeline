@@ -1,0 +1,13 @@
+diff --git a/calc.py b/calc.py
+index ee33a89..e5aed29 100644
+--- a/calc.py
++++ b/calc.py
+@@ -5,4 +5,7 @@ def plain(value):
+     return dict(value)
+ 
+ def merge_many(*layers):
+-    return {}
++    result = {}
++    for layer in layers:
++        result.update(layer)
++    return result

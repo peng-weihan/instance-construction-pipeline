@@ -1,0 +1,113 @@
+{
+  "sha": "8a4cfc40f5b7446c0700471aa50290dbb7f8ea97",
+  "node_id": "C_kwDOAvH5zNoAKDhhNGNmYzQwZjViNzQ0NmMwNzAwNDcxYWE1MDI5MGRiYjdmOGVhOTc",
+  "commit": {
+    "author": {
+      "name": "ZainnQureshii",
+      "email": "43629888+ZainnQureshii@users.noreply.github.com",
+      "date": "2026-09-26T10:04:26Z"
+    },
+    "committer": {
+      "name": "PSeitz",
+      "email": "PSeitz@users.noreply.github.com",
+      "date": "2026-10-14T19:47:29Z"
+    },
+    "message": "Fix stale JSON range query note and ARCHITECTURE.md link\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+    "tree": {
+      "sha": "7b416b575100a80f523cc35a5b1d908e67da9690",
+      "url": "https://api.github.com/repos/quickwit-oss/tantivy/git/trees/7b416b575100a80f523cc35a5b1d908e67da9690"
+    },
+    "url": "https://api.github.com/repos/quickwit-oss/tantivy/git/commits/8a4cfc40f5b7446c0700471aa50290dbb7f8ea97",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/quickwit-oss/tantivy/commits/8a4cfc40f5b7446c0700471aa50290dbb7f8ea97",
+  "html_url": "https://github.com/quickwit-oss/tantivy/commit/8a4cfc40f5b7446c0700471aa50290dbb7f8ea97",
+  "comments_url": "https://api.github.com/repos/quickwit-oss/tantivy/commits/8a4cfc40f5b7446c0700471aa50290dbb7f8ea97/comments",
+  "author": {
+    "login": "ZainnQureshii",
+    "id": 43629888,
+    "node_id": "MDQ6VXNlcjQzNjI5ODg4",
+    "avatar_url": "https://avatars.githubusercontent.com/u/43629888?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/ZainnQureshii",
+    "html_url": "https://github.com/ZainnQureshii",
+    "followers_url": "https://api.github.com/users/ZainnQureshii/followers",
+    "following_url": "https://api.github.com/users/ZainnQureshii/following{/other_user}",
+    "gists_url": "https://api.github.com/users/ZainnQureshii/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/ZainnQureshii/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/ZainnQureshii/subscriptions",
+    "organizations_url": "https://api.github.com/users/ZainnQureshii/orgs",
+    "repos_url": "https://api.github.com/users/ZainnQureshii/repos",
+    "events_url": "https://api.github.com/users/ZainnQureshii/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/ZainnQureshii/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "PSeitz",
+    "id": 1109503,
+    "node_id": "MDQ6VXNlcjExMDk1MDM=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/1109503?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/PSeitz",
+    "html_url": "https://github.com/PSeitz",
+    "followers_url": "https://api.github.com/users/PSeitz/followers",
+    "following_url": "https://api.github.com/users/PSeitz/following{/other_user}",
+    "gists_url": "https://api.github.com/users/PSeitz/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/PSeitz/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/PSeitz/subscriptions",
+    "organizations_url": "https://api.github.com/users/PSeitz/orgs",
+    "repos_url": "https://api.github.com/users/PSeitz/repos",
+    "events_url": "https://api.github.com/users/PSeitz/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/PSeitz/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "7fea2ab8d8d63cc1ce41b88feb0923f09e25c2bb",
+      "url": "https://api.github.com/repos/quickwit-oss/tantivy/commits/7fea2ab8d8d63cc1ce41b88feb0923f09e25c2bb",
+      "html_url": "https://github.com/quickwit-oss/tantivy/commit/7fea2ab8d8d63cc1ce41b88feb0923f09e25c2bb"
+    }
+  ],
+  "stats": {
+    "total": 7,
+    "additions": 4,
+    "deletions": 3
+  },
+  "files": [
+    {
+      "sha": "ab1104f24686cd941bfc69725da7f159a3ac43e8",
+      "filename": "ARCHITECTURE.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/quickwit-oss/tantivy/blob/8a4cfc40f5b7446c0700471aa50290dbb7f8ea97/ARCHITECTURE.md",
+      "raw_url": "https://github.com/quickwit-oss/tantivy/raw/8a4cfc40f5b7446c0700471aa50290dbb7f8ea97/ARCHITECTURE.md",
+      "contents_url": "https://api.github.com/repos/quickwit-oss/tantivy/contents/ARCHITECTURE.md?ref=8a4cfc40f5b7446c0700471aa50290dbb7f8ea97",
+      "patch": "@@ -84,7 +84,7 @@ Indeed, while having several segments instead of one does not hurt search too mu\n \n The user of the library usually does not need to know about the existence of Segments.\n Searching is done through an object called a [`Searcher`](src/core/searcher.rs), that captures a\n-snapshot of the index at one point of time, by holding a list of [SegmentReader](src/core/segment_reader.rs).\n+snapshot of the index at one point of time, by holding a list of [SegmentReader](src/index/segment_reader.rs).\n \n In other words, regardless of commits, file garbage collection, or segment merge that might happen, as long as the user holds and reuse the same [Searcher](src/core/searcher.rs), search will happen on an immutable snapshot of the index.\n "
+    },
+    {
+      "sha": "b3d10ae519b3406ff14b89bb78a37009f7791586",
+      "filename": "doc/src/json.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 2,
+      "changes": 5,
+      "blob_url": "https://github.com/quickwit-oss/tantivy/blob/8a4cfc40f5b7446c0700471aa50290dbb7f8ea97/doc%2Fsrc%2Fjson.md",
+      "raw_url": "https://github.com/quickwit-oss/tantivy/raw/8a4cfc40f5b7446c0700471aa50290dbb7f8ea97/doc%2Fsrc%2Fjson.md",
+      "contents_url": "https://api.github.com/repos/quickwit-oss/tantivy/contents/doc%2Fsrc%2Fjson.md?ref=8a4cfc40f5b7446c0700471aa50290dbb7f8ea97",
+      "patch": "@@ -99,9 +99,10 @@ This is a product decision.\n The user can still target the JSON field by specifying its name explicitly:\n `json_dynamic.text:hello`.\n \n-## Range queries are not supported\n+## `RangeQuery` requires a fast field\n \n-Json field do not support range queries.\n+`RangeQuery` on a json field is only supported if the field is `FAST`, and only for\n+string, numeric and date values. Otherwise it returns an `InvalidArgument` error.\n \n ## Arrays do not work like nested object\n "
+    }
+  ]
+}

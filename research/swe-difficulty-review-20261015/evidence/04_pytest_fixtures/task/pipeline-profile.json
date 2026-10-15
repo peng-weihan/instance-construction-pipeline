@@ -1,0 +1,7 @@
+{
+  "agent_image": "edgebench-pytest-fixture-trace-agent:1.0.0",
+  "verifier_image": "edgebench-pytest-fixture-trace-verifier:1.0.0",
+  "artifacts": ["/home/workspace/pytest-fixture-trace/submission"],
+  "selection": "valid_then_score",
+  "score_direction": "maximize"
+}

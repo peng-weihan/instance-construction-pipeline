@@ -1,0 +1,107 @@
+{
+  "version": "edgekv-v1",
+  "reference_mode": "oracle",
+  "reward_type": "bounded_continuous",
+  "formula": "sum(group.weight * passed_checks_in_group / fixed_group_check_count)",
+  "range": [
+    0,
+    1
+  ],
+  "error_matching": "RESP error class before first space; other reply types exact",
+  "performance": {
+    "enabled": false,
+    "anchors": null
+  },
+  "groups": [
+    {
+      "name": "protocol",
+      "weight": 0.15,
+      "checks": [
+        "protocol_binary",
+        "protocol_fragment",
+        "protocol_hello",
+        "protocol_malformed",
+        "protocol_disconnect"
+      ]
+    },
+    {
+      "name": "commands",
+      "weight": 0.15,
+      "checks": [
+        "command_types",
+        "command_numbers",
+        "command_time",
+        "command_expiry"
+      ]
+    },
+    {
+      "name": "transactions",
+      "weight": 0.2,
+      "checks": [
+        "tx_atomic",
+        "tx_runtime",
+        "tx_admission",
+        "tx_discard",
+        "tx_interleave"
+      ]
+    },
+    {
+      "name": "watch",
+      "weight": 0.2,
+      "checks": [
+        "watch_change",
+        "watch_same",
+        "watch_self",
+        "watch_expire",
+        "watch_runtime_noop"
+      ]
+    },
+    {
+      "name": "recovery",
+      "weight": 0.15,
+      "checks": [
+        "recover_ack",
+        "recover_time",
+        "recover_golden",
+        "recover_tail",
+        "recover_corrupt"
+      ]
+    },
+    {
+      "name": "crash",
+      "weight": 0.15,
+      "checks": [
+        "crash_before",
+        "crash_header",
+        "crash_body",
+        "crash_sync",
+        "journal_boundaries"
+      ]
+    }
+  ],
+  "limits": {
+    "candidate_uid": 39009,
+    "process_cpu_seconds": 12,
+    "memory_bytes": 536870912,
+    "file_bytes": 67108864,
+    "open_files": 96,
+    "processes": 32,
+    "source_bytes": 2097152,
+    "source_files": 128,
+    "startup_seconds": 15,
+    "compile_seconds": 15,
+    "request_bulk_bytes": 1048576,
+    "request_args": 1024,
+    "input_buffer_bytes": 2097152,
+    "output_buffer_bytes": 8388608,
+    "journal_payload_bytes": 16777216,
+    "wire_timeout_seconds": 2
+  },
+  "crash_exit_code": 86,
+  "integer_min": -9223372036854775808,
+  "integer_max": 9223372036854775807,
+  "authoritative_assets": {
+    "cases.py": "ecc4ab7c8e55a8725dca077614805c7e1482545dbf8fdd6b16f9a4d61c9c1010",
+    "wire.py": "22f39a19dbcfecfb5de9324ef0835530eb4350e355240c67fc0910256f65423a"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "assets": [
+    "SPY",
+    "IWM",
+    "EFA",
+    "EEM",
+    "TLT",
+    "GLD",
+    "VNQ",
+    "DBC"
+  ],
+  "groups": {
+    "equity": [
+      "SPY",
+      "IWM",
+      "EFA",
+      "EEM"
+    ],
+    "bonds": [
+      "TLT"
+    ],
+    "commodity": [
+      "GLD",
+      "DBC"
+    ],
+    "real_estate": [
+      "VNQ"
+    ]
+  },
+  "asset_abs_cap": 0.3,
+  "TLT_abs_cap": 0.45,
+  "class_gross_caps": {
+    "equity": 0.65,
+    "bonds": 0.45,
+    "commodity": 0.3,
+    "real_estate": 0.2
+  },
+  "gross_leverage_cap": 1.6,
+  "short_gross_cap": 0.25,
+  "net_risky_exposure_bounds": [
+    0.4,
+    1.2
+  ],
+  "shortable": [
+    "SPY",
+    "IWM",
+    "EFA",
+    "EEM",
+    "GLD",
+    "DBC",
+    "VNQ"
+  ],
+  "cash_weight": "1-sum(risky_weights)",
+  "cost_per_abs_weight_change": 0.0005,
+  "short_borrow_annual": 0.03,
+  "negative_cash_financing_annual": 0.05,
+  "year_days": 252,
+  "risk_scale_bounds": [
+    0.7,
+    2.2
+  ],
+  "risk_target_annual": 0.1,
+  "rebalance_review_days": 20,
+  "min_extra_rebalance_gap_days": 5,
+  "initial_nav": 1000000,
+  "execution": "decision uses prices through t-1; trades at observed t-1 close; holdings receive day t returns; costs deducted once"
+}

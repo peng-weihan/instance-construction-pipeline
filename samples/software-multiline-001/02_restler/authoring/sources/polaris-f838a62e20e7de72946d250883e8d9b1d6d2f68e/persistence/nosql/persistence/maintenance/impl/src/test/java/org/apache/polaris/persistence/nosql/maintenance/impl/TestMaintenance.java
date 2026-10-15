@@ -1,0 +1,529 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.polaris.persistence.nosql.maintenance.impl;
+
+import static org.apache.polaris.persistence.nosql.api.obj.ObjRef.objRef;
+import static org.apache.polaris.persistence.nosql.maintenance.impl.MutableMaintenanceConfig.GRACE_TIME;
+import static org.apache.polaris.persistence.nosql.realms.api.RealmDefinition.RealmStatus.ACTIVE;
+import static org.apache.polaris.persistence.nosql.realms.api.RealmDefinition.RealmStatus.INITIALIZING;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import jakarta.inject.Inject;
+import java.util.Optional;
+import java.util.OptionalInt;
+import java.util.OptionalLong;
+import java.util.Set;
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
+import org.apache.polaris.ids.api.SnowflakeIdGenerator;
+import org.apache.polaris.ids.mocks.MutableMonotonicClock;
+import org.apache.polaris.persistence.nosql.api.Persistence;
+import org.apache.polaris.persistence.nosql.api.RealmPersistenceFactory;
+import org.apache.polaris.persistence.nosql.api.SystemPersistence;
+import org.apache.polaris.persistence.nosql.api.exceptions.ReferenceNotFoundException;
+import org.apache.polaris.persistence.nosql.maintenance.api.MaintenanceConfig;
+import org.apache.polaris.persistence.nosql.maintenance.api.MaintenanceRunInProgressException;
+import org.apache.polaris.persistence.nosql.maintenance.api.MaintenanceRunInformation;
+import org.apache.polaris.persistence.nosql.maintenance.api.MaintenanceRunInformation.MaintenanceStats;
+import org.apache.polaris.persistence.nosql.maintenance.api.MaintenanceRunSpec;
+import org.apache.polaris.persistence.nosql.maintenance.api.MaintenanceService;
+import org.apache.polaris.persistence.nosql.realms.api.RealmDefinition;
+import org.apache.polaris.persistence.nosql.realms.api.RealmManagement;
+import org.assertj.core.api.SoftAssertions;
+import org.assertj.core.api.junit.jupiter.InjectSoftAssertions;
+import org.assertj.core.api.junit.jupiter.SoftAssertionsExtension;
+import org.jboss.weld.junit5.EnableWeld;
+import org.jboss.weld.junit5.WeldInitiator;
+import org.jboss.weld.junit5.WeldSetup;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+@SuppressWarnings("CdiInjectionPointsInspection")
+@ExtendWith(SoftAssertionsExtension.class)
+@EnableWeld
+public class TestMaintenance {
+  @InjectSoftAssertions protected SoftAssertions soft;
+
+  @SuppressWarnings("unused")
+  @WeldSetup
+  WeldInitiator weld = WeldInitiator.performDefaultDiscovery();
+
+  String realmOne;
+  String realmTwo;
+  Persistence persOne;
+  Persistence persTwo;
+
+  @Inject MaintenanceService maintenance;
+  @Inject @SystemPersistence Persistence systemPersistence;
+  @Inject RealmPersistenceFactory realmPersistenceFactory;
+  @Inject RealmManagement realmManagement;
+  @Inject MutableMonotonicClock mutableMonotonicClock;
+
+  @BeforeEach
+  protected void setup() {
+    RealmIdentOne.testCallback = c -> true;
+    RealmIdentTwo.testCallback = c -> true;
+    ObjTypeIdentOne.testCallback = (c, id) -> {};
+    ObjTypeIdentTwo.testCallback = (c, id) -> {};
+
+    // Set the "grace time" to 0 so tests can write refs+objs and get those purged
+    MutableMaintenanceConfig.setCurrent(
+        MaintenanceConfig.builder().createdAtGraceTime(GRACE_TIME).build());
+
+    realmOne = UUID.randomUUID().toString();
+    realmTwo = UUID.randomUUID().toString();
+
+    // 'skipDecorators' is used to bypass the cache, which cannot be consistent after maintenance
+    // purged some references/objects
+    persOne = realmPersistenceFactory.newBuilder().realmId(realmOne).skipDecorators().build();
+    persTwo = realmPersistenceFactory.newBuilder().realmId(realmTwo).skipDecorators().build();
+  }
+
+  @AfterEach
+  protected void cleanup() {
+    mutableMonotonicClock.advanceBoth(GRACE_TIME);
+
+    // Use maintenance to clean the backend for the next test
+    maintenance.performMaintenance(
+        MaintenanceRunSpec.builder()
+            .includeSystemRealm(false)
+            .realmsToPurge(Set.of(realmOne, realmTwo))
+            .build(),
+        latestUnfinishedMaintenanceRunId());
+  }
+
+  @Test
+  public void noRealmsSpecified() {
+    persOne.write(ObjOne.builder().text("foo").id(persOne.generateId()).build(), ObjOne.class);
+    persTwo.write(ObjTwo.builder().text("bar").id(persTwo.generateId()).build(), ObjTwo.class);
+
+    persOne.createReference("ref1", Optional.empty());
+    persTwo.createReference("ref1", Optional.empty());
+
+    mutableMonotonicClock.advanceBoth(GRACE_TIME);
+
+    // Run maintenance, no realm given to retain or purge, must not purge anything
+    var runInfo =
+        maintenance.performMaintenance(
+            MaintenanceRunSpec.builder().includeSystemRealm(false).build(), OptionalLong.empty());
+
+    soft.assertThat(runInfo.referenceStats())
+        .contains(MaintenanceStats.builder().scanned(2L).purged(0L).retained(2L).newer(0L).build());
+    soft.assertThat(runInfo.objStats())
+        .contains(MaintenanceStats.builder().scanned(2L).purged(0L).retained(2L).newer(0L).build());
+    soft.assertThat(runInfo.identifiedReferences().orElse(-1)).isEqualTo(0L);
+    soft.assertThat(runInfo.identifiedObjs().orElse(-1)).isEqualTo(0L);
+  }
+
+  @Test
+  public void purgeHonorsRealmStateFilter() {
+    // A realm that is not in PURGING/PURGED state must never be deleted, even if a (stale or
+    // hand-built) run spec lists it in realmsToPurge(). The direct backend deletion has to honor
+    // the same state filter that the scan-based deletion and the "will therefore not be purged"
+    // log message already rely on.
+    var created = realmManagement.create(realmOne);
+    var initializing =
+        realmManagement.update(
+            created, RealmDefinition.builder().from(created).status(INITIALIZING).build());
+    var active =
+        realmManagement.update(
+            initializing, RealmDefinition.builder().from(initializing).status(ACTIVE).build());
+    soft.assertThat(active.status()).isSameAs(ACTIVE);
+
+    var obj =
+        persOne.write(
+            ObjOne.builder().text("keep-me").id(persOne.generateId()).build(), ObjOne.class);
+    persOne.createReference("ref1", Optional.empty());
+
+    mutableMonotonicClock.advanceBoth(GRACE_TIME);
+
+    // The caller lists the ACTIVE realm for purging - the service must filter it out.
+    var runInfo =
+        maintenance.performMaintenance(
+            MaintenanceRunSpec.builder()
+                .includeSystemRealm(false)
+                .realmsToPurge(Set.of(realmOne))
+                .build(),
+            OptionalLong.empty());
+
+    // The run must finish successfully and nothing may have been purged against the backend.
+    soft.assertThat(runInfo)
+        .extracting(MaintenanceRunInformation::success, MaintenanceRunInformation::purgedRealms)
+        .containsExactly(true, OptionalInt.of(0));
+
+    // The ACTIVE realm's data must still be there.
+    soft.assertThat(persOne.fetch(objRef(obj), ObjOne.class)).isEqualTo(obj);
+    soft.assertThatCode(() -> persOne.fetchReference("ref1")).doesNotThrowAnyException();
+  }
+
+  @Test
+  public void simple() {
+    var rOneObj1 =
+        persOne.write(ObjOne.builder().text("foo").id(persOne.generateId()).build(), ObjOne.class);
+    var rTwoObj2 =
+        persTwo.write(ObjTwo.builder().text("bar").id(persTwo.generateId()).build(), ObjTwo.class);
+
+    var systemRealmCalled = new AtomicInteger();
+    RealmIdentOne.testCallback =
+        collector -> {
+          if (collector.isSystemRealm()) {
+            systemRealmCalled.incrementAndGet();
+          }
+          return true;
+        };
+
+    persOne.createReference("ref1", Optional.empty());
+    persOne.createReference("ref2", Optional.empty());
+    persTwo.createReference("ref1", Optional.empty());
+    persTwo.createReference("ref2", Optional.empty());
+
+    mutableMonotonicClock.advanceBoth(GRACE_TIME);
+
+    // Run maintenance, provide realms, must purge unidentified
+    var runInfo =
+        maintenance.performMaintenance(
+            MaintenanceRunSpec.builder()
+                .includeSystemRealm(false)
+                .realmsToProcess(Set.of(realmOne, realmTwo))
+                .build(),
+            OptionalLong.empty());
+
+    soft.assertThat(runInfo.referenceStats())
+        .contains(MaintenanceStats.builder().scanned(4L).purged(4L).retained(0L).newer(0L).build());
+    soft.assertThat(runInfo.objStats())
+        .contains(MaintenanceStats.builder().scanned(2L).purged(2L).retained(0L).newer(0L).build());
+    soft.assertThat(runInfo.identifiedReferences().orElse(-1)).isEqualTo(0L);
+    soft.assertThat(runInfo.identifiedObjs().orElse(-1)).isEqualTo(0L);
+
+    soft.assertThatExceptionOfType(ReferenceNotFoundException.class)
+        .isThrownBy(() -> persOne.fetchReference("ref1"));
+    soft.assertThatExceptionOfType(ReferenceNotFoundException.class)
+        .isThrownBy(() -> persOne.fetchReference("ref2"));
+    soft.assertThatExceptionOfType(ReferenceNotFoundException.class)
+        .isThrownBy(() -> persTwo.fetchReference("ref1"));
+    soft.assertThatExceptionOfType(ReferenceNotFoundException.class)
+        .isThrownBy(() -> persTwo.fetchReference("ref2"));
+
+    soft.assertThat(persOne.fetch(objRef(rOneObj1), ObjOne.class)).isNull();
+    soft.assertThat(persTwo.fetch(objRef(rTwoObj2), ObjTwo.class)).isNull();
+  }
+
+  @Test
+  public void systemRealm() {
+    var systemRealmCalled = new AtomicInteger();
+    RealmIdentOne.testCallback =
+        collector -> {
+          if (collector.isSystemRealm()) {
+            systemRealmCalled.incrementAndGet();
+          }
+          return true;
+        };
+
+    mutableMonotonicClock.advanceBoth(GRACE_TIME);
+
+    // Run maintenance, provide realms, must purge unidentified
+    var runInfo =
+        maintenance.performMaintenance(
+            MaintenanceRunSpec.builder()
+                .includeSystemRealm(true) // default
+                .build(),
+            OptionalLong.empty());
+
+    soft.assertThat(systemRealmCalled).hasValue(1);
+
+    soft.assertThat(runInfo.referenceStats())
+        .contains(MaintenanceStats.builder().scanned(1L).purged(0L).retained(0L).newer(1L).build());
+    soft.assertThat(runInfo.objStats())
+        .contains(MaintenanceStats.builder().scanned(4L).purged(0L).retained(0L).newer(4L).build());
+    soft.assertThat(runInfo.identifiedReferences().orElse(-1)).isEqualTo(2L);
+    soft.assertThat(runInfo.identifiedObjs().orElse(-1))
+        .isEqualTo((1 << SnowflakeIdGenerator.DEFAULT_NODE_ID_BITS) + 4L);
+  }
+
+  @Test
+  public void simpleRetainViaRealmIdentifier() {
+    var rOneObj1 =
+        persOne.write(ObjOne.builder().text("foo").id(persOne.generateId()).build(), ObjOne.class);
+    var rTwoObj2 =
+        persTwo.write(ObjTwo.builder().text("bar").id(persTwo.generateId()).build(), ObjTwo.class);
+
+    persOne.createReference("ref1", Optional.empty());
+    persOne.createReference("ref2", Optional.empty());
+    persTwo.createReference("ref1", Optional.empty());
+    persTwo.createReference("ref2", Optional.empty());
+
+    // identify rOneObj1 as "live"
+    RealmIdentOne.testCallback =
+        c -> {
+          if (c.realm().equals(realmOne)) {
+            c.retainObject(objRef(rOneObj1));
+            c.retainReference("ref1");
+          }
+          return true;
+        };
+
+    mutableMonotonicClock.advanceBoth(GRACE_TIME);
+
+    // Run maintenance, provide realms, must purge unidentified
+    var runInfo =
+        maintenance.performMaintenance(
+            MaintenanceRunSpec.builder()
+                .includeSystemRealm(false)
+                .realmsToProcess(Set.of(realmOne, realmTwo))
+                .build(),
+            OptionalLong.empty());
+
+    soft.assertThat(runInfo.referenceStats())
+        .contains(MaintenanceStats.builder().scanned(4L).purged(3L).retained(1L).newer(0L).build());
+    soft.assertThat(runInfo.objStats())
+        .contains(MaintenanceStats.builder().scanned(2L).purged(1L).retained(1L).newer(0L).build());
+    soft.assertThat(runInfo.identifiedReferences().orElse(-1)).isEqualTo(1L);
+    soft.assertThat(runInfo.identifiedObjs().orElse(-1)).isEqualTo(1L);
+
+    soft.assertThatCode(() -> persOne.fetchReference("ref1")).doesNotThrowAnyException();
+    soft.assertThatExceptionOfType(ReferenceNotFoundException.class)
+        .isThrownBy(() -> persOne.fetchReference("ref2"));
+    soft.assertThatExceptionOfType(ReferenceNotFoundException.class)
+        .isThrownBy(() -> persTwo.fetchReference("ref1"));
+    soft.assertThatExceptionOfType(ReferenceNotFoundException.class)
+        .isThrownBy(() -> persTwo.fetchReference("ref2"));
+
+    soft.assertThat(persOne.fetch(objRef(rOneObj1), ObjOne.class)).isEqualTo(rOneObj1);
+    soft.assertThat(persTwo.fetch(objRef(rTwoObj2), ObjTwo.class)).isNull();
+  }
+
+  @Test
+  public void simpleRetainViaRealmIdentifierPersistence() {
+    var rOneObj1 =
+        persOne.write(ObjOne.builder().text("foo").id(persOne.generateId()).build(), ObjOne.class);
+    var rTwoObj2 =
+        persTwo.write(ObjTwo.builder().text("bar").id(persTwo.generateId()).build(), ObjTwo.class);
+
+    persOne.createReference("ref1", Optional.empty());
+    persOne.createReference("ref2", Optional.empty());
+    persTwo.createReference("ref1", Optional.empty());
+    persTwo.createReference("ref2", Optional.empty());
+
+    // identify rOneObj1 as "live"
+    RealmIdentOne.testCallback =
+        c -> {
+          if (c.realm().equals(realmOne)) {
+            c.realmPersistence().fetch(objRef(rOneObj1), ObjOne.class);
+            c.realmPersistence().fetchReference("ref1");
+          }
+          return true;
+        };
+
+    mutableMonotonicClock.advanceBoth(GRACE_TIME);
+
+    // Run maintenance, provide realms, must purge unidentified
+    var runInfo =
+        maintenance.performMaintenance(
+            MaintenanceRunSpec.builder()
+                .includeSystemRealm(false)
+                .realmsToProcess(Set.of(realmOne, realmTwo))
+                .build(),
+            OptionalLong.empty());
+
+    soft.assertThat(runInfo.referenceStats())
+        .contains(MaintenanceStats.builder().scanned(4L).purged(3L).retained(1L).newer(0L).build());
+    soft.assertThat(runInfo.objStats())
+        .contains(MaintenanceStats.builder().scanned(2L).purged(1L).retained(1L).newer(0L).build());
+    soft.assertThat(runInfo.identifiedReferences().orElse(-1)).isEqualTo(1L);
+    soft.assertThat(runInfo.identifiedObjs().orElse(-1)).isEqualTo(1L);
+
+    soft.assertThatCode(() -> persOne.fetchReference("ref1")).doesNotThrowAnyException();
+    soft.assertThatExceptionOfType(ReferenceNotFoundException.class)
+        .isThrownBy(() -> persOne.fetchReference("ref2"));
+    soft.assertThatExceptionOfType(ReferenceNotFoundException.class)
+        .isThrownBy(() -> persTwo.fetchReference("ref1"));
+    soft.assertThatExceptionOfType(ReferenceNotFoundException.class)
+        .isThrownBy(() -> persTwo.fetchReference("ref2"));
+
+    soft.assertThat(persOne.fetch(objRef(rOneObj1), ObjOne.class)).isEqualTo(rOneObj1);
+    soft.assertThat(persTwo.fetch(objRef(rTwoObj2), ObjTwo.class)).isNull();
+  }
+
+  @Test
+  public void simpleRetainViaObjTypeIdentifier() {
+    var rOneObj1 =
+        persOne.write(ObjOne.builder().text("foo1").id(persOne.generateId()).build(), ObjOne.class);
+    var rOneObj2 =
+        persOne.write(ObjTwo.builder().text("foo2").id(persOne.generateId()).build(), ObjTwo.class);
+    var rTwoObj1 =
+        persTwo.write(ObjOne.builder().text("bar2").id(persTwo.generateId()).build(), ObjOne.class);
+    var rTwoObj2 =
+        persTwo.write(ObjTwo.builder().text("bar2").id(persTwo.generateId()).build(), ObjTwo.class);
+
+    // identify rOneObj1 as "live"
+    RealmIdentOne.testCallback =
+        c -> {
+          c.retainObject(objRef(rOneObj1));
+          return true;
+        };
+    // identify rObjObj2 via obj-type callback
+    ObjTypeIdentOne.testCallback =
+        (c, id) -> {
+          if (id.equals(objRef(rOneObj1))) {
+            c.retainObject(objRef(rOneObj2));
+          }
+        };
+    // identify rTwoObj1
+    RealmIdentTwo.testCallback =
+        c -> {
+          c.retainObject(objRef(rTwoObj1));
+          return true;
+        };
+
+    mutableMonotonicClock.advanceBoth(GRACE_TIME);
+
+    // Run maintenance, provide realms, must purge unidentified
+    var runInfo =
+        maintenance.performMaintenance(
+            MaintenanceRunSpec.builder()
+                .includeSystemRealm(false)
+                .realmsToProcess(Set.of(realmOne, realmTwo))
+                .build(),
+            OptionalLong.empty());
+
+    soft.assertThat(runInfo.referenceStats())
+        .contains(MaintenanceStats.builder().scanned(0L).purged(0L).retained(0L).newer(0L).build());
+    soft.assertThat(runInfo.objStats())
+        .contains(MaintenanceStats.builder().scanned(4L).purged(1L).retained(3L).newer(0L).build());
+    soft.assertThat(runInfo.identifiedReferences().orElse(-1)).isEqualTo(0L);
+    soft.assertThat(runInfo.identifiedObjs().orElse(-1)).isEqualTo(6L);
+
+    soft.assertThat(persOne.fetch(objRef(rOneObj1), ObjOne.class)).isEqualTo(rOneObj1);
+    soft.assertThat(persOne.fetch(objRef(rOneObj2), ObjTwo.class)).isEqualTo(rOneObj2);
+    soft.assertThat(persTwo.fetch(objRef(rTwoObj1), ObjOne.class)).isEqualTo(rTwoObj1);
+    soft.assertThat(persTwo.fetch(objRef(rTwoObj2), ObjTwo.class)).isNull();
+  }
+
+  @Test
+  public void noRealmIdentifierHandlesRealms() {
+    var rOneObj1 =
+        persOne.write(ObjOne.builder().text("foo").id(persOne.generateId()).build(), ObjOne.class);
+    var rTwoObj2 =
+        persTwo.write(ObjTwo.builder().text("bar").id(persTwo.generateId()).build(), ObjTwo.class);
+    persOne.createReference("ref1", Optional.empty());
+    persOne.createReference("ref2", Optional.empty());
+    persTwo.createReference("ref1", Optional.empty());
+    persTwo.createReference("ref2", Optional.empty());
+
+    RealmIdentOne.testCallback = c -> false;
+    RealmIdentTwo.testCallback = c -> false;
+
+    mutableMonotonicClock.advanceBoth(GRACE_TIME);
+
+    // Run maintenance, provide realms, no realm-identifier handles realm, must NOT purge
+    var runInfo =
+        maintenance.performMaintenance(
+            MaintenanceRunSpec.builder()
+                .includeSystemRealm(false)
+                .realmsToProcess(Set.of(realmOne, realmTwo))
+                .build(),
+            OptionalLong.empty());
+
+    soft.assertThat(runInfo.referenceStats())
+        .contains(MaintenanceStats.builder().scanned(4L).purged(0L).retained(4L).newer(0L).build());
+    soft.assertThat(runInfo.objStats())
+        .contains(MaintenanceStats.builder().scanned(2L).purged(0L).retained(2L).newer(0L).build());
+    soft.assertThat(runInfo.identifiedReferences().orElse(-1)).isEqualTo(0L);
+    soft.assertThat(runInfo.identifiedObjs().orElse(-1)).isEqualTo(0L);
+
+    soft.assertThat(persOne.fetch(objRef(rOneObj1), ObjOne.class)).isEqualTo(rOneObj1);
+    soft.assertThat(persTwo.fetch(objRef(rTwoObj2), ObjTwo.class)).isEqualTo(rTwoObj2);
+  }
+
+  @Test
+  public void overrideRuns() {
+    var runId = createUnfinishedMaintenanceRun();
+
+    soft.assertThatExceptionOfType(MaintenanceRunInProgressException.class)
+        .isThrownBy(
+            () ->
+                maintenance.performMaintenance(
+                    MaintenanceRunSpec.builder().includeSystemRealm(false).build(),
+                    OptionalLong.empty()))
+        .satisfies(e -> assertThat(e.runId()).isEqualTo(runId));
+
+    soft.assertThatExceptionOfType(MaintenanceRunInProgressException.class)
+        .isThrownBy(
+            () ->
+                maintenance.performMaintenance(
+                    MaintenanceRunSpec.builder().includeSystemRealm(false).build(),
+                    OptionalLong.of(runId + 1)))
+        .satisfies(e -> assertThat(e.runId()).isEqualTo(runId));
+
+    var runInfo =
+        maintenance.performMaintenance(
+            MaintenanceRunSpec.builder().includeSystemRealm(false).build(), OptionalLong.of(runId));
+
+    soft.assertThat(runInfo.finished()).isPresent();
+    soft.assertThat(runInfo.success()).isTrue();
+    soft.assertThat(latestUnfinishedMaintenanceRunId()).isEmpty();
+  }
+
+  private long createUnfinishedMaintenanceRun() {
+    systemPersistence.createReferenceSilent(MaintenanceRunsObj.MAINTENANCE_RUNS_REF_NAME);
+
+    return systemPersistence
+        .createCommitter(
+            MaintenanceRunsObj.MAINTENANCE_RUNS_REF_NAME,
+            MaintenanceRunsObj.class,
+            MaintenanceRunObj.class)
+        .commitRuntimeException(
+            (state, refObjSupplier) -> {
+              var refObj = refObjSupplier.get();
+              var runObj =
+                  MaintenanceRunObj.builder()
+                      .id(systemPersistence.generateId())
+                      .runInformation(
+                          MaintenanceRunInformation.builder()
+                              .started(mutableMonotonicClock.currentInstant())
+                              .build())
+                      .build();
+
+              state.writeIfNew("unfinished-run", runObj, MaintenanceRunObj.class);
+
+              return state.commitResult(
+                  runObj, MaintenanceRunsObj.builder().maintenanceRunId(objRef(runObj)), refObj);
+            })
+        .orElseThrow()
+        .id();
+  }
+
+  private OptionalLong latestUnfinishedMaintenanceRunId() {
+    try {
+      return systemPersistence
+          .fetchReferenceHead(
+              MaintenanceRunsObj.MAINTENANCE_RUNS_REF_NAME, MaintenanceRunsObj.class)
+          .map(MaintenanceRunsObj::maintenanceRunId)
+          .map(id -> systemPersistence.fetch(id, MaintenanceRunObj.class))
+          .filter(run -> run.runInformation().finished().isEmpty())
+          .stream()
+          .mapToLong(MaintenanceRunObj::id)
+          .findFirst();
+    } catch (ReferenceNotFoundException e) {
+      return OptionalLong.empty();
+    }
+  }
+}

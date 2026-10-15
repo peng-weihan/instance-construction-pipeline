@@ -1,0 +1,65 @@
+{
+  "task_id": "openapi_composition",
+  "status": "construction_success; reject_current_profile_for_long_horizon",
+  "source_revision": "0a283fe21eeaa23046faf622d4ff4b2c826d2edb",
+  "author_model_requested": "gpt-6.1-sol",
+  "provider_receipt_verified": false,
+  "local_controls": {
+    "reference": 1.0,
+    "starter": 0.0,
+    "near-miss-lost-required": 0.8333333333333334,
+    "near-miss-untyped-arrays": 0.8333333333333334,
+    "empty": 0.0
+  },
+  "local_validation": {
+    "unit": {
+      "passed": 321,
+      "skipped": 4,
+      "exit": 0,
+      "stdout": "authoring/evidence/upstream-unit.stdout"
+    },
+    "generated_execution": {
+      "passed": 80,
+      "exit": 0,
+      "stdout": "authoring/evidence/upstream-functional.stdout"
+    }
+  },
+  "evidence": [
+    "authoring/evidence/control-summary.json",
+    "authoring/evidence/reference/score.json",
+    "authoring/evidence/starter/score.json",
+    "authoring/evidence/near-miss-lost-required/score.json",
+    "authoring/evidence/near-miss-untyped-arrays/score.json"
+  ],
+  "reference_changes": [
+    "New integrated composition lowering at GeneratorData.from_dict",
+    "Full real repository and template generation path retained"
+  ],
+  "cheap_route_falsification": "A roughly 130-line lowering pass saturates the frozen six groups. This is credible behavioral construction evidence, but insufficient evidence of six-hour improvement room.",
+  "unverified": [
+    "Docker image build and ENTRYPOINT",
+    "Harbor native oracle/NOP",
+    "Linux UID, memory, permission and network enforcement",
+    "six-hour model trajectory",
+    "multi-run calibration",
+    "unscored full JSON Schema features"
+  ],
+  "blockers": [
+    "No authorized Docker run in this stage",
+    "Cheap normalization exhausts current task profile; reject this profile for six-hour teacher budget"
+  ],
+  "task_toml_schema": "Written against supplied Harbor 0.23.0 model fields; delegated parent schema check pending",
+  "build_contexts": {
+    "work": "environment",
+    "judge": "verifier"
+  },
+  "snapshot_submission": "/home/workspace/openapi_composition/submission",
+  "old_tasks_modified": false,
+  "verification_extras": {
+    "toml_parse": "passed with Python3.12 tomllib; Harbor model schema validation delegated to parent",
+    "root_judge_bytes": "all files identical",
+    "context_symlinks": 0,
+    "manifest_file_hashes": "passed",
+    "infrastructure_failure": "01: deliberately missing httpx yielded valid=false, exit1, no reward"
+  }
+}

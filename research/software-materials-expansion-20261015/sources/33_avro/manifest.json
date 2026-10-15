@@ -1,0 +1,68 @@
+{
+  "repo": "apache/avro",
+  "revision": "3a207fa6e87c535b95eafca4cf5a6ef524d77df2",
+  "resolved_utc": "2026-10-15T13:08:21.046739+00:00",
+  "retrieved_utc": "2026-10-15T13:08:56.469143+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "57e3024241ecfc9625cc6b8a9d08c2444baedaa3b88547d78a1a9eef67ca25ba",
+    "truncated": false,
+    "blob_count": 2232
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE.txt",
+      "bytes": 21146,
+      "sha256": "951663afacf7cd94c6600191c1454ddf35712aaeb62982f84ed43e869032e33f",
+      "url": "https://github.com/apache/avro/blob/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/LICENSE.txt"
+    },
+    {
+      "path": "NOTICE.txt",
+      "bytes": 1181,
+      "sha256": "eca5fa113cf37585579396cefc9b28d72662d2d7682ce3b6670f08deaafa4227",
+      "url": "https://github.com/apache/avro/blob/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/NOTICE.txt"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4603,
+      "sha256": "02d4ca9ad2b97791009c0230be2bf766740265aed980f3271cb3e789f872333d",
+      "url": "https://github.com/apache/avro/blob/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/README.md"
+    },
+    {
+      "path": "doc/content/en/docs/1.12.0/Specification/_index.md",
+      "bytes": 58744,
+      "sha256": "490b2d0f96bb7ca69777329df7d4adbd1334e7b27243e3b0a37f0cd204439414",
+      "url": "https://github.com/apache/avro/blob/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/doc/content/en/docs/1.12.0/Specification/_index.md"
+    },
+    {
+      "path": "lang/c++/impl/Compiler.cc",
+      "bytes": 24034,
+      "sha256": "01a317a658e25da7e382b228cd665970a38d8bf8cbad8e2d2c848c14849a4e02",
+      "url": "https://github.com/apache/avro/blob/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/lang/c++/impl/Compiler.cc"
+    },
+    {
+      "path": "lang/c++/impl/DataFile.cc",
+      "bytes": 26058,
+      "sha256": "c268281749212aea4842b62772242015ed7a279502449d2e66892a0a540da1c4",
+      "url": "https://github.com/apache/avro/blob/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/lang/c++/impl/DataFile.cc"
+    },
+    {
+      "path": "lang/c++/impl/parsing/ResolvingDecoder.cc",
+      "bytes": 23103,
+      "sha256": "95dde3c6815d1682598b37278a46df3169e7e1b30212efb6783a0cbd49d9d2fc",
+      "url": "https://github.com/apache/avro/blob/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/lang/c++/impl/parsing/ResolvingDecoder.cc"
+    },
+    {
+      "path": "lang/c++/test/SchemaTests.cc",
+      "bytes": 37003,
+      "sha256": "65d8fb03cb4b84b07df3f5139e4c2c4ce15f0a839285429c595d05de45169223",
+      "url": "https://github.com/apache/avro/blob/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/lang/c++/test/SchemaTests.cc"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

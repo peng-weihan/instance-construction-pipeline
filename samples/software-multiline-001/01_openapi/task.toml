@@ -1,0 +1,27 @@
+schema_version = "1.4"
+artifacts = ["/home/workspace/openapi_composition/submission"]
+[metadata]
+task_id = "openapi_composition"
+reward_type = "bounded_continuous"
+score_formula = "sum(passed_semantic_group)/6"
+status = "local_behavior_pilot_container_unverified"
+author_model_requested = "gpt-6.1-sol"
+[agent]
+timeout_sec = 21600
+network_mode = "no-network"
+[environment]
+docker_image = "edgebench-openapi-work:pilot"
+workdir = "/home/workspace/openapi_composition"
+network_mode = "no-network"
+cpus = 2
+memory_mb = 4096
+[verifier]
+timeout_sec = 600
+network_mode = "no-network"
+environment_mode = "separate"
+[verifier.environment]
+docker_image = "edgebench-openapi-judge:pilot"
+workdir = "/home/workspace/openapi_composition"
+network_mode = "no-network"
+cpus = 2
+memory_mb = 4096

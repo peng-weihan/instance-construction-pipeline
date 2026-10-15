@@ -1,0 +1,6 @@
+{
+  "status": "failed",
+  "stage": "quality_control",
+  "reason": "Collected IDs are not represented by the test manifest",
+  "published": false
+}

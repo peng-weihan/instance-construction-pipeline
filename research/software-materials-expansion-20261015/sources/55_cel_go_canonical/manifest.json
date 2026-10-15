@@ -1,0 +1,69 @@
+{
+  "repo": "cel-expr/cel-go",
+  "revision": "5dcc82d6016cbe8ce7aef7b027538c42ed31c2d6",
+  "resolved_utc": "2026-10-15T13:31:58.046329+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:32:27.880877+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "fa85b22d2c7abb8a26fadf45f879ce6f76056a2712b0b7573992475325119662",
+    "truncated": false,
+    "blob_count": 862
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 13053,
+      "sha256": "4cdb9af102dfbb0ca03d87d6f650a505df098646a4080f4665b389ad9c6caa02",
+      "url": "https://github.com/cel-expr/cel-go/blob/5dcc82d6016cbe8ce7aef7b027538c42ed31c2d6/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 11304,
+      "sha256": "f85ca7eaa1abea008e3fcf4a5bd143fa38c8c8ae4107075ffa18e44562eceb32",
+      "url": "https://github.com/cel-expr/cel-go/blob/5dcc82d6016cbe8ce7aef7b027538c42ed31c2d6/README.md"
+    },
+    {
+      "path": "cel/cel_test.go",
+      "bytes": 189910,
+      "sha256": "eef798e0b83c4b4a6812e666234b8ca18caf2116d6e3c95d7ff4df325cd6607e",
+      "url": "https://github.com/cel-expr/cel-go/blob/5dcc82d6016cbe8ce7aef7b027538c42ed31c2d6/cel/cel_test.go"
+    },
+    {
+      "path": "cel/env.go",
+      "bytes": 45707,
+      "sha256": "78feb18edb32a811ba2ae2abd3b16f2ced6b0e785e59729eabb1106b507182ab",
+      "url": "https://github.com/cel-expr/cel-go/blob/5dcc82d6016cbe8ce7aef7b027538c42ed31c2d6/cel/env.go"
+    },
+    {
+      "path": "cel/program.go",
+      "bytes": 29547,
+      "sha256": "3f086746b953e89e8a9f9522b7785da934ceaff698485a78e1ae9c1355004dcf",
+      "url": "https://github.com/cel-expr/cel-go/blob/5dcc82d6016cbe8ce7aef7b027538c42ed31c2d6/cel/program.go"
+    },
+    {
+      "path": "go.mod",
+      "bytes": 477,
+      "sha256": "9aa1a892e3be0c8c6a065d13bdbacc5a126f5fd0c53a610e5e08ab9d49698fde",
+      "url": "https://github.com/cel-expr/cel-go/blob/5dcc82d6016cbe8ce7aef7b027538c42ed31c2d6/go.mod"
+    },
+    {
+      "path": "interpreter/interpreter.go",
+      "bytes": 10364,
+      "sha256": "38abe6c56f99c49cef70b8f176fc323c30da07163a566429c36df3c2e32bb41a",
+      "url": "https://github.com/cel-expr/cel-go/blob/5dcc82d6016cbe8ce7aef7b027538c42ed31c2d6/interpreter/interpreter.go"
+    },
+    {
+      "path": "interpreter/interpreter_test.go",
+      "bytes": 95029,
+      "sha256": "12b9cfc128b2bc2948c46dea1e08e464ea71c38962cc2e2309bce4d337355b2f",
+      "url": "https://github.com/cel-expr/cel-go/blob/5dcc82d6016cbe8ce7aef7b027538c42ed31c2d6/interpreter/interpreter_test.go"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

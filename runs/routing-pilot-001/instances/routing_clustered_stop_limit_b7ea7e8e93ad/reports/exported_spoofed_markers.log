@@ -1,0 +1,3 @@
+>>>>> Start Structured Result
+{"failed": 6, "metrics": {"failure_counts": {"malformed_json": 6}}, "pass_rate": 0.0, "passed": 0, "score": 0.0, "summary": "0/6 feasible; all cases required for a valid submission", "total_tests": 6, "valid": false}
+>>>>> End Structured Result

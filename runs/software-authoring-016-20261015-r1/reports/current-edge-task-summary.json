@@ -1,0 +1,372 @@
+{
+  "observed_utc": "2026-10-15T10:52:13.352992+00:00",
+  "jobs": [
+    {
+      "id": "01_openapi_streaming",
+      "account": "raymone/3",
+      "state": "author_returned",
+      "native_alive": false,
+      "native_started_utc": "2026-10-15T09:48:33.393968+00:00",
+      "native_finished_utc": "2026-10-15T10:19:11.098257+00:00",
+      "successful_shell_commands": 56,
+      "completed_tool_items": 58,
+      "task_directory_exists": true,
+      "author_result_exists": true,
+      "reported_error_events": [],
+      "author_result": {
+        "status": "constructed_unverified",
+        "summary_zh": "已构造完整真实生成器题包与私有参考、离线依赖、分维度 grader；本地参考五次 1.0，廉价包装基线 0.60；尚未通过容器/ARM/六小时验收。",
+        "difficulty_decision": "held_for_evidence",
+        "local_checks_completed": true,
+        "unresolved": [
+          {
+            "item": "Docker 构建和容器运行",
+            "status": "deferred",
+            "detail": "仅读取 daemon 版本可用性；没有构建 work/judge 镜像，没有原生 Harbor trial 或实际 /tests/test.sh 容器执行。镜像标签须由 build manifest 中命令预构建。"
+          },
+          {
+            "item": "ARM 运行",
+            "status": "deferred",
+            "detail": "CPython 3.12 aarch64 wheel 已下载且核对；没有 ARM 编译/导入/loopback 或 native verifier 运行证据。"
+          },
+          {
+            "item": "六小时学习曲线与三轨迹",
+            "status": "held_for_evidence",
+            "detail": "未启动教师。cheap baseline 已得 0.60，早期饱和风险高；不得称为合格六小时训练题。"
+          },
+          {
+            "item": "独立泛化与抗主动投机",
+            "status": "limited",
+            "detail": "反馈集固定单 schema，Python 进程内 transport instrumentation 可被主动 monkeypatch；root wire 观测和奖励隔离不是完整安全 VM。正式 runtime/cgroup/Harbor snapshot 集成仍需核实。"
+          }
+        ],
+        "teacher_rollouts_started": 0
+      },
+      "score_summary": null,
+      "package_report": {
+        "stage": "constructed_unverified",
+        "construction_completed": true,
+        "local_checks_completed": true,
+        "difficulty_decision": "held_for_evidence",
+        "score": {
+          "reference_scores": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "groups": {
+            "generation": 0.15,
+            "delivery": 0.25,
+            "ownership": 0.25,
+            "protocol": 0.15,
+            "requests": 0.2
+          },
+          "native_reward_and_structured_score": "同一 grader 权威值；每次 frozen run 文件值已保存",
+          "performance_score_enabled": false
+        },
+        "release_accepted": false
+      }
+    },
+    {
+      "id": "09_valkey_transactions",
+      "account": "raymone/3",
+      "state": "native_started",
+      "native_alive": true,
+      "native_started_utc": "2026-10-15T10:28:27.999260+00:00",
+      "native_finished_utc": null,
+      "successful_shell_commands": 86,
+      "completed_tool_items": 103,
+      "task_directory_exists": true,
+      "author_result_exists": false,
+      "reported_error_events": []
+    },
+    {
+      "id": "14_tree_sitter_incremental",
+      "account": "raymone/3",
+      "state": "author_returned",
+      "native_alive": false,
+      "native_started_utc": "2026-10-15T09:48:33.394999+00:00",
+      "native_finished_utc": "2026-10-15T10:09:42.648264+00:00",
+      "successful_shell_commands": 47,
+      "completed_tool_items": 52,
+      "task_directory_exists": true,
+      "author_result_exists": true,
+      "reported_error_events": [],
+      "author_result": {
+        "status": "constructed_unverified",
+        "summary_zh": "已完成真实 tree-sitter 核心受控恢复草案、逆补丁、私有参考与隔离评分器，并通过本地原生语义/控制/故障检查。完整 API 的全量重解析基线已满分，因此暂缓六小时难度认定；容器、ARM 与正式校准未运行。",
+        "difficulty_status": "held_for_evidence",
+        "unresolved": [
+          "full-reparse saturation/near-trivial upstream restoration invalidates any claim of six-hour potential",
+          "native/periodic entrypoint equivalence and resource enforcement await actual container execution",
+          "apt image build/closure installation and ARM runtime pending",
+          "independent third-party oracle/contract review pending",
+          "initial pip cache location was not explicitly constrained; see construction-issues.json"
+        ],
+        "teacher_runs": 0
+      },
+      "score_summary": {
+        "nop": 0.14090909090909093,
+        "nop-repeat": 0.14090909090909093,
+        "reference": 1.0,
+        "reference-repeat": 1.0,
+        "injected-reference": 1.0,
+        "full_reparse_starter": 0.46861471861471865,
+        "online-baseline-repeat": 0.46861471861471865,
+        "full_reparse_complete_apis": 1.0,
+        "edit_only": 0.38484848484848483,
+        "range_only": 0.14090909090909093,
+        "scanner_gate_missing": 0.9405844155844156,
+        "candidate-failure": 0.0,
+        "infrastructure-failure": null
+      },
+      "package_report": {
+        "status": "constructed_unverified",
+        "difficulty_status": "held_for_evidence",
+        "actual_scores_host_native": {
+          "nop": 0.14090909090909093,
+          "nop-repeat": 0.14090909090909093,
+          "reference": 1.0,
+          "reference-repeat": 1.0,
+          "injected-reference": 1.0,
+          "full_reparse_starter": 0.46861471861471865,
+          "online-baseline-repeat": 0.46861471861471865,
+          "full_reparse_complete_apis": 1.0,
+          "edit_only": 0.38484848484848483,
+          "range_only": 0.14090909090909093,
+          "scanner_gate_missing": 0.9405844155844156,
+          "candidate-failure": 0.0,
+          "infrastructure-failure": null
+        },
+        "accepted_for_six_hour_training": false
+      }
+    },
+    {
+      "id": "02_restler_recovery",
+      "account": "raymone/1",
+      "state": "native_started",
+      "native_alive": true,
+      "native_started_utc": "2026-10-15T10:36:36.922123+00:00",
+      "native_finished_utc": null,
+      "successful_shell_commands": 50,
+      "completed_tool_items": 54,
+      "task_directory_exists": true,
+      "author_result_exists": false,
+      "reported_error_events": []
+    },
+    {
+      "id": "05_uv_resolution",
+      "account": "raymone/1",
+      "state": "native_started",
+      "native_alive": true,
+      "native_started_utc": "2026-10-15T10:36:37.018883+00:00",
+      "native_finished_utc": null,
+      "successful_shell_commands": 67,
+      "completed_tool_items": 70,
+      "task_directory_exists": true,
+      "author_result_exists": false,
+      "reported_error_events": []
+    },
+    {
+      "id": "06_wasm_validation",
+      "account": "raymone/3",
+      "state": "author_returned",
+      "native_alive": false,
+      "native_started_utc": "2026-10-15T10:36:37.125413+00:00",
+      "native_finished_utc": "2026-10-15T10:45:54.651463+00:00",
+      "successful_shell_commands": 26,
+      "completed_tool_items": 29,
+      "task_directory_exists": true,
+      "author_result_exists": true,
+      "reported_error_events": [],
+      "author_result": {
+        "status": "rejected",
+        "summary_zh": "已完成有实码、完整固定源码和可复跑证据的作者尝试。普通 Wasmtime wrapper 与独立 V8 均通过冻结的 76 例；依用户明确的强基线否证规则拒绝该 profile，不计为构造完成或难度通过的训练题。"
+      },
+      "score_summary": null,
+      "package_report": {
+        "status": "rejected"
+      }
+    },
+    {
+      "id": "10_datafusion_sort",
+      "account": "raymone/3",
+      "state": "native_started",
+      "native_alive": true,
+      "native_started_utc": "2026-10-15T10:46:31.691770+00:00",
+      "native_finished_utc": null,
+      "successful_shell_commands": 19,
+      "completed_tool_items": 22,
+      "task_directory_exists": true,
+      "author_result_exists": false,
+      "reported_error_events": []
+    },
+    {
+      "id": "13_toml_lossless",
+      "account": "raymone/2",
+      "state": "native_started",
+      "native_alive": true,
+      "native_started_utc": "2026-10-15T10:50:34.937514+00:00",
+      "native_finished_utc": null,
+      "successful_shell_commands": 15,
+      "completed_tool_items": 16,
+      "task_directory_exists": false,
+      "author_result_exists": false,
+      "reported_error_events": []
+    },
+    {
+      "id": "03_httpx_transport",
+      "account": "raymone/3",
+      "state": "native_started",
+      "native_alive": true,
+      "native_started_utc": "2026-10-15T10:50:35.036606+00:00",
+      "native_finished_utc": null,
+      "successful_shell_commands": 12,
+      "completed_tool_items": 13,
+      "task_directory_exists": false,
+      "author_result_exists": false,
+      "reported_error_events": []
+    },
+    {
+      "id": "04_pytest_fixtures",
+      "account": null,
+      "state": "queued",
+      "native_alive": false,
+      "native_started_utc": null,
+      "native_finished_utc": null,
+      "successful_shell_commands": 0,
+      "completed_tool_items": 0,
+      "task_directory_exists": false,
+      "author_result_exists": false,
+      "reported_error_events": []
+    },
+    {
+      "id": "07_arrow_ipc",
+      "account": null,
+      "state": "queued",
+      "native_alive": false,
+      "native_started_utc": null,
+      "native_finished_utc": null,
+      "successful_shell_commands": 0,
+      "completed_tool_items": 0,
+      "task_directory_exists": false,
+      "author_result_exists": false,
+      "reported_error_events": []
+    },
+    {
+      "id": "08_http2_session",
+      "account": null,
+      "state": "queued",
+      "native_alive": false,
+      "native_started_utc": null,
+      "native_finished_utc": null,
+      "successful_shell_commands": 0,
+      "completed_tool_items": 0,
+      "task_directory_exists": false,
+      "author_result_exists": false,
+      "reported_error_events": []
+    },
+    {
+      "id": "11_rocksdb_compaction",
+      "account": null,
+      "state": "queued",
+      "native_alive": false,
+      "native_started_utc": null,
+      "native_finished_utc": null,
+      "successful_shell_commands": 0,
+      "completed_tool_items": 0,
+      "task_directory_exists": false,
+      "author_result_exists": false,
+      "reported_error_events": []
+    },
+    {
+      "id": "12_croaring_kernels",
+      "account": null,
+      "state": "queued",
+      "native_alive": false,
+      "native_started_utc": null,
+      "native_finished_utc": null,
+      "successful_shell_commands": 0,
+      "completed_tool_items": 0,
+      "task_directory_exists": false,
+      "author_result_exists": false,
+      "reported_error_events": []
+    },
+    {
+      "id": "15_jq_composition",
+      "account": null,
+      "state": "queued",
+      "native_alive": false,
+      "native_started_utc": null,
+      "native_finished_utc": null,
+      "successful_shell_commands": 0,
+      "completed_tool_items": 0,
+      "task_directory_exists": false,
+      "author_result_exists": false,
+      "reported_error_events": []
+    },
+    {
+      "id": "16_libarchive_cli",
+      "account": null,
+      "state": "queued",
+      "native_alive": false,
+      "native_started_utc": null,
+      "native_finished_utc": null,
+      "successful_shell_commands": 0,
+      "completed_tool_items": 0,
+      "task_directory_exists": false,
+      "author_result_exists": false,
+      "reported_error_events": []
+    }
+  ],
+  "pool": {
+    "pool_pid": 82405,
+    "updated_utc": "2026-10-15T10:51:50.857236+00:00",
+    "pending": [
+      "04_pytest_fixtures",
+      "07_arrow_ipc",
+      "08_http2_session",
+      "11_rocksdb_compaction",
+      "12_croaring_kernels",
+      "15_jq_composition",
+      "16_libarchive_cli"
+    ],
+    "running": [
+      "09_valkey_transactions",
+      "02_restler_recovery",
+      "05_uv_resolution",
+      "10_datafusion_sort",
+      "13_toml_lossless",
+      "03_httpx_transport"
+    ],
+    "author_returned": [
+      "01_openapi_streaming",
+      "14_tree_sitter_incremental",
+      "06_wasm_validation"
+    ],
+    "failed": [],
+    "last_audit_or_dispatch_error": null,
+    "last_capacity": {
+      "raymone/1": {
+        "eligible": false,
+        "spare_slots": 0,
+        "preserved_lease_count": 5,
+        "external_reserved": 4
+      },
+      "raymone/2": {
+        "eligible": false,
+        "spare_slots": 0,
+        "preserved_lease_count": 8,
+        "external_reserved": 2
+      },
+      "raymone/3": {
+        "eligible": false,
+        "spare_slots": 0,
+        "preserved_lease_count": 9,
+        "external_reserved": 1
+      }
+    }
+  }
+}

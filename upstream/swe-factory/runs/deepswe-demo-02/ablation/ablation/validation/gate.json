@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "fail_to_pass": [
+    "tests/test_target.py::test_child",
+    "tests/test_target.py::test_override",
+    "tests/test_target.py::test_parent",
+    "tests/test_target.py::test_unicode"
+  ],
+  "pass_to_pass": [
+    "tests/test_regression.py::test_plain"
+  ],
+  "errors": [],
+  "base_missing_ids": []
+}

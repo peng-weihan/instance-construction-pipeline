@@ -1,0 +1,4 @@
+# Preserve the exact bytes of frozen CRLF test inputs.
+crlf-line-endings.py -text
+python2-grammar-crlf.py -text
+python3-grammar-crlf.py -text

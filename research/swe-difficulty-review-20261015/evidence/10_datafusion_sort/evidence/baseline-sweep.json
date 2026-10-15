@@ -1,0 +1,1806 @@
+{
+  "runtime_temp_dir": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/10_datafusion_sort/host-checks/bench-tmp",
+  "machine": "x86_64",
+  "processor": "x86_64",
+  "system": "Linux-6.8.0-146-generic-x86_64-with-glibc2.39",
+  "purpose": "author evidence only; not calibrated score anchors",
+  "results": [
+    {
+      "workload": "full-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 1024,
+        "output_batch": 1024,
+        "limit": null,
+        "offset": 0,
+        "threshold": 0,
+        "memory": 268435456,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 899682468,
+      "engine": [
+        {
+          "elapsed_ns": [
+            39890575,
+            43237323,
+            35827286
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 1024,
+        "output_batch": 1024,
+        "limit": null,
+        "offset": 0,
+        "threshold": 1048576,
+        "memory": 268435456,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 927254613,
+      "engine": [
+        {
+          "elapsed_ns": [
+            43037044,
+            42536040,
+            36269791
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 1024,
+        "output_batch": 1024,
+        "limit": null,
+        "offset": 0,
+        "threshold": 67108864,
+        "memory": 268435456,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 776338480,
+      "engine": [
+        {
+          "elapsed_ns": [
+            28760387,
+            27442119,
+            21838752
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 8192,
+        "output_batch": 8192,
+        "limit": null,
+        "offset": 0,
+        "threshold": 0,
+        "memory": 268435456,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 774438885,
+      "engine": [
+        {
+          "elapsed_ns": [
+            34250659,
+            31477185,
+            28894389
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 8192,
+        "output_batch": 8192,
+        "limit": null,
+        "offset": 0,
+        "threshold": 1048576,
+        "memory": 268435456,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 930098681,
+      "engine": [
+        {
+          "elapsed_ns": [
+            35530997,
+            34856804,
+            26538433
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 8192,
+        "output_batch": 8192,
+        "limit": null,
+        "offset": 0,
+        "threshold": 67108864,
+        "memory": 268435456,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 820520506,
+      "engine": [
+        {
+          "elapsed_ns": [
+            29739454,
+            26815295,
+            23727146
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 65536,
+        "output_batch": 65536,
+        "limit": null,
+        "offset": 0,
+        "threshold": 0,
+        "memory": 268435456,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 838021650,
+      "engine": [
+        {
+          "elapsed_ns": [
+            20715472,
+            24939775,
+            19962330
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 65536,
+        "output_batch": 65536,
+        "limit": null,
+        "offset": 0,
+        "threshold": 1048576,
+        "memory": 268435456,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 725464973,
+      "engine": [
+        {
+          "elapsed_ns": [
+            18778405,
+            18659571,
+            17907742
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 65536,
+        "output_batch": 65536,
+        "limit": null,
+        "offset": 0,
+        "threshold": 67108864,
+        "memory": 268435456,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 1000214418,
+      "engine": [
+        {
+          "elapsed_ns": [
+            19979282,
+            20983908,
+            19733368
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-sorted",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "sorted",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 1024,
+        "output_batch": 1024,
+        "limit": null,
+        "offset": 0,
+        "threshold": 0,
+        "memory": 268435456,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 351395307,
+      "engine": [
+        {
+          "elapsed_ns": [
+            22290324,
+            22051192,
+            12491368
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-sorted",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "sorted",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 1024,
+        "output_batch": 1024,
+        "limit": null,
+        "offset": 0,
+        "threshold": 1048576,
+        "memory": 268435456,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 550101836,
+      "engine": [
+        {
+          "elapsed_ns": [
+            19006495,
+            16593902,
+            12680035
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-sorted",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "sorted",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 1024,
+        "output_batch": 1024,
+        "limit": null,
+        "offset": 0,
+        "threshold": 67108864,
+        "memory": 268435456,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 455798514,
+      "engine": [
+        {
+          "elapsed_ns": [
+            23108278,
+            20902705,
+            20981283
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-sorted",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "sorted",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 8192,
+        "output_batch": 8192,
+        "limit": null,
+        "offset": 0,
+        "threshold": 0,
+        "memory": 268435456,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 491906710,
+      "engine": [
+        {
+          "elapsed_ns": [
+            26791400,
+            20068770,
+            11037403
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-sorted",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "sorted",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 8192,
+        "output_batch": 8192,
+        "limit": null,
+        "offset": 0,
+        "threshold": 1048576,
+        "memory": 268435456,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 626185498,
+      "engine": [
+        {
+          "elapsed_ns": [
+            31109471,
+            37004408,
+            20740218
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-sorted",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "sorted",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 8192,
+        "output_batch": 8192,
+        "limit": null,
+        "offset": 0,
+        "threshold": 67108864,
+        "memory": 268435456,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 581990137,
+      "engine": [
+        {
+          "elapsed_ns": [
+            32257487,
+            62974097,
+            50014726
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-sorted",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "sorted",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 65536,
+        "output_batch": 65536,
+        "limit": null,
+        "offset": 0,
+        "threshold": 0,
+        "memory": 268435456,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 517706338,
+      "engine": [
+        {
+          "elapsed_ns": [
+            9131416,
+            13801621,
+            10811959
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-sorted",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "sorted",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 65536,
+        "output_batch": 65536,
+        "limit": null,
+        "offset": 0,
+        "threshold": 1048576,
+        "memory": 268435456,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 422528906,
+      "engine": [
+        {
+          "elapsed_ns": [
+            11896335,
+            10795447,
+            10003503
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-sorted",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "sorted",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 65536,
+        "output_batch": 65536,
+        "limit": null,
+        "offset": 0,
+        "threshold": 67108864,
+        "memory": 268435456,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 403679667,
+      "engine": [
+        {
+          "elapsed_ns": [
+            12167096,
+            9723413,
+            12438288
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "topk-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 1024,
+        "output_batch": 1024,
+        "limit": 101,
+        "offset": 0,
+        "threshold": 0,
+        "memory": 268435456,
+        "mode": "topk",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 676228648,
+      "engine": [
+        {
+          "elapsed_ns": [
+            1389253,
+            980671,
+            827582
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "topk-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 1024,
+        "output_batch": 1024,
+        "limit": 101,
+        "offset": 0,
+        "threshold": 1048576,
+        "memory": 268435456,
+        "mode": "topk",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 557472859,
+      "engine": [
+        {
+          "elapsed_ns": [
+            1120716,
+            965843,
+            756348
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "topk-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 1024,
+        "output_batch": 1024,
+        "limit": 101,
+        "offset": 0,
+        "threshold": 67108864,
+        "memory": 268435456,
+        "mode": "topk",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 887449748,
+      "engine": [
+        {
+          "elapsed_ns": [
+            1401716,
+            899868,
+            789640
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "topk-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 8192,
+        "output_batch": 8192,
+        "limit": 101,
+        "offset": 0,
+        "threshold": 0,
+        "memory": 268435456,
+        "mode": "topk",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 661422841,
+      "engine": [
+        {
+          "elapsed_ns": [
+            863109,
+            529199,
+            437455
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "topk-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 8192,
+        "output_batch": 8192,
+        "limit": 101,
+        "offset": 0,
+        "threshold": 1048576,
+        "memory": 268435456,
+        "mode": "topk",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 1043209403,
+      "engine": [
+        {
+          "elapsed_ns": [
+            1615940,
+            690063,
+            453125
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "topk-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 8192,
+        "output_batch": 8192,
+        "limit": 101,
+        "offset": 0,
+        "threshold": 67108864,
+        "memory": 268435456,
+        "mode": "topk",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 611976388,
+      "engine": [
+        {
+          "elapsed_ns": [
+            741159,
+            527376,
+            365641
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "topk-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 65536,
+        "output_batch": 65536,
+        "limit": 101,
+        "offset": 0,
+        "threshold": 0,
+        "memory": 268435456,
+        "mode": "topk",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 644345527,
+      "engine": [
+        {
+          "elapsed_ns": [
+            1540177,
+            908895,
+            765315
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "topk-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 65536,
+        "output_batch": 65536,
+        "limit": 101,
+        "offset": 0,
+        "threshold": 1048576,
+        "memory": 268435456,
+        "mode": "topk",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 790978314,
+      "engine": [
+        {
+          "elapsed_ns": [
+            1471818,
+            795872,
+            718206
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "topk-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 65536,
+        "output_batch": 65536,
+        "limit": 101,
+        "offset": 0,
+        "threshold": 67108864,
+        "memory": 268435456,
+        "mode": "topk",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 1041199780,
+      "engine": [
+        {
+          "elapsed_ns": [
+            1715138,
+            919225,
+            897604
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "merge-duplicates",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "duplicates",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 4,
+        "input_batch": 1024,
+        "output_batch": 1024,
+        "limit": 101,
+        "offset": 0,
+        "threshold": 0,
+        "memory": 268435456,
+        "mode": "merge",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 760258979,
+      "engine": [
+        {
+          "elapsed_ns": [
+            1165540,
+            1073857,
+            506997
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "merge-duplicates",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "duplicates",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 4,
+        "input_batch": 1024,
+        "output_batch": 1024,
+        "limit": 101,
+        "offset": 0,
+        "threshold": 1048576,
+        "memory": 268435456,
+        "mode": "merge",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 418042317,
+      "engine": [
+        {
+          "elapsed_ns": [
+            723926,
+            477572,
+            1193764
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "merge-duplicates",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "duplicates",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 4,
+        "input_batch": 1024,
+        "output_batch": 1024,
+        "limit": 101,
+        "offset": 0,
+        "threshold": 67108864,
+        "memory": 268435456,
+        "mode": "merge",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 443065089,
+      "engine": [
+        {
+          "elapsed_ns": [
+            1024083,
+            636622,
+            564025
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "merge-duplicates",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "duplicates",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 4,
+        "input_batch": 8192,
+        "output_batch": 8192,
+        "limit": 101,
+        "offset": 0,
+        "threshold": 0,
+        "memory": 268435456,
+        "mode": "merge",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 511733704,
+      "engine": [
+        {
+          "elapsed_ns": [
+            998254,
+            625831,
+            411146
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "merge-duplicates",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "duplicates",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 4,
+        "input_batch": 8192,
+        "output_batch": 8192,
+        "limit": 101,
+        "offset": 0,
+        "threshold": 1048576,
+        "memory": 268435456,
+        "mode": "merge",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 434470826,
+      "engine": [
+        {
+          "elapsed_ns": [
+            8139634,
+            546512,
+            405455
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "merge-duplicates",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "duplicates",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 4,
+        "input_batch": 8192,
+        "output_batch": 8192,
+        "limit": 101,
+        "offset": 0,
+        "threshold": 67108864,
+        "memory": 268435456,
+        "mode": "merge",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 750737998,
+      "engine": [
+        {
+          "elapsed_ns": [
+            867858,
+            562501,
+            991691
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "merge-duplicates",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "duplicates",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 4,
+        "input_batch": 65536,
+        "output_batch": 65536,
+        "limit": 101,
+        "offset": 0,
+        "threshold": 0,
+        "memory": 268435456,
+        "mode": "merge",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 391609834,
+      "engine": [
+        {
+          "elapsed_ns": [
+            1707483,
+            1040444,
+            789490
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "merge-duplicates",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "duplicates",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 4,
+        "input_batch": 65536,
+        "output_batch": 65536,
+        "limit": 101,
+        "offset": 0,
+        "threshold": 1048576,
+        "memory": 268435456,
+        "mode": "merge",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 434532574,
+      "engine": [
+        {
+          "elapsed_ns": [
+            1939612,
+            910779,
+            822883
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "merge-duplicates",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "duplicates",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 4,
+        "input_batch": 65536,
+        "output_batch": 65536,
+        "limit": 101,
+        "offset": 0,
+        "threshold": 67108864,
+        "memory": 268435456,
+        "mode": "merge",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 545411823,
+      "engine": [
+        {
+          "elapsed_ns": [
+            18181619,
+            1089036,
+            1593889
+          ],
+          "spill_count": 0,
+          "spilled_bytes": 0
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-spill-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 1024,
+        "output_batch": 1024,
+        "limit": null,
+        "offset": 0,
+        "threshold": 0,
+        "memory": 8388608,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 524288
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 1632141804,
+      "engine": [
+        {
+          "elapsed_ns": [
+            186992899,
+            168927480,
+            111113563
+          ],
+          "spill_count": 15,
+          "spilled_bytes": 49810824
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-spill-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 1024,
+        "output_batch": 1024,
+        "limit": null,
+        "offset": 0,
+        "threshold": 1048576,
+        "memory": 8388608,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 524288
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 1080868897,
+      "engine": [
+        {
+          "elapsed_ns": [
+            77568334,
+            58662730,
+            57159021
+          ],
+          "spill_count": 15,
+          "spilled_bytes": 49810824
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-spill-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 1024,
+        "output_batch": 1024,
+        "limit": null,
+        "offset": 0,
+        "threshold": 67108864,
+        "memory": 8388608,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 524288
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 850528177,
+      "engine": [
+        {
+          "elapsed_ns": [
+            63510269,
+            46050102,
+            41491267
+          ],
+          "spill_count": 15,
+          "spilled_bytes": 49810824
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-spill-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 2048,
+        "output_batch": 8192,
+        "limit": null,
+        "offset": 0,
+        "threshold": 0,
+        "memory": 8388608,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 524288
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 1014924394,
+      "engine": [
+        {
+          "elapsed_ns": [
+            89955376,
+            137141843,
+            86316246
+          ],
+          "spill_count": 24,
+          "spilled_bytes": 121235256
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-spill-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 2048,
+        "output_batch": 8192,
+        "limit": null,
+        "offset": 0,
+        "threshold": 1048576,
+        "memory": 8388608,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 524288
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 1380390470,
+      "engine": [
+        {
+          "elapsed_ns": [
+            161109232,
+            111315333,
+            184139573
+          ],
+          "spill_count": 24,
+          "spilled_bytes": 121235256
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-spill-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 2048,
+        "output_batch": 8192,
+        "limit": null,
+        "offset": 0,
+        "threshold": 67108864,
+        "memory": 8388608,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 524288
+      },
+      "passed": true,
+      "returncode": 0,
+      "wall_ns": 1133762286,
+      "engine": [
+        {
+          "elapsed_ns": [
+            149496502,
+            94290739,
+            85143413
+          ],
+          "spill_count": 24,
+          "spilled_bytes": 121235256
+        }
+      ],
+      "stderr": null
+    },
+    {
+      "workload": "full-spill-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 2048,
+        "output_batch": 65536,
+        "limit": null,
+        "offset": 0,
+        "threshold": 0,
+        "memory": 8388608,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 524288
+      },
+      "passed": false,
+      "returncode": 1,
+      "wall_ns": 107943509,
+      "engine": [],
+      "stderr": "Error: ResourcesExhausted(\"Additional allocation failed with top memory consumers (across reservations) as:\\n  ExternalSorterMerge[0]#1(can spill: false) consumed 6.9 MB, peak 6.9 MB.\\nError: Failed to allocate additional 6.9 MB for ExternalSorterMerge[0] with 6.9 MB already allocated for this reservation - 1133.3 KB remain available for the total pool\")\n"
+    },
+    {
+      "workload": "full-spill-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 2048,
+        "output_batch": 65536,
+        "limit": null,
+        "offset": 0,
+        "threshold": 1048576,
+        "memory": 8388608,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 524288
+      },
+      "passed": false,
+      "returncode": 1,
+      "wall_ns": 109160296,
+      "engine": [],
+      "stderr": "Error: ResourcesExhausted(\"Additional allocation failed with top memory consumers (across reservations) as:\\n  ExternalSorterMerge[0]#1(can spill: false) consumed 6.9 MB, peak 6.9 MB.\\nError: Failed to allocate additional 6.9 MB for ExternalSorterMerge[0] with 6.9 MB already allocated for this reservation - 1133.3 KB remain available for the total pool\")\n"
+    },
+    {
+      "workload": "full-spill-random",
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 2048,
+        "output_batch": 65536,
+        "limit": null,
+        "offset": 0,
+        "threshold": 67108864,
+        "memory": 8388608,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 524288
+      },
+      "passed": false,
+      "returncode": 1,
+      "wall_ns": 103818694,
+      "engine": [],
+      "stderr": "Error: ResourcesExhausted(\"Additional allocation failed with top memory consumers (across reservations) as:\\n  ExternalSorterMerge[0]#1(can spill: false) consumed 6.9 MB, peak 6.9 MB.\\nError: Failed to allocate additional 6.9 MB for ExternalSorterMerge[0] with 6.9 MB already allocated for this reservation - 1133.3 KB remain available for the total pool\")\n"
+    }
+  ],
+  "strongest_observed": {
+    "full-random": {
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 65536,
+        "output_batch": 65536,
+        "limit": null,
+        "offset": 0,
+        "threshold": 1048576,
+        "memory": 268435456,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "median_ns": 18659571
+    },
+    "full-sorted": {
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "sorted",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 65536,
+        "output_batch": 65536,
+        "limit": null,
+        "offset": 0,
+        "threshold": 1048576,
+        "memory": 268435456,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "median_ns": 10795447
+    },
+    "full-spill-random": {
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 1024,
+        "output_batch": 1024,
+        "limit": null,
+        "offset": 0,
+        "threshold": 67108864,
+        "memory": 8388608,
+        "mode": "full",
+        "repetitions": 3,
+        "spill_reservation": 524288
+      },
+      "median_ns": 46050102
+    },
+    "merge-duplicates": {
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "duplicates",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 4,
+        "input_batch": 8192,
+        "output_batch": 8192,
+        "limit": 101,
+        "offset": 0,
+        "threshold": 1048576,
+        "memory": 268435456,
+        "mode": "merge",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "median_ns": 546512
+    },
+    "topk-random": {
+      "config": {
+        "name": "int-False-False",
+        "group": "numeric",
+        "n": 65536,
+        "seed": 98765,
+        "pattern": "random",
+        "kind": "int",
+        "desc": false,
+        "nulls_first": false,
+        "partitions": 1,
+        "input_batch": 8192,
+        "output_batch": 8192,
+        "limit": 101,
+        "offset": 0,
+        "threshold": 67108864,
+        "memory": 268435456,
+        "mode": "topk",
+        "repetitions": 3,
+        "spill_reservation": 1048576
+      },
+      "median_ns": 527376
+    }
+  }
+}

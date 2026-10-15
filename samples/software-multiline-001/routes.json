@@ -1,0 +1,17 @@
+{
+  "batch": "software-multiline-001",
+  "scope": "parallel source acquisition and substantive task construction pilots",
+  "author_model_requested": "gpt-6.1-sol",
+  "teacher_rollouts_started_by_this_batch": 0,
+  "target_learning_seconds_per_future_rollout": 21600,
+  "routes": [
+    {"id":"01_openapi","family":"multi_goal_evolution","owner":"swe_feature_pilots","source":"openapi-generators/openapi-python-client","source_revision":"0a283fe21eeaa23046faf622d4ff4b2c826d2edb"},
+    {"id":"02_restler","family":"multi_goal_evolution","owner":"swe_feature_pilots","source":"microsoft/restler-fuzzer and apache/polaris","source_revision":"see route provenance"},
+    {"id":"03_wasm","family":"system_implementation","owner":"swe_system_pilots","source":"WebAssembly/spec","source_revision":"d910f03bd6d6477656fc5070b5098e8f909305d3"},
+    {"id":"04_datafusion","family":"correctness_constrained_performance","owner":"swe_rust_pilots","source":"apache/datafusion","source_revision":"91cd7ffb927b5a4f9fee1907db50a9610759de5b"},
+    {"id":"05_toml","family":"implementation_recovery","owner":"swe_rust_pilots","source":"toml-rs/toml","source_revision":"ceac6e4412420d5a5c19e4f7293ad005cf1a31b2"},
+    {"id":"06_jq","family":"behavioral_reimplementation","owner":"swe_system_pilots","source":"jqlang/jq","source_revision":"71c2ab509a8628dbbad4bc7b3f98a64aa90d3297"}
+  ],
+  "stages": ["source_card", "contract_and_starter", "reference_and_behavioral_judge", "local_controls", "schema_and_package_review", "future_six_hour_calibration"],
+  "status_rule": "Construction, host controls, container verification, six-hour curves, three-trace qualification and delivery acceptance are separate states. Rejected and held routes remain in the denominator."
+}

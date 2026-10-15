@@ -1,0 +1,71 @@
+Generating /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/public-smoke-starter/build-public/stream_sdk
+
+Warning(s) encountered while generating. Client was generated, but some pieces may be missing
+WARNING parsing GET /secured within feed.
+
+Cannot parse response for status code <openapi_python_client.schema.untrusted_string.UntrustedString object at 0x7e8cb8eb9460> (Unsupported content_type application/x-ndjson), response will be omitted from generated client
+
+{
+  "description": "Incremental records",
+  "content": {
+    "application/x-ndjson": {
+      "schema": {
+        "$ref": "#/components/schemas/Event"
+      }
+    }
+  }
+}
+
+WARNING parsing POST /anonymous within feed.
+
+Cannot parse response for status code <openapi_python_client.schema.untrusted_string.UntrustedString object at 0x7e8cb8eb96d0> (Unsupported content_type application/x-ndjson), response will be omitted from generated client
+
+{
+  "description": "Incremental records",
+  "content": {
+    "application/x-ndjson": {
+      "schema": {
+        "$ref": "#/components/schemas/Event"
+      }
+    }
+  }
+}
+
+WARNING parsing GET /optional within feed.
+
+Cannot parse response for status code <openapi_python_client.schema.untrusted_string.UntrustedString object at 0x7e8cb8eb98e0> (Unsupported content_type application/x-ndjson), response will be omitted from generated client
+
+{
+  "description": "Incremental records",
+  "content": {
+    "application/x-ndjson": {
+      "schema": {
+        "$ref": "#/components/schemas/Event"
+      }
+    }
+  }
+}
+
+WARNING parsing GET /numbers within feed.
+
+Cannot parse response for status code <openapi_python_client.schema.untrusted_string.UntrustedString object at 0x7e8cb8eb9c10> (Unsupported content_type application/x-ndjson), response will be omitted from generated client
+
+{
+  "description": "primitive records",
+  "content": {
+    "application/x-ndjson": {
+      "schema": {
+        "type": "integer"
+      }
+    }
+  }
+}
+
+If you believe this was a mistake or this tool is missing a feature you need, please open an issue at https://github.com/openapi-generators/openapi-python-client/issues/new/choose
+Traceback (most recent call last):
+  File "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/public-smoke-starter/public/smoke.py", line 12, in <module>
+    check=subprocess.run([sys.executable,str(root/'public/worker.py'),str(output),'{"action":"records","mode":"'+mode+'"}'],check=True,capture_output=True,text=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv-offline/bin/python', '/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/public-smoke-starter/public/worker.py', '/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/public-smoke-starter/build-public', '{"action":"records","mode":"sync"}']' returned non-zero exit status 1.

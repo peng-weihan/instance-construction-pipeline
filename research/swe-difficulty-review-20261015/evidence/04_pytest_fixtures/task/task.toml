@@ -1,0 +1,39 @@
+schema_version = "1.4"
+artifacts = ["/home/workspace/pytest-fixture-trace/submission"]
+
+[metadata]
+name = "pytest-fixture-causal-trace"
+version = "1.0.0"
+reward_type = "bounded_continuous"
+source_revision = "c9c19f8e62c12834ad83193a1869cc82fe9c700e"
+authoring_status = "constructed_unverified"
+work_build_context = "environment"
+verifier_build_context = "verifier"
+
+[agent]
+timeout_sec = 21600
+user = "agent"
+network_mode = "no-network"
+
+[environment]
+build_timeout_sec = 600
+cpus = 2
+memory_mb = 4096
+storage_mb = 4096
+workdir = "/home/workspace/pytest-fixture-trace"
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 900
+user = "root"
+environment_mode = "separate"
+network_mode = "no-network"
+
+[verifier.environment]
+docker_image = "edgebench-pytest-fixture-trace-verifier:1.0.0"
+build_timeout_sec = 600
+cpus = 2
+memory_mb = 4096
+storage_mb = 4096
+workdir = "/home/workspace/pytest-fixture-trace"
+network_mode = "no-network"

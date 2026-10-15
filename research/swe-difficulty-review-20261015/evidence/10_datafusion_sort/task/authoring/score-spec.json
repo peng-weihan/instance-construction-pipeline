@@ -1,0 +1,146 @@
+{
+  "version": "sort-draft-v1",
+  "reference_mode": "open-solution",
+  "status": "performance_pending_disabled",
+  "score_range": [
+    0,
+    1
+  ],
+  "active_score_ceiling": 0.25,
+  "formula": "sum(group.weight * passed_cases/group.case_count) + native.weight * native_pass; candidate build failure=0. Performance contributes 0 while disabled. Never renormalize active weights.",
+  "groups": {
+    "numeric": {
+      "weight": 0.04,
+      "cases": [
+        "int-False-False",
+        "int-False-True",
+        "int-True-False",
+        "int-True-True",
+        "order-sorted",
+        "order-reverse",
+        "order-duplicates",
+        "empty",
+        "singleton"
+      ],
+      "case_count": 9
+    },
+    "utf8": {
+      "weight": 0.03,
+      "cases": [
+        "str-False-False",
+        "str-False-True",
+        "str-True-False",
+        "str-True-True"
+      ],
+      "case_count": 4
+    },
+    "floating": {
+      "weight": 0.03,
+      "cases": [
+        "float-False-False",
+        "float-False-True",
+        "float-True-False",
+        "float-True-True"
+      ],
+      "case_count": 4
+    },
+    "topk": {
+      "weight": 0.03,
+      "cases": [
+        "topk-0-0",
+        "topk-1-0",
+        "topk-7-13",
+        "topk-101-71",
+        "topk-4096-0",
+        "topk-10-10000"
+      ],
+      "case_count": 6
+    },
+    "partition": {
+      "weight": 0.03,
+      "cases": [
+        "merge-2-int",
+        "merge-2-str",
+        "merge-2-float",
+        "merge-2-multi",
+        "merge-7-int",
+        "merge-7-str",
+        "merge-7-float",
+        "merge-7-multi"
+      ],
+      "case_count": 8
+    },
+    "spill": {
+      "weight": 0.04,
+      "cases": [
+        "spill-int",
+        "spill-str",
+        "spill-multi"
+      ],
+      "case_count": 3
+    }
+  },
+  "native": {
+    "weight": 0.05,
+    "filter": "sorts::sort::tests::",
+    "tests": [
+      "sorts::sort::tests::should_return_stream_with_batches_in_the_requested_size",
+      "sorts::sort::tests::should_return_stream_with_batches_in_the_requested_size_when_having_a_single_batch",
+      "sorts::sort::tests::should_return_stream_with_batches_in_the_requested_size_when_having_to_spill",
+      "sorts::sort::tests::should_return_stream_with_batches_in_the_requested_size_when_sorting_in_place",
+      "sorts::sort::tests::test_batch_reservation_error",
+      "sorts::sort::tests::test_drop_cancel",
+      "sorts::sort::tests::test_empty_sort_batch",
+      "sorts::sort::tests::test_in_mem_sort",
+      "sorts::sort::tests::test_lex_sort_by_float",
+      "sorts::sort::tests::test_lex_sort_by_mixed_types",
+      "sorts::sort::tests::test_sort_fetch_memory_calculation",
+      "sorts::sort::tests::test_sort_metadata",
+      "sorts::sort::tests::test_sort_spill",
+      "sorts::sort::tests::test_sort_spill_utf8_strings",
+      "sorts::sort::tests::topk_unbounded_source"
+    ],
+    "test_count": 15
+  },
+  "performance": {
+    "enabled": false,
+    "weight": 0.75,
+    "baseline_ns": null,
+    "reference_ns": null,
+    "normalization": null,
+    "reason": "Host measurements are screening evidence. No cross-host anchors, noise qualification, memory/I/O normalization or six-hour calibration yet. Freeze a new scoring revision before enabling."
+  },
+  "candidate": {
+    "uid": 10001,
+    "allowed_roots": [
+      "datafusion/physical-plan/src/sorts",
+      "datafusion/physical-plan/src/topk",
+      "datafusion/physical-plan/src/spill",
+      "datafusion/execution/src/memory_pool"
+    ],
+    "file_suffix": ".rs",
+    "max_source_bytes": 8388608,
+    "max_output_bytes": 33554432,
+    "max_file_bytes": 2147483648,
+    "max_virtual_bytes": 25769803776,
+    "max_processes": 256,
+    "build_timeout_sec": 1800,
+    "native_timeout_sec": 1200,
+    "case_timeout_sec": 120,
+    "build_jobs": 4,
+    "output_poll_sec": 0.1
+  },
+  "contract": {
+    "project": "/home/workspace/datafusion",
+    "submission": "/home/workspace/datafusion/submission",
+    "sort_order": "explicit NULL placement independent of direction; UTF-8 binary order; Float64 IEEE total order for canonical positive NaN and signed zero; final id ASC breaks all ties",
+    "spill": "spill workload requires positive actual spill count",
+    "row_integrity": "all five output columns must equal original rows, exact Arrow array values",
+    "no_stable_tie_requirement": "id is an explicit final unique key; no additional SQL tie stability is required"
+  },
+  "resource_notes": {
+    "verifier_timeout_sec": 9000,
+    "worst_candidate_timeout_budget_sec": 7080,
+    "reason": "Verifier budget exceeds the sum of ordinary candidate timeouts plus setup margin, so repeated candidate hangs remain scored failures."
+  }
+}

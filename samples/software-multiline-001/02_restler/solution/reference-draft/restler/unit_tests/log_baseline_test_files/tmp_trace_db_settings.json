@@ -1,0 +1,4 @@
+{
+    "use_trace_database": true,
+    "include_unique_sequence_id": false
+}

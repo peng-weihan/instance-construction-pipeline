@@ -1,0 +1,209 @@
+[
+  {
+    "id": "g06_flatland",
+    "name": "Flatland",
+    "source_unit": "铁路轨道环境、终局更新、ShortestPathPolicy原生测试",
+    "title": "扰动下的多列车在线调度",
+    "proposed_task": "交付在线调度策略，在列车陆续发车、共享单线与会车限制及故障下提高到达率和准点性；任务对象是策略而非实现仿真器。",
+    "deliverable": "调度策略入口、事件/延误诊断、可重放轨迹及方案分析。",
+    "difficulty_sources": [
+      "单列车最短路可能造成多车死锁，局部最优需让路和等待。",
+      "故障与中途目标改变后续占线，调度必须跨时段修订而不能只算一次静态路线。"
+    ],
+    "baseline": "原生ShortestPathPolicy、优先级预约表、集中式路径规划或MAPF求解器正常适配。",
+    "first_probe": "复核原生固定seed测试中到达率1/7和2/7的现象，但不当作新题成绩；试预约表基线是否解决剩余死锁。",
+    "stop_condition": "若全部地图可由简单优先级预约闭合则重设自然事件分布；若仅靠增加列车数量拖慢则不计高难。",
+    "grader_plan": "私有simulator重放动作，输出到达率、总延误、死锁和非法动作；设可比时限，预先验证实例可解。",
+    "generation_and_split": "留出路网瓶颈、目标组合和故障过程；地图拓扑族与seed分别划分，平衡无解实例。",
+    "novelty_and_overlap": "与组合优化MAPF有能力交叉，但这里交付在线策略，评分用交互轨迹；同Flatland不同赛季不重复计素材。",
+    "offline_and_compute": "数组观察及CPU模拟，无大图像；当前环境版本与轨迹工具健康、故障可复现性未运行。",
+    "license_observation": "根MIT；引入外部铁路数据需另查，拟题优先程序生成。",
+    "potential": "high",
+    "priority": "scope_probe",
+    "read_scope": [
+      [
+        "flatland/envs/rail_env.py",
+        451,
+        490,
+        "implementation"
+      ],
+      [
+        "tests/test_flatland_envs_rail_env_policies.py",
+        13,
+        35,
+        "test"
+      ]
+    ],
+    "claims": [
+      "环境在全员结束或步数上限时累计终局奖励，并记录真实arrival_time。",
+      "原生测试给ShortestPathPolicy在固定种子两种场景断言1/7、2/7到达率；仅是源码测试预期。"
+    ]
+  },
+  {
+    "id": "g07_textworld",
+    "name": "TextWorld / Cooking",
+    "source_unit": "Cooking生成器、知识逻辑、原生生成/完成测试；不计手写IF目录",
+    "title": "可生成世界中的文本探索与料理计划",
+    "proposed_task": "在仅文本观察环境中完成探索、原料获取、切制、加热和上菜的组合目标；生成未见房间图与食材加工依赖。",
+    "deliverable": "文本交互agent、局内世界模型与计划、命令轨迹和失败分析。",
+    "difficulty_sources": [
+      "物品位置与容器状态需探索，有限背包和往返路线影响整体计划。",
+      "错误切制/烹饪可能不可逆，任务前提与顺序必须从文字规则中正确推断。"
+    ],
+    "baseline": "地图记忆、命令语法解析、符号计划器，以及公开TextWorld料理agent的合法适配。",
+    "first_probe": "用程序生成walkthrough先验证可解性，然后用符号agent在结构留出任务上测是否已接近满分。",
+    "stop_condition": "若walkthrough或内部facts/recipe元数据泄露给agent则无效；公开固定料理脚本饱和则重设生成规则而非换seed。",
+    "grader_plan": "环境私有维护任务谓词和fail条件，以完成、进度与动作数反馈；不按文本叙事质量主观打分。",
+    "generation_and_split": "房间拓扑、材料/加工配方组合、干扰对象与背包约束分层留出；保留独立生成seed和grammar seed。",
+    "novelty_and_overlap": "不是IF Archive取一款现成手写游戏；与旧Anchorhead等共享文本冒险/解释器谱系，必须新生成依赖结构和验收，公开Cooking split不能当新题。",
+    "offline_and_compute": "需冻结文本编译器/解释器及字典资源；已取生成源码和小测试，未构建解释器、未生成游戏文件。",
+    "license_observation": "TextWorld根MIT；Inform/Z-machine等随附工具和文本资源另核对，不能从根许可推断全部资源。",
+    "potential": "medium",
+    "priority": "hold_baseline",
+    "read_scope": [
+      [
+        "textworld/challenges/tw_cooking/cooking.py",
+        799,
+        843,
+        "implementation"
+      ],
+      [
+        "textworld/challenges/tests/test_cooking.py",
+        15,
+        56,
+        "test"
+      ]
+    ],
+    "claims": [
+      "料理生成控制食材数、开门、加热、切制、背包及地图，并分离map/objects/grammar/quest/recipe RNG。",
+      "测试固定世界只改recipe_seed，检查原料变化和空间事实不变，再验证walkthrough可完成。"
+    ]
+  },
+  {
+    "id": "g08_halite",
+    "name": "Halite III",
+    "source_unit": "官方headless比赛引擎、地图模型、积分/崩溃排名集成测试",
+    "title": "舰队采集与回港投资对抗",
+    "proposed_task": "交付舰队策略，联合优化采集、返航、产船和建立投递点，在有限回合和对手碰撞风险下最大化入库资源。",
+    "deliverable": "标准IO bot、资源/投资回放、对手池对局与决策分析。",
+    "difficulty_sources": [
+      "船在外携带资源不等于终局入库收益，需要返航时点和交通协调。",
+      "造船/投递点消耗当前财富但扩大后期收益，同时对手碰撞和枯竭改变回报。"
+    ],
+    "baseline": "贪心采集+最短返航、投资回收期规则、公开强bot正常适配。",
+    "first_probe": "先编译固定引擎并跑官方崩溃/排名测试，再比较无碰撞贪心与公开方案；不以旧竞赛冠军水平直接作新题门槛。",
+    "stop_condition": "若强公开bot薄适配已满足全部新分布则降低优先级；若headless构建无法稳定重置则先修环境。",
+    "grader_plan": "引擎隔离运行bot并给真实资源、排名、崩溃和超时；配对地图种子与交换玩家号，回放独立复核。",
+    "generation_and_split": "留出资源场空间结构、地图尺寸和对手混合族；不从现有公开比赛回放抽取隐藏答案。",
+    "novelty_and_overlap": "不同底层于旧OpenTTD/RTS；经济对抗相似但动作/终局目标独立。旧赛季/同引擎不再计来源。",
+    "offline_and_compute": "C++17引擎和脚本bot，无需网站/排行榜/在线账户；这里只取引擎片段，构建和依赖健康尚未证实。",
+    "license_observation": "根MIT；官网vendor资产不纳入离线环境，公开bot另查许可。",
+    "potential": "high",
+    "priority": "hold_reference",
+    "read_scope": [
+      [
+        "game_engine/core/HaliteImpl.cpp",
+        450,
+        477,
+        "implementation"
+      ],
+      [
+        "game_engine/test/integration_test.py",
+        15,
+        60,
+        "test"
+      ]
+    ],
+    "claims": [
+      "终止检查考虑剩余地图资源和玩家船/造船能力。",
+      "官方集成测试用--results-as-json运行独立bot进程，读取回放和排名并检查崩溃场景。"
+    ]
+  },
+  {
+    "id": "g09_pommerman",
+    "name": "Pommerman",
+    "source_unit": "炸弹棋盘环境、前向模型和官方FFA运行示例",
+    "title": "延迟爆炸下的生存与战术规划",
+    "proposed_task": "交付能在局部观察、定时炸弹和不同对手下躲避、开路和攻击的策略；限定无图像的棋盘观察与已说明规则。",
+    "deliverable": "agent入口、危险时间图/记忆状态、交互回放和战术诊断。",
+    "difficulty_sources": [
+      "放弹后效果延迟，连锁反应使当前位置安全不等于下几步可逃。",
+      "拆障碍、取强化和攻击对手竞争移动时机，短视避险也可能锁死自己。"
+    ],
+    "baseline": "官方SimpleAgent/RandomAgent，危险区时间展开BFS与现成MCTS正常适配。",
+    "first_probe": "先验证无render运行、所有随机源可设种子、reset清理；再测安全BFS是否已覆盖任务。",
+    "stop_condition": "若必须依赖过时Gym或未封装全局随机态且无法可靠重置则hold；不能把渲染和旧依赖修复算agent难度。",
+    "grader_plan": "私有forward model推进，评分胜率、合法动作和生存；跨座位配对，平局/互毁单列，防只苟活刷分。",
+    "generation_and_split": "留出障碍拓扑、初始道具和对手行为族；维持各出生点可行逃生，不仅随机新棋盘。",
+    "novelty_and_overlap": "独立定时爆炸底层；与旧RPG/RTS不同，公开Pommerman agent高度可复用，需基线核验。",
+    "offline_and_compute": "Python旧Gym生态；示例调用render但拟题可关闭，未运行证明全部依赖支持headless和可复现。",
+    "license_observation": "根Apache-2.0；游戏美术和可选Docker agent不纳入，若发行资源再查。",
+    "potential": "medium",
+    "priority": "hold_reference",
+    "read_scope": [
+      [
+        "pommerman/envs/v0.py",
+        148,
+        202,
+        "implementation"
+      ],
+      [
+        "examples/simple_ffa_run.py",
+        14,
+        34,
+        "example_spec"
+      ]
+    ],
+    "claims": [
+      "reset重建棋盘/炸弹/火焰并重置agent，seed接口存在但需追踪所有随机源。",
+      "官方示例支持SimpleAgent和RandomAgent混合，以act/step推进和输出终局。"
+    ]
+  },
+  {
+    "id": "g10_screeps",
+    "name": "Screeps Engine",
+    "source_unit": "移动/采集/生命周期处理器和mock房间测试；不含完整服务器服务栈",
+    "title": "有限时域殖民地资源与维护策略",
+    "proposed_task": "在预置离线小房间中交付殖民地策略，协调采集、运输、建造、维修与单位更替；以有限tick窗口验收，不接在线永久世界。",
+    "deliverable": "策略脚本、产能与维护计划、tick轨迹和资源账本。",
+    "difficulty_sources": [
+      "单位生命周期、疲劳与身体构成改变运输产能，扩张会增加持续维护负担。",
+      "同步意图竞争道路/资源，生产计划与空间拥堵形成反馈，单个采集脚本不能闭合。"
+    ],
+    "baseline": "官方可用采集/搬运/生成脚本，静态角色配比和路径缓存，允许成熟社区方案正常适配。",
+    "first_probe": "先证明driver/存储/常量依赖可离线冻结，完整房间快照重置且无跨局写入；mock单元测试不足以证明任务环境可用。",
+    "stop_condition": "若仍需线上服务器、不可控tick等待或不可重置持久世界则淘汰当前范围；若普通角色模板饱和则下调。",
+    "grader_plan": "外置只读快照judge重新计算入库、建筑/单位状态、存活和维护债务，拒绝策略自报日志；硬性tick预算。",
+    "generation_and_split": "留出房间连通与资源分布、单位寿命组合和扰动时间；固定服务版本，每局独立存储/命名空间。",
+    "novelty_and_overlap": "独立Screeps意图式世界，不是OpenTTD/RTS换皮；不能把搭建服务器工程计为策略长程难。",
+    "offline_and_compute": "根engine依赖外部driver/持久化服务；仅有mock与片段，完整离线环境未取，优先hold_reference。",
+    "license_observation": "根LICENSE.txt为ISC式许可；完整服务器、驱动和社区代码另核对。",
+    "potential": "high",
+    "priority": "hold_reference",
+    "read_scope": [
+      [
+        "src/processor/intents/movement.js",
+        110,
+        149,
+        "implementation"
+      ],
+      [
+        "spec/engine/processor/intents/movement.test.js",
+        13,
+        51,
+        "test"
+      ],
+      [
+        "spec/helpers/mocks/intents.js",
+        1,
+        17,
+        "test_fixture"
+      ]
+    ],
+    "claims": [
+      "同格移动竞争按拉拽状态和MOVE能力/载重等排序，策略必须考虑交通与疲劳。",
+      "测试构造损坏MOVE身体部件并检查不能移动/占格，使用mock intents推进。",
+      "测试scope自定义房间对象和gameTime，reset只清mock对象，不能等同完整服务器reset。"
+    ]
+  }
+]

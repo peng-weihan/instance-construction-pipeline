@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/Users/raymone/Desktop/edgebench/.venv/bin/python",
+    "samples/software-multiline-001/03_wasm/solution/runtime.py"
+  ],
+  "exit": 0,
+  "stderr": "",
+  "expected_count": 223,
+  "output_count": 223,
+  "mismatches": []
+}

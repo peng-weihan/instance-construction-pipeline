@@ -1,0 +1,132 @@
+public_2012_ordinary baseline 0.39561989140132947 None
+public_2012_ordinary responsive None SubmissionError: risk budget exceeded
+public_2012_ordinary slow 0.5438167823321663 None
+public_2012_ordinary trend None SubmissionError: risk budget exceeded
+public_2012_costly baseline 0.3956319114938731 None
+public_2012_costly responsive None SubmissionError: risk budget exceeded
+public_2012_costly slow 0.5953089227972933 None
+public_2012_costly trend None SubmissionError: risk budget exceeded
+public_2013_ordinary baseline 0.3942048470229691 None
+public_2013_ordinary responsive 0.38972530673072664 None
+public_2013_ordinary slow 0.39613731619135817 None
+public_2013_ordinary trend 0.3893780293475918 None
+public_2013_costly baseline 0.3942122902809775 None
+public_2013_costly responsive None SubmissionError: risk budget exceeded
+public_2013_costly slow 0.396136968215578 None
+public_2013_costly trend None SubmissionError: risk budget exceeded
+feedback_2014_ordinary baseline 0.3931646051593473 None
+feedback_2014_ordinary responsive 0.3915465334909139 None
+feedback_2014_ordinary slow 0.46106748143553183 None
+feedback_2014_ordinary trend 0.391118247595749 None
+feedback_2014_costly baseline 0.39314263308454755 None
+feedback_2014_costly responsive 0.39153025137033015 None
+feedback_2014_costly slow 0.5287226972091796 None
+feedback_2014_costly trend 0.3910181446491353 None
+feedback_2015_ordinary baseline 0.39345507017828624 None
+feedback_2015_ordinary responsive 0.39145143609012945 None
+feedback_2015_ordinary slow 0.8371124809367444 None
+feedback_2015_ordinary trend 0.38985814392803575 None
+feedback_2015_costly baseline 0.39339590407219927 None
+feedback_2015_costly responsive 0.3914446407178894 None
+feedback_2015_costly slow 0.9370303044984362 None
+feedback_2015_costly trend 0.3898344229313963 None
+feedback_2016_ordinary baseline 0.3936548531310756 None
+feedback_2016_ordinary responsive 0.7765935523355054 None
+feedback_2016_ordinary slow 0.40575116324461047 None
+feedback_2016_ordinary trend 0.460253794023352 None
+feedback_2016_costly baseline 0.3936809464892667 None
+feedback_2016_costly responsive None SubmissionError: risk budget exceeded
+feedback_2016_costly slow 0.49199352424201426 None
+feedback_2016_costly trend None SubmissionError: risk budget exceeded
+feedback_2017_ordinary baseline 0.3947087580975199 None
+feedback_2017_ordinary responsive 0.3923598631526124 None
+feedback_2017_ordinary slow 0.3972740117756184 None
+feedback_2017_ordinary trend 0.3926408337104724 None
+feedback_2017_costly baseline 0.3947390851799534 None
+feedback_2017_costly responsive None SubmissionError: risk budget exceeded
+feedback_2017_costly slow 0.4740740410567892 None
+feedback_2017_costly trend 0.39270866403941734 None
+feedback_2018_ordinary baseline 0.3912975911409673 None
+feedback_2018_ordinary responsive 0.7360111936172075 None
+feedback_2018_ordinary slow 0.9312624120763581 None
+feedback_2018_ordinary trend 0.3858307873938356 None
+feedback_2018_costly baseline 0.3912756701097714 None
+feedback_2018_costly responsive 0.38984853612347614 None
+feedback_2018_costly slow 0.994420344311419 None
+feedback_2018_costly trend 0.38574167114785346 None
+feedback_2019_ordinary baseline 0.3935245172002579 None
+feedback_2019_ordinary responsive 0.4916946008733105 None
+feedback_2019_ordinary slow 0.39655324145363346 None
+feedback_2019_ordinary trend 0.3915669411505527 None
+feedback_2019_costly baseline 0.3935307640221321 None
+feedback_2019_costly responsive 0.39060093322402983 None
+feedback_2019_costly slow 0.4145065464591781 None
+feedback_2019_costly trend 0.391589279936011 None
+audit_2020_ordinary baseline 0.38918990203781767 None
+audit_2020_ordinary responsive None SubmissionError: risk budget exceeded
+audit_2020_ordinary slow 0.9927657947613013 None
+audit_2020_ordinary trend None SubmissionError: risk budget exceeded
+audit_2020_costly baseline 0.38911391609664514 None
+audit_2020_costly responsive None SubmissionError: risk budget exceeded
+audit_2020_costly slow 0.992761113028893 None
+audit_2020_costly trend None SubmissionError: risk budget exceeded
+audit_2021_ordinary baseline 0.39309800314323595 None
+audit_2021_ordinary responsive None SubmissionError: risk budget exceeded
+audit_2021_ordinary slow 0.3959727003535215 None
+audit_2021_ordinary trend None SubmissionError: risk budget exceeded
+audit_2021_costly baseline 0.39311553230251034 None
+audit_2021_costly responsive None SubmissionError: risk budget exceeded
+audit_2021_costly slow 0.39597739357380085 None
+audit_2021_costly trend None SubmissionError: risk budget exceeded
+audit_2022_ordinary baseline 0.39410051952466163 None
+audit_2022_ordinary responsive 0.39059822141134903 None
+audit_2022_ordinary slow 0.6088600812027782 None
+audit_2022_ordinary trend 0.3904127477024131 None
+audit_2022_costly baseline 0.39407184938424367 None
+audit_2022_costly responsive 0.39063769422557665 None
+audit_2022_costly slow 0.6836434360304449 None
+audit_2022_costly trend 0.3904215188332822 None
+audit_2023_ordinary baseline 0.39538887390138655 None
+audit_2023_ordinary responsive None SubmissionError: risk budget exceeded
+audit_2023_ordinary slow 0.559869970742784 None
+audit_2023_ordinary trend None SubmissionError: risk budget exceeded
+audit_2023_costly baseline 0.3953839252293482 None
+audit_2023_costly responsive None SubmissionError: risk budget exceeded
+audit_2023_costly slow 0.5917726645104362 None
+audit_2023_costly trend None SubmissionError: risk budget exceeded
+audit_2024_ordinary baseline 0.3934469962771546 None
+audit_2024_ordinary responsive 0.38934744011251904 None
+audit_2024_ordinary slow 0.6676276573490728 None
+audit_2024_ordinary trend 0.38642947989845955 None
+audit_2024_costly baseline 0.393425474376151 None
+audit_2024_costly responsive None SubmissionError: risk budget exceeded
+audit_2024_costly slow 0.6962240186619377 None
+audit_2024_costly trend 0.387079343789134 None
+audit_2025_ordinary baseline 0.39428272413599424 None
+audit_2025_ordinary responsive 0.38932051467949946 None
+audit_2025_ordinary slow 0.39548770587580895 None
+audit_2025_ordinary trend 0.8216944285823473 None
+audit_2025_costly baseline 0.3942624622725718 None
+audit_2025_costly responsive None SubmissionError: risk budget exceeded
+audit_2025_costly slow 0.44723512959617173 None
+audit_2025_costly trend None SubmissionError: risk budget exceeded
+{
+  "public": {
+    "baseline": 0.39491723504978726,
+    "responsive": null,
+    "slow": 0.48284999738409895,
+    "trend": null
+  },
+  "feedback": {
+    "baseline": 0.39329753315544375,
+    "responsive": null,
+    "slow": 0.6058140207249595,
+    "trend": null
+  },
+  "audit": {
+    "baseline": 0.3932400148901434,
+    "responsive": null,
+    "slow": 0.6190164721405792,
+    "trend": null
+  }
+}

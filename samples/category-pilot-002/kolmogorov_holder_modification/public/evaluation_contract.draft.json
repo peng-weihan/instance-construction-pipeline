@@ -1,0 +1,65 @@
+{
+  "schema": "local-authoring-draft-v1-not-Harbor",
+  "task_id": "kolmogorov_holder_modification",
+  "agent_budget_seconds": 10800,
+  "submit_paths": [
+    "repo/BrownianMotion/Continuity/KolmogorovChentsov.lean"
+  ],
+  "snapshot_only": true,
+  "verifier_stateless": true,
+  "runtime_network": {
+    "agent": "none",
+    "verifier": "none"
+  },
+  "run_aggregation": "max(valid_submission_scores)",
+  "curve": "elapsed_interaction_seconds,best_score_so_far",
+  "score": {
+    "direction": "higher_is_better",
+    "range": [
+      0,
+      1
+    ],
+    "formula": "sum(weight[t]*closed_without_unapproved_axioms[t])/sum(weight[t])",
+    "constants": {
+      "target_weights": "private/targets.json; all weights 1",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "raw_metrics_required": true,
+    "baseline_measured": null,
+    "upper_endpoint_measured": null,
+    "normalization_policy": "fixed_bounded_formula_v1; empirical endpoints pending"
+  },
+  "named_checks": [
+    "frozen_signatures",
+    "frozen_imports",
+    "kernel_check",
+    "axiom_closure",
+    "per_target_completion"
+  ],
+  "feedback_schema": {
+    "score": "finite number in [0,1]",
+    "valid": "boolean",
+    "checks": [
+      {
+        "name": "string",
+        "pass": "boolean",
+        "summary": "string"
+      }
+    ],
+    "raw_metrics": "object",
+    "summary": "string"
+  },
+  "invalid_submission": "valid=false, score=0, named diagnostics",
+  "verifier_failure": "separate infrastructure error, never silently score zero",
+  "feedback_policy": "aggregate by named group; never return hidden inputs or target values",
+  "pending_delivery": [
+    "official Harbor schema/network fields",
+    "two Docker build contexts",
+    "offline dependency closure and dual-architecture digests",
+    "oracle/nop scores and repeated-model curves"
+  ]
+}

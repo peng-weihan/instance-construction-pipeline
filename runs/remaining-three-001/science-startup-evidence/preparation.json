@@ -1,0 +1,10 @@
+{
+  "source_task": "/ws/users/raymone/edgebench/remaining-three-001/singlecell_cross_site_graph_lab-r2",
+  "image_id": "sha256:d4c4f1f1bb4ef45d791b644d31381795ca79a2667c367064d5a80a0d49bfaa7d",
+  "account": "raymone/1",
+  "model": "gpt-6.1-sol",
+  "runtime_tree_sha256": "68e461175d30751c0a6df21026be0b9074814eb7b0411f24b99a9e6dbefb8053",
+  "runtime_archive_sha256": "8d806f79dd0cb2af26675f6981c388f67b2eade4b65cea771768c239c54bc13c",
+  "official_adapter_unchanged": true,
+  "formal_acceptance": false
+}

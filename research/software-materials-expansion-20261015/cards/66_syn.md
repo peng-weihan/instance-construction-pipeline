@@ -1,0 +1,21 @@
+# 66_syn · Rust token-stream 到语法树的解析链恢复
+
+- 路线/优先级：M4 / `build_scope_probe`；只作素材判断。
+- 固定版本：[7c44a5565b4421035101cc16184e9af08ab5fc77](https://github.com/dtolnay/syn/tree/7c44a5565b4421035101cc16184e9af08ab5fc77)；完整树/片段哈希见 `sources/66_syn/manifest.json`。
+- 已有功能：Syn 已提供 Rust tokens→typed AST、fork/lookahead、full items/expressions 和 quote 生态；不承担 rustc 完整语义分析。
+- 拟题边界：拟保留 proc_macro2 token、AST 数据类型、打印器/visitor，在固定健康副本中恢复 ParseBuffer 的消费/分支语义与 Expr/Item 的相互调用，覆盖函数/impl/宏体等真实输入；不是只补 fork 或优先级表。
+- 拟缺口：未挖缺损、未运行健康参考；full/parsing/printing feature 合同与缺口闭包待定，不能宣称已可构造。
+- 关联链：TokenStream/Group/span→ParseBuffer cursor/fork/lookahead→precedence/atomic/trailer Expr→Item/Block/Pat 相互调用→typed AST→quote/再解析与诊断。
+- 代码/真实测试实读：[src/parse.rs:967](https://github.com/dtolnay/syn/blob/7c44a5565b4421035101cc16184e9af08ab5fc77/src/parse.rs#L967) fork 克隆 cursor 状态并独立设置 unexpected 记录。；[src/expr.rs:1901](https://github.com/dtolnay/syn/blob/7c44a5565b4421035101cc16184e9af08ab5fc77/src/expr.rs#L1901) atom_expr 联合 lookahead、group、closure、path/macro/struct 与控制表达式。；[tests/test_expr.rs:770](https://github.com/dtolnay/syn/blob/7c44a5565b4421035101cc16184e9af08ab5fc77/tests/test_expr.rs#L770) 测试二元与赋值结合性并拒绝无括号链式比较。；[src/item.rs:24](https://github.com/dtolnay/syn/blob/7c44a5565b4421035101cc16184e9af08ab5fc77/src/item.rs#L24) Item 类型包含函数/impl/宏/模块等与表达式相连的节点。
+- 组合场景 1：泛型路径/比较运算/结构体字面量歧义+闭包/await/trailer，验证结构和剩余 token。
+- 组合场景 2：impl/function body 内嵌宏/无分隔 Group+属性/lifetime，核对 span 与宏 token 保留。
+- 组合场景 3：range/assign/二元结合性+嵌套语句+错误输入，检查 fork 不误消费和失败位置。
+- 基础完成后剩余路径假设 1：基础表达式后仍需歧义消解、边界/优先级与 item/block 交互。
+- 基础完成后剩余路径假设 2：普通 token 后仍需无分隔 group、span、宏/verbatim、feature gates 与错误游标一致。
+- 参考/判据：固定健康 Syn 的 AST/quote/错误位置差分，加手工结合性/token 消费断言；Rust Reference 只覆盖标准子集，Syn 的宏/verbatim 行为按固定 API；健康参考未运行。
+- 正常强基线：proc_macro2/quote 保留使用；rustc/其他 Rust parser 和未挖旧 parsing 分支可能适配。不同 AST/span/token roundtrip 有真实成本但未经验证。
+- 首个否证：先健康参考跑自拟 AST/quote/诊断组合，再查保留分支或替代 parser 能否薄适配；若仅改几个 helper 或必须抹去绝大半工程则 hold。
+- 离线/架构成本：冻结 Rust/proc_macro2/quote/feature flags、fixtures；无外服。宏编译验证和完整 crate feature matrix 成本未测。
+- 许可观察：根 LICENSE-MIT 与 LICENSE-APACHE 实际文本均存在；具体双许可表达/依赖要以实际 Cargo 元数据复核。
+- 官方资料已核对：[官方 crate parsing API；latest 仅作定位，合同用固定源码](https://docs.rs/syn/latest/syn/parse/)；[token spans 与字符串输入差异](https://docs.rs/syn/latest/syn/fn.parse.html)
+- 状态：source_reviewed_healthy_reference_unrun；未构题、未 build/运行、未验证六小时难度；仅对照原 EdgeBench 的机制，不复用原题/测试/答案。

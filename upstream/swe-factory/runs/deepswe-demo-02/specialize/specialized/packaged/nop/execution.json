@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "/Users/raymone/Desktop/01_Research/swe-factory/.venv/bin/python",
+    "tests/grader.py",
+    "--task",
+    ".",
+    "--output",
+    "verification"
+  ],
+  "returncode": 0,
+  "stdout": "{\"healthy\": true, \"errors\": [], \"tests\": {\"tests/test_specialized.py::test_one_layer\": \"failed\", \"tests/test_specialized.py::test_three_layers\": \"failed\", \"tests/test_specialized.py::test_empty_layer\": \"failed\", \"tests/test_regression.py::test_plain\": \"passed\", \"tests/test_target.py::test_parent\": \"passed\", \"tests/test_target.py::test_child\": \"passed\", \"tests/test_target.py::test_override\": \"passed\", \"tests/test_target.py::test_unicode\": \"passed\"}, \"reward\": 0.0}\n",
+  "stderr": "",
+  "timed_out": false,
+  "elapsed_sec": 0.349,
+  "runtime": {
+    "backend": "host",
+    "isolated": false,
+    "image": null
+  }
+}

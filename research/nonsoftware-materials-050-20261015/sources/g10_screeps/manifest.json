@@ -1,0 +1,75 @@
+{
+  "repo": "screeps/engine",
+  "revision": "a90d26fc9eb943147799e65d0bf9d4d0d79a2722",
+  "resolved_utc": "2026-10-15T14:58:55.069080+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:01:10.677775+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "5330f51f4aeed9c0db6b511e00273d58ba26c45832acbf530b74ef5eb0781dce",
+    "truncated": false,
+    "blob_count": 186
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE.txt",
+      "bytes": 756,
+      "sha256": "dba7dc80495e73ecdedf11fe1d431afc7f46b123d8843a18905ada0cee64c8c8",
+      "url": "https://github.com/screeps/engine/blob/a90d26fc9eb943147799e65d0bf9d4d0d79a2722/LICENSE.txt"
+    },
+    {
+      "path": "README.md",
+      "bytes": 120,
+      "sha256": "44a3dda55234fc2d4055df92cd66ccea01731abb3adec6a419d9e0bf46096110",
+      "url": "https://github.com/screeps/engine/blob/a90d26fc9eb943147799e65d0bf9d4d0d79a2722/README.md"
+    },
+    {
+      "path": "package.json",
+      "bytes": 1214,
+      "sha256": "b5f9428233d1c556a44427d149e479f9e9d74d99d8037ac78bda6310ceb5ba2e",
+      "url": "https://github.com/screeps/engine/blob/a90d26fc9eb943147799e65d0bf9d4d0d79a2722/package.json"
+    },
+    {
+      "path": "spec/engine/processor/intents/movement.test.js",
+      "bytes": 17525,
+      "sha256": "5643866191b0b9adc356e60d179d40070b02555bca3dedde2c531181130ce8fe",
+      "url": "https://github.com/screeps/engine/blob/a90d26fc9eb943147799e65d0bf9d4d0d79a2722/spec/engine/processor/intents/movement.test.js"
+    },
+    {
+      "path": "spec/helpers/mocks/intents.js",
+      "bytes": 414,
+      "sha256": "dc82c23767ef783fa84374d50518d8acd1bac3649f9a28ca2b6e616b57f4e698",
+      "url": "https://github.com/screeps/engine/blob/a90d26fc9eb943147799e65d0bf9d4d0d79a2722/spec/helpers/mocks/intents.js"
+    },
+    {
+      "path": "spec/helpers/mocks/rooms.js",
+      "bytes": 3188,
+      "sha256": "b4976872ba4c99054d47b1fd93cf27048861f5998b3372efcc87ea77f10e266b",
+      "url": "https://github.com/screeps/engine/blob/a90d26fc9eb943147799e65d0bf9d4d0d79a2722/spec/helpers/mocks/rooms.js"
+    },
+    {
+      "path": "src/processor/intents/creeps/harvest.js",
+      "bytes": 4699,
+      "sha256": "e94c5299ee1ed2fd63479a34379036ca7a3baf6579b92770ca10932103cd4fba",
+      "url": "https://github.com/screeps/engine/blob/a90d26fc9eb943147799e65d0bf9d4d0d79a2722/src/processor/intents/creeps/harvest.js"
+    },
+    {
+      "path": "src/processor/intents/creeps/tick.js",
+      "bytes": 4897,
+      "sha256": "b356cba9ae36caf3cfbc63425b6a462ebc90a1e39b8285e7bb86f82be30c3808",
+      "url": "https://github.com/screeps/engine/blob/a90d26fc9eb943147799e65d0bf9d4d0d79a2722/src/processor/intents/creeps/tick.js"
+    },
+    {
+      "path": "src/processor/intents/movement.js",
+      "bytes": 7625,
+      "sha256": "a3dff6b494d3c0e8bfc0298c3892cab394d4581fbe2213de74d5ae4e8748e16b",
+      "url": "https://github.com/screeps/engine/blob/a90d26fc9eb943147799e65d0bf9d4d0d79a2722/src/processor/intents/movement.js"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

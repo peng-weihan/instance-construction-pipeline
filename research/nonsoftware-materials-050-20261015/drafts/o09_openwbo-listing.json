@@ -1,0 +1,15 @@
+{
+  "repo": "sat-group/open-wbo",
+  "revision": "80f3073e41028b219b0b0ad7c61fba28351f88e6",
+  "matching_paths": [
+    "LICENSE",
+    "ParserMaxSAT.h",
+    "algorithms/Alg_LinearSU.cc",
+    "algorithms/Alg_MSU3.cc",
+    "algorithms/Alg_OLL.cc",
+    "algorithms/Alg_PartMSU3.cc",
+    "algorithms/Alg_WBO.cc"
+  ],
+  "match_count": 7,
+  "tree_truncated": false
+}

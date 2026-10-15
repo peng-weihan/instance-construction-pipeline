@@ -1,0 +1,304 @@
+[
+  {
+    "id": "k01_beancount",
+    "name": "Beancount 会计结账",
+    "category": "knowledge",
+    "title": "多币种交易与成本批次的月结核对案卷",
+    "source_unit": "booking/余额断言、小账簿与账簿生成器；未来原始凭证包尚待独立生成",
+    "proposed_task": "给定新生成的银行流水、交易凭证和公开会计政策，交付可核账簿、差异解释、成本批次与月结报表；允许现成Beancount。",
+    "deliverable": "分录账簿、逐凭证到分录映射、余额/损益表及差异说明。",
+    "difficulty_sources": [
+      "同一交易的币种、成本批次和前序库存共同决定记账，单笔平衡不保证期间余额/批次正确。",
+      "漏单、重复、跨期与冲销需要跨材料对账，完整证据链比单次调用记账器多实质工作。"
+    ],
+    "baseline": "原生Beancount+正常导入/规则工具、Decimal表格核算；不能要求重实现会计引擎。",
+    "first_probe": "用短导入脚本和健康Beancount完成一套原创凭证旅程，检查是否还有真实对账/政策选择工作。",
+    "stop_condition": "资料已直接给完整分录或规则映射即可全解，或评分只有排版主观印象，则重设案卷。",
+    "grader_plan": "独立事件账本与Decimal计算检查双重记账、余额、批次和报表；核对凭证引用与差异归因，叙述质量另订rubric。",
+    "generation_and_split": "由隐藏经济事件生成多份可交叉核对凭证，按业务事件/币种/跨期结构拆分；公开example账簿不直接作为hidden答案。",
+    "novelty_and_overlap": "与金融策略共享会计/现金概念，但主交付是结账证据与报表，不是投资收益；需新凭证实体和政策案例。",
+    "offline_and_compute": "CPU Python加parser扩展，原生成器只生成账簿，未制作原始凭证包或健康评分；无真实个人财务信息。",
+    "license_observation": "根GPL-2.0文本；凭证另按原创生成授权，示例头和关联工具许可各核。",
+    "priority": "scope_probe",
+    "potential": "high",
+    "repo": "beancount/beancount",
+    "revision": "9747213802acb733ce53acc6e963f5961f47d6cd",
+    "source_manifest": "sources/k01_beancount/manifest.json",
+    "read_scope": [
+      {
+        "path": "sources/k01_beancount/files/beancount/parser/booking_full.py",
+        "start": 150,
+        "end": 204,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/k01_beancount/files/beancount/ops/balance_test.py",
+        "start": 13,
+        "end": 62,
+        "kind": "test"
+      }
+    ],
+    "card": "cards/k01_beancount.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "evidence": [
+      {
+        "path": "sources/k01_beancount/files/beancount/parser/booking_full.py",
+        "line": 150,
+        "claim": "booking按前序库存与币种组处理交易，并处理lot reduction与插值容差。",
+        "url": "https://github.com/beancount/beancount/blob/9747213802acb733ce53acc6e963f5961f47d6cd/beancount/parser/booking_full.py#L150"
+      },
+      {
+        "path": "sources/k01_beancount/files/beancount/ops/balance_test.py",
+        "line": 13,
+        "claim": "原生余额测试给出跨交易的具体账簿与余额错误断言。",
+        "url": "https://github.com/beancount/beancount/blob/9747213802acb733ce53acc6e963f5961f47d6cd/beancount/ops/balance_test.py#L13"
+      }
+    ]
+  },
+  {
+    "id": "k02_openfisca",
+    "name": "OpenFisca 税社保政策",
+    "category": "knowledge",
+    "title": "固定政策年度的家庭税负与改革影响分析",
+    "source_unit": "France所得税公式、明确2018年度PFU/barème测试；不是当前税务意见",
+    "proposed_task": "给定冻结政策参数与原创家庭样本，交付改革前后税负、分组分布效应、边际税率与可追溯政策依据；模型可直接调用。",
+    "deliverable": "可复算分析代码、家庭/分组结果表、改革差异分解与证据备忘录。",
+    "difficulty_sources": [
+      "家庭实体、年度和税基/扣除规则联合决定税负，按个人简单乘税率会破坏完整口径。",
+      "改革会同时改变群体排序和分布指标，需要一致的反事实与证据链而非只报总额。"
+    ],
+    "baseline": "原生OpenFisca模拟/改革API、表格分组与标准政策分析脚本；普通模型调用允许。",
+    "first_probe": "先重现固定2018测试，再用最短模拟+groupby做一份原创改革案例，检查所需分析是否实质超出调用。",
+    "stop_condition": "仅调用一个变量并套固定报告即可全解，或缺少冻结参数/政策出处无法确定正确答案，则收紧范围。",
+    "grader_plan": "冻结健康引擎与独立小家庭手算对照税额；验证加权分布/差异、政策年度引用和案例一致性，叙述论证另订rubric。",
+    "generation_and_split": "合成家庭和自明改革参数，不用真实个人税表；按家庭结构/收入来源/年度边界拆分，政策版本锁定而不声称现行法规。",
+    "novelty_and_overlap": "新主来源和专业政策案例；不能仅换人名/金额构造所谓全新任务族。与原专业知识范围的hidden材料仍未知。",
+    "offline_and_compute": "完整OpenFisca-France/Core、参数树和依赖需离线锁定；当前只保存公式/测试片段，未取全部政策材料或执行。",
+    "license_observation": "根AGPL-3.0；政策文献和参数来源条款另核，结果按冻结研究情境解释。",
+    "priority": "scope_probe",
+    "potential": "high",
+    "repo": "openfisca/openfisca-france",
+    "revision": "16b2e69633e840fdf5f39b74f96dfd2382898dd5",
+    "source_manifest": "sources/k02_openfisca/manifest.json",
+    "read_scope": [
+      {
+        "path": "sources/k02_openfisca/files/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+        "start": 580,
+        "end": 631,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/k02_openfisca/files/tests/impot_revenu/pfu_bareme.yaml",
+        "start": 1,
+        "end": 64,
+        "kind": "test"
+      },
+      {
+        "path": "sources/k02_openfisca/files/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+        "start": 1326,
+        "end": 1375,
+        "kind": "implementation"
+      }
+    ],
+    "card": "cards/k02_openfisca.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "evidence": [
+      {
+        "path": "sources/k02_openfisca/files/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+        "line": 1326,
+        "claim": "ir_brut按家庭份额及period对应bareme计算，而不是单一平税率。",
+        "url": "https://github.com/openfisca/openfisca-france/blob/16b2e69633e840fdf5f39b74f96dfd2382898dd5/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py#L1326"
+      },
+      {
+        "path": "sources/k02_openfisca/files/tests/impot_revenu/pfu_bareme.yaml",
+        "line": 1,
+        "claim": "2018原生测试明确同一收入结构在PFU/barème选择下的不同结果。",
+        "url": "https://github.com/openfisca/openfisca-france/blob/16b2e69633e840fdf5f39b74f96dfd2382898dd5/tests/impot_revenu/pfu_bareme.yaml#L1"
+      }
+    ]
+  },
+  {
+    "id": "k03_chainladder",
+    "name": "Chainladder 精算准备金",
+    "category": "knowledge",
+    "title": "赔付三角的准备金与不确定性审阅案卷",
+    "source_unit": "Mack点估计/误差实现与论文数值回归、RAA/GENINS小三角",
+    "proposed_task": "给定新的截尾赔付三角及公开精算假设，交付IBNR、预测误差、发展因子敏感性和业务准备金建议；直接使用成熟模型。",
+    "deliverable": "准备金/不确定性表、时间截尾回测、假设检查与审阅备忘录。",
+    "difficulty_sources": [
+      "点估计和误差依赖同一发展因子/方差假设，拟合良好不等于风险区间可靠。",
+      "日历效应、异常origin和tail选择会改变业务结论，需要可复算的敏感性与保留年份验证。"
+    ],
+    "baseline": "MackChainladder、标准chain ladder/Bornhuetter-Ferguson和成熟bootstrap方法；公开RAA现成答案是必试捷径。",
+    "first_probe": "先看标准模型对新三角是否足够，并核对误差与文献；没有新的授权/合成案例前不发布题。",
+    "stop_condition": "直接load_sample+fit即可给完整答案，或没有可信风险真值/评分合同，则重设。",
+    "grader_plan": "独立三角运算核点估计、冻结健康Mack及新生成过程校区间，检查假设/引用与建议的一致性；不能把单一隐藏未来赔付当唯一正确准备金。",
+    "generation_and_split": "新的多业务线/日历/结算机制生成器或授权实体，按保险业务与时间截尾分组；RAA/GENINS仅公开校准，不作hidden。",
+    "novelty_and_overlap": "精算区别于原投资配置，但时间统计与风险机制共享；新保险实体和生成过程尚未构造。",
+    "offline_and_compute": "CPU Python/NumPy/SciPy/pandas；两份小CSV已取，真实新保险案卷未取，未运行误差/回测。",
+    "license_observation": "代码MPL-2.0；公开三角自身的来源/复用许可需单独确认，不从代码许可外推。",
+    "priority": "hold_data",
+    "potential": "medium",
+    "repo": "casact/chainladder-python",
+    "revision": "90c7b3532499b662e57b5be2275a848ce90d5a70",
+    "source_manifest": "sources/k03_chainladder/manifest.json",
+    "read_scope": [
+      {
+        "path": "sources/k03_chainladder/files/chainladder/methods/mack.py",
+        "start": 108,
+        "end": 171,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/k03_chainladder/files/chainladder/methods/tests/test_mack.py",
+        "start": 43,
+        "end": 84,
+        "kind": "test"
+      }
+    ],
+    "card": "cards/k03_chainladder.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "evidence": [
+      {
+        "path": "sources/k03_chainladder/files/chainladder/methods/mack.py",
+        "line": 108,
+        "claim": "Mack fit产生IBNR、parameter/process risk及预测误差，成熟实现已存在。",
+        "url": "https://github.com/casact/chainladder-python/blob/90c7b3532499b662e57b5be2275a848ce90d5a70/chainladder/methods/mack.py#L108"
+      },
+      {
+        "path": "sources/k03_chainladder/files/chainladder/methods/tests/test_mack.py",
+        "line": 43,
+        "claim": "原生测试用Mack论文固定数值回归方差/误差。",
+        "url": "https://github.com/casact/chainladder-python/blob/90c7b3532499b662e57b5be2275a848ce90d5a70/chainladder/methods/tests/test_mack.py#L43"
+      }
+    ]
+  },
+  {
+    "id": "k04_stockpyl",
+    "name": "Stockpyl 供应链库存",
+    "category": "knowledge",
+    "title": "供货中断下的多级库存政策与经营方案",
+    "source_unit": "多级仿真step/一致性检查、(s,S)成本测试和实例定义",
+    "proposed_task": "给定原创供应链、需求/供货历史与经营约束，交付补货政策、服务/成本/现金占用评估及压力情境经营建议；不要求实现仿真器。",
+    "deliverable": "政策参数/可调用决策、逐期台账、服务与成本指标及决策报告。",
+    "difficulty_sources": [
+      "节点订单、运输在途和中断影响未来服务，单节点局部成本最优可能使上游/下游失衡。",
+      "成本、缺货服务和库存占用存在领域取舍，需要对新情境给出一致的业务解释与可复算账本。"
+    ],
+    "baseline": "原生base-stock/(s,S)/精确单级算法、简单参数搜索与常规模拟优化，允许库存工具。",
+    "first_probe": "健康仿真+base-stock及参数搜索先覆盖一个多级中断案例，确认剩余跨场景政策价值。",
+    "stop_condition": "一组原生policy参数已足额完成全部合同，或所谓高难只靠更长随机仿真，则重设。",
+    "grader_plan": "可信仿真按相同随机外生轨迹评估成本/服务，并独立检查库存流守恒和台账；业务建议与公开指标约束一致，非纯语言打分。",
+    "generation_and_split": "原创网络/BOM/lead-time/中断和需求过程联合生成，按结构/供货机制拆分；不能只复用教材实例换seed。",
+    "novelty_and_overlap": "与组合优化/游戏策略有机制交叉，本候选主交付是领域方案与证据；若只计最低成本应改归优化。",
+    "offline_and_compute": "CPU Python/SciPy依赖；实例JSON已存但关联完整仿真依赖未构建，未跑多种子评估。",
+    "license_observation": "根MIT；教材衍生实例数字和描述再分发/训练条款另核，原创案例优先。",
+    "priority": "scope_probe",
+    "potential": "high",
+    "repo": "LarrySnyder/stockpyl",
+    "revision": "0bae176c9671ad73bbe1f2fbe34f503fdf48349d",
+    "source_manifest": "sources/k04_stockpyl/manifest.json",
+    "read_scope": [
+      {
+        "path": "sources/k04_stockpyl/files/src/stockpyl/sim.py",
+        "start": 54,
+        "end": 101,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/k04_stockpyl/files/tests/test_ss.py",
+        "start": 1,
+        "end": 72,
+        "kind": "test"
+      },
+      {
+        "path": "sources/k04_stockpyl/files/src/stockpyl/sim.py",
+        "start": 199,
+        "end": 251,
+        "kind": "implementation"
+      }
+    ],
+    "card": "cards/k04_stockpyl.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "evidence": [
+      {
+        "path": "sources/k04_stockpyl/files/src/stockpyl/sim.py",
+        "line": 199,
+        "claim": "step依次处理中断、需求、订单、发运和成本，支持外部order override。",
+        "url": "https://github.com/LarrySnyder/stockpyl/blob/0bae176c9671ad73bbe1f2fbe34f503fdf48349d/src/stockpyl/sim.py#L199"
+      },
+      {
+        "path": "sources/k04_stockpyl/files/tests/test_ss.py",
+        "line": 1,
+        "claim": "(s,S)原生回归对具体教材实例成本做数值断言。",
+        "url": "https://github.com/LarrySnyder/stockpyl/blob/0bae176c9671ad73bbe1f2fbe34f503fdf48349d/tests/test_ss.py#L1"
+      }
+    ]
+  },
+  {
+    "id": "k05_cvxportfolio",
+    "name": "Cvxportfolio 投资执行研究",
+    "category": "knowledge",
+    "title": "含交易成本与流动性的滚动投资研究案卷",
+    "source_unit": "MarketSimulator政策信息边界/实际执行成本与交易成本回归，小测试returns/volumes",
+    "proposed_task": "在新资产/时间材料或明确合成市场上，交付滚动投资方案、成本后账本、风险归因、稳健性和可复算研究报告；不作真实投资建议。",
+    "deliverable": "时点可用信息下的策略、逐期交易/现金台账、风险成本表和研究备忘录。",
+    "difficulty_sources": [
+      "优化目标中的预测成本与实际成交约束不同，流动性截断/rounding影响现金及后续持仓。",
+      "训练窗口、交易成本和风险暴露共同影响样本外结论，需要时间一致性与压力情境核对。"
+    ],
+    "baseline": "等权/持有/常规均值方差与原生单/多期优化；强参数搜索允许，简单策略必须参与。",
+    "first_probe": "独立账本重现费用测试，再检查强原生策略是否已在新的信息/数据合同上达到目标。",
+    "stop_condition": "只需换目标权重/报告模板，或收益来自未来数据、少收成本、跨episode残留，则不成题。",
+    "grader_plan": "冻结独立执行账本核对现金/交易/费用和信息时点，再报成本后风险收益及压力指标；公开可校核指标评估报告，不凭文字印象。",
+    "generation_and_split": "需新的授权资产实体和按时点获取数据，或明确标签为合成市场；按实体与滚动时间拆分，测试CSV不作隐藏市场。",
+    "novelty_and_overlap": "与旧Ken French金融题同族；仓库不同不等于新任务，必须改变研究问题、实体/数据谱系及评分，不能仅换ticker。",
+    "offline_and_compute": "CPU Python/CVXPY和求解后端预置，无需联网券商；只取小测试CSV，完整市场数据许可/版本未确认。",
+    "license_observation": "根GPL-3.0；外部市场数据及测试CSV底层来源权利另核，不沿用代码许可推断数据许可。",
+    "priority": "hold_data",
+    "potential": "medium",
+    "repo": "cvxgrp/cvxportfolio",
+    "revision": "351c782b9b8b395c1a5f886b77e0d55f1bc9396e",
+    "source_manifest": "sources/k05_cvxportfolio/manifest.json",
+    "read_scope": [
+      {
+        "path": "sources/k05_cvxportfolio/files/cvxportfolio/simulator.py",
+        "start": 260,
+        "end": 354,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/k05_cvxportfolio/files/cvxportfolio/tests/test_simulator.py",
+        "start": 316,
+        "end": 364,
+        "kind": "test"
+      }
+    ],
+    "card": "cards/k05_cvxportfolio.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "evidence": [
+      {
+        "path": "sources/k05_cvxportfolio/files/cvxportfolio/simulator.py",
+        "line": 260,
+        "claim": "policy仅接收past returns/volumes与当前价格，执行还会因流动性/rounding调整交易并重新算现金。",
+        "url": "https://github.com/cvxgrp/cvxportfolio/blob/351c782b9b8b395c1a5f886b77e0d55f1bc9396e/cvxportfolio/simulator.py#L260"
+      },
+      {
+        "path": "sources/k05_cvxportfolio/files/cvxportfolio/tests/test_simulator.py",
+        "line": 316,
+        "claim": "原生交易成本测试独立展开手续费/价差/冲击公式比较。",
+        "url": "https://github.com/cvxgrp/cvxportfolio/blob/351c782b9b8b395c1a5f886b77e0d55f1bc9396e/cvxportfolio/tests/test_simulator.py#L316"
+      }
+    ]
+  }
+]

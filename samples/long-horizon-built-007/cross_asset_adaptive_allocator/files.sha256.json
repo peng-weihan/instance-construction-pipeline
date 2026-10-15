@@ -1,0 +1,412 @@
+[
+  {
+    "path": "README.md",
+    "sha256": "cf052ad2e7531c0c5a78d02ac2a5b2eff445a8d25b6f6b1997bb0d1e34fc48e9",
+    "bytes": 1779
+  },
+  {
+    "path": "base_image.lock.json",
+    "sha256": "b9ecc98d2d1101a183f8d6e6c9a327faf540906237bc5bb921e4a4b2292fb9df",
+    "bytes": 637
+  },
+  {
+    "path": "endpoint_notes.md",
+    "sha256": "4fb5e38826f951b651108786f3e3e07f493f953ee4feb3497ffcbd493ed1f61c",
+    "bytes": 412
+  },
+  {
+    "path": "environment/agent/.dockerignore",
+    "sha256": "d05085fb4b693bb7fe824a831dc9bd8de9dee2f42b192c95d637e9f917eb368d",
+    "bytes": 36
+  },
+  {
+    "path": "environment/agent/Dockerfile",
+    "sha256": "e0bd790a209a8a15747fb633a0735b47dbca556bc5e01f60edb0275b1734959f",
+    "bytes": 781
+  },
+  {
+    "path": "environment/agent/capture_build.py",
+    "sha256": "753da269f6b211bf842dc29dbeea3bcd185aa871d2478822e08bece9b665d841",
+    "bytes": 789
+  },
+  {
+    "path": "environment/agent/public/DATA_PROVENANCE.json",
+    "sha256": "28a62f097eea6133b24f3dc9ced82a42bed692fa4556b42b45b016b50a78cdf3",
+    "bytes": 1061
+  },
+  {
+    "path": "environment/agent/public/accounting.md",
+    "sha256": "dc502f7eaf690d0849f065be55fe8d720a99490c71d4477b702d6457e8084d27",
+    "bytes": 1112
+  },
+  {
+    "path": "environment/agent/public/contract.draft.json",
+    "sha256": "33e1da7962f6cc2ca87f569b33584a33623c3aa7529b1bd76c926ee28d8fb603",
+    "bytes": 1218
+  },
+  {
+    "path": "environment/agent/public/data/dev_prices.csv",
+    "sha256": "4e2e1eb0ae533ac3d237babcb156fd829406fdaf7fd74d562b99bca06abdfac1",
+    "bytes": 159539
+  },
+  {
+    "path": "environment/agent/public/data/train_prices.csv",
+    "sha256": "decfaf0a0a3a23f48e30b81b64efa98e8bd3d429fbf1942c43db67e924004f33",
+    "bytes": 381121
+  },
+  {
+    "path": "environment/agent/public/instruction.md",
+    "sha256": "d974b2cd0144d0eae88b0df2471b4fd21093ea9b9926377a263721a863735949",
+    "bytes": 2559
+  },
+  {
+    "path": "environment/agent/public/mandate.json",
+    "sha256": "6ffbac8dc42b9212ac345908b1526225cfaddec4745073ceef49440a3c485004",
+    "bytes": 1173
+  },
+  {
+    "path": "environment/agent/public/policy_interface.md",
+    "sha256": "6a7b5b60a8ddfaa35c70ffa6d7e5cc24854ee48ed1fa3481f3f0858ae1d4f1a2",
+    "bytes": 1810
+  },
+  {
+    "path": "environment/agent/public/score_design.json",
+    "sha256": "f5c90f2fe02c365b6e0a9ed6e613d54dbe9b1694410c9a5668248bdec10520e1",
+    "bytes": 1455
+  },
+  {
+    "path": "environment/agent/public/scoring_metadata.json",
+    "sha256": "1fe2f953208dd7e0676a4d97b0a05ad927badf1cc8150f72e7881522a34644e1",
+    "bytes": 1420
+  },
+  {
+    "path": "environment/agent/public/submission/policy.py",
+    "sha256": "5f16e2a5a51225ecf7a2a1b6a6d328c8a952ece0b7d97065613f83152565f7c7",
+    "bytes": 583
+  },
+  {
+    "path": "environment/verifier/.dockerignore",
+    "sha256": "d05085fb4b693bb7fe824a831dc9bd8de9dee2f42b192c95d637e9f917eb368d",
+    "bytes": 36
+  },
+  {
+    "path": "environment/verifier/Dockerfile",
+    "sha256": "207e25d8e013f1fc3bc92c299e0d2a28a58354f95376180288e2aa4478f0a16e",
+    "bytes": 868
+  },
+  {
+    "path": "environment/verifier/capture_build.py",
+    "sha256": "753da269f6b211bf842dc29dbeea3bcd185aa871d2478822e08bece9b665d841",
+    "bytes": 789
+  },
+  {
+    "path": "environment/verifier/private/data/audit_prices.csv",
+    "sha256": "f9ad1e8de25cddd0ed3e846432469781f559dd2d28656c161482054411f7dbba",
+    "bytes": 117477
+  },
+  {
+    "path": "environment/verifier/private/data/feedback_prices.csv",
+    "sha256": "83df7f58d3f41708b5e706ddb781d1eea2b84cceb08c9aba873fcf2134e1d21d",
+    "bytes": 119278
+  },
+  {
+    "path": "environment/verifier/private/data_lineage.json",
+    "sha256": "79d89b04a53120794d9800877f43ebc020be86a8ebe7df9d08a42cd803b88957",
+    "bytes": 362
+  },
+  {
+    "path": "environment/verifier/private/source_reference/LICENSE",
+    "sha256": "8cb9eaa4c7c963e891b527c6ebbfd97d72c104a1903c09c37c28289497907174",
+    "bytes": 1080
+  },
+  {
+    "path": "environment/verifier/private/source_reference/portrisk/__init__.py",
+    "sha256": "829834df5086534131cabf99c2503694f6deb4ae078f05281fc6f1a8fe917abd",
+    "bytes": 149
+  },
+  {
+    "path": "environment/verifier/private/source_reference/portrisk/backtest.py",
+    "sha256": "755012939a236bbc0a3d3385906fd5e5f9ace7b818bcb0e6e9537007b4ec91d0",
+    "bytes": 3861
+  },
+  {
+    "path": "environment/verifier/private/source_reference/portrisk/data.py",
+    "sha256": "462e93b46810a4a2fadbefcaf83fab83c59f27d509c0c837c3b1045e6e49cba2",
+    "bytes": 4472
+  },
+  {
+    "path": "environment/verifier/private/source_reference/portrisk/optimization.py",
+    "sha256": "3be4e4c44c215de96fb103087249d1eddd87e08fbf9c42aaa6ee76981faca9cd",
+    "bytes": 3318
+  },
+  {
+    "path": "environment/verifier/private/source_reference/portrisk/plotting.py",
+    "sha256": "1783d4a8f3027a23073bb1b62ff23408a1e306110ef9bd7893795654d4d23af9",
+    "bytes": 4506
+  },
+  {
+    "path": "environment/verifier/private/source_reference/portrisk/risk_metrics.py",
+    "sha256": "6e2307f93e391a595f15510a08c56483d9edd9d1d325bcb97a2f252201a48079",
+    "bytes": 2032
+  },
+  {
+    "path": "environment/verifier/private/source_reference/portrisk/stress_test.py",
+    "sha256": "d7e5b215be4e03c3f22c4ad7f4cf5de3ced3f5cc812a9b24ec4eedb077a797a9",
+    "bytes": 2067
+  },
+  {
+    "path": "environment/verifier/public/DATA_PROVENANCE.json",
+    "sha256": "28a62f097eea6133b24f3dc9ced82a42bed692fa4556b42b45b016b50a78cdf3",
+    "bytes": 1061
+  },
+  {
+    "path": "environment/verifier/public/accounting.md",
+    "sha256": "dc502f7eaf690d0849f065be55fe8d720a99490c71d4477b702d6457e8084d27",
+    "bytes": 1112
+  },
+  {
+    "path": "environment/verifier/public/contract.draft.json",
+    "sha256": "33e1da7962f6cc2ca87f569b33584a33623c3aa7529b1bd76c926ee28d8fb603",
+    "bytes": 1218
+  },
+  {
+    "path": "environment/verifier/public/data/dev_prices.csv",
+    "sha256": "4e2e1eb0ae533ac3d237babcb156fd829406fdaf7fd74d562b99bca06abdfac1",
+    "bytes": 159539
+  },
+  {
+    "path": "environment/verifier/public/data/train_prices.csv",
+    "sha256": "decfaf0a0a3a23f48e30b81b64efa98e8bd3d429fbf1942c43db67e924004f33",
+    "bytes": 381121
+  },
+  {
+    "path": "environment/verifier/public/instruction.md",
+    "sha256": "d974b2cd0144d0eae88b0df2471b4fd21093ea9b9926377a263721a863735949",
+    "bytes": 2559
+  },
+  {
+    "path": "environment/verifier/public/mandate.json",
+    "sha256": "6ffbac8dc42b9212ac345908b1526225cfaddec4745073ceef49440a3c485004",
+    "bytes": 1173
+  },
+  {
+    "path": "environment/verifier/public/policy_interface.md",
+    "sha256": "6a7b5b60a8ddfaa35c70ffa6d7e5cc24854ee48ed1fa3481f3f0858ae1d4f1a2",
+    "bytes": 1810
+  },
+  {
+    "path": "environment/verifier/public/score_design.json",
+    "sha256": "f5c90f2fe02c365b6e0a9ed6e613d54dbe9b1694410c9a5668248bdec10520e1",
+    "bytes": 1455
+  },
+  {
+    "path": "environment/verifier/public/scoring_metadata.json",
+    "sha256": "1fe2f953208dd7e0676a4d97b0a05ad927badf1cc8150f72e7881522a34644e1",
+    "bytes": 1420
+  },
+  {
+    "path": "environment/verifier/public/submission/policy.py",
+    "sha256": "5f16e2a5a51225ecf7a2a1b6a6d328c8a952ece0b7d97065613f83152565f7c7",
+    "bytes": 583
+  },
+  {
+    "path": "environment/verifier/verifier/entry.py",
+    "sha256": "cd1d5a69d7ee140b3a2b2d9d3672c2c3be96c4bbb3a08d176c0603abceec20f1",
+    "bytes": 1042
+  },
+  {
+    "path": "environment/verifier/verifier/grader.py",
+    "sha256": "12cdb8fe209c0226059f18bef68b67568fbf280bf845fb0982d8dd936b9082a5",
+    "bytes": 3438
+  },
+  {
+    "path": "environment/verifier/verifier/ledger.py",
+    "sha256": "cfc9ab75cee9405dd8f43afa4a6c24b582f8ed77d44305d836d987e55ae2aa3d",
+    "bytes": 5735
+  },
+  {
+    "path": "environment/verifier/verifier/policy_worker.py",
+    "sha256": "8f0824a486f1809c65c6082edad3074f5c2c0202ad53f293060b7f0c2a0d3be7",
+    "bytes": 877
+  },
+  {
+    "path": "environment/verifier/verifier/runtime.py",
+    "sha256": "c809e546b15cd7cd3d39d86e25da91496baf3c0aa7c527b347c3a20719e5496a",
+    "bytes": 6677
+  },
+  {
+    "path": "evidence.json",
+    "sha256": "b22e7f724ee0d8eb449c4c229fce3d085dd1da13d0c8a75b3658317f6d4f0724",
+    "bytes": 497
+  },
+  {
+    "path": "feedback_schema.json",
+    "sha256": "1cc153cd6043de42b0ed79ba98663f4ec3f10d8577a7350a1a93e4d4c88258bd",
+    "bytes": 439
+  },
+  {
+    "path": "instruction.md",
+    "sha256": "d974b2cd0144d0eae88b0df2471b4fd21093ea9b9926377a263721a863735949",
+    "bytes": 2559
+  },
+  {
+    "path": "private/data/audit_prices.csv",
+    "sha256": "f9ad1e8de25cddd0ed3e846432469781f559dd2d28656c161482054411f7dbba",
+    "bytes": 117477
+  },
+  {
+    "path": "private/data/feedback_prices.csv",
+    "sha256": "83df7f58d3f41708b5e706ddb781d1eea2b84cceb08c9aba873fcf2134e1d21d",
+    "bytes": 119278
+  },
+  {
+    "path": "private/data_lineage.json",
+    "sha256": "79d89b04a53120794d9800877f43ebc020be86a8ebe7df9d08a42cd803b88957",
+    "bytes": 362
+  },
+  {
+    "path": "private/source_reference/LICENSE",
+    "sha256": "8cb9eaa4c7c963e891b527c6ebbfd97d72c104a1903c09c37c28289497907174",
+    "bytes": 1080
+  },
+  {
+    "path": "private/source_reference/portrisk/__init__.py",
+    "sha256": "829834df5086534131cabf99c2503694f6deb4ae078f05281fc6f1a8fe917abd",
+    "bytes": 149
+  },
+  {
+    "path": "private/source_reference/portrisk/backtest.py",
+    "sha256": "755012939a236bbc0a3d3385906fd5e5f9ace7b818bcb0e6e9537007b4ec91d0",
+    "bytes": 3861
+  },
+  {
+    "path": "private/source_reference/portrisk/data.py",
+    "sha256": "462e93b46810a4a2fadbefcaf83fab83c59f27d509c0c837c3b1045e6e49cba2",
+    "bytes": 4472
+  },
+  {
+    "path": "private/source_reference/portrisk/optimization.py",
+    "sha256": "3be4e4c44c215de96fb103087249d1eddd87e08fbf9c42aaa6ee76981faca9cd",
+    "bytes": 3318
+  },
+  {
+    "path": "private/source_reference/portrisk/plotting.py",
+    "sha256": "1783d4a8f3027a23073bb1b62ff23408a1e306110ef9bd7893795654d4d23af9",
+    "bytes": 4506
+  },
+  {
+    "path": "private/source_reference/portrisk/risk_metrics.py",
+    "sha256": "6e2307f93e391a595f15510a08c56483d9edd9d1d325bcb97a2f252201a48079",
+    "bytes": 2032
+  },
+  {
+    "path": "private/source_reference/portrisk/stress_test.py",
+    "sha256": "d7e5b215be4e03c3f22c4ad7f4cf5de3ced3f5cc812a9b24ec4eedb077a797a9",
+    "bytes": 2067
+  },
+  {
+    "path": "public/DATA_PROVENANCE.json",
+    "sha256": "28a62f097eea6133b24f3dc9ced82a42bed692fa4556b42b45b016b50a78cdf3",
+    "bytes": 1061
+  },
+  {
+    "path": "public/accounting.md",
+    "sha256": "dc502f7eaf690d0849f065be55fe8d720a99490c71d4477b702d6457e8084d27",
+    "bytes": 1112
+  },
+  {
+    "path": "public/contract.draft.json",
+    "sha256": "33e1da7962f6cc2ca87f569b33584a33623c3aa7529b1bd76c926ee28d8fb603",
+    "bytes": 1218
+  },
+  {
+    "path": "public/data/dev_prices.csv",
+    "sha256": "4e2e1eb0ae533ac3d237babcb156fd829406fdaf7fd74d562b99bca06abdfac1",
+    "bytes": 159539
+  },
+  {
+    "path": "public/data/train_prices.csv",
+    "sha256": "decfaf0a0a3a23f48e30b81b64efa98e8bd3d429fbf1942c43db67e924004f33",
+    "bytes": 381121
+  },
+  {
+    "path": "public/instruction.md",
+    "sha256": "d974b2cd0144d0eae88b0df2471b4fd21093ea9b9926377a263721a863735949",
+    "bytes": 2559
+  },
+  {
+    "path": "public/mandate.json",
+    "sha256": "6ffbac8dc42b9212ac345908b1526225cfaddec4745073ceef49440a3c485004",
+    "bytes": 1173
+  },
+  {
+    "path": "public/policy_interface.md",
+    "sha256": "6a7b5b60a8ddfaa35c70ffa6d7e5cc24854ee48ed1fa3481f3f0858ae1d4f1a2",
+    "bytes": 1810
+  },
+  {
+    "path": "public/score_design.json",
+    "sha256": "f5c90f2fe02c365b6e0a9ed6e613d54dbe9b1694410c9a5668248bdec10520e1",
+    "bytes": 1455
+  },
+  {
+    "path": "public/scoring_metadata.json",
+    "sha256": "1fe2f953208dd7e0676a4d97b0a05ad927badf1cc8150f72e7881522a34644e1",
+    "bytes": 1420
+  },
+  {
+    "path": "public/submission/policy.py",
+    "sha256": "5f16e2a5a51225ecf7a2a1b6a6d328c8a952ece0b7d97065613f83152565f7c7",
+    "bytes": 583
+  },
+  {
+    "path": "solution/policy.py",
+    "sha256": "e4f22bd015bef6453f3eb3f230a83f9bbb4698f21de870b6e30fca4ab0be3e12",
+    "bytes": 2769
+  },
+  {
+    "path": "source_provenance.json",
+    "sha256": "8077cb8d98bc06c762736e8ca708a557b7afb74475b373791f5f241704f048c1",
+    "bytes": 1848
+  },
+  {
+    "path": "task.toml",
+    "sha256": "2b188b66cef70bbead5e5a43a525bab951e5716d5a134b3fd64fbb97e5aced77",
+    "bytes": 1200
+  },
+  {
+    "path": "tools/start_run.py",
+    "sha256": "062d6b640839a9f3638930f8127081d5a32440630308fa69f367d884e4a7f9aa",
+    "bytes": 432
+  },
+  {
+    "path": "tools/submit.py",
+    "sha256": "372f5cfa1c1d83c3aac655053351042472bfc8724de142b68257459ce9da759e",
+    "bytes": 4890
+  },
+  {
+    "path": "verifier/entry.py",
+    "sha256": "cd1d5a69d7ee140b3a2b2d9d3672c2c3be96c4bbb3a08d176c0603abceec20f1",
+    "bytes": 1042
+  },
+  {
+    "path": "verifier/grader.py",
+    "sha256": "12cdb8fe209c0226059f18bef68b67568fbf280bf845fb0982d8dd936b9082a5",
+    "bytes": 3438
+  },
+  {
+    "path": "verifier/ledger.py",
+    "sha256": "cfc9ab75cee9405dd8f43afa4a6c24b582f8ed77d44305d836d987e55ae2aa3d",
+    "bytes": 5735
+  },
+  {
+    "path": "verifier/policy_worker.py",
+    "sha256": "8f0824a486f1809c65c6082edad3074f5c2c0202ad53f293060b7f0c2a0d3be7",
+    "bytes": 877
+  },
+  {
+    "path": "verifier/runtime.py",
+    "sha256": "c809e546b15cd7cd3d39d86e25da91496baf3c0aa7c527b347c3a20719e5496a",
+    "bytes": 6677
+  }
+]

@@ -1,0 +1,88 @@
+{
+  "kind": "direct_offline_docker_controls",
+  "task": "brownian_multibranch_proofs",
+  "image_id": "sha256:56656249085d6c749fd2d099a48f459e1977dc3fd671503277d870502ffb8e25",
+  "base_image_id": "sha256:a84e32444bd4ec81117bacb77f9480576ec1ca5f31aa7a85fa854da675894ed1",
+  "status": "completed",
+  "native_harbor_verified": false,
+  "model_runs": 0,
+  "results": {
+    "reference": {
+      "score": 1.0,
+      "valid": true,
+      "pass_rate": 1.0,
+      "seconds": 295.93487353704404,
+      "raw_metrics": {
+        "group_completion": {
+          "covariance": 1.0,
+          "covering": 1.0,
+          "moment_and_process": 1.0,
+          "continuity": 1.0
+        },
+        "completed_targets": 31,
+        "target_count": 31,
+        "checker_exit_code": 0
+      }
+    },
+    "starter": {
+      "score": 0.0,
+      "valid": true,
+      "pass_rate": 0.03125,
+      "seconds": 54.69302564999089,
+      "raw_metrics": {
+        "group_completion": {
+          "covariance": 0.0,
+          "covering": 0.0,
+          "moment_and_process": 0.0,
+          "continuity": 0.0
+        },
+        "completed_targets": 0,
+        "target_count": 31,
+        "checker_exit_code": 0
+      }
+    },
+    "empty": {
+      "score": 0.0,
+      "valid": true,
+      "pass_rate": 0.0,
+      "seconds": 63.502149207983166,
+      "raw_metrics": {}
+    },
+    "partial_covariance": {
+      "score": 0.2,
+      "valid": true,
+      "pass_rate": 0.1875,
+      "seconds": 100.38023769902065,
+      "raw_metrics": {
+        "group_completion": {
+          "covariance": 1.0,
+          "covering": 0.0,
+          "moment_and_process": 0.0,
+          "continuity": 0.0
+        },
+        "completed_targets": 5,
+        "target_count": 31,
+        "checker_exit_code": 0
+      }
+    },
+    "partial_covering": {
+      "score": 0.2,
+      "valid": true,
+      "pass_rate": 0.1875,
+      "seconds": 189.06774432898965,
+      "raw_metrics": {
+        "group_completion": {
+          "covariance": 0.0,
+          "covering": 1.0,
+          "moment_and_process": 0.0,
+          "continuity": 0.0
+        },
+        "completed_targets": 5,
+        "target_count": 31,
+        "checker_exit_code": 0
+      }
+    }
+  },
+  "passed": true,
+  "finished_utc": "2026-10-14T18:05:05.276291+00:00"
+}

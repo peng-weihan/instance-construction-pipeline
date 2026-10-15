@@ -1,0 +1,106 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
+# date + integer → date
+# Add a number of days to a date
+# date '2001-09-28' + 7 → 2001-10-05
+
+query D
+SELECT '2001-09-28'::date + 7
+----
+2001-10-05
+
+query D
+SELECT 7 + '2001-09-28'::date
+----
+2001-10-05
+
+query T
+SELECT arrow_typeof('2001-09-28'::date + 7)
+----
+Date32
+
+query D
+SELECT arrow_cast('2001-09-28', 'Date64') + 7
+----
+2001-10-05T00:00:00
+
+query D
+SELECT 7::smallint + '2001-09-28'::date
+----
+2001-10-05
+
+query D
+SELECT 7::smallint unsigned + '2001-09-28'::date
+----
+2001-10-05
+
+query D
+SELECT 7::int unsigned + '2001-09-28'::date
+----
+2001-10-05
+
+query D
+SELECT 7::bigint + '2001-09-28'::date
+----
+2001-10-05
+
+query D
+SELECT 7::bigint unsigned + '2001-09-28'::date
+----
+2001-10-05
+
+query D
+SELECT 7 + arrow_cast('2001-09-28', 'Date64')
+----
+2001-10-05T00:00:00
+
+query T
+SELECT arrow_typeof(arrow_cast('2001-09-28', 'Date64') + 7)
+----
+Date64
+
+# date - integer → date
+# Subtract a number of days from a date
+# date '2001-10-01' - 7 → 2001-09-24
+
+query D
+SELECT '2001-10-01'::date - 7
+----
+2001-09-24
+
+query D
+SELECT arrow_cast('2001-10-01', 'Date64') - 7
+----
+2001-09-24T00:00:00
+
+query T
+SELECT arrow_typeof('2001-10-01'::date - 7)
+----
+Date32
+
+query error Invalid arithmetic operation
+SELECT 7 - '2001-10-01'::date
+
+query error Invalid date arithmetic operation
+SELECT '2001-10-01'::date * 7
+
+query error Invalid date arithmetic operation
+SELECT '2001-10-01'::date / 7
+
+query error Invalid date arithmetic operation
+SELECT '2001-10-01'::date % 7

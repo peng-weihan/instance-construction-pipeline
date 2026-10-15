@@ -1,0 +1,581 @@
+{
+  "valid": true,
+  "score": 0.6,
+  "pass_rate": 0.6571428571428571,
+  "summary": "23/35 behavioral cases passed",
+  "checks": [
+    {
+      "name": "ascii-escapes",
+      "group": "decode",
+      "passed": true
+    },
+    {
+      "name": "unicode-widths",
+      "group": "decode",
+      "passed": true
+    },
+    {
+      "name": "unicode-keys",
+      "group": "decode",
+      "passed": true
+    },
+    {
+      "name": "literal-no-escapes",
+      "group": "decode",
+      "passed": true
+    },
+    {
+      "name": "utf8-mixed",
+      "group": "decode",
+      "passed": true
+    },
+    {
+      "name": "fold-indent",
+      "group": "multiline",
+      "passed": true
+    },
+    {
+      "name": "fold-crlf",
+      "group": "multiline",
+      "passed": true
+    },
+    {
+      "name": "fold-whitespace",
+      "group": "multiline",
+      "passed": true
+    },
+    {
+      "name": "literal-multiline",
+      "group": "multiline",
+      "passed": true
+    },
+    {
+      "name": "triple-quotes",
+      "group": "multiline",
+      "passed": true
+    },
+    {
+      "name": "package-comments",
+      "group": "format",
+      "passed": false
+    },
+    {
+      "name": "array-format",
+      "group": "format",
+      "passed": false
+    },
+    {
+      "name": "dotted-inline",
+      "group": "format",
+      "passed": false
+    },
+    {
+      "name": "array-tables",
+      "group": "format",
+      "passed": true
+    },
+    {
+      "name": "integer-spelling",
+      "group": "format",
+      "passed": false
+    },
+    {
+      "name": "edit-root",
+      "group": "edit",
+      "passed": false
+    },
+    {
+      "name": "edit-nested",
+      "group": "edit",
+      "passed": false
+    },
+    {
+      "name": "edit-array",
+      "group": "edit",
+      "passed": false
+    },
+    {
+      "name": "edit-inline",
+      "group": "edit",
+      "passed": false
+    },
+    {
+      "name": "edit-new-key",
+      "group": "edit",
+      "passed": false
+    },
+    {
+      "name": "serialize-controls",
+      "group": "serialize",
+      "passed": true
+    },
+    {
+      "name": "serialize-quotes",
+      "group": "serialize",
+      "passed": true
+    },
+    {
+      "name": "serialize-key-policy",
+      "group": "serialize",
+      "passed": true
+    },
+    {
+      "name": "serialize-leading-newlines",
+      "group": "serialize",
+      "passed": true
+    },
+    {
+      "name": "serialize-structure",
+      "group": "serialize",
+      "passed": true
+    },
+    {
+      "name": "invalid-escape",
+      "group": "diagnostic",
+      "passed": true
+    },
+    {
+      "name": "short-unicode",
+      "group": "diagnostic",
+      "passed": true
+    },
+    {
+      "name": "surrogate",
+      "group": "diagnostic",
+      "passed": true
+    },
+    {
+      "name": "out-of-range",
+      "group": "diagnostic",
+      "passed": true
+    },
+    {
+      "name": "nonhex",
+      "group": "diagnostic",
+      "passed": true
+    },
+    {
+      "name": "stray-cr",
+      "group": "diagnostic",
+      "passed": true
+    },
+    {
+      "name": "bad-continuation",
+      "group": "diagnostic",
+      "passed": true
+    },
+    {
+      "name": "nested-string-array",
+      "group": "integration",
+      "passed": false
+    },
+    {
+      "name": "quoted-table",
+      "group": "integration",
+      "passed": false
+    },
+    {
+      "name": "crlf-format",
+      "group": "integration",
+      "passed": false
+    }
+  ],
+  "metrics": {
+    "group_passed": {
+      "decode": 5,
+      "multiline": 5,
+      "format": 1,
+      "edit": 0,
+      "serialize": 5,
+      "diagnostic": 7,
+      "integration": 0
+    },
+    "group_total": {
+      "decode": 5,
+      "multiline": 5,
+      "format": 5,
+      "edit": 5,
+      "serialize": 5,
+      "diagnostic": 7,
+      "integration": 3
+    },
+    "weights": {
+      "decode": 0.14285714285714285,
+      "multiline": 0.14285714285714285,
+      "format": 0.14285714285714285,
+      "edit": 0.14285714285714285,
+      "serialize": 0.14285714285714285,
+      "diagnostic": 0.14285714285714285,
+      "integration": 0.14285714285714285
+    }
+  },
+  "execution_context": "host_assistance_unisolated",
+  "build": {
+    "command": [
+      "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/05_toml/tools/local/bin/cargo",
+      "build",
+      "--offline",
+      "--locked",
+      "--manifest-path",
+      "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/probe/Cargo.toml",
+      "--jobs",
+      "2"
+    ],
+    "exit_code": 0,
+    "timeout": false,
+    "stdout": "",
+    "stderr": "   Compiling serde_core v1.0.229\n   Compiling winnow v1.0.4\n   Compiling zmij v1.0.23\n   Compiling toml_parser v1.1.5+spec-1.1.0 (/Users/raymone/Desktop/edgebench/samples/software-multiline-001/05_toml/authoring/near-misses/discard-formatting/crates/toml_parser)\n   Compiling serde_spanned v1.1.2 (/Users/raymone/Desktop/edgebench/samples/software-multiline-001/05_toml/authoring/near-misses/discard-formatting/crates/serde_spanned)\n   Compiling toml_datetime v1.1.2+spec-1.1.0 (/Users/raymone/Desktop/edgebench/samples/software-multiline-001/05_toml/authoring/near-misses/discard-formatting/crates/toml_datetime)\n   Compiling toml_writer v1.1.3+spec-1.1.0 (/Users/raymone/Desktop/edgebench/samples/software-multiline-001/05_toml/authoring/near-misses/discard-formatting/crates/toml_writer)\n   Compiling hashbrown v0.17.1\n   Compiling serde_json v1.0.149\n   Compiling equivalent v1.0.3\n   Compiling indexmap v2.14.2\n   Compiling memchr v2.8.3\n   Compiling itoa v1.0.18\n   Compiling toml_edit v0.25.17+spec-1.1.0 (/Users/raymone/Desktop/edgebench/samples/software-multiline-001/05_toml/authoring/near-misses/discard-formatting/crates/toml_edit)\nwarning: unused variable: `decor`\n  --> /Users/raymone/Desktop/edgebench/samples/software-multiline-001/05_toml/authoring/near-misses/discard-formatting/crates/toml_edit/src/encode.rs:72:9\n   |\n72 |     let decor = this.decor();\n   |         ^^^^^ help: if this is intentional, prefix it with an underscore: `_decor`\n   |\n   = note: `#[warn(unused_variables)]` on by default\n\nwarning: unused variable: `default_decor`\n  --> /Users/raymone/Desktop/edgebench/samples/software-multiline-001/05_toml/authoring/near-misses/discard-formatting/crates/toml_edit/src/encode.rs:70:5\n   |\n70 |     default_decor: (&str, &str),\n   |     ^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_default_decor`\n\n   Compiling toml v1.1.8+spec-1.1.0 (/Users/raymone/Desktop/edgebench/samples/software-multiline-001/05_toml/authoring/near-misses/discard-formatting/crates/toml)\nwarning: `toml_edit` (lib) generated 2 warnings\n   Compiling edgebench-toml-probe v0.1.0 (/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/probe)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 10.08s\n"
+  },
+  "runs": [
+    {
+      "id": "ascii-escapes",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"s\":\"\\b\\u001b\\f\\n\\r\\t\\\\\\\"\"},\"text\":\"s=\\\"\\\\b\\\\e\\\\f\\\\n\\\\r\\\\t\\\\\\\\\\\\\\\"\\\"\\n\",\"value\":{\"s\":\"\\b\\u001b\\f\\n\\r\\t\\\\\\\"\"}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "unicode-widths",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"s\":\"Aα😀\"},\"text\":\"s=\\\"\\\\x41\\\\u03B1\\\\U0001F600\\\"\\n\",\"value\":{\"s\":\"Aα😀\"}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "unicode-keys",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"α\":{\"😀\":\"yes\"}},\"text\":\"\\\"\\\\u03B1\\\".\\\"\\\\U0001F600\\\"=\\\"yes\\\"\\n\",\"value\":{\"α\":{\"😀\":\"yes\"}}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "literal-no-escapes",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"s\":\"C:\\\\Users\\\\ray\"},\"text\":\"s='C:\\\\Users\\\\ray'\\n\",\"value\":{\"s\":\"C:\\\\Users\\\\ray\"}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "utf8-mixed",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"s\":\"中文🙂\"},\"text\":\"s=\\\"中\\\\u6587\\\\U0001F642\\\"\\n\",\"value\":{\"s\":\"中文🙂\"}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "fold-indent",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"s\":\"alphabetagamma\"},\"text\":\"s=\\\"\\\"\\\"\\nalpha\\\\\\n    beta\\\\\\n\\n\\t gamma\\\"\\\"\\\"\\n\",\"value\":{\"s\":\"alphabetagamma\"}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "fold-crlf",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"s\":\"alphabeta\"},\"text\":\"s=\\\"\\\"\\\"\\r\\nalpha\\\\\\r\\n  \\r\\n\\tbeta\\\"\\\"\\\"\\n\",\"value\":{\"s\":\"alphabeta\"}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "fold-whitespace",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"s\":\"ab\"},\"text\":\"s=\\\"\\\"\\\"a\\\\ \\t\\n \\t b\\\"\\\"\\\"\\n\",\"value\":{\"s\":\"ab\"}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "literal-multiline",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"s\":\"new\\nlines and \\\\slashes\"},\"text\":\"s='''\\nnew\\nlines and \\\\slashes'''\\n\",\"value\":{\"s\":\"new\\nlines and \\\\slashes\"}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "triple-quotes",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"s\":\"two \\\"\\\" quotes and \\\" done\"},\"text\":\"s=\\\"\\\"\\\"two \\\"\\\" quotes and \\\\\\\" done\\\"\\\"\\\"\\n\",\"value\":{\"s\":\"two \\\"\\\" quotes and \\\" done\"}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "package-comments",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"package\":{\"name\":\"demo\",\"version\":\"0.1\"}},\"text\":\"# package configuration\\n[package] # header\\nname  ='demo'\\nversion=\\\"0.1\\\"\\n\",\"value\":{\"package\":{\"name\":\"demo\",\"version\":\"0.1\"}}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "array-format",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"values\":[\"a\",\"b\"]},\"text\":\"values = [\\\"a\\\",'b',\\n]\\n\",\"value\":{\"values\":[\"a\",\"b\"]}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "dotted-inline",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"root key\":{\"nested\":{\"x\":1,\"y\":\"two\"}}},\"text\":\"\\\"root key\\\".nested={ x=1, y ='two'} # tail\\n\",\"value\":{\"root key\":{\"nested\":{\"x\":1,\"y\":\"two\"}}}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "array-tables",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"bin\":[{\"name\":\"one\"},{\"name\":\"two\"}]},\"text\":\"[[bin]]\\nname='one'\\n[[bin]] # two\\nname=\\\"two\\\"\\n\",\"value\":{\"bin\":[{\"name\":\"one\"},{\"name\":\"two\"}]}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "integer-spelling",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"float\":1000.25,\"hex\":3735928559,\"plus\":42},\"text\":\"hex =0xDEAD_BEEF\\nplus =+42\\nfloat =1_000.25\\n\",\"value\":{\"float\":1000.25,\"hex\":3735928559,\"plus\":42}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "edit-root",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"a\":\"unchanged\",\"b\":2},\"text\":\"a ='unchanged'\\nb ='''\\nline\\n\\\"quote\\\"\\\\tail'''\\n\",\"value\":{\"a\":\"unchanged\",\"b\":\"line\\n\\\"quote\\\"\\\\tail\"}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "edit-nested",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"package\":{\"name\":\"old\",\"version\":\"1.0\"}},\"text\":\"# banner\\n[package]\\nname=\\\"\\\"\\\"\\nnew\\nname\\\"\\\"\\\"\\nversion ='1.0'\\n\",\"value\":{\"package\":{\"name\":\"new\\nname\",\"version\":\"1.0\"}}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "edit-array",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"items\":[\"old\",\"keep\",\"last\"]},\"text\":\"items = [\\\"new\\\\tvalue\\\",'keep',\\\"last\\\"] # tail\\n\",\"value\":{\"items\":[\"new\\tvalue\",\"keep\",\"last\"]}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "edit-inline",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"point\":{\"label\":\"old\",\"x\":1}},\"text\":\"point={ x=1, label=\\\"it's new\\\"}\\n\",\"value\":{\"point\":{\"label\":\"it's new\",\"x\":1}}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "edit-new-key",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"name\":\"demo\"},\"text\":\"name='demo'\\n\\\"strange key.中\\\" =\\\"value\\\\\\\\path\\\\u0001\\\"\\n\",\"value\":{\"name\":\"demo\",\"strange key.中\":\"value\\\\path\\u0001\"}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "serialize-controls",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"text\":\"s = \\\"\\\"\\\"\\n\\\\b\\\\t\\n\\\\f\\\\r\\\\u001B\\\\u0000\\\\u007F\\\"\\\"\\\"\\n\"}\n",
+      "stderr": ""
+    },
+    {
+      "id": "serialize-quotes",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"text\":\"s = \\\"\\\\\\\"\\\\\\\"\\\\\\\" and ''' and \\\\\\\\\\\"\\n\"}\n",
+      "stderr": ""
+    },
+    {
+      "id": "serialize-key-policy",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"text\":\"\\\"\\\" = \\\"empty\\\"\\n\\\"a.b\\\" = \\\"dot\\\"\\nbare-key = 1\\n\\\"中 文\\\" = \\\"中文\\\"\\n\"}\n",
+      "stderr": ""
+    },
+    {
+      "id": "serialize-leading-newlines",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"text\":\"s = \\\"\\\"\\\"\\n\\n\\nhello\\n\\\"\\\"\\\"\\n\"}\n",
+      "stderr": ""
+    },
+    {
+      "id": "serialize-structure",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"text\":\"[package]\\nfeatures = [\\\"a\\\", \\\"\\\"\\\"\\nb\\nc\\\"\\\"\\\"]\\nname = \\\"demo\\\"\\n\\n[package.metadata]\\n\\\"needs quote\\\" = 'x\\\\y'\\n\"}\n",
+      "stderr": ""
+    },
+    {
+      "id": "invalid-escape",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"message\":\"missing escaped value, expected `b`, `e`, `f`, `n`, `r`, `\\\\`, `\\\"`, `x`, `u`, `U`\",\"ok\":false,\"span\":[4,4]}\n",
+      "stderr": ""
+    },
+    {
+      "id": "short-unicode",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"message\":\"too few unicode value digits, expected unicode hexadecimal value\",\"ok\":false,\"span\":[7,7]}\n",
+      "stderr": ""
+    },
+    {
+      "id": "surrogate",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"message\":\"invalid value, expected unicode hexadecimal value\",\"ok\":false,\"span\":[5,5]}\n",
+      "stderr": ""
+    },
+    {
+      "id": "out-of-range",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"message\":\"invalid value, expected unicode hexadecimal value\",\"ok\":false,\"span\":[5,5]}\n",
+      "stderr": ""
+    },
+    {
+      "id": "nonhex",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"message\":\"too few unicode value digits, expected unicode hexadecimal value\",\"ok\":false,\"span\":[8,8]}\n",
+      "stderr": ""
+    },
+    {
+      "id": "stray-cr",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"message\":\"carriage return must be followed by newline, expected newline\",\"ok\":false,\"span\":[10,10]}\n",
+      "stderr": ""
+    },
+    {
+      "id": "bad-continuation",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"message\":\"invalid multi-line basic string, expected newline\",\"ok\":false,\"span\":[9,9]}\n",
+      "stderr": ""
+    },
+    {
+      "id": "nested-string-array",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"package\":{\"metadata\":{\"x\":[\"a\\nb\",\"😀\"]},\"name\":\"demo\"}},\"text\":\"[package]\\nname=\\\"demo\\\"\\n[package.metadata]\\nx=[\\\"a\\\\nb\\\",\\\"\\\\U0001F600\\\"]\\n\",\"value\":{\"package\":{\"metadata\":{\"x\":[\"a\\nb\",\"😀\"]},\"name\":\"demo\"}}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "quoted-table",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"a.b\":{\"α\":{\"s\":\"\\t\"}}},\"text\":\"[\\\"a.b\\\".\\\"\\\\u03b1\\\"]\\ns=\\\"\\\\t\\\"\\n\",\"value\":{\"a.b\":{\"α\":{\"s\":\"\\t\"}}}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "crlf-format",
+      "command": [
+        "/var/folders/mp/4n3sc46s5sz2xmjpqw6zrpt80000gn/T/toml-eval-qwymh82r/target/debug/edgebench-toml-probe"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"ok\":true,\"original\":{\"section\":{\"item\":\"x\"},\"title\":\"demo\"},\"text\":\"title ='demo'\\n\\n[section]\\nitem =\\\"x\\\"\\n\",\"value\":{\"section\":{\"item\":\"x\"},\"title\":\"demo\"}}\n",
+      "stderr": ""
+    }
+  ]
+}

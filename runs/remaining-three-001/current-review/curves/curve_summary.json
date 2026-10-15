@@ -1,0 +1,38 @@
+{
+  "time_axis": "snapshot capture time, hours since learning start",
+  "score": "original normalized score, no transformation",
+  "final_snapshot": "After confirmed process freeze, final capture is mapped to the learning cutoff; no extra learning time.",
+  "formal_acceptance": false,
+  "tasks": {
+    "game": {
+      "learning_hours": 6.000000056194445,
+      "best_score": 0.8662878787878788,
+      "completed_grades": 198,
+      "checkpoints_by_snapshot_hour": {
+        "1": 0.7738636363636364,
+        "2": 0.7803030303030303,
+        "3": 0.7825757575757576,
+        "4": 0.8621212121212122,
+        "5": 0.8655303030303031,
+        "6": 0.8662878787878788
+      },
+      "stop_reason": "learning_budget_exhausted",
+      "history_sha256": "3250259f1e648daa61ab4ec163779897ac7a0d161f0356ccf2615fe704b262d5",
+      "stop_record_sha256": "f45e3e869c6596d1b6c75d17d55e59ad40a49e0bdeb0331c1190921eec5df884"
+    },
+    "finance": {
+      "learning_hours": 4.217733786179722,
+      "best_score": 0.681844094521565,
+      "completed_grades": 95,
+      "checkpoints_by_snapshot_hour": {
+        "1": 0.6585794837402571,
+        "2": 0.6674936860077185,
+        "3": 0.681844094521565,
+        "4": 0.681844094521565
+      },
+      "stop_reason": "infrastructure_or_probe_completion",
+      "history_sha256": "d9c3e54195114cd1c617bec2990375a6d52096ebb089f61c4846df9c3307b2b2",
+      "stop_record_sha256": "f423d1c25dabdeace67e5e1f8633f818345eea10d318b16f496db328ec36473b"
+    }
+  }
+}

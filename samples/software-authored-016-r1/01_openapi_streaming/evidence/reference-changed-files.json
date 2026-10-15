@@ -1,0 +1,7 @@
+[
+  "openapi_python_client/parser/openapi.py",
+  "openapi_python_client/parser/responses.py",
+  "openapi_python_client/templates/endpoint_macros.py.jinja",
+  "openapi_python_client/templates/endpoint_module.py.jinja",
+  "openapi_python_client/templates/streaming_endpoint.py.jinja"
+]

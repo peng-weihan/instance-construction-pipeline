@@ -1,0 +1,52 @@
+{
+  "task_id": "brownian_multibranch_proofs",
+  "category": "Formal Math & Theorem Proving",
+  "title": "布朗运动基础与连续性多分支证明",
+  "anchor": "lean_analysis_proofs",
+  "status": "constructed_unverified",
+  "sources": [
+    {
+      "repository": "https://github.com/RemyDegenne/brownian-motion.git",
+      "commit": "a7ad7af662044313bc80a7c0756360fb3745f931",
+      "files": [
+        {
+          "path": "BrownianMotion/Gaussian/CovMatrix.lean",
+          "sha256": "89ec93a4bbf3671bc6eb34803c1000777ec00a600732b878d4623cd0457d7ea8"
+        },
+        {
+          "path": "BrownianMotion/Continuity/CoveringNumber.lean",
+          "sha256": "0a066df0cd9ef5fd55f453578de9866672baea986d65ea86f2fdc4d18e4867ea"
+        },
+        {
+          "path": "BrownianMotion/Gaussian/Moment.lean",
+          "sha256": "1ec420407465231b2bdee35a8923b5786c22336ca4c7efcf07cef05eab9fbb3c"
+        },
+        {
+          "path": "BrownianMotion/Gaussian/BrownianMotion.lean",
+          "sha256": "3dd0eb3d8e550d764a98506b6cd41bc18b376d3a2fbfbe013045463416b0ce58"
+        },
+        {
+          "path": "BrownianMotion/Continuity/KolmogorovChentsov.lean",
+          "sha256": "0814a0012d92a1c80ac8681247c106ef6604bffd747b26bb54010d4144283c5b"
+        }
+      ],
+      "acquired": true,
+      "runtime_verified": false
+    }
+  ],
+  "authoring": "interactive source inspection + deterministic construction scripts; no independent CLI model run",
+  "long_horizon_potential": "design hypothesis, not an observed six-hour curve",
+  "empirical_training_benefit": null,
+  "accepted": false,
+  "progression": [
+    "独立协方差与覆盖引理",
+    "高斯矩估计和过程性质",
+    "Hölder 修正及综合结果"
+  ],
+  "construction_gaps": [
+    "Lean compilation, actual dependency graph and shortcut audit remain pending.",
+    "Original benchmark theorem inventory not fully acquired; exact deduplication pending."
+  ],
+  "runtime_verification": "deferred_by_user",
+  "construction_stage": "materials_and_spec_constructed"
+}

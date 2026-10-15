@@ -1,0 +1,16 @@
+{
+  "inventory_integrity_ok": true,
+  "candidate_count": 16,
+  "source_files_checked": 101,
+  "source_anchors_checked": 45,
+  "local_links_checked": 101,
+  "family_counts": {
+    "engineering_evolution": 5,
+    "system_implementation": 4,
+    "correctness_constrained_performance": 3,
+    "implementation_recovery": 2,
+    "behavioral_reimplementation": 2
+  },
+  "errors": [],
+  "proof_scope": "inventory_only_not_construction_runtime_or_six_hour_difficulty"
+}

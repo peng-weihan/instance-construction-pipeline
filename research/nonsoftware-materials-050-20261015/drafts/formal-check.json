@@ -1,0 +1,14 @@
+{
+  "candidate_count": 10,
+  "unique_repositories": 10,
+  "source_files_checked": 81,
+  "anchors_checked": 23,
+  "priority_counts": {
+    "hold_baseline": 5,
+    "scope_probe": 1,
+    "hold_reference": 1,
+    "hold_license": 3
+  },
+  "errors": [],
+  "proof_scope": "metadata and acquired excerpt integrity only; no kernel build"
+}

@@ -1,0 +1,70 @@
+{% set record = endpoint.stream_response %}
+{% set record_type = record.prop.get_type_string() | as_unembedded_code %}
+
+def _parse_record(line: str) -> {{ record_type }}:
+    {{ parse_response(true, record) | indent(4) }}
+
+
+def _validate_stream(response: httpx.Response) -> None:
+    if response.status_code != {{ record.status_code.range[0] }}:
+        raise errors.UnexpectedStatus(response.status_code, response.content)
+    media_type = response.headers.get("content-type", "").split(";", 1)[0].strip().lower()
+    if media_type != "application/x-ndjson":
+        raise ValueError("Expected application/x-ndjson")
+    # NDJSON uses UTF-8 regardless of optional charset parameters.
+    response.encoding = "utf-8"
+
+
+@contextmanager
+def stream(
+    {{ arguments(endpoint) | indent(4) }}
+) -> Iterator[Iterator[{{ record_type }}]]:
+    """Open one response. The supplied client stays owned by the caller."""
+    kwargs = _get_kwargs({{ kwargs(endpoint, include_client=False) }})
+    transport = client.get_httpx_client()
+    {% if endpoint.anonymous %}
+    request = _anonymous_request(transport, client, kwargs)
+    response = transport.send(request, stream=True, auth=None)
+    {% else %}
+    request = transport.build_request(**kwargs)
+    response = transport.send(request, stream=True)
+    {% endif %}
+    try:
+        if response.status_code != {{ record.status_code.range[0] }}:
+            response.read()
+        _validate_stream(response)
+        def records() -> Iterator[{{ record_type }}]:
+            for line in response.iter_lines():
+                if line.strip():
+                    yield _parse_record(line)
+        yield records()
+    finally:
+        response.close()
+
+
+@asynccontextmanager
+async def asyncio_stream(
+    {{ arguments(endpoint) | indent(4) }}
+) -> AsyncIterator[AsyncIterator[{{ record_type }}]]:
+    """Open one async response and close it even on cancellation."""
+    kwargs = _get_kwargs({{ kwargs(endpoint, include_client=False) }})
+    transport = client.get_async_httpx_client()
+    {% if endpoint.anonymous %}
+    request = _anonymous_request(transport, client, kwargs)
+    response = await transport.send(request, stream=True, auth=None)
+    {% else %}
+    request = transport.build_request(**kwargs)
+    response = await transport.send(request, stream=True)
+    {% endif %}
+    try:
+        if response.status_code != {{ record.status_code.range[0] }}:
+            await response.aread()
+        _validate_stream(response)
+        async def records() -> AsyncIterator[{{ record_type }}]:
+            async for line in response.aiter_lines():
+                if line.strip():
+                    yield _parse_record(line)
+        yield records()
+    finally:
+        with anyio.CancelScope(shield=True):
+            await response.aclose()

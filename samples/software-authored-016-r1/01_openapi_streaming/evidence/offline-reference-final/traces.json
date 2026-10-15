@@ -1,0 +1,2531 @@
+{
+  "records_sync": {
+    "events": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "read",
+        2
+      ],
+      [
+        "read",
+        3
+      ],
+      [
+        "close"
+      ]
+    ],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "café",
+          "state": "ready"
+        }
+      },
+      {
+        "class": "Event",
+        "value": {
+          "seq": 2,
+          "label": "last"
+        }
+      }
+    ],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/secured",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "annotation": "collections.abc.Iterator[collections.abc.Iterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ]
+    ],
+    "after_exit": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "read",
+        2
+      ],
+      [
+        "read",
+        3
+      ],
+      [
+        "close"
+      ]
+    ],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "timeout": false
+  },
+  "numbers_sync": {
+    "events": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "close"
+      ]
+    ],
+    "values": [
+      {
+        "class": "int",
+        "value": 1
+      },
+      {
+        "class": "int",
+        "value": 2
+      },
+      {
+        "class": "int",
+        "value": 3
+      }
+    ],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/numbers",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "annotation": "collections.abc.Iterator[collections.abc.Iterator[int]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [
+      [
+        "read",
+        0
+      ]
+    ],
+    "after_exit": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "close"
+      ]
+    ],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "timeout": false
+  },
+  "early_sync": {
+    "events": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "close"
+      ]
+    ],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "café",
+          "state": "ready"
+        }
+      }
+    ],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/secured",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "annotation": "collections.abc.Iterator[collections.abc.Iterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ]
+    ],
+    "after_exit": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "close"
+      ]
+    ],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "timeout": false
+  },
+  "empty_sync": {
+    "events": [
+      [
+        "close"
+      ]
+    ],
+    "values": [],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/secured",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "annotation": "collections.abc.Iterator[collections.abc.Iterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_exit": [
+      [
+        "close"
+      ]
+    ],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "timeout": false
+  },
+  "malformed_sync": {
+    "events": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "close"
+      ]
+    ],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "ok"
+        }
+      }
+    ],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/secured",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "annotation": "collections.abc.Iterator[collections.abc.Iterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [
+      [
+        "read",
+        0
+      ]
+    ],
+    "error": "JSONDecodeError",
+    "after_exit": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "close"
+      ]
+    ],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "timeout": false
+  },
+  "consumer_sync": {
+    "events": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "close"
+      ]
+    ],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "café",
+          "state": "ready"
+        }
+      }
+    ],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/secured",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "annotation": "collections.abc.Iterator[collections.abc.Iterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ]
+    ],
+    "error": "LookupError",
+    "after_exit": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "close"
+      ]
+    ],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "timeout": false
+  },
+  "status_sync": {
+    "events": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "read",
+        2
+      ],
+      [
+        "read",
+        3
+      ],
+      [
+        "close"
+      ]
+    ],
+    "values": [],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/secured",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "annotation": "collections.abc.Iterator[collections.abc.Iterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "error": "UnexpectedStatus",
+    "status_code": 409,
+    "error_content": "{\"seq\":1,\"label\":\"café\",\"state\":\"ready\"}\r\n \r\n{\"seq\":2,\"label\":\"last\"}",
+    "after_exit": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "read",
+        2
+      ],
+      [
+        "read",
+        3
+      ],
+      [
+        "close"
+      ]
+    ],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "timeout": false
+  },
+  "media_sync": {
+    "events": [
+      [
+        "close"
+      ]
+    ],
+    "values": [],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/secured",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "annotation": "collections.abc.Iterator[collections.abc.Iterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "error": "ValueError",
+    "after_exit": [
+      [
+        "close"
+      ]
+    ],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "timeout": false
+  },
+  "anonymous_sync": {
+    "events": [],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "first"
+        }
+      },
+      {
+        "class": "Event",
+        "value": {
+          "seq": 2,
+          "label": "second"
+        }
+      }
+    ],
+    "requests": [],
+    "annotation": "collections.abc.Iterator[collections.abc.Iterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "stream_sdk.client.AuthenticatedClient | stream_sdk.client.Client",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [],
+    "after_exit": [],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "wire_requests": [
+      {
+        "method": "POST",
+        "path": "/anonymous",
+        "headers": {
+          "host": "127.0.0.1:35881",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable",
+          "content-type": "application/json",
+          "content-length": "22"
+        },
+        "body": "{\"query\":\"find café\"}"
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "127.0.0.1:35881",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "wire_events": [
+      "first_sent",
+      "end_sent"
+    ],
+    "timeout": false
+  },
+  "json_body_sync": {
+    "events": [],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "first"
+        }
+      },
+      {
+        "class": "Event",
+        "value": {
+          "seq": 2,
+          "label": "second"
+        }
+      }
+    ],
+    "requests": [],
+    "annotation": "collections.abc.Iterator[collections.abc.Iterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "stream_sdk.client.AuthenticatedClient | stream_sdk.client.Client",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [],
+    "after_exit": [],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "wire_requests": [
+      {
+        "method": "POST",
+        "path": "/anonymous",
+        "headers": {
+          "host": "127.0.0.1:37347",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable",
+          "content-type": "application/json",
+          "content-length": "22"
+        },
+        "body": "{\"query\":\"find café\"}"
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "127.0.0.1:37347",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "wire_events": [
+      "first_sent",
+      "end_sent"
+    ],
+    "timeout": false
+  },
+  "multipart_body_sync": {
+    "events": [],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "first"
+        }
+      },
+      {
+        "class": "Event",
+        "value": {
+          "seq": 2,
+          "label": "second"
+        }
+      }
+    ],
+    "requests": [],
+    "annotation": "collections.abc.Iterator[collections.abc.Iterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "stream_sdk.client.AuthenticatedClient | stream_sdk.client.Client",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [],
+    "after_exit": [],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "wire_requests": [
+      {
+        "method": "POST",
+        "path": "/anonymous",
+        "headers": {
+          "host": "127.0.0.1:41227",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable",
+          "content-type": "multipart/form-data; boundary=+++",
+          "content-length": "309"
+        },
+        "body": "--+++\r\nContent-Disposition: form-data; name=\"label\"\r\nContent-Type: text/plain\r\n\r\nupload\r\n--+++\r\nContent-Disposition: form-data; name=\"files\"; filename=\"a.txt\"\r\nContent-Type: text/plain\r\n\r\nalpha\r\n--+++\r\nContent-Disposition: form-data; name=\"files\"; filename=\"b.txt\"\r\nContent-Type: text/plain\r\n\r\nbeta\r\n--+++--\r\n"
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "127.0.0.1:41227",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "wire_events": [
+      "first_sent",
+      "end_sent"
+    ],
+    "timeout": false
+  },
+  "optional_sync": {
+    "events": [],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "first"
+        }
+      },
+      {
+        "class": "Event",
+        "value": {
+          "seq": 2,
+          "label": "second"
+        }
+      }
+    ],
+    "requests": [],
+    "annotation": "collections.abc.Iterator[collections.abc.Iterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "stream_sdk.client.AuthenticatedClient | stream_sdk.client.Client",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [],
+    "after_exit": [],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "wire_requests": [
+      {
+        "method": "GET",
+        "path": "/optional",
+        "headers": {
+          "host": "127.0.0.1:39581",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "127.0.0.1:39581",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "wire_events": [
+      "first_sent",
+      "end_sent"
+    ],
+    "timeout": false
+  },
+  "network_sync": {
+    "events": [],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "first"
+        }
+      },
+      {
+        "class": "Event",
+        "value": {
+          "seq": 2,
+          "label": "second"
+        }
+      }
+    ],
+    "requests": [],
+    "annotation": "collections.abc.Iterator[collections.abc.Iterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [],
+    "after_exit": [],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "wire_requests": [
+      {
+        "method": "GET",
+        "path": "/secured",
+        "headers": {
+          "host": "127.0.0.1:45557",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "127.0.0.1:45557",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "wire_events": [
+      "first_sent",
+      "first_observed",
+      "end_sent"
+    ],
+    "timeout": false
+  },
+  "network_early_sync": {
+    "events": [],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "first"
+        }
+      }
+    ],
+    "requests": [],
+    "annotation": "collections.abc.Iterator[collections.abc.Iterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [],
+    "after_exit": [],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "wire_requests": [
+      {
+        "method": "GET",
+        "path": "/secured",
+        "headers": {
+          "host": "127.0.0.1:41545",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "127.0.0.1:41545",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "wire_events": [
+      "first_sent",
+      "peer_closed"
+    ],
+    "timeout": false
+  },
+  "records_async": {
+    "events": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "read",
+        2
+      ],
+      [
+        "read",
+        3
+      ],
+      [
+        "close"
+      ]
+    ],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "café",
+          "state": "ready"
+        }
+      },
+      {
+        "class": "Event",
+        "value": {
+          "seq": 2,
+          "label": "last"
+        }
+      }
+    ],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/secured",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "annotation": "collections.abc.AsyncIterator[collections.abc.AsyncIterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ]
+    ],
+    "after_exit": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "read",
+        2
+      ],
+      [
+        "read",
+        3
+      ],
+      [
+        "close"
+      ]
+    ],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "timeout": false
+  },
+  "numbers_async": {
+    "events": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "close"
+      ]
+    ],
+    "values": [
+      {
+        "class": "int",
+        "value": 1
+      },
+      {
+        "class": "int",
+        "value": 2
+      },
+      {
+        "class": "int",
+        "value": 3
+      }
+    ],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/numbers",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "annotation": "collections.abc.AsyncIterator[collections.abc.AsyncIterator[int]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [
+      [
+        "read",
+        0
+      ]
+    ],
+    "after_exit": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "close"
+      ]
+    ],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "timeout": false
+  },
+  "early_async": {
+    "events": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "close"
+      ]
+    ],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "café",
+          "state": "ready"
+        }
+      }
+    ],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/secured",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "annotation": "collections.abc.AsyncIterator[collections.abc.AsyncIterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ]
+    ],
+    "after_exit": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "close"
+      ]
+    ],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "timeout": false
+  },
+  "empty_async": {
+    "events": [
+      [
+        "close"
+      ]
+    ],
+    "values": [],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/secured",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "annotation": "collections.abc.AsyncIterator[collections.abc.AsyncIterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_exit": [
+      [
+        "close"
+      ]
+    ],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "timeout": false
+  },
+  "malformed_async": {
+    "events": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "close"
+      ]
+    ],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "ok"
+        }
+      }
+    ],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/secured",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "annotation": "collections.abc.AsyncIterator[collections.abc.AsyncIterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [
+      [
+        "read",
+        0
+      ]
+    ],
+    "error": "JSONDecodeError",
+    "after_exit": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "close"
+      ]
+    ],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "timeout": false
+  },
+  "consumer_async": {
+    "events": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "close"
+      ]
+    ],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "café",
+          "state": "ready"
+        }
+      }
+    ],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/secured",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "annotation": "collections.abc.AsyncIterator[collections.abc.AsyncIterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ]
+    ],
+    "error": "LookupError",
+    "after_exit": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "close"
+      ]
+    ],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "timeout": false
+  },
+  "status_async": {
+    "events": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "read",
+        2
+      ],
+      [
+        "read",
+        3
+      ],
+      [
+        "close"
+      ]
+    ],
+    "values": [],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/secured",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "annotation": "collections.abc.AsyncIterator[collections.abc.AsyncIterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "error": "UnexpectedStatus",
+    "status_code": 409,
+    "error_content": "{\"seq\":1,\"label\":\"café\",\"state\":\"ready\"}\r\n \r\n{\"seq\":2,\"label\":\"last\"}",
+    "after_exit": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "read",
+        2
+      ],
+      [
+        "read",
+        3
+      ],
+      [
+        "close"
+      ]
+    ],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "timeout": false
+  },
+  "media_async": {
+    "events": [
+      [
+        "close"
+      ]
+    ],
+    "values": [],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/secured",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "annotation": "collections.abc.AsyncIterator[collections.abc.AsyncIterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "error": "ValueError",
+    "after_exit": [
+      [
+        "close"
+      ]
+    ],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "timeout": false
+  },
+  "anonymous_async": {
+    "events": [],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "first"
+        }
+      },
+      {
+        "class": "Event",
+        "value": {
+          "seq": 2,
+          "label": "second"
+        }
+      }
+    ],
+    "requests": [],
+    "annotation": "collections.abc.AsyncIterator[collections.abc.AsyncIterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "stream_sdk.client.AuthenticatedClient | stream_sdk.client.Client",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [],
+    "after_exit": [],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "wire_requests": [
+      {
+        "method": "POST",
+        "path": "/anonymous",
+        "headers": {
+          "host": "127.0.0.1:44931",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable",
+          "content-type": "application/json",
+          "content-length": "22"
+        },
+        "body": "{\"query\":\"find café\"}"
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "127.0.0.1:44931",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "wire_events": [
+      "first_sent",
+      "end_sent"
+    ],
+    "timeout": false
+  },
+  "json_body_async": {
+    "events": [],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "first"
+        }
+      },
+      {
+        "class": "Event",
+        "value": {
+          "seq": 2,
+          "label": "second"
+        }
+      }
+    ],
+    "requests": [],
+    "annotation": "collections.abc.AsyncIterator[collections.abc.AsyncIterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "stream_sdk.client.AuthenticatedClient | stream_sdk.client.Client",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [],
+    "after_exit": [],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "wire_requests": [
+      {
+        "method": "POST",
+        "path": "/anonymous",
+        "headers": {
+          "host": "127.0.0.1:41541",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable",
+          "content-type": "application/json",
+          "content-length": "22"
+        },
+        "body": "{\"query\":\"find café\"}"
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "127.0.0.1:41541",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "wire_events": [
+      "first_sent",
+      "end_sent"
+    ],
+    "timeout": false
+  },
+  "multipart_body_async": {
+    "events": [],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "first"
+        }
+      },
+      {
+        "class": "Event",
+        "value": {
+          "seq": 2,
+          "label": "second"
+        }
+      }
+    ],
+    "requests": [],
+    "annotation": "collections.abc.AsyncIterator[collections.abc.AsyncIterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "stream_sdk.client.AuthenticatedClient | stream_sdk.client.Client",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [],
+    "after_exit": [],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "wire_requests": [
+      {
+        "method": "POST",
+        "path": "/anonymous",
+        "headers": {
+          "host": "127.0.0.1:45507",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable",
+          "content-type": "multipart/form-data; boundary=+++",
+          "content-length": "309"
+        },
+        "body": "--+++\r\nContent-Disposition: form-data; name=\"label\"\r\nContent-Type: text/plain\r\n\r\nupload\r\n--+++\r\nContent-Disposition: form-data; name=\"files\"; filename=\"a.txt\"\r\nContent-Type: text/plain\r\n\r\nalpha\r\n--+++\r\nContent-Disposition: form-data; name=\"files\"; filename=\"b.txt\"\r\nContent-Type: text/plain\r\n\r\nbeta\r\n--+++--\r\n"
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "127.0.0.1:45507",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "wire_events": [
+      "first_sent",
+      "end_sent"
+    ],
+    "timeout": false
+  },
+  "optional_async": {
+    "events": [],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "first"
+        }
+      },
+      {
+        "class": "Event",
+        "value": {
+          "seq": 2,
+          "label": "second"
+        }
+      }
+    ],
+    "requests": [],
+    "annotation": "collections.abc.AsyncIterator[collections.abc.AsyncIterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "stream_sdk.client.AuthenticatedClient | stream_sdk.client.Client",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [],
+    "after_exit": [],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "wire_requests": [
+      {
+        "method": "GET",
+        "path": "/optional",
+        "headers": {
+          "host": "127.0.0.1:38803",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "127.0.0.1:38803",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "wire_events": [
+      "first_sent",
+      "end_sent"
+    ],
+    "timeout": false
+  },
+  "network_async": {
+    "events": [],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "first"
+        }
+      },
+      {
+        "class": "Event",
+        "value": {
+          "seq": 2,
+          "label": "second"
+        }
+      }
+    ],
+    "requests": [],
+    "annotation": "collections.abc.AsyncIterator[collections.abc.AsyncIterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [],
+    "after_exit": [],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "wire_requests": [
+      {
+        "method": "GET",
+        "path": "/secured",
+        "headers": {
+          "host": "127.0.0.1:44403",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "127.0.0.1:44403",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "wire_events": [
+      "first_sent",
+      "first_observed",
+      "end_sent"
+    ],
+    "timeout": false
+  },
+  "network_early_async": {
+    "events": [],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "first"
+        }
+      }
+    ],
+    "requests": [],
+    "annotation": "collections.abc.AsyncIterator[collections.abc.AsyncIterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [],
+    "after_exit": [],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "wire_requests": [
+      {
+        "method": "GET",
+        "path": "/secured",
+        "headers": {
+          "host": "127.0.0.1:43595",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "127.0.0.1:43595",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "wire_events": [
+      "first_sent",
+      "peer_closed"
+    ],
+    "timeout": false
+  },
+  "cancel_async": {
+    "events": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "close"
+      ]
+    ],
+    "values": [
+      {
+        "class": "Event",
+        "value": {
+          "seq": 1,
+          "label": "café",
+          "state": "ready"
+        }
+      }
+    ],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/secured",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "authorization": "Bearer token",
+          "x-session": "stable"
+        },
+        "body": ""
+      },
+      {
+        "method": "GET",
+        "path": "/plain",
+        "headers": {
+          "host": "fixture.test",
+          "accept": "*/*",
+          "accept-encoding": "gzip, deflate",
+          "connection": "keep-alive",
+          "user-agent": "python-httpx/0.28.1",
+          "x-session": "stable"
+        },
+        "body": ""
+      }
+    ],
+    "annotation": "collections.abc.AsyncIterator[collections.abc.AsyncIterator[stream_sdk.models.event.Event]]",
+    "client_annotation": "<class 'stream_sdk.client.AuthenticatedClient'>",
+    "body_required": true,
+    "before": 0,
+    "after_construct": 0,
+    "at_enter": [],
+    "after_first": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ]
+    ],
+    "error": "CancelledError",
+    "after_exit": [
+      [
+        "read",
+        0
+      ],
+      [
+        "read",
+        1
+      ],
+      [
+        "close"
+      ]
+    ],
+    "client_closed": false,
+    "default_headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "python-httpx/0.28.1",
+      "authorization": "Bearer token",
+      "x-session": "stable"
+    },
+    "ordinary": {
+      "class": "Event",
+      "value": {
+        "seq": 9,
+        "label": "plain"
+      }
+    },
+    "timeout": false
+  }
+}

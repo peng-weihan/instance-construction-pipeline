@@ -1,0 +1,6 @@
+{
+  "command": "offline docker /verify.py against edge-raymone-packing:initial",
+  "verified_cases": 27,
+  "actual_output": "27 frozen source-bound reference layouts verified",
+  "reference_generation_seconds": 561.3
+}

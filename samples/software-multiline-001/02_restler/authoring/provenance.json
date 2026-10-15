@@ -1,0 +1,32 @@
+{
+  "repositories": [
+    {
+      "url": "https://github.com/microsoft/restler-fuzzer",
+      "commit": "6d984deedbc54aad957fa3da0c7e9e5df23a2aee",
+      "license": "MIT",
+      "role": "full engine and official native fixtures"
+    },
+    {
+      "url": "https://github.com/apache/polaris",
+      "commit": "f838a62e20e7de72946d250883e8d9b1d6d2f68e",
+      "license": "Apache-2.0",
+      "role": "full intended real target source; not deployed"
+    }
+  ],
+  "transformations": [
+    "full upstream RESTler is starter",
+    "private draft activates real BFS save/load with atomic commit, input/checksum guard",
+    "CLI options configure saver; real driver singleton restoration corrected",
+    "grammar module registered for pickle parser resolution",
+    "official native test socket is used only for component diagnostics, never claimed to be Polaris"
+  ],
+  "truth_sources": [
+    "official native smoke/replay assertions",
+    "explicit generation-boundary contract",
+    "Polaris management API and integration tests for unimplemented full workload"
+  ],
+  "author_model_requested": "gpt-6.1-sol",
+  "provider_receipt_verified": false,
+  "models_started": false,
+  "cloud_or_docker_started": false
+}

@@ -1,0 +1,1415 @@
+{
+  "sha": "27d942c8b0a62d192f616e5bf3578f4b6a89e180",
+  "url": "https://api.github.com/repos/github/cmark-gfm/git/trees/27d942c8b0a62d192f616e5bf3578f4b6a89e180",
+  "tree": [
+    {
+      "path": ".editorconfig",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "12032e647502de7a91f241f75fcd7666be375875",
+      "size": 257,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/12032e647502de7a91f241f75fcd7666be375875"
+    },
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f6e7b2552229e60bf8434203e5147b3a233e529a",
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/trees/f6e7b2552229e60bf8434203e5147b3a233e529a"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "82236d45681277a7d610117037221c6787cb5d7c",
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/trees/82236d45681277a7d610117037221c6787cb5d7c"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4c0ad9406db4dba45af9689dcf42bf61ad55dbd5",
+      "size": 1660,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/4c0ad9406db4dba45af9689dcf42bf61ad55dbd5"
+    },
+    {
+      "path": ".github/workflows/codeql.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4648c7cf747bda9050a9b64ea0af39063f71fa19",
+      "size": 3133,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/4648c7cf747bda9050a9b64ea0af39063f71fa19"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c325b311f82401ab07202b8cca5f148dca41119b",
+      "size": 348,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/c325b311f82401ab07202b8cca5f148dca41119b"
+    },
+    {
+      "path": ".travis.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b8818c37afc8532f18f7c5239f253ae43c7f3bdc",
+      "size": 777,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/b8818c37afc8532f18f7c5239f253ae43c7f3bdc"
+    },
+    {
+      "path": "CMakeLists.txt",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "12b4915e39a40df36cafd779cd7964278ba6f946",
+      "size": 1745,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/12b4915e39a40df36cafd779cd7964278ba6f946"
+    },
+    {
+      "path": "COPYING",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db88a81b3ec3513cda9a4822565fbc06d958b74a",
+      "size": 7567,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/db88a81b3ec3513cda9a4822565fbc06d958b74a"
+    },
+    {
+      "path": "CheckFileOffsetBits.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d948fecf2b4e9982753be79d504ed78a9b424ad6",
+      "size": 295,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/d948fecf2b4e9982753be79d504ed78a9b424ad6"
+    },
+    {
+      "path": "CheckFileOffsetBits.cmake",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8a74b9e11f9d083d8d2ea662e9187bf6547116a5",
+      "size": 1978,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/8a74b9e11f9d083d8d2ea662e9187bf6547116a5"
+    },
+    {
+      "path": "FindAsan.cmake",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "064b5b6b39363b2f13662b0048b2b43d40e89c87",
+      "size": 3226,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/064b5b6b39363b2f13662b0048b2b43d40e89c87"
+    },
+    {
+      "path": "Makefile",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "be7e46c0e3e015be58ceff0126cf9c1c7a52631d",
+      "size": 7169,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/be7e46c0e3e015be58ceff0126cf9c1c7a52631d"
+    },
+    {
+      "path": "Makefile.nmake",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "80ba4f16ddc98cb668c308ae341bd2cfff441a0d",
+      "size": 901,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/80ba4f16ddc98cb668c308ae341bd2cfff441a0d"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0b9f719f6ecb0e51adbd86230b2824b8de117aa1",
+      "size": 7337,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/0b9f719f6ecb0e51adbd86230b2824b8de117aa1"
+    },
+    {
+      "path": "api_test",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "779d8e28909bf06765c06ae7ce258fa7d49c71e4",
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/trees/779d8e28909bf06765c06ae7ce258fa7d49c71e4"
+    },
+    {
+      "path": "api_test/CMakeLists.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "55f33e087131e400b9e4b59844f88430499ffd31",
+      "size": 896,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/55f33e087131e400b9e4b59844f88430499ffd31"
+    },
+    {
+      "path": "api_test/cplusplus.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "480c75708c5257b50b74cfe991a9098c5ea70df1",
+      "size": 355,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/480c75708c5257b50b74cfe991a9098c5ea70df1"
+    },
+    {
+      "path": "api_test/cplusplus.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f3dd152135480478a4ad399190f7d52ed043616",
+      "size": 218,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/1f3dd152135480478a4ad399190f7d52ed043616"
+    },
+    {
+      "path": "api_test/harness.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6b7336f970fbc6b98f0c2830c652387f663e1d2a",
+      "size": 2669,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/6b7336f970fbc6b98f0c2830c652387f663e1d2a"
+    },
+    {
+      "path": "api_test/harness.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53b9889906f75c2e8533390ba7622e0ec94bb741",
+      "size": 727,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/53b9889906f75c2e8533390ba7622e0ec94bb741"
+    },
+    {
+      "path": "api_test/main.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a41e694a9227cf04a9c2e3fe138a150ac4271a1",
+      "size": 48004,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/1a41e694a9227cf04a9c2e3fe138a150ac4271a1"
+    },
+    {
+      "path": "appveyor.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f88e5cc401e91249a8fcb1c2534280ab2b6389e8",
+      "size": 370,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/f88e5cc401e91249a8fcb1c2534280ab2b6389e8"
+    },
+    {
+      "path": "bench",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "31d063c61dec846fdb374ac1fa40f6ed42b9c4b6",
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/trees/31d063c61dec846fdb374ac1fa40f6ed42b9c4b6"
+    },
+    {
+      "path": "bench/samples",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2cef164721a95d22c3274503ad9b2f4b001fa457",
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/trees/2cef164721a95d22c3274503ad9b2f4b001fa457"
+    },
+    {
+      "path": "bench/samples/block-bq-flat.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "33e382afc338c2b97da6fb15de08651dadc212ff",
+      "size": 246,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/33e382afc338c2b97da6fb15de08651dadc212ff"
+    },
+    {
+      "path": "bench/samples/block-bq-nested.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7ddcffa400937cc68a64840a3e68e09ce9351ea8",
+      "size": 355,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/7ddcffa400937cc68a64840a3e68e09ce9351ea8"
+    },
+    {
+      "path": "bench/samples/block-code.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b1554f42720cc134a8e3410b664cf16d11e6ff1",
+      "size": 73,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/2b1554f42720cc134a8e3410b664cf16d11e6ff1"
+    },
+    {
+      "path": "bench/samples/block-fences.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5fe8b3c3408fa24469f8998b11780d8b3ed1b0e1",
+      "size": 72,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/5fe8b3c3408fa24469f8998b11780d8b3ed1b0e1"
+    },
+    {
+      "path": "bench/samples/block-heading.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fd985587976994bd48e817af41021909bd39f19f",
+      "size": 123,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/fd985587976994bd48e817af41021909bd39f19f"
+    },
+    {
+      "path": "bench/samples/block-hr.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e1bad6f4dd0ffec279a062aa9076176ab29c87ce",
+      "size": 74,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/e1bad6f4dd0ffec279a062aa9076176ab29c87ce"
+    },
+    {
+      "path": "bench/samples/block-html.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff7f8fa6a0d638109f700304421b18b69975e5f5",
+      "size": 283,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/ff7f8fa6a0d638109f700304421b18b69975e5f5"
+    },
+    {
+      "path": "bench/samples/block-lheading.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e5c0d99d4fc34514e9e2f4de8f22202e93e080c3",
+      "size": 113,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/e5c0d99d4fc34514e9e2f4de8f22202e93e080c3"
+    },
+    {
+      "path": "bench/samples/block-list-flat.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "14149dbf33b4688181034701c46cdf25af5f22af",
+      "size": 525,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/14149dbf33b4688181034701c46cdf25af5f22af"
+    },
+    {
+      "path": "bench/samples/block-list-nested.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d30aed3b8859812a6317c81fe4bfbd985978ecaa",
+      "size": 391,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/d30aed3b8859812a6317c81fe4bfbd985978ecaa"
+    },
+    {
+      "path": "bench/samples/block-ref-flat.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c83dccb6f15c4d7f53c7c75ab4a0e7122742c745",
+      "size": 474,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/c83dccb6f15c4d7f53c7c75ab4a0e7122742c745"
+    },
+    {
+      "path": "bench/samples/block-ref-nested.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e10a8c213ae76bcf17219f38ae98541357dcffa",
+      "size": 257,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/1e10a8c213ae76bcf17219f38ae98541357dcffa"
+    },
+    {
+      "path": "bench/samples/inline-autolink.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0f71482d6beda9eb2c3594c5ec63463ea6a67510",
+      "size": 557,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/0f71482d6beda9eb2c3594c5ec63463ea6a67510"
+    },
+    {
+      "path": "bench/samples/inline-backticks.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6ec6e1fb0637390626347685cf06892b3c19372",
+      "size": 64,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/a6ec6e1fb0637390626347685cf06892b3c19372"
+    },
+    {
+      "path": "bench/samples/inline-em-flat.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b7668a54ee953c9496e420fbf489b798e9f671f2",
+      "size": 155,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/b7668a54ee953c9496e420fbf489b798e9f671f2"
+    },
+    {
+      "path": "bench/samples/inline-em-nested.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6bb0a0d3bdca7bec6516155dec7e4b067caceb44",
+      "size": 158,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/6bb0a0d3bdca7bec6516155dec7e4b067caceb44"
+    },
+    {
+      "path": "bench/samples/inline-em-worst.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b6d21da9842a16a0dc84464ed8a65f1cc1f486b6",
+      "size": 173,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/b6d21da9842a16a0dc84464ed8a65f1cc1f486b6"
+    },
+    {
+      "path": "bench/samples/inline-entity.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "da095edbf29dbff0e4c4e6e8d2d7738c56cdf62a",
+      "size": 328,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/da095edbf29dbff0e4c4e6e8d2d7738c56cdf62a"
+    },
+    {
+      "path": "bench/samples/inline-escape.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4e1bb396bef697f0ffcb09709d108aca46f7b95e",
+      "size": 185,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/4e1bb396bef697f0ffcb09709d108aca46f7b95e"
+    },
+    {
+      "path": "bench/samples/inline-html.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f6e63419e8a4e73433ac51255847664b00fac440",
+      "size": 516,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/f6e63419e8a4e73433ac51255847664b00fac440"
+    },
+    {
+      "path": "bench/samples/inline-links-flat.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5117db8794dd277f55ba83cb3fca32b75b9f19fd",
+      "size": 730,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/5117db8794dd277f55ba83cb3fca32b75b9f19fd"
+    },
+    {
+      "path": "bench/samples/inline-links-nested.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4e7dc8579e839e8e6015437d55abccec1ec4aafc",
+      "size": 313,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/4e7dc8579e839e8e6015437d55abccec1ec4aafc"
+    },
+    {
+      "path": "bench/samples/inline-newlines.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "068a807d91761121cbd7f597c5c0e7686f8f0ac3",
+      "size": 140,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/068a807d91761121cbd7f597c5c0e7686f8f0ac3"
+    },
+    {
+      "path": "bench/samples/lorem1.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eccb898b66437228fb05a6238d347f536c4c0d2a",
+      "size": 3789,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/eccb898b66437228fb05a6238d347f536c4c0d2a"
+    },
+    {
+      "path": "bench/samples/rawtabs.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dc989ea75e12803a4e76e55206acd8131e7aa38d",
+      "size": 295,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/dc989ea75e12803a4e76e55206acd8131e7aa38d"
+    },
+    {
+      "path": "bench/statistics.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "25a26d4aa713bfe8551667d4dc86a57aff2b66ea",
+      "size": 17859,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/25a26d4aa713bfe8551667d4dc86a57aff2b66ea"
+    },
+    {
+      "path": "bench/stats.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c244b419f66624bd2d2d2d3cb028d1f65edabc22",
+      "size": 491,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/c244b419f66624bd2d2d2d3cb028d1f65edabc22"
+    },
+    {
+      "path": "benchmarks.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec96f6efe4118963c0f064630bc4bc771263b739",
+      "size": 1270,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/ec96f6efe4118963c0f064630bc4bc771263b739"
+    },
+    {
+      "path": "changelog.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "94e8a19fde303bcfba6b896f3cd23f34bffd29b0",
+      "size": 62293,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/94e8a19fde303bcfba6b896f3cd23f34bffd29b0"
+    },
+    {
+      "path": "data",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8baa978e6a8d5c655c1d050f1ae43904b89a9461",
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/trees/8baa978e6a8d5c655c1d050f1ae43904b89a9461"
+    },
+    {
+      "path": "data/CaseFolding.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "372ee68bd814c030abfbcd5fe865a449a60538f7",
+      "size": 78161,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/372ee68bd814c030abfbcd5fe865a449a60538f7"
+    },
+    {
+      "path": "extensions",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "777075117131abad443cf211e04783c96114f4d7",
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/trees/777075117131abad443cf211e04783c96114f4d7"
+    },
+    {
+      "path": "extensions/CMakeLists.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e545b6d6ff055adf78e27e90cb607697b7f80b1b",
+      "size": 3446,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/e545b6d6ff055adf78e27e90cb607697b7f80b1b"
+    },
+    {
+      "path": "extensions/autolink.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dff00413bd5c8d0259a7efba3c5060a87e0b9b8f",
+      "size": 15429,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/dff00413bd5c8d0259a7efba3c5060a87e0b9b8f"
+    },
+    {
+      "path": "extensions/autolink.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4e179379dd9266a806648e15ffb116a5582f2678",
+      "size": 164,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/4e179379dd9266a806648e15ffb116a5582f2678"
+    },
+    {
+      "path": "extensions/cmark-gfm-core-extensions.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bc29ffd416b165e38e894f967b7371ca4f365ae4",
+      "size": 1601,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/bc29ffd416b165e38e894f967b7371ca4f365ae4"
+    },
+    {
+      "path": "extensions/core-extensions.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "846e2bc2b2f5745ef25e076863a6920c2a4f221d",
+      "size": 904,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/846e2bc2b2f5745ef25e076863a6920c2a4f221d"
+    },
+    {
+      "path": "extensions/ext_scanners.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0d3ba28814e9f5b6bf35cc18fc36baf9ca8ae897",
+      "size": 20246,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/0d3ba28814e9f5b6bf35cc18fc36baf9ca8ae897"
+    },
+    {
+      "path": "extensions/ext_scanners.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6dd4a725d3d9953da39aa03dad3aa5b7dbdbbed7",
+      "size": 900,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/6dd4a725d3d9953da39aa03dad3aa5b7dbdbbed7"
+    },
+    {
+      "path": "extensions/ext_scanners.re",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9144e5b4821d93968be6f110f7222a57d8370ba6",
+      "size": 2219,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/9144e5b4821d93968be6f110f7222a57d8370ba6"
+    },
+    {
+      "path": "extensions/strikethrough.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e088422427409bf7595b55b4c09e78e87744cd00",
+      "size": 5855,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/e088422427409bf7595b55b4c09e78e87744cd00"
+    },
+    {
+      "path": "extensions/strikethrough.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a52a2b4ac867ab9a7393a2c767ace79b3dd15fc6",
+      "size": 228,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/a52a2b4ac867ab9a7393a2c767ace79b3dd15fc6"
+    },
+    {
+      "path": "extensions/table.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e8359f2597d35331758cc6dc0b986d8a3189f4af",
+      "size": 31192,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/e8359f2597d35331758cc6dc0b986d8a3189f4af"
+    },
+    {
+      "path": "extensions/table.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f6a0634f02629c0223c4ddd7a3a037baa08b40a7",
+      "size": 247,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/f6a0634f02629c0223c4ddd7a3a037baa08b40a7"
+    },
+    {
+      "path": "extensions/tagfilter.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "262352e0c4c2537d3b43913c4394a269f42ba976",
+      "size": 1250,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/262352e0c4c2537d3b43913c4394a269f42ba976"
+    },
+    {
+      "path": "extensions/tagfilter.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a5f388d4e20dbc2c7180beb80b2f179afb896ff",
+      "size": 167,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/9a5f388d4e20dbc2c7180beb80b2f179afb896ff"
+    },
+    {
+      "path": "extensions/tasklist.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7bef454997670213df597044a9922d09858d0268",
+      "size": 5470,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/7bef454997670213df597044a9922d09858d0268"
+    },
+    {
+      "path": "extensions/tasklist.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "26e9d96d25b7a51ea2faba2383312fde3a1ebac9",
+      "size": 144,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/26e9d96d25b7a51ea2faba2383312fde3a1ebac9"
+    },
+    {
+      "path": "fuzz",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4c9a04e0aa0660a3b8cf791cfdcb942bc335c72a",
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/trees/4c9a04e0aa0660a3b8cf791cfdcb942bc335c72a"
+    },
+    {
+      "path": "fuzz/CMakeLists.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a9ed57aa57bacc79907698bdeb13bc90e73b8f6d",
+      "size": 597,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/a9ed57aa57bacc79907698bdeb13bc90e73b8f6d"
+    },
+    {
+      "path": "fuzz/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f77da2af3a12062f224303617d91078d02450c4b",
+      "size": 391,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/f77da2af3a12062f224303617d91078d02450c4b"
+    },
+    {
+      "path": "fuzz/fuzz_quadratic.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "523c0f444ac09f95296028812a3acef16e1efe17",
+      "size": 3284,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/523c0f444ac09f95296028812a3acef16e1efe17"
+    },
+    {
+      "path": "fuzz/fuzz_quadratic_brackets.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c1646464774ea9f0c4e4fcb916ea00546af421c",
+      "size": 3807,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/5c1646464774ea9f0c4e4fcb916ea00546af421c"
+    },
+    {
+      "path": "fuzz/fuzzloop.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "ff4a01b07296e60c3ab9b0af56e5987180af6b5a",
+      "size": 734,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/ff4a01b07296e60c3ab9b0af56e5987180af6b5a"
+    },
+    {
+      "path": "man",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3305ef817c0c4b9f090e559bd4cac08f3d6d761c",
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/trees/3305ef817c0c4b9f090e559bd4cac08f3d6d761c"
+    },
+    {
+      "path": "man/CMakeLists.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d0c5b60663cbb60b4d3cd211ebdb2b0e1c98abeb",
+      "size": 271,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/d0c5b60663cbb60b4d3cd211ebdb2b0e1c98abeb"
+    },
+    {
+      "path": "man/make_man_page.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d95620252c5d6bc3827fa07735146e45ac1ca18c",
+      "size": 4708,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/d95620252c5d6bc3827fa07735146e45ac1ca18c"
+    },
+    {
+      "path": "man/man1",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fe8ad1b39a4f3ae9b17966e82a05631b783a3855",
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/trees/fe8ad1b39a4f3ae9b17966e82a05631b783a3855"
+    },
+    {
+      "path": "man/man1/cmark-gfm.1",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4fca627324a66de5d166d97b33b1ed4b828228ce",
+      "size": 2599,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/4fca627324a66de5d166d97b33b1ed4b828228ce"
+    },
+    {
+      "path": "man/man3",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fbd48eb2df676f254c8c049b156c9db6881dcd58",
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/trees/fbd48eb2df676f254c8c049b156c9db6881dcd58"
+    },
+    {
+      "path": "man/man3/cmark-gfm.3",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "001b7c7078ef2fb19403b625de039c63ebeeb507",
+      "size": 24412,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/001b7c7078ef2fb19403b625de039c63ebeeb507"
+    },
+    {
+      "path": "nmake.bat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cd4045326c251423aa7867be02f09d66ddba58b1",
+      "size": 41,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/cd4045326c251423aa7867be02f09d66ddba58b1"
+    },
+    {
+      "path": "src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6afa3418281a9378ded829a720b069dad098e6de",
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/trees/6afa3418281a9378ded829a720b069dad098e6de"
+    },
+    {
+      "path": "src/CMakeLists.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "84dd2a0379cf90d9e81fe95be6e9bd1cdf76dd6b",
+      "size": 6162,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/84dd2a0379cf90d9e81fe95be6e9bd1cdf76dd6b"
+    },
+    {
+      "path": "src/arena.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "da1a70e92400235a611c08d3bc9928abd3c9e0a0",
+      "size": 2193,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/da1a70e92400235a611c08d3bc9928abd3c9e0a0"
+    },
+    {
+      "path": "src/blocks.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3b5da56bf358ab82a843de4db8f153d59ff355d2",
+      "size": 50856,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/3b5da56bf358ab82a843de4db8f153d59ff355d2"
+    },
+    {
+      "path": "src/buffer.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7934e57d88c6e248d191ee5e66ee6c7ea81d7c6",
+      "size": 6511,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/c7934e57d88c6e248d191ee5e66ee6c7ea81d7c6"
+    },
+    {
+      "path": "src/buffer.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b85bb440674608a5386126d2f092aa6289a011a1",
+      "size": 2754,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/b85bb440674608a5386126d2f092aa6289a011a1"
+    },
+    {
+      "path": "src/case_fold_switch.inc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "28e223e14dcd0dba2070f5d0cbb2dc6dd6dc4bd1",
+      "size": 86103,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/28e223e14dcd0dba2070f5d0cbb2dc6dd6dc4bd1"
+    },
+    {
+      "path": "src/chunk.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c411c04a4fbc20ff4011ed8ac60fd3e3e3b1909e",
+      "size": 3361,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/c411c04a4fbc20ff4011ed8ac60fd3e3e3b1909e"
+    },
+    {
+      "path": "src/cmark-gfm-extension_api.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb92a59bffe7b3a7cc9db3cbfb87fe189190b5f8",
+      "size": 27201,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/bb92a59bffe7b3a7cc9db3cbfb87fe189190b5f8"
+    },
+    {
+      "path": "src/cmark-gfm.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0544057a55ea242513a33eed64aee01d14e9efee",
+      "size": 26571,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/0544057a55ea242513a33eed64aee01d14e9efee"
+    },
+    {
+      "path": "src/cmark-gfm_version.h.in",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0847d00955519b8bfb6c175e97e16bd66d88f0dd",
+      "size": 349,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/0847d00955519b8bfb6c175e97e16bd66d88f0dd"
+    },
+    {
+      "path": "src/cmark.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "68c40c477eacf2fed4313720284a59dc3d842ec5",
+      "size": 1325,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/68c40c477eacf2fed4313720284a59dc3d842ec5"
+    },
+    {
+      "path": "src/cmark_ctype.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c0c4d5b037b7750c3441aee13fa59d8fda28483e",
+      "size": 1745,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/c0c4d5b037b7750c3441aee13fa59d8fda28483e"
+    },
+    {
+      "path": "src/cmark_ctype.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "67c1cb037e3c68703ff274d0f0f26b10d5acb8d2",
+      "size": 523,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/67c1cb037e3c68703ff274d0f0f26b10d5acb8d2"
+    },
+    {
+      "path": "src/commonmark.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "987b47318c88643d6f423403d2fb92306638f375",
+      "size": 14373,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/987b47318c88643d6f423403d2fb92306638f375"
+    },
+    {
+      "path": "src/config.h.in",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "de1a4dd493d408732f13d8c3c75d76f80f3b03b3",
+      "size": 1408,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/de1a4dd493d408732f13d8c3c75d76f80f3b03b3"
+    },
+    {
+      "path": "src/entities.inc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a7c36e26da0b5318049feda1a595335a7d2a795e",
+      "size": 102718,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/a7c36e26da0b5318049feda1a595335a7d2a795e"
+    },
+    {
+      "path": "src/footnotes.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c2b745f797682f2957a362a7d9b872aab23d92f0",
+      "size": 1784,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/c2b745f797682f2957a362a7d9b872aab23d92f0"
+    },
+    {
+      "path": "src/footnotes.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64e2901e353bddcad21bcc83553d915fec7fb624",
+      "size": 450,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/64e2901e353bddcad21bcc83553d915fec7fb624"
+    },
+    {
+      "path": "src/houdini.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7625b045b46305eab9821051e311462505842a09",
+      "size": 1546,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/7625b045b46305eab9821051e311462505842a09"
+    },
+    {
+      "path": "src/houdini_href_e.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "16938919797642919acca4b6f0e7da73971abd54",
+      "size": 3015,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/16938919797642919acca4b6f0e7da73971abd54"
+    },
+    {
+      "path": "src/houdini_html_e.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "da0b15c53a38674aea190248044f37edeab141f9",
+      "size": 2096,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/da0b15c53a38674aea190248044f37edeab141f9"
+    },
+    {
+      "path": "src/houdini_html_u.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "30d08aa4a4a47bad47ec4803a8f00b36d6e12a6b",
+      "size": 3566,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/30d08aa4a4a47bad47ec4803a8f00b36d6e12a6b"
+    },
+    {
+      "path": "src/html.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22513c939bf3980c960aee9cb2f294441b1661f4",
+      "size": 15544,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/22513c939bf3980c960aee9cb2f294441b1661f4"
+    },
+    {
+      "path": "src/html.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aeba7bcdad22d0083a69cff759b0853931874c8c",
+      "size": 722,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/aeba7bcdad22d0083a69cff759b0853931874c8c"
+    },
+    {
+      "path": "src/inlines.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "30f2c1700b33a3a7c3cb596087f506cf700f920f",
+      "size": 56340,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/30f2c1700b33a3a7c3cb596087f506cf700f920f"
+    },
+    {
+      "path": "src/inlines.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7dd91bf52e7d9f7719f578f51a390f7776cfd786",
+      "size": 761,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/7dd91bf52e7d9f7719f578f51a390f7776cfd786"
+    },
+    {
+      "path": "src/iterator.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "13fdb7616561b33f5eda72c67d13835e6df1bca5",
+      "size": 4455,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/13fdb7616561b33f5eda72c67d13835e6df1bca5"
+    },
+    {
+      "path": "src/iterator.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47e10e57b7fb8b0e15b44d47cee13a32b7a146ca",
+      "size": 348,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/47e10e57b7fb8b0e15b44d47cee13a32b7a146ca"
+    },
+    {
+      "path": "src/latex.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a6367a4ee0cccf37702314d7b71a5b7c74da6e8",
+      "size": 11070,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/1a6367a4ee0cccf37702314d7b71a5b7c74da6e8"
+    },
+    {
+      "path": "src/libcmark-gfm.pc.in",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "46fff31a23bb643a8fec3abab7260319b05651c1",
+      "size": 372,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/46fff31a23bb643a8fec3abab7260319b05651c1"
+    },
+    {
+      "path": "src/linked_list.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c26dc55753fd5ccf870aa522288e57b4a28791f",
+      "size": 769,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/8c26dc55753fd5ccf870aa522288e57b4a28791f"
+    },
+    {
+      "path": "src/main.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a62c4f2cad9cbab6e5e5c4e32a768c0c36112873",
+      "size": 9854,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/a62c4f2cad9cbab6e5e5c4e32a768c0c36112873"
+    },
+    {
+      "path": "src/man.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "634fd9d0f9714a171e27af73cdd867c4c7a01221",
+      "size": 6174,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/634fd9d0f9714a171e27af73cdd867c4c7a01221"
+    },
+    {
+      "path": "src/map.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f60f8fc608bcbccf2f1401659c71a09290e46e5c",
+      "size": 3077,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/f60f8fc608bcbccf2f1401659c71a09290e46e5c"
+    },
+    {
+      "path": "src/map.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cc9b1f30c36cbd6b9142458905f3d34ac5c8aef2",
+      "size": 850,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/cc9b1f30c36cbd6b9142458905f3d34ac5c8aef2"
+    },
+    {
+      "path": "src/node.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7a9606d512176a159ab5a874f5388f41dd59a2d",
+      "size": 22237,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/e7a9606d512176a159ab5a874f5388f41dd59a2d"
+    },
+    {
+      "path": "src/node.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "73ca76053c1606c595108883177b75bda855f778",
+      "size": 4066,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/73ca76053c1606c595108883177b75bda855f778"
+    },
+    {
+      "path": "src/parser.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "436c53f5bf4effed771e043ad0441e54b75028a0",
+      "size": 1920,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/436c53f5bf4effed771e043ad0441e54b75028a0"
+    },
+    {
+      "path": "src/plaintext.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c7d257b3fff432a192dae953d09b9168ca4f1c6",
+      "size": 5889,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/0c7d257b3fff432a192dae953d09b9168ca4f1c6"
+    },
+    {
+      "path": "src/plugin.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3992fe197071cbbe9de0b9e7c02e91efe79694eb",
+      "size": 1008,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/3992fe197071cbbe9de0b9e7c02e91efe79694eb"
+    },
+    {
+      "path": "src/plugin.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7bcbd19a221be34662c8e0b4c1535a62237ac7b1",
+      "size": 511,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/7bcbd19a221be34662c8e0b4c1535a62237ac7b1"
+    },
+    {
+      "path": "src/references.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c9d3995ca330ddfa07d0639ba5090ffdafbd6ee",
+      "size": 1227,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/0c9d3995ca330ddfa07d0639ba5090ffdafbd6ee"
+    },
+    {
+      "path": "src/references.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "def944dc77816d0fa4ec5fd09f86586457b4fb4e",
+      "size": 476,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/def944dc77816d0fa4ec5fd09f86586457b4fb4e"
+    },
+    {
+      "path": "src/registry.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f4f2040d6aeb9e870422bb7711c297d2031c1eb5",
+      "size": 1598,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/f4f2040d6aeb9e870422bb7711c297d2031c1eb5"
+    },
+    {
+      "path": "src/registry.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fece2b63f53b7e96dab2534366ac94d8b73df65a",
+      "size": 377,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/fece2b63f53b7e96dab2534366ac94d8b73df65a"
+    },
+    {
+      "path": "src/render.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a0d2ae8dd6c212eae81b2a9a1944a6593cb695a",
+      "size": 7250,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/1a0d2ae8dd6c212eae81b2a9a1944a6593cb695a"
+    },
+    {
+      "path": "src/render.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a68d1e076d1e18840f780110711171f4e7c8504",
+      "size": 1673,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/4a68d1e076d1e18840f780110711171f4e7c8504"
+    },
+    {
+      "path": "src/scanners.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "19720601de2141909a3ed7815e2642fcbb82f7ab",
+      "size": 288995,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/19720601de2141909a3ed7815e2642fcbb82f7ab"
+    },
+    {
+      "path": "src/scanners.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7e6a10aebdad3cbc23d7aa54fb10b1e2d51572dd",
+      "size": 3504,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/7e6a10aebdad3cbc23d7aa54fb10b1e2d51572dd"
+    },
+    {
+      "path": "src/scanners.re",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ac4b9cf4ca023e0b24522fd2d5d3b04cb26d6d9b",
+      "size": 9975,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/ac4b9cf4ca023e0b24522fd2d5d3b04cb26d6d9b"
+    },
+    {
+      "path": "src/syntax_extension.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d24fe43e69937e1df405c68d1283a5f8d8c2d7b5",
+      "size": 5738,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/d24fe43e69937e1df405c68d1283a5f8d8c2d7b5"
+    },
+    {
+      "path": "src/syntax_extension.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a5fe11e57b83f5aab1ec42e5d7f0e83167c749ed",
+      "size": 1387,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/a5fe11e57b83f5aab1ec42e5d7f0e83167c749ed"
+    },
+    {
+      "path": "src/utf8.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c29bbf770b4d87f3833fbd73c47ad916f3564075",
+      "size": 10121,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/c29bbf770b4d87f3833fbd73c47ad916f3564075"
+    },
+    {
+      "path": "src/utf8.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "04ec1611b8663bf2c3f7b787d992b86a3bb34dc4",
+      "size": 727,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/04ec1611b8663bf2c3f7b787d992b86a3bb34dc4"
+    },
+    {
+      "path": "src/xml.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5753e5ab98f8768c1ac704c402d9a93e11b592ff",
+      "size": 5796,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/5753e5ab98f8768c1ac704c402d9a93e11b592ff"
+    },
+    {
+      "path": "suppressions",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d03ae85320df94a966cc138bac10fa7eca93ede0",
+      "size": 116,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/d03ae85320df94a966cc138bac10fa7eca93ede0"
+    },
+    {
+      "path": "test",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7b6da227d48acc51a17255984282420bfb447f2f",
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/trees/7b6da227d48acc51a17255984282420bfb447f2f"
+    },
+    {
+      "path": "test/CMakeLists.txt",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "2b5c99bc5559b330e5a95d4893d8529d7a88ce2d",
+      "size": 4231,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/2b5c99bc5559b330e5a95d4893d8529d7a88ce2d"
+    },
+    {
+      "path": "test/afl_test_cases",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2502687a602a563319dc13e8508762a5966f3cc8",
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/trees/2502687a602a563319dc13e8508762a5966f3cc8"
+    },
+    {
+      "path": "test/afl_test_cases/test.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4156a2aef1819896e28273afe864e5e6eac1f49d",
+      "size": 382,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/4156a2aef1819896e28273afe864e5e6eac1f49d"
+    },
+    {
+      "path": "test/cmark-fuzz.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0a6dc3da9ac77722cb2712f45c65211231e5175d",
+      "size": 1828,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/0a6dc3da9ac77722cb2712f45c65211231e5175d"
+    },
+    {
+      "path": "test/cmark.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b0eb20dbe2af6cacfac0aa46856a373d0e03ba08",
+      "size": 4167,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/b0eb20dbe2af6cacfac0aa46856a373d0e03ba08"
+    },
+    {
+      "path": "test/entity_tests.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3abb3b8c02d29cb0ebf67c88405ada16788f5b66",
+      "size": 1800,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/3abb3b8c02d29cb0ebf67c88405ada16788f5b66"
+    },
+    {
+      "path": "test/extensions-full-info-string.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aeb4f445dafd0f28101dc1220033c885eb1662bb",
+      "size": 1527,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/aeb4f445dafd0f28101dc1220033c885eb1662bb"
+    },
+    {
+      "path": "test/extensions-table-prefer-style-attributes.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0379def1b95987530b4d7b8a0f99f0e6275a043b",
+      "size": 741,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/0379def1b95987530b4d7b8a0f99f0e6275a043b"
+    },
+    {
+      "path": "test/extensions.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "19c06d5fa3f38f66d8cade579136bb37870362af",
+      "size": 21274,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/19c06d5fa3f38f66d8cade579136bb37870362af"
+    },
+    {
+      "path": "test/fuzzing_dictionary",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "448c448f104f379316f8ccfa76e888943208b7ab",
+      "size": 1267,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/448c448f104f379316f8ccfa76e888943208b7ab"
+    },
+    {
+      "path": "test/normalize.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b7fd9b2455dae9b97f3ca993c1ae39e5b246b6bd",
+      "size": 6508,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/b7fd9b2455dae9b97f3ca993c1ae39e5b246b6bd"
+    },
+    {
+      "path": "test/pathological_tests.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d0e910c5ee995669f8fb5eeea18c71eef075401a",
+      "size": 5778,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/d0e910c5ee995669f8fb5eeea18c71eef075401a"
+    },
+    {
+      "path": "test/regression.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ec493d3dab616df4d594246ee5e381b8ef6236f",
+      "size": 10806,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/0ec493d3dab616df4d594246ee5e381b8ef6236f"
+    },
+    {
+      "path": "test/roundtrip_tests.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4fe817fd67a10f02071538e259b9c62a4f2c1735",
+      "size": 2199,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/4fe817fd67a10f02071538e259b9c62a4f2c1735"
+    },
+    {
+      "path": "test/run-cmark-fuzz",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "75100b8b16b5226e2ccda9d8f6683731b0e7dd8b",
+      "size": 165,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/75100b8b16b5226e2ccda9d8f6683731b0e7dd8b"
+    },
+    {
+      "path": "test/smart_punct.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fd55e6227b9fcfe8a6dd4fb93fc9196d71996470",
+      "size": 4175,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/fd55e6227b9fcfe8a6dd4fb93fc9196d71996470"
+    },
+    {
+      "path": "test/spec.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d42f3369ec269414f5285e1270fcf1fc488b1c07",
+      "size": 216680,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/d42f3369ec269414f5285e1270fcf1fc488b1c07"
+    },
+    {
+      "path": "test/spec_tests.py",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "194c51043b2c64077862c5fe9235f17adde66a18",
+      "size": 6427,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/194c51043b2c64077862c5fe9235f17adde66a18"
+    },
+    {
+      "path": "toolchain-mingw32.cmake",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c1c6971d9f286fd50a8b70636916cac4de9e4b86",
+      "size": 664,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/c1c6971d9f286fd50a8b70636916cac4de9e4b86"
+    },
+    {
+      "path": "tools",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "48bc6d2a7ec02c3ec8af74c8f4e5bf67ced01473",
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/trees/48bc6d2a7ec02c3ec8af74c8f4e5bf67ced01473"
+    },
+    {
+      "path": "tools/Dockerfile",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "99248e354491c8293749209d115b16406d9ca9ef",
+      "size": 820,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/99248e354491c8293749209d115b16406d9ca9ef"
+    },
+    {
+      "path": "tools/appveyor-build.bat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "73d555b52b037830de7e9138dab0b4846f1def3b",
+      "size": 253,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/73d555b52b037830de7e9138dab0b4846f1def3b"
+    },
+    {
+      "path": "tools/make_entities_inc.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b8ee4113e4bfb0875fc1209be0e8d9d7e55e01e",
+      "size": 957,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/7b8ee4113e4bfb0875fc1209be0e8d9d7e55e01e"
+    },
+    {
+      "path": "tools/mkcasefold.pl",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "740ce77a60362e656b7a17dc8ba78be4d7af142f",
+      "size": 525,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/740ce77a60362e656b7a17dc8ba78be4d7af142f"
+    },
+    {
+      "path": "tools/xml2md.xsl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0122e5f7128683d1374a3b7ab6bcdca2609a7f7a",
+      "size": 10028,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/0122e5f7128683d1374a3b7ab6bcdca2609a7f7a"
+    },
+    {
+      "path": "tools/xml2md_gfm.xsl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d564b5c134f50bf042e3135a3c66c3911b01a115",
+      "size": 1910,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/d564b5c134f50bf042e3135a3c66c3911b01a115"
+    },
+    {
+      "path": "why-cmark-and-not-x.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3fdb4e57a901c40788fbd53e83f32929bf0c9c09",
+      "size": 1590,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/3fdb4e57a901c40788fbd53e83f32929bf0c9c09"
+    },
+    {
+      "path": "wrappers",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "256ca831a19fd31a32f383ddf5b3bcb75f72fdd7",
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/trees/256ca831a19fd31a32f383ddf5b3bcb75f72fdd7"
+    },
+    {
+      "path": "wrappers/wrapper.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0a9b8b5be30b0979e6e0171171be4d62d41a6636",
+      "size": 102,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/0a9b8b5be30b0979e6e0171171be4d62d41a6636"
+    },
+    {
+      "path": "wrappers/wrapper.py",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "98e7f2b4697f3282187b061ed4b3324522f033b6",
+      "size": 913,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/98e7f2b4697f3282187b061ed4b3324522f033b6"
+    },
+    {
+      "path": "wrappers/wrapper.rb",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "2359366f347b3e7ef5b20f97d329883de345f466",
+      "size": 316,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/2359366f347b3e7ef5b20f97d329883de345f466"
+    },
+    {
+      "path": "wrappers/wrapper.rkt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ecce17f32ea10b480c26727fb1139add1a91143",
+      "size": 8625,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/1ecce17f32ea10b480c26727fb1139add1a91143"
+    },
+    {
+      "path": "wrappers/wrapper_ext.py",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "f08cc20767e1777101c00617281008538d4cc715",
+      "size": 3310,
+      "url": "https://api.github.com/repos/github/cmark-gfm/git/blobs/f08cc20767e1777101c00617281008538d4cc715"
+    }
+  ],
+  "truncated": false
+}

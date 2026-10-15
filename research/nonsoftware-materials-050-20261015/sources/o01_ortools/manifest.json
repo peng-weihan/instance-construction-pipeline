@@ -1,0 +1,51 @@
+{
+  "repo": "google/or-tools",
+  "revision": "100f66e6242ab8bf8d32feb8f3bf086db66ae2b5",
+  "resolved_utc": "2026-10-15T14:59:33.825826+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:02:03.436945+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "c182ea9f78d34f3045fd8f20c5f0660926b28686ba5878d978fafb6899b41071",
+    "truncated": false,
+    "blob_count": 4842
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "url": "https://github.com/google/or-tools/blob/100f66e6242ab8bf8d32feb8f3bf086db66ae2b5/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6063,
+      "sha256": "d4bcafffc5c1e42789bcf07143240de0bcf8e13ea08fa5f220f7a967d608af8c",
+      "url": "https://github.com/google/or-tools/blob/100f66e6242ab8bf8d32feb8f3bf086db66ae2b5/README.md"
+    },
+    {
+      "path": "examples/python/jobshop_ft06_distance_sat.py",
+      "bytes": 4766,
+      "sha256": "336c0ac395b70a3cb562bb3cedf11dcb0c3a3501c28f01b926f81a19d90e52b7",
+      "url": "https://github.com/google/or-tools/blob/100f66e6242ab8bf8d32feb8f3bf086db66ae2b5/examples/python/jobshop_ft06_distance_sat.py"
+    },
+    {
+      "path": "examples/python/jobshop_with_maintenance_sat.py",
+      "bytes": 5829,
+      "sha256": "49374f395dea4c2e8cde8e8e3021bd6ae146a8bc100005e4d8009dc9bf38bbd9",
+      "url": "https://github.com/google/or-tools/blob/100f66e6242ab8bf8d32feb8f3bf086db66ae2b5/examples/python/jobshop_with_maintenance_sat.py"
+    },
+    {
+      "path": "ortools/sat/samples/minimal_jobshop_sat.py",
+      "bytes": 5483,
+      "sha256": "8294515355a8dc6929994e4ea08b4fee7b276088917c0f9a6b1b08a409e22f1c",
+      "url": "https://github.com/google/or-tools/blob/100f66e6242ab8bf8d32feb8f3bf086db66ae2b5/ortools/sat/samples/minimal_jobshop_sat.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

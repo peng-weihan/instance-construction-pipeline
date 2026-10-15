@@ -1,0 +1,9 @@
+{
+  "valid": false,
+  "score": null,
+  "pass_rate": null,
+  "summary": "infrastructure failure: RuntimeError('promised cargo missing')",
+  "checks": [],
+  "metrics": {},
+  "execution_context": "host_assistance_unisolated"
+}

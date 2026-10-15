@@ -1,0 +1,28 @@
+{
+  "source_vintage": "This file was created using the 202608 CRSP database.",
+  "units": "decimal simple returns",
+  "missing_sentinels": [
+    -99.99,
+    -999
+  ],
+  "missing_policy": "discard date only if any nonzero mandate asset missing; report all discarded dates; never zero-impute",
+  "splits": {
+    "public": {
+      "rows": 6553,
+      "first": "19900102",
+      "last": "20151231"
+    },
+    "feedback": {
+      "rows": 1006,
+      "first": "20160104",
+      "last": "20191231"
+    },
+    "final": {
+      "rows": 1508,
+      "first": "20200102",
+      "last": "20251231"
+    }
+  },
+  "evaluation": "roll 21-trading-day nonoverlapping windows wholly inside each split; all data earlier than origin may be history, no future rows",
+  "history_rule": "verifier supplies at least 756 preceding trading days; model may use all supplied history"
+}

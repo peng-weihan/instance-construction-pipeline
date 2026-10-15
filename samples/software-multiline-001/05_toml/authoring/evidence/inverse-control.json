@@ -1,0 +1,16 @@
+{
+  "command": [
+    "patch",
+    "-p1",
+    "-i",
+    "solution/restore.patch"
+  ],
+  "exit_code": 0,
+  "stdout": "patching file 'crates/toml_edit/src/encode.rs'\npatching file 'crates/toml_parser/src/decoder/string.rs'\npatching file 'crates/toml_writer/src/string.rs'\n",
+  "stderr": "",
+  "matches_upstream": {
+    "crates/toml_edit/src/encode.rs": true,
+    "crates/toml_parser/src/decoder/string.rs": true,
+    "crates/toml_writer/src/string.rs": true
+  }
+}

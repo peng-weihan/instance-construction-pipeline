@@ -1,0 +1,75 @@
+{
+  "repo": "graphql/graphql-js",
+  "revision": "e35a025d6e947ed2db0c1378e130f2bd0438732c",
+  "resolved_utc": "2026-10-15T13:30:29.250933+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:32:10.284149+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "d0b9932dba3f1686a6b800610d534a4c7287682afae9ef62c7ca22ca1d3a8da5",
+    "truncated": false,
+    "blob_count": 644
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 1072,
+      "sha256": "35a11da7e877009ddc57405844209908cfc567adda0ec1daf410368c9f5b0d01",
+      "url": "https://github.com/graphql/graphql-js/blob/e35a025d6e947ed2db0c1378e130f2bd0438732c/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7638,
+      "sha256": "e9c65e895181cf18bd62a367549cfcc4d8a584712316382b31a85fadd1fc04b7",
+      "url": "https://github.com/graphql/graphql-js/blob/e35a025d6e947ed2db0c1378e130f2bd0438732c/README.md"
+    },
+    {
+      "path": "package.json",
+      "bytes": 3505,
+      "sha256": "ebf27858990ee3fc8cd4239574e1256402e5cceb2d8cff2e19078ab894303ae2",
+      "url": "https://github.com/graphql/graphql-js/blob/e35a025d6e947ed2db0c1378e130f2bd0438732c/package.json"
+    },
+    {
+      "path": "src/execution/Executor.ts",
+      "bytes": 43172,
+      "sha256": "063b34d54cdc87a58bdce26ddff591a323be4badaaf4dd85f42a3fefee4598f3",
+      "url": "https://github.com/graphql/graphql-js/blob/e35a025d6e947ed2db0c1378e130f2bd0438732c/src/execution/Executor.ts"
+    },
+    {
+      "path": "src/execution/__tests__/nonnull-test.ts",
+      "bytes": 24266,
+      "sha256": "04f98512dfe8c445dc9efde11dbb89fd95f10bbd3110876744e73dbd7720d03b",
+      "url": "https://github.com/graphql/graphql-js/blob/e35a025d6e947ed2db0c1378e130f2bd0438732c/src/execution/__tests__/nonnull-test.ts"
+    },
+    {
+      "path": "src/execution/__tests__/subscribe-test.ts",
+      "bytes": 33196,
+      "sha256": "53b1dcf439307d678eec92226758541dc672459735a17b4d8528b352fea41d23",
+      "url": "https://github.com/graphql/graphql-js/blob/e35a025d6e947ed2db0c1378e130f2bd0438732c/src/execution/__tests__/subscribe-test.ts"
+    },
+    {
+      "path": "src/execution/collectFields.ts",
+      "bytes": 12410,
+      "sha256": "bfecad1bd8269f48dd5c7950b46cc5274d62ac6bdc7c7beaa1c6c4d9789efef0",
+      "url": "https://github.com/graphql/graphql-js/blob/e35a025d6e947ed2db0c1378e130f2bd0438732c/src/execution/collectFields.ts"
+    },
+    {
+      "path": "src/execution/execute.ts",
+      "bytes": 39682,
+      "sha256": "3e362fee27f4c2640d2f561f238078c9ecc11455971ae6d672bc10134b67e7fd",
+      "url": "https://github.com/graphql/graphql-js/blob/e35a025d6e947ed2db0c1378e130f2bd0438732c/src/execution/execute.ts"
+    },
+    {
+      "path": "src/validation/validate.ts",
+      "bytes": 7581,
+      "sha256": "15d69cd2672350a710c4979ecc1fad13f7e2c6a39c72377e7d0e19cc67f9e0eb",
+      "url": "https://github.com/graphql/graphql-js/blob/e35a025d6e947ed2db0c1378e130f2bd0438732c/src/validation/validate.ts"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

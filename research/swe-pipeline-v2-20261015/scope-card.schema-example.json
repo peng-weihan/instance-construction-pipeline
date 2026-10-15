@@ -1,0 +1,37 @@
+{
+  "_notice": "Schema example only, not evidence and not a constructed task. Replace placeholders with actual file hashes and actual executed reports. Do not copy example scores into results.",
+  "route": "M1",
+  "source": {"repo": "owner/project", "revision": "REPLACE_WITH_40_HEX", "license": "ACTUAL_LICENSE"},
+  "anchors": ["schemathesis_datagen_pipeline"],
+  "system_boundary": "Describe the complete product/system/subsystem being delivered, not repository size.",
+  "provided_components": ["List working starter capabilities students receive"],
+  "missing_capabilities": ["List all substantive implementation still required"],
+  "requirements": [
+    {"id": "R1", "behavior": "Precise externally observable capability", "production_modules": ["production/source/module"], "acceptance": "Actual behavioral test or metric", "milestone": "a usable product capability", "evidence_ids": ["source-contract"]}
+  ],
+  "integration_scenarios": [{"id": "I1", "requirements": ["R1"], "behavior": "Concrete end-to-end state transition"}],
+  "late_work_paths": [
+    {"capability": "First remaining product/algorithm improvement", "prerequisites": ["R1"], "artifact": "Source/plan/implementation that can be snapshotted", "metric_effect": "Which declared raw metric or behavior would improve"},
+    {"capability": "Second genuinely different improvement", "prerequisites": ["R1"], "artifact": "Concrete snapshot artifact", "metric_effect": "Which declared raw metric or behavior would improve"}
+  ],
+  "shortcut_probes": [{"strategy": "Strongest ordinary configuration/wrapper/library", "result": "Actual boundary; say probe_only if not fully scored", "evidence_id": "baseline-report"}],
+  "evidence": [
+    {"id": "source-contract", "path": "evidence/source-contract.txt", "sha256": "REPLACE_WITH_REAL_SHA256"},
+    {"id": "score-contract", "path": "task/authoring/score-spec.json", "sha256": "REPLACE_WITH_REAL_SHA256"},
+    {"id": "starter-report", "path": "evidence/starter/score.json", "sha256": "REPLACE_WITH_REAL_SHA256"},
+    {"id": "reference-report", "path": "evidence/reference/score.json", "sha256": "REPLACE_WITH_REAL_SHA256"},
+    {"id": "baseline-report", "path": "evidence/independent-baseline/score.json", "sha256": "REPLACE_WITH_REAL_SHA256"}
+  ],
+  "controls": [
+    {"role": "starter", "report_evidence_id": "starter-report", "provenance": "starter"},
+    {"role": "reference", "report_evidence_id": "reference-report", "provenance": "reference"},
+    {"role": "independent_baseline", "report_evidence_id": "baseline-report", "provenance": "independent"}
+  ],
+  "scoring": {
+    "active_ceiling": 1,
+    "direction": "higher_is_better",
+    "formula": "Actual formula matching authoritative grader and score-spec; retain raw metrics",
+    "spec_evidence_id": "score-contract",
+    "performance": {"enabled": false, "formula": null, "measured_anchors": null}
+  }
+}

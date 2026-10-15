@@ -1,0 +1,75 @@
+{
+  "repo": "apache/apisix",
+  "revision": "64a4afdd1353bd302f03cc8f0f780b8a78176137",
+  "resolved_utc": "2026-10-15T13:30:26.506823+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:31:09.662959+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "b7c96b43b4d99a7ed9d5d4dc846b7ec867948654f65becdb33c1d80b50fd2330",
+    "truncated": false,
+    "blob_count": 2099
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 12204,
+      "sha256": "f314c26b97520df58cc9f29f30dc1f65f3e0235365b6dce0e3b6adc388958aeb",
+      "url": "https://github.com/apache/apisix/blob/64a4afdd1353bd302f03cc8f0f780b8a78176137/LICENSE"
+    },
+    {
+      "path": "NOTICE",
+      "bytes": 167,
+      "sha256": "25235d29b8c0c24d06a0166b45297b173cf251786cb24a57e91218f23ecdf63c",
+      "url": "https://github.com/apache/apisix/blob/64a4afdd1353bd302f03cc8f0f780b8a78176137/NOTICE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 18704,
+      "sha256": "aa28d81f636e4882ec769e023fbfb1eaf701392ed12d92f10cc7317b07467128",
+      "url": "https://github.com/apache/apisix/blob/64a4afdd1353bd302f03cc8f0f780b8a78176137/README.md"
+    },
+    {
+      "path": "apisix/admin/routes.lua",
+      "bytes": 6494,
+      "sha256": "a2d402aa4b344f7d81380bc8c765e61f38238e9543a1348dd65a4923cf7b58b6",
+      "url": "https://github.com/apache/apisix/blob/64a4afdd1353bd302f03cc8f0f780b8a78176137/apisix/admin/routes.lua"
+    },
+    {
+      "path": "apisix/core/config_local.lua",
+      "bytes": 3220,
+      "sha256": "f37d9eb2125c58b1eb04d8406375e82791690bef51b154b800c06b7dfc51085d",
+      "url": "https://github.com/apache/apisix/blob/64a4afdd1353bd302f03cc8f0f780b8a78176137/apisix/core/config_local.lua"
+    },
+    {
+      "path": "apisix/core/config_yaml.lua",
+      "bytes": 16857,
+      "sha256": "de867872d4c219b8f667817597e75aaceff634bcdae437d3dc8ed59ede4ba37d",
+      "url": "https://github.com/apache/apisix/blob/64a4afdd1353bd302f03cc8f0f780b8a78176137/apisix/core/config_yaml.lua"
+    },
+    {
+      "path": "apisix/plugin.lua",
+      "bytes": 55000,
+      "sha256": "aeddbc980e4bad640a088f27f72899dd9dee73143aa0983e8dbfbd29827bb0f8",
+      "url": "https://github.com/apache/apisix/blob/64a4afdd1353bd302f03cc8f0f780b8a78176137/apisix/plugin.lua"
+    },
+    {
+      "path": "docs/en/latest/deployment-modes.md",
+      "bytes": 29156,
+      "sha256": "ad698be2c6b00fce57c5f55eb7517c396df7b6639e485b65e178a94312e2e43f",
+      "url": "https://github.com/apache/apisix/blob/64a4afdd1353bd302f03cc8f0f780b8a78176137/docs/en/latest/deployment-modes.md"
+    },
+    {
+      "path": "t/admin/standalone-plugin-validation.t",
+      "bytes": 5855,
+      "sha256": "769be511ad06bfdd4e59dee3769aae6c54b794fb049144d4047ef87f55c59592",
+      "url": "https://github.com/apache/apisix/blob/64a4afdd1353bd302f03cc8f0f780b8a78176137/t/admin/standalone-plugin-validation.t"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

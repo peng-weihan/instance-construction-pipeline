@@ -1,0 +1,18 @@
+[
+  {
+    "patch": "invert-null-policy.patch",
+    "dry_run_exit": 0,
+    "stdout": "patching file 'datafusion/physical-plan/src/topk/mod.rs'\n",
+    "stderr": "",
+    "compiled": false,
+    "behavior_verified_on_datafusion": false
+  },
+  {
+    "patch": "short-fetch.patch",
+    "dry_run_exit": 0,
+    "stdout": "patching file 'datafusion/physical-plan/src/sorts/sort.rs'\n",
+    "stderr": "",
+    "compiled": false,
+    "behavior_verified_on_datafusion": false
+  }
+]

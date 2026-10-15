@@ -1,0 +1,7 @@
+{
+  "checked_via": "web.run search and open",
+  "checked_date": "2026-10-15",
+  "url": "https://www.sphinx-doc.org/en/master/extdev/event_callbacks.html",
+  "observation": "官方扩展 API 已提供 outdated/purge/merge 等构建事件，必须作为低成本基线。",
+  "version_note": "rolling official documentation; immutable source SHA is authoritative for task construction"
+}

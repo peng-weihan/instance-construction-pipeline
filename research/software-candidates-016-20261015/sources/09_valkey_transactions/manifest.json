@@ -1,0 +1,73 @@
+{
+  "id": "09_valkey_transactions",
+  "repo": "valkey-io/valkey",
+  "family": "system_implementation",
+  "new_source": true,
+  "title": "RESP3事务与持久化恢复服务",
+  "files": [
+    "README.md",
+    "src/multi.c",
+    "src/aof.c",
+    "tests/unit/multi.tcl",
+    "tests/unit/protocol.tcl"
+  ],
+  "revision": "cf5efa70192faedacb6741ee2a8f800d0482862f",
+  "retrieved_utc": "2026-10-15T09:20:39.079203+00:00",
+  "files_acquired": [
+    {
+      "path": "README.md",
+      "bytes": 14607,
+      "sha256": "87625b05d383cb43b68f711992118fde02377cf10e4c6dcfc6238a7a43b4f1f7",
+      "url": "https://github.com/valkey-io/valkey/blob/cf5efa70192faedacb6741ee2a8f800d0482862f/README.md"
+    },
+    {
+      "path": "src/multi.c",
+      "bytes": 26551,
+      "sha256": "a9c9c350accc7d6adf767170a893098f517af89c01579d941cb068e859cfc4ad",
+      "url": "https://github.com/valkey-io/valkey/blob/cf5efa70192faedacb6741ee2a8f800d0482862f/src/multi.c"
+    },
+    {
+      "path": "src/aof.c",
+      "bytes": 116099,
+      "sha256": "03b3f0b61094a6053f757f7096ac63f075f6106a5af5163ccebfc8594018d9a6",
+      "url": "https://github.com/valkey-io/valkey/blob/cf5efa70192faedacb6741ee2a8f800d0482862f/src/aof.c"
+    },
+    {
+      "path": "tests/unit/protocol.tcl",
+      "bytes": 14473,
+      "sha256": "b51ea718556cb424f8d2c0aa12de365b6351f3eff2abec1bc5910a64757c4845",
+      "url": "https://github.com/valkey-io/valkey/blob/cf5efa70192faedacb6741ee2a8f800d0482862f/tests/unit/protocol.tcl"
+    },
+    {
+      "path": "COPYING",
+      "bytes": 1571,
+      "sha256": "9a67d40ae9076cd60b9d228135a9c0ce5d60f84f0c54c472965d4e03fdeb8f8f",
+      "url": "https://github.com/valkey-io/valkey/blob/cf5efa70192faedacb6741ee2a8f800d0482862f/COPYING"
+    },
+    {
+      "path": "tests/unit/multi.tcl",
+      "bytes": 34240,
+      "sha256": "f11d949385376dca9a11dc43853ea6fc428a0944ae9503d52476248179a7516d",
+      "url": "https://github.com/valkey-io/valkey/blob/cf5efa70192faedacb6741ee2a8f800d0482862f/tests/unit/multi.tcl"
+    }
+  ],
+  "missing_paths": [
+    "LICENSE",
+    "LICENSE.txt",
+    "LICENSE.md",
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "runtime_validation": false,
+  "six_hour_difficulty_verified": false,
+  "tree_manifest": {
+    "path": "git-tree.json",
+    "sha256": "88a1f71a741e960821e0254cb7770b2e3968cc01401362c4b0c6c068d4fc1971",
+    "blob_count": 2050,
+    "truncated": false
+  },
+  "resolved_initial_404_paths": {
+    "tests/unit/transactions.tcl": "tests/unit/multi.tcl"
+  },
+  "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+}

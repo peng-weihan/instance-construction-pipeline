@@ -1,0 +1,21 @@
+# 67_petgraph · 稳定索引可变图存储与遍历恢复
+
+- 路线/优先级：M4 / `hold`；只作素材判断。
+- 固定版本：[b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495](https://github.com/petgraph/petgraph/tree/b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495)；完整树/片段哈希见 `sources/67_petgraph/manifest.json`。
+- 已有功能：上游 StableGraph 已实现删除时其他索引保持、vacancy/free list、并行边、自环、iterator/visitor 和序列化。
+- 拟题边界：若重开，需关联恢复 stable node/edge mutation、双向邻接/空槽复用、visitor 索引边界与 serialization holes，并用真实算法消费；单独删 add/remove helper 不足。
+- 拟缺口：未制作缺损版；目前难度可能集中于少量数据结构不变量，且可以标准容器重建，暂缓而非为凑长程扩大 API。
+- 关联链：节点/边槽位→free list→双向邻接→稳定索引/visitor maps→图算法→holes 序列化与恢复。
+- 代码/真实测试实读：[crates/petgraph/src/graph_impl/stable_graph/mod.rs:365](https://github.com/petgraph/petgraph/blob/b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495/crates/petgraph/src/graph_impl/stable_graph/mod.rs#L365) 节点插入复用 vacant 槽，删除节点清理 incident edges 并接回 free list。；[crates/petgraph/tests/stable_graph.rs:38](https://github.com/petgraph/petgraph/blob/b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495/crates/petgraph/tests/stable_graph.rs#L38) 真实测试删除中间节点后 iterator 保留其他原索引。；[crates/petgraph/tests/stable_graph.rs:86](https://github.com/petgraph/petgraph/blob/b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495/crates/petgraph/tests/stable_graph.rs#L86) clear_edges 后继续复用 node vacancy 并检查邻接为空。
+- 组合场景 1：删除高连接节点+自环/并行边+槽位复用，检查其他索引和双向 iterator。
+- 组合场景 2：有空洞图反向/过滤/clone 后跑 SCC/遍历，核对结果和索引域。
+- 组合场景 3：带空槽图序列化再恢复+继续增删，核对邻接与 free list 一致。
+- 基础完成后剩余路径假设 1：基本增删后仍需自环/并行边、双向邻接和 iterator 不变量共同维护。
+- 基础完成后剩余路径假设 2：遍历成功后仍需 holes/索引上界、visit map、serialization 与后续 mutation；是否足够长程没有证据。
+- 参考/判据：固定健康 petgraph 的 API 轨迹差分 + 独立集合邻接模型/计数不变量；算法比较集合而非不承诺的访问顺序；健康参考未运行。
+- 正常强基线：标准 Vec<Option<_>>/HashMap 的直白实现、现存 Graph wrapper 或其他图库可能已覆盖；不要求内部 free list 布局来人为挡基线。
+- 首个否证：先跑固定健康图的自拟操作轨迹，再做简单标准容器或 Graph wrapper API 映射；若充分满足/缺口太窄，维持 hold；不加无依据性能门槛。
+- 离线/架构成本：Rust lock/vendor 和 serialization features 即可，无外服；trait/索引类型矩阵是工程成本但未验证。
+- 许可观察：根 LICENSE-MIT/LICENSE-APACHE 均已获取；具体 Cargo 授权表达与 serialization 依赖未完整审。
+- 官方资料已核对：[官方 crate StableGraph 索引/API 合同；实际任务锁定源码](https://docs.rs/petgraph/latest/petgraph/stable_graph/struct.StableGraph.html)
+- 状态：source_reviewed_healthy_reference_unrun；未构题、未 build/运行、未验证六小时难度；仅对照原 EdgeBench 的机制，不复用原题/测试/答案。

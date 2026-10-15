@@ -1,0 +1,47 @@
+{
+  "reason": "learning_budget_exhausted",
+  "uid_scope": 1500,
+  "exclusive_sandbox_only": true,
+  "learning_started_monotonic": 309.941375743,
+  "learning_started_utc": "2026-10-14T18:39:17.415088+00:00",
+  "launches": [
+    {
+      "pid": 2824,
+      "spawned_monotonic": 309.950855041,
+      "spawned_utc": "2026-10-14T18:39:17.424608+00:00"
+    },
+    {
+      "pid": 32295,
+      "spawned_monotonic": 21906.276757252,
+      "spawned_utc": "2026-10-15T00:39:13.750522+00:00"
+    }
+  ],
+  "learning_deadline_monotonic": 21909.941375743,
+  "first_stop_dispatch_monotonic": 21909.941624037,
+  "all_stop_dispatched_monotonic": 21909.945142093,
+  "stop_dispatch_lateness_sec": 0.0002482939999026712,
+  "learning_window_sec": 21600,
+  "actual_stop_dispatch_elapsed_sec": 21600.000248294,
+  "actual_all_stop_dispatched_elapsed_sec": 21600.00376635,
+  "paused_before_termination": true,
+  "stopped_processes": [
+    {
+      "pid": 32295,
+      "start_ticks": "2190626"
+    },
+    {
+      "pid": 32298,
+      "start_ticks": "2190628"
+    },
+    {
+      "pid": 32299,
+      "start_ticks": "2190629"
+    },
+    {
+      "pid": 32300,
+      "start_ticks": "2190629"
+    }
+  ],
+  "surviving_learning_processes": [],
+  "finished_utc": "2026-10-15T00:39:17.432381+00:00"
+}

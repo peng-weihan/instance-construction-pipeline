@@ -1,0 +1,69 @@
+{
+  "repo": "mikefarah/yq",
+  "revision": "a814ff5166040ec745a96bddd79ee31c3a548e83",
+  "resolved_utc": "2026-10-15T13:30:47.235188+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:31:44.972396+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "f487a92bb5f06f13b9ae7155bebf734f733e57175539acf6d523628d8e8c6eeb",
+    "truncated": false,
+    "blob_count": 556
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 1077,
+      "sha256": "697db34dabb21562fe84487a2ccd031fbd45382b89c2cbdec8ef31682c486040",
+      "url": "https://github.com/mikefarah/yq/blob/a814ff5166040ec745a96bddd79ee31c3a548e83/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 18338,
+      "sha256": "87a2abca7077d480d54265e9da1a1c1b41d523efcb1ad72932ad4698b9482f13",
+      "url": "https://github.com/mikefarah/yq/blob/a814ff5166040ec745a96bddd79ee31c3a548e83/README.md"
+    },
+    {
+      "path": "go.mod",
+      "bytes": 1379,
+      "sha256": "24b1ef1b6759eeba3425b15fffbec35cc12174caad302da5b7ebfd4cf314a539",
+      "url": "https://github.com/mikefarah/yq/blob/a814ff5166040ec745a96bddd79ee31c3a548e83/go.mod"
+    },
+    {
+      "path": "pkg/yqlib/decoder_yaml.go",
+      "bytes": 5537,
+      "sha256": "8aca4c039afd4786c62a63b120f0983a3a221902ce199846e93148d5d8f3794e",
+      "url": "https://github.com/mikefarah/yq/blob/a814ff5166040ec745a96bddd79ee31c3a548e83/pkg/yqlib/decoder_yaml.go"
+    },
+    {
+      "path": "pkg/yqlib/encoder_yaml.go",
+      "bytes": 2101,
+      "sha256": "0426233acc13d19de5725449c6f8b9836ac1459e8aeabc87bca7da8eeb10f73e",
+      "url": "https://github.com/mikefarah/yq/blob/a814ff5166040ec745a96bddd79ee31c3a548e83/pkg/yqlib/encoder_yaml.go"
+    },
+    {
+      "path": "pkg/yqlib/operator_assign.go",
+      "bytes": 3073,
+      "sha256": "5ceeaf17dc8d1f8470a1cb760907988edb3067be9aa981335c977430ab910dc7",
+      "url": "https://github.com/mikefarah/yq/blob/a814ff5166040ec745a96bddd79ee31c3a548e83/pkg/yqlib/operator_assign.go"
+    },
+    {
+      "path": "pkg/yqlib/operator_assign_test.go",
+      "bytes": 6401,
+      "sha256": "2e6e9c22d0635ccb8420846a68839a3cbaf7f48ad19abdb9ad75d03a6dee6ae4",
+      "url": "https://github.com/mikefarah/yq/blob/a814ff5166040ec745a96bddd79ee31c3a548e83/pkg/yqlib/operator_assign_test.go"
+    },
+    {
+      "path": "pkg/yqlib/operator_traverse_path.go",
+      "bytes": 12792,
+      "sha256": "56d754862e1a9f47dfee477e60e2a3473647cab191f94a56cad71eeb72b7a26a",
+      "url": "https://github.com/mikefarah/yq/blob/a814ff5166040ec745a96bddd79ee31c3a548e83/pkg/yqlib/operator_traverse_path.go"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

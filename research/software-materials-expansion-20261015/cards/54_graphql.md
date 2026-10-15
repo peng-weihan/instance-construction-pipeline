@@ -1,0 +1,21 @@
+# 54_graphql · 带异步解析器与订阅的 GraphQL 执行系统
+
+- 路线/优先级：M2 / `hold`；只作素材判断。
+- 固定版本：[e35a025d6e947ed2db0c1378e130f2bd0438732c](https://github.com/graphql/graphql-js/tree/e35a025d6e947ed2db0c1378e130f2bd0438732c)；完整树/片段哈希见 `sources/54_graphql/manifest.json`。
+- 已有功能：上游已是 GraphQL 参考实现，包含解析、验证、变量转换、执行、订阅和当前实验扩展。
+- 拟题边界：拟从 October 2021 规范抽取 schema/query→validation/coercion→query/mutation execution→nested typed completion/error paths→subscription event stream 的完整服务内核；不含 HTTP/WebSocket transport、defer/stream 或当前草案扩展。
+- 拟缺口：暂未发现成熟库包装之外的真实交付缺口；独立 starter 尚未制作。复杂的 completeValue 规则本身不足以证明新题困难。
+- 关联链：SDL/type graph+document→合法请求/variables→field collection/aliases/fragments→resolver promises→list/non-null/abstract completion→partial data/errors→逐事件订阅结果。
+- 代码/真实测试实读：[src/execution/Executor.ts:765](https://github.com/graphql/graphql-js/blob/e35a025d6e947ed2db0c1378e130f2bd0438732c/src/execution/Executor.ts#L765) completeValue 根据 non-null/list/leaf/abstract/object 递归完成结果。；[src/execution/execute.ts:1050](https://github.com/graphql/graphql-js/blob/e35a025d6e947ed2db0c1378e130f2bd0438732c/src/execution/execute.ts#L1050) 将 source event stream 每个 payload 重新映射为执行结果。；[src/execution/__tests__/nonnull-test.ts:175](https://github.com/graphql/graphql-js/blob/e35a025d6e947ed2db0c1378e130f2bd0438732c/src/execution/__tests__/nonnull-test.ts#L175) 测试检查非空字段失败令最近 nullable 父对象为 null，并保留 path/location。
+- 组合场景 1：fragment/alias+variables/defaults+interface/union+嵌套 list/non-null 与异步 resolver 错误传播。
+- 组合场景 2：mutation 串行副作用+query 异步子字段+coercion 失败，检验解析前后错误边界。
+- 组合场景 3：订阅 source stream+逐事件执行+迭代器终止/异常，避免仅返回初始 stream。
+- 基础完成后剩余路径假设 1：简单 resolver 成功以后仍需完成 field merging、抽象类型、non-null 传播、列表元素与 path/locations 的共同语义。
+- 基础完成后剩余路径假设 2：单请求完成以后仍需 mutation 顺序、订阅每事件隔离与 async iterator 生命周期。成熟库已有这些能力，不能据此称长程。
+- 参考/判据：固定 October 2021 规范是合同，固定 graphql-js 仅在共同功能集差分；手工错误路径/副作用计数例补充。最新 HEAD 含实验能力，不以当前所有行为替代 2021 规范。
+- 正常强基线：直接调用 graphql-js 的 buildSchema/graphql/execute/subscribe，或其他成熟规范实现；薄服务包装即可覆盖大多数拟合同。
+- 首个否证：逐条映射官方库 API；若全部可包装完成，维持 hold。只有确有宿主运行时约束或受损执行引擎恢复形成额外交付时重开。
+- 离线/架构成本：Node/TypeScript 与测试依赖可离线冻结；AsyncIterable 代替真实网络服务。规范年代与 HEAD 草案扩展的能力对齐成本待查。
+- 许可观察：根 LICENSE 为 MIT；GraphQL 规范的 OWFa 授权与源码许可须分别保留，第三方依赖未审。
+- 官方资料已核对：[固定执行/变量转换/订阅规范](https://spec.graphql.org/October2021/)；[官方订阅返回与每事件执行语义](https://www.graphql-js.org/api-v16/execution/)
+- 状态：source_reviewed_scope_unproven；未构题、未 build/运行、未验证六小时难度；仅对照原 EdgeBench 的机制，不复用原题/测试/答案。

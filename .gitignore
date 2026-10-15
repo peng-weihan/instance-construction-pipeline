@@ -1,0 +1,47 @@
+# Python environments and caches
+__pycache__/
+*.py[cod]
+.venv/
+.venv-*/
+venv/
+infra-venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local caches, dependencies and operating-system metadata
+/tmp/
+node_modules/
+target/
+.DS_Store
+.cache/
+
+# Local credentials and machine-specific authentication
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+.aws/
+.ssh/
+.codex/
+auth.json
+credentials.local.json
+*.local.toml
+
+# Downloaded toolchains and virtual environments
+/samples/software-multiline-001/05_toml/tools/
+/samples/software-multiline-001/03_wasm/authoring/tools/
+
+# Large source datasets and download cache; see REPOSITORY.md
+/materials/datasets/
+/materials/downloads/
+
+# Reproducible transfer bundles; source packages and reports remain tracked
+/runs/**/*.tar.gz
+/runs/**/*.tar.xz
+/runs/**/*.tgz
+/remote_smoke/**/*.tar.gz
+/remote_smoke/**/*.tar.xz
+/remote_smoke/**/*.b64

@@ -1,0 +1,96 @@
+{
+  "mode": "host_only",
+  "model_runs": 0,
+  "records": [
+    {
+      "control": "truth",
+      "suite": "dev",
+      "score": 1.0,
+      "valid": true
+    },
+    {
+      "control": "truth",
+      "suite": "feedback",
+      "score": 1.0,
+      "valid": true
+    },
+    {
+      "control": "truth",
+      "suite": "audit",
+      "score": 1.0,
+      "valid": true
+    },
+    {
+      "control": "majority",
+      "suite": "dev",
+      "score": 0.0028925619834710746,
+      "valid": true
+    },
+    {
+      "control": "majority",
+      "suite": "feedback",
+      "score": 0.014380354898376996,
+      "valid": true
+    },
+    {
+      "control": "majority",
+      "suite": "audit",
+      "score": 0.019175820638674224,
+      "valid": true
+    },
+    {
+      "control": "empty",
+      "suite": "dev",
+      "score": 0,
+      "valid": false
+    },
+    {
+      "control": "empty",
+      "suite": "feedback",
+      "score": 0,
+      "valid": false
+    },
+    {
+      "control": "empty",
+      "suite": "audit",
+      "score": 0,
+      "valid": false
+    },
+    {
+      "control": "bad_shape",
+      "suite": "dev",
+      "score": 0,
+      "valid": false
+    },
+    {
+      "control": "bad_shape",
+      "suite": "feedback",
+      "score": 0,
+      "valid": false
+    },
+    {
+      "control": "bad_shape",
+      "suite": "audit",
+      "score": 0,
+      "valid": false
+    },
+    {
+      "control": "archive_disguised_as_array",
+      "suite": "dev",
+      "score": 0,
+      "valid": false
+    },
+    {
+      "control": "archive_disguised_as_array",
+      "suite": "feedback",
+      "score": 0,
+      "valid": false
+    },
+    {
+      "control": "archive_disguised_as_array",
+      "suite": "audit",
+      "score": 0,
+      "valid": false
+    }
+  ]
+}

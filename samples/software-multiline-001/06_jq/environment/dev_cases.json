@@ -1,0 +1,131 @@
+[
+  {
+    "id": "identity",
+    "group": "streams",
+    "argv": [
+      "-c",
+      "."
+    ],
+    "stdin": "{\"a\":1}\n[2,3]\nnull\n",
+    "source": "jq-1.7.1 tests/jq.test and docs/content/manual/v1.7/manual.yml semantics; author integration input",
+    "expected": {
+      "stdout": "{\"a\":1}\n[2,3]\nnull\n",
+      "stderr_nonempty": false,
+      "exit": 0
+    },
+    "oracle_stderr": ""
+  },
+  {
+    "id": "object",
+    "group": "structure",
+    "argv": [
+      "-c",
+      "{x:.a,y:[.b[]]}"
+    ],
+    "stdin": "{\"a\":2,\"b\":[3,4]}",
+    "source": "jq-1.7.1 tests/jq.test and docs/content/manual/v1.7/manual.yml semantics; author integration input",
+    "expected": {
+      "stdout": "{\"x\":2,\"y\":[3,4]}\n",
+      "stderr_nonempty": false,
+      "exit": 0
+    },
+    "oracle_stderr": ""
+  },
+  {
+    "id": "arithmetic",
+    "group": "operators",
+    "argv": [
+      "-c",
+      "(.a+.b)*2-1"
+    ],
+    "stdin": "{\"a\":3,\"b\":4}",
+    "source": "jq-1.7.1 tests/jq.test and docs/content/manual/v1.7/manual.yml semantics; author integration input",
+    "expected": {
+      "stdout": "13\n",
+      "stderr_nonempty": false,
+      "exit": 0
+    },
+    "oracle_stderr": ""
+  },
+  {
+    "id": "lexical",
+    "group": "bindings",
+    "argv": [
+      "-c",
+      ".a as $x | .b | .+$x"
+    ],
+    "stdin": "{\"a\":2,\"b\":3}",
+    "source": "jq-1.7.1 tests/jq.test and docs/content/manual/v1.7/manual.yml semantics; author integration input",
+    "expected": {
+      "stdout": "5\n",
+      "stderr_nonempty": false,
+      "exit": 0
+    },
+    "oracle_stderr": ""
+  },
+  {
+    "id": "if",
+    "group": "control",
+    "argv": [
+      "-c",
+      ".[] | if .>0 then \"positive\" elif .==0 then \"zero\" else \"negative\" end"
+    ],
+    "stdin": "[-1,0,3]",
+    "source": "jq-1.7.1 tests/jq.test and docs/content/manual/v1.7/manual.yml semantics; author integration input",
+    "expected": {
+      "stdout": "\"negative\"\n\"zero\"\n\"positive\"\n",
+      "stderr_nonempty": false,
+      "exit": 0
+    },
+    "oracle_stderr": ""
+  },
+  {
+    "id": "reduce",
+    "group": "reductions",
+    "argv": [
+      "-c",
+      "reduce .[] as $x (0; .+$x)"
+    ],
+    "stdin": "[1,2,3,4]",
+    "source": "jq-1.7.1 tests/jq.test and docs/content/manual/v1.7/manual.yml semantics; author integration input",
+    "expected": {
+      "stdout": "10\n",
+      "stderr_nonempty": false,
+      "exit": 0
+    },
+    "oracle_stderr": ""
+  },
+  {
+    "id": "null_input",
+    "group": "cli",
+    "argv": [
+      "-c",
+      "-n",
+      "[1,2,3]"
+    ],
+    "stdin": "",
+    "source": "jq-1.7.1 tests/jq.test and docs/content/manual/v1.7/manual.yml semantics; author integration input",
+    "expected": {
+      "stdout": "[1,2,3]\n",
+      "stderr_nonempty": false,
+      "exit": 0
+    },
+    "oracle_stderr": ""
+  },
+  {
+    "id": "compile",
+    "group": "errors",
+    "argv": [
+      "-c",
+      "if . then"
+    ],
+    "stdin": "null",
+    "source": "jq-1.7.1 tests/jq.test and docs/content/manual/v1.7/manual.yml semantics; author integration input",
+    "expected": {
+      "stdout": "",
+      "stderr_nonempty": true,
+      "exit": 3
+    },
+    "oracle_stderr": "jq: error: syntax error, unexpected end of file (Unix shell quoting issues?) at <top-level>, line 1:\nif . then     \njq: error: Possibly unterminated 'if' statement at <top-level>, line 1:\nif . then\njq: 2 compile errors\n"
+  }
+]

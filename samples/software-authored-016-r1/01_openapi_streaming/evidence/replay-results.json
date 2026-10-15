@@ -1,0 +1,162 @@
+[
+  {
+    "name": "ref-final-2",
+    "command": [
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/solution/reference",
+      "--private",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/verifier/private",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/evidence/ref-final-2",
+      "--scratch",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/grade",
+      "--python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python"
+    ],
+    "exit_code": 0,
+    "score": 1.0,
+    "valid": true
+  },
+  {
+    "name": "ref-final-3",
+    "command": [
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/solution/reference",
+      "--private",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/verifier/private",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/evidence/ref-final-3",
+      "--scratch",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/grade",
+      "--python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python"
+    ],
+    "exit_code": 0,
+    "score": 1.0,
+    "valid": true
+  },
+  {
+    "name": "ref-final-4",
+    "command": [
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/solution/reference",
+      "--private",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/verifier/private",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/evidence/ref-final-4",
+      "--scratch",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/grade",
+      "--python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python"
+    ],
+    "exit_code": 0,
+    "score": 1.0,
+    "valid": true
+  },
+  {
+    "name": "ref-final-5",
+    "command": [
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/solution/reference",
+      "--private",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/verifier/private",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/evidence/ref-final-5",
+      "--scratch",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/grade",
+      "--python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python"
+    ],
+    "exit_code": 0,
+    "score": 1.0,
+    "valid": true
+  },
+  {
+    "name": "cheap-final",
+    "command": [
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/controls/cheap",
+      "--private",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/verifier/private",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/evidence/cheap-final",
+      "--scratch",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/grade",
+      "--python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python"
+    ],
+    "exit_code": 0,
+    "score": 0.6,
+    "valid": true
+  },
+  {
+    "name": "nop-final",
+    "command": [
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/environment/submission",
+      "--private",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/verifier/private",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/evidence/nop-final",
+      "--scratch",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/grade",
+      "--python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python"
+    ],
+    "exit_code": 0,
+    "score": 0.03,
+    "valid": true
+  },
+  {
+    "name": "noauth-final",
+    "command": [
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/controls/no_auth_override",
+      "--private",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/verifier/private",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/evidence/noauth-final",
+      "--scratch",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/grade",
+      "--python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python"
+    ],
+    "exit_code": 0,
+    "score": 0.84,
+    "valid": true
+  },
+  {
+    "name": "eager-final",
+    "command": [
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/controls/eager",
+      "--private",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/verifier/private",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/evidence/eager-final",
+      "--scratch",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/grade",
+      "--python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python"
+    ],
+    "exit_code": 0,
+    "score": 0.5992424242424242,
+    "valid": true
+  }
+]

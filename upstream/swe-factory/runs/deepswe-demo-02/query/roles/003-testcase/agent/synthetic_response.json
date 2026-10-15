@@ -1,0 +1,18 @@
+{
+  "status": "ok",
+  "target_command": [
+    "{python}",
+    "-m",
+    "pytest",
+    "tests/test_target.py",
+    "-q"
+  ],
+  "regression_command": [
+    "{python}",
+    "-m",
+    "pytest",
+    "tests/test_regression.py",
+    "-q"
+  ],
+  "build_command": []
+}

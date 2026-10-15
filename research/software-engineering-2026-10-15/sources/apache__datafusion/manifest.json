@@ -1,0 +1,79 @@
+{
+  "repo": "apache/datafusion",
+  "default_branch": "main",
+  "commit": "91cd7ffb927b5a4f9fee1907db50a9610759de5b",
+  "commit_date": "2026-10-15T07:37:59Z",
+  "retrieved_at_utc": "2026-10-15T08:17:56.870880+00:00",
+  "license_metadata": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0",
+    "node_id": "MDc6TGljZW5zZTI="
+  },
+  "tree_truncated": false,
+  "blob_count": 4174,
+  "selected_files": [
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "00db2e5038d40554f176050e28d1d331467a2ffb29262230085953aa5b75b891",
+      "bytes": 972,
+      "url": "https://github.com/apache/datafusion/blob/91cd7ffb927b5a4f9fee1907db50a9610759de5b/CHANGELOG.md"
+    },
+    {
+      "path": "LICENSE.txt",
+      "sha256": "232588dc9ad2096eb589a4f46bd58aafc3b57a38b146196c3d38dec884359888",
+      "bytes": 11645,
+      "url": "https://github.com/apache/datafusion/blob/91cd7ffb927b5a4f9fee1907db50a9610759de5b/LICENSE.txt"
+    },
+    {
+      "path": "README.md",
+      "sha256": "3c5535ef79498ddaa86bfef0f1a21ebd1d208792034a562df59be9fb1a661365",
+      "bytes": 8846,
+      "url": "https://github.com/apache/datafusion/blob/91cd7ffb927b5a4f9fee1907db50a9610759de5b/README.md"
+    },
+    {
+      "path": "benchmarks/README.md",
+      "sha256": "b74d9388092bf9f78d73d7009dff2dbbb7961f7ad3fff55db25032aadec0ec7a",
+      "bytes": 45444,
+      "url": "https://github.com/apache/datafusion/blob/91cd7ffb927b5a4f9fee1907db50a9610759de5b/benchmarks/README.md"
+    },
+    {
+      "path": "datafusion/sqllogictest/README.md",
+      "sha256": "2bbed48ba8696a1fc8a92098e1199e679d7e1ec4876ba0106ee722b8051b5070",
+      "bytes": 18951,
+      "url": "https://github.com/apache/datafusion/blob/91cd7ffb927b5a4f9fee1907db50a9610759de5b/datafusion/sqllogictest/README.md"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "02ed46856564c9290149e2c52beffb515cb2a6aebe1181d0641ec3f7c0a1a143",
+      "bytes": 60,
+      "url": "https://github.com/apache/datafusion/blob/91cd7ffb927b5a4f9fee1907db50a9610759de5b/pyproject.toml"
+    },
+    {
+      "path": "benchmarks/queries/sort_pushdown/q1.sql",
+      "sha256": "a3c1e47fe43f3a9c0706b8a1ffc28cf1cafac4d7c53a523b89a62ece004371b8",
+      "bytes": 239,
+      "url": "https://github.com/apache/datafusion/blob/91cd7ffb927b5a4f9fee1907db50a9610759de5b/benchmarks/queries/sort_pushdown/q1.sql"
+    },
+    {
+      "path": "benchmarks/queries/sort_pushdown_inexact/q1.sql",
+      "sha256": "57c4d0da956dc08648400f022a2278ad461b7a56984d458ff9cb6297fed97a56",
+      "bytes": 332,
+      "url": "https://github.com/apache/datafusion/blob/91cd7ffb927b5a4f9fee1907db50a9610759de5b/benchmarks/queries/sort_pushdown_inexact/q1.sql"
+    },
+    {
+      "path": "datafusion/sqllogictest/test_files/sort_pushdown.slt",
+      "sha256": "752bdb35bcadd190fefc14f71d54812b6c94c764d12ead3762ab5da62f59bbd3",
+      "bytes": 98258,
+      "url": "https://github.com/apache/datafusion/blob/91cd7ffb927b5a4f9fee1907db50a9610759de5b/datafusion/sqllogictest/test_files/sort_pushdown.slt"
+    },
+    {
+      "path": "datafusion/sqllogictest/test_files/aggregate_memory_spill.slt",
+      "sha256": "22a787fb6837230b1f9f7cad1110a160d58382b282ca2aa5404cf9028f44de8c",
+      "bytes": 8332,
+      "url": "https://github.com/apache/datafusion/blob/91cd7ffb927b5a4f9fee1907db50a9610759de5b/datafusion/sqllogictest/test_files/aggregate_memory_spill.slt"
+    }
+  ],
+  "status": "source_reconnaissance_only_not_constructed_or_calibrated"
+}

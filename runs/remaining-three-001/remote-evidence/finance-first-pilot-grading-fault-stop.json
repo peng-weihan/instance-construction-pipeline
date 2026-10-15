@@ -1,0 +1,99 @@
+{
+  "reason": "confirmed_cross_episode_file_leak_in_grader",
+  "observed_utc": "2026-10-14T22:29:43.591361+00:00",
+  "evidence": "/ws/users/raymone/edgebench/remaining-three-001/finance-case-state-probe.json",
+  "owned_run": "/ws/users/raymone/edgebench/remaining-three-001/finance-pilot/run-6h-001",
+  "trusted_stop": {
+    "reason": "infrastructure_or_probe_completion",
+    "uid_scope": 1500,
+    "exclusive_sandbox_only": true,
+    "learning_started_monotonic": 60.079937268,
+    "learning_started_utc": "2026-10-14T22:22:47.693826+00:00",
+    "launches": [
+      {
+        "pid": 206,
+        "spawned_monotonic": 60.088604564,
+        "spawned_utc": "2026-10-14T22:22:47.702519+00:00"
+      }
+    ],
+    "learning_deadline_monotonic": 21660.079937268,
+    "first_stop_dispatch_monotonic": 475.889521874,
+    "all_stop_dispatched_monotonic": 475.896976414,
+    "stop_dispatch_lateness_sec": -21184.190415394,
+    "learning_window_sec": 21600,
+    "actual_stop_dispatch_elapsed_sec": 415.80958460600004,
+    "actual_all_stop_dispatched_elapsed_sec": 415.817039146,
+    "paused_before_termination": true,
+    "stopped_processes": [
+      {
+        "pid": 206,
+        "start_ticks": "6008"
+      },
+      {
+        "pid": 209,
+        "start_ticks": "6009"
+      },
+      {
+        "pid": 210,
+        "start_ticks": "6010"
+      },
+      {
+        "pid": 211,
+        "start_ticks": "6010"
+      },
+      {
+        "pid": 289,
+        "start_ticks": "6725"
+      },
+      {
+        "pid": 1465,
+        "start_ticks": "36798"
+      },
+      {
+        "pid": 1467,
+        "start_ticks": "36805"
+      },
+      {
+        "pid": 1488,
+        "start_ticks": "37413"
+      },
+      {
+        "pid": 1490,
+        "start_ticks": "37499"
+      },
+      {
+        "pid": 1493,
+        "start_ticks": "37499"
+      },
+      {
+        "pid": 1494,
+        "start_ticks": "37500"
+      },
+      {
+        "pid": 1787,
+        "start_ticks": "45592"
+      },
+      {
+        "pid": 1789,
+        "start_ticks": "45605"
+      },
+      {
+        "pid": 1820,
+        "start_ticks": "46490"
+      },
+      {
+        "pid": 1821,
+        "start_ticks": "46494"
+      },
+      {
+        "pid": 1827,
+        "start_ticks": "46625"
+      }
+    ],
+    "surviving_learning_processes": [],
+    "finished_utc": "2026-10-14T22:29:43.542687+00:00"
+  },
+  "formal_six_hour_completed": false,
+  "history_and_trajectory_retained": true,
+  "difficulty_early_stop": false
+}

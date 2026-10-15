@@ -1,0 +1,7 @@
+{
+  "evaluations": 200,
+  "evaluation_budget": 200,
+  "elapsed_seconds": 6.492232584045269,
+  "best_public_loss": 0.6061331624685583,
+  "uses_private_truth": false
+}

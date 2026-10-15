@@ -1,0 +1,126 @@
+{
+  "scope": "artifact_presence_and_recorded_control_evidence_not_fresh_runtime_execution",
+  "tasks": [
+    {
+      "id": "01_openapi_streaming",
+      "required_files_present": true,
+      "grader_sha256": "84d9141b949709b2b024578036b714de353f6e479449c472a88843624b55eb30",
+      "score_spec_sha256": "488615cb6d745a238a21d06542c1b90c8c4725d512a2cc81c2cf6e6d1276f125",
+      "recorded_control_replays": [
+        {
+          "name": "reference-1",
+          "exit_code": 0,
+          "valid": true,
+          "score": 1.0,
+          "passed": 36,
+          "total": 36
+        },
+        {
+          "name": "reference-2",
+          "exit_code": 0,
+          "valid": true,
+          "score": 1.0,
+          "passed": 36,
+          "total": 36
+        },
+        {
+          "name": "reference-3",
+          "exit_code": 0,
+          "valid": true,
+          "score": 1.0,
+          "passed": 36,
+          "total": 36
+        },
+        {
+          "name": "reference-4",
+          "exit_code": 0,
+          "valid": true,
+          "score": 1.0,
+          "passed": 36,
+          "total": 36
+        },
+        {
+          "name": "reference-5",
+          "exit_code": 0,
+          "valid": true,
+          "score": 1.0,
+          "passed": 36,
+          "total": 36
+        },
+        {
+          "name": "nop",
+          "exit_code": 0,
+          "valid": true,
+          "score": 0.03,
+          "passed": 1,
+          "total": 36
+        },
+        {
+          "name": "cheap",
+          "exit_code": 0,
+          "valid": true,
+          "score": 0.6,
+          "passed": 21,
+          "total": 36
+        },
+        {
+          "name": "no_auth_override",
+          "exit_code": 0,
+          "valid": true,
+          "score": 0.84,
+          "passed": 28,
+          "total": 36
+        },
+        {
+          "name": "eager",
+          "exit_code": 0,
+          "valid": true,
+          "score": 0.5992424242424242,
+          "passed": 23,
+          "total": 36
+        }
+      ],
+      "frozen_source_hashes_match": true
+    },
+    {
+      "id": "14_tree_sitter_incremental",
+      "required_files_present": true,
+      "grader_sha256": "7c972da847c395750fb3d43a915d5bf2159bbfc2b3c498ccd4b3dbe4fca92488",
+      "score_spec_sha256": "f2f194207c8895ce85b7cf8c2e0c220f9bc4ad2c56321de125899547542119ea",
+      "recorded_control_scores": {
+        "nop": 0.14090909090909093,
+        "nop-repeat": 0.14090909090909093,
+        "reference": 1.0,
+        "reference-repeat": 1.0,
+        "injected-reference": 1.0,
+        "full_reparse_starter": 0.46861471861471865,
+        "online-baseline-repeat": 0.46861471861471865,
+        "full_reparse_complete_apis": 1.0,
+        "edit_only": 0.38484848484848483,
+        "range_only": 0.14090909090909093,
+        "scanner_gate_missing": 0.9405844155844156,
+        "candidate-failure": 0.0,
+        "infrastructure-failure": null
+      },
+      "score_spec_matches_report": true
+    }
+  ],
+  "local_transfer": {
+    "archive_bytes": 154776841,
+    "archive_sha256": "528f88d89f1427abf255a93ec099ebebcba5068a0340ff3dd40fffa3a2eecfaf",
+    "sha256_verified": true,
+    "extracted_under": "/Users/raymone/Desktop/edgebench/samples/software-authored-016-r1"
+  },
+  "parent_decisions": {
+    "01_openapi_streaming": {
+      "decision": "hold_for_growth_and_grading_fix",
+      "reason": "cheap baseline 0.60; author acknowledges in-process instrumentation weakness; no six-hour evidence"
+    },
+    "14_tree_sitter_incremental": {
+      "decision": "hold_not_ready_for_six_hour_calibration",
+      "reason": "The complete-API full-reparse control starts from untouched gold, so its 1.0 is not a public-only cheap solution. The starter-only full-reparse baseline is 0.46861471861471865. Current grading does not require efficient reuse, controlled gaps are narrow, and independent difficulty evidence is missing.",
+      "control_provenance_verified_in": "14_tree_sitter_incremental/author-tools/controls.py:3-10",
+      "prior_interpretation_corrected": "Withdraw the inference that a public-only cheap wrapper solved the whole task for 1.0."
+    }
+  }
+}

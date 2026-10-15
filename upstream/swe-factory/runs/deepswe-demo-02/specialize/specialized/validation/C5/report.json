@@ -1,0 +1,12 @@
+{
+  "healthy": true,
+  "tests": {
+    "tests/test_specialized.py::test_one_layer": "passed",
+    "tests/test_specialized.py::test_three_layers": "passed",
+    "tests/test_specialized.py::test_empty_layer": "passed"
+  },
+  "errors": [],
+  "returncode": 0,
+  "timed_out": false,
+  "evidence": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/specialize/specialized/validation/C5"
+}

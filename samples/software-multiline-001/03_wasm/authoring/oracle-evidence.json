@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "authoring/oracle.js"
+  ],
+  "node_version": "v24.13.1",
+  "stderr": "",
+  "case_count": 223,
+  "groups": {
+    "integer": 163,
+    "traps": 14,
+    "control": 19,
+    "loops": 6,
+    "calls": 5,
+    "memory": 8,
+    "composition": 4,
+    "binary": 4
+  }
+}

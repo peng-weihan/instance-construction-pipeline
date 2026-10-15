@@ -1,0 +1,38 @@
+[
+  {
+    "a": "reference",
+    "b": "reference-repeat",
+    "entire_report_identical": true,
+    "scores": [
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "a": "nop",
+    "b": "nop-repeat",
+    "entire_report_identical": true,
+    "scores": [
+      0.14090909090909093,
+      0.14090909090909093
+    ]
+  },
+  {
+    "a": "full_reparse_starter",
+    "b": "online-baseline-repeat",
+    "entire_report_identical": true,
+    "scores": [
+      0.46861471861471865,
+      0.46861471861471865
+    ]
+  },
+  {
+    "a": "reference",
+    "b": "injected-reference",
+    "entire_report_identical": true,
+    "scores": [
+      1.0,
+      1.0
+    ]
+  }
+]

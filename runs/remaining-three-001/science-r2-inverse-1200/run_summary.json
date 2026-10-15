@@ -1,0 +1,8 @@
+{
+  "hydraulic_residual_calls": 596,
+  "transport_evaluations": 1200,
+  "evaluation_budget": 1200,
+  "elapsed_seconds": 109.76642533298582,
+  "uses_private_truth": false,
+  "fixed_seed": 713
+}

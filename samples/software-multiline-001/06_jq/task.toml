@@ -1,0 +1,28 @@
+schema_version = "1.4"
+artifacts = ["/home/workspace/jq-profile/submission/"]
+[metadata]
+name = "jq-profile"
+reward_type = "bounded_continuous"
+score_formula = "mean(group passed / frozen group total), 8 equal groups"
+authoring_status = "hold_for_evidence"
+[agent]
+timeout_sec = 21600
+network_mode = "no-network"
+[environment]
+docker_image = "edgebench-jq-profile-work:pilot-001"
+workdir = "/home/workspace/jq-profile"
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048
+storage_mb = 4096
+[verifier]
+timeout_sec = 900
+network_mode = "no-network"
+environment_mode = "separate"
+[verifier.environment]
+docker_image = "edgebench-jq-profile-judge:pilot-001"
+workdir = "/home/workspace/jq-profile"
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048
+storage_mb = 4096

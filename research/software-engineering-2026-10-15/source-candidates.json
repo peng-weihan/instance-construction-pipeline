@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "scope": "software engineering source research only",
+  "sources": [
+    {
+      "repo": "apache/datafusion",
+      "commit": "91cd7ffb927b5a4f9fee1907db50a9610759de5b",
+      "source_manifest": "sources/apache__datafusion/manifest.json",
+      "family": "correctness_constrained_performance",
+      "priority": "priority_2",
+      "proposed_mechanism": "bounded_memory_sort_topk",
+      "known_open_question": "headroom and timing noise unmeasured",
+      "evidence_level": "source_files_and_tree_acquired_selected_docs_read",
+      "constructed_task": false,
+      "baseline_reproduced": false,
+      "difficulty_calibrated": false,
+      "training_effect_verified": false,
+      "scoring_constants_frozen": false
+    },
+    {
+      "repo": "apache/polaris",
+      "commit": "f838a62e20e7de72946d250883e8d9b1d6d2f68e",
+      "source_manifest": "sources/apache__polaris/manifest.json",
+      "family": "stateful_service_material",
+      "priority": "secondary_material",
+      "proposed_mechanism": "api_lifecycle_workloads",
+      "known_open_question": "no concrete new task yet; offline reset and local dependencies unverified",
+      "evidence_level": "source_files_and_tree_acquired_selected_docs_read",
+      "constructed_task": false,
+      "baseline_reproduced": false,
+      "difficulty_calibrated": false,
+      "training_effect_verified": false,
+      "scoring_constants_frozen": false
+    },
+    {
+      "repo": "jqlang/jq",
+      "commit": "6b53f8031161db96387b64b5f412845cd23491f6",
+      "source_manifest": "sources/jqlang__jq/manifest.json",
+      "family": "behavior_reconstruction",
+      "priority": "reserve",
+      "proposed_mechanism": "json_stream_processor_compatibility",
+      "known_open_question": "existing compatible implementations may trivialize task",
+      "evidence_level": "source_files_and_tree_acquired_selected_docs_read",
+      "constructed_task": false,
+      "baseline_reproduced": false,
+      "difficulty_calibrated": false,
+      "training_effect_verified": false,
+      "scoring_constants_frozen": false
+    },
+    {
+      "repo": "openapi-generators/openapi-python-client",
+      "commit": "0a283fe21eeaa23046faf622d4ff4b2c826d2edb",
+      "source_manifest": "sources/openapi-generators__openapi-python-client/manifest.json",
+      "family": "feature_evolution",
+      "priority": "priority_1",
+      "proposed_mechanism": "schema_composition_end_to_end",
+      "known_open_question": "fixed revision may already implement reported issues; reproduce first",
+      "evidence_level": "source_files_and_tree_acquired_selected_docs_read",
+      "constructed_task": false,
+      "baseline_reproduced": false,
+      "difficulty_calibrated": false,
+      "training_effect_verified": false,
+      "scoring_constants_frozen": false
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "C1": {
+    "healthy": true,
+    "tests": {
+      "tests/test_regression.py::test_plain": "passed"
+    },
+    "errors": [],
+    "returncode": 0,
+    "timed_out": false,
+    "evidence": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/specialize/base/validation/C1"
+  },
+  "C2": {
+    "healthy": true,
+    "tests": {
+      "tests/test_target.py::test_parent": "failed",
+      "tests/test_target.py::test_child": "failed",
+      "tests/test_target.py::test_override": "failed",
+      "tests/test_target.py::test_unicode": "failed",
+      "tests/test_boundary.py::test_none_value": "failed"
+    },
+    "errors": [],
+    "returncode": 1,
+    "timed_out": false,
+    "evidence": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/specialize/base/validation/C2"
+  },
+  "C4": {
+    "healthy": true,
+    "tests": {
+      "tests/test_regression.py::test_plain": "passed"
+    },
+    "errors": [],
+    "returncode": 0,
+    "timed_out": false,
+    "evidence": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/specialize/base/validation/C4"
+  },
+  "C5": {
+    "healthy": true,
+    "tests": {
+      "tests/test_target.py::test_parent": "passed",
+      "tests/test_target.py::test_child": "passed",
+      "tests/test_target.py::test_override": "passed",
+      "tests/test_target.py::test_unicode": "passed",
+      "tests/test_boundary.py::test_none_value": "passed"
+    },
+    "errors": [],
+    "returncode": 0,
+    "timed_out": false,
+    "evidence": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/specialize/base/validation/C5"
+  },
+  "C6": {
+    "healthy": true,
+    "tests": {
+      "tests/test_regression.py::test_plain": "passed"
+    },
+    "errors": [],
+    "returncode": 0,
+    "timed_out": false,
+    "evidence": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/specialize/base/validation/C6"
+  },
+  "C3": {
+    "passed": true,
+    "status": "not_applicable"
+  }
+}

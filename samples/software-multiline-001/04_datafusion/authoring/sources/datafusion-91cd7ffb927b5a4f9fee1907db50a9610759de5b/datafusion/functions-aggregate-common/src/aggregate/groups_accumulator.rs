@@ -1,0 +1,1372 @@
+// Licensed to the Apache Software Foundation (ASF) under one
+// or more contributor license agreements.  See the NOTICE file
+// distributed with this work for additional information
+// regarding copyright ownership.  The ASF licenses this file
+// to you under the Apache License, Version 2.0 (the
+// "License"); you may not use this file except in compliance
+// with the License.  You may obtain a copy of the License at
+//
+//   http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing,
+// software distributed under the License is distributed on an
+// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+// KIND, either express or implied.  See the License for the
+// specific language governing permissions and limitations
+// under the License.
+
+//! Utilities for implementing GroupsAccumulator
+//! Adapter that makes [`GroupsAccumulator`] out of [`Accumulator`]
+
+pub mod accumulate;
+pub mod bool_op;
+pub mod nulls;
+pub mod prim_op;
+
+use std::mem::{size_of, size_of_val};
+use std::sync::{Arc, OnceLock};
+
+use arrow::array::new_empty_array;
+use arrow::{
+    array::{ArrayRef, AsArray, BooleanArray, PrimitiveArray},
+    compute,
+    compute::take_arrays,
+    datatypes::UInt32Type,
+};
+use datafusion_common::{Result, ScalarValue, arrow_datafusion_err};
+use datafusion_expr_common::accumulator::{
+    Accumulator, AggregateMetric, AggregateMetricRecorder, AggregateMetrics,
+};
+use datafusion_expr_common::groups_accumulator::{
+    EmitTo, GroupSelection, GroupsAccumulator,
+};
+
+/// An adapter that implements [`GroupsAccumulator`] for any [`Accumulator`]
+///
+/// While [`Accumulator`] are simpler to implement and can support
+/// more general calculations (like retractable window functions),
+/// they are not as fast as a specialized `GroupsAccumulator`. This
+/// interface bridges the gap so the group by operator only operates
+/// in terms of [`Accumulator`].
+///
+/// Internally, this adapter creates a new [`Accumulator`] for each group which
+/// stores the state for that group. This both requires an allocation for each
+/// Accumulator, internal indices, as well as whatever internal allocations the
+/// Accumulator itself requires.
+///
+/// For example, a `MinAccumulator` that computes the minimum string value with
+/// a [`ScalarValue::Utf8`]. That will require at least two allocations per group
+/// (one for the `MinAccumulator` and one for the `ScalarValue::Utf8`).
+///
+/// ```text
+///                       ┌─────────────────────────────────┐
+///                       │MinAccumulator {                 │
+///                ┌─────▶│ min: ScalarValue::Utf8("A")     │───────┐
+///                │      │}                                │       │
+///                │      └─────────────────────────────────┘       └───────▶   "A"
+///    ┌─────┐     │      ┌─────────────────────────────────┐
+///    │  0  │─────┘      │MinAccumulator {                 │
+///    ├─────┤     ┌─────▶│ min: ScalarValue::Utf8("Z")     │───────────────▶   "Z"
+///    │  1  │─────┘      │}                                │
+///    └─────┘            └─────────────────────────────────┘                   ...
+///      ...                 ...
+///    ┌─────┐            ┌────────────────────────────────┐
+///    │ N-2 │            │MinAccumulator {                │
+///    ├─────┤            │  min: ScalarValue::Utf8("A")   │────────────────▶   "A"
+///    │ N-1 │─────┐      │}                               │
+///    └─────┘     │      └────────────────────────────────┘
+///                │      ┌────────────────────────────────┐        ┌───────▶   "Q"
+///                │      │MinAccumulator {                │        │
+///                └─────▶│  min: ScalarValue::Utf8("Q")   │────────┘
+///                       │}                               │
+///                       └────────────────────────────────┘
+///
+///
+///  Logical group         Current Min/Max value for that group stored
+///     number             as a ScalarValue which points to an
+///                        individually allocated String
+/// ```
+///
+/// # Optimizations
+///
+/// The adapter minimizes the number of calls to [`Accumulator::update_batch`]
+/// by first collecting the input rows for each group into a contiguous array
+/// using [`compute::take`]
+pub struct GroupsAccumulatorAdapter {
+    factory: Box<dyn Fn() -> Result<Box<dyn Accumulator>> + Send>,
+
+    /// state for each group, stored in group_index order
+    states: Vec<AccumulatorState>,
+
+    /// Current memory usage, in bytes.
+    ///
+    /// Note this is incrementally updated with deltas to avoid the
+    /// call to size() being a bottleneck. We saw size() being a
+    /// bottleneck in earlier implementations when there were many
+    /// distinct groups.
+    allocation_bytes: usize,
+
+    /// Metrics supplied by the aggregate execution operator.
+    metrics: Option<Arc<dyn AggregateMetrics>>,
+
+    /// Optional aggregate-owned metric timed once for a grouped update batch.
+    grouped_update_metric: OnceLock<Option<Arc<dyn AggregateMetric>>>,
+
+    /// Buffers reused by every call to `invoke_per_accumulator`
+    scratch: Scratch,
+}
+
+/// Per-batch buffers of [`GroupsAccumulatorAdapter`], kept between batches so
+/// that each batch does not allocate them again. Their capacity is part of
+/// [`GroupsAccumulatorAdapter::allocation_bytes`].
+#[derive(Default)]
+struct Scratch {
+    /// Group indexes that have rows in the batch, in order of first
+    /// appearance in the batch
+    groups_with_rows: Vec<usize>,
+
+    /// `offsets[i]` is the index into `batch_indices` where the rows for
+    /// `groups_with_rows[i]` start
+    offsets: Vec<usize>,
+
+    /// Indices into the batch rows, with the rows of each group contiguous
+    batch_indices: Vec<u32>,
+}
+
+/// A scratch buffer keeps its capacity after a batch unless that capacity is
+/// more than this many entries and more than [`SCRATCH_RETAIN_RATIO`] times
+/// what the batch used. Then it shrinks to the smaller of the two. This stops
+/// one unusually large batch from holding memory for all the batches after it.
+const MAX_RETAINED_SCRATCH_ENTRIES: usize = 64 * 1024;
+
+/// See [`MAX_RETAINED_SCRATCH_ENTRIES`]
+const SCRATCH_RETAIN_RATIO: usize = 4;
+
+impl Scratch {
+    fn allocated_size(&self) -> usize {
+        self.groups_with_rows.allocated_size()
+            + self.offsets.allocated_size()
+            + self.batch_indices.allocated_size()
+    }
+
+    /// Shrink each buffer that is much larger than the batch that just used
+    /// it. Call this after the batch, before the buffers are cleared for the
+    /// next batch.
+    fn release_oversized(&mut self) {
+        fn release_if_oversized<T>(buffer: &mut Vec<T>) {
+            let keep = SCRATCH_RETAIN_RATIO * buffer.len();
+            if buffer.capacity() > MAX_RETAINED_SCRATCH_ENTRIES
+                && buffer.capacity() > keep
+            {
+                // The batch is done with the contents, so clear them first
+                // and the shrink has nothing to copy
+                buffer.clear();
+                buffer.shrink_to(MAX_RETAINED_SCRATCH_ENTRIES.min(keep));
+            }
+        }
+        release_if_oversized(&mut self.groups_with_rows);
+        release_if_oversized(&mut self.offsets);
+        release_if_oversized(&mut self.batch_indices);
+    }
+}
+
+/// Maximum number of prepared group inputs retained while timing an
+/// aggregate-owned grouped subphase.
+const GROUPED_METRIC_PREPARATION_CHUNK_SIZE: usize = 64;
+
+struct AccumulatorState {
+    /// [`Accumulator`] that stores the per-group state
+    accumulator: Box<dyn Accumulator>,
+
+    /// scratch space: indexes in the input array that will be fed to
+    /// this accumulator. Stores indexes as `u32` to match the arrow
+    /// `take` kernel input.
+    indices: Vec<u32>,
+}
+
+impl AccumulatorState {
+    fn new(accumulator: Box<dyn Accumulator>) -> Self {
+        Self {
+            accumulator,
+            indices: vec![],
+        }
+    }
+
+    /// Returns the amount of memory taken by this structure and its accumulator
+    fn size(&self) -> usize {
+        self.accumulator.size() + size_of_val(self) + self.indices.allocated_size()
+    }
+}
+
+impl GroupsAccumulatorAdapter {
+    /// Create a new adapter that will create a new [`Accumulator`]
+    /// for each group, using the specified factory function
+    pub fn new<F>(factory: F) -> Self
+    where
+        F: Fn() -> Result<Box<dyn Accumulator>> + Send + 'static,
+    {
+        Self {
+            factory: Box::new(factory),
+            states: vec![],
+            allocation_bytes: 0,
+            metrics: None,
+            grouped_update_metric: OnceLock::new(),
+            scratch: Scratch::default(),
+        }
+    }
+
+    /// Creates an accumulator with this adapter's optional metrics.
+    fn create_accumulator(&self) -> Result<Box<dyn Accumulator>> {
+        let mut accumulator = (self.factory)()?;
+        if let Some(metrics) = &self.metrics {
+            accumulator.set_metrics(Arc::clone(metrics));
+        }
+        self.grouped_update_metric
+            .get_or_init(|| accumulator.grouped_update_batch_metric());
+        Ok(accumulator)
+    }
+
+    /// Returns the aggregate-owned grouped-update metric, if the first
+    /// accumulator this adapter created exposed one.
+    ///
+    /// The cell is seeded by [`Self::create_accumulator`], so this returns
+    /// `None` until at least one accumulator has been built.
+    fn grouped_metric(&self) -> Option<Arc<dyn AggregateMetric>> {
+        self.grouped_update_metric.get().and_then(Clone::clone)
+    }
+
+    /// Ensure that self.accumulators has total_num_groups
+    fn make_accumulators_if_needed(&mut self, total_num_groups: usize) -> Result<()> {
+        // can't shrink
+        assert!(total_num_groups >= self.states.len());
+        let vec_size_pre = self.states.allocated_size();
+
+        // instantiate new accumulators
+        let new_accumulators = total_num_groups - self.states.len();
+        for _ in 0..new_accumulators {
+            let accumulator = self.create_accumulator()?;
+            let state = AccumulatorState::new(accumulator);
+            self.add_allocation(state.size());
+            self.states.push(state);
+        }
+
+        self.adjust_allocation(vec_size_pre, self.states.allocated_size());
+        Ok(())
+    }
+
+    /// invokes f(accumulator, values) for each group that has values
+    /// in group_indices.
+    ///
+    /// This function first reorders the input and filter so that
+    /// values for each group_index are contiguous and then invokes f
+    /// on the contiguous ranges, to minimize per-row overhead
+    ///
+    /// ```text
+    /// ┌─────────┐   ┌─────────┐   ┌ ─ ─ ─ ─ ┐                       ┌─────────┐   ┌ ─ ─ ─ ─ ┐
+    /// │ ┌─────┐ │   │ ┌─────┐ │     ┌─────┐              ┏━━━━━┓    │ ┌─────┐ │     ┌─────┐
+    /// │ │  2  │ │   │ │ 200 │ │   │ │  t  │ │            ┃  0  ┃    │ │ 200 │ │   │ │  t  │ │
+    /// │ ├─────┤ │   │ ├─────┤ │     ├─────┤              ┣━━━━━┫    │ ├─────┤ │     ├─────┤
+    /// │ │  2  │ │   │ │ 100 │ │   │ │  f  │ │            ┃  0  ┃    │ │ 300 │ │   │ │  t  │ │
+    /// │ ├─────┤ │   │ ├─────┤ │     ├─────┤              ┣━━━━━┫    │ ├─────┤ │     ├─────┤
+    /// │ │  0  │ │   │ │ 200 │ │   │ │  t  │ │            ┃  1  ┃    │ │ 200 │ │   │ │NULL │ │
+    /// │ ├─────┤ │   │ ├─────┤ │     ├─────┤   ────────▶  ┣━━━━━┫    │ ├─────┤ │     ├─────┤
+    /// │ │  1  │ │   │ │ 200 │ │   │ │NULL │ │            ┃  2  ┃    │ │ 200 │ │   │ │  t  │ │
+    /// │ ├─────┤ │   │ ├─────┤ │     ├─────┤              ┣━━━━━┫    │ ├─────┤ │     ├─────┤
+    /// │ │  0  │ │   │ │ 300 │ │   │ │  t  │ │            ┃  2  ┃    │ │ 100 │ │   │ │  f  │ │
+    /// │ └─────┘ │   │ └─────┘ │     └─────┘              ┗━━━━━┛    │ └─────┘ │     └─────┘
+    /// └─────────┘   └─────────┘   └ ─ ─ ─ ─ ┘                       └─────────┘   └ ─ ─ ─ ─ ┘
+    ///
+    /// logical group   values      opt_filter           logical group  values       opt_filter
+    /// ```
+    fn invoke_per_accumulator<F>(
+        &mut self,
+        values: &[ArrayRef],
+        group_indices: &[usize],
+        opt_filter: Option<&BooleanArray>,
+        total_num_groups: usize,
+        f: F,
+    ) -> Result<()>
+    where
+        F: Fn(&mut dyn Accumulator, &[ArrayRef]) -> Result<()>,
+    {
+        self.make_accumulators_if_needed(total_num_groups)?;
+
+        assert_eq!(values[0].len(), group_indices.len());
+
+        // Take the scratch buffers out of `self` for the batch, and put them
+        // back on every return path, including errors
+        let mut scratch = std::mem::take(&mut self.scratch);
+        let scratch_size_pre = scratch.allocated_size();
+        let result = self.invoke_per_accumulator_with_scratch(
+            &mut scratch,
+            values,
+            group_indices,
+            opt_filter,
+            f,
+        );
+        scratch.release_oversized();
+        self.adjust_allocation(scratch_size_pre, scratch.allocated_size());
+        self.scratch = scratch;
+        result
+    }
+
+    /// Body of [`Self::invoke_per_accumulator`], with its scratch buffers
+    fn invoke_per_accumulator_with_scratch<F>(
+        &mut self,
+        scratch: &mut Scratch,
+        values: &[ArrayRef],
+        group_indices: &[usize],
+        opt_filter: Option<&BooleanArray>,
+        f: F,
+    ) -> Result<()>
+    where
+        F: Fn(&mut dyn Accumulator, &[ArrayRef]) -> Result<()>,
+    {
+        let Scratch {
+            groups_with_rows,
+            offsets,
+            batch_indices,
+        } = scratch;
+
+        // groups_with_rows holds a list of group indexes that have any rows
+        // that need to be accumulated, stored in order of first appearance in
+        // this batch
+        groups_with_rows.clear();
+
+        // figure out which input rows correspond to which groups.
+        // Note that self.state.indices starts empty for all groups (it is
+        // cleared out below), so an empty one is exactly a group that this
+        // batch has not reached yet.
+        // Charge retained scratch capacity only when a push grows a vector,
+        // avoiding another pass over every group after indexing.
+        let mut indices_allocation_delta = 0;
+        for (idx, group_index) in group_indices.iter().enumerate() {
+            let indices = &mut self.states[*group_index].indices;
+            if indices.is_empty() {
+                groups_with_rows.push(*group_index);
+            }
+            if indices.len() < indices.capacity() {
+                indices.push(idx as u32);
+            } else {
+                let size_pre = indices.allocated_size();
+                indices.push(idx as u32);
+                indices_allocation_delta += indices.allocated_size() - size_pre;
+            }
+        }
+        self.add_allocation(indices_allocation_delta);
+
+        // batch_indices holds indices into values, each group is contiguous
+        batch_indices.clear();
+        batch_indices
+            .try_reserve(group_indices.len())
+            .map_err(|e| {
+                arrow_datafusion_err!(arrow::error::ArrowError::MemoryError(
+                    e.to_string()
+                ))
+            })?;
+
+        // offsets[i] is index into batch_indices where the rows for
+        // groups_with_rows[i] start
+        offsets.clear();
+        offsets.push(0);
+
+        let mut offset_so_far = 0;
+        for &group_index in groups_with_rows.iter() {
+            let indices = &self.states[group_index].indices;
+            batch_indices.extend_from_slice(indices);
+            offset_so_far += indices.len();
+            offsets.push(offset_so_far);
+        }
+        // Move the buffer into an array without a copy, for the take kernels
+        let indices_array =
+            PrimitiveArray::<UInt32Type>::from(std::mem::take(batch_indices));
+
+        // reorder the values and opt_filter by batch_indices so that
+        // all values for each group are contiguous, then invoke the
+        // accumulator once per group with values
+        let values = take_arrays(values, &indices_array, None)?;
+        let opt_filter = get_filter_at_indices(opt_filter, &indices_array)?;
+
+        // The take kernels only borrow the indices, so the array holds the
+        // only reference to the buffer and we can get it back without a copy
+        let (_, indices_buffer, _) = indices_array.into_parts();
+        *batch_indices = indices_buffer.into_inner().into_vec().unwrap_or_default();
+
+        let grouped_update_metric = self.grouped_metric();
+
+        let mut sizes_pre = 0;
+        let mut sizes_post = 0;
+        let has_grouped_update_metric = grouped_update_metric.is_some();
+        let mut metric_recorder = AggregateMetricRecorder::new(grouped_update_metric);
+        let result: Result<()> = (|| {
+            if !has_grouped_update_metric {
+                // Keep the pre-metrics single-pass path for accumulators that
+                // do not expose an aggregate-owned submetric.
+                for (&group_idx, offsets) in
+                    groups_with_rows.iter().zip(offsets.windows(2))
+                {
+                    sizes_pre += self.states[group_idx].size();
+                    let values_to_accumulate = match slice_and_maybe_filter(
+                        &values,
+                        opt_filter.as_ref().map(|f| f.as_boolean()),
+                        offsets,
+                    ) {
+                        Ok(values) => values,
+                        Err(error) => {
+                            sizes_post += self.states[group_idx].size();
+                            return Err(error);
+                        }
+                    };
+                    let update_result = f(
+                        self.states[group_idx].accumulator.as_mut(),
+                        &values_to_accumulate,
+                    );
+                    let state = &mut self.states[group_idx];
+                    if update_result.is_ok() {
+                        state.indices.clear();
+                    }
+                    sizes_post += state.size();
+                    update_result?;
+                }
+                return Ok(());
+            }
+
+            // Keep preparation bounded to avoid retaining one filtered array per
+            // group. Time only accumulator invocation: slicing and filtering
+            // are adapter work, not aggregate-owned subphase work.
+            for (chunk_index, groups) in groups_with_rows
+                .chunks(GROUPED_METRIC_PREPARATION_CHUNK_SIZE)
+                .enumerate()
+            {
+                let first_offset = chunk_index * GROUPED_METRIC_PREPARATION_CHUNK_SIZE;
+                let values_to_accumulate = groups
+                    .iter()
+                    .enumerate()
+                    .map(|(index, &group_idx)| {
+                        let values = slice_and_maybe_filter(
+                            &values,
+                            opt_filter.as_ref().map(|f| f.as_boolean()),
+                            &offsets[first_offset + index..first_offset + index + 2],
+                        )?;
+                        Ok((group_idx, values))
+                    })
+                    .collect::<Result<Vec<_>>>()?;
+
+                // Size accounting is adapter work: keep it out of the timer.
+                for (group_idx, _) in &values_to_accumulate {
+                    sizes_pre += self.states[*group_idx].size();
+                }
+
+                let (successful_groups, chunk_result) = {
+                    let _timer = metric_recorder.timer();
+                    let mut successful_groups = 0;
+                    let mut chunk_result = Ok(());
+                    for (group_idx, values) in &values_to_accumulate {
+                        chunk_result =
+                            f(self.states[*group_idx].accumulator.as_mut(), values);
+                        if chunk_result.is_err() {
+                            break;
+                        }
+                        successful_groups += 1;
+                    }
+                    (successful_groups, chunk_result)
+                };
+                for (index, (group_idx, _)) in values_to_accumulate.iter().enumerate() {
+                    let state = &mut self.states[*group_idx];
+                    if index < successful_groups {
+                        // Clear every successfully applied group before
+                        // propagating an error from a later group.
+                        state.indices.clear();
+                    }
+                    sizes_post += state.size();
+                }
+                chunk_result?;
+            }
+            Ok(())
+        })();
+
+        self.adjust_allocation(sizes_pre, sizes_post);
+        result
+    }
+
+    /// Increment the allocation by `n`
+    ///
+    /// See [`Self::allocation_bytes`] for rationale.
+    fn add_allocation(&mut self, size: usize) {
+        self.allocation_bytes += size;
+    }
+
+    /// Decrease the allocation by `n`
+    ///
+    /// See [`Self::allocation_bytes`] for rationale.
+    fn free_allocation(&mut self, size: usize) {
+        // use saturating sub to avoid errors if the accumulators
+        // report erroneous sizes
+        self.allocation_bytes = self.allocation_bytes.saturating_sub(size)
+    }
+
+    /// Release the scratch buffers when no group is left, so that an adapter
+    /// that has emitted every group holds no memory
+    fn free_scratch_if_empty(&mut self) {
+        if self.states.is_empty() {
+            let scratch = std::mem::take(&mut self.scratch);
+            self.free_allocation(scratch.allocated_size());
+        }
+    }
+
+    /// Release the allocation held by a state that is being emitted.
+    fn free_state_allocation(&mut self, state: &AccumulatorState) {
+        self.free_allocation(state.size());
+    }
+
+    /// Adjusts the allocation for something that started with
+    /// start_size and now has new_size avoiding overflow
+    ///
+    /// See [`Self::allocation_bytes`] for rationale.
+    fn adjust_allocation(&mut self, old_size: usize, new_size: usize) {
+        if new_size > old_size {
+            self.add_allocation(new_size - old_size)
+        } else {
+            self.free_allocation(old_size - new_size)
+        }
+    }
+}
+
+impl GroupsAccumulator for GroupsAccumulatorAdapter {
+    fn set_metrics(&mut self, metrics: Arc<dyn AggregateMetrics>) {
+        self.metrics = Some(metrics);
+    }
+
+    fn update_batch(
+        &mut self,
+        values: &[ArrayRef],
+        group_indices: &[usize],
+        opt_filter: Option<&BooleanArray>,
+        total_num_groups: usize,
+    ) -> Result<()> {
+        self.invoke_per_accumulator(
+            values,
+            group_indices,
+            opt_filter,
+            total_num_groups,
+            |accumulator, values_to_accumulate| {
+                accumulator.update_batch_grouped(values_to_accumulate)
+            },
+        )?;
+        Ok(())
+    }
+
+    fn evaluate(&mut self, emit_to: EmitTo) -> Result<ArrayRef> {
+        let vec_size_pre = self.states.allocated_size();
+
+        let states = emit_to.take_needed(&mut self.states);
+
+        let results: Vec<ScalarValue> = states
+            .into_iter()
+            .map(|mut state| {
+                self.free_state_allocation(&state);
+                state.accumulator.evaluate()
+            })
+            .collect::<Result<_>>()?;
+
+        let result = ScalarValue::iter_to_array(results);
+
+        self.adjust_allocation(vec_size_pre, self.states.allocated_size());
+        self.free_scratch_if_empty();
+
+        result
+    }
+
+    fn evaluate_preserving(&mut self, selection: GroupSelection<'_>) -> Result<ArrayRef> {
+        selection.validate_num_groups(self.states.len())?;
+        let selected_len = selection.len();
+        if selected_len == 0 {
+            // ScalarValue::iter_to_array needs at least one value to infer the
+            // output type, so evaluate a temporary empty accumulator.
+            let mut accumulator = self.create_accumulator()?;
+            return Ok(ScalarValue::iter_to_array([accumulator.evaluate()?])?.slice(0, 0));
+        }
+
+        let mut results = Vec::with_capacity(selected_len);
+        for group_index in selection.iter() {
+            let (result, size_pre, size_post) = {
+                let state = &mut self.states[group_index];
+                let size_pre = state.size();
+                let result = state.accumulator.evaluate()?;
+                (result, size_pre, state.size())
+            };
+            self.adjust_allocation(size_pre, size_post);
+            results.push(result);
+        }
+        ScalarValue::iter_to_array(results)
+    }
+
+    fn supports_evaluate_preserving(&self) -> bool {
+        true
+    }
+
+    // filtered_null_mask(opt_filter, &values);
+    fn state(&mut self, emit_to: EmitTo) -> Result<Vec<ArrayRef>> {
+        let vec_size_pre = self.states.allocated_size();
+        let states = emit_to.take_needed(&mut self.states);
+        let num_states = states.len();
+
+        // each accumulator produces a potential vector of values
+        // which we need to form into columns
+        let mut results: Vec<Vec<ScalarValue>> = vec![];
+
+        for mut state in states {
+            self.free_state_allocation(&state);
+            let accumulator_state = state.accumulator.state()?;
+            results
+                .resize_with(accumulator_state.len(), || Vec::with_capacity(num_states));
+            for (idx, state_val) in accumulator_state.into_iter().enumerate() {
+                results[idx].push(state_val);
+            }
+        }
+
+        // create an array for each intermediate column
+        let arrays = results
+            .into_iter()
+            .map(ScalarValue::iter_to_array)
+            .collect::<Result<Vec<_>>>()?;
+
+        // double check each array has the same length (aka the
+        // accumulator was implemented correctly
+        if let Some(first_col) = arrays.first() {
+            for arr in &arrays {
+                assert_eq!(arr.len(), first_col.len())
+            }
+        }
+        self.adjust_allocation(vec_size_pre, self.states.allocated_size());
+        self.free_scratch_if_empty();
+
+        Ok(arrays)
+    }
+
+    fn merge_batch(
+        &mut self,
+        values: &[ArrayRef],
+        group_indices: &[usize],
+        total_num_groups: usize,
+    ) -> Result<()> {
+        self.invoke_per_accumulator(
+            values,
+            group_indices,
+            None,
+            total_num_groups,
+            |accumulator, values_to_accumulate| {
+                accumulator.merge_batch_grouped(values_to_accumulate)
+            },
+        )?;
+        Ok(())
+    }
+
+    fn size(&self) -> usize {
+        self.allocation_bytes
+    }
+
+    fn convert_to_state(
+        &self,
+        values: &[ArrayRef],
+        opt_filter: Option<&BooleanArray>,
+    ) -> Result<Vec<ArrayRef>> {
+        let num_rows = values[0].len();
+
+        // If there are no rows, return empty arrays
+        if num_rows == 0 {
+            // create empty accumulator to get the state types
+            let empty_state = self.create_accumulator()?.state()?;
+            let empty_arrays = empty_state
+                .into_iter()
+                .map(|state_val| new_empty_array(&state_val.data_type()))
+                .collect::<Vec<_>>();
+
+            return Ok(empty_arrays);
+        }
+
+        // Each row has its respective group
+        let mut results = vec![];
+        let mut metric_recorder = None;
+        let mut prepared =
+            Vec::with_capacity(GROUPED_METRIC_PREPARATION_CHUNK_SIZE.min(num_rows));
+        for chunk_start in (0..num_rows).step_by(GROUPED_METRIC_PREPARATION_CHUNK_SIZE) {
+            let chunk_end =
+                (chunk_start + GROUPED_METRIC_PREPARATION_CHUNK_SIZE).min(num_rows);
+            prepared.clear();
+
+            for row_idx in chunk_start..chunk_end {
+                // Create the empty accumulator and prepare adapter-owned input
+                // outside the aggregate submetric.
+                let accumulator = self.create_accumulator()?;
+                // `create_accumulator` resolves the metric, so the recorder can
+                // only be built once the first accumulator exists.
+                metric_recorder.get_or_insert_with(|| {
+                    AggregateMetricRecorder::new(self.grouped_metric())
+                });
+                let values_to_accumulate =
+                    slice_and_maybe_filter(values, opt_filter, &[row_idx, row_idx + 1])?;
+                prepared.push((accumulator, values_to_accumulate));
+            }
+
+            // Time only aggregate-owned deduplication, once per bounded chunk.
+            let update_result: Result<()> = {
+                let _timer = metric_recorder
+                    .as_mut()
+                    .and_then(AggregateMetricRecorder::timer);
+                prepared
+                    .iter_mut()
+                    .try_for_each(|(accumulator, values_to_accumulate)| {
+                        accumulator.update_batch_grouped(values_to_accumulate)
+                    })
+            };
+            update_result?;
+
+            for (mut accumulator, _) in prepared.drain(..) {
+                let states = accumulator.state()?;
+
+                // Resize results to have enough columns according to the converted states
+                results.resize_with(states.len(), || Vec::with_capacity(num_rows));
+
+                // Add the states to results
+                for (idx, state_val) in states.into_iter().enumerate() {
+                    results[idx].push(state_val);
+                }
+            }
+        }
+
+        let arrays = results
+            .into_iter()
+            .map(ScalarValue::iter_to_array)
+            .collect::<Result<Vec<_>>>()?;
+
+        Ok(arrays)
+    }
+}
+
+/// Extension trait for [`Vec`] to account for allocations.
+pub trait VecAllocExt {
+    /// Item type.
+    type T;
+    /// Return the amount of memory allocated by this Vec (not
+    /// recursively counting any heap allocations contained within the
+    /// structure). Does not include the size of `self`
+    fn allocated_size(&self) -> usize;
+}
+
+impl<T> VecAllocExt for Vec<T> {
+    type T = T;
+    fn allocated_size(&self) -> usize {
+        size_of::<T>() * self.capacity()
+    }
+}
+
+fn get_filter_at_indices(
+    opt_filter: Option<&BooleanArray>,
+    indices: &PrimitiveArray<UInt32Type>,
+) -> Result<Option<ArrayRef>> {
+    opt_filter
+        .map(|filter| {
+            compute::take(
+                &filter, indices, None, // None: no index check
+            )
+        })
+        .transpose()
+        .map_err(|e| arrow_datafusion_err!(e))
+}
+
+// Copied from physical-plan
+pub(crate) fn slice_and_maybe_filter(
+    aggr_array: &[ArrayRef],
+    filter_opt: Option<&BooleanArray>,
+    offsets: &[usize],
+) -> Result<Vec<ArrayRef>> {
+    let (offset, length) = (offsets[0], offsets[1] - offsets[0]);
+    let sliced_arrays: Vec<ArrayRef> = aggr_array
+        .iter()
+        .map(|array| array.slice(offset, length))
+        .collect();
+
+    if let Some(f) = filter_opt {
+        let filter = f.slice(offset, length);
+
+        sliced_arrays
+            .iter()
+            .map(|array| {
+                compute::filter(&array, &filter).map_err(|e| arrow_datafusion_err!(e))
+            })
+            .collect()
+    } else {
+        Ok(sliced_arrays)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use std::sync::Arc;
+    use std::sync::atomic::{AtomicU64, AtomicUsize, Ordering};
+    use std::time::Duration;
+
+    use super::*;
+    use crate::min_max::MaxAccumulator;
+    use arrow::array::{AsArray, BooleanArray, Int64Array};
+    use arrow::datatypes::{DataType, Int64Type};
+
+    #[derive(Debug)]
+    struct CountingMetric(Arc<AtomicUsize>);
+
+    impl AggregateMetric for CountingMetric {
+        fn add_duration(&self, _duration: Duration) {
+            self.0.fetch_add(1, Ordering::Relaxed);
+        }
+    }
+
+    #[derive(Debug)]
+    struct CountingMetrics(Arc<AtomicUsize>);
+
+    impl AggregateMetrics for CountingMetrics {
+        fn metric(&self, _subphase: &'static str) -> Arc<dyn AggregateMetric> {
+            Arc::new(CountingMetric(Arc::clone(&self.0)))
+        }
+    }
+
+    #[derive(Debug)]
+    struct DurationMetric(Arc<AtomicU64>);
+
+    impl AggregateMetric for DurationMetric {
+        fn add_duration(&self, duration: Duration) {
+            self.0
+                .fetch_add(duration.as_nanos() as u64, Ordering::Relaxed);
+        }
+    }
+
+    #[derive(Debug)]
+    struct TimedAccumulator {
+        metric: Arc<dyn AggregateMetric>,
+    }
+
+    impl Accumulator for TimedAccumulator {
+        fn update_batch(&mut self, _values: &[ArrayRef]) -> Result<()> {
+            self.metric.add_duration(Duration::ZERO);
+            Ok(())
+        }
+
+        fn grouped_update_batch_metric(&self) -> Option<Arc<dyn AggregateMetric>> {
+            Some(Arc::clone(&self.metric))
+        }
+
+        fn update_batch_grouped(&mut self, _values: &[ArrayRef]) -> Result<()> {
+            Ok(())
+        }
+
+        fn evaluate(&mut self) -> Result<ScalarValue> {
+            Ok(ScalarValue::Int64(None))
+        }
+
+        fn size(&self) -> usize {
+            size_of_val(self)
+        }
+
+        fn state(&mut self) -> Result<Vec<ScalarValue>> {
+            Ok(vec![ScalarValue::Int64(None)])
+        }
+
+        fn merge_batch(&mut self, _states: &[ArrayRef]) -> Result<()> {
+            Ok(())
+        }
+    }
+
+    #[derive(Debug)]
+    struct MetricsAwareAccumulator {
+        metric: Option<Arc<dyn AggregateMetric>>,
+    }
+
+    impl Accumulator for MetricsAwareAccumulator {
+        fn set_metrics(&mut self, metrics: Arc<dyn AggregateMetrics>) {
+            self.metric = Some(metrics.metric("update"));
+        }
+
+        fn update_batch(&mut self, _values: &[ArrayRef]) -> Result<()> {
+            self.metric
+                .as_ref()
+                .expect("adapter must supply metrics to every group")
+                .add_duration(Duration::ZERO);
+            Ok(())
+        }
+
+        fn evaluate(&mut self) -> Result<ScalarValue> {
+            Ok(ScalarValue::Int64(None))
+        }
+
+        fn size(&self) -> usize {
+            size_of_val(self)
+        }
+
+        fn state(&mut self) -> Result<Vec<ScalarValue>> {
+            Ok(vec![ScalarValue::Int64(None)])
+        }
+
+        fn merge_batch(&mut self, _states: &[ArrayRef]) -> Result<()> {
+            Ok(())
+        }
+    }
+
+    #[test]
+    fn adapter_supplies_metrics_to_every_group() -> Result<()> {
+        let metric_updates = Arc::new(AtomicUsize::new(0));
+        let mut adapter = GroupsAccumulatorAdapter::new(|| {
+            Ok(Box::new(MetricsAwareAccumulator { metric: None })
+                as Box<dyn Accumulator>)
+        });
+        adapter.set_metrics(Arc::new(CountingMetrics(Arc::clone(&metric_updates))));
+
+        let values: ArrayRef = Arc::new(Int64Array::from(vec![1, 2]));
+        adapter.update_batch(&[values], &[0, 1], None, 2)?;
+
+        assert_eq!(metric_updates.load(Ordering::Relaxed), 2);
+        Ok(())
+    }
+
+    #[test]
+    fn adapter_charges_retained_indices_once_and_releases_them() -> Result<()> {
+        let mut adapter = GroupsAccumulatorAdapter::new(|| {
+            Ok(Box::new(TimedAccumulator {
+                metric: Arc::new(CountingMetric(Arc::new(AtomicUsize::new(0)))),
+            }) as Box<dyn Accumulator>)
+        });
+        adapter.make_accumulators_if_needed(1)?;
+        let allocation_before_update = adapter.size();
+        let values: ArrayRef = Arc::new(Int64Array::from(vec![1, 2, 3, 4]));
+
+        adapter.update_batch(&[Arc::clone(&values)], &[0, 0, 0, 0], None, 1)?;
+        let retained_indices = adapter.states[0].indices.allocated_size();
+        assert!(retained_indices > 0);
+        assert!(adapter.states[0].indices.is_empty());
+        // The indices buffer comes back from the take kernels without a copy
+        assert!(adapter.scratch.batch_indices.capacity() >= 4);
+        let retained_scratch = adapter.scratch.allocated_size();
+        assert!(retained_scratch > 0);
+        assert_eq!(
+            adapter.size(),
+            allocation_before_update + retained_indices + retained_scratch
+        );
+
+        let allocation_after_first_update = adapter.size();
+        adapter.update_batch(&[values], &[0, 0, 0, 0], None, 1)?;
+        assert_eq!(adapter.size(), allocation_after_first_update);
+
+        adapter.evaluate(EmitTo::All)?;
+        assert_eq!(adapter.size(), 0);
+        Ok(())
+    }
+
+    #[test]
+    fn adapter_grouped_update_records_one_metric_after_filtering() -> Result<()> {
+        let metric_updates = Arc::new(AtomicUsize::new(0));
+        let mut accumulator = GroupsAccumulatorAdapter::new({
+            let metric_updates = Arc::clone(&metric_updates);
+            move || {
+                Ok(Box::new(TimedAccumulator {
+                    metric: Arc::new(CountingMetric(Arc::clone(&metric_updates))),
+                }) as Box<dyn Accumulator>)
+            }
+        });
+
+        let values: ArrayRef = Arc::new(Int64Array::from(vec![1, 2, 3, 4]));
+        let filter = BooleanArray::from(vec![true, false, true, false]);
+        accumulator.update_batch(&[values], &[0, 0, 1, 1], Some(&filter), 2)?;
+
+        assert_eq!(metric_updates.load(Ordering::Relaxed), 1);
+        Ok(())
+    }
+
+    #[test]
+    fn adapter_grouped_update_records_zero_duration_for_empty_batch() -> Result<()> {
+        let metric_updates = Arc::new(AtomicUsize::new(0));
+        let mut accumulator = GroupsAccumulatorAdapter::new({
+            let metric_updates = Arc::clone(&metric_updates);
+            move || {
+                Ok(Box::new(TimedAccumulator {
+                    metric: Arc::new(CountingMetric(Arc::clone(&metric_updates))),
+                }) as Box<dyn Accumulator>)
+            }
+        });
+
+        let values: ArrayRef = Arc::new(Int64Array::from(vec![1]));
+        accumulator.update_batch(&[values], &[0], None, 1)?;
+        metric_updates.store(0, Ordering::Relaxed);
+
+        let empty_values: ArrayRef = Arc::new(Int64Array::from(Vec::<i64>::new()));
+        accumulator.update_batch(&[empty_values], &[], None, 1)?;
+
+        assert_eq!(metric_updates.load(Ordering::Relaxed), 1);
+        Ok(())
+    }
+
+    #[test]
+    fn adapter_convert_to_state_records_metric_once() -> Result<()> {
+        let metric_updates = Arc::new(AtomicUsize::new(0));
+        let accumulator = GroupsAccumulatorAdapter::new({
+            let metric_updates = Arc::clone(&metric_updates);
+            move || {
+                Ok(Box::new(TimedAccumulator {
+                    metric: Arc::new(CountingMetric(Arc::clone(&metric_updates))),
+                }) as Box<dyn Accumulator>)
+            }
+        });
+
+        let values: ArrayRef = Arc::new(Int64Array::from(vec![1, 2, 3]));
+        accumulator.convert_to_state(&[values], None)?;
+
+        assert_eq!(metric_updates.load(Ordering::Relaxed), 1);
+        Ok(())
+    }
+
+    #[derive(Debug)]
+    struct SlowStateAccumulator {
+        metric: Arc<dyn AggregateMetric>,
+    }
+
+    impl Accumulator for SlowStateAccumulator {
+        fn update_batch(&mut self, _values: &[ArrayRef]) -> Result<()> {
+            Ok(())
+        }
+
+        fn grouped_update_batch_metric(&self) -> Option<Arc<dyn AggregateMetric>> {
+            Some(Arc::clone(&self.metric))
+        }
+
+        fn evaluate(&mut self) -> Result<ScalarValue> {
+            Ok(ScalarValue::Int64(None))
+        }
+
+        fn size(&self) -> usize {
+            size_of_val(self)
+        }
+
+        fn state(&mut self) -> Result<Vec<ScalarValue>> {
+            std::thread::sleep(Duration::from_millis(50));
+            Ok(vec![ScalarValue::Int64(None)])
+        }
+
+        fn merge_batch(&mut self, _states: &[ArrayRef]) -> Result<()> {
+            Ok(())
+        }
+    }
+
+    #[test]
+    fn adapter_convert_to_state_excludes_state_materialization_from_metric() -> Result<()>
+    {
+        let recorded_nanos = Arc::new(AtomicU64::new(0));
+        let accumulator = GroupsAccumulatorAdapter::new({
+            let recorded_nanos = Arc::clone(&recorded_nanos);
+            move || {
+                Ok(Box::new(SlowStateAccumulator {
+                    metric: Arc::new(DurationMetric(Arc::clone(&recorded_nanos))),
+                }) as Box<dyn Accumulator>)
+            }
+        });
+
+        let values: ArrayRef = Arc::new(Int64Array::from(vec![1, 2]));
+        let filter = BooleanArray::from(vec![true, false]);
+        accumulator.convert_to_state(&[values], Some(&filter))?;
+
+        assert!(
+            recorded_nanos.load(Ordering::Relaxed)
+                < Duration::from_millis(25).as_nanos() as u64,
+            "internal metric must exclude state materialization"
+        );
+        Ok(())
+    }
+
+    #[derive(Debug)]
+    struct SlowSizeAccumulator {
+        metric: Arc<dyn AggregateMetric>,
+    }
+
+    impl Accumulator for SlowSizeAccumulator {
+        fn update_batch(&mut self, _values: &[ArrayRef]) -> Result<()> {
+            Ok(())
+        }
+
+        fn grouped_update_batch_metric(&self) -> Option<Arc<dyn AggregateMetric>> {
+            Some(Arc::clone(&self.metric))
+        }
+
+        fn update_batch_grouped(&mut self, _values: &[ArrayRef]) -> Result<()> {
+            Ok(())
+        }
+
+        fn evaluate(&mut self) -> Result<ScalarValue> {
+            Ok(ScalarValue::Int64(None))
+        }
+
+        fn size(&self) -> usize {
+            std::thread::sleep(Duration::from_millis(50));
+            size_of_val(self)
+        }
+
+        fn state(&mut self) -> Result<Vec<ScalarValue>> {
+            Ok(vec![ScalarValue::Int64(None)])
+        }
+
+        fn merge_batch(&mut self, _states: &[ArrayRef]) -> Result<()> {
+            Ok(())
+        }
+    }
+
+    #[test]
+    fn adapter_grouped_update_excludes_size_accounting_from_metric() -> Result<()> {
+        let recorded_nanos = Arc::new(AtomicU64::new(0));
+        let mut accumulator = GroupsAccumulatorAdapter::new({
+            let recorded_nanos = Arc::clone(&recorded_nanos);
+            move || {
+                Ok(Box::new(SlowSizeAccumulator {
+                    metric: Arc::new(DurationMetric(Arc::clone(&recorded_nanos))),
+                }) as Box<dyn Accumulator>)
+            }
+        });
+
+        let values: ArrayRef = Arc::new(Int64Array::from(vec![1]));
+        accumulator.update_batch(&[values], &[0], None, 1)?;
+
+        assert!(
+            recorded_nanos.load(Ordering::Relaxed)
+                < Duration::from_millis(25).as_nanos() as u64,
+            "grouped-update metric must exclude size accounting"
+        );
+        Ok(())
+    }
+
+    #[derive(Debug)]
+    struct FailOnceAccumulator {
+        fail_first_update: bool,
+        successful_group_rows: Option<Arc<AtomicUsize>>,
+        allocation_bytes: usize,
+        metric: Option<Arc<dyn AggregateMetric>>,
+    }
+
+    impl Accumulator for FailOnceAccumulator {
+        fn update_batch(&mut self, values: &[ArrayRef]) -> Result<()> {
+            if self.fail_first_update {
+                self.fail_first_update = false;
+                return datafusion_common::internal_err!("injected update failure");
+            }
+            if let Some(rows) = &self.successful_group_rows {
+                rows.fetch_add(values[0].len(), Ordering::Relaxed);
+                self.allocation_bytes = 1024;
+            }
+            Ok(())
+        }
+
+        fn grouped_update_batch_metric(&self) -> Option<Arc<dyn AggregateMetric>> {
+            self.metric.clone()
+        }
+
+        fn evaluate(&mut self) -> Result<ScalarValue> {
+            Ok(ScalarValue::Int64(None))
+        }
+
+        fn size(&self) -> usize {
+            size_of_val(self) + self.allocation_bytes
+        }
+
+        fn state(&mut self) -> Result<Vec<ScalarValue>> {
+            Ok(vec![ScalarValue::Int64(None)])
+        }
+
+        fn merge_batch(&mut self, _states: &[ArrayRef]) -> Result<()> {
+            Ok(())
+        }
+    }
+
+    #[test]
+    fn adapter_clears_successful_group_indices_after_later_error() -> Result<()> {
+        let created = Arc::new(AtomicUsize::new(0));
+        let successful_group_rows = Arc::new(AtomicUsize::new(0));
+        let mut accumulator = GroupsAccumulatorAdapter::new({
+            let created = Arc::clone(&created);
+            let successful_group_rows = Arc::clone(&successful_group_rows);
+            move || {
+                let group = created.fetch_add(1, Ordering::Relaxed);
+                Ok(Box::new(FailOnceAccumulator {
+                    fail_first_update: group == 1,
+                    successful_group_rows: (group == 0)
+                        .then(|| Arc::clone(&successful_group_rows)),
+                    allocation_bytes: 0,
+                    metric: None,
+                }) as Box<dyn Accumulator>)
+            }
+        });
+
+        accumulator.make_accumulators_if_needed(2)?;
+        let values: ArrayRef = Arc::new(Int64Array::from(vec![1, 2]));
+        assert!(
+            accumulator
+                .update_batch(&[Arc::clone(&values)], &[0, 1], None, 2)
+                .is_err()
+        );
+        assert_eq!(
+            accumulator.size(),
+            accumulator.states.allocated_size()
+                + accumulator
+                    .states
+                    .iter()
+                    .map(AccumulatorState::size)
+                    .sum::<usize>()
+                + accumulator.scratch.allocated_size()
+        );
+        accumulator.update_batch(&[values], &[0, 1], None, 2)?;
+
+        assert_eq!(successful_group_rows.load(Ordering::Relaxed), 2);
+        Ok(())
+    }
+
+    #[test]
+    fn adapter_reconciles_allocation_after_later_error_with_grouped_metric() -> Result<()>
+    {
+        let created = Arc::new(AtomicUsize::new(0));
+        let successful_group_rows = Arc::new(AtomicUsize::new(0));
+        let metric: Arc<dyn AggregateMetric> =
+            Arc::new(CountingMetric(Arc::new(AtomicUsize::new(0))));
+        let mut accumulator = GroupsAccumulatorAdapter::new({
+            let created = Arc::clone(&created);
+            let successful_group_rows = Arc::clone(&successful_group_rows);
+            move || {
+                let group = created.fetch_add(1, Ordering::Relaxed);
+                Ok(Box::new(FailOnceAccumulator {
+                    fail_first_update: group == 1,
+                    successful_group_rows: (group == 0)
+                        .then(|| Arc::clone(&successful_group_rows)),
+                    allocation_bytes: 0,
+                    metric: Some(Arc::clone(&metric)),
+                }) as Box<dyn Accumulator>)
+            }
+        });
+
+        accumulator.make_accumulators_if_needed(2)?;
+        let values: ArrayRef = Arc::new(Int64Array::from(vec![1, 2]));
+        assert!(
+            accumulator
+                .update_batch(&[values], &[0, 1], None, 2)
+                .is_err()
+        );
+        assert_eq!(
+            accumulator.size(),
+            accumulator.states.allocated_size()
+                + accumulator
+                    .states
+                    .iter()
+                    .map(AccumulatorState::size)
+                    .sum::<usize>()
+                + accumulator.scratch.allocated_size()
+        );
+        Ok(())
+    }
+
+    #[test]
+    fn adapter_convert_to_state_records_metric_on_update_error() -> Result<()> {
+        let created = Arc::new(AtomicUsize::new(0));
+        let metric_updates = Arc::new(AtomicUsize::new(0));
+        let metric: Arc<dyn AggregateMetric> =
+            Arc::new(CountingMetric(Arc::clone(&metric_updates)));
+        let accumulator = GroupsAccumulatorAdapter::new({
+            let created = Arc::clone(&created);
+            move || {
+                let group = created.fetch_add(1, Ordering::Relaxed);
+                Ok(Box::new(FailOnceAccumulator {
+                    fail_first_update: group == 1,
+                    successful_group_rows: None,
+                    allocation_bytes: 0,
+                    metric: Some(Arc::clone(&metric)),
+                }) as Box<dyn Accumulator>)
+            }
+        });
+
+        let values: ArrayRef = Arc::new(Int64Array::from(vec![1, 2]));
+        assert!(accumulator.convert_to_state(&[values], None).is_err());
+        assert_eq!(metric_updates.load(Ordering::Relaxed), 1);
+        Ok(())
+    }
+
+    /// One large batch must not make the adapter keep its scratch capacity
+    /// for the smaller batches after it.
+    #[test]
+    fn adapter_releases_oversized_scratch() -> Result<()> {
+        const NUM_GROUPS: usize = 2 * MAX_RETAINED_SCRATCH_ENTRIES;
+        let mut adapter = GroupsAccumulatorAdapter::new(|| {
+            Ok(Box::new(MaxAccumulator::try_new(&DataType::Int64)?)
+                as Box<dyn Accumulator>)
+        });
+
+        // every row is a different group, so the scratch buffers need one
+        // entry for each row
+        let group_indices: Vec<usize> = (0..NUM_GROUPS).collect();
+        let values: ArrayRef =
+            Arc::new(Int64Array::from_iter_values(0..NUM_GROUPS as i64));
+        adapter.update_batch(&[values], &group_indices, None, NUM_GROUPS)?;
+        let large_scratch = adapter.scratch.allocated_size();
+        assert!(large_scratch >= NUM_GROUPS * size_of::<usize>());
+        let size_after_large_batch = adapter.size();
+
+        // a batch with one row shrinks each large buffer to
+        // SCRATCH_RETAIN_RATIO times what it used: one group, two offsets and
+        // one row index
+        let values: ArrayRef = Arc::new(Int64Array::from(vec![1]));
+        adapter.update_batch(&[values], &[0], None, NUM_GROUPS)?;
+        let small_scratch = adapter.scratch.allocated_size();
+        assert!(small_scratch < large_scratch);
+        assert_eq!(
+            adapter.scratch.groups_with_rows.capacity(),
+            SCRATCH_RETAIN_RATIO
+        );
+        assert_eq!(adapter.scratch.offsets.capacity(), 2 * SCRATCH_RETAIN_RATIO);
+        assert_eq!(
+            adapter.scratch.batch_indices.capacity(),
+            SCRATCH_RETAIN_RATIO
+        );
+        assert_eq!(
+            adapter.size(),
+            size_after_large_batch - large_scratch + small_scratch
+        );
+        Ok(())
+    }
+
+    #[test]
+    fn adapter_preserving_evaluation_uses_accumulator_contract() -> Result<()> {
+        let mut accumulator = GroupsAccumulatorAdapter::new(|| {
+            Ok(Box::new(MaxAccumulator::try_new(&DataType::Int64)?)
+                as Box<dyn Accumulator>)
+        });
+        let values = Arc::new(Int64Array::from(vec![Some(1), Some(5), Some(2), None]));
+        accumulator.update_batch(&[values], &[0, 0, 1, 2], None, 4)?;
+
+        let selection = GroupSelection::try_from_indices(&[1, 0, 3, 1], 4)?;
+        let expected = Int64Array::from(vec![Some(2), Some(5), None, Some(2)]);
+        for _ in 0..2 {
+            assert_eq!(
+                accumulator
+                    .evaluate_preserving(selection)?
+                    .as_primitive::<Int64Type>(),
+                &expected
+            );
+        }
+
+        let empty =
+            accumulator.evaluate_preserving(GroupSelection::try_from_indices(&[], 4)?)?;
+        assert_eq!(empty.data_type(), &DataType::Int64);
+        assert!(empty.is_empty());
+
+        let values = Arc::new(Int64Array::from(vec![7, 4, 9]));
+        accumulator.update_batch(&[values], &[0, 2, 3], None, 4)?;
+        assert_eq!(
+            accumulator
+                .evaluate_preserving(GroupSelection::all(4))?
+                .as_primitive::<Int64Type>(),
+            &Int64Array::from(vec![Some(7), Some(2), Some(4), Some(9)])
+        );
+        assert!(accumulator.supports_evaluate_preserving());
+        assert!(!accumulator.supports_state_preserving());
+        Ok(())
+    }
+}

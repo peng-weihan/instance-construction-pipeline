@@ -1,0 +1,5 @@
+{
+  "returncode": 0,
+  "stdout": "2.7.1+cpu 1.7.0 27.0\n",
+  "stderr": "mkdir -p failed for path /root/.config/matplotlib: [Errno 30] Read-only file system: '/root/.config'\nMatplotlib created a temporary cache directory at /tmp/matplotlib-vv580xup because there was an issue with the default path (/root/.config/matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.\n"
+}

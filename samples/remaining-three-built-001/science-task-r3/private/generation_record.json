@@ -1,0 +1,24 @@
+{
+  "seed": 2026101503,
+  "synthetic": true,
+  "model": "own coupled Darcy and reactive dual-domain transport; not a MODFLOW execution",
+  "observation_counts": {
+    "public": 339,
+    "feedback": 305,
+    "audit": 392
+  },
+  "independent_agreement": {
+    "hydraulic_axis_0": {
+      "head": 5.511147094239277e-13,
+      "flux": 4.410014020628239e-14,
+      "total": 9.769962616701378e-14
+    },
+    "hydraulic_axis_1": {
+      "head": 3.7242431361050876e-13,
+      "flux": 2.4119595209981526e-14,
+      "total": 4.263256414560601e-14
+    },
+    "calibration": 9.50350909079134e-13,
+    "contaminant": 3.4100500201361683e-13
+  }
+}

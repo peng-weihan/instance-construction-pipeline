@@ -1,0 +1,16 @@
+{
+  "native_component_cases": [
+    {"name":"native_smoke","source":"unit_tests/test_basic_functionality_end_to_end.py::FunctionalityTests::test_abc_minimal_smoke_test","entry":"real restler.py child process","implemented":true},
+    {"name":"native_replay","source":"unit_tests/test_basic_functionality_end_to_end.py::FunctionalityTests::test_trace_database_replay_file","entry":"real restler.py child process","implemented":true},
+    {"name":"commit","input":"BFS ABC grammar max generation 2","oracle":"completed process plus generation header and independently recomputed payload checksum","implemented":true},
+    {"name":"resume","input":"new process same checkpoint max generation 3","oracle":"actual successful native run and committed generation 3 from restored generation 2","implemented":true},
+    {"name":"corruption","input":"mutate eight payload bytes","oracle":"nonzero native exit and checksum mismatch diagnostic","implemented":true},
+    {"name":"input_mismatch","input":"different candidate dictionary with same grammar","oracle":"nonzero native exit and fingerprint mismatch diagnostic","implemented":true}
+  ],
+  "formal_service_cases": [
+    {"name":"commit_ack_lost_then_resume","oracle":"judge-owned Polaris request history and final state","implemented":false},
+    {"name":"service_reset_regenerate_dependency_ids","oracle":"new Polaris IDs and valid consumer effects","implemented":false},
+    {"name":"shared_parent_cleanup_after_cancel","oracle":"owned resources deleted; shared principal and grant remain","implemented":false},
+    {"name":"failed_delete_then_resume_cleanup","oracle":"observed reverse order and explicit remaining resources","implemented":false}
+  ]
+}

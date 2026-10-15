@@ -1,0 +1,64 @@
+{
+  "id": "15_jq_composition",
+  "repo": "jqlang/jq",
+  "revision": "71c2ab509a8628dbbad4bc7b3f98a64aa90d3297",
+  "family": "behavioral_reimplementation",
+  "new_source": false,
+  "title": "流、作用域、递归与错误前缀的CLI兼容",
+  "files": [
+    "README.md",
+    "tests/jq.test",
+    "src/execute.c",
+    "docs/content/manual/v1.7/manual.yml"
+  ],
+  "retrieved_utc": "2026-10-15T09:20:50.242865+00:00",
+  "files_acquired": [
+    {
+      "path": "README.md",
+      "bytes": 1791,
+      "sha256": "add9e9e77e47eda850a04a076e76761ea280f47daee2ac535e54d26ffce15939",
+      "url": "https://github.com/jqlang/jq/blob/71c2ab509a8628dbbad4bc7b3f98a64aa90d3297/README.md"
+    },
+    {
+      "path": "tests/jq.test",
+      "bytes": 40026,
+      "sha256": "35aade216e95e78e63e77011fb4588856a5d04d6ac7be572ad382a3430d8b4d5",
+      "url": "https://github.com/jqlang/jq/blob/71c2ab509a8628dbbad4bc7b3f98a64aa90d3297/tests/jq.test"
+    },
+    {
+      "path": "src/execute.c",
+      "bytes": 37257,
+      "sha256": "a0687de0fcd903ee37a8ef9fd28ed7106f9de051b10389bd0526465efb3b050c",
+      "url": "https://github.com/jqlang/jq/blob/71c2ab509a8628dbbad4bc7b3f98a64aa90d3297/src/execute.c"
+    },
+    {
+      "path": "docs/content/manual/v1.7/manual.yml",
+      "bytes": 141452,
+      "sha256": "b932b521e1cca60f3d50803bb546e1bd6502613f7b5f8109bb3e5485a450bb8d",
+      "url": "https://github.com/jqlang/jq/blob/71c2ab509a8628dbbad4bc7b3f98a64aa90d3297/docs/content/manual/v1.7/manual.yml"
+    },
+    {
+      "path": "COPYING",
+      "bytes": 6026,
+      "sha256": "10e974638a41fadfd72357f2f3a4325e20b856c563365128f72feaa406f8c92d",
+      "url": "https://github.com/jqlang/jq/blob/71c2ab509a8628dbbad4bc7b3f98a64aa90d3297/COPYING"
+    }
+  ],
+  "missing_paths": [
+    "LICENSE",
+    "LICENSE.txt",
+    "LICENSE.md",
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "runtime_validation": false,
+  "six_hour_difficulty_verified": false,
+  "tree_manifest": {
+    "path": "git-tree.json",
+    "sha256": "21d45d0176fd2c676b476a14f03a3874ce14fae89d2411a02a4ed954ff1402b4",
+    "blob_count": 307,
+    "truncated": false
+  },
+  "resolved_initial_404_paths": {},
+  "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+}

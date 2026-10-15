@@ -1,0 +1,43 @@
+schema_version = "1.4"
+source = "https://github.com/microsoft/restler-fuzzer/tree/6d984deedbc54aad957fa3da0c7e9e5df23a2aee"
+artifacts = ["/home/workspace/restler-recovery/submission"]
+
+[task]
+name = "edgebench/restler-durable-bfs"
+version = "1.0.0"
+description = "Durable sequential RESTler BFS with native dependency replay and an explicit idempotent service protocol"
+
+[metadata]
+reward_type = "bounded_continuous"
+authoring_status = "constructed_unverified"
+model_requirement = "gpt-6.1-sol"
+score_spec = "authoring/score-spec.json"
+work_build_context = "environment"
+verifier_build_context = "verifier"
+
+[agent]
+timeout_sec = 21600
+user = "2000:2000"
+network_mode = "no-network"
+
+[environment]
+docker_image = "edgebench-restler-work:1.0.0"
+workdir = "/home/workspace/restler-recovery"
+network_mode = "no-network"
+cpus = 2
+memory_mb = 4096
+storage_mb = 8192
+
+[verifier]
+timeout_sec = 1200
+user = "root"
+network_mode = "no-network"
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "edgebench-restler-judge:1.0.0"
+workdir = "/home/workspace/restler-recovery"
+network_mode = "no-network"
+cpus = 2
+memory_mb = 4096
+storage_mb = 8192

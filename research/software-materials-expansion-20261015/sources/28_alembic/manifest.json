@@ -1,0 +1,80 @@
+{
+  "repo": "sqlalchemy/alembic",
+  "revision": "1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd",
+  "resolved_utc": "2026-10-15T13:07:41.290088+00:00",
+  "retrieved_utc": "2026-10-15T13:08:34.112195+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "208857b52414348f9cd2b8f4b18bdc4168d852271ce5843afbd9a94e5c0d49ff",
+    "truncated": false,
+    "blob_count": 195
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 1059,
+      "sha256": "6e68d94a03a0e3e327ddf3e86d1ebedc14eece3922022618fc246a36296fd0cc",
+      "url": "https://github.com/sqlalchemy/alembic/blob/1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd/LICENSE"
+    },
+    {
+      "path": "README.rst",
+      "bytes": 5737,
+      "sha256": "422e4662fb3bfb4170bd3323db618f3c495cb4d729d077a481ad29730148d87e",
+      "url": "https://github.com/sqlalchemy/alembic/blob/1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd/README.rst"
+    },
+    {
+      "path": "README.unittests.rst",
+      "bytes": 15006,
+      "sha256": "eaa5b77d1c3b4cbee1b8621fb4d76ce9bd9fb210abb6718f24ab6dad7992af1c",
+      "url": "https://github.com/sqlalchemy/alembic/blob/1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd/README.unittests.rst"
+    },
+    {
+      "path": "alembic/autogenerate/api.py",
+      "bytes": 22614,
+      "sha256": "85887aac9e1fe3e6cfc47781de1bc7862f2c1f531d1a3a49fa806737f543b4fe",
+      "url": "https://github.com/sqlalchemy/alembic/blob/1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd/alembic/autogenerate/api.py"
+    },
+    {
+      "path": "alembic/autogenerate/compare/tables.py",
+      "bytes": 10504,
+      "sha256": "68b2023090fb3081bb704d3b8c165fe8a18ca7a8e932932a5b2f08eaa6a43338",
+      "url": "https://github.com/sqlalchemy/alembic/blob/1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd/alembic/autogenerate/compare/tables.py"
+    },
+    {
+      "path": "alembic/autogenerate/render.py",
+      "bytes": 38880,
+      "sha256": "c307dbc9135b02fe0278853cd42eccc1c0cd7296c2c300d396139008f542d348",
+      "url": "https://github.com/sqlalchemy/alembic/blob/1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd/alembic/autogenerate/render.py"
+    },
+    {
+      "path": "alembic/operations/ops.py",
+      "bytes": 98319,
+      "sha256": "f0df2e6f9e88f7cf319df746c9f1243752f9e5119bd683c32ece6043b9951419",
+      "url": "https://github.com/sqlalchemy/alembic/blob/1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd/alembic/operations/ops.py"
+    },
+    {
+      "path": "docs/build/autogenerate.rst",
+      "bytes": 42995,
+      "sha256": "c76115a47236cd779097d1535a0490cdf505c83fdadae695b15d59d9ca92e31b",
+      "url": "https://github.com/sqlalchemy/alembic/blob/1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd/docs/build/autogenerate.rst"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 3446,
+      "sha256": "5290b8729141fc48cf02d9abd06be65e66ecd9be68c2d85465aa51e4a4274fe8",
+      "url": "https://github.com/sqlalchemy/alembic/blob/1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd/pyproject.toml"
+    },
+    {
+      "path": "tests/test_autogen_diffs.py",
+      "bytes": 82981,
+      "sha256": "883294cf02f40a1a9698466c557e84cdef3a8f57638f10e0421dff96d2d8779d",
+      "url": "https://github.com/sqlalchemy/alembic/blob/1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd/tests/test_autogen_diffs.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

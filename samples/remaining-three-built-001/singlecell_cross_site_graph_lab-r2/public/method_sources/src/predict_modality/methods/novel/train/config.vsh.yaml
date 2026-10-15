@@ -1,0 +1,71 @@
+functionality:
+  name: novel_train
+  namespace: predict_modality_methods
+  
+  # metadata for your method
+  
+  description: The task is solved via training encoder-decoder MLP model with one output neuron per component in the target. As an input, the encoders use representations obtained from ATAC and GEX data via LSI transform and raw ADT data. The hyperparameters of the models were found via broad hyperparameter search using the Optuna framework.
+  
+  authors:
+    - name: Gleb Ryazantsev
+      email: ryazantsev.gleb@gmail.com
+      roles: [ author, maintainer ]
+    - name: Nikolay Russkikh
+      email: russkikh.nikolay@gmail.com
+      roles: [ author, maintainer ]
+    - name: Igor I
+      email: herri.i.67@gmail.com
+      roles: [ author, maintainer ]
+      
+  # parameters
+  arguments:
+    # required inputs
+    - name: "--input_train_mod1"
+      type: "file"
+      example: "dataset_mod1.h5ad"
+      description: Censored dataset, training cells.
+      required: true
+    - name: "--input_train_mod2"
+      type: "file"
+      example: "dataset_mod2.h5ad"
+      description: Censored dataset.
+      required: true
+    - name: "--input_test_mod1"
+      type: "file"
+      example: "dataset_test_mod1.h5ad"
+      description: Censored dataset, training cells.
+      required: true
+    - name: "--input_test_mod2"
+      type: "file"
+      example: "dataset_test_mod2.h5ad"
+      description: Censored dataset.
+      required: true
+
+    # required outputs
+    - name: "--output_pretrain"
+      type: "file"
+      direction: "output"
+      example: "pretrain_model"
+      description: Path to the directory containing a pretrained model.
+      required: true
+      
+  # files your script needs
+  resources:
+    - type: python_script
+      path: script.py
+    - path: ../resources/helper_functions.py
+      
+# target platforms
+platforms:
+  - type: docker
+    image: "pytorch/pytorch:1.9.0-cuda10.2-cudnn7-runtime"
+    run_args: [ "--gpus all --shm-size=5G" ]
+    setup:
+      - type: python
+        packages:
+          - anndata
+          - scikit-learn
+          - networkx
+
+  - type: nextflow
+    labels: [ vhighmem, vvhightime, vhighcpu, gpu]

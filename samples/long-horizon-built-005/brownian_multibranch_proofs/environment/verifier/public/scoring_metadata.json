@@ -1,0 +1,33 @@
+{
+  "direction": "higher_is_better",
+  "range": [
+    0,
+    1
+  ],
+  "formula": "0.2*covariance_completion+0.2*covering_completion+0.2*mean(moment_and_process_target_completion)+0.4*continuity_completion",
+  "constants": {
+    "group_weights": {
+      "covariance": 0.2,
+      "covering": 0.2,
+      "moment_and_process": 0.2,
+      "continuity": 0.4
+    },
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "endpoint_mechanism": "declared_algorithmic_reference_plus_theoretical_upper_bound",
+  "baseline": {
+    "implementation": "solution/ and verifier; see endpoint_notes.md",
+    "measured_score": null
+  },
+  "upper": {
+    "value": 1,
+    "meaning": "formula bound, not a demonstrated attainable score"
+  },
+  "oracle_score": null,
+  "nop_score": null,
+  "model_three_run_mean": null
+}

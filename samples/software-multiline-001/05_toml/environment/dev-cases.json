@@ -1,0 +1,124 @@
+[
+  {
+    "id": "ascii-escapes",
+    "group": "decode",
+    "request": {
+      "op": "roundtrip",
+      "text": "s=\"\\b\\e\\f\\n\\r\\t\\\\\\\"\"\n"
+    },
+    "expected": {
+      "ok": true,
+      "original": {
+        "s": "\b\u001b\f\n\r\t\\\""
+      },
+      "text": "s=\"\\b\\e\\f\\n\\r\\t\\\\\\\"\"\n",
+      "value": {
+        "s": "\b\u001b\f\n\r\t\\\""
+      }
+    },
+    "independent_check": "TOML 1.1 source reference only"
+  },
+  {
+    "id": "unicode-widths",
+    "group": "decode",
+    "request": {
+      "op": "roundtrip",
+      "text": "s=\"\\x41\\u03B1\\U0001F600\"\n"
+    },
+    "expected": {
+      "ok": true,
+      "original": {
+        "s": "Aα😀"
+      },
+      "text": "s=\"\\x41\\u03B1\\U0001F600\"\n",
+      "value": {
+        "s": "Aα😀"
+      }
+    },
+    "independent_check": "TOML 1.1 source reference only"
+  },
+  {
+    "id": "package-comments",
+    "group": "format",
+    "request": {
+      "op": "roundtrip",
+      "text": "# package configuration\n[package] # header\nname  =  'demo' # keep me\nversion=\"0.1\"\n"
+    },
+    "expected": {
+      "ok": true,
+      "original": {
+        "package": {
+          "name": "demo",
+          "version": "0.1"
+        }
+      },
+      "text": "# package configuration\n[package] # header\nname  =  'demo' # keep me\nversion=\"0.1\"\n",
+      "value": {
+        "package": {
+          "name": "demo",
+          "version": "0.1"
+        }
+      }
+    },
+    "independent_check": "Python 3.12 tomllib semantic equality"
+  },
+  {
+    "id": "edit-root",
+    "group": "edit",
+    "request": {
+      "op": "edit",
+      "text": "a = 'unchanged' # comment\nb = 2\n",
+      "changes": [
+        {
+          "path": [
+            "b"
+          ],
+          "value": "line\n\"quote\"\\tail"
+        }
+      ]
+    },
+    "expected": {
+      "ok": true,
+      "original": {
+        "a": "unchanged",
+        "b": 2
+      },
+      "text": "a = 'unchanged' # comment\nb = '''\nline\n\"quote\"\\tail'''\n",
+      "value": {
+        "a": "unchanged",
+        "b": "line\n\"quote\"\\tail"
+      }
+    },
+    "independent_check": "Python 3.12 tomllib semantic equality"
+  },
+  {
+    "id": "serialize-controls",
+    "group": "serialize",
+    "request": {
+      "op": "serialize",
+      "value": {
+        "s": "\b\t\n\f\r\u001b\u0000"
+      }
+    },
+    "expected": {
+      "ok": true,
+      "text": "s = \"\"\"\n\\b\\t\n\\f\\r\\u001B\\u0000\\u007F\"\"\"\n"
+    }
+  },
+  {
+    "id": "invalid-escape",
+    "group": "diagnostic",
+    "request": {
+      "op": "diagnostic",
+      "text": "s=\"\\q\"\n"
+    },
+    "expected": {
+      "message": "missing escaped value, expected `b`, `e`, `f`, `n`, `r`, `\\`, `\"`, `x`, `u`, `U`",
+      "ok": false,
+      "span": [
+        4,
+        4
+      ]
+    }
+  }
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "name": "UniformContinuousOn.exists_tendsto",
+    "weight": 1,
+    "file": "BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "signature": "lemma UniformContinuousOn.exists_tendsto {α β : Type*} [UniformSpace α] [FirstCountableTopology α]\n    [UniformSpace β] [CompleteSpace β] {s t : Set α} (hs : Dense s) (ht : IsOpen t)\n    {f : s → β} (hf : UniformContinuousOn f {x | ↑x ∈ t}) (a : α) (ha : a ∈ t) :\n    ∃ c, Tendsto f (comap Subtype.val (𝓝 a)) (𝓝 c)",
+    "original_proof_lines": 55,
+    "original_proof_sha256": "be033970358b49e51c6c9516365b223db262f2f9217f306de00cd21cfb9369fc"
+  },
+  {
+    "name": "Dense.holderOnWith_extend",
+    "weight": 1,
+    "file": "BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "signature": "lemma Dense.holderOnWith_extend {X Y : Type*} [PseudoEMetricSpace X] [PseudoEMetricSpace Y]\n    [CompleteSpace Y] {C r : ℝ≥0} {s : Set X} {f : s → Y} {U : Set X} (hU : IsOpen U) (hs : Dense s)\n    (hf : HolderOnWith C r f {x | ↑x ∈ U}) (hr : 0 < r) :\n    HolderOnWith C r (hs.extend f) U",
+    "original_proof_lines": 46,
+    "original_proof_sha256": "a3aba9f3fc6b7f1df0f460773edf4ec25968d5da92850a54ae3e22166f8f0844"
+  },
+  {
+    "name": "IsKolmogorovProcess.measurableSet_holderSet",
+    "weight": 1,
+    "file": "BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "signature": "lemma IsKolmogorovProcess.measurableSet_holderSet\n    (hX : IsKolmogorovProcess X P p q M) {T' : Set T} (hT' : T'.Countable) :\n    MeasurableSet (holderSet X T' p β U)",
+    "original_proof_lines": 22,
+    "original_proof_sha256": "6612077b535d7ff024d3294f5b9a383bbd02a831313e5074ec9c7df48ae5618f"
+  },
+  {
+    "name": "holderOnWith_of_mem_holderSet",
+    "weight": 1,
+    "file": "BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "signature": "lemma holderOnWith_of_mem_holderSet (hT : HasBoundedCoveringNumber U c d)\n    (hp_pos : 0 < p) (hβ_pos : 0 < β)\n    {T' : Set T} {ω : Ω} (hω : ω ∈ holderSet X T' p β U) :\n    letI C ω := ⨆ (s : (T' ∩ U : Set T)) (t : (T' ∩ U : Set T)),\n      edist (X s ω) (X t ω) ^ p / edist s t ^ (β * p)\n    HolderOnWith (C ω ^ p⁻¹).toNNReal β (fun (t : T') ↦ X t ω) {t' | (t' : T) ∈ U}",
+    "original_proof_lines": 19,
+    "original_proof_sha256": "6a86c27b953252b1264d4265cb28ac1d71301f5230fabf9ab4e454020b31eb7b"
+  },
+  {
+    "name": "ae_mem_holderSet",
+    "weight": 1,
+    "file": "BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "signature": "lemma ae_mem_holderSet [MeasurableSpace E] [BorelSpace E]\n    (hT : HasBoundedCoveringNumber U c d) (hX : IsKolmogorovProcess X P p q M)\n    (hc : c ≠ ∞) (hd_pos : 0 < d) (hdq_lt : d < q) (hβ_pos : 0 < β) (hβ_lt : β < (q - d) / p)\n    {T' : Set T} (hT'_countable : T'.Countable) :\n    ∀ᵐ ω ∂P, ω ∈ holderSet X T' p β U",
+    "original_proof_lines": 14,
+    "original_proof_sha256": "3bafcc332d3da75c6ff79e0efa30c047b026c0d8393c85c933d68faeb87765df"
+  },
+  {
+    "name": "IsKolmogorovProcess.tendstoInMeasure",
+    "weight": 1,
+    "file": "BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "signature": "lemma IsKolmogorovProcess.tendstoInMeasure (hX : IsKolmogorovProcess X P p q M)\n    (hq_pos : 0 < q) {T' : Set T} {u : ℕ → T'} {t : T}\n    (hu : Tendsto (fun n ↦ (u n : T)) atTop (𝓝 t)) :\n    TendstoInMeasure P (fun n ↦ X (u n)) atTop (X t)",
+    "original_proof_lines": 28,
+    "original_proof_sha256": "d89178be889abb4742e75951a6796f2398c223cb2763d0132a3334248e34be2a"
+  },
+  {
+    "name": "isLimitOfIndicator_holderModification",
+    "weight": 1,
+    "file": "BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "signature": "lemma isLimitOfIndicator_holderModification\n    (hT : HasBoundedCoveringNumber U c d) [DecidablePred (· ∈ U)] (hU : IsOpen U)\n    (hX : IsKolmogorovProcess X P p q M)\n    (hc : c ≠ ∞) (hd_pos : 0 < d) (hdq_lt : d < q) (hβ_pos : 0 < β) (hβ_lt : β < (q - d) / p) :\n    IsLimitOfIndicator (holderModification X β p U) X P U",
+    "original_proof_lines": 12,
+    "original_proof_sha256": "e41b2b7cf5115ecf443dbb0ceef722d140f7929632c3aaba79374d6ed54f9195"
+  },
+  {
+    "name": "exists_tendsto_indicatorProcess_holderSet",
+    "weight": 1,
+    "file": "BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "signature": "lemma exists_tendsto_indicatorProcess_holderSet\n    (hT : HasBoundedCoveringNumber U c d) (hU : IsOpen U)\n    (hX : IsKolmogorovProcess X P p q M) (hβ_pos : 0 < β)\n    {T' : Set T} (hT'_dense : Dense T') (t : T) (htU : t ∈ U) (ω : Ω) :\n    ∃ c, Tendsto (fun x : T' ↦ indicatorProcess X (holderSet X T' p β U) x ω)\n      (comap Subtype.val (𝓝 t)) (𝓝 c)",
+    "original_proof_lines": 21,
+    "original_proof_sha256": "69705f784295655265ec788dc758556ac0e9f6b50cbf1e7ad5c89c803f4fee6e"
+  },
+  {
+    "name": "measurable_holderModification",
+    "weight": 1,
+    "file": "BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "signature": "lemma measurable_holderModification (hT : HasBoundedCoveringNumber U c d)\n    [DecidablePred (· ∈ U)] (hU : IsOpen U)\n    (hX : IsKolmogorovProcess X P p q M)\n    (hc : c ≠ ∞) (hd_pos : 0 < d) (hdq_lt : d < q) (hβ_pos : 0 < β) (hβ_lt : β < (q - d) / p)\n    (t : T) :\n    Measurable (holderModification X β p U t)",
+    "original_proof_lines": 4,
+    "original_proof_sha256": "50caffc343cad56f43e91b0961aaa2ab20b6969f1deb1099b4fe4519dc300b65"
+  },
+  {
+    "name": "holderOnWith_holderModification",
+    "weight": 1,
+    "file": "BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "signature": "lemma holderOnWith_holderModification\n    (hT : HasBoundedCoveringNumber U c d) [DecidablePred (· ∈ U)] (hU : IsOpen U)\n    (hX : IsKolmogorovProcess X P p q M) (hβ_pos : 0 < β) (ω : Ω) :\n    ∃ C : ℝ≥0, HolderOnWith C β (holderModification X β p U · ω) U",
+    "original_proof_lines": 24,
+    "original_proof_sha256": "2ef01599ccfc85662bfae99c3546ee1b3c60c81083519d30b0e7bd5946c8b719"
+  },
+  {
+    "name": "measurable_pair_holderModification",
+    "weight": 1,
+    "file": "BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "signature": "lemma measurable_pair_holderModification\n    {U₁ U₂ : Set T} [DecidablePred (· ∈ U₁)] [DecidablePred (· ∈ U₂)]\n    (hU₁ : IsOpen U₁) (hU₂ : IsOpen U₂)\n    {X₁ X₂ : T → Ω → E} {c₁ c₂ : ℝ≥0∞} {p₁ p₂ q₁ q₂ d₁ d₂ : ℝ} {M₁ M₂ β₁ β₂ : ℝ≥0}\n    (hT₁ : HasBoundedCoveringNumber U₁ c₁ d₁)\n    (hT₂ : HasBoundedCoveringNumber U₂ c₂ d₂)\n    (hX₁ : IsKolmogorovProcess X₁ P p₁ q₁ M₁)\n    (hX₂ : IsKolmogorovProcess X₂ P p₂ q₂ M₂)\n    (hc₁ : c₁ ≠ ∞) (hc₂ : c₂ ≠ ∞)\n    (hd₁_pos : 0 < d₁) (hd₂_pos : 0 < d₂)\n    (hdq₁_lt : d₁ < q₁) (hdq₂_lt : d₂ < q₂)\n    (hβ₁_pos : 0 < β₁) (hβ₂_pos : 0 < β₂)\n    (hβ₁_lt : β₁ < (q₁ - d₁) / p₁) (hβ₂_lt : β₂ < (q₂ - d₂) / p₂)\n    (hX₁₂ : ∀ i j, Measurable[_, borel (E × E)] fun ω ↦ (X₁ i ω, X₂ j ω))\n    (s t : T) :\n    Measurable[_, borel (E × E)]\n      (fun ω ↦ (holderModification X₁ β₁ p₁ U₁ s ω, holderModification X₂ β₂ p₂ U₂ t ω))",
+    "original_proof_lines": 6,
+    "original_proof_sha256": "dee5f0cdb965a17010281bc77e55e602227b37904b99689bdae459d8a75f88c4"
+  },
+  {
+    "name": "edist_holderModification_eq_zero",
+    "weight": 1,
+    "file": "BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "signature": "lemma edist_holderModification_eq_zero (hT : HasBoundedCoveringNumber U c d) (hU : IsOpen U)\n    [DecidablePred (· ∈ U)]\n    (hX : IsKolmogorovProcess X P p q M) (hβ_pos : 0 < β)\n    (t' : denseCountable T) (ht'U : ↑t' ∈ U)\n    {ω : Ω} (hω : ω ∈ holderSet X (denseCountable T) p β U) :\n    edist (holderModification X β p U t' ω) (X t' ω) = 0",
+    "original_proof_lines": 19,
+    "original_proof_sha256": "b983ec0e8ad319d74c6077d11e0ba9115aaad4c93303cfa6c63a456699b56f16"
+  },
+  {
+    "name": "edist_modification_holderModification",
+    "weight": 1,
+    "file": "BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "signature": "lemma edist_modification_holderModification (hT : HasBoundedCoveringNumber U c d)\n    [DecidablePred (· ∈ U)] (hU : IsOpen U)\n    (hX : IsKolmogorovProcess X P p q M)\n    (hc : c ≠ ∞) (hd_pos : 0 < d) (hdq_lt : d < q) (hβ_pos : 0 < β) (hβ_lt : β < (q - d) / p)\n    (t : T) (htU : t ∈ U) :\n    ∀ᵐ ω ∂P, edist (holderModification X β p U t ω) (X t ω) = 0",
+    "original_proof_lines": 77,
+    "original_proof_sha256": "1481143715012bbad6a2c9545313e62d5ff49275aea099adc620fddbe0c14e4f"
+  },
+  {
+    "name": "exists_modification_holder_aux'",
+    "weight": 1,
+    "file": "BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "signature": "lemma exists_modification_holder_aux' (hT : HasBoundedCoveringNumber U c d)\n    (hU : IsOpen U)\n    (hX : IsKolmogorovProcess X P p q M)\n    (hc : c ≠ ∞) (hd_pos : 0 < d) (hdq_lt : d < q)\n    (hβ_pos : 0 < β) (hβ_lt : β < (q - d) / p) :\n    ∃ Y : T → Ω → E, (∀ t, Measurable (Y t)) ∧ (∀ t ∈ U, Y t =ᵐ[P] X t) ∧\n      (∀ ω, ∃ C : ℝ≥0, HolderOnWith C β (Y · ω) U) ∧ IsLimitOfIndicator Y X P U",
+    "original_proof_lines": 22,
+    "original_proof_sha256": "ded13f51487b29fcdadc786caa59dd90907badc2e346e5340a0f327c817c3dc2"
+  },
+  {
+    "name": "exists_modification_holder''",
+    "weight": 1,
+    "file": "BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "signature": "lemma exists_modification_holder'' (hT : HasBoundedCoveringNumber U c d)\n    (hU : IsOpen U)\n    (hX : IsKolmogorovProcess X P p q M)\n    (hc : c ≠ ∞) (hd_pos : 0 < d) (hdq_lt : d < q) :\n    ∃ Y : T → Ω → E, (∀ t, Measurable (Y t)) ∧ (∀ t ∈ U, Y t =ᵐ[P] X t) ∧\n      (∀ (β : ℝ≥0), 0 < β → β < (q - d) / p → ∀ ω, ∃ C, HolderOnWith C β (Y · ω) U) ∧\n      IsLimitOfIndicator Y X P U",
+    "original_proof_lines": 65,
+    "original_proof_sha256": "bb0876614c22a1fc7a244b98c1361f51540dbacb6446ec73980b8e7c5e64fbaf"
+  },
+  {
+    "name": "exists_modification_holder",
+    "weight": 1,
+    "file": "BrownianMotion/Continuity/KolmogorovChentsov.lean",
+    "signature": "theorem exists_modification_holder (hT : HasBoundedCoveringNumber U c d)\n    (hU : IsOpen U)\n    (hX : IsAEKolmogorovProcess X P p q M)\n    (hc : c ≠ ∞) (hd_pos : 0 < d) (hdq_lt : d < q) :\n    ∃ Y : T → Ω → E, (∀ t, Measurable (Y t)) ∧ (∀ t ∈ U, Y t =ᵐ[P] X t)\n      ∧ ∀ (β : ℝ≥0) (_ : 0 < β) (_ : β < (q - d) / p) ω, ∃ C, HolderOnWith C β (Y · ω) U",
+    "original_proof_lines": 6,
+    "original_proof_sha256": "bcff00ac84d415517db7b982e6a34c2d8cb686be8442a74fa459a8a5d761e496"
+  }
+]

@@ -1,0 +1,57 @@
+{
+  "repo": "networkit/networkit",
+  "revision": "5f03e17cec0918add08f0f7c00c103ee0119da5b",
+  "resolved_utc": "2026-10-15T15:01:05.928072+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:02:03.524288+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "6ffef19af0ae02b27c8b14140f8e32967587b6dea0aa616267002b85f454ff5f",
+    "truncated": false,
+    "blob_count": 1225
+  },
+  "files_acquired": [
+    {
+      "path": "License.txt",
+      "bytes": 1301,
+      "sha256": "e48ef94dfed41c3fd5c74e4a0a2d39def5541803e899a378a0fd9c7b9f6e9f4b",
+      "url": "https://github.com/networkit/networkit/blob/5f03e17cec0918add08f0f7c00c103ee0119da5b/License.txt"
+    },
+    {
+      "path": "README.md",
+      "bytes": 10869,
+      "sha256": "e77ceb9888a3537007c04613851791fd3a063207250f5ea1853388f947b07f2b",
+      "url": "https://github.com/networkit/networkit/blob/5f03e17cec0918add08f0f7c00c103ee0119da5b/README.md"
+    },
+    {
+      "path": "include/networkit/community/PLM.hpp",
+      "bytes": 3077,
+      "sha256": "f228bc7467f4348e3467da3013314c1da5e51a2946ed2bb431b5ffeabed03fa8",
+      "url": "https://github.com/networkit/networkit/blob/5f03e17cec0918add08f0f7c00c103ee0119da5b/include/networkit/community/PLM.hpp"
+    },
+    {
+      "path": "networkit/cpp/community/PLM.cpp",
+      "bytes": 11002,
+      "sha256": "159772b739ee5e653064f20404b4264104f77ad6e3f031d0ed788a6fb85343ff",
+      "url": "https://github.com/networkit/networkit/blob/5f03e17cec0918add08f0f7c00c103ee0119da5b/networkit/cpp/community/PLM.cpp"
+    },
+    {
+      "path": "networkit/cpp/community/test/CommunityGTest.cpp",
+      "bytes": 34306,
+      "sha256": "3d6c58f3e6f445f9c7c6d0eb19564930dc4f3c2e63073985c8bde686276bbf91",
+      "url": "https://github.com/networkit/networkit/blob/5f03e17cec0918add08f0f7c00c103ee0119da5b/networkit/cpp/community/test/CommunityGTest.cpp"
+    },
+    {
+      "path": "networkit/test/test_community.py",
+      "bytes": 12123,
+      "sha256": "ed243a3e48366eb025e759c96c7de2e9586c705cbbdc093030b401adb5282e30",
+      "url": "https://github.com/networkit/networkit/blob/5f03e17cec0918add08f0f7c00c103ee0119da5b/networkit/test/test_community.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

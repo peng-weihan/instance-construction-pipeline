@@ -1,0 +1,630 @@
+[
+  {
+    "id": "43_tox",
+    "repo": "tox-dev/tox",
+    "revision": "d947dd4e43388f727bb534c3f0ad7997d76b4767",
+    "route": "M1",
+    "title": "带资源租约与可恢复执行记录的测试矩阵版本",
+    "priority": "build_scope_probe",
+    "scope": "交付适合共享 CI 主机的矩阵执行模式：环境声明数据库/设备等资源，计划器联合依赖与容量调度，失败和 SIGINT 归还租约；恢复记录只重用输入未变且真实完成的环境。",
+    "existing_capability": "已有环境依赖拓扑、全局并发上限、fail-fast、进程中断、结果 journal 和环境复用。",
+    "proposed_gap": "拟扩展多资源容量/互斥租约及以输入身份校验的恢复计划；不是新增并行或 depends。整体缺口尚待基线探针确认。",
+    "evidence": [
+      {
+        "path": "src/tox/session/cmd/run/common.py",
+        "line": 424,
+        "claim": "已有线程池、完成集合和就绪环境调度",
+        "url": "https://github.com/tox-dev/tox/blob/d947dd4e43388f727bb534c3f0ad7997d76b4767/src/tox/session/cmd/run/common.py#L424"
+      },
+      {
+        "path": "src/tox/session/cmd/run/common.py",
+        "line": 554,
+        "claim": "依赖决定可运行集合，run_order 检查循环",
+        "url": "https://github.com/tox-dev/tox/blob/d947dd4e43388f727bb534c3f0ad7997d76b4767/src/tox/session/cmd/run/common.py#L554"
+      },
+      {
+        "path": "src/tox/session/cmd/run/common.py",
+        "line": 231,
+        "claim": "已有中断及 journal/结果处理，必须复用而非重做",
+        "url": "https://github.com/tox-dev/tox/blob/d947dd4e43388f727bb534c3f0ad7997d76b4767/src/tox/session/cmd/run/common.py#L231"
+      },
+      {
+        "path": "tests/session/cmd/test_depends.py",
+        "line": 15,
+        "claim": "真实项目测试检查 wheel 构建环境与 depends 拓扑",
+        "url": "https://github.com/tox-dev/tox/blob/d947dd4e43388f727bb534c3f0ad7997d76b4767/tests/session/cmd/test_depends.py#L15"
+      }
+    ],
+    "cheap_baseline": "tox -p/depends/result_json 与插件钩子；shell flock 或标准 filelock 包装命令、CI 自带资源组/恢复脚本都属于合法基线。",
+    "first_probe": "先以现有插件+filelock 实现双资源、失败后释放、恢复输入校验三个场景；若仅薄配置即可覆盖整套契约则 hold，不能靠禁用插件抬难度。",
+    "remaining_work_hypotheses": [
+      "单资源互斥成功后，多资源原子获取、容量、公平排队与依赖饥饿仍可能待解。",
+      "一次并行运行成功后，SIGINT/失败的释放、过期记录和配置/依赖变更的恢复失效仍需验证。"
+    ],
+    "end_to_end_scenarios": [
+      "共享数据库容量为2、设备互斥为1；相互依赖的测试环境满足容量且无无关串行。",
+      "一个环境安装失败、另一个被中断；资源可立即供后继独立环境使用，结果区分失败/未执行。",
+      "恢复上次矩阵时修改一项命令或包输入，只重用仍有效的完成项，旧依赖结果不污染新运行。"
+    ],
+    "independent_oracle": "独立子进程事件账本和实际资源计数验证并发/释放/执行集合；保留原生 test_depends/test_parallel 与 journal/中断回归，不信任计划器自报。",
+    "license_observation": "根 LICENSE 为 MIT 式许可文本；保留许可与版权，插件/解释器另审。",
+    "offline_and_architecture_risks": "固定源码 Python>=3.11；预装多解释器、wheelhouse 和构建后端，避免联网装包；POSIX/Windows 信号与锁语义须分开定契约。",
+    "official_urls": [
+      "https://github.com/tox-dev/tox"
+    ],
+    "status": "source_audited_scope_hypothesis",
+    "card": "cards/43_tox.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false
+  },
+  {
+    "id": "44_hatch",
+    "repo": "pypa/hatch",
+    "revision": "ac9c0c9544795b380c2a5f63f80c1f46db3c5d4c",
+    "route": "M1",
+    "title": "可移动的离线多环境交付包与安装审计",
+    "priority": "hold",
+    "scope": "面向离线实验室发布一份多环境 bundle：显式列出支持的平台/Python，收齐锁定 wheels 与本地项目工件，迁移目录后安装并运行项目脚本；不要求一个 venv 二进制跨架构搬运。",
+    "existing_capability": "已有 PEP751 pylock、pip/uv locker 插件、矩阵共享锁输入合并、过期校验、extras/groups、带哈希的 uv 解算和 locked 安装。",
+    "proposed_gap": "拟增加环境矩阵的离线交付包清单、依赖工件归集/校验和目标机安装审计；不能把锁文件支持冒称缺失。插件/uv 缓存可能已足够，故 hold。",
+    "evidence": [
+      {
+        "path": "src/hatch/env/lock.py",
+        "line": 1,
+        "claim": "现有锁文件为 PEP751 并委托 pip/uv",
+        "url": "https://github.com/pypa/hatch/blob/ac9c0c9544795b380c2a5f63f80c1f46db3c5d4c/src/hatch/env/lock.py#L1"
+      },
+      {
+        "path": "src/hatch/env/lock.py",
+        "line": 217,
+        "claim": "已有共享锁文件的矩阵输入合并入口",
+        "url": "https://github.com/pypa/hatch/blob/ac9c0c9544795b380c2a5f63f80c1f46db3c5d4c/src/hatch/env/lock.py#L217"
+      },
+      {
+        "path": "src/hatch/env/lockers/uv.py",
+        "line": 66,
+        "claim": "现有 uv compile 使用哈希、extras/groups 与源参数",
+        "url": "https://github.com/pypa/hatch/blob/ac9c0c9544795b380c2a5f63f80c1f46db3c5d4c/src/hatch/env/lockers/uv.py#L66"
+      },
+      {
+        "path": "tests/cli/env/test_lock.py",
+        "line": 376,
+        "claim": "真实测试已有锁文件内容同步判定",
+        "url": "https://github.com/pypa/hatch/blob/ac9c0c9544795b380c2a5f63f80c1f46db3c5d4c/tests/cli/env/test_lock.py#L376"
+      }
+    ],
+    "cheap_baseline": "原生 hatch env lock + uv/pip 离线缓存或 wheelhouse + 普通归档脚本；允许复用全部成熟解析/安装器。",
+    "first_probe": "先导出两环境锁，收集 wheelhouse，在断网且不同绝对路径机器安装；若现有命令+短包装即可完整满足审计与错误恢复则不构成长题。",
+    "remaining_work_hypotheses": [
+      "简单纯 Python bundle 成功后，extras/groups 合并、环境 marker 与平台 wheel 缺失诊断仍需证明。",
+      "一次离线安装成功后，工件损坏、局部安装失败、项目路径移动与配置漂移的审计/恢复可能未覆盖。"
+    ],
+    "end_to_end_scenarios": [
+      "两矩阵环境共享部分依赖且 extras 不同，bundle 去重并在离线目录恢复正确版本与脚本。",
+      "bundle 缺少某平台 wheel 或哈希不符，安装前明确指出包/目标环境且不回退公网。",
+      "迁移根目录后安装；对已存在但依赖漂移的环境生成差异，再恢复锁定清单。"
+    ],
+    "independent_oracle": "用独立 importlib.metadata/脚本输出与 wheel 哈希验证真实安装，拦截网络；保留 test_lock、环境创建/脚本原生回归，不能以 mock resolver 证明离线运行。",
+    "license_observation": "LICENSE.txt 为 MIT；打包的第三方 wheels 与后端另列许可，未做全依赖审计。",
+    "offline_and_architecture_risks": "Python>=3.10；uv/pip 与不同 OS/CPU wheels 必须预置；sdist 编译和本地路径包是关键风险，不承诺跨架构搬运环境。",
+    "official_urls": [
+      "https://github.com/pypa/hatch",
+      "https://hatch.pypa.io/latest/how-to/environment/lockfiles/",
+      "https://hatch.pypa.io/latest/plugins/locker/"
+    ],
+    "status": "source_audited_scope_hypothesis",
+    "card": "cards/44_hatch.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false
+  },
+  {
+    "id": "45_celery",
+    "repo": "celery/celery",
+    "revision": "4b7a3652e3297730c0e018ce3038e0121de983bc",
+    "route": "M1",
+    "title": "可审计的工作流取消与补偿执行契约",
+    "priority": "hold",
+    "scope": "面向订单批处理：多步/并行任务持有 workflow 身份，取消阻止未开始的步骤，已确认外部副作用按声明补偿；允许重投递，不承诺任意用户任务 exactly-once。",
+    "existing_capability": "已有 chain/group/chord、errback、任务 retry/ack、stamping 和撤销机制；复杂失败传播已有原生测试，不能按功能名判缺失。",
+    "proposed_gap": "拟交付一个限定 Redis broker/backend 的工作流取消/补偿层：持久化操作记录、明确取消边界及幂等补偿；与现有 stamped revoke/errback 的差额待验证。",
+    "evidence": [
+      {
+        "path": "celery/canvas.py",
+        "line": 2395,
+        "claim": "chord 已区分 eager/async、header/body 参数和调度",
+        "url": "https://github.com/celery/celery/blob/4b7a3652e3297730c0e018ce3038e0121de983bc/celery/canvas.py#L2395"
+      },
+      {
+        "path": "celery/backends/base.py",
+        "line": 1403,
+        "claim": "backend 已汇集 chord 部分结果并处理失败回调",
+        "url": "https://github.com/celery/celery/blob/4b7a3652e3297730c0e018ce3038e0121de983bc/celery/backends/base.py#L1403"
+      },
+      {
+        "path": "t/unit/tasks/test_canvas.py",
+        "line": 1140,
+        "claim": "原生测试覆盖 chord header 失败传播到后继链",
+        "url": "https://github.com/celery/celery/blob/4b7a3652e3297730c0e018ce3038e0121de983bc/t/unit/tasks/test_canvas.py#L1140"
+      },
+      {
+        "path": "celery/worker/request.py",
+        "line": 824,
+        "claim": "worker 已有 acknowledge 生命周期，需与新记录语义对齐",
+        "url": "https://github.com/celery/celery/blob/4b7a3652e3297730c0e018ce3038e0121de983bc/celery/worker/request.py#L824"
+      }
+    ],
+    "cheap_baseline": "原生 Canvas link_error + revoke_by_stamped_headers + 用户幂等键/事务 outbox；已有成熟 workflow 框架也应作为可行替代，不能禁止正常库制造难度。",
+    "first_probe": "先用现有 stamping/revoke/errback 和最小操作日志跑取消/重投递场景；若已满足规定的副作用与补偿契约则退出，另选材料。",
+    "remaining_work_hypotheses": [
+      "正常取消成功后，取消与 chord/body 同时入队、retry/ack 重投递和补偿幂等仍需验证。",
+      "一次补偿成功后，worker 重启时操作记录恢复、失败补偿重试及跨 workflow 隔离可能未完成。"
+    ],
+    "end_to_end_scenarios": [
+      "并行分支一个产生已确认副作用，用户取消；未开始分支不运行，已完成分支补偿且报告可审计。",
+      "worker 在副作用确认与 ack 附近退出后重投递，幂等业务记录不重复，补偿不会重复扣回。",
+      "一个补偿临时失败，重启后继续补偿而不重启原业务链，其他 workflow 正常推进。"
+    ],
+    "independent_oracle": "真实本地 Redis+worker 与独立 SQLite 业务副作用账本检查状态/幂等；可控 barrier 注入取消/退出；保留 Canvas/request/backend 原生回归；eager/mock 不能代表分布式行为。",
+    "license_observation": "根 LICENSE 为 BSD-3-Clause；Kombu/Redis 客户端与镜像另审。",
+    "offline_and_architecture_risks": "需预置 broker/backend 和 worker 进程管理；不同池/平台 revoke 与终止能力不同，初版仅固定 Linux worker 池，离线依赖待封装。",
+    "official_urls": [
+      "https://github.com/celery/celery",
+      "https://docs.celeryq.dev/en/latest/userguide/workers.html"
+    ],
+    "status": "source_audited_scope_hypothesis",
+    "card": "cards/45_celery.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false
+  },
+  {
+    "id": "46_fastify",
+    "repo": "fastify/fastify",
+    "revision": "37df44a421817e7bb048fce834bf691abb0999d6",
+    "route": "M1",
+    "title": "带插件作用域预算与资源清理的请求执行策略",
+    "priority": "hold",
+    "scope": "交付 API 服务资源控制版本：重负载插件排队、公共路由独立，deadline 覆盖排队与 handler，断连撤销排队/下游工作；保留现有 handlerTimeout 与 hook 语义。",
+    "existing_capability": "已有插件封装、作用域 hooks、handlerTimeout、request AbortController/signal、断连取消及 onRequestAbort/onTimeout；简单超时不是新功能。",
+    "proposed_gap": "拟扩展可组合执行策略：插件级并发/排队预算与 deadline 传递、等待队列取消、流式清理和可观察结果；是否只是薄插件待证明。",
+    "evidence": [
+      {
+        "path": "lib/route.js",
+        "line": 534,
+        "claim": "原生 handlerTimeout 已创建 AbortController 并在断连时 abort",
+        "url": "https://github.com/fastify/fastify/blob/37df44a421817e7bb048fce834bf691abb0999d6/lib/route.js#L534"
+      },
+      {
+        "path": "lib/context.js",
+        "line": 47,
+        "claim": "路由 context 保留 scoped lifecycle hooks 与 timeout",
+        "url": "https://github.com/fastify/fastify/blob/37df44a421817e7bb048fce834bf691abb0999d6/lib/context.js#L47"
+      },
+      {
+        "path": "docs/Reference/Encapsulation.md",
+        "line": 6,
+        "claim": "插件 context 已定义 hooks/decorators 可见性",
+        "url": "https://github.com/fastify/fastify/blob/37df44a421817e7bb048fce834bf691abb0999d6/docs/Reference/Encapsulation.md#L6"
+      },
+      {
+        "path": "test/hooks.test.js",
+        "line": 3419,
+        "claim": "原生测试覆盖 abort hook 的 root/child/route 顺序",
+        "url": "https://github.com/fastify/fastify/blob/37df44a421817e7bb048fce834bf691abb0999d6/test/hooks.test.js#L3419"
+      }
+    ],
+    "cheap_baseline": "已有 handlerTimeout/request.signal + scoped hooks + p-limit/AbortSignal.any 的普通插件；允许完整使用，先检查 Fastify 生态现成队列/限流方案。",
+    "first_probe": "先用插件组合实现排队 deadline、断连移除、stream 清理三场景；若无需通用新语义即满足则退出。不能以已有超时实现换名充数。",
+    "remaining_work_hypotheses": [
+      "单路由队列成功后，嵌套插件策略继承/覆盖、排队耗时预算与并发释放仍可能未完成。",
+      "普通 JSON handler 正确后，流式响应、hijack、错误 hook 和 disconnect 竞态的清理/兼容仍需验证。"
+    ],
+    "end_to_end_scenarios": [
+      "受限插件内一个请求占位、第二个排队超时，公共兄弟路由继续服务且超时请求不进入 handler。",
+      "客户端在排队或下游 fetch 中断开，等待项/资源及时清理，不影响同一 keep-alive 后续请求。",
+      "流响应中途失败/断连，生成器 finally 和资源释放执行，hook 顺序及既有 timeout 错误保持契约。"
+    ],
+    "independent_oracle": "独立 loopback 客户端/下游服务器记录真实连接与 handler 进入集合，资源探针观测泄漏；保留 hooks/plugin/stream/timeout 原生测试，inject 不能替代 socket 断连验证。",
+    "license_observation": "根 LICENSE 为 MIT；第三方限流/队列插件许可另审。",
+    "offline_and_architecture_risks": "预置固定 Node/npm 依赖；网络只 loopback，HTTP/1 首版；计时测试用 barrier/可控时钟，不能用微小 sleep 作为难度或正确性证据。",
+    "official_urls": [
+      "https://github.com/fastify/fastify",
+      "https://fastify.dev/docs/latest/Reference/Request/"
+    ],
+    "status": "source_audited_scope_hypothesis",
+    "card": "cards/46_fastify.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false
+  },
+  {
+    "id": "47_task",
+    "repo": "go-task/task",
+    "revision": "ad2782e1709f0bcf8fbbe0d8e00c2d239141e099",
+    "route": "M1",
+    "title": "声明式任务的本地内容寻址工件缓存",
+    "priority": "build_scope_probe",
+    "scope": "面向可重复本地构建，删除 outputs 后由缓存恢复产物而不运行命令；变量/声明环境/依赖身份变更应 miss；取消或失败不发布可命中条目，保留非缓存任务行为。",
+    "existing_capability": "已有 sources checksum/timestamp、generates 存在检查、status 命令、并发/依赖与错误时指纹处理；现有 checksum 不等于已交付工件归档/恢复系统。",
+    "proposed_gap": "拟增加显式选择的输出工件缓存及键/清单、完整性校验、原子发布/恢复和并发使用；只保证声明输入/工具链身份，不推断任意 shell 的全部副作用。",
+    "evidence": [
+      {
+        "path": "internal/fingerprint/sources_checksum.go",
+        "line": 31,
+        "claim": "已有 source checksum 与 generates 存在性判定",
+        "url": "https://github.com/go-task/task/blob/ad2782e1709f0bcf8fbbe0d8e00c2d239141e099/internal/fingerprint/sources_checksum.go#L31"
+      },
+      {
+        "path": "status.go",
+        "line": 11,
+        "claim": "现有 Status 编译任务并询问 fingerprinter",
+        "url": "https://github.com/go-task/task/blob/ad2782e1709f0bcf8fbbe0d8e00c2d239141e099/status.go#L11"
+      },
+      {
+        "path": "task.go",
+        "line": 127,
+        "claim": "实际任务执行入口负责依赖、命令及释放",
+        "url": "https://github.com/go-task/task/blob/ad2782e1709f0bcf8fbbe0d8e00c2d239141e099/task.go#L127"
+      },
+      {
+        "path": "task_test.go",
+        "line": 502,
+        "claim": "原生测试覆盖重复运行 up-to-date 与 checksum 文件不重写",
+        "url": "https://github.com/go-task/task/blob/ad2782e1709f0bcf8fbbe0d8e00c2d239141e099/task_test.go#L502"
+      }
+    ],
+    "cheap_baseline": "现有 status/sources/generates + tar/sha256 缓存包装器，或直接调用成熟本地构建缓存；外部包装合法，不以修改核心文件数计难度。",
+    "first_probe": "先以短包装实现最小恢复并引入变量变化、并发同键与失败后残片；若现成缓存工具无需额外语义可完整完成则降级。",
+    "remaining_work_hypotheses": [
+      "单任务缓存恢复成功后，依赖身份、变量/环境键、输出路径集合和被删除/多余产物处理仍需设计。",
+      "单进程成功后，同键并发构建、取消/失败原子性、工件损坏后的 miss/诊断可能未覆盖。"
+    ],
+    "end_to_end_scenarios": [
+      "构建代码生成与打包依赖链后删 outputs，重跑从缓存恢复，记录证明命令未执行且字节正确。",
+      "同源但 MODE/声明工具链不同生成两类产物，键互不污染，改依赖后下游按契约失效。",
+      "两进程争用同键且一方中断，后续运行看不到半成品；损坏缓存可诊断并安全重建。"
+    ],
+    "independent_oracle": "独立命令执行计数、产物字节/权限清单与全量无缓存构建比较；保留 task_test.go 的 status/checksum/依赖/信号回归，不只相信 hit 日志。",
+    "license_observation": "根 LICENSE 为 MIT；缓存打包/压缩依赖另审。",
+    "offline_and_architecture_risks": "固定 go.mod 要求 Go1.26.4，需预装模块缓存；路径/权限/符号链接在 Linux 与 Windows 不同，初版明确输出类型与平台边界。",
+    "official_urls": [
+      "https://github.com/go-task/task",
+      "https://taskfile.dev/docs/guide/up-to-date"
+    ],
+    "status": "source_audited_scope_hypothesis",
+    "card": "cards/47_task.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false
+  },
+  {
+    "id": "48_apisix",
+    "repo": "apache/apisix",
+    "revision": "64a4afdd1353bd302f03cc8f0f780b8a78176137",
+    "route": "M1",
+    "title": "Standalone 配置包的预检、分阶段激活与回退",
+    "priority": "build_scope_probe",
+    "scope": "单节点多 worker 的离线 gateway 交付：route/service/upstream/plugin_config 作为一份版本包验证；不完整包不替换 last-good；每个请求读取自洽版本并报告 worker 进度，不承诺跨节点瞬时原子提交。",
+    "existing_capability": "已有 YAML/JSON standalone、配置刷新/版本与 digest 应用状态、逐项 schema/plugin 检查、Admin 引用校验。不是新增热更新或普通 schema 验证。",
+    "proposed_gap": "拟增加资源包级 preflight、完整候选快照、按版本激活/回退与 worker 状态诊断；源码已逐项过滤无效资源，整体新契约是否必要待复现。",
+    "evidence": [
+      {
+        "path": "apisix/core/config_yaml.lua",
+        "line": 164,
+        "claim": "已有内存配置版本更新",
+        "url": "https://github.com/apache/apisix/blob/64a4afdd1353bd302f03cc8f0f780b8a78176137/apisix/core/config_yaml.lua#L164"
+      },
+      {
+        "path": "apisix/core/config_yaml.lua",
+        "line": 189,
+        "claim": "已有 digest 对资源类型的应用记录",
+        "url": "https://github.com/apache/apisix/blob/64a4afdd1353bd302f03cc8f0f780b8a78176137/apisix/core/config_yaml.lua#L189"
+      },
+      {
+        "path": "apisix/core/config_yaml.lua",
+        "line": 305,
+        "claim": "资源按 schema/checker 逐项验证后插入",
+        "url": "https://github.com/apache/apisix/blob/64a4afdd1353bd302f03cc8f0f780b8a78176137/apisix/core/config_yaml.lua#L305"
+      },
+      {
+        "path": "apisix/admin/routes.lua",
+        "line": 56,
+        "claim": "Admin route 已验证 schema、upstream/service/plugin 引用",
+        "url": "https://github.com/apache/apisix/blob/64a4afdd1353bd302f03cc8f0f780b8a78176137/apisix/admin/routes.lua#L56"
+      },
+      {
+        "path": "t/admin/standalone-plugin-validation.t",
+        "line": 48,
+        "claim": "原生测试明确缺失 plugin 会导致 standalone 路由匹配失败",
+        "url": "https://github.com/apache/apisix/blob/64a4afdd1353bd302f03cc8f0f780b8a78176137/t/admin/standalone-plugin-validation.t#L48"
+      }
+    ],
+    "cheap_baseline": "完整 YAML/JSON 原子文件替换 + 原生 validator/digest 状态 + 外部预检/发布包装器；不能禁止已有 APISIX 控制面或配置管理工具。",
+    "first_probe": "先把同一版本 route/service/upstream 全量文件替换并加入未知插件/坏引用，观测 last-good 与 worker 版本；若原生流程+短预检已满足全部契约则 hold。",
+    "remaining_work_hypotheses": [
+      "合法包发布成功后，资源间引用、plugin merge/cache 与请求中途切换的版本一致性仍需验证。",
+      "单 worker 正常后，部分 worker 重启、无效更新后的 last-good、版本回退/状态报告可能未覆盖。"
+    ],
+    "end_to_end_scenarios": [
+      "一起切换 route→service→upstream 与插件参数，连续真实请求只得到对应版本的自洽响应。",
+      "包中一个资源含未知插件或悬空引用，预检指出路径且继续服务旧版本，不静默丢弃相关路由。",
+      "激活中一个 worker 重启，节点最终恢复同版本；显式回退后真实流量与状态都指向 last-good。"
+    ],
+    "independent_oracle": "独立 HTTP 后端标记版本、持续客户端与 worker 状态检查；保留 standalone YAML/JSON/plugin validation 和原生 Admin 回归，不用单次200或自报 digest 证明一致性。",
+    "license_observation": "根 LICENSE Apache-2.0，NOTICE 已保留；OpenResty/Lua rocks 及镜像依赖另审。",
+    "offline_and_architecture_risks": "需预置 OpenResty/LuaJIT、lyaml、Test::Nginx 等；只 standalone 无公网/etcd 首版，Linux目标镜像/多worker能力需另验，不能以 host mock代替。",
+    "official_urls": [
+      "https://github.com/apache/apisix",
+      "https://apisix.apache.org/docs/apisix/deployment-modes/"
+    ],
+    "status": "source_audited_scope_hypothesis",
+    "card": "cards/48_apisix.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false
+  },
+  {
+    "id": "49_dbt",
+    "repo": "dbt-labs/dbt",
+    "revision": "8843d3dfca9a2ea2646a6273701a89ffffd4b11e",
+    "route": "M1",
+    "title": "可离线重放的模型选择与 defer 影响审查包",
+    "priority": "hold",
+    "scope": "限定本地 manifest 与小型固定适配器：同一包在另一目录离线生成相同选择集合/生产关系映射并解释差异，能校验 artifacts 版本和输入漂移；不涉及云服务产品重造。",
+    "existing_capability": "请求旧 repo 已重定向到 dbt-labs/dbt；固定 main 是 Rust dbt v2，v1 Python 在1.latest。已有 state selector、manifest 比较、defer 关系重写和详细 explain 日志/服务。",
+    "proposed_gap": "拟将 manifest、selection/defer 输入及原因链收成可移交的离线审查包；不得把已有 state/explain 功能重命名为新题。现存命令可覆盖多少未验证。",
+    "evidence": [
+      {
+        "path": "README.md",
+        "line": 9,
+        "claim": "官方声明 canonical dbt、Rust v2 main 与 Python v1 分支迁移",
+        "url": "https://github.com/dbt-labs/dbt/blob/8843d3dfca9a2ea2646a6273701a89ffffd4b11e/README.md#L9"
+      },
+      {
+        "path": "crates/dbt-scheduler/src/node_selector.rs",
+        "line": 68,
+        "claim": "已有 manifest select/exclude 与 state 条件过滤",
+        "url": "https://github.com/dbt-labs/dbt/blob/8843d3dfca9a2ea2646a6273701a89ffffd4b11e/crates/dbt-scheduler/src/node_selector.rs#L68"
+      },
+      {
+        "path": "crates/dbt-defer/src/lib.rs",
+        "line": 63,
+        "claim": "已有本地/云 defer state 优先级及关系重写流程",
+        "url": "https://github.com/dbt-labs/dbt/blob/8843d3dfca9a2ea2646a6273701a89ffffd4b11e/crates/dbt-defer/src/lib.rs#L63"
+      },
+      {
+        "path": "crates/dbt-schemas/src/schemas/prev_state/mod.rs",
+        "line": 38,
+        "claim": "StateArtifacts 已携带 manifest/run/freshness 与版本相关状态",
+        "url": "https://github.com/dbt-labs/dbt/blob/8843d3dfca9a2ea2646a6273701a89ffffd4b11e/crates/dbt-schemas/src/schemas/prev_state/mod.rs#L38"
+      },
+      {
+        "path": "crates/dbt-state/src/explain/tests.rs",
+        "line": 29,
+        "claim": "原生测试已有 explain JSONL、错误行号与记录版本检查",
+        "url": "https://github.com/dbt-labs/dbt/blob/8843d3dfca9a2ea2646a6273701a89ffffd4b11e/crates/dbt-state/src/explain/tests.rs#L29"
+      }
+    ],
+    "cheap_baseline": "原生 selectors/state/defer/explain + manifest归档脚本；允许用已有导出/文档机制。若只是打包几个JSON不升格长题。",
+    "first_probe": "先以本地 manifest 和现有 explain 生成/拷贝/重放审查材料；若完整选择/关系/原因已可直接获取则退出。还需先证实当前 Rust开源部分可独立离线构建运行。",
+    "remaining_work_hypotheses": [
+      "单一模型选择正确后，宏/契约/配置变更、ephemeral/inline 排除、选择与defer不同state源的组合仍可能待解。",
+      "一次审查包可读后，旧manifest格式、artifact身份校验、目录迁移及原因归属一致性仍需验证。"
+    ],
+    "end_to_end_scenarios": [
+      "改宏与模型配置后用 state:modified 选择并审查受影响上下游，结果与约定图一致。",
+      "dev选择部分模型，未选非ephemeral上游defer到prod，包中记录每个关系映射及依据。",
+      "同一审查包迁移目录离线重放得到一致结果；缺失/不兼容manifest明确报错且不触发云回退。"
+    ],
+    "independent_oracle": "独立小图/人工SQL关系oracle对照选择集合与编译SQL，保留 selector/defer/explain真实回归；只读日志测试不等于数据库执行验收。",
+    "license_observation": "根 LICENSE Apache-2.0，README区分仓库源码许可与定制分发产品许可；只基于此源码，不把商业二进制权利视为自动获得。",
+    "offline_and_architecture_risks": "Rust2024 workspace 与适配器/SQL编译依赖较重；当前路径含云state与遥测，先证明关闭网络仍可运行；CPU驱动、离线vendor和独立构建均待验证。",
+    "official_urls": [
+      "https://github.com/dbt-labs/dbt-core",
+      "https://github.com/dbt-labs/dbt"
+    ],
+    "status": "source_audited_scope_hypothesis",
+    "card": "cards/49_dbt.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "canonical_repo": "dbt-labs/dbt",
+    "requested_repo": "dbt-labs/dbt-core",
+    "source_repo_alias": "dbt-labs/dbt-core"
+  },
+  {
+    "id": "50_thrift",
+    "repo": "apache/thrift",
+    "revision": "f4d8e8c3fa56ef04d7462e26d3b8226127edb2fe",
+    "route": "M2",
+    "title": "IDL 多文件语义前端与反射输出恢复",
+    "priority": "build_scope_probe",
+    "scope": "恢复可用的 IDL→语义模型→JSON反射与固定Python生成路径：跨include的typedef/enum/容器常量、service继承/异常与字段requiredness一致；不要求重写所有语言runtime。",
+    "existing_capability": "上游已有 lexer/parser、include、AST/type/constant/service 与多语言生成器。恢复题的缺失来自拟定掩码，尚未实施，不是上游功能缺陷。",
+    "proposed_gap": "拟保留构建/CLI/lexer/语法框架，联合移除 include绑定、类型/常量语义与结构/service反射生成的一组实现；边界需先证明仍可构建且共享语义连通。",
+    "evidence": [
+      {
+        "path": "compiler/cpp/src/thrift/thrifty.yy",
+        "line": 324,
+        "claim": "include在独立解析阶段加入program图",
+        "url": "https://github.com/apache/thrift/blob/f4d8e8c3fa56ef04d7462e26d3b8226127edb2fe/compiler/cpp/src/thrift/thrifty.yy#L324"
+      },
+      {
+        "path": "compiler/cpp/src/thrift/parse/t_program.h",
+        "line": 44,
+        "claim": "program汇集typedef/const/struct/service及include作用域",
+        "url": "https://github.com/apache/thrift/blob/f4d8e8c3fa56ef04d7462e26d3b8226127edb2fe/compiler/cpp/src/thrift/parse/t_program.h#L44"
+      },
+      {
+        "path": "compiler/cpp/src/thrift/generate/t_json_generator.cc",
+        "line": 599,
+        "claim": "反射生成字段、union/exception及service语义",
+        "url": "https://github.com/apache/thrift/blob/f4d8e8c3fa56ef04d7462e26d3b8226127edb2fe/compiler/cpp/src/thrift/generate/t_json_generator.cc#L599"
+      },
+      {
+        "path": "compiler/cpp/tests/cpp/t_cpp_parser_string_constant_tests.cc",
+        "line": 37,
+        "claim": "真实解析测试检查AST常量及lexer错误信息",
+        "url": "https://github.com/apache/thrift/blob/f4d8e8c3fa56ef04d7462e26d3b8226127edb2fe/compiler/cpp/tests/cpp/t_cpp_parser_string_constant_tests.cc#L37"
+      }
+    ],
+    "cheap_baseline": "保留未掩码AST/低层runtime，正常利用现成parser和序列化库；现成thrift CLI/JSON生成器作为首个包装基线，若可直接替代全部交付则不把任务称恢复难题。",
+    "first_probe": "先定义可构建掩码并跑最小跨include IDL；试用现成parser/包装器，测是否仅少量adapter即可恢复全部规格。若是则hold；不得靠引入非标准语法加难。",
+    "remaining_work_hypotheses": [
+      "单文件struct成功后，include命名空间、typedef链、容器常量/default与service继承共享身份仍可能未恢复。",
+      "生成文本正确后，真实Python构造/读写、错误定位、重复生成稳定与字段/异常兼容仍需端到端验证。"
+    ],
+    "end_to_end_scenarios": [
+      "三个include文件定义enum→typedef→嵌套容器常量，CLI反射与生成Python读取同一值。",
+      "子service继承父service，方法使用跨文件struct和声明异常，生成代码导入/调用/序列化契约一致。",
+      "非法重定义、错误类型default和转义字符串跨文件出现，报告正确文件/位置，合法相邻定义仍正常生成。"
+    ],
+    "independent_oracle": "固定上游compiler离线oracle对照规范化JSON/诊断，独立Python构造序列化与手工golden；保留parser/native compiler test及ThriftTest规格；oracle不可见不等于评分只隐藏文本。",
+    "license_observation": "根 LICENSE Apache-2.0，NOTICE已保存；语言runtime与生成器附带notice需打包时保留。",
+    "offline_and_architecture_risks": "预装C++/CMake、flex/bison与目标Python runtime；只选固定语言后端避免全生态依赖，生成源和跨CPU ABI需分别校验。",
+    "official_urls": [
+      "https://github.com/apache/thrift",
+      "https://thrift.apache.org/docs/idl"
+    ],
+    "status": "source_audited_scope_hypothesis",
+    "card": "cards/50_thrift.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false
+  },
+  {
+    "id": "51_capnproto",
+    "repo": "capnproto/capnproto",
+    "revision": "b5ee48b9f3586fc83af8c429623e2c0d2435ec59",
+    "route": "M2",
+    "title": "运行时 Schema 加载、演进与动态访问恢复",
+    "priority": "build_scope_probe",
+    "scope": "交付真实进程内 schema 生命周期：旧新schema同ID加载保持兼容规则，未加载依赖可延迟补齐，dynamic struct/list/union访问与静态绑定互通；严格遵守load/loadOnce并发与失效契约。",
+    "existing_capability": "上游已有schema加载/校验、版本兼容判定、lazy stubs/brands及动态字段访问。拟恢复既有公开API，缺失只来自尚未实施的源码掩码。",
+    "proposed_gap": "拟联合掩码SchemaLoader的兼容/依赖修复和关联dynamic访问路径，保留wire layout、编译器/生成绑定及API骨架；不把单个类型判断挖空充当整题。",
+    "evidence": [
+      {
+        "path": "c++/src/capnp/schema-loader.h",
+        "line": 97,
+        "claim": "load文档说明新旧schema替换、stub及兼容/失效限制",
+        "url": "https://github.com/capnproto/capnproto/blob/b5ee48b9f3586fc83af8c429623e2c0d2435ec59/c++/src/capnp/schema-loader.h#L97"
+      },
+      {
+        "path": "c++/src/capnp/schema-loader.c++",
+        "line": 622,
+        "claim": "CompatibilityChecker维护新旧/等价及方向冲突",
+        "url": "https://github.com/capnproto/capnproto/blob/b5ee48b9f3586fc83af8c429623e2c0d2435ec59/c++/src/capnp/schema-loader.c++#L622"
+      },
+      {
+        "path": "c++/src/capnp/schema-loader.c++",
+        "line": 738,
+        "claim": "struct布局/field/union及group演进共享比较逻辑",
+        "url": "https://github.com/capnproto/capnproto/blob/b5ee48b9f3586fc83af8c429623e2c0d2435ec59/c++/src/capnp/schema-loader.c++#L738"
+      },
+      {
+        "path": "c++/src/capnp/dynamic.c++",
+        "line": 173,
+        "claim": "DynamicStruct读取依赖字段schema和底层layout",
+        "url": "https://github.com/capnproto/capnproto/blob/b5ee48b9f3586fc83af8c429623e2c0d2435ec59/c++/src/capnp/dynamic.c++#L173"
+      },
+      {
+        "path": "c++/src/capnp/schema-loader-test.c++",
+        "line": 193,
+        "claim": "原生测试覆盖upgrade/downgrade及不兼容加载",
+        "url": "https://github.com/capnproto/capnproto/blob/b5ee48b9f3586fc83af8c429623e2c0d2435ec59/c++/src/capnp/schema-loader-test.c++#L193"
+      }
+    ],
+    "cheap_baseline": "使用保留低层wire与静态绑定、现成反射/CLI包装；先测试静态生成schema是否已覆盖需求。若可直接链接完整库替代所有被验接口则退出/换边界，不能虚称重新恢复。",
+    "first_probe": "先用静态绑定+最小loader adapter跑同ID旧新schema、lazy依赖和dynamic union；若无真正共享语义恢复工作则hold。掩码可构建性、oracle隔离均待验证。",
+    "remaining_work_hypotheses": [
+      "基础scalar读写成功后，list/union/group演进、default与布局偏移、旧新schema混合方向仍可能未恢复。",
+      "顺序加载成功后，lazy依赖、brands/loadOnce线程契约与仍在使用对象的生命周期边界需按官方规格验证，不能自行放宽。"
+    ],
+    "end_to_end_scenarios": [
+      "旧消息由新schema动态读取，新增字段取default，写回后旧静态绑定仍正确读取原字段。",
+      "两个带同ID的版本逐次加载，兼容升级被采用、旧版不覆盖新版，不兼容union/layout变化给出错误。",
+      "先load引用未出现类型的schema，再lazy提供依赖并访问嵌套list/struct；loadOnce与按契约并发读取不破坏引用。"
+    ],
+    "independent_oracle": "固定上游API驱动程序作差分oracle；独立静态新旧绑定交叉读写真实消息并检查值，保留schema-loader/dynamic回归和边界校验；不只比较dump字符串。",
+    "license_observation": "根 LICENSE MIT，源码文件亦带MIT头；保留作者/Cloudflare等版权及第三方依赖notice。",
+    "offline_and_architecture_risks": "需固定C++/KJ/生成capnp绑定，CMake>=3.16；只离线内存/文件消息首版，TLS/RPC不是必需扩难；异常与线程编译选项要固定，跨CPU布局另验。",
+    "official_urls": [
+      "https://github.com/capnproto/capnproto",
+      "https://capnproto.org/language.html"
+    ],
+    "status": "source_audited_scope_hypothesis",
+    "card": "cards/51_capnproto.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false
+  },
+  {
+    "id": "52_flecs",
+    "repo": "SanderMertens/flecs",
+    "revision": "cc2924199858433cbf9fdaca25b291883ebd09de",
+    "route": "M2",
+    "title": "延迟世界修改、观察者与查询缓存一致性恢复",
+    "priority": "build_scope_probe",
+    "scope": "恢复一帧世界演进的完整子系统：defer期间可见性、merge后add/set/remove/delete、observer副作用再次入队、缓存查询结果/changed标志一致；首版单进程固定stage，不以实体数量估难。",
+    "existing_capability": "上游已有ECS deferred commands、stage合并、observer事件和cached query/change monitor。官方canonical仍SanderMertens/flecs，未观察到转flecs-hub。",
+    "proposed_gap": "拟联合掩码延迟命令flush/批处理与相关查询失效/事件桥接，保留实体存储/查询编译器/公开API；不是上游缺功能，当前未制作可构建掩码。",
+    "evidence": [
+      {
+        "path": "src/commands.c",
+        "line": 1199,
+        "claim": "flush处理stage队列、实体存活、批处理与递归合并",
+        "url": "https://github.com/SanderMertens/flecs/blob/cc2924199858433cbf9fdaca25b291883ebd09de/src/commands.c#L1199"
+      },
+      {
+        "path": "src/query/cache/change_detection.c",
+        "line": 79,
+        "claim": "query monitor追踪表/字段变化并区分读取需求",
+        "url": "https://github.com/SanderMertens/flecs/blob/cc2924199858433cbf9fdaca25b291883ebd09de/src/query/cache/change_detection.c#L79"
+      },
+      {
+        "path": "src/observer.c",
+        "line": 348,
+        "claim": "observer执行应用run/callback并共享迭代器生命周期",
+        "url": "https://github.com/SanderMertens/flecs/blob/cc2924199858433cbf9fdaca25b291883ebd09de/src/observer.c#L348"
+      },
+      {
+        "path": "test/core/src/Commands.c",
+        "line": 36,
+        "claim": "原生测试规定defer新实体在merge前后组件可见性",
+        "url": "https://github.com/SanderMertens/flecs/blob/cc2924199858433cbf9fdaca25b291883ebd09de/test/core/src/Commands.c#L36"
+      },
+      {
+        "path": "test/query/src/Cached.c",
+        "line": 4,
+        "claim": "原生缓存查询测试验证实体、字段ID与迭代结果",
+        "url": "https://github.com/SanderMertens/flecs/blob/cc2924199858433cbf9fdaca25b291883ebd09de/test/query/src/Cached.c#L4"
+      }
+    ],
+    "cheap_baseline": "缓存层可用uncached全扫描，commands可先缓冲再调用保留immediate APIs；这是合法强基线。先看简单队列是否已满足全部可观察语义，不以禁用低效算法抬难度。",
+    "first_probe": "先实现通用缓冲队列+immediate API+uncached查询，跑defer可见性、observer重入和delete/reuse组合；若已完整覆盖则收缩/hold，性能要求另需实测依据。",
+    "remaining_work_hypotheses": [
+      "add/set基本成功后，remove/delete顺序、实体ID回收、observer在flush中再修改与析构事件仍可能未恢复。",
+      "查询结果正确后，cached changed/skip、继承与共享源字段失效、重复merge与资源生命周期仍需验证。"
+    ],
+    "end_to_end_scenarios": [
+      "同帧defer新实体并add/set/remove，merge前不可见、merge后组件与observer事件符合API契约。",
+      "OnSet观察者再次添加/删除组件，flush继续处理重入命令，最终query与事件账本一致且无重复析构。",
+      "缓存query建立后删除并复用实体ID、变更继承来源，迭代与changed行为同固定原版一致，空merge不产生虚假变化。"
+    ],
+    "independent_oracle": "固定上游C API驱动输出世界/事件/查询账本作差分，简单子集另用独立关系模型；保留Commands/Cached/Observer原生回归，原型运行量不代表长时难度。",
+    "license_observation": "根 LICENSE MIT，含Sander Mertens与Meta版权；保留声明，测试工具/依赖另审。",
+    "offline_and_architecture_risks": "C/C++与CMake，tests默认关闭且测试runner依赖需预置；无公网/图形需求。原生非amalgamated源与发行单文件不得互作隐藏答案；跨CPU/编译选项另验。",
+    "official_urls": [
+      "https://github.com/SanderMertens/flecs",
+      "https://github.com/SanderMertens/flecs/blob/master/docs/ObserversManual.md"
+    ],
+    "status": "source_audited_scope_hypothesis",
+    "card": "cards/52_flecs.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "canonical_repo": "SanderMertens/flecs"
+  }
+]

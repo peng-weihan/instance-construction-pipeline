@@ -1,0 +1,2377 @@
+[
+  {
+    "path": "SOURCE_TO_TASK.md",
+    "bytes": 959,
+    "sha256": "9139524b68891c141fe0cc4dbd5cb9a21cad45f008468d6f1ab00d57506c2188"
+  },
+  {
+    "path": "construction.json",
+    "bytes": 1707,
+    "sha256": "6f53781495d630e70d7d7a89dd31bdcd20e09e33e07ccc686f19eab23bb5f42a"
+  },
+  {
+    "path": "private/ablation_manifest.json",
+    "bytes": 1610,
+    "sha256": "bf1c41499daa703dc69cde2404a673aac310bca16e403f24afb3353766969920"
+  },
+  {
+    "path": "private/check_roster.json",
+    "bytes": 5124,
+    "sha256": "492bab90f8e760499bf888c831831512613ef6e77da7ddec92966a51c89d3ba7"
+  },
+  {
+    "path": "private/reference/restler/engine/core/async_request_utilities.py",
+    "bytes": 14873,
+    "sha256": "873c20af483cd075930b71a856be0f1a6e4a24c011ac9ec0476056eb41f8577b"
+  },
+  {
+    "path": "private/reference/restler/engine/core/preprocessing.py",
+    "bytes": 14298,
+    "sha256": "54a8760eca0a33005066dc918179fe0599176694a0d4e35bcbb1a65cead84a2e"
+  },
+  {
+    "path": "private/reference/restler/engine/dependencies.py",
+    "bytes": 25700,
+    "sha256": "230b60a1467a7e83858f08ce9ae26b696715169f8f7f92f460c22c624fa9118a"
+  },
+  {
+    "path": "private/upstream_unit_tests/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "private/upstream_unit_tests/authentication_test_files/authentication_token.txt",
+    "bytes": 108,
+    "sha256": "626a71b36268e8192d8ce8ae636e46e79ff174ca1e5717b82f3308ef56692844"
+  },
+  {
+    "path": "private/upstream_unit_tests/authentication_test_files/token_cmd_authentication_settings.json",
+    "bytes": 172,
+    "sha256": "8d6332d234ad9aeea5320f30ba4851d4c017180700a66aaba747dd73aa57f9a7"
+  },
+  {
+    "path": "private/upstream_unit_tests/authentication_test_files/token_location_authentication_settings.json",
+    "bytes": 156,
+    "sha256": "ef5da6a9f8532dbd30e5a45e7b7436add32e6edc85bf24786b8b8a44fd5348d0"
+  },
+  {
+    "path": "private/upstream_unit_tests/authentication_test_files/token_module_authentication_data_settings.json",
+    "bytes": 309,
+    "sha256": "c141ad423ad464ba8bda3176a74f6f2dd6389164015984330d2fcd6ad561b833"
+  },
+  {
+    "path": "private/upstream_unit_tests/authentication_test_files/token_module_authentication_settings.json",
+    "bytes": 271,
+    "sha256": "8850d31847cef38706d4f8342038e95d65bbfb5cfbfea6264b4d5a03b880c126"
+  },
+  {
+    "path": "private/upstream_unit_tests/authentication_test_files/unit_test_server_auth.py",
+    "bytes": 200,
+    "sha256": "8e9962f6efbf3b5b4478f3b12fa91f4d279eb61f339df7609e22e6826152f2cb"
+  },
+  {
+    "path": "private/upstream_unit_tests/authentication_test_files/unit_test_server_auth_module.py",
+    "bytes": 595,
+    "sha256": "b3af15a22ae4c5744704b0f5f97f12660a5531c92af37cd13bf4a7eeaa045a95"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/README.txt",
+    "bytes": 297,
+    "sha256": "54108044d127f04c97a8cf0246ac378643163d4362efe278b9f184125ef09770"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/demo_server_grammar.json",
+    "bytes": 14767,
+    "sha256": "175e75483dd3edb43ded8d28df055ed4e9b978ff8833cad76a76fc085e78650e"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/demo_server_grammar.py",
+    "bytes": 8873,
+    "sha256": "f106080e8554cd3ed34fe575851f0405bbd966606de51d918be0dac0fdf4dd28"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/null_test_example_grammar.json",
+    "bytes": 14451,
+    "sha256": "8ec65a0945ef815bfa677fbfde9695189ea6d6d13e947ddfddd8a0e9852cb99f"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/null_test_example_grammar.py",
+    "bytes": 4645,
+    "sha256": "553d7cb1724774602eb3ab80e35bac2e346f767511c6fa392671352ab485888b"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/null_test_swagger.json",
+    "bytes": 2810,
+    "sha256": "e38b243ab9d8c052cb85a9e99b4cd5fe0d9bc0bde254d6e420cd96d76040bf73"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/readonly_test_grammar.json",
+    "bytes": 7962,
+    "sha256": "6f54d5095e276fd5f4b96410a28025a6a36baf487e6a70fe76eda44e3ad4c4a2"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/readonly_test_grammar.py",
+    "bytes": 3881,
+    "sha256": "3af97f067c6b8a0481d389262ba2d2124142b05178414d8da6ea801bf6e132ed"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/readonly_test_swagger.json",
+    "bytes": 1888,
+    "sha256": "c2ffdc7ff712fdfa4dd0ef009ccf9e6e646ea6a2f1268fa7f44e8d495bf6ddb0"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/simple_swagger_all_param_data_types.json",
+    "bytes": 6280,
+    "sha256": "0b72b8025e78cb8144b692c2092705ffb152c1a0e112008b3f0fb80b0eb3b1ad"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/simple_swagger_all_param_data_types_grammar.json",
+    "bytes": 16101,
+    "sha256": "eb2e4cdbba99c310f9a447d1f61b306e193e9bfd38b6a7e41c319d9172067a65"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/simple_swagger_all_param_data_types_grammar.py",
+    "bytes": 5919,
+    "sha256": "f18d42d5b88fe27dda04aed248788b2015585579c743f6b5616f5fff49648cef"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/simple_swagger_all_param_data_types_local_examples.json",
+    "bytes": 9077,
+    "sha256": "1bca4d08524c95800c92b059f032ed6300a4bcf223c103c58e8840c126fc118d"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/simple_swagger_all_param_data_types_local_examples_grammar.json",
+    "bytes": 13121,
+    "sha256": "d43f4de49a9a0f4551bd1bcfca0595d3417a28b9b2f8ce7d08cad1ce2d62253c"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/simple_swagger_all_param_data_types_local_examples_grammar.py",
+    "bytes": 5569,
+    "sha256": "394c6e463c5ba46ed442f159d3fc2fb304a9ae10989bf7c0324d88288152f1f2"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/simple_swagger_all_param_types.json",
+    "bytes": 2369,
+    "sha256": "dc1735b4cf4978472e2dc4c85db98d4086627e3e5cb11522d3b1f405c3aa4f24"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/simple_swagger_all_param_types_dict.json",
+    "bytes": 220,
+    "sha256": "8d1b079e991bcf497c502187697b8b5f29765b1e4894543c93c740340242d6fc"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/simple_swagger_all_param_types_grammar.json",
+    "bytes": 9552,
+    "sha256": "d1e29f6c392db35ef8a9b74b444777ef4baaaeeb06d476bcb3a66ad275935381"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/simple_swagger_all_param_types_grammar.py",
+    "bytes": 4560,
+    "sha256": "e6a2411c1e02ce8f636be52ff0aec1eb3f8226db529bccd11ed46e339766a051"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/simple_swagger_annotations.json",
+    "bytes": 285,
+    "sha256": "3acde030f00fd64cf59ec7cef1d7e77e6d528168f809e28a91a28ce5001369e4"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/simple_swagger_annotations_uuid4_suffix.json",
+    "bytes": 22200,
+    "sha256": "bff577025d1f4cbb404b4676cef1bb30ccb803b96879bce36e1220415e9510a3"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/simple_swagger_annotations_uuid4_suffix.py",
+    "bytes": 8468,
+    "sha256": "63e9d3f19d2af482d111d1b7065968de2bafbd479223a5e348ff706638f364b0"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/simple_swagger_with_annotations_grammar.json",
+    "bytes": 22290,
+    "sha256": "e52f498af2e1d3158f1a49923e72029c8618f3d2cb1a346ca44873ffef671d54"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/simple_swagger_with_annotations_grammar.py",
+    "bytes": 8446,
+    "sha256": "e6fe848024cb27a189325159c4a541558ab5f54bc715725aa68e16bdb40911c4"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/substitute_body_regression_test_grammar.json",
+    "bytes": 2721,
+    "sha256": "adf3ba815f462fe23c069ae0d1f873ca48027edcec5222a03ad88abb9b62dc50"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/substitute_body_regression_test_grammar.py",
+    "bytes": 2231,
+    "sha256": "b9e6604ea6718023f72da9595aab08ad54b036dd8cef4a13feea7af4de48ffbd"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/uuidsuffix_test_grammar.json",
+    "bytes": 9658,
+    "sha256": "e09c2f36fb0869f56f74d4eaa971003961524dc6a9a2015863b2d5e2182b64d3"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/uuidsuffix_test_grammar.py",
+    "bytes": 4591,
+    "sha256": "5cf010a01900675dbd9c522385ad808acae4959f50d4950d16ce2037739abcad"
+  },
+  {
+    "path": "private/upstream_unit_tests/grammar_schema_test_files/uuidsuffix_test_swagger.json",
+    "bytes": 2388,
+    "sha256": "ab247895d9e4b2a4ade3564dd69a43dde06239812f901ba5a8ee77a422a03b47"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/Bug_Buckets_Json/Bugs_Bucket_AsJson.json",
+    "bytes": 3038,
+    "sha256": "9957a758df26f7c5c9d7afe657536c6116bf33b4b0aa0ef350afe76f300c0276"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/Bug_Buckets_Json/InvalidDynamicObjectChecker_20x_1.json",
+    "bytes": 1028,
+    "sha256": "90b7c3aa6325cd514530811a22b785cce714dde1b36eb9780de1368163e6bbd1"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/Bug_Buckets_Json/UseAfterFreeChecker_20x_1.json",
+    "bytes": 1514,
+    "sha256": "cc3a009e41fe5dddda6a0f8ca1229389021f7347947b636d5fed7f3bca8e6c7f"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/ab_flaky_b_all_combinations_speccov.json",
+    "bytes": 5652,
+    "sha256": "224b8befe3b8d2a7399e5c989e38bb6ea966a8514d6ee3cfa930fe01e4884b1c"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/ab_flaky_b_all_combinations_testing_log.txt",
+    "bytes": 6469,
+    "sha256": "1a83655c7fe63bc86957819c0e27bfbbc6ce980550c7c2e9574c42864f01dea6"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/ab_flaky_b_grammar.py",
+    "bytes": 2862,
+    "sha256": "612af7fab14faa45358bcd92acc1bfdf78f9c5db8a2a1a2b69432ca33605eb45"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/abc_dict.json",
+    "bytes": 75,
+    "sha256": "6df3b47652e373f77bb6ffb8da32e72d949b4a2dbc0ff6c4cb87a5af8312a9eb"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/abc_smoke_test_invalid_b_testing_log.txt",
+    "bytes": 2175,
+    "sha256": "44e849502e4718daf9bdae535827856c956431a928a6c7c400cbb110725df066"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/abc_smoke_test_settings_prefix_cache.json",
+    "bytes": 377,
+    "sha256": "306244c2e325f9fd1b2963e7438a3904ccad8b68cbce1cd59345b6e74beaa074"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/abc_smoke_test_testing_log.txt",
+    "bytes": 11005,
+    "sha256": "3e7f63f23e94e14c3f9862f6c65bb7fa5104496c66c8e0bbbcd353ab99560919"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/abc_smoke_test_testing_log_all_combinations.txt",
+    "bytes": 26712,
+    "sha256": "c915a9687ba18573f1279b612fcfa2cd839d0c94dd6e16a76f31b3df0936b62f"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/abc_smoke_test_trace_data_baseline.txt",
+    "bytes": 13944,
+    "sha256": "e9bddcdcab6a0154ac8e038d85a2a4fc21534f1e4d3c9cbc39a3de044453f825"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/abc_test_grammar.py",
+    "bytes": 6401,
+    "sha256": "496051c8f140d1227f061b4e1da7c21b57bad81e684ea99b5d086a8ae7e5dbfd"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/abc_test_grammar_combinations.py",
+    "bytes": 6911,
+    "sha256": "0b69f855995c0a89d9f6303ed0076d8d6af6627027a21e703095cd6f213ea488"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/abc_test_grammar_invalid_b.py",
+    "bytes": 6220,
+    "sha256": "b939340d8e57e77ad3f3be568e626b870587859019b92fac608107cdd83c4021"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/abc_test_grammar_without_responses.py",
+    "bytes": 4235,
+    "sha256": "f868266793846d21c7b74df0c6c8fd1537618362b51ef26100dc7a49a6482786"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/always_render_full_seq_settings.json",
+    "bytes": 150,
+    "sha256": "3837e9fd1e19c4e5de653932a3da71506617e58239caa49945e4785f761ca22c"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/checkers_bug_buckets.txt",
+    "bytes": 13030,
+    "sha256": "fd54bd23664ef424e0d9ecf91fd37f074850d8c175aaf4884cc100003d35de52"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/checkers_gc_log.txt",
+    "bytes": 19522,
+    "sha256": "ae4691a453e55e19bcb22dc113322e666a093b7db7754bebba352038cebda988"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/checkers_testing_log.txt",
+    "bytes": 208144,
+    "sha256": "59fbd1562dfba64d02d5ec2c6c8661843fec56d691a484d7c00c025e323af661"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/create_once_gc_log.txt",
+    "bytes": 8441,
+    "sha256": "b2a426034a95c973379232d4edcf7061fa93b9502bbad13bd9b469c10796ba29"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/create_once_pre_log.txt",
+    "bytes": 2136,
+    "sha256": "b42f2664686b61662834086cebc86d3c9a431e38338fd8d0b990e5565713c340"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/create_once_testing_log.txt",
+    "bytes": 64861,
+    "sha256": "ed8c9777393d903be2d1f956684392a73207ae39f882b349afe7f313e173cf41"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/custom_value_gen.py",
+    "bytes": 1794,
+    "sha256": "095209770380664c25c21f07ea397110c5f89c3585cf57f4f130228ab6944fd1"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/dynamic_obj_dict.json",
+    "bytes": 304,
+    "sha256": "0518c7539ac79326e86a6a31452255541639b99dc0e6959fd8cd8b5c7ee3b613"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/examples_gc_log.txt",
+    "bytes": 13124,
+    "sha256": "95f22c6629d5d2db86b1561bd59f1d30df326a2caaded6fd2a3076013bcaaae6"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/examples_testing_log.txt",
+    "bytes": 100493,
+    "sha256": "0c3c958187a72ed956c40ef8bd2f6992c96552b48cc4065e0ea5ba3f8372607b"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/fuzz_testing_log.txt",
+    "bytes": 20449214,
+    "sha256": "58a43ceaf35edcc352b3e88f35ecfef114966284a34757f3126741b28373ba3c"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/gc_test_dict.json",
+    "bytes": 90,
+    "sha256": "449b39b4fd5f0cbb4b1f1990db090b6d58f23af23b470a86fd0e21c83a932bb3"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/gc_test_grammar.py",
+    "bytes": 2575,
+    "sha256": "c8a60dcff3e201db3518cad811f2cf4b6a05e790ab81f0cde9ad63b2548f0014"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/gc_test_settings.json",
+    "bytes": 148,
+    "sha256": "d264500a1c792c70896b64f9f067a4fc99fe550beea4ac3c3235e16bebf38d65"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/invalidvalue_advanced_bug_buckets.txt",
+    "bytes": 1275,
+    "sha256": "e4d30c7b956f5e608d6d433ba8644b80c0ab034c1a2cd0ea80e4071e641eddb8"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/invalidvalue_advanced_testing_log.txt",
+    "bytes": 740353,
+    "sha256": "8e804147a63f30e73158e3442b73257c094dff8f6b256efe50fc14fc8a318486"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/invalidvalue_bug_buckets.txt",
+    "bytes": 2701,
+    "sha256": "df6fbd3266b82857a71b2721719714d7be33be0cc2646c406e390e578ae3ea12"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/invalidvalue_gc_log.txt",
+    "bytes": 533390,
+    "sha256": "ac5926722a58ce19046db4643fddb1ee2d42944000192ea2b1517214681130dd"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/invalidvalue_testing_log.txt",
+    "bytes": 2023477,
+    "sha256": "51733c4eac82fef4eaeaf4a1b2ff2cb1b2095bb0750776c41246c7474731bc40"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/multidict_gc_log.txt",
+    "bytes": 11364,
+    "sha256": "04631ec96a6e6a6e33298ee54dde14f970b931d30fc46fd301f5ce3b09df333d"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/multidict_testing_log.txt",
+    "bytes": 88151,
+    "sha256": "59f45a7960e9f3640bd8b4d8975eb75fd6783f4653da781d90c09de97468b60b"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/payloadbody_advanced_testing_log.txt",
+    "bytes": 170683,
+    "sha256": "bbf4b9fbf91781162dd8d7a253de275ac47e044147add183540e7763e2637fe1"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/payloadbody_bug_buckets.txt",
+    "bytes": 448,
+    "sha256": "c4ffe82dc8c3b42b76e696bb60994fc1311bfe7675760de951a5d9ab46a4f3f0"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/payloadbody_gc_log.txt",
+    "bytes": 130067,
+    "sha256": "1092ef5ab926f4c07bcbfde69630c4f54f39b7e19a53b78360641400e2cdaca0"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/payloadbody_testing_log.txt",
+    "bytes": 318288,
+    "sha256": "3ac5f0a0aab699c4a605ef5956722a6ce5329478612cfc517afe8151f9159f20"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/replay_sanity_test_for_tracedb.replay.txt",
+    "bytes": 406,
+    "sha256": "172c3e534a3c802aaf06fabdab336e3191354bd68bb3dbc80c611afc9f026a29"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/smoke_test_gc_log.txt",
+    "bytes": 11403,
+    "sha256": "c8b552fd5c4a87f97b905bdc71ef80137dee84c855eb12a9c8d047aa4cb010aa"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/smoke_test_testing_log.txt",
+    "bytes": 88521,
+    "sha256": "eb52a24cf34a0b43d6979c4e856c90d78253d725c5d08d0f06b32c2c19c86f5e"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/test_dict.json",
+    "bytes": 1262,
+    "sha256": "f365a53a89a616d90b5e0bd3ab3eedb18dcfa18943c4c1c8451c9b50ad58372a"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/test_dict2.json",
+    "bytes": 855,
+    "sha256": "62f4d896178778911f21b2980d3e47aafe8f7134f123966a0bdf9da315aac5bd"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/test_dynamic_obj_writer.py",
+    "bytes": 3082,
+    "sha256": "e10e25a86fbf04527e0f225e306bb7b37083175f2b7b376f01f59938ea4adbad"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/test_fuzz_settings.json",
+    "bytes": 103,
+    "sha256": "5a520ff5b1ea12e5064a05f30b21548cd45ba5aa6cb514b463967cb45fa7742c"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/test_gc_during_main_loop_settings.json",
+    "bytes": 117,
+    "sha256": "a015748520b1dd1a5477af0770f59c89145954e4f965117e7527d0e25bca77b8"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/test_grammar.json",
+    "bytes": 65876,
+    "sha256": "6ec660d59078bc8c1901d031879a5a2358f920b94f0e4e0aabbd565274ad2d4f"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/test_grammar.py",
+    "bytes": 37794,
+    "sha256": "3b01fe1213e110d18e156564e9eda8fc5a69a186111b9c2b672a24bec7a89c9a"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/test_grammar_body.json",
+    "bytes": 21586,
+    "sha256": "5c46a1130df3fd6bd0c8120a7a1a42f309fe0798eb915c81295550846ffddc9b"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/test_grammar_body.py",
+    "bytes": 10296,
+    "sha256": "2d7aa5d6bb749df09ab303f6e3419ab55fcabcbdb50f6bbfc0cd9bbf3d2c1088"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/test_grammar_bugs.py",
+    "bytes": 27664,
+    "sha256": "378d54ae390f43a71de070f7ef321881463f6a0847a438ee2eb0f1bb00e0c8ae"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/test_invalid_value_checker_settings.json",
+    "bytes": 147,
+    "sha256": "8f2666735f5e94b6b0be4c2e8f62d025648a86a36c7a41c31ceb9fac47ee9a13"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/test_one_schema_settings.json",
+    "bytes": 75,
+    "sha256": "c293981e51ea409d20673fba3771d3bcf519a44f11fdcfa75e6f1ff7679c8f57"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/test_settings_createonce.json",
+    "bytes": 422,
+    "sha256": "6b8b783d6de561ff3cc8816d0be03e5ebbcd120a4b18f2151b49cb8459e01680"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/test_settings_multidict.json",
+    "bytes": 223,
+    "sha256": "b39343b2dc902878f1d44c704dcbcd7ea142511676ab07b98ed93565dac79d94"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/trace_data_baseline.ndjson",
+    "bytes": 25534,
+    "sha256": "0189fa709e63b64ae5e91955c5d93697e496cf36cebf8d0a58079b7c784cf078"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/trace_data_baseline_checkers.ndjson",
+    "bytes": 85360,
+    "sha256": "8759944e21ee424320699ab3f37bf166f8a3f0f90252264d9a961261c989432d"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/trace_data_replay_baseline.ndjson",
+    "bytes": 1438,
+    "sha256": "0d4d22a3c3e1453d618b15d2b1d717abe0afde6aa9fb0c93954f9bba970da6ab"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/trace_db_text_serializer.py",
+    "bytes": 1718,
+    "sha256": "0b83349132de86c9df9ba797e49c3e3b012393b9a8d1f8e37c73905a15f9dbd5"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/value_gen_dict.json",
+    "bytes": 248,
+    "sha256": "ffe97f3dacabf2161d48a2026543eeb9be897b00489890143f3e24a3c0cace0a"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/value_gen_settings.json",
+    "bytes": 116,
+    "sha256": "b5b1548087055a97ab5692d539bdc5d4398f8b2fd6ca97240066261faabf7600"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/value_gen_test_grammar.py",
+    "bytes": 3055,
+    "sha256": "cca226b6e6bdaa8e666695dc3cb35f8af56fdf15f148208baa2dc5f75e8147c1"
+  },
+  {
+    "path": "private/upstream_unit_tests/log_baseline_test_files/value_gen_testing_log.txt",
+    "bytes": 111664,
+    "sha256": "c562b52db8f3f99e2f443313330a320a6e50162c96561be69527f027f29c556c"
+  },
+  {
+    "path": "private/upstream_unit_tests/pytest.ini",
+    "bytes": 26,
+    "sha256": "de68d3bfdb99a2b2c65d24c07b81fdadc2f3f254ca5ba52688f7df47772128b0"
+  },
+  {
+    "path": "private/upstream_unit_tests/restler_user_settings.json",
+    "bytes": 3436,
+    "sha256": "f9e6e8223894cf54145395931edd41d9ec689f75c29389c5f9c99ff724292944"
+  },
+  {
+    "path": "private/upstream_unit_tests/test_auth_parser.py",
+    "bytes": 1614,
+    "sha256": "cfbe00e0fec098330a0aca0c8fb74fcb720b19fce8b33b2e238192f4560a3f70"
+  },
+  {
+    "path": "private/upstream_unit_tests/test_basic_functionality_end_to_end.py",
+    "bytes": 83947,
+    "sha256": "04c88e6dc36d62448e08b15607a7f81388c520873a8d73e113935a6b87e77843"
+  },
+  {
+    "path": "private/upstream_unit_tests/test_candidate_values.py",
+    "bytes": 5406,
+    "sha256": "701c0cfcc5fa749ca1d583d97c4b6e8826be4e3ec3db2f93257b55bdce085d15"
+  },
+  {
+    "path": "private/upstream_unit_tests/test_grammar_schema_parser.py",
+    "bytes": 18360,
+    "sha256": "e6ec1a442518470749ab7072e5c6da1e1cf8a3aee27b5d8d6fa458cd6e9fa850"
+  },
+  {
+    "path": "private/upstream_unit_tests/test_log_parsers.py",
+    "bytes": 13415,
+    "sha256": "44713be13e69ab41817d58569eeb8166a16e22be236eeb4f08f2fcfd6dab4ca7"
+  },
+  {
+    "path": "private/upstream_unit_tests/test_logs/bug_buckets.txt",
+    "bytes": 2891,
+    "sha256": "ccbffdd9aa7bf3896cc088196b98c9137c07401654e3661613066682b3f4910e"
+  },
+  {
+    "path": "private/upstream_unit_tests/test_logs/bug_buckets2.txt",
+    "bytes": 2265,
+    "sha256": "c9daed88ceb7245f6a37b9fa6ed9f5bf366b563535769e9cdd8fc27e8f7cf503"
+  },
+  {
+    "path": "private/upstream_unit_tests/test_logs/bug_buckets3.txt",
+    "bytes": 2887,
+    "sha256": "ae02a314689df12407ea971473a39a179b6b1ae46b11544d55e112539eb7244c"
+  },
+  {
+    "path": "private/upstream_unit_tests/test_logs/bug_buckets4.txt",
+    "bytes": 2887,
+    "sha256": "5d5a2d5827f1eb30ed9c3d4b73bb7384f46ee51bed9ae42d16aa148d422430b2"
+  },
+  {
+    "path": "private/upstream_unit_tests/test_logs/bug_buckets_bad.txt",
+    "bytes": 2419,
+    "sha256": "c2ed4426a9d6cfd1a5758338a1559883a9eb6c9131f45bed8e8708641aa99eb1"
+  },
+  {
+    "path": "private/upstream_unit_tests/test_logs/fuzzing_log.txt",
+    "bytes": 18943,
+    "sha256": "df69e36fa367f1a316ce3e0dbbe5b4ec0d502d3c22f20671508a2434a3e6ac58"
+  },
+  {
+    "path": "private/upstream_unit_tests/test_logs/fuzzing_log_2.txt",
+    "bytes": 18609,
+    "sha256": "fc4693afe7e9df685b530519d642edc991ede0254651b50e9a939574e515e63d"
+  },
+  {
+    "path": "private/upstream_unit_tests/test_logs/fuzzing_log_3.txt",
+    "bytes": 14239,
+    "sha256": "18131ddce7c5a155a7b31f68246a172bcf57d114e475e60bf72255ffea1ab539"
+  },
+  {
+    "path": "private/upstream_unit_tests/test_logs/fuzzing_log_bad.txt",
+    "bytes": 12226,
+    "sha256": "9bab4d07443c955baaebc8b03c1873bcd2cf115d872a0d658cdd676eddad5f5b"
+  },
+  {
+    "path": "private/upstream_unit_tests/test_logs/gc_log.txt",
+    "bytes": 1030,
+    "sha256": "8852056d677e3b5e13cc9d646c1acda38fb29d46eefd417ba52655accee9ab96"
+  },
+  {
+    "path": "private/upstream_unit_tests/test_logs/gc_log_2.txt",
+    "bytes": 514,
+    "sha256": "a103398717970e37f39e1019de9a7a9e0bacaff04f7596dc36e2fd75e76a0262"
+  },
+  {
+    "path": "private/upstream_unit_tests/test_logs/gc_log_bad.txt",
+    "bytes": 296,
+    "sha256": "becc283d755e432ff26ac3969b10c43be63ea051402f9d5a23ee4c6da487f544"
+  },
+  {
+    "path": "private/upstream_unit_tests/test_restler_settings.py",
+    "bytes": 26337,
+    "sha256": "74070b6913c01e23ed7f390b4aebd5abef515b3b08d9021fb9098ff6058266e6"
+  },
+  {
+    "path": "private/upstream_unit_tests/test_retry_handler.py",
+    "bytes": 2003,
+    "sha256": "02110f0e708912cd13fa701ef982501ba0d3d753153d349e1685e5366ddd2ff8"
+  },
+  {
+    "path": "private/upstream_unit_tests/test_test_server.py",
+    "bytes": 16002,
+    "sha256": "c9db68b4b0939f76be5469492f65fdc46bd03fe813faccd3c7861b60b623778a"
+  },
+  {
+    "path": "public/evaluation_contract.draft.json",
+    "bytes": 1893,
+    "sha256": "096faa194795fd4fb9cff9dfdbeb97827ff19c16ddc19bc2b8b6f65b2ec987bb"
+  },
+  {
+    "path": "public/instruction.md",
+    "bytes": 1566,
+    "sha256": "b0bec187a653fe906f85f2cd3835897e621fee379422f270bbd6cc3bb9ac6e77"
+  },
+  {
+    "path": "public/repo/CODE_OF_CONDUCT.md",
+    "bytes": 444,
+    "sha256": "9daeae709a0bd71bcfd1c96dc5822ecec5210327eff929da64b0ae7f8faf1444"
+  },
+  {
+    "path": "public/repo/Dockerfile",
+    "bytes": 642,
+    "sha256": "21ec0c554949e6d9229b5c155efe95cffd0aafabd0f90911f97a0b7b19486298"
+  },
+  {
+    "path": "public/repo/LICENSE",
+    "bytes": 1141,
+    "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+  },
+  {
+    "path": "public/repo/README.md",
+    "bytes": 9690,
+    "sha256": "d2aab30caf88bdde3e0256b29d8631640cb266096ab8e3dd48b2cb12cd0e0974"
+  },
+  {
+    "path": "public/repo/SECURITY.md",
+    "bytes": 2688,
+    "sha256": "32ed429a072c9ddfe3d6e42b981e2d24aa45ff77324c35dfb6521cfd6cee2357"
+  },
+  {
+    "path": "public/repo/build-restler.py",
+    "bytes": 9911,
+    "sha256": "8a7bf732861491bd0ff0f58bf9acc645ddb9d907a392876b727f0a1e82c1950b"
+  },
+  {
+    "path": "public/repo/ci_build_pipelines/publish-restler.yml",
+    "bytes": 1938,
+    "sha256": "31cea79b344e84c0c7d0f530f9ff10fe787cca5d6024c3fea61206a6c2e26f58"
+  },
+  {
+    "path": "public/repo/ci_build_pipelines/stages/build/build.yml",
+    "bytes": 178,
+    "sha256": "f3d68faba7033623fa35768e239e4aa89ab3b134b4578b20c26e2b9915e56aeb"
+  },
+  {
+    "path": "public/repo/ci_build_pipelines/stages/build/steps/restlerfullbuild.yml",
+    "bytes": 2189,
+    "sha256": "36695cf9af202a8fcc8614a63cc7f7e7cb7105b4ea58f79389245cd6ffea1e0f"
+  },
+  {
+    "path": "public/repo/ci_build_pipelines/stages/test/steps/compilerFunctionalTests.yml",
+    "bytes": 980,
+    "sha256": "8f63e5e412f535997663c8e654e8658edad3875c2d272b9da7ff74a07301e60d"
+  },
+  {
+    "path": "public/repo/ci_build_pipelines/stages/test/steps/engineUnitTests.yml",
+    "bytes": 366,
+    "sha256": "1efe2926b499683e1e520871b41a295c2a03739773a1550a1b4214b63a266841"
+  },
+  {
+    "path": "public/repo/ci_build_pipelines/stages/test/steps/quickStartTests.yml",
+    "bytes": 1044,
+    "sha256": "bae139a9a296143774def477aaa6b72d0491d580de4dff1983b96b5f3342f801"
+  },
+  {
+    "path": "public/repo/ci_build_pipelines/stages/test/test.yml",
+    "bytes": 629,
+    "sha256": "51847a217e214b3fa27b007ab6f24b61f4955e3a128a286f02e799351894a1d4"
+  },
+  {
+    "path": "public/repo/ci_build_pipelines/variables/version-variables.yml",
+    "bytes": 215,
+    "sha256": "61a9f8573b9335a40ca04c0885b2831aae3504a6a941c9b68dc62ea3ec8e3dd9"
+  },
+  {
+    "path": "public/repo/demo_server/Dockerfile",
+    "bytes": 295,
+    "sha256": "46e5ef1493592b15f01ce84b655d374c2f437a67f7119af39c953fd859f7c23b"
+  },
+  {
+    "path": "public/repo/demo_server/README.md",
+    "bytes": 1534,
+    "sha256": "c541399432bb96f32c24a30afe367ed7c9f814c8faf28ebf048ca80310e69344"
+  },
+  {
+    "path": "public/repo/demo_server/demo_server/app.py",
+    "bytes": 848,
+    "sha256": "c80f28cfe6106f03f69d60b8308304793ee38593b89a2ff136722208f6b5d116"
+  },
+  {
+    "path": "public/repo/demo_server/demo_server/db.py",
+    "bytes": 273,
+    "sha256": "6225d9b040056cb6fbad43f8df30c32c93a45086feb6b51d9b7df17300690276"
+  },
+  {
+    "path": "public/repo/demo_server/demo_server/db.sqlite",
+    "bytes": 8192,
+    "sha256": "2fdef1491d6a3641a0c598ccda745919ad68ff0ef32b778b576dbdad289a71b4"
+  },
+  {
+    "path": "public/repo/demo_server/demo_server/routers/blog.py",
+    "bytes": 5261,
+    "sha256": "6ad2cba2dcf83ca772764b0ce34368b970efca67461f5dab57d4ffae1d7c6604"
+  },
+  {
+    "path": "public/repo/demo_server/demo_server/routers/doc.py",
+    "bytes": 237,
+    "sha256": "85fbe229a32119bc9993da236d452a75f0aad52775ac69a6b2ddd262abcc46a8"
+  },
+  {
+    "path": "public/repo/demo_server/demo_server/schemas.py",
+    "bytes": 1095,
+    "sha256": "c8e2a926f0e5ad22ef4b2f20d025723f62589309a1e2240ac9df21fa4e551698"
+  },
+  {
+    "path": "public/repo/demo_server/requirements.txt",
+    "bytes": 60,
+    "sha256": "338864ffa74a8b421fad91bba65cf177b5319fd06c44d7f21a842cef9f38e63b"
+  },
+  {
+    "path": "public/repo/demo_server/swagger.json",
+    "bytes": 12225,
+    "sha256": "6b9088cdaf01f53d3485e46d25584226ee05d7d9984c32027585e0441d8c8a66"
+  },
+  {
+    "path": "public/repo/docker/Dockerfile",
+    "bytes": 642,
+    "sha256": "21ec0c554949e6d9229b5c155efe95cffd0aafabd0f90911f97a0b7b19486298"
+  },
+  {
+    "path": "public/repo/docs/contributor-guide/Contributing.md",
+    "bytes": 3810,
+    "sha256": "f800cec1b381fc0fa182e6a5c9e9a8af2cf099f8d24da58378425afd29ca6318"
+  },
+  {
+    "path": "public/repo/docs/contributor-guide/DeveloperGuide.md",
+    "bytes": 766,
+    "sha256": "675a24815ed506d399d3e2fd678d5ba07f7a45da6e2c465faf8853ff049f6284"
+  },
+  {
+    "path": "public/repo/docs/contributor-guide/EngineGettingStarted.md",
+    "bytes": 1077,
+    "sha256": "8ce57e1dcc2f05bea99d5f1eacd146e407a41b78bf7d9b945d15657bdb0ae659"
+  },
+  {
+    "path": "public/repo/docs/contributor-guide/PullRequestTemplate.md",
+    "bytes": 765,
+    "sha256": "b44843c1ffcc066d30a2b7279d71e7374034869603f846850a3419f2de721c79"
+  },
+  {
+    "path": "public/repo/docs/user-guide/Annotations.md",
+    "bytes": 6973,
+    "sha256": "bf3f22a5384b4c3e160305519b5c80e5583edf7a45aa02d595a43b741a69a025"
+  },
+  {
+    "path": "public/repo/docs/user-guide/Authentication.md",
+    "bytes": 3685,
+    "sha256": "52fd999f6fff7911c4030d02cf5919743511c22d9a3ed2e82fa2d5c2dbdca2b1"
+  },
+  {
+    "path": "public/repo/docs/user-guide/BestPractices.md",
+    "bytes": 2585,
+    "sha256": "1743dc720b936f490c120b43662e687c2f9510108b6cc8449a504e5f2f889e2e"
+  },
+  {
+    "path": "public/repo/docs/user-guide/BugBuckets.md",
+    "bytes": 3176,
+    "sha256": "a4cdc85b4467debed995c31224bb79d72e2f747ab244ca1193fee7bff6c0edd4"
+  },
+  {
+    "path": "public/repo/docs/user-guide/Checkers.md",
+    "bytes": 8075,
+    "sha256": "8ca540f2059fd7502824e8cf7f7f5d495282d1b7c6f7247f1ff20ebae0a0eb23"
+  },
+  {
+    "path": "public/repo/docs/user-guide/CompilerConfig.md",
+    "bytes": 10443,
+    "sha256": "0be7b1936c54e39ab9b4544abc85f8d2d185cfbb4c9e7cdaa48df2b4dfdc8a2c"
+  },
+  {
+    "path": "public/repo/docs/user-guide/Compiling.md",
+    "bytes": 3729,
+    "sha256": "91be9767eb453c2e3ff0828dbbda808e9c5740ea5c2edb25c382f65e5d12875c"
+  },
+  {
+    "path": "public/repo/docs/user-guide/Examples.md",
+    "bytes": 6084,
+    "sha256": "7a26de9361c37804d200dfb223873bba09a20af063a32ddaa852bfb9757c6d86"
+  },
+  {
+    "path": "public/repo/docs/user-guide/FAQ.md",
+    "bytes": 6522,
+    "sha256": "b0149d72dcb1a86b45c19709764dc6ce28a40e2097f6ab5bbc425618a8cb3f9e"
+  },
+  {
+    "path": "public/repo/docs/user-guide/Fuzzing.md",
+    "bytes": 3765,
+    "sha256": "eabb2892b24bdd70c39106d003bff0e165b62e4a01eec0ec768b26f4656ad011"
+  },
+  {
+    "path": "public/repo/docs/user-guide/FuzzingDictionary.md",
+    "bytes": 7114,
+    "sha256": "be5ad08c08ff27737483b02cd0256b78573a6c70d442d5600a11f4b9fd015914"
+  },
+  {
+    "path": "public/repo/docs/user-guide/GettingStartedWorkflow.dot",
+    "bytes": 2450,
+    "sha256": "805caf3297e577b88bc3932321d70df919f74a21856513450fa744077b5be2b1"
+  },
+  {
+    "path": "public/repo/docs/user-guide/GettingStartedWorkflow.png",
+    "bytes": 74993,
+    "sha256": "0fcd33412d4eeeefca3b8219e338aca2f2c432e7d35fa5c2db8382a8722664ed"
+  },
+  {
+    "path": "public/repo/docs/user-guide/ImprovingCoverage.md",
+    "bytes": 9570,
+    "sha256": "3fd350024193937aea0ac6e8b80eafb2f2a47f769ad4aa27e5665ced619d988d"
+  },
+  {
+    "path": "public/repo/docs/user-guide/Links.md",
+    "bytes": 2166,
+    "sha256": "768426f7ee670d76028aed4ccd2da8a612a70d1355d00b4f6f8dd23b6b490608"
+  },
+  {
+    "path": "public/repo/docs/user-guide/QuickStart.md",
+    "bytes": 5617,
+    "sha256": "5e6d442bfae278ebd64cfdc381422428af53059d42ba7abf9eeb3ffa5fc42df0"
+  },
+  {
+    "path": "public/repo/docs/user-guide/RESTler-arch.png",
+    "bytes": 39627,
+    "sha256": "6bc0a15ba32441cd585073020a4260af287db1c4b390f2b1297176236011e6b0"
+  },
+  {
+    "path": "public/repo/docs/user-guide/Replay.md",
+    "bytes": 6666,
+    "sha256": "55d060251662257b0f535df3910c2dc4c2f7125c2fe879966a1539ad88bf69d0"
+  },
+  {
+    "path": "public/repo/docs/user-guide/ResultsAnalyzer.md",
+    "bytes": 2204,
+    "sha256": "8c8eaa0aba5ec1928d8afa6c8b40af0026d985b8c8fbab9dfaead7defb6d4d2f"
+  },
+  {
+    "path": "public/repo/docs/user-guide/SettingsFile.md",
+    "bytes": 24372,
+    "sha256": "4bd8a87df88b45392930116efdc7bb7d865ecfdb68d3a187b9dc21182b4793dd"
+  },
+  {
+    "path": "public/repo/docs/user-guide/Telemetry.md",
+    "bytes": 972,
+    "sha256": "9320ee34f05c031667c71bec6c78f8d3ee00dd4f37e59734d0be604aa0d0f806"
+  },
+  {
+    "path": "public/repo/docs/user-guide/Testing.md",
+    "bytes": 9445,
+    "sha256": "09e1bfac7787c63f92daeb0429a2a84b5ebed53d83eb58b57d0569b1ac302949"
+  },
+  {
+    "path": "public/repo/docs/user-guide/TutorialDemoServer.md",
+    "bytes": 8855,
+    "sha256": "2e2590f152618877b7ad8c80d445e6ba132ec3984b91c3e711805767a355907a"
+  },
+  {
+    "path": "public/repo/docs/user-guide/icse2019.bib",
+    "bytes": 545,
+    "sha256": "fab9d2342b8d261804d92e2eab31da7aa27f1830d2889834cc0cb2bbe37c791e"
+  },
+  {
+    "path": "public/repo/global.json",
+    "bytes": 85,
+    "sha256": "a07c3035018cca0028bc0ceaa628c3ca0f151a375046637f2df1ec45caa91723"
+  },
+  {
+    "path": "public/repo/restler/.vscode/settings.json",
+    "bytes": 282,
+    "sha256": "510cda62ac6b88310dc4652e5bb77db3fda8f4f62f6c0f56213ff87fbcd11dff"
+  },
+  {
+    "path": "public/repo/restler/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "public/repo/restler/checkers/README.md",
+    "bytes": 9618,
+    "sha256": "c0810f1fa78dce56e2b24ca295ae016314055aa7508a888746c100db295a287d"
+  },
+  {
+    "path": "public/repo/restler/checkers/__init__.py",
+    "bytes": 644,
+    "sha256": "b0815325fbac5069fced0639398d12d9f2e16fce54d1dbad08f8035cf80d1347"
+  },
+  {
+    "path": "public/repo/restler/checkers/body_schema_fuzzer.py",
+    "bytes": 25263,
+    "sha256": "d20ec21b7163acec817074a82244fe15ee556dffd7a98e4201f4f40674798adf"
+  },
+  {
+    "path": "public/repo/restler/checkers/checker_base.py",
+    "bytes": 10737,
+    "sha256": "3169388836eb7e7c28b58b57bd548a59cad1b39a68dc5ddee1821f5666439d96"
+  },
+  {
+    "path": "public/repo/restler/checkers/checker_log.py",
+    "bytes": 1238,
+    "sha256": "8076c3915aecb499f21ce69127c478ea644d5115cd370ce632d69065cc4deade"
+  },
+  {
+    "path": "public/repo/restler/checkers/demo_checker.py",
+    "bytes": 6608,
+    "sha256": "6e8583e3808741b8a213273234ad6ab166722af28efe0698c8681835af17fcde"
+  },
+  {
+    "path": "public/repo/restler/checkers/examples_checker.py",
+    "bytes": 5608,
+    "sha256": "6a8f99561eae130f6a37068ddab03370eb40b9bf90510f153311e3560274ebcb"
+  },
+  {
+    "path": "public/repo/restler/checkers/invalid_dynamic_object_checker.py",
+    "bytes": 7581,
+    "sha256": "e5a69effa53b1a3fea06229ec494a1abc10c7bf600ecded374aa658cd336d1dd"
+  },
+  {
+    "path": "public/repo/restler/checkers/invalid_value_checker.py",
+    "bytes": 18314,
+    "sha256": "95402e56b0e46da06c11c6478788f87926b38c5c1dab07708917a2f0f83ed8b9"
+  },
+  {
+    "path": "public/repo/restler/checkers/invalid_value_checker_value_gen.py",
+    "bytes": 4027,
+    "sha256": "9247f22035b8e96af910efca64209335e07bc7ff5dd870c9382192dc67f35c1d"
+  },
+  {
+    "path": "public/repo/restler/checkers/leakage_rule_checker.py",
+    "bytes": 6132,
+    "sha256": "b64afea8080ca37abd082bc5389154ea2b0be4cf3f5086d63558badf6bdf85f3"
+  },
+  {
+    "path": "public/repo/restler/checkers/namespace_rule_checker.py",
+    "bytes": 12067,
+    "sha256": "c3eec213387680e622c8c0009f5078e2e5d53833979ba6602afa577feeffb2e4"
+  },
+  {
+    "path": "public/repo/restler/checkers/payload_body_bucketing.py",
+    "bytes": 3135,
+    "sha256": "3980e4faee8736df3ef263f49e2acc540ca90d0cef1e5b9a709ff5778b601d9b"
+  },
+  {
+    "path": "public/repo/restler/checkers/payload_body_checker.py",
+    "bytes": 49794,
+    "sha256": "8d0434eae11b527597f0ba06ed70d7fe1d650d23afbef0f6321b2bd41ff7fad6"
+  },
+  {
+    "path": "public/repo/restler/checkers/resource_hierarchy_checker.py",
+    "bytes": 5875,
+    "sha256": "6e3717ce6914452b6a5f6d7e3616215698bf48d7b5b365d56292deca609d8dc9"
+  },
+  {
+    "path": "public/repo/restler/checkers/response_analyzer.py",
+    "bytes": 6838,
+    "sha256": "0c5a055836cc0c1e200faba60069f7b5abe2b85c6dcba42470123cc3674674c6"
+  },
+  {
+    "path": "public/repo/restler/checkers/use_after_free_checker.py",
+    "bytes": 6857,
+    "sha256": "90f3cd3fe76d986cd07243b939305b1905a5f7a0f5271543d3780999de0c2f2f"
+  },
+  {
+    "path": "public/repo/restler/end_to_end_tests/baselines/mutated_swagger_coverage_failures.txt",
+    "bytes": 2313,
+    "sha256": "030a444a26c980bea57fbc15c9dcbedbeec9233565b26e50a140f0d0ee9815f7"
+  },
+  {
+    "path": "public/repo/restler/end_to_end_tests/test_quick_start.py",
+    "bytes": 12437,
+    "sha256": "68043a2dac24edbb11f09288a97b4f979d94deb07bcc851d865ea9cfdbf0d435"
+  },
+  {
+    "path": "public/repo/restler/engine/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "public/repo/restler/engine/bug_bucketing.py",
+    "bytes": 11620,
+    "sha256": "9eab500f8d32368f0b8ef7b11c97590515e1ff66786404d2d7cf9538ebc963b1"
+  },
+  {
+    "path": "public/repo/restler/engine/core/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "public/repo/restler/engine/core/async_request_utilities.py",
+    "bytes": 3986,
+    "sha256": "c2624632247d9e72cf8d3fa224c3563242fdb3e474d136b7f615724fdc01659b"
+  },
+  {
+    "path": "public/repo/restler/engine/core/driver.py",
+    "bytes": 45452,
+    "sha256": "bb7c4f56294d775f9fc813a60d10b1c6ad4b21b334fe679a397c2289def19f60"
+  },
+  {
+    "path": "public/repo/restler/engine/core/fuzzer.py",
+    "bytes": 2200,
+    "sha256": "46cc386838d0609ca47f28effef4774e99ff0f095395edcaed636a743931e5d7"
+  },
+  {
+    "path": "public/repo/restler/engine/core/fuzzing_monitor.py",
+    "bytes": 9366,
+    "sha256": "73f72cb8da8531535b2dd15939f31f8ac9b4a378b0014576c25b633e939f83b8"
+  },
+  {
+    "path": "public/repo/restler/engine/core/fuzzing_requests.py",
+    "bytes": 4228,
+    "sha256": "0cb361b21a74897c30a2d752c189881b5507148ebc82b04eae94597b4a5472e4"
+  },
+  {
+    "path": "public/repo/restler/engine/core/postprocessing.py",
+    "bytes": 3464,
+    "sha256": "f255e9550f7513fa60b8ddabcf46e574955ecf2752eb4c1b8be7397a75014e98"
+  },
+  {
+    "path": "public/repo/restler/engine/core/preprocessing.py",
+    "bytes": 8540,
+    "sha256": "b2dd3a1717486a511ec6336ee130269d65ff94888b657bdc9eae7ab3f068e5d4"
+  },
+  {
+    "path": "public/repo/restler/engine/core/renderings_monitor.py",
+    "bytes": 6036,
+    "sha256": "958d85e1e495b0afa5b900c2c68ff226e4e68d40626752b1395ec66d52a661d1"
+  },
+  {
+    "path": "public/repo/restler/engine/core/request_utilities.py",
+    "bytes": 21783,
+    "sha256": "ddfc693c9cbfbd575e73c96fb0cbeeeebe7640a865461808e12afdb21dd15037"
+  },
+  {
+    "path": "public/repo/restler/engine/core/requests.py",
+    "bytes": 82696,
+    "sha256": "964ed5558fac83d12d639b6c24a5dfa9719646ffb3ffd94ef79aef3ac5579a9f"
+  },
+  {
+    "path": "public/repo/restler/engine/core/retry_handler.py",
+    "bytes": 1608,
+    "sha256": "64627fde03a406f925d8dee3d598a693f10cfd994274620744a55fffc1946358"
+  },
+  {
+    "path": "public/repo/restler/engine/core/sequences.py",
+    "bytes": 44914,
+    "sha256": "3f3652f86e9649c14dfabb9b7598727cda3ba9eb30e8c83ee2ff1a939ac1dbc8"
+  },
+  {
+    "path": "public/repo/restler/engine/core/status_codes_monitor.py",
+    "bytes": 8266,
+    "sha256": "1cc44f30372c66aab88c17bc11033114fde249180fa9d243aa8b4c67aa539265"
+  },
+  {
+    "path": "public/repo/restler/engine/dependencies.py",
+    "bytes": 25094,
+    "sha256": "4c5f06a3ee21c571b534743b158e2435a4688948c369c59c3eef96a2dd6a9252"
+  },
+  {
+    "path": "public/repo/restler/engine/errors.py",
+    "bytes": 2306,
+    "sha256": "2dcf588298cbb43069f3f3fd261593e7ccc9d2510240a2231a4215f72a53eb77"
+  },
+  {
+    "path": "public/repo/restler/engine/fuzzing_parameters/body_schema.py",
+    "bytes": 9891,
+    "sha256": "1fc6cc82c6d47492a180c7d93f224609b6002b8432266ac421c7f47caeafe959"
+  },
+  {
+    "path": "public/repo/restler/engine/fuzzing_parameters/fuzzing_config.py",
+    "bytes": 7536,
+    "sha256": "32605c62849b8403b94294d623c3b3e56525d977316ecd928cbba257027f9ef5"
+  },
+  {
+    "path": "public/repo/restler/engine/fuzzing_parameters/fuzzing_utils.py",
+    "bytes": 5624,
+    "sha256": "ecfec0034182d1e79726f9ead7b8984f638abe3963975459817a785ae32194b0"
+  },
+  {
+    "path": "public/repo/restler/engine/fuzzing_parameters/param_combinations.py",
+    "bytes": 14383,
+    "sha256": "b8ed87561954ded63489c62915b9818cba1a901da555e89edcb3f718a6bd2965"
+  },
+  {
+    "path": "public/repo/restler/engine/fuzzing_parameters/parameter_schema.py",
+    "bytes": 8053,
+    "sha256": "cf229940dc612ef090482e73ce99ad2d75ddf4370300c34bbf94883c7ee269d4"
+  },
+  {
+    "path": "public/repo/restler/engine/fuzzing_parameters/request_examples.py",
+    "bytes": 5625,
+    "sha256": "196375a8c2fe903f2f58d82d3a81bba6687f1fe3155e8cf907243e144d39c1c2"
+  },
+  {
+    "path": "public/repo/restler/engine/fuzzing_parameters/request_params.py",
+    "bytes": 56666,
+    "sha256": "a9883bd8aea93f015c32c559940287149e38444868c43af2881a1a27820f056c"
+  },
+  {
+    "path": "public/repo/restler/engine/fuzzing_parameters/request_schema_parser.py",
+    "bytes": 13563,
+    "sha256": "2efc914e41bb8b2e58757e4e9b483b520698f3a30f31c0d45beed925b794a498"
+  },
+  {
+    "path": "public/repo/restler/engine/mime/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "public/repo/restler/engine/mime/multipart_formdata.py",
+    "bytes": 2106,
+    "sha256": "17fd1b56979dfae2b3182ef8b1d029518caf334e5bcee798445c95c5afc657fc"
+  },
+  {
+    "path": "public/repo/restler/engine/primitives.py",
+    "bytes": 41031,
+    "sha256": "07710ff288311b37f7d78a72e7067666366a4908d0c9743bb807216cbcd58878"
+  },
+  {
+    "path": "public/repo/restler/engine/transport_layer/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "public/repo/restler/engine/transport_layer/messaging.py",
+    "bytes": 13757,
+    "sha256": "ab22aa5aadca310391a382cedd83db8e33298efe64b8bb698d60e0946d4f2701"
+  },
+  {
+    "path": "public/repo/restler/engine/transport_layer/response.py",
+    "bytes": 5546,
+    "sha256": "c41cd3e625bccfc7534bcb49e7690ee562c9c40681050bb58f6149254e40a696"
+  },
+  {
+    "path": "public/repo/restler/requirements.txt",
+    "bytes": 26,
+    "sha256": "aa22cf085de2fc9aa80befdf575fca404bb94951a8bc802d8e059c484af25106"
+  },
+  {
+    "path": "public/repo/restler/restler.py",
+    "bytes": 29699,
+    "sha256": "e9db30e9ab38e2e85cc44d97b521f7b539f1114113f98d973f805640149cfa49"
+  },
+  {
+    "path": "public/repo/restler/restler_settings.py",
+    "bytes": 48826,
+    "sha256": "710df2936773444f2e55a842b4bfc8f072e16ecc873587951d1a5d1cd8d77d2a"
+  },
+  {
+    "path": "public/repo/restler/test_servers/README.md",
+    "bytes": 3825,
+    "sha256": "3e23c88aeacd8f9d3bc177c1ed934e4ec7e592cd22d2fa8e5375d22d9dd3dee4"
+  },
+  {
+    "path": "public/repo/restler/test_servers/__init__.py",
+    "bytes": 74,
+    "sha256": "7ed1f920a87508132f4b501818487a99dedbecd5fff3466820e4541256ca060e"
+  },
+  {
+    "path": "public/repo/restler/test_servers/log_parser.py",
+    "bytes": 18351,
+    "sha256": "f3d8fb2a34d2318828a0dbe63b669b7971206359bb49a8b493e3a17d62898358"
+  },
+  {
+    "path": "public/repo/restler/test_servers/parsed_requests.py",
+    "bytes": 5077,
+    "sha256": "9023386c0f727549d3aab7eeae0119a6688325dd6bfc9543c8e81a37888cd626"
+  },
+  {
+    "path": "public/repo/restler/test_servers/resource_base.py",
+    "bytes": 5982,
+    "sha256": "c1cd7384d07eec9ae3b3f6b9f25da6fc6d1ce64a6f2c3f836075fd19476236a8"
+  },
+  {
+    "path": "public/repo/restler/test_servers/test_server_base.py",
+    "bytes": 3419,
+    "sha256": "f9529cfb73056f28cdbf31a9e198a52fd63bac4e2998c73697557c5bac6a8811"
+  },
+  {
+    "path": "public/repo/restler/test_servers/test_socket.py",
+    "bytes": 1967,
+    "sha256": "1a7801702fb95e77b4d2d9a7082a19e6c5bc253817b375712873c333548b1a82"
+  },
+  {
+    "path": "public/repo/restler/test_servers/unit_test_server/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "public/repo/restler/test_servers/unit_test_server/unit_test_resources.py",
+    "bytes": 10349,
+    "sha256": "a6c114d542a1663bc6a7d4fee719eb385a53e77da5606432265a4c4670301369"
+  },
+  {
+    "path": "public/repo/restler/test_servers/unit_test_server/unit_test_server.py",
+    "bytes": 7789,
+    "sha256": "3c0e0d4b47ee4bd8d621038aa71fefbd8234db3e63ddc4948db044d9b5bcaa73"
+  },
+  {
+    "path": "public/repo/restler/utils/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "public/repo/restler/utils/formatting.py",
+    "bytes": 429,
+    "sha256": "fdfcbb8dcf95fb1755d844605a5c418829d52bfff515796185fa8ecfb552b9d1"
+  },
+  {
+    "path": "public/repo/restler/utils/hooks.py",
+    "bytes": 3179,
+    "sha256": "bef93592c5e32a8d85a577bc6995e3497904bb389288269a1bd2d6928df6c3c1"
+  },
+  {
+    "path": "public/repo/restler/utils/import_utilities.py",
+    "bytes": 2006,
+    "sha256": "4313729c50f470b645d5b64e154b2df79dbbb23b7ebff5ac2dd54ce0bd0a330a"
+  },
+  {
+    "path": "public/repo/restler/utils/logger.py",
+    "bytes": 50808,
+    "sha256": "508155fe0d54840fa91f38a16580a5b50a3ba0507b66b97411c142fe49aa9128"
+  },
+  {
+    "path": "public/repo/restler/utils/logging/ndjson_serializer.py",
+    "bytes": 8478,
+    "sha256": "cf74a4ebfe1af5b17ff0cf87ef7cb698b0dffbac15b051c83d83ab7c12d53f0a"
+  },
+  {
+    "path": "public/repo/restler/utils/logging/serializer_base.py",
+    "bytes": 639,
+    "sha256": "86b1fecb4c03adecd2602c1d5beedeeec1d9f4576ca0f6489a4d865dbb6bb224"
+  },
+  {
+    "path": "public/repo/restler/utils/logging/trace_db.py",
+    "bytes": 12390,
+    "sha256": "3fec72d5d690156d39bb56c256224ee2d94d466728b9d070a293e400d51149c8"
+  },
+  {
+    "path": "public/repo/restler/utils/network_logs/diff_network_logs.py",
+    "bytes": 1353,
+    "sha256": "6d4325d0d2311bdb952896b7a7cc3c69777532ca102735a27fe2a9173fa183b3"
+  },
+  {
+    "path": "public/repo/restler/utils/saver.py",
+    "bytes": 3670,
+    "sha256": "10393b9e1239b0bbb9b6cb884b77050beee03ca2a2e4dd7394f9d5b237b4c1ed"
+  },
+  {
+    "path": "public/repo/restler-quick-start.py",
+    "bytes": 7032,
+    "sha256": "ae50e4002a44f90c519e09296605213371af2aea450cc4570373f1ec31b171f5"
+  },
+  {
+    "path": "public/repo/src/Restler.sln",
+    "bytes": 7084,
+    "sha256": "da022cf737e01317f0190195db42cf4712c9f4a91dff4768abac40cf7da5da17"
+  },
+  {
+    "path": "public/repo/src/ResultsAnalyzer/Analyze/Buckets.fs",
+    "bytes": 7275,
+    "sha256": "c314f160c99a6a77e84dd8433edd1778950aa1c30f8af3a49c659e3726a7513f"
+  },
+  {
+    "path": "public/repo/src/ResultsAnalyzer/Analyze/Main.fs",
+    "bytes": 5655,
+    "sha256": "93e02d429d72235fdd1d5316d64cba3847da2f37495b63c695be513c0bcc7fe0"
+  },
+  {
+    "path": "public/repo/src/ResultsAnalyzer/Analyze/Types.fs",
+    "bytes": 2297,
+    "sha256": "cb1c9af3191842dca1fff3006d9bcb36b076ff16104c4fc5a4114c83c5c4e64f"
+  },
+  {
+    "path": "public/repo/src/ResultsAnalyzer/Common/Abstractions.fs",
+    "bytes": 4927,
+    "sha256": "a72d70674daa88e79d16046eb10e07b34c169f112f0725fbb6417653da8e72a5"
+  },
+  {
+    "path": "public/repo/src/ResultsAnalyzer/Common/Http.fs",
+    "bytes": 12256,
+    "sha256": "43ba9d468d946adc22cb72edf241b1c4d9f8084ee7f4904e03086f3892b8b225"
+  },
+  {
+    "path": "public/repo/src/ResultsAnalyzer/Common/Log.fs",
+    "bytes": 5540,
+    "sha256": "ba62528cffeb183cb92acb8642c113c3f170a6326b02d512ded58397684d2a71"
+  },
+  {
+    "path": "public/repo/src/ResultsAnalyzer/Common/Utilities.fs",
+    "bytes": 4118,
+    "sha256": "5fc64b5ec0567a041a561d59d38d1aa75f65391712f945402e20a3f4aa60cb69"
+  },
+  {
+    "path": "public/repo/src/ResultsAnalyzer/Convert.fs",
+    "bytes": 941,
+    "sha256": "3bfc3253f6fea9c52b91e1cb7077f5a7e0ca8102695704b2047fff9aba229b3d"
+  },
+  {
+    "path": "public/repo/src/ResultsAnalyzer/Diff/Diff.fs",
+    "bytes": 10975,
+    "sha256": "bf3115632b4e95250369253eddedbd7eec4635d3cf7685a772ad835043fd5c7d"
+  },
+  {
+    "path": "public/repo/src/ResultsAnalyzer/Diff/DiffHttp.fs",
+    "bytes": 5316,
+    "sha256": "601879593ac163ec1d9c0ae324bf6b097048547364c491e21acb6b44db396768"
+  },
+  {
+    "path": "public/repo/src/ResultsAnalyzer/Diff/DiffLines.fs",
+    "bytes": 2820,
+    "sha256": "5afb5c285ba1d095b57b2a1a246ca1d2259f3f1fc855bdfdf9ee7c5e0acaf2b9"
+  },
+  {
+    "path": "public/repo/src/ResultsAnalyzer/Diff/Main.fs",
+    "bytes": 3092,
+    "sha256": "d08750a0bd12bef66237f8e0959f99b8c0d9dc79eef9512fda29922250943e9e"
+  },
+  {
+    "path": "public/repo/src/ResultsAnalyzer/Overview.fs",
+    "bytes": 8311,
+    "sha256": "600a836ab566ff3f8884586819d305f8c17ffa1aeb9a2dbe1c550e07409d55a0"
+  },
+  {
+    "path": "public/repo/src/ResultsAnalyzer/OverviewDiff.fs",
+    "bytes": 5828,
+    "sha256": "385f9ba47f909373462c672b5fb9c5c62385faa5023901061bcf7518559b4f55"
+  },
+  {
+    "path": "public/repo/src/ResultsAnalyzer/Program.fs",
+    "bytes": 12820,
+    "sha256": "83f50e5b818077ab424be11da196e5ac483a54e9283737e0a2d91213cf8f4e1e"
+  },
+  {
+    "path": "public/repo/src/ResultsAnalyzer/ResultsAnalyzer.fsproj",
+    "bytes": 1755,
+    "sha256": "26890476e685ce7e8a783f5653b29c1410312fbe3e39fd445447d8b72e39fae3"
+  },
+  {
+    "path": "public/repo/src/ResultsAnalyzer/Timing.fs",
+    "bytes": 4537,
+    "sha256": "9bc2c5bf2ab37ace8ac69ea6385b8624dba02ad0b6bc27117ed6596dd110937c"
+  },
+  {
+    "path": "public/repo/src/ResultsAnalyzer/packages.lock.json",
+    "bytes": 47682,
+    "sha256": "d8c3a6c9fa298111c9c379f7923d956e5bd6304fc24d51940c7aa9d7e6d468b0"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/AccessPaths.fs",
+    "bytes": 1292,
+    "sha256": "420873f3c5b5d1cb6d0cef5507c9955a50fe35b18304afc4ba42d300592b3138"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/Annotations.fs",
+    "bytes": 12541,
+    "sha256": "9363117f908695eb666cca7b8369d7a34574afd039bd4e43512d5505d5111205"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/ApiResourceTypes.fs",
+    "bytes": 14472,
+    "sha256": "20385f8ce317120aaca106966dde5da3814454c7e7f21e34610264c977a5df98"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/CodeGenerator.fs",
+    "bytes": 69259,
+    "sha256": "f234cdc00b2bed7497e1922b6852961eae32f34cce640b0b04a03e51a0cf75af"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/Compiler.fs",
+    "bytes": 84584,
+    "sha256": "0cc051f75746b8f1852dc38512e7e53c44ba17576a45f70e6cd817f62175144d"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/Config.fs",
+    "bytes": 13662,
+    "sha256": "4cc6efe5364b8e2ee4332e05e37858e6ed7feb048e98f565b27f0ef3c119b051"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/Dependencies.fs",
+    "bytes": 109014,
+    "sha256": "29c5829e9fbff480dfd75dd3db44e134e2cb027e284e88fa4e08147d37c67d81"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/DependencyAnalysisTypes.fs",
+    "bytes": 12032,
+    "sha256": "7ac0b43b9329c0e228a4da2a01df9d39cf21f12738789d5823b466201a7db225"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/Dictionary.fs",
+    "bytes": 13044,
+    "sha256": "f2773f88c92ea124262174f33b2aea3a3c7e2fb066c58e38b2d783dbd4cb0d97"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/Examples.fs",
+    "bytes": 15561,
+    "sha256": "4f5b1d3dfe9728b94f0f8f4eb37563b12585728fc077b44bb6f184d62a6c12ab"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/Grammar.fs",
+    "bytes": 18814,
+    "sha256": "12b6cd3aac073187326635558b89eda33224a771edea113b18392baf94c37e9f"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/Restler.Compiler.fsproj",
+    "bytes": 2346,
+    "sha256": "845f58936129f759bc0d06d0170cf323c12b3964962a0938a189b10ae3cddcaa"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/RestlerEngineSettings.fs",
+    "bytes": 10696,
+    "sha256": "3149d91dab925f17c96450345b3556269db4610a1947ef246cd2dc50d3a7425a"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/Swagger.fs",
+    "bytes": 2516,
+    "sha256": "d6c7576042d9337b225d3e9881c6d1be9f31c9af12710223993771e15633dcd7"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/SwaggerSpecPreprocessor.fs",
+    "bytes": 17266,
+    "sha256": "5269fabd293cfb2bb165b7d70fbecf2e88b21d1f53cc3894485a26abce3a4979"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/SwaggerVisitors.fs",
+    "bytes": 47390,
+    "sha256": "86caa1215d252c4b8530f4efae21aa7a28559b0e75d9e032d4b217081beb125a"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/Telemetry.fs",
+    "bytes": 2876,
+    "sha256": "94c743b1c0aae9105cf84e798b7f9cec9430da2eb09f33d012bfd24bb43cadbf"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/Utilities.fs",
+    "bytes": 6913,
+    "sha256": "a1e6ccfef7a78dc69bbb47f29183a0a01c223ab95e2b8b2d4525ec72b247d14a"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/Workflow.fs",
+    "bytes": 12051,
+    "sha256": "a703d799368f612a267b4bd292318ca6331171bbf3c5abe04f2824ff45af7f63"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/XMsPaths.fs",
+    "bytes": 1748,
+    "sha256": "574a4b1c797576795c423eea9aa86c62c1824345d5d5f056cc745d8f7045cdf6"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler/packages.lock.json",
+    "bytes": 47038,
+    "sha256": "fcf48c3cf98bb8d5aa661e962de1e86aa5456782e5d57861f82a3ebfe047b796"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/CodeGeneratorTests.fs",
+    "bytes": 8295,
+    "sha256": "208631a485119f2a31f4b1bfadb29faf7e864daf34c655f053ce29961927dd7e"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/ConfigTests.fs",
+    "bytes": 13520,
+    "sha256": "8c435f47895c93299363ddcc69ac2b277fbeec10db2bf73b79a0ad7134b6142f"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/DependencyTests.fs",
+    "bytes": 44272,
+    "sha256": "ef99073ad722c3278899ef7459110d8287cf7a573d821f3d4d36c625197dba92"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/DictionaryTests.fs",
+    "bytes": 16588,
+    "sha256": "8ec46a80f37e25d598eb0b2cf84ee79a0075cb30263caa3fc26b72abd26f4e06"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/ExampleTests.fs",
+    "bytes": 38544,
+    "sha256": "2268445e75324555b6223ab1d630ea05bb5d66061c4b09c985f392c273d05948"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/JsonGrammarTests.fs",
+    "bytes": 2827,
+    "sha256": "d3d189e8d53e5adef3fc9486c93ef1875c8d62397840c0708ad6cfec3e7380c1"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/RealWorldTests.fs",
+    "bytes": 682,
+    "sha256": "74718cca73c6c5d9f6856427e8659479bccf9d1142264f571ade801032ce422c"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/ReferencesTests.fs",
+    "bytes": 3010,
+    "sha256": "cee40b7f5769be75f270841d645c539d66dfc96239731ad28b9227979fd9e8d8"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/Restler.Compiler.Test.fsproj",
+    "bytes": 23298,
+    "sha256": "e209117cc296a21894df205c6ea83ca55d6eac230e622fe2e989d6097360e6bd"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/SchemaTests.fs",
+    "bytes": 13275,
+    "sha256": "8c84556ff4f3fdfd557c06bc5c8101309767a51abaf782556242a5444e0e11d6"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/SwaggerSpecs.fs",
+    "bytes": 800,
+    "sha256": "c386cfbb781e5ad59c68d5ae4c11bcb046ba2e13383f1c5683247ce3c57586fe"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/TestUtilities.fs",
+    "bytes": 1690,
+    "sha256": "e7a217527e41d0f48455e9ba579cb157f587a55827798b6c98afa17369abacd6"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/dependencyTests/header_deps_grammar.py",
+    "bytes": 5026,
+    "sha256": "4447c59c6e71ef4b3b75b8622208336e1fd2c2f0cb40724fc6f0d99d2001fe69"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/dependencyTests/header_response_writer_annotation_grammar.py",
+    "bytes": 4926,
+    "sha256": "7bff133bb5a1a038c20b93d9c8fc14d6ff350e4eaa0905582466856cd06f247d"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/dependencyTests/header_response_writer_grammar.py",
+    "bytes": 4910,
+    "sha256": "390834b4a05e6600d472f832926cd316490daf54398b303da0b898f1966bfb4c"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/dependencyTests/ordering_test_grammar.py",
+    "bytes": 3126,
+    "sha256": "6a018c8178c871c6215b551af0f4b13fbcfdc90643f3c38a66fa2a55b8fee11e"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/dependencyTests/path_annotation_grammar.py",
+    "bytes": 6110,
+    "sha256": "db5edcf665bf8bfce9544627a4ed549698d56d365ba63af1437f4f6cce99b531"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/dependencyTests/path_in_dictionary_payload_grammar.py",
+    "bytes": 5299,
+    "sha256": "cf7544dba57623fa72957b3dc740176efa6d19f32ddb18e6a3a668182d75b21e"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/dependencyTests/soft_delete_test_grammar1.py",
+    "bytes": 4516,
+    "sha256": "003f666a45ee43e22cb5be7c7236983dd99a29f5d0b6b0a0a25904b1e3ed6e63"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/dependencyTests/soft_delete_test_grammar2.py",
+    "bytes": 4714,
+    "sha256": "3b9c7a2fb7997b85f9357dc27e3bfc07ea2e8743f53e9b7cd69ca20183e646e7"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/dictionaryTests/customPayloadContentType_grammar.py",
+    "bytes": 16716,
+    "sha256": "51bbae7c250b3cce01412c831e108d3f01c849c890e7d1d2b50b9ca600cab539"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/dictionaryTests/customPayloadDict_ValueGeneratorTemplate.py",
+    "bytes": 5322,
+    "sha256": "eb945f043a556a8e9750054c9941f24e2aedcb3c9d1417e814bc382dfe81c86f"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/dictionaryTests/customPayloadHeaderContentType_grammar.py",
+    "bytes": 16695,
+    "sha256": "bb42f618eb3cfe0d0cfc27cfd9b8417294b0b793b8749f76e84621793391f35f"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/dictionaryTests/quoted_primitives_grammar.py",
+    "bytes": 7072,
+    "sha256": "6860cd116c4fe3d53240bb75c049107b9b8b1d68f6958ab5e0e21e657f0cfcec"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/exampleTests/array_example_grammar.py",
+    "bytes": 6988,
+    "sha256": "bd74a1f13688a3dfe12c1d9090cedb3f32c90ee2b7c5f67ac62beab48b263af0"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/exampleTests/body_param_exactCopy_grammar.py",
+    "bytes": 1204,
+    "sha256": "fdd1bd2eebb572483b2c914cdde17fd851f9a9daee668952879f3c1a76fbe665"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/grammarTests/required_params_grammar.json",
+    "bytes": 11399,
+    "sha256": "7d6255c46ade8bff97248ee20158004f4c3df7440dd30f916748ad99502352ba"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/grammarTests/required_params_grammar.py",
+    "bytes": 3635,
+    "sha256": "90f2770cd83ebe4b773d7563833d25e3aa926a9cb3b4d835b46874e407fa14ef"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/grammarTests/required_params_grammar_requiredonly.py",
+    "bytes": 2614,
+    "sha256": "5c60bc01936e309842b31c84d3b7d17f23fcf85b8bd9b7eb7763977010ed8f6c"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/schemaTests/path_param_substrings_grammar.json",
+    "bytes": 8375,
+    "sha256": "ca354a5365d55476de01a2b32e17f7a66b31d8cc46c929e2fa6afcacaf0e856b"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/schemaTests/path_param_substrings_grammar.py",
+    "bytes": 4637,
+    "sha256": "b3618442445aaa142181c7855332ac411d7d9abb10183d6135d41c93031cf386"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/schemaTests/xMsPaths_grammar.json",
+    "bytes": 19404,
+    "sha256": "37b2760eb21132247133b2a0011660668f213e9984cf676472744eb96333fa84"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/baselines/schemaTests/xMsPaths_grammar.py",
+    "bytes": 7532,
+    "sha256": "744bf63a64097528fef15585804c43dc0306630b1fdee30cd170b3db62aef516"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/packages.lock.json",
+    "bytes": 51926,
+    "sha256": "b494ca3338b0ef8e77b8e16a0fa559d40f9fc52786e0bee7a61b3ff2c99304b7"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/annotationTests/globalAnnotations.json",
+    "bytes": 496,
+    "sha256": "1da8abd53ce6e5ff89efc5c93497d1da277d4c101a04e41cda1a0c5e1e38702b"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/annotationTests/localAnnotations.json",
+    "bytes": 5794,
+    "sha256": "ebf3f04adb24148478b2429066756ddb7ebcfa52806cfec5fd5177ba839a6f18"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/annotationTests/pathAnnotation.json",
+    "bytes": 5716,
+    "sha256": "33ea5ef938b818dc3ab4c6ed4caccacf5480c6df34e7e8cf511b6b18f93182e3"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/annotationTests/pathAnnotationInSeparateFile.json",
+    "bytes": 5311,
+    "sha256": "20901b7e84c49d643d5e1b7d88d0b103e8565583643d90bc175cd001636a810a"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/array_example.json",
+    "bytes": 8349,
+    "sha256": "55f468a86cc08219e5a423e522ab06f755f766adf3c1347ecdb32db6919e9f63"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/array_example_annotations.json",
+    "bytes": 439,
+    "sha256": "1a3ede763f492b4495124924cf7d7c8f6b0de973b167a055eda97626f71505a8"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/array_example_external.json",
+    "bytes": 8165,
+    "sha256": "bfeb0f63b594607f0365439415ae7806bcf3216833cb9f5c8be3004c048ea289"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/configTests/dict1.json",
+    "bytes": 193,
+    "sha256": "44bf570f9c4c617ef471e1139e069b7ace98d4208f61469ec3c65bd16ff7892b"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/configTests/dict2.json",
+    "bytes": 89,
+    "sha256": "57cfb8f500d1565037e9651dd112e2a12cb17c4b5d7ad0961501063bf0be4dbb"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/configTests/exampleConfigTestConfig1.json",
+    "bytes": 227,
+    "sha256": "27dd0a1f477dedb5802f9b6ada2627a9802315d0bc330bca456f5ae027ee6788"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/configTests/exampleConfigTestConfig2.json",
+    "bytes": 207,
+    "sha256": "87a316b81ed1aae4e3d2bbb36cccb5fe5ed4aedc7dae0c7543ad51e91740bc43"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/configTests/exampleConfigTestPut.json",
+    "bytes": 1689,
+    "sha256": "62767a4b0bd4423c708e022a6cd002cdb8d43bf634ac8c86d80e46dda2af118b"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/configTests/maindict.json",
+    "bytes": 251,
+    "sha256": "7db8efe7d57757e2b213b396cd171f6e133902f4ffb4d83a13d7cf6bf6835389"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/configTests/restlerEngineSettings.json",
+    "bytes": 31,
+    "sha256": "b9b9f9a706ce341777b7adaa31c5a1de97db5286d551d6e7d81e05fb04096f32"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/configTests/swagger1.json",
+    "bytes": 5324,
+    "sha256": "25f8db96bc81be8f7f5d4a6b91f8a4dad1abdbdaf69fe2ca5d98a90655d2411e"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/configTests/swagger2.json",
+    "bytes": 5162,
+    "sha256": "70343eba4fb632e4901018ab0fcadf5e75461486a549d5c665be65befeebfc92"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/configTests/swagger3.json",
+    "bytes": 5260,
+    "sha256": "b32bbd944a098b23d43aef0c29ba383d530e2f4367cf44145e09bf55ed58b394"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/demo_server.json",
+    "bytes": 7957,
+    "sha256": "a4cb89fc36c11ee27f0d98b96baf2a1cb0008ea890c2ff450d7f19dca95cff18"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/array_dep_multiple_items.json",
+    "bytes": 6669,
+    "sha256": "ed3b6b1dc412a70d7b4961e8bfcfa281387dfffcfe8527dc91e0cb04f910d1c3"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/body_dependency_cycles.json",
+    "bytes": 3973,
+    "sha256": "0c38ead964f93265157dc9de310ad7685dae63aba09c3fc76cae0df094d90ef4"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/examples/create_application_gateway.json",
+    "bytes": 31104,
+    "sha256": "0f5619ab8b751ad0b30c587013b511404d591d8b5091f56da61e86c736b350e1"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/examples/create_network_interface.json",
+    "bytes": 3695,
+    "sha256": "75238b4a09afa87736815293672667c5651dfcfcb5f488bafa441c13c9a90a2c"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/examples/create_subnet.json",
+    "bytes": 351,
+    "sha256": "04f3edd209a9355431fdda022f038169220014fc6d4156eea461cd7b812fbf48"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/examples/create_vnet_with_subnet.json",
+    "bytes": 2125,
+    "sha256": "c77408b715401da3aaca97f809f50f22adb97a9643bb76c5cc2f5b27b66c8725"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/frontend_port_id.json",
+    "bytes": 13301,
+    "sha256": "1b5fc7fa14ce336ebb3624a96a5d56cb7b4e0d0182d1f8f15b6517a303b5019f"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/header_deps.json",
+    "bytes": 1743,
+    "sha256": "cc75a4a9c34f2540be94e34411f639937e7afcd6d41f0091897f47f695df1b49"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/header_deps_annotations.json",
+    "bytes": 210,
+    "sha256": "dfaa863c101ecd508b76c257b91fca09c30ce3ca9eb15bbbcdf20f7879b4455d"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/inconsistent_casing_paths.json",
+    "bytes": 3114,
+    "sha256": "8d0d2e47c28e24d4d3afc805fd12627295a360280d45668cac5ac60ea60b2954"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/input_producer_annotations.json",
+    "bytes": 835,
+    "sha256": "be537acd66b171c08bc0e81277dea589db410f587d770b5565c249c1fb84e165"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/input_producer_dict.json",
+    "bytes": 151,
+    "sha256": "074147eb6568289edb550995548e2e5c9ed0f14d1b322204b26c613bec16d4bd"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/input_producer_spec.json",
+    "bytes": 3248,
+    "sha256": "f228bc31cef011d04239aeb734ef3947ce53633991a7fb8f0105f2813674d479"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/ip_configurations_get.json",
+    "bytes": 15623,
+    "sha256": "2cc7ead76aa7e0b5c6e8c2f9e63fe709c6e7261fa2c7a9486fcd005923269a18"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/lowercase_paths.json",
+    "bytes": 2085,
+    "sha256": "8345e18937c6ebc3a1d3e160d52317b4428519d28560a20136d52050fafa6f04"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/nested_objects_naming.json",
+    "bytes": 8990,
+    "sha256": "6baaad643203d18ce9c3846f10f79cacf49529b8981180e17d9730ddb40d90d1"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/ordering_test.json",
+    "bytes": 797,
+    "sha256": "ac52f401bff285c8fcd6de6d5277b1b3d54e4ad67a7e1bbcbc8575231cade8ff"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/ordering_test_annotations.json",
+    "bytes": 371,
+    "sha256": "a4b17ff82df5c70e6efd3feab46ff473381c760f3b77f325e7f70334485189f6"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/ordering_test_anntations.json",
+    "bytes": 210,
+    "sha256": "dfaa863c101ecd508b76c257b91fca09c30ce3ca9eb15bbbcdf20f7879b4455d"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/post_patch_dependency.json",
+    "bytes": 1700,
+    "sha256": "cecd6248de4ad92dedde11999aa64818e38b16306317a70835257351c896a1c8"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/response_headers.json",
+    "bytes": 1771,
+    "sha256": "921bc925ec8c427e474d2c4b4255be69e9f45504de68a6ab27bc7335a0923ab6"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/response_headers_annotations.json",
+    "bytes": 210,
+    "sha256": "0d7c39628acf1fa97affca899e5000d71eda977eda3c9119e5a669e91315937f"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/same_body_dep.json",
+    "bytes": 1903,
+    "sha256": "0a577f1d00bde5f952130baf559c0e0c49b711061b7f66acb6b88309a26d51a3"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/same_body_dep_annotations.json",
+    "bytes": 554,
+    "sha256": "128d4d0d4fa5d1dfa67ed689e51a4082774eded31d3ba6d8cb6b9bba97356d00"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/simple_api_soft_delete.json",
+    "bytes": 1526,
+    "sha256": "a39220f08cbfdaa6bb437d3011af8548ca04b284be08d7e326596cd69bbe189a"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/simple_api_soft_delete_annotations1.json",
+    "bytes": 295,
+    "sha256": "b260ad8533a9754c7a72281f0744457b489f7c4e7a2e074fc678f63401272c73"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/simple_api_soft_delete_annotations2.json",
+    "bytes": 471,
+    "sha256": "b7adb196666f27074b0699dd3d3236b5a93de83328d90b09088a49ff393ae0fe"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/simple_crud_api.json",
+    "bytes": 1305,
+    "sha256": "1ea871faa378b3b1799533b96a3c8063a04ae733fdccff1e39e245a93b6ddf4b"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/simple_crud_api_annotations.json",
+    "bytes": 282,
+    "sha256": "673f83c1f97ecf3c993fc6edf80aeebe06ca2efdcee9b6921ebc0bf06698d38c"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dependencyTests/subnet_id.json",
+    "bytes": 6786,
+    "sha256": "aa999fc20ca87b5274322a83f9cd5df6ca76e8654008a3ac5e79303fa181a99f"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dict_secgroup_example.json",
+    "bytes": 794,
+    "sha256": "eeec2ffcfa0188c082886489e5dca32c2812473aec2e1089495cfbaec09e4f9c"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dictionaryTests/customPayloadContentTypeSwagger.json",
+    "bytes": 9654,
+    "sha256": "3831e21ac28fb05f1495857c0f4690f8ec8fb6500889a1075351d0a7c3bac358"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dictionaryTests/customPayloadDict.json",
+    "bytes": 670,
+    "sha256": "4318f332b6fc2a0c936fd59c5f607de00ed241a9287ac0b73bcfba9bd371cfa7"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dictionaryTests/customPayloadHeaderRequestTypeDict.json",
+    "bytes": 261,
+    "sha256": "41dea72eb35c118d8ebf3b277bf67338285e357a0d99a7ee896d0f2ad6e4324c"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dictionaryTests/customPayloadRequestTypeDict.json",
+    "bytes": 254,
+    "sha256": "73ed90b2aca5bb3ae1f0ffa6c3fb66f350a7ddc5f052159e155deb0d7241e6b9"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dictionaryTests/customPayloadSwagger.json",
+    "bytes": 6413,
+    "sha256": "56464aa35ae985ea6e2574e9762deb68e8ccbc75bc75179df944ef8aaf84f0c8"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dictionaryTests/dict.json",
+    "bytes": 300,
+    "sha256": "084dc746dbeaefcb891de2e943bf0916857aed07200d637108d828812af10a51"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dictionaryTests/inject_custom_payloads_dict.json",
+    "bytes": 358,
+    "sha256": "7f5dd1038ec91bbcc6d085ab0e7b7fb9b52db3b73d7bdd337fdd2109cb8af71a"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dictionaryTests/multipleIdenticalUuidSuffix.json",
+    "bytes": 1616,
+    "sha256": "9565175de04442ce64da5e2a154d98f7393da62815d5b68f103ca947f179512e"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dictionaryTests/multipleIdenticalUuidSuffixDict.json",
+    "bytes": 262,
+    "sha256": "fa0e990ee8894a88823df2d593bdd2e516ff3b65b588cc70a4df487330718e45"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dictionaryTests/no_params.json",
+    "bytes": 1507,
+    "sha256": "ea489a608c5507ea41c5db1febc83cb34a989c7e9907bf2ba0ca16a19bbe6a4e"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dictionaryTests/pathDictionaryPayload.json",
+    "bytes": 5399,
+    "sha256": "891a4648cb285a8a5566de83dd032a9b0c15ca4b5b0df7354d6501cc77c3458b"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/dictionaryTests/serializationTestDict.json",
+    "bytes": 205,
+    "sha256": "ca5dcfd6be5ccce30620743475f6e5025a22ac66b94c6ce9fb67aea4a35fbae1"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/empty_array_example.json",
+    "bytes": 6515,
+    "sha256": "b5e2c7a9db2abbc1da99302cbdd99356d99715a4e6a32a4ee3f2d1ab699c10e3"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/exactCopy/array_example.json",
+    "bytes": 4065,
+    "sha256": "3e33c250150629afb5d282cf3bf26491f48620b6a318072199e637f136b2721f"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/exactCopy/examples.json",
+    "bytes": 153,
+    "sha256": "a6b4104a4168dbe81e055881117a4e7106098f49bfceb4bdaea80bbc5d98f231"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/exactCopy/make_order_post.json",
+    "bytes": 471,
+    "sha256": "41ce983280309dc44801067fb51ceff3dbe9abe11d013bcedddbdefca13c50be"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/exampleTests/body_param.json",
+    "bytes": 932,
+    "sha256": "644bdbd43e1613cf3afcc2c35ac134c459b8a6a578ec31196a72296238a39cca"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/exampleTests/body_param_example.json",
+    "bytes": 192,
+    "sha256": "7e8af87aa3811ed0b0fb2f8cd1876a3f95573b3e4f66f1b057f93d3e8907686d"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/exampleTests/example_int_openapi3.yml",
+    "bytes": 1113,
+    "sha256": "245c5c53b6ce33caa9a4c82f329fa1b9b11c4216f5c0235653395cd52f897ec0"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/exampleTests/optional_params.json",
+    "bytes": 780,
+    "sha256": "24c627b3b92bbcd1b9bee5ed17158f07cd5c2103634c8a988b369b6c817ca597"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/exampleTests/optional_params_example.json",
+    "bytes": 202,
+    "sha256": "04e837481bbb9434f99b5d829562c29b786e3e2e4c7ad6d90360349ecfdb9967"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/example_config_file.json",
+    "bytes": 530,
+    "sha256": "afaa18552a5f5b1cc76c5261c861bbfa2be0991911a791e1b2549fdca7989a14"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/example_demo.json",
+    "bytes": 6662,
+    "sha256": "7bef64c92317ada144167b20a2943681cf2283a3dbd1ff5526f0ce1fda086256"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/example_demo1.json",
+    "bytes": 7025,
+    "sha256": "933efd50e8e43e25ae125598fe6cae9ef25e861ec1600462557aa72196d7f6c6"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/example_demo1.yaml",
+    "bytes": 3778,
+    "sha256": "e8b4cecadc80db09a4a727e19b8cb86bf139ca4103266ebbc4bd1cf0bfa56f50"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/example_demo_dictionary.json",
+    "bytes": 207,
+    "sha256": "5c5221382b37f7cc3463319be736c5617e0941f3ffbcef1f235e82bbe97664ef"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/examples/ApplicationSecurityGroupCreate.json",
+    "bytes": 1125,
+    "sha256": "77d659cf9fb82f8c0705635adcdd830da5cef0ac09079514d03b8cc16b0d7079"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/examples/headers_example.json",
+    "bytes": 158,
+    "sha256": "9aaea0742ec5054c43a192ab4e01571d0d217159abac716f6f82a9febdeafb54"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/examples/inline_payload_examples.json",
+    "bytes": 105,
+    "sha256": "5da9f1e8eb4fbc5b8f9db49fedc041a61012f0ec8ed631b137634010ec274ed3"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/examples/make_big_order.json",
+    "bytes": 826,
+    "sha256": "3dd16507c35b6dbaab0a41bdce86ad99031f80767b033201212e4b0b98002468"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/examples/make_order.json",
+    "bytes": 516,
+    "sha256": "1f0005a8431eb2f2468872f592d0b54d5accafe22ee4c9923209e05e0f840f14"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/examples/make_order1.json",
+    "bytes": 176,
+    "sha256": "21b1e249f340ccbd41ecc2d32686d6616f2fe816cc220a9800f168145d3c3583"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/examples/make_order2.json",
+    "bytes": 186,
+    "sha256": "69e08375cc3a0b5fb2883bbf6436587d06007783b78c4ac05a846a412ae3b289"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/examples/make_order_descriptions.json",
+    "bytes": 470,
+    "sha256": "5fdc91eadd5de1c046dced6822664ded26b578b863008aa0c9faff041fdc430f"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/examples/make_order_empty_descriptions.json",
+    "bytes": 224,
+    "sha256": "5007adda989ab0e54e20549a6050fd82b10b51dcbbff7c32a8c1016998a77d55"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/examples/make_order_tags.json",
+    "bytes": 172,
+    "sha256": "c0f55784604e8da3735df42c770997e5be60cbde6c143043a13032a834b6b13f"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/get_path_dependencies.json",
+    "bytes": 7210,
+    "sha256": "4f673103f3ce2b69647786062503644cb3b6738f0fb8817fc9c51dfc82d19191"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/grammarTests/required_params.json",
+    "bytes": 2810,
+    "sha256": "e46190ab733bfc273dabb9ecd8ea5b7ff2a82b5b9c1f6431c46a720954239a12"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/headers.json",
+    "bytes": 2266,
+    "sha256": "137acbd3800eac1fab988e171d98ee63daa720720397b0749d9137767c987d66"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/headers_dict.json",
+    "bytes": 125,
+    "sha256": "51d107eafa85668fea859b199e108950f4c24f568f206e56c0aa8a274dad59bc"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/inline_examples.json",
+    "bytes": 2495,
+    "sha256": "7bd76804f2f051baae99d99269f072f34a35c58ee08f8fadfd4ecd51761dc69c"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/linksTests/annotations.json",
+    "bytes": 380,
+    "sha256": "e2abca4958abf48ff1c0325c7eeed5780a3fad7b0f3935117f0d71aedb396054"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/linksTests/etag_with_annotations.json",
+    "bytes": 4642,
+    "sha256": "2d6b3ead86d0190a0f8cc34ce0d5ef333f176a48946d4e93cb8cfc5259b3706f"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/linksTests/etag_with_links.json",
+    "bytes": 4747,
+    "sha256": "d1d5b7155391c825f4aa83870314f8de5924e0d5882591c267d16b12e6c78866"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/linksTests/soft_delete.json",
+    "bytes": 4005,
+    "sha256": "d91fcfabaedb3a4df52394da3a71cc6f8c6ce5a30bab5e3d18ceb8f7c76708ac"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/linksTests/soft_delete_with_links.json",
+    "bytes": 4336,
+    "sha256": "14199b0a5134beef21da922ec16d6f226b0d5b55603d2123670b6f9fb0eecf30"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/linksTests/widgets_with_annotations.yaml",
+    "bytes": 2103,
+    "sha256": "909cff1da8f17e871e7d070e105e44c2e0ea6ecae140b7cedad8f1c475f8a7ff"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/linksTests/widgets_with_links.yaml",
+    "bytes": 2121,
+    "sha256": "af600640922a9038c77a82bed7cb5f95d4a918df99597c95ecb819816b0e75b2"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/object_example.json",
+    "bytes": 6489,
+    "sha256": "178920460ab16d6d3cd71d92570e32ba10022e3e932459b71f6ecfda42988643"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/put_createorupdate.json",
+    "bytes": 4963,
+    "sha256": "1a63423faedd504f62e50384eb5765fc91c2169f7132327ddd66f8c40d4036aa"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/referencesTests/circular_array.json",
+    "bytes": 1751,
+    "sha256": "e3ccb82557727a042fc727868c3f834b914a36b2f37cbe3dce3a9c5e7758da6c"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/referencesTests/circular_path.json",
+    "bytes": 2859,
+    "sha256": "afd6005e079847e9ea1e680ab15247aa34bd99106828a88ec266dfae66d958a9"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/referencesTests/first.json",
+    "bytes": 393,
+    "sha256": "2ab5a88ac4f8d4f69e7d642e7c4388a84c6ba585be55f8253fdacb9be6b14053"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/referencesTests/multiple_circular_paths.json",
+    "bytes": 2536,
+    "sha256": "5e057e4441489bc48a5451484ad778d33e074546ef8f6dc3a9932ca108b4dec4"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/referencesTests/second.json",
+    "bytes": 376,
+    "sha256": "284f29dc33bfac52d8c837bb646ce711221f62549dafbcc0a7a1635519822a88"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/referencesTests/second_reordered.json",
+    "bytes": 376,
+    "sha256": "1850e571c2b7a6126a5f9f3da17a32dd1d29bc4359ba7c4b501b4292c930826e"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/schemaTests/additionalProperties.yml",
+    "bytes": 1532,
+    "sha256": "e53a0d7b211f10b5fabd4e8088226dcd4adafe98b6ec4d308b4b16bcf9869064"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/schemaTests/global_path_parameters.json",
+    "bytes": 505,
+    "sha256": "18984e6001c971923adf0d48cd34796ffec6536451e5307c0f81b73df05f27e5"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/schemaTests/large_json_body.json",
+    "bytes": 4403,
+    "sha256": "2819232d0a6fcca335a289d6b82667baea710247ce55ca87001dd83ea8b8d637"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/schemaTests/openapi3_examples.json",
+    "bytes": 3389,
+    "sha256": "46f53279c36bebe7240468c26c4dfcf5720734bdf4007bba4179c5cb29e99ec7"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/schemaTests/openapi3_requestbody.json",
+    "bytes": 9853,
+    "sha256": "238b5e2fd92f63b3b9387f20b8a02760c733dccf67d4648f70d9424c0886b525"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/schemaTests/path_param_substrings.json",
+    "bytes": 2728,
+    "sha256": "e355ac97798c212a9a7ee95c92ac0768cabec59d35f3a3fe26255782da018bba"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/schemaTests/requiredHeader.yml",
+    "bytes": 322,
+    "sha256": "8152d401243b01a778714b50b3bf3e6ae10b37f6e3a17927d251230fb5a991f0"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/schemaTests/swagger_escape_characters.json",
+    "bytes": 2339,
+    "sha256": "f5d028d11aad7fc863853e1db17f869239512f9e207623420db92d4b443cbd32"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/schemaTests/xMsPaths.json",
+    "bytes": 5184,
+    "sha256": "aff26cc075169be1eb9d4d9b20b9c802bed5732e6c52e9322cebc3e7e9f652a1"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/schemaTests/xMsPaths_annotations.json",
+    "bytes": 761,
+    "sha256": "c927d94952d7e17505fe198f8a0504994de54510f038207973a500414d08681d"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/schemaTests/xMsPaths_dict.json",
+    "bytes": 123,
+    "sha256": "073ea53372b72c8fab850f0759d8319ae98a51f556354721fde488c7b9389fc0"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/schemaTests/xMsPaths_examples.json",
+    "bytes": 233,
+    "sha256": "7849fd97527b56f8a7f2d97537c1a6609ae21867818f49bbfc42753008827457"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.Compiler.Test/swagger/secgroup_example.json",
+    "bytes": 4934,
+    "sha256": "13f6d05bcf4b934c657d12b585aec551f2e6b209bb5b5e3433b37572f4e46d9c"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.CompilerExe/Program.fs",
+    "bytes": 1463,
+    "sha256": "9401cd66ebcc4a04553baae8e0d55ed95fb3239d57f6ebb9db1fa606eea751ad"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.CompilerExe/Properties/launchSettings.json",
+    "bytes": 172,
+    "sha256": "a7e1f7cae1945def2bf4240632863edad45ce27732384ee7d87b540d1c1a7b47"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.CompilerExe/Restler.CompilerExe.fsproj",
+    "bytes": 1342,
+    "sha256": "3cc62824a68aa4989db6241d8b38bae475841c122941ffe05cf7125327e8220a"
+  },
+  {
+    "path": "public/repo/src/compiler/Restler.CompilerExe/packages.lock.json",
+    "bytes": 47434,
+    "sha256": "c974d560025b4bd104b4365df54d920bfe722afc6e1d0c2619ae5546aed98f24"
+  },
+  {
+    "path": "public/repo/src/driver/Files.fs",
+    "bytes": 3259,
+    "sha256": "1e07788ef6111a5b0d411d881edf49c05d122d5598c4a9fcfef1c9bca21d9219"
+  },
+  {
+    "path": "public/repo/src/driver/LogCollection.fs",
+    "bytes": 6303,
+    "sha256": "ada0d003eb2c79d312471a7a3ad7d1cf25f0c03ee33a7a380e62b2275922168b"
+  },
+  {
+    "path": "public/repo/src/driver/Program.fs",
+    "bytes": 52158,
+    "sha256": "cbfeb19c58402a2bd2c1e6273fa21dd5df4095fe1addd65d7eca539f4421df9c"
+  },
+  {
+    "path": "public/repo/src/driver/Restler.Driver.fsproj",
+    "bytes": 1534,
+    "sha256": "136354814a181a66369ef678277d75493d2c2345ed5603697220476abffbfa07"
+  },
+  {
+    "path": "public/repo/src/driver/SpecCoverage.fs",
+    "bytes": 22406,
+    "sha256": "c80e4f95cc1cf975ec105d91f1ed6af515f7724ede5a162b9c08e8cf7a76190c"
+  },
+  {
+    "path": "public/repo/src/driver/TaskResults.fs",
+    "bytes": 4341,
+    "sha256": "23e6b2f0721642cb2a167c916ca98834eea5a1dbcee165ae2c2b06b7d3dd4a14"
+  },
+  {
+    "path": "public/repo/src/driver/Telemetry.fs",
+    "bytes": 4835,
+    "sha256": "45f33c72fe557e1296cd3665ff1c5c31012f4ec90cb7b21f94894e613192f26f"
+  },
+  {
+    "path": "public/repo/src/driver/Types.fs",
+    "bytes": 7014,
+    "sha256": "a7fc5c719e68824598d54b9015adc39c1753c0199cb8e595f9c29632686ab753"
+  },
+  {
+    "path": "public/repo/src/driver/packages.lock.json",
+    "bytes": 47372,
+    "sha256": "7cbf9ba8939f5c71279e13b440e0718869c2eb761c8bcc9db5e4ff242b18ea32"
+  },
+  {
+    "path": "public/repo/src/driver/runtimeconfig.template.json",
+    "bytes": 79,
+    "sha256": "a1e0b83c5c38f5aee02f33326c20ffb2643a63c240a1b7e7dbc36c11d4507ce9"
+  },
+  {
+    "path": "public/repo/utilities/grammar/update_restler_grammar.py",
+    "bytes": 1357,
+    "sha256": "62454fcb60524662c0f6689efde612f2ec186d7595cb8bc56e0425d1873e1cd7"
+  },
+  {
+    "path": "public/repo/utilities/speccovparsing/diff_speccov.py",
+    "bytes": 4194,
+    "sha256": "3f3ba5e989080cca246c905bbf35dbdceb7f052b42e7472391245652a4c618b3"
+  },
+  {
+    "path": "public/repo/utilities/speccovparsing/sum_speccov.py",
+    "bytes": 1736,
+    "sha256": "7d4f63ec08c52e6f49bd8a190246a3e102fed3988f1bc24e04e452645a64b985"
+  }
+]

@@ -1,0 +1,21 @@
+# 56_flatbuffers · schema 驱动的零拷贝二进制数据系统
+
+- 路线/优先级：M2 / `hold`；只作素材判断。
+- 固定版本：[b8431fbcd7a5c71817f314e18b332c0648554efa](https://github.com/google/flatbuffers/tree/b8431fbcd7a5c71817f314e18b332c0648554efa)；完整树/片段哈希见 `sources/56_flatbuffers/manifest.json`。
+- 已有功能：上游已有 .fbs parser、flatc 代码生成、binary builder/accessors、reflection 和 verifier；不是现有能力缺失。
+- 拟题边界：拟抽取 .fbs/类型引用→布局/默认值→binary 构建/读取→reflection/验证→schema evolution 互通的完整子系统；仅固定 scalar/enum/struct/table/vector/string/union 与 file identifier，排除全部语言后端、RPC/FlexBuffers/64-bit 扩展。
+- 拟缺口：纯编解码/验证工具的合同很容易被 flatc+官方 runtime 覆盖；暂无额外真实交付，暂缓。
+- 关联链：schema graph/field id→struct/table/vtable 布局→对齐/offset→union tag 与 payload→builder/accessors→bounded verifier→新旧 schema 读取与默认值。
+- 代码/真实测试实读：[include/flatbuffers/verifier.h:147](https://github.com/google/flatbuffers/blob/b8431fbcd7a5c71817f314e18b332c0648554efa/include/flatbuffers/verifier.h#L147) 验证 vector 长度/溢出、table vtable、root offset/identifier。；[tests/parser_test.cpp:833](https://github.com/google/flatbuffers/blob/b8431fbcd7a5c71817f314e18b332c0648554efa/tests/parser_test.cpp#L833) 真实 union 解析测试含 tag 顺序、namespace 及语言生成能力差异。；[include/flatbuffers/verifier.h:185](https://github.com/google/flatbuffers/blob/b8431fbcd7a5c71817f314e18b332c0648554efa/include/flatbuffers/verifier.h#L185) table 验证联合复杂度、对齐和 vtable 边界检查。
+- 组合场景 1：嵌套 table/vector/struct+defaults+缺字段+新旧 schema 交叉读，比较值而非物理布局。
+- 组合场景 2：union tag 出现在 JSON payload 之后+namespace+vector of union，检查类型和数据共同解析。
+- 组合场景 3：截断/越界 offset/错 identifier+共享 vtable+深嵌套，核对验证器边界与有效访问。
+- 基础完成后剩余路径假设 1：单结构 round trip 后仍需 vtable/对齐/缺字段/union 与 schema graph 一致性。
+- 基础完成后剩余路径假设 2：有效数据之后仍需验证边界、递归资源限制、新旧 schema 互通；这些现成工具已有，不足以证明新题长程。
+- 参考/判据：固定版本官方格式/演进文档与至少两语言 runtime 双向互通；合法 binary 不要求字节完全相等，因为格式允许不同对象/字段物理布局。
+- 正常强基线：flatc --binary/--json/--schema + 生成代码/runtime/reflection；标准 JSON/内存库也合法。正常 wrapper 很可能全解。
+- 首个否证：逐合同核对 flatc/reflection APIs；若仅包装即可满足则保持 hold；仅真实新增语言后端/宿主 ABI 或受损整条实现恢复才重开。
+- 离线/架构成本：预装 flatc/C++ compiler 与 runtime，固定 schema/fixtures；无外服。语言后端差异、坏数据 oracle 和第三方构建依赖未验证。
+- 许可观察：根 LICENSE 为 Apache-2.0；实际生成代码/依赖通知需按 starter 再审。
+- 官方资料已核对：[offset/vtable/alignment 与允许不同合法 binary 布局](https://flatbuffers.dev/internals/)；[schema 演进边界](https://flatbuffers.dev/evolution/)
+- 状态：source_reviewed_scope_unproven；未构题、未 build/运行、未验证六小时难度；仅对照原 EdgeBench 的机制，不复用原题/测试/答案。

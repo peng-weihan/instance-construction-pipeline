@@ -1,0 +1,38 @@
+{
+  "started_utc": "2026-10-15T09:48:33.360848+00:00",
+  "scheduler_pid": 764304,
+  "jobs": [
+    {
+      "id": "01_openapi_streaming",
+      "worker_pid": 764309,
+      "account": "raymone/3",
+      "model": "gpt-6.1-sol"
+    },
+    {
+      "id": "14_tree_sitter_incremental",
+      "worker_pid": 764310,
+      "account": "raymone/3",
+      "model": "gpt-6.1-sol"
+    },
+    {
+      "id": "09_valkey_transactions",
+      "worker_pid": 4175453,
+      "account": "raymone/3",
+      "model": "gpt-6.1-sol"
+    }
+  ],
+  "queued": [],
+  "phase": "native_task_authoring_only_no_solver",
+  "account_selection_reason": "Other TB batch has unregistered native uses on accounts 1/2; use the two freshly audited slots of account 3 only.",
+  "queue_error_type": "CalledProcessError",
+  "queue_state": "dispatched_after_actual_capacity_refresh",
+  "supervision_finished_utc": "2026-10-15T10:19:11.114294+00:00",
+  "resume_history": [
+    {
+      "utc": "2026-10-15T10:28:27.956897+00:00",
+      "reason": "Tool child of an external-reserved native root was double counted; group by actual native root and start_ticks, preserve all model reservations",
+      "worker_pid": 4175453,
+      "capacity_receipt": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/reports/shared-capacity-20261015T102827942623Z.json"
+    }
+  ]
+}

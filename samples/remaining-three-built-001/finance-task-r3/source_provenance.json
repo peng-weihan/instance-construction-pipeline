@@ -1,0 +1,48 @@
+{
+  "task_id": "cross_asset_adaptive_allocator",
+  "category": "Professional Knowledge Work",
+  "title": "跨资产风险自适应配置与成本控制",
+  "anchor": "portfolio_risk_calibration",
+  "status": "constructed_unverified",
+  "sources": [
+    {
+      "repository": "https://github.com/Seb-L-P/portfolio-risk-engine.git",
+      "commit": "a00e1a48e05b1c561a4b753ee03302fdf57f25b9",
+      "files": [
+        {
+          "path": "results/prices.csv",
+          "sha256": "00213a0f32a454e32cb76ad29b87fc203e1817090386b2375326b01e6186f906"
+        },
+        {
+          "path": "results/prices_source.txt",
+          "sha256": "4d93dddb39519a936e8cf9291df67394f4f5daa9af4a59a681806adeb1ab5430"
+        },
+        {
+          "path": "src/portrisk/backtest.py",
+          "sha256": "755012939a236bbc0a3d3385906fd5e5f9ace7b818bcb0e6e9537007b4ec91d0"
+        },
+        {
+          "path": "src/portrisk/optimization.py",
+          "sha256": "3be4e4c44c215de96fb103087249d1eddd87e08fbf9c42aaa6ee76981faca9cd"
+        }
+      ],
+      "acquired": true,
+      "runtime_verified": false
+    }
+  ],
+  "authoring": "interactive source inspection + deterministic construction scripts; no independent CLI model run",
+  "long_horizon_potential": "design hypothesis, not an observed six-hour curve",
+  "empirical_training_benefit": null,
+  "accepted": false,
+  "progression": [
+    "因果账本和可行配置",
+    "风险校准驱动的约束优化",
+    "成本感知再平衡和市场状态适应"
+  ],
+  "construction_gaps": [
+    "Price cache is attributed upstream to yfinance; provider-level accuracy and training redistribution rights unconfirmed.",
+    "Trusted execution/accounting reference and evaluator still need construction."
+  ],
+  "runtime_verification": "deferred_by_user",
+  "construction_stage": "materials_and_spec_constructed"
+}

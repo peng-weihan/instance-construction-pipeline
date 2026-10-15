@@ -1,0 +1,227 @@
+{
+  "valid": true,
+  "score": 0.03,
+  "pass_rate": 0.027777777777777776,
+  "checks": [
+    {
+      "name": "types_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "types_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "security_signatures",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "required_media_body",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "native_regressions",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "records_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "records_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "numbers_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "numbers_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "network_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "network_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "early_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "early_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "empty_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "empty_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "malformed_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "malformed_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "consumer_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "consumer_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "network_early_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "network_early_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "cancel_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "status_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "status_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "media_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "media_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "anonymous_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "anonymous_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "json_body_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "json_body_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "multipart_body_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "multipart_body_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "optional_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "optional_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "shared_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "shared_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    }
+  ],
+  "metrics": {
+    "groups": {
+      "generation": {
+        "passed": 1,
+        "total": 5
+      },
+      "delivery": {
+        "passed": 0,
+        "total": 6
+      },
+      "ownership": {
+        "passed": 0,
+        "total": 11
+      },
+      "protocol": {
+        "passed": 0,
+        "total": 4
+      },
+      "requests": {
+        "passed": 0,
+        "total": 10
+      }
+    },
+    "passed": 1,
+    "total": 36
+  },
+  "diagnostics": {
+    "generation": {
+      "returncode": 0,
+      "timeout": false,
+      "output": "Warning(s) encountered while generating. Client was generated, but some pieces may be missing\nGenerating /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/grade/grade-subtlwt4/generated/stream_sdk\n\nWARNING parsing GET /secured within feed.\n\nCannot parse response for status code <openapi_python_client.schema.untrusted_string.UntrustedString object at 0x739c296b5580> (Unsupported content_type application/x-ndjson), response will be omitted from generated client\n\n{\n  \"description\": \"Incremental records\",\n  \"content\": {\n    \"application/x-ndjson\": {\n      \"schema\": {\n        \"$ref\": \"#/components/schemas/Event\"\n      }\n    }\n  }\n}\n\nWARNING parsing POST /anonymous within feed.\n\nCannot parse response for status code <openapi_python_client.schema.untrusted_string.UntrustedString object at 0x739c296b5880> (Unsupported content_type application/x-ndjson), response will be omitted from generated client\n\n{\n  \"description\": \"Incremental records\",\n  \"content\": {\n    \"application/x-ndjson\": {\n      \"schema\": {\n        \"$ref\": \"#/components/schemas/Event\"\n      }\n    }\n  }\n}\n\nWARNING parsing GET /optional within feed.\n\nCannot parse response for status code <openapi_python_client.schema.untrusted_string.UntrustedString object at 0x739c296b5a90> (Unsupported content_type application/x-ndjson), response will be omitted from generated client\n\n{\n  \"description\": \"Incremental records\",\n  \"content\": {\n    \"application/x-ndjson\": {\n      \"schema\": {\n        \"$ref\": \"#/components/schemas/Event\"\n      }\n    }\n  }\n}\n\nWARNING parsing GET /numbers within feed.\n\nCannot parse response for status code <openapi_python_client.schema.untrusted_string.UntrustedString object at 0x739c296b5dc0> (Unsupported content_type application/x-ndjson), response will be omitted from generated client\n\n{\n  \"description\": \"primitive records\",\n  \"content\": {\n    \"application/x-ndjson\": {\n      \"schema\": {\n        \"type\": \"integer\"\n      }\n    }\n  }\n}\n\nIf you believe this was a mistake or this tool is missing a feature you need, please open an issue at https://github.com/openapi-generators/openapi-python-client/issues/new/choose\n"
+    },
+    "native_regressions": {
+      "returncode": 0,
+      "timeout": false,
+      "output": ".......................................                                  [100%]\n=============================== warnings summary ===============================\n../../../.venv/lib/python3.12/site-packages/_pytest/cacheprovider.py:469\n  /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/lib/python3.12/site-packages/_pytest/cacheprovider.py:469: PytestCacheWarning: could not create cache path /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/grade/grade-subtlwt4/.pytest_cache/v/cache/nodeids: [Errno 13] Permission denied: '/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/grade/grade-subtlwt4/pytest-cache-files-kv75n1ig'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n39 passed, 1 warning in 0.10s\n"
+    }
+  },
+  "spec_sha256": "488615cb6d745a238a21d06542c1b90c8c4725d512a2cc81c2cf6e6d1276f125",
+  "summary": "1/36 named checks passed"
+}

@@ -1,0 +1,33 @@
+{
+  "extends": [
+    "config:recommended",
+    ":semanticCommitTypeAll(chore)",
+    "helpers:pinGitHubActionDigestsToSemver"
+  ],
+  "rangeStrategy": "widen",
+  "lockFileMaintenance": { "enabled": true, "automerge": true },
+  "minimumReleaseAge": "7 days",
+  "regexManagers": [
+    {
+      "fileMatch": [
+        "release.*\\.yml",
+        "prerelease.yml"
+      ],
+      "matchStrings": [
+        "version:\\s*(?<currentValue>.*)"
+      ],
+      "depNameTemplate": "knope",
+      "datasourceTemplate": "crate",
+      "versioningTemplate": "semver"
+    }
+  ],
+  "packageRules": [
+    {
+      "packagePatterns": [
+        "^knope$"
+      ],
+      "groupName": "knope",
+      "rangeStrategy": "pin"
+    }
+  ]
+}

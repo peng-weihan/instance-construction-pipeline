@@ -1,0 +1,61 @@
+[
+  {
+    "task_id": "restler_resilient_execution",
+    "category": "Systems & Software Engineering",
+    "title": "RESTler 可恢复执行与资源生命周期路线图",
+    "status": "constructed_unverified",
+    "construction_gaps": [
+      "New-feature reference branch and executable acceptance tests still need construction; old upstream code is not an oracle for new requirements."
+    ]
+  },
+  {
+    "task_id": "layered_aquifer_source_lab",
+    "category": "Scientific Problems & ML",
+    "title": "分层含水层中的有限时污染源反演",
+    "status": "constructed_unverified",
+    "construction_gaps": [
+      "Numerical reference fidelity/convergence and inverse identifiability remain unaudited.",
+      "Reference inverse solution and executable scoring still pending."
+    ]
+  },
+  {
+    "task_id": "industrial_nesting_improvement",
+    "category": "Combinatorial Optimization",
+    "title": "工业异形排样的基线突破",
+    "status": "constructed_unverified",
+    "construction_gaps": [
+      "Frozen reference lengths have not been measured.",
+      "Independent geometry checks and data-rights review pending."
+    ]
+  },
+  {
+    "task_id": "brownian_multibranch_proofs",
+    "category": "Formal Math & Theorem Proving",
+    "title": "布朗运动基础与连续性多分支证明",
+    "status": "constructed_unverified",
+    "construction_gaps": [
+      "Lean compilation, actual dependency graph and shortcut audit remain pending.",
+      "Original benchmark theorem inventory not fully acquired; exact deduplication pending."
+    ]
+  },
+  {
+    "task_id": "cross_asset_adaptive_allocator",
+    "category": "Professional Knowledge Work",
+    "title": "跨资产风险自适应配置与成本控制",
+    "status": "constructed_unverified",
+    "construction_gaps": [
+      "Price cache is attributed upstream to yfinance; provider-level accuracy and training redistribution rights unconfirmed.",
+      "Trusted execution/accounting reference and evaluator still need construction."
+    ]
+  },
+  {
+    "task_id": "wesnoth_frontier_campaign_ai",
+    "category": "Interactive Games & Simulators",
+    "title": "Wesnoth 多地形经济与战术 AI",
+    "status": "constructed_unverified",
+    "construction_gaps": [
+      "Authored WML/maps have not been loaded by the game; fairness/playability and match cost are unmeasured.",
+      "Engine dependencies and immutable scenario/verifier packaging pending."
+    ]
+  }
+]

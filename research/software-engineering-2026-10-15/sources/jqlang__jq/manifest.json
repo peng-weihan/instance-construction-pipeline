@@ -1,0 +1,37 @@
+{
+  "repo": "jqlang/jq",
+  "default_branch": "master",
+  "commit": "6b53f8031161db96387b64b5f412845cd23491f6",
+  "commit_date": "2026-10-13T07:47:58Z",
+  "retrieved_at_utc": "2026-10-15T08:17:52.529060+00:00",
+  "license_metadata": {
+    "key": "other",
+    "name": "Other",
+    "spdx_id": "NOASSERTION",
+    "url": null,
+    "node_id": "MDc6TGljZW5zZTA="
+  },
+  "tree_truncated": false,
+  "blob_count": 435,
+  "selected_files": [
+    {
+      "path": "COPYING",
+      "sha256": "ad2b4a266b2268939c1446979759706077421cf906a203aa188c6f396e8cfd74",
+      "bytes": 7887,
+      "url": "https://github.com/jqlang/jq/blob/6b53f8031161db96387b64b5f412845cd23491f6/COPYING"
+    },
+    {
+      "path": "README.md",
+      "sha256": "6857fbaaeb430df947b028d0e74e8135856a6a7a8bb59411e7b1bc8de6515027",
+      "bytes": 2603,
+      "url": "https://github.com/jqlang/jq/blob/6b53f8031161db96387b64b5f412845cd23491f6/README.md"
+    },
+    {
+      "path": "tests/jq.test",
+      "sha256": "53f2112ca769db8100f5561d3bbf80fede52ad8b1b021b4d9ae620404b41db71",
+      "bytes": 58533,
+      "url": "https://github.com/jqlang/jq/blob/6b53f8031161db96387b64b5f412845cd23491f6/tests/jq.test"
+    }
+  ],
+  "status": "source_reconnaissance_only_not_constructed_or_calibrated"
+}

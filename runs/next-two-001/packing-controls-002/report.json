@@ -1,0 +1,68 @@
+{
+  "kind": "direct_offline_docker_controls",
+  "task": "industrial_nesting_improvement",
+  "image_id": "sha256:87779bb43ad05394b39365491867011402fd5e3a17b8e21134ce19a308f7cdd2",
+  "base_image_id": "sha256:b59b7f5f49e310e0df74936dd38efe795f107cd0cea41304435a05fb7bd9eb49",
+  "status": "completed",
+  "native_harbor_verified": false,
+  "model_runs": 0,
+  "results": {
+    "reference": {
+      "score": 0.20844340464487987,
+      "valid": true,
+      "pass_rate": 1.0,
+      "seconds": 396.07927106600255,
+      "raw_metrics": {
+        "case_scores": [
+          0.2,
+          0.2,
+          0.22327061812133028,
+          0.2,
+          0.21027569425923767,
+          0.21711411548871118
+        ],
+        "feasible_lengths": [
+          53.51616269472555,
+          104.7493345222553,
+          162.24701130760013,
+          554.3914966903478,
+          1063.1019080706194,
+          1599.554704417355
+        ],
+        "case_count": 6
+      }
+    },
+    "empty": {
+      "score": 0.0,
+      "valid": true,
+      "pass_rate": 0.0,
+      "seconds": 48.67254722409416,
+      "raw_metrics": {}
+    },
+    "partial_order_filter": {
+      "score": 0.13333333333333333,
+      "valid": true,
+      "pass_rate": 0.7142857142857143,
+      "seconds": 380.6438677589176,
+      "raw_metrics": {
+        "case_scores": [
+          0.2,
+          0.2,
+          0,
+          0.2,
+          0.2,
+          0
+        ],
+        "feasible_lengths": [
+          53.51616269472555,
+          104.7493345222553,
+          554.3914966903478,
+          1068.138591382317
+        ],
+        "case_count": 6
+      }
+    }
+  },
+  "passed": true,
+  "finished_utc": "2026-10-14T18:27:18.486895+00:00"
+}

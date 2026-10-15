@@ -1,0 +1,9 @@
+Processing ./material-src/openapi-python-client
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: openapi-python-client
+  Building wheel for openapi-python-client (pyproject.toml): started
+  Building wheel for openapi-python-client (pyproject.toml): finished with status 'done'
+  Created wheel for openapi-python-client: filename=openapi_python_client-0.29.1-py3-none-any.whl size=189927 sha256=c23f84d8cc80e7754a7539e426a618c25bb8d87c7cde019c5c209c68be8a7454
+  Stored in directory: /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/downloads/pip-cache/wheels/00/e0/13/dc09c8233ce60ba8ae320766e72b411270b28953110137817c
+Successfully built openapi-python-client

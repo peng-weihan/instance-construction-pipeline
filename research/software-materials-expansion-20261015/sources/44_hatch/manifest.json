@@ -1,0 +1,69 @@
+{
+  "repo": "pypa/hatch",
+  "revision": "ac9c0c9544795b380c2a5f63f80c1f46db3c5d4c",
+  "resolved_utc": "2026-10-15T13:30:26.485379+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:31:08.600209+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "ce4075bb6ecea241d59b08e896574e9c460a5af2411a7fbeb7f299db93ecd195",
+    "truncated": false,
+    "blob_count": 545
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE.txt",
+      "bytes": 1088,
+      "sha256": "9f4f88aa42884240ae152d6fdd0e0b7e83e2430169c8ce613ae18f6a840f1c57",
+      "url": "https://github.com/pypa/hatch/blob/ac9c0c9544795b380c2a5f63f80c1f46db3c5d4c/LICENSE.txt"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3769,
+      "sha256": "cb063661396f4171a6f749a8f4c8efdd9f0b788611fc3c7e282d2dd50d586e18",
+      "url": "https://github.com/pypa/hatch/blob/ac9c0c9544795b380c2a5f63f80c1f46db3c5d4c/README.md"
+    },
+    {
+      "path": "docs/config/environment/overview.md",
+      "bytes": 11141,
+      "sha256": "55ced1bccd777e0e0d3367e1a998ef218d9bd065b594820f67416c38fc89152b",
+      "url": "https://github.com/pypa/hatch/blob/ac9c0c9544795b380c2a5f63f80c1f46db3c5d4c/docs/config/environment/overview.md"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 3499,
+      "sha256": "da166c8dd9e425ed1987f34e821442312b5345ba94d3a48437c5297903cbfafd",
+      "url": "https://github.com/pypa/hatch/blob/ac9c0c9544795b380c2a5f63f80c1f46db3c5d4c/pyproject.toml"
+    },
+    {
+      "path": "src/hatch/env/lock.py",
+      "bytes": 10911,
+      "sha256": "4a78cc3a07802f44390ffdb7d444e4b8894e0fee81a17ac55d22aa26f54475b2",
+      "url": "https://github.com/pypa/hatch/blob/ac9c0c9544795b380c2a5f63f80c1f46db3c5d4c/src/hatch/env/lock.py"
+    },
+    {
+      "path": "src/hatch/env/lockers/uv.py",
+      "bytes": 5612,
+      "sha256": "7479f4d8ed97d47741f077d3e9ccb8a5fb7d77114163b808e57c9a735d287326",
+      "url": "https://github.com/pypa/hatch/blob/ac9c0c9544795b380c2a5f63f80c1f46db3c5d4c/src/hatch/env/lockers/uv.py"
+    },
+    {
+      "path": "src/hatch/env/plugin/interface.py",
+      "bytes": 57651,
+      "sha256": "3510e6bd773f1c2ae364500b1deed43b17e311a05ec4cfe558387b00179cc112",
+      "url": "https://github.com/pypa/hatch/blob/ac9c0c9544795b380c2a5f63f80c1f46db3c5d4c/src/hatch/env/plugin/interface.py"
+    },
+    {
+      "path": "tests/cli/env/test_lock.py",
+      "bytes": 40916,
+      "sha256": "f4dad4333d0a61c373d051eac5ac23b88f0b72e8138b90bc6a15a3ec09f26e52",
+      "url": "https://github.com/pypa/hatch/blob/ac9c0c9544795b380c2a5f63f80c1f46db3c5d4c/tests/cli/env/test_lock.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

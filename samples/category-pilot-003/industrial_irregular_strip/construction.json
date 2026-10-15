@@ -1,0 +1,72 @@
+{
+  "task_id": "industrial_irregular_strip",
+  "category": "Combinatorial Optimization",
+  "title": "真实切割零件的异形排样求解器优化",
+  "status": "constructed_unverified",
+  "original_anchor": "jagua_nesting_optimization",
+  "sources": [
+    {
+      "repository": "https://github.com/fontanf/packingsolver.git",
+      "commit": "79b67f8f9924018943daa878613da67bca955355",
+      "files": [
+        {
+          "path": "src/irregular/local_search.cpp",
+          "sha256": "01f392f71f4138a0db1efa46d52496301830dc7ade1d641ff5c4f82f64948b61"
+        },
+        {
+          "path": "src/irregular/optimize.cpp",
+          "sha256": "df75731b011b22b1938e9d5164f6f2bf3c0e7429b3b617329a383ac52c03ff31"
+        },
+        {
+          "path": "data/irregular/opencutlist/chair.json",
+          "sha256": "f88918eda3d315d4925593160e5092be8c31cc092e8e17a4254d728ab614c0b4"
+        },
+        {
+          "path": "data/irregular/opencutlist/stool_x10.json",
+          "sha256": "efdcfb698496af9356b6e312c7d794c95da69a6ce5e46e182c8873b39d62cad8"
+        },
+        {
+          "path": "data/irregular/opencutlist/stepladder.json",
+          "sha256": "20effe8bda10f8e513326d0951b5c12d92bc42637f4d8a1ba34afe4fe2fb0abc"
+        },
+        {
+          "path": "data/irregular/opencutlist/adirondack_chair.json",
+          "sha256": "9e68748a84908a7e74074d2d89426b5ac49d4946be1ebe1e11f21ad983614f24"
+        },
+        {
+          "path": "data/irregular/opencutlist/deer.json",
+          "sha256": "36c3410914d8c03d95610d5f1465ab23f22ed7019b44efad5d7c722d453b09ee"
+        },
+        {
+          "path": "data/irregular/opencutlist/knight_body.json",
+          "sha256": "42a39787af73acd83897b4a5ac84a358d7f215d5694ef28614f5828f4561d74f"
+        },
+        {
+          "path": "data/irregular/opencutlist/sofa_structure.json",
+          "sha256": "f77eaf16d8a83569dd5ed95377a12fa3a0745118785aaa8fd78d21bfc7a7577f"
+        },
+        {
+          "path": "data/irregular/opencutlist/knight_armor.json",
+          "sha256": "f7342c2e7562f28a8f10a449fd283569d0334cc53eae3352d58fd2bd616da523"
+        },
+        {
+          "path": "data/irregular/opencutlist/table.json",
+          "sha256": "7ea1ae2a13a55512244bad1368d523b5401d881c24748a8f68211f667e4bbcf8"
+        }
+      ],
+      "acquired": true,
+      "runtime_verified": false
+    }
+  ],
+  "construction_method": "preserve real industrial contours; convert native finite sheets to native OpenDimensionX; engineer solver under fixed per-case budget",
+  "authoring": {
+    "mode": "interactive_agent_source_inspection_and_scripted_transformation",
+    "independent_cli_model_called": false
+  },
+  "similarity_claim": "mechanism-level design hypothesis, not empirically same-distribution",
+  "known_gap": "C++ PackingSolver replaces Rust jagua-rs. Data-family overlap with the original benchmark not yet exhaustively checked. Some upstream shape families may share motifs.",
+  "runtime_validation": "deferred_by_user",
+  "difficulty_calibrated": false,
+  "accepted": false,
+  "redistribution_review": "See SOURCE_TO_TASK.md; repository license does not automatically license all third-party data."
+}

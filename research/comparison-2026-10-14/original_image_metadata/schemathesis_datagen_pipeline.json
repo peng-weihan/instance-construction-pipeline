@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.manifest.v1+json",
+  "config": {
+    "mediaType": "application/vnd.oci.image.config.v1+json",
+    "digest": "sha256:b872592a6d225545b31798cb56683726b3cdcdb636956c62d4241a17884e0963",
+    "size": 8611
+  },
+  "layers": [
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:307f8152a55ef1e9eeb1acbbee7bc81232615329eaeb00d8dd93b46be297f34c",
+      "size": 49302320
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:caf6c0a95e34418907d5abfe604d08c5cc6bf9d689943856fcd842eb2be82c6c",
+      "size": 25623106
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:82a92b93bf7181c9d6b4525236a1a2fec85dc591d4deee481e828e707853f42c",
+      "size": 67789206
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:5470790761244112ed0b9ea9218282e5185dc7fd1e91840e855a32550e2ecd73",
+      "size": 236145627
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:ee1920716a2a8bdef4cf45a2d2076bd8f7c782838b345ebed4b7e28b06aecbff",
+      "size": 6085071
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:0fd907e853402ac828a9db5ac4d91c2591830ee225b3b951f0254220adb572e4",
+      "size": 23970060
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:b54c7cfea51e72cfb7b6cf8aca80d9b1dc7169c06bcc78b9812efd3707dd0e13",
+      "size": 251
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:35ce7214bd77a296146ea76de08db446c24ee11b4ad119e816f1659861a20c32",
+      "size": 6002721
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:aabda98eba6a6649940ba1ead2f8ce250b5461e1250123b9f1f4d3f7491ddabb",
+      "size": 120400657
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:f000f28bcb330853d8347f479c4fcea0cce027617459f4379e53e9f597ca804a",
+      "size": 21833487
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+      "size": 32
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:6b184d04042fba5a2898289d4df9a1c7c704e63655f41bd76b9f35640cc57b56",
+      "size": 37012343
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:9f94f7b19eacc34290c28f104bb0265f2bf9e1e7f748e4ddb330ee90391a1729",
+      "size": 95
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+      "size": 32
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "C1": {
+    "healthy": true,
+    "tests": {
+      "runs/deepswe-demo-01/ablation/ablation/validation/C1/workspace/tests/test_regression.py::test_plain": "passed"
+    },
+    "errors": [],
+    "returncode": 0,
+    "timed_out": false,
+    "evidence": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-01/ablation/ablation/validation/C1"
+  },
+  "C2": {
+    "healthy": true,
+    "tests": {
+      "runs/deepswe-demo-01/ablation/ablation/validation/C2/workspace/tests/test_target.py::test_parent": "failed",
+      "runs/deepswe-demo-01/ablation/ablation/validation/C2/workspace/tests/test_target.py::test_child": "failed",
+      "runs/deepswe-demo-01/ablation/ablation/validation/C2/workspace/tests/test_target.py::test_override": "failed",
+      "runs/deepswe-demo-01/ablation/ablation/validation/C2/workspace/tests/test_target.py::test_unicode": "failed"
+    },
+    "errors": [],
+    "returncode": 1,
+    "timed_out": false,
+    "evidence": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-01/ablation/ablation/validation/C2"
+  },
+  "C4": {
+    "healthy": true,
+    "tests": {
+      "runs/deepswe-demo-01/ablation/ablation/validation/C4/workspace/tests/test_regression.py::test_plain": "passed"
+    },
+    "errors": [],
+    "returncode": 0,
+    "timed_out": false,
+    "evidence": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-01/ablation/ablation/validation/C4"
+  },
+  "C5": {
+    "healthy": true,
+    "tests": {
+      "runs/deepswe-demo-01/ablation/ablation/validation/C5/workspace/tests/test_target.py::test_parent": "passed",
+      "runs/deepswe-demo-01/ablation/ablation/validation/C5/workspace/tests/test_target.py::test_child": "passed",
+      "runs/deepswe-demo-01/ablation/ablation/validation/C5/workspace/tests/test_target.py::test_override": "passed",
+      "runs/deepswe-demo-01/ablation/ablation/validation/C5/workspace/tests/test_target.py::test_unicode": "passed"
+    },
+    "errors": [],
+    "returncode": 0,
+    "timed_out": false,
+    "evidence": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-01/ablation/ablation/validation/C5"
+  },
+  "C6": {
+    "healthy": true,
+    "tests": {
+      "runs/deepswe-demo-01/ablation/ablation/validation/C6/workspace/tests/test_regression.py::test_plain": "passed"
+    },
+    "errors": [],
+    "returncode": 0,
+    "timed_out": false,
+    "evidence": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-01/ablation/ablation/validation/C6"
+  },
+  "C3": {
+    "passed": true,
+    "status": "not_applicable"
+  }
+}

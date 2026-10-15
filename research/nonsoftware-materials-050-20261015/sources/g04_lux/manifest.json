@@ -1,0 +1,57 @@
+{
+  "repo": "Lux-AI-Challenge/Lux-Design-S2",
+  "revision": "5bcb3c775d536cecda32a3c041a9814279b79c5b",
+  "resolved_utc": "2026-10-15T14:58:55.074732+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:41.625757+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "0fc999f9fec6912724ced6c160fb1c70df7edfc61992acf53159d69a8f69e308",
+    "truncated": false,
+    "blob_count": 253
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "url": "https://github.com/Lux-AI-Challenge/Lux-Design-S2/blob/5bcb3c775d536cecda32a3c041a9814279b79c5b/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8550,
+      "sha256": "5c67513f4d446132fc78818f6dd0f8d481a10ae3de7495da165438571b65fb0c",
+      "url": "https://github.com/Lux-AI-Challenge/Lux-Design-S2/blob/5bcb3c775d536cecda32a3c041a9814279b79c5b/README.md"
+    },
+    {
+      "path": "kits/python/agent.py",
+      "bytes": 5269,
+      "sha256": "1544999f314b60ff3bd737c83f4a63a3cdbeb6a9aceb8a1cc53f9ed0747d7bbb",
+      "url": "https://github.com/Lux-AI-Challenge/Lux-Design-S2/blob/5bcb3c775d536cecda32a3c041a9814279b79c5b/kits/python/agent.py"
+    },
+    {
+      "path": "luxai_s2/luxai_s2/config.py",
+      "bytes": 4373,
+      "sha256": "832992aafd5570a1fbb1770045b793e10c987025ed7225319bc2a08d408bbbc0",
+      "url": "https://github.com/Lux-AI-Challenge/Lux-Design-S2/blob/5bcb3c775d536cecda32a3c041a9814279b79c5b/luxai_s2/luxai_s2/config.py"
+    },
+    {
+      "path": "luxai_s2/luxai_s2/env.py",
+      "bytes": 51683,
+      "sha256": "98c6dbd1c549e0e46eccded82632e182258e6ca9e4b72d4b7e8d4a7a3f5a4bc2",
+      "url": "https://github.com/Lux-AI-Challenge/Lux-Design-S2/blob/5bcb3c775d536cecda32a3c041a9814279b79c5b/luxai_s2/luxai_s2/env.py"
+    },
+    {
+      "path": "luxai_s2/tests/collision.py",
+      "bytes": 3501,
+      "sha256": "65bfe5e3e860b35c0df3d535ff2fa7f77b3d807afae3e7e965870427e8ea925a",
+      "url": "https://github.com/Lux-AI-Challenge/Lux-Design-S2/blob/5bcb3c775d536cecda32a3c041a9814279b79c5b/luxai_s2/tests/collision.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

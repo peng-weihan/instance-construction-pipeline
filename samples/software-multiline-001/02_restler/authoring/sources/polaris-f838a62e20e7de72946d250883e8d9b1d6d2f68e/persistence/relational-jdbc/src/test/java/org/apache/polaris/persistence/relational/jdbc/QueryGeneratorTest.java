@@ -1,0 +1,483 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.polaris.persistence.relational.jdbc;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import org.apache.polaris.core.entity.PolarisEntityCore;
+import org.apache.polaris.core.entity.PolarisEntityId;
+import org.apache.polaris.persistence.relational.jdbc.models.ModelEntity;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+public class QueryGeneratorTest {
+
+  private static final String REALM_ID = "testRealm";
+
+  @Test
+  void testGenerateSelectQuery_withMapWhereClause() {
+    Map<String, Object> whereClause = new HashMap<>();
+    whereClause.put("name", "testEntity");
+    whereClause.put("entity_version", 1);
+    String expectedQuery =
+        "SELECT id, catalog_id, parent_id, type_code, name, entity_version, sub_type_code, create_timestamp, drop_timestamp, purge_timestamp, to_purge_timestamp, last_update_timestamp, properties, internal_properties, grant_records_version, location_without_scheme FROM ENTITIES WHERE entity_version = ? AND name = ?";
+    assertEquals(
+        expectedQuery,
+        QueryGenerator.generateSelectQuery(
+                ModelEntity.getAllColumnNames(), ModelEntity.TABLE_NAME, whereClause)
+            .sql());
+  }
+
+  @Test
+  void testGenerateSelectQuery_withLimitAppendsLimitClause() {
+    Map<String, Object> whereClause = new LinkedHashMap<>();
+    whereClause.put("catalog_id", 123L);
+    whereClause.put("parent_id", 1L);
+    String expectedQuery =
+        "SELECT id, catalog_id, parent_id, type_code, name, entity_version, sub_type_code, create_timestamp, drop_timestamp, purge_timestamp, to_purge_timestamp, last_update_timestamp, properties, internal_properties, grant_records_version, location_without_scheme FROM ENTITIES WHERE catalog_id = ? AND parent_id = ? LIMIT 1";
+    QueryGenerator.PreparedQuery query =
+        QueryGenerator.generateSelectQuery(
+            ModelEntity.getAllColumnNames(), ModelEntity.TABLE_NAME, whereClause, 1);
+    assertEquals(expectedQuery, query.sql());
+    Assertions.assertThat(query.parameters()).containsExactly(123L, 1L);
+  }
+
+  @ParameterizedTest
+  @ValueSource(ints = {0, -1})
+  void testGenerateSelectQuery_withNonPositiveLimitThrows(int limit) {
+    IllegalArgumentException exception =
+        assertThrows(
+            IllegalArgumentException.class,
+            () ->
+                QueryGenerator.generateSelectQuery(
+                    ModelEntity.getAllColumnNames(),
+                    ModelEntity.TABLE_NAME,
+                    Map.of("catalog_id", 123L),
+                    limit));
+    assertEquals("Limit must be positive", exception.getMessage());
+  }
+
+  @Test
+  void testGenerateDeleteQueryForEntityGrantRecords() {
+    PolarisEntityCore entity = mock(PolarisEntityCore.class);
+    when(entity.getId()).thenReturn(1L);
+    when(entity.getCatalogId()).thenReturn(123L);
+    String expectedQuery =
+        """
+        DELETE FROM GRANT_RECORDS WHERE (
+            (grantee_id = ? AND grantee_catalog_id = ?) OR
+            (securable_id = ? AND securable_catalog_id = ?)
+        ) AND realm_id = ?""";
+    assertEquals(
+        expectedQuery,
+        QueryGenerator.generateDeleteQueryForEntityGrantRecords(entity, REALM_ID).sql());
+  }
+
+  @Test
+  void testGenerateSelectQueryWithEntityIds_singleId() {
+    List<PolarisEntityId> entityIds = Collections.singletonList(new PolarisEntityId(123L, 1L));
+    String expectedQuery =
+        "SELECT id, catalog_id, parent_id, type_code, name, entity_version, sub_type_code, create_timestamp, drop_timestamp, purge_timestamp, to_purge_timestamp, last_update_timestamp, properties, internal_properties, grant_records_version, location_without_scheme FROM ENTITIES WHERE (catalog_id, id) IN ((?, ?)) AND realm_id = ?";
+    assertEquals(
+        expectedQuery, QueryGenerator.generateSelectQueryWithEntityIds(REALM_ID, entityIds).sql());
+  }
+
+  @Test
+  void testGenerateSelectQueryWithEntityIds_multipleIds() {
+    List<PolarisEntityId> entityIds =
+        Arrays.asList(new PolarisEntityId(123L, 1L), new PolarisEntityId(456L, 2L));
+    String expectedQuery =
+        "SELECT id, catalog_id, parent_id, type_code, name, entity_version, sub_type_code, create_timestamp, drop_timestamp, purge_timestamp, to_purge_timestamp, last_update_timestamp, properties, internal_properties, grant_records_version, location_without_scheme FROM ENTITIES WHERE (catalog_id, id) IN ((?, ?), (?, ?)) AND realm_id = ?";
+    assertEquals(
+        expectedQuery, QueryGenerator.generateSelectQueryWithEntityIds(REALM_ID, entityIds).sql());
+  }
+
+  @Test
+  void testGenerateSelectQueryWithEntityIds_emptyList() {
+    List<PolarisEntityId> entityIds = Collections.emptyList();
+    assertThrows(
+        IllegalArgumentException.class,
+        () -> QueryGenerator.generateSelectQueryWithEntityIds(REALM_ID, entityIds).sql());
+  }
+
+  @Test
+  void testGenerateSelectQueryWithEntityIdsVersionOnly_selectsOnlyVersionColumns() {
+    List<PolarisEntityId> entityIds = Collections.singletonList(new PolarisEntityId(123L, 1L));
+    String expectedQuery =
+        "SELECT id, catalog_id, entity_version, grant_records_version"
+            + " FROM ENTITIES"
+            + " WHERE (catalog_id, id) IN ((?, ?)) AND realm_id = ?";
+    Assertions.assertThat(
+            QueryGenerator.generateSelectQueryWithEntityIdsVersionOnly(REALM_ID, entityIds).sql())
+        .isEqualTo(expectedQuery);
+  }
+
+  @Test
+  void testGenerateSelectQueryWithEntityIdsVersionOnly_multipleIds() {
+    List<PolarisEntityId> entityIds =
+        Arrays.asList(new PolarisEntityId(10L, 1L), new PolarisEntityId(20L, 2L));
+    String sql =
+        QueryGenerator.generateSelectQueryWithEntityIdsVersionOnly(REALM_ID, entityIds).sql();
+    // Must NOT contain large property columns on the hot path.
+    Assertions.assertThat(sql).doesNotContain("properties");
+    Assertions.assertThat(sql).doesNotContain("internal_properties");
+    Assertions.assertThat(sql).contains("entity_version");
+    Assertions.assertThat(sql).contains("grant_records_version");
+    Assertions.assertThat(sql).contains("(catalog_id, id) IN ((?, ?), (?, ?))");
+  }
+
+  @Test
+  void testGenerateSelectQueryWithEntityIdsVersionOnly_emptyList() {
+    assertThrows(
+        IllegalArgumentException.class,
+        () ->
+            QueryGenerator.generateSelectQueryWithEntityIdsVersionOnly(
+                REALM_ID, Collections.emptyList()));
+  }
+
+  @Test
+  void testGenerateInsertQuery_nonNullFields() {
+    ModelEntity entity = ModelEntity.builder().name("test").entityVersion(1).build();
+    String expectedQuery =
+        "INSERT INTO ENTITIES (id, catalog_id, parent_id, type_code, name, entity_version, sub_type_code, create_timestamp, drop_timestamp, purge_timestamp, to_purge_timestamp, last_update_timestamp, properties, internal_properties, grant_records_version, location_without_scheme, realm_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    assertEquals(
+        expectedQuery,
+        QueryGenerator.generateInsertQuery(
+                ModelEntity.getAllColumnNames(),
+                ModelEntity.TABLE_NAME,
+                entity.toMap(DatabaseType.H2).values().stream().toList(),
+                REALM_ID)
+            .sql());
+  }
+
+  @Test
+  void testGenerateUpdateQuery_nonNullFields() {
+    ModelEntity entity = ModelEntity.builder().name("newName").entityVersion(2).build();
+    Map<String, Object> whereClause = new HashMap<>();
+    whereClause.put("id", 123L);
+    String expectedQuery =
+        "UPDATE ENTITIES SET id = ?, catalog_id = ?, parent_id = ?, type_code = ?, name = ?, entity_version = ?, sub_type_code = ?, create_timestamp = ?, drop_timestamp = ?, purge_timestamp = ?, to_purge_timestamp = ?, last_update_timestamp = ?, properties = ?, internal_properties = ?, grant_records_version = ?, location_without_scheme = ? WHERE id = ?";
+    assertEquals(
+        expectedQuery,
+        QueryGenerator.generateUpdateQuery(
+                ModelEntity.getAllColumnNames(),
+                ModelEntity.TABLE_NAME,
+                entity.toMap(DatabaseType.H2).values().stream().toList(),
+                whereClause)
+            .sql());
+  }
+
+  @Test
+  void testGenerateUpdateQuery_partialNonNullFields() {
+    ModelEntity entity = ModelEntity.builder().name("newName").build();
+    Map<String, Object> whereClause = new HashMap<>();
+    whereClause.put("id", 123L);
+    String expectedQuery =
+        "UPDATE ENTITIES SET id = ?, catalog_id = ?, parent_id = ?, type_code = ?, name = ?, entity_version = ?, sub_type_code = ?, create_timestamp = ?, drop_timestamp = ?, purge_timestamp = ?, to_purge_timestamp = ?, last_update_timestamp = ?, properties = ?, internal_properties = ?, grant_records_version = ?, location_without_scheme = ? WHERE id = ?";
+    assertEquals(
+        expectedQuery,
+        QueryGenerator.generateUpdateQuery(
+                ModelEntity.getAllColumnNames(),
+                ModelEntity.TABLE_NAME,
+                entity.toMap(DatabaseType.H2).values().stream().toList(),
+                whereClause)
+            .sql());
+  }
+
+  @Test
+  void testGenerateDeleteQuery_withMapWhereClause() {
+    Map<String, Object> whereClause = new HashMap<>();
+    whereClause.put("name", "oldName");
+    String expectedQuery = "DELETE FROM ENTITIES WHERE name = ?";
+    assertEquals(
+        expectedQuery,
+        QueryGenerator.generateDeleteQuery(
+                ModelEntity.getAllColumnNames(), ModelEntity.TABLE_NAME, whereClause)
+            .sql());
+  }
+
+  @Test
+  void testGenerateDeleteQuery_withStringWhereClause() {
+    String expectedQuery = "DELETE FROM ENTITIES WHERE name = ?";
+    assertEquals(
+        expectedQuery,
+        QueryGenerator.generateDeleteQuery(
+                ModelEntity.getAllColumnNames(), ModelEntity.TABLE_NAME, Map.of("name", "oldName"))
+            .sql());
+  }
+
+  @Test
+  void testGenerateDeleteQuery_byObject() {
+    ModelEntity entityToDelete = ModelEntity.builder().name("test").entityVersion(1).build();
+    Map<String, Object> objMap = entityToDelete.toMap(DatabaseType.H2);
+    objMap.put("realm_id", REALM_ID);
+    String expectedQuery =
+        "DELETE FROM ENTITIES WHERE id = ? AND catalog_id = ? AND parent_id = ? AND type_code = ? AND name = ? AND entity_version = ? AND sub_type_code = ? AND create_timestamp = ? AND drop_timestamp = ? AND purge_timestamp = ? AND to_purge_timestamp = ? AND last_update_timestamp = ? AND properties = ? AND internal_properties = ? AND grant_records_version = ? AND location_without_scheme = ? AND realm_id = ?";
+    assertEquals(
+        expectedQuery,
+        QueryGenerator.generateDeleteQuery(
+                ModelEntity.getAllColumnNames(), ModelEntity.TABLE_NAME, objMap)
+            .sql());
+  }
+
+  @Test
+  void testGenerateWhereClause_singleCondition() {
+    Map<String, Object> whereClause = new HashMap<>();
+    whereClause.put("name", "test");
+    assertEquals(
+        " WHERE name = ?",
+        QueryGenerator.generateWhereClause(Set.of("name"), whereClause, Map.of()).sql());
+  }
+
+  @Test
+  void testGenerateWhereClause_multipleConditions() {
+    Map<String, Object> whereClause = new HashMap<>();
+    whereClause.put("name", "test");
+    whereClause.put("version", 1);
+    assertEquals(
+        " WHERE name = ? AND version = ?",
+        QueryGenerator.generateWhereClause(Set.of("name", "version"), whereClause, Map.of()).sql());
+  }
+
+  @Test
+  void testGenerateWhereClause_multipleConditions_AndInequality() {
+    Map<String, Object> whereClause = new HashMap<>();
+    whereClause.put("name", "test");
+    whereClause.put("version", 1);
+    assertEquals(
+        " WHERE name = ? AND version = ? AND id > ?",
+        QueryGenerator.generateWhereClause(
+                Set.of("name", "version", "id"), whereClause, Map.of("id", 123))
+            .sql());
+  }
+
+  @Test
+  void testGenerateWhereClause_emptyMap() {
+    Map<String, Object> whereClause = Collections.emptyMap();
+    assertEquals("", QueryGenerator.generateWhereClause(Set.of(), whereClause, Map.of()).sql());
+  }
+
+  @Test
+  void testGenerateWhereClauseExtended_allPredicatesAndStableParameterOrder() {
+    Map<String, Object> whereEquals = new LinkedHashMap<>();
+    whereEquals.put("a", "A");
+    Map<String, Object> whereGreater = new LinkedHashMap<>();
+    whereGreater.put("b", 2);
+    Map<String, Object> whereLess = new LinkedHashMap<>();
+    whereLess.put("c", 3);
+
+    Set<String> whereIsNull = new LinkedHashSet<>(List.of("d"));
+    Set<String> whereIsNotNull = new LinkedHashSet<>(List.of("e"));
+
+    QueryGenerator.QueryFragment where =
+        QueryGenerator.generateWhereClauseExtended(
+            Set.of("a", "b", "c", "d", "e"),
+            whereEquals,
+            whereGreater,
+            whereLess,
+            whereIsNull,
+            whereIsNotNull);
+
+    assertEquals(" WHERE a = ? AND b > ? AND c < ? AND d IS NULL AND e IS NOT NULL", where.sql());
+    Assertions.assertThat(where.parameters()).containsExactly("A", 2, 3);
+  }
+
+  @Test
+  void testGenerateOverlapQuery() {
+    // s3://bucket/tmp/location/ → withoutScheme //bucket/tmp/location/
+    // Only "/" is skipped (never a meaningful location); "//" is kept because in
+    // ALLOW_NAMESPACE_CUSTOM_LOCATION mode a namespace may live at the bare scheme root s3://
+    // (persisted as "//") and be a valid ancestor of locations below it.
+    assertEquals(
+        "SELECT id, catalog_id, parent_id, type_code, name, entity_version, sub_type_code,"
+            + " create_timestamp, drop_timestamp, purge_timestamp, to_purge_timestamp, last_update_timestamp,"
+            + " properties, internal_properties, grant_records_version, location_without_scheme FROM"
+            + " ENTITIES WHERE realm_id = ? AND catalog_id = ? AND (location_without_scheme = ?"
+            + " OR location_without_scheme = ? OR location_without_scheme = ? OR location_without_scheme = ? OR"
+            + " location_without_scheme = ? OR location_without_scheme = ? OR location_without_scheme = ? OR"
+            + " location_without_scheme LIKE ? ESCAPE '\\')",
+        QueryGenerator.generateOverlapQuery("realmId", -123, "s3://bucket/tmp/location/").sql());
+    Assertions.assertThatCollection(
+            QueryGenerator.generateOverlapQuery("realmId", -123, "s3://bucket/tmp/location/")
+                .parameters())
+        .containsExactly(
+            "realmId",
+            -123L,
+            "//",
+            "//bucket",
+            "//bucket/",
+            "//bucket/tmp",
+            "//bucket/tmp/",
+            "//bucket/tmp/location",
+            "//bucket/tmp/location/",
+            "//bucket/tmp/location/%");
+
+    // A location without a trailing slash produces the same prefix terms so that ancestors stored
+    // in either form are matched.
+    Assertions.assertThatCollection(
+            QueryGenerator.generateOverlapQuery("realmId", -123, "s3://bucket/tmp/location")
+                .parameters())
+        .containsExactly(
+            "realmId",
+            -123L,
+            "//",
+            "//bucket",
+            "//bucket/",
+            "//bucket/tmp",
+            "//bucket/tmp/",
+            "//bucket/tmp/location",
+            "//bucket/tmp/location/",
+            "//bucket/tmp/location/%");
+
+    // Absolute path becomes file:///tmp/location/ → withoutScheme ///tmp/location/
+    // "/" is skipped; "//" and "///" (the file: root) are kept.
+    assertEquals(
+        "SELECT id, catalog_id, parent_id, type_code, name, entity_version, sub_type_code,"
+            + " create_timestamp, drop_timestamp, purge_timestamp, to_purge_timestamp, last_update_timestamp,"
+            + " properties, internal_properties, grant_records_version, location_without_scheme FROM"
+            + " ENTITIES WHERE realm_id = ? AND catalog_id = ? AND (location_without_scheme = ?"
+            + " OR location_without_scheme = ? OR location_without_scheme = ? OR location_without_scheme = ? OR"
+            + " location_without_scheme = ? OR location_without_scheme = ? OR location_without_scheme LIKE ? ESCAPE '\\')",
+        QueryGenerator.generateOverlapQuery("realmId", -123, "/tmp/location/").sql());
+    Assertions.assertThatCollection(
+            QueryGenerator.generateOverlapQuery("realmId", -123, "/tmp/location/").parameters())
+        .containsExactly(
+            "realmId",
+            -123L,
+            "//",
+            "///",
+            "///tmp",
+            "///tmp/",
+            "///tmp/location",
+            "///tmp/location/",
+            "///tmp/location/%");
+
+    assertEquals(
+        "SELECT id, catalog_id, parent_id, type_code, name, entity_version, sub_type_code,"
+            + " create_timestamp, drop_timestamp, purge_timestamp, to_purge_timestamp, last_update_timestamp,"
+            + " properties, internal_properties, grant_records_version, location_without_scheme"
+            + " FROM ENTITIES WHERE realm_id = ? AND catalog_id = ? AND (location_without_scheme = ?"
+            + " OR location_without_scheme = ? OR location_without_scheme = ? OR location_without_scheme = ? OR"
+            + " location_without_scheme = ? OR location_without_scheme LIKE ? ESCAPE '\\')",
+        QueryGenerator.generateOverlapQuery("realmId", -123, "s3://バケツ/\"loc.ation\"/").sql());
+    Assertions.assertThatCollection(
+            QueryGenerator.generateOverlapQuery("realmId", -123, "s3://バケツ/\"loc.ation\"/")
+                .parameters())
+        .containsExactly(
+            "realmId",
+            -123L,
+            "//",
+            "//バケツ",
+            "//バケツ/",
+            "//バケツ/\"loc.ation\"",
+            "//バケツ/\"loc.ation\"/",
+            "//バケツ/\"loc.ation\"/%");
+  }
+
+  @Test
+  void generateOverlapQueryDoesNotEmitSlashOnlyPrefixes() {
+    // s3-style locations: "/" (never a meaningful location) is not emitted, but "//" is retained
+    // so an ancestor stored at the bare scheme root s3:// (ALLOW_NAMESPACE_CUSTOM_LOCATION mode)
+    // is still matched. Regression pair: namespace at "//" with a table under "//bucket/ns/t".
+    Assertions.assertThat(
+            QueryGenerator.generateOverlapQuery("realmId", -123, "s3://bucket/ns/t/").parameters())
+        .contains("//")
+        .doesNotContain("/");
+    // Same without a trailing slash (prefix walk normalizes; slash-only skip is unchanged).
+    Assertions.assertThat(
+            QueryGenerator.generateOverlapQuery("realmId", -123, "s3://bucket/ns/t").parameters())
+        .contains("//")
+        .doesNotContain("/");
+    // file: locations: the "///" root and "//" are kept, but "/" is not emitted.
+    Assertions.assertThat(
+            QueryGenerator.generateOverlapQuery("realmId", -123, "file:///tmp/data/").parameters())
+        .contains("//", "///")
+        .doesNotContain("/");
+  }
+
+  @Test
+  void generateOverlapQueryEscapesLikeWildcardsInPattern() {
+    // A location containing LIKE metacharacters (_ and %) must be escaped in the LIKE pattern (with
+    // an ESCAPE clause) so they match literally rather than as wildcards; the exact-match prefix
+    // terms use "=" and must keep the raw characters.
+    assertTrue(
+        QueryGenerator.generateOverlapQuery("realmId", -123, "s3://bucket/a_b/c%d/")
+            .sql()
+            .contains("location_without_scheme LIKE ? ESCAPE '\\'"));
+    Assertions.assertThat(
+            QueryGenerator.generateOverlapQuery("realmId", -123, "s3://bucket/a_b/c%d/")
+                .parameters())
+        .endsWith("//bucket/a\\_b/c\\%d/%")
+        .contains("//bucket/a_b", "//bucket/a_b/c%d");
+  }
+
+  @Test
+  void generateOverlapQueryEscapesBackslashInPattern() {
+    // A literal backslash (the default LIKE escape character) in the location must itself be
+    // escaped
+    // so a descendant whose path contains a backslash is still matched rather than silently missed.
+    Assertions.assertThat(
+            QueryGenerator.generateOverlapQuery("realmId", -123, "s3://bucket/a\\b/").parameters())
+        .endsWith("//bucket/a\\\\b/%");
+  }
+
+  @Test
+  void testGenerateExistsQuery() {
+    Map<String, Object> params = new HashMap<>();
+    params.put("realm_id", "realm1");
+    params.put("catalog_id", 1L);
+    params.put("parent_id", 2L);
+    String sql =
+        QueryGenerator.generateExistsQuery(
+                ModelEntity.getAllColumnNames(), ModelEntity.TABLE_NAME, params)
+            .sql();
+    assertTrue(sql.startsWith("SELECT 1 "), sql);
+    assertTrue(sql.endsWith("LIMIT 1"), sql);
+    assertFalse(sql.contains("properties"), sql);
+    assertTrue(sql.contains("realm_id"), sql);
+    assertTrue(sql.contains("catalog_id"), sql);
+    assertTrue(sql.contains("parent_id"), sql);
+  }
+
+  @Test
+  void testGenerateExistsQueryRejectsUnknownColumn() {
+    assertThrows(
+        IllegalArgumentException.class,
+        () ->
+            QueryGenerator.generateExistsQuery(
+                ModelEntity.getAllColumnNames(),
+                ModelEntity.TABLE_NAME,
+                Map.of("not_a_column", 1)));
+  }
+}

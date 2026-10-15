@@ -1,0 +1,16 @@
+{
+  "formula": "0.2*covariance_completion+0.2*covering_completion+0.2*mean(moment_and_process_target_completion)+0.4*continuity_completion",
+  "groups": {
+    "covariance": 0.2,
+    "covering": 0.2,
+    "moment_and_process": 0.2,
+    "continuity": 0.4
+  },
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "feedback_deadline_target_seconds": 600,
+  "partial_proof_credit": "only fully kernel-closed targets count"
+}

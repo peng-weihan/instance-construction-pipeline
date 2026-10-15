@@ -1,0 +1,35 @@
+{
+  "cases": [
+    {
+      "id": "same_kind",
+      "checks": {
+        "manual_initial_named_tree": true,
+        "incremental_equals_separate_fresh": true,
+        "independent_all_node_positions": true,
+        "same_kind_changed_range_empty": false
+      },
+      "passed": false
+    },
+    {
+      "id": "unicode_points",
+      "checks": {
+        "manual_initial_named_tree": true,
+        "incremental_equals_separate_fresh": true,
+        "independent_all_node_positions": true,
+        "structural_change_reported": true
+      },
+      "passed": true
+    },
+    {
+      "id": "suite",
+      "checks": {
+        "manual_initial_named_tree": true,
+        "incremental_equals_separate_fresh": true,
+        "independent_all_node_positions": true,
+        "structural_change_reported": true
+      },
+      "passed": true
+    }
+  ],
+  "all_passed": false
+}

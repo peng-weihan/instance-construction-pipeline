@@ -1,0 +1,312 @@
+{
+  "updated_date": "2026-10-15",
+  "authority": "latest user instruction",
+  "user_instruction": "启动agent运行吧；授权使用 /ws/users/wcgu/new-codex-group/raymone/1,2,3 测试并继续运行",
+  "active_scope": [
+    "acquire and pin task-construction sources",
+    "inspect original behavior and reference materials",
+    "construct substantive task specifications and starter workspaces",
+    "preserve private reference implementations and evaluation designs",
+    "implement reference and verifier source in isolated task packages",
+    "inspect task/instruction/scoring metadata consistency without executing tasks",
+    "remote Docker build and reference/empty-submission smoke test after connection and skill inspection",
+    "trusted-author local component checks and fixes; keep these distinct from container/native-harness acceptance",
+    "one authorized gpt-6.1-sol six-hour Aliyun solver pilot, periodic offline Docker scoring",
+    "validate and launch one six-hour gpt-6.1-sol pilot each for packing and Lean with raymone/2 and raymone/3"
+  ],
+  "deferred": [
+    "runtime acceptance verification",
+    "performance measurements",
+    "production Harbor acceptance"
+  ],
+  "construction_execution": "Authoring tools may read, copy and edit materials; task data generation is construction work, not acceptance evidence. No runtime validation should be required to save a constructed task draft.",
+  "retained_design_constraints": [
+    "Harbor is the eventual delivery format",
+    "separate public agent and private verifier assets",
+    "snapshot-based stateless scoring",
+    "structured iterative feedback and best-of-run selection",
+    "future offline and dual-architecture deployment",
+    "new materials with similar task mechanisms"
+  ],
+  "status_rule": "Use material_acquired or constructed_unverified; never accepted, runtime_verified or difficulty_calibrated without the deferred evidence.",
+  "batch_policy": "Six category samples now; do not count test cases as independent tasks or infer the missing 100-task quotas.",
+  "sample_request": "每类一个小样，共六类；重点是素材挖掘与任务构造",
+  "current_delivery": "samples/long-horizon-built-007",
+  "previous_delivery": "samples/long-horizon-built-006",
+  "latest_request": "按照原EdgeBench任务规模与五类机制优化素材挖掘和出题全流程，产出符合长程要求的任务",
+  "target_budget_seconds": 21600,
+  "long_horizon_evidence": "Live at 2026-10-14T17:04Z: 24 completed grades, first score 1.0 at snapshot 848.615 seconds, thereafter saturated through 2h. Does not meet intended long-horizon growth goal; no completed six-hour trajectory yet.",
+  "remote_workflow": "requirements/remote_edge_workflow_2026-10-14.md",
+  "remote_skills_read": true,
+  "static_inspection": "samples/long-horizon-built-007/static_inspection.json",
+  "authoring_review": "samples/long-horizon-built-007/authoring_review.json",
+  "remote_smoke": "remote_smoke/restler-007",
+  "remote_execution_status": "science_and_finance_independent_learning_running",
+  "local_validation": "runs/local-validation-003/summary.json",
+  "remote_run_root": "/ws/users/raymone/edgebench/restler-007-smoke-20261014/run-001/results-004",
+  "remote_transfer_verified_files": 1464,
+  "remote_validation": "runs/remote-smoke-restler-007/REPORT.md",
+  "remote_native_harbor_verified": false,
+  "remote_model_runs": 3,
+  "remote_six_hour_runs": 0,
+  "remote_agent_run_root": "/ws/users/raymone/edgebench/restler-agent-001/run-6h-001",
+  "account_status": {
+    "20x/7": "actual cloud call quota exhausted",
+    "raymone/1": "actual official cloud smoke passed; 2 successful terminal calls",
+    "raymone/2": "actual official cloud smoke passed; 2 successful terminal calls; sandbox cleanup confirmed",
+    "raymone/3": "actual official cloud smoke passed; 2 successful terminal calls; sandbox cleanup confirmed"
+  },
+  "remote_started_six_hour_runs": 3,
+  "remote_completed_six_hour_runs": 0,
+  "agent_startup_report": "runs/restler-agent-start-001/REPORT.md",
+  "successful_model_admission_runs": 3,
+  "next_two": {
+    "remote_root": "/ws/users/raymone/edgebench/next-two-001",
+    "status": "both_learning_running",
+    "agent_runs_started": 2,
+    "packing": "actual controls passed: reference 0.2084434046, empty 0, partial 0.1333333333; real official cloud smoke passed; learning began 2026-10-14T18:39:17.415088Z with raymone/2",
+    "lean": "actual learning began 2026-10-14T18:22:46.973108Z, gpt-6.1-sol raymone/3; five native tool calls with outputs observed by 18:23:46Z",
+    "report": "runs/next-two-001/REPORT.md",
+    "source_candidates": "samples/runtime-pilot-candidates-001",
+    "lean_run_root": "/ws/users/raymone/edgebench/next-two-001/lean-pilot/run-6h-002",
+    "packing_run_root": "/ws/users/raymone/edgebench/next-two-001/packing-pilot/run-6h-001",
+    "lean_first_auto_score": 0,
+    "lean_first_auto_failure": "lean_build",
+    "current_source_candidates": [
+      "samples/runtime-pilot-candidates-001/packing-task-r5",
+      "samples/runtime-pilot-candidates-001/lean-task-r3"
+    ],
+    "live_status": "runs/next-two-001/startup-status.json",
+    "lean_best_model_score": 0.8,
+    "difficulty_observation": "Lean reached 0.8 at snapshot 861.9557 seconds; RESTler saturated at 1.0 since 848.615 seconds. Early rapid growth suggests difficulty revision may be needed; all current runs remain full six-hour pilots."
+  },
+  "remaining_three": {
+    "authority": "用户授权继续完成另外三个小样",
+    "source": "samples/remaining-three-built-001",
+    "remote_root": "/ws/users/raymone/edgebench/remaining-three-001",
+    "scope": [
+      "real game engine grading",
+      "science and finance substantive difficulty revision",
+      "separate offline runtime controls"
+    ],
+    "model_runs_started": 0
+  },
+  "remaining_three_live_trials": {
+    "model": "gpt-6.1-sol",
+    "runs": [
+      {
+        "task": "游戏",
+        "start_cst": "2026-10-15T06:27:24.047681+08:00",
+        "planned_learning_end_cst": "2026-10-15T12:27:24.047681+08:00",
+        "remote_run": "/ws/users/raymone/edgebench/remaining-three-001/game-pilot/run-6h-001",
+        "model": "gpt-6.1-sol",
+        "actual_tool_outputs_seen": 36
+      },
+      {
+        "task": "金融（修复版）",
+        "start_cst": "2026-10-15T06:38:19.242059+08:00",
+        "planned_learning_end_cst": "2026-10-15T12:38:19.242059+08:00",
+        "remote_run": "/ws/users/raymone/edgebench/remaining-three-001/finance-pilot-r2/run-6h-001",
+        "model": "gpt-6.1-sol",
+        "actual_tool_outputs_seen": 4
+      }
+    ],
+    "budget_seconds": 21600,
+    "interval_seconds": 600,
+    "difficulty_early_stop": false,
+    "science_model_run_authorized": false
+  },
+  "latest_requests": [
+    "启动科学/机器学习首条gpt-6.1-sol六小时轨迹",
+    "为其余已运行题目绘制真实学习曲线"
+  ],
+  "curve_review_2026_10_15": {
+    "report": "runs/remaining-three-001/current-review/all-curves/REPORT.md",
+    "plot": "runs/remaining-three-001/current-review/all-curves/learning_curves.png",
+    "source": "actual immutable histories copied from dev4",
+    "completed_learning_budget_tasks": [
+      "packing",
+      "game"
+    ],
+    "budget_window_with_repeated_resume_anomalies": [
+      "lean"
+    ],
+    "infrastructure_interrupted_tasks": [
+      "restler",
+      "finance"
+    ],
+    "formal_acceptance_passed": 0,
+    "science": "first six-hour learning started; no complete curve yet"
+  },
+  "science_live_trial": {
+    "task": "singlecell_cross_site_graph_lab-r2",
+    "status": "learning_started",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "account": "raymone/1",
+    "backend": "Aliyun learner + offline host Docker verifier",
+    "learning_started_utc": "2026-10-15T07:49:25.642440+00:00",
+    "learning_started_cst": "2026-10-15 15:49:25",
+    "expected_learning_end_cst": "2026-10-15 21:49:25",
+    "learning_budget_seconds": 21600,
+    "evaluation_interval_seconds": 600,
+    "difficulty_early_stop": false,
+    "formal_acceptance": false,
+    "remote_run": "/ws/users/raymone/edgebench/remaining-three-001/science-pilot/run-6h-001",
+    "framework": "framework-r2",
+    "runtime_tree_sha256": "27d3fabec1c933731f21c127d5b36dacf94dbd8f31e2ff0514d5fd32dca05363",
+    "last_verified_utc": "2026-10-15T07:51:22.993304+00:00",
+    "live_evidence": {
+      "native_tool_calls": 8,
+      "native_tool_outputs": 8,
+      "completed_grades": 1,
+      "best_score": 0.3926459008379822,
+      "last_native_timestamp": "2026-10-15T07:50:53.936Z"
+    }
+  },
+  "current_verified_rollout_counts": {
+    "task_categories_with_real_rollout": 6,
+    "clean_completed_six_hour_tasks": 2,
+    "budget_windows_ended_including_lean_anomaly": 3,
+    "infrastructure_interrupted_task_categories": 2,
+    "currently_learning_task_categories": 2,
+    "formal_acceptance_passed": 0
+  },
+  "finance_live_trial": {
+    "status": "learning_started",
+    "task": "same finance-task-r4, independent fresh session",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "account": "raymone/1",
+    "learning_started_utc": "2026-10-15T08:05:42.015515+00:00",
+    "learning_started_cst": "2026-10-15T16:05:42.015515+08:00",
+    "expected_learning_end_cst": "2026-10-15T22:05:42.015515+08:00",
+    "learning_budget_seconds": 21600,
+    "evaluation_interval_seconds": 600,
+    "difficulty_early_stop": false,
+    "backend": "Aliyun learner + independent offline Docker verifier on dev4",
+    "remote_run": "/ws/users/raymone/edgebench/remaining-three-001/finance-pilot-r3/run-6h-001",
+    "previous_run_preserved": "/ws/users/raymone/edgebench/remaining-three-001/finance-pilot-r2/run-6h-001",
+    "native_tool_calls": 5,
+    "native_tool_outputs": 5,
+    "observed_utc": "2026-10-15T08:07:06.557406+00:00",
+    "formal_acceptance": false
+  },
+  "software_multiline": {
+    "batch": "samples/software-multiline-001",
+    "report": "samples/software-multiline-001/REPORT.md",
+    "author_model_requested": "gpt-6.1-sol",
+    "routes_attempted": 6,
+    "host_scoring_closed_routes": [
+      "01_openapi",
+      "03_wasm",
+      "05_toml",
+      "06_jq"
+    ],
+    "partial_or_uncalibrated_routes": [
+      "02_restler",
+      "04_datafusion"
+    ],
+    "actual_harbor_task_config_validated": 6,
+    "new_six_hour_rollouts_started": 0,
+    "formal_acceptance_passed": 0
+  },
+  "latest_live_two_curves": {
+    "directory": "/Users/raymone/Desktop/edgebench/runs/remaining-three-001/live-two-20261015T090145Z",
+    "observed_cst": "2026-10-15T17:01:45.382643+08:00"
+  },
+  "software_candidate_pool_016": {
+    "directory": "research/software-candidates-016-20261015",
+    "report": "research/software-candidates-016-20261015/REPORT.md",
+    "candidate_count": 16,
+    "new_project_count": 10,
+    "revised_source_count": 6,
+    "selected_source_files": 101,
+    "selected_source_bytes": 7372407,
+    "complete_git_tree_indexes": 16,
+    "P1_count": 8,
+    "P2_count": 8,
+    "new_complete_task_profiles": 0,
+    "new_constructor_cli_runs_in_batch": 0,
+    "new_six_hour_rollouts_in_batch": 0,
+    "six_hour_qualified_tasks": 0,
+    "state": "source_evidence_acquired_design_proposed",
+    "authoring_queue": "research/software-candidates-016-20261015/authoring_queue.json"
+  },
+  "software_authoring_execution": {
+    "directory": "runs/software-authoring-016-20261015-r1",
+    "report": "runs/software-authoring-016-20261015-r1/REPORT.md",
+    "remote_root": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1",
+    "author_model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "codex_home": "/ws/users/wcgu/new-codex-group/raymone/3",
+    "native_authors_verified": 2,
+    "queued": [
+      "04_pytest_fixtures",
+      "07_arrow_ipc",
+      "08_http2_session",
+      "11_rocksdb_compaction",
+      "12_croaring_kernels",
+      "15_jq_composition",
+      "16_libarchive_cli"
+    ],
+    "verified_tool_completions": {
+      "01_openapi_streaming": 8,
+      "14_tree_sitter_incremental": 9
+    },
+    "observed_utc": "2026-10-15T10:52:13.352992+00:00",
+    "six_hour_teacher_runs_started_for_batch": 0,
+    "formal_task_acceptance": false,
+    "latest_progress_report": "runs/software-authoring-016-20261015-r1/CURRENT_STATUS.md",
+    "native_authors_total_started": 3,
+    "completed_author_drafts": 2,
+    "currently_running": [
+      "09_valkey_transactions",
+      "02_restler_recovery",
+      "05_uv_resolution",
+      "10_datafusion_sort",
+      "13_toml_lossless",
+      "03_httpx_transport"
+    ],
+    "local_drafts": "samples/software-authored-016-r1",
+    "six_hour_qualified_tasks": 0,
+    "difficulty_held_profiles": [
+      "01_openapi_streaming",
+      "14_tree_sitter_incremental"
+    ],
+    "candidate_total": 16,
+    "cumulative_author_runs": 9,
+    "historical_max_parallel_authors": 2,
+    "unstarted_candidates": 7,
+    "six_hour_solver_runs_for_batch": 0,
+    "all_candidates_enqueued": true,
+    "pool_pid": 82405,
+    "rejected_profiles": [
+      "06_wasm_validation"
+    ]
+  },
+  "historical_status_fields_notice": "以下旧阶段字段保留作为历史，不作为当前运行计数；当前软工状态以current_swe_pipeline及其带时间戳证据为准。",
+  "current_swe_pipeline": {
+    "version": 2,
+    "observed_utc": "2026-10-15T12:46:01.790293+00:00",
+    "route_count": 5,
+    "original_software_tasks_classified": 36,
+    "guide": "research/swe-pipeline-v2-20261015/README.md",
+    "code": "edge_factory/swe.py",
+    "new_author_batch": "runs/swe-route-authoring-005-20261015-r3",
+    "remote_author_root": "/ws/users/raymone/edgebench/swe-route-authoring-005-20261015-r3",
+    "new_authors_running": 5,
+    "new_teacher_rollouts": 0,
+    "new_constructed_tasks": 0,
+    "new_source_lead_sets": 5,
+    "raw_previous_author_results": {
+      "constructed_unverified": 13,
+      "held_for_evidence": 4,
+      "rejected": 5
+    },
+    "previous_eight_difficulty_review": "research/swe-difficulty-review-20261015/REPORT.md",
+    "previous_six_scope_review": "pending; all returned, not automatically accepted under latest engineering-scope criterion",
+    "six_hour_qualified_tasks_from_author_batches": 0,
+    "no_old_task_or_trajectory_modified": true
+  }
+}

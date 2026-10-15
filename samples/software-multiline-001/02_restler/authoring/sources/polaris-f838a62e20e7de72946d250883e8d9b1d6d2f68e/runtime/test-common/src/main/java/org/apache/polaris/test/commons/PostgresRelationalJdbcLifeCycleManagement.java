@@ -1,0 +1,109 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.polaris.test.commons;
+
+import static org.apache.polaris.containerspec.ContainerSpecHelper.containerSpecHelper;
+
+import io.quarkus.test.common.DevServicesContext;
+import io.quarkus.test.common.QuarkusTestResourceLifecycleManager;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Map;
+import org.testcontainers.postgresql.PostgreSQLContainer;
+
+public class PostgresRelationalJdbcLifeCycleManagement
+    implements QuarkusTestResourceLifecycleManager, DevServicesContext.ContextAware {
+  public static final String INIT_SCRIPT = "init-script";
+
+  private PostgreSQLContainer postgres;
+  private String initScript;
+  private DevServicesContext context;
+
+  @Override
+  public void init(Map<String, String> initArgs) {
+    initScript = initArgs.get(INIT_SCRIPT);
+  }
+
+  @Override
+  @SuppressWarnings("resource")
+  public Map<String, String> start() {
+    postgres =
+        new PostgreSQLContainer(
+                containerSpecHelper("postgres", PostgresRelationalJdbcLifeCycleManagement.class)
+                    .dockerImageName(null)
+                    .asCompatibleSubstituteFor("postgres"))
+            .withDatabaseName("polaris_db")
+            .withUsername("polaris")
+            .withPassword("polaris");
+
+    if (initScript != null) {
+      postgres.withInitScript(initScript);
+    }
+
+    context.containerNetworkId().ifPresent(postgres::withNetworkMode);
+    postgres.start();
+    // Polaris does not create its schema; create it here (the DBA step) so the datasources'
+    // configured currentSchema (POLARIS_SCHEMA by default) resolves.
+    createPolarisSchema();
+    // Configure both the main datasource and the metrics named datasource
+    // pointing to the same PostgreSQL instance for tests
+    return Map.ofEntries(
+        Map.entry("polaris.persistence.type", "relational-jdbc"),
+        Map.entry("polaris.persistence.relational.jdbc.max-retries", "2"),
+        Map.entry("quarkus.datasource.db-kind", "postgresql"),
+        Map.entry("quarkus.datasource.jdbc.url", postgres.getJdbcUrl()),
+        Map.entry("quarkus.datasource.username", postgres.getUsername()),
+        Map.entry("quarkus.datasource.password", postgres.getPassword()),
+        Map.entry("quarkus.datasource.jdbc.initial-size", "10"),
+        // Configure metrics named datasource to use the same PostgreSQL instance and schema
+        Map.entry("quarkus.datasource.metrics.db-kind", "postgresql"),
+        Map.entry("quarkus.datasource.metrics.jdbc.url", postgres.getJdbcUrl()),
+        Map.entry(
+            "quarkus.datasource.metrics.jdbc.additional-jdbc-properties.currentSchema",
+            "POLARIS_SCHEMA"),
+        Map.entry("quarkus.datasource.metrics.username", postgres.getUsername()),
+        Map.entry("quarkus.datasource.metrics.password", postgres.getPassword()));
+  }
+
+  private void createPolarisSchema() {
+    try (Connection connection = postgres.createConnection("");
+        Statement statement = connection.createStatement()) {
+      statement.execute("CREATE SCHEMA IF NOT EXISTS POLARIS_SCHEMA");
+    } catch (SQLException e) {
+      throw new RuntimeException("Failed to create the Polaris schema", e);
+    }
+  }
+
+  @Override
+  public void stop() {
+    if (postgres != null) {
+      try {
+        postgres.stop();
+      } finally {
+        postgres = null;
+      }
+    }
+  }
+
+  @Override
+  public void setIntegrationTestContext(DevServicesContext context) {
+    this.context = context;
+  }
+}

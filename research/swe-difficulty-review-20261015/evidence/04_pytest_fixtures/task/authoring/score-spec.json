@@ -1,0 +1,115 @@
+{
+  "version": "1.0.0",
+  "reward_type": "bounded_continuous",
+  "reference_mode": "ordinary_oracle",
+  "direction": "maximize",
+  "groups": {
+    "identity_and_schema": [
+      "schema",
+      "definitions",
+      "instance_balance",
+      "deterministic"
+    ],
+    "dependency_resolution": [
+      "static_edges",
+      "dynamic_edges",
+      "missing_resolution",
+      "override_edges"
+    ],
+    "cache_semantics": [
+      "item_cache",
+      "instance_cache",
+      "cached_exception",
+      "parameter_identity"
+    ],
+    "invalidation_and_order": [
+      "parameter_reason",
+      "dependency_reason",
+      "no_duplicate_finish",
+      "finalizer_lifo"
+    ],
+    "exception_lifecycle": [
+      "setup_failure",
+      "setup_skip",
+      "all_finalizer_errors",
+      "failure_cleanup"
+    ],
+    "plugin_and_behavior": [
+      "observer_stream",
+      "observer_reentry",
+      "reports",
+      "noninterference"
+    ]
+  },
+  "group_weights": {
+    "identity_and_schema": 0.16666666666666666,
+    "dependency_resolution": 0.16666666666666666,
+    "cache_semantics": 0.16666666666666666,
+    "invalidation_and_order": 0.16666666666666666,
+    "exception_lifecycle": 0.16666666666666666,
+    "plugin_and_behavior": 0.16666666666666666
+  },
+  "formula": "If native regressions fail: 0. Otherwise mean over 6 groups of passed named checks / 4. No timing score.",
+  "native_gate": {
+    "selection": "request_addfinalizer or request_subrequest_addfinalizer_exceptions or override_parametrized_fixture_with_new_parametrized_fixture",
+    "file": "testing/python/fixtures.py",
+    "expected_tests": 6
+  },
+  "limits": {
+    "candidate_uid": 65534,
+    "build_wall_sec": 120,
+    "run_wall_sec": 20,
+    "native_wall_sec": 120,
+    "cpu_sec": 100,
+    "memory_bytes": 1073741824,
+    "output_bytes": 2097152,
+    "source_bytes": 67108864,
+    "max_files": 3000,
+    "verifier_wall_sec": 900,
+    "build_log_chars": 12000,
+    "install_log_chars": 4000,
+    "case_log_chars": 6000
+  },
+  "schema_version": 1,
+  "repeat_runs": 2,
+  "score_range": [
+    0,
+    1
+  ],
+  "case_ids": [
+    "basic",
+    "dynamic",
+    "params",
+    "failure",
+    "override",
+    "hooks"
+  ],
+  "intended_agent_budget_sec": 21600,
+  "performance_score_enabled": false,
+  "expectations": {
+    "minimum_item_cache_hits": 8,
+    "minimum_observer_cache_hits": 6,
+    "report_counts": {
+      "basic": 6,
+      "dynamic": 3,
+      "params": 12,
+      "failure": 9,
+      "override": 3,
+      "hooks": 6
+    },
+    "exit_codes": {
+      "basic": 0,
+      "dynamic": 0,
+      "params": 0,
+      "failure": 1,
+      "override": 0,
+      "hooks": 0
+    },
+    "cleanup_ordinals": [
+      4,
+      3,
+      2,
+      1
+    ]
+  }
+}

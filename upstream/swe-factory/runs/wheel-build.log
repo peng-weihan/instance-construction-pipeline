@@ -1,0 +1,103 @@
+Building wheel...
+running egg_info
+writing nl2repo_factory.egg-info/PKG-INFO
+writing dependency_links to nl2repo_factory.egg-info/dependency_links.txt
+writing entry points to nl2repo_factory.egg-info/entry_points.txt
+writing top-level names to nl2repo_factory.egg-info/top_level.txt
+reading manifest file 'nl2repo_factory.egg-info/SOURCES.txt'
+writing manifest file 'nl2repo_factory.egg-info/SOURCES.txt'
+running bdist_wheel
+running build
+running build_py
+copying nl2repo_factory/packaging.py -> build/lib/nl2repo_factory
+copying nl2repo_factory/oracle.py -> build/lib/nl2repo_factory
+running egg_info
+writing nl2repo_factory.egg-info/PKG-INFO
+writing dependency_links to nl2repo_factory.egg-info/dependency_links.txt
+writing entry points to nl2repo_factory.egg-info/entry_points.txt
+writing top-level names to nl2repo_factory.egg-info/top_level.txt
+reading manifest file 'nl2repo_factory.egg-info/SOURCES.txt'
+writing manifest file 'nl2repo_factory.egg-info/SOURCES.txt'
+installing to build/bdist.macosx-26.0-arm64/wheel
+running install
+running install_lib
+creating build/bdist.macosx-26.0-arm64/wheel
+creating build/bdist.macosx-26.0-arm64/wheel/nl2repo_factory
+copying build/lib/nl2repo_factory/repair.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory
+copying build/lib/nl2repo_factory/config.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory
+copying build/lib/nl2repo_factory/__init__.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory
+copying build/lib/nl2repo_factory/docker.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory
+copying build/lib/nl2repo_factory/agents.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory
+copying build/lib/nl2repo_factory/ast_scan.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory
+copying build/lib/nl2repo_factory/cli.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory
+copying build/lib/nl2repo_factory/common.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory
+copying build/lib/nl2repo_factory/packaging.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory
+copying build/lib/nl2repo_factory/pipeline.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory
+copying build/lib/nl2repo_factory/specification.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory
+copying build/lib/nl2repo_factory/contracts.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory
+creating build/bdist.macosx-26.0-arm64/wheel/nl2repo_factory/prompts
+copying build/lib/nl2repo_factory/prompts/agent1.md -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory/prompts
+copying build/lib/nl2repo_factory/prompts/agent2.md -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory/prompts
+copying build/lib/nl2repo_factory/prompts/repair.md -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory/prompts
+creating build/bdist.macosx-26.0-arm64/wheel/nl2repo_factory/fixtures
+creating build/bdist.macosx-26.0-arm64/wheel/nl2repo_factory/fixtures/tagkit
+copying build/lib/nl2repo_factory/fixtures/tagkit/start.md -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory/fixtures/tagkit
+copying build/lib/nl2repo_factory/fixtures/tagkit/api_manifest.json -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory/fixtures/tagkit
+creating build/bdist.macosx-26.0-arm64/wheel/nl2repo_factory/fixtures/tagkit/repo
+copying build/lib/nl2repo_factory/fixtures/tagkit/repo/pyproject.toml -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory/fixtures/tagkit/repo
+creating build/bdist.macosx-26.0-arm64/wheel/nl2repo_factory/fixtures/tagkit/repo/tests
+copying build/lib/nl2repo_factory/fixtures/tagkit/repo/tests/test_api.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory/fixtures/tagkit/repo/tests
+copying build/lib/nl2repo_factory/fixtures/tagkit/repo/README.md -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory/fixtures/tagkit/repo
+creating build/bdist.macosx-26.0-arm64/wheel/nl2repo_factory/fixtures/tagkit/repo/tagkit
+copying build/lib/nl2repo_factory/fixtures/tagkit/repo/tagkit/__init__.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory/fixtures/tagkit/repo/tagkit
+copying build/lib/nl2repo_factory/fixtures/tagkit/repo/tagkit/parser.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory/fixtures/tagkit/repo/tagkit
+copying build/lib/nl2repo_factory/fixtures/tagkit/repo/tagkit/api.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory/fixtures/tagkit/repo/tagkit
+copying build/lib/nl2repo_factory/fixtures/tagkit/repo/tagkit/errors.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory/fixtures/tagkit/repo/tagkit
+copying build/lib/nl2repo_factory/fixtures/tagkit/repo/tagkit/normalization.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory/fixtures/tagkit/repo/tagkit
+copying build/lib/nl2repo_factory/oracle.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory
+copying build/lib/nl2repo_factory/demo.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory
+copying build/lib/nl2repo_factory/source.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory
+copying build/lib/nl2repo_factory/__main__.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory
+copying build/lib/nl2repo_factory/verifier.py -> build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory
+running install_egg_info
+Copying nl2repo_factory.egg-info to build/bdist.macosx-26.0-arm64/wheel/./nl2repo_factory-0.1.0-py3.12.egg-info
+running install_scripts
+creating build/bdist.macosx-26.0-arm64/wheel/nl2repo_factory-0.1.0.dist-info/WHEEL
+creating '/Users/raymone/Desktop/swe-factory/runs/wheels/.tmp-rtprlvv3/nl2repo_factory-0.1.0-py3-none-any.whl' and adding 'build/bdist.macosx-26.0-arm64/wheel' to it
+adding 'nl2repo_factory/__init__.py'
+adding 'nl2repo_factory/__main__.py'
+adding 'nl2repo_factory/agents.py'
+adding 'nl2repo_factory/ast_scan.py'
+adding 'nl2repo_factory/cli.py'
+adding 'nl2repo_factory/common.py'
+adding 'nl2repo_factory/config.py'
+adding 'nl2repo_factory/contracts.py'
+adding 'nl2repo_factory/demo.py'
+adding 'nl2repo_factory/docker.py'
+adding 'nl2repo_factory/oracle.py'
+adding 'nl2repo_factory/packaging.py'
+adding 'nl2repo_factory/pipeline.py'
+adding 'nl2repo_factory/repair.py'
+adding 'nl2repo_factory/source.py'
+adding 'nl2repo_factory/specification.py'
+adding 'nl2repo_factory/verifier.py'
+adding 'nl2repo_factory/fixtures/tagkit/api_manifest.json'
+adding 'nl2repo_factory/fixtures/tagkit/start.md'
+adding 'nl2repo_factory/fixtures/tagkit/repo/README.md'
+adding 'nl2repo_factory/fixtures/tagkit/repo/pyproject.toml'
+adding 'nl2repo_factory/fixtures/tagkit/repo/tagkit/__init__.py'
+adding 'nl2repo_factory/fixtures/tagkit/repo/tagkit/api.py'
+adding 'nl2repo_factory/fixtures/tagkit/repo/tagkit/errors.py'
+adding 'nl2repo_factory/fixtures/tagkit/repo/tagkit/normalization.py'
+adding 'nl2repo_factory/fixtures/tagkit/repo/tagkit/parser.py'
+adding 'nl2repo_factory/fixtures/tagkit/repo/tests/test_api.py'
+adding 'nl2repo_factory/prompts/agent1.md'
+adding 'nl2repo_factory/prompts/agent2.md'
+adding 'nl2repo_factory/prompts/repair.md'
+adding 'nl2repo_factory-0.1.0.dist-info/METADATA'
+adding 'nl2repo_factory-0.1.0.dist-info/WHEEL'
+adding 'nl2repo_factory-0.1.0.dist-info/entry_points.txt'
+adding 'nl2repo_factory-0.1.0.dist-info/top_level.txt'
+adding 'nl2repo_factory-0.1.0.dist-info/RECORD'
+removing build/bdist.macosx-26.0-arm64/wheel
+Successfully built runs/wheels/nl2repo_factory-0.1.0-py3-none-any.whl

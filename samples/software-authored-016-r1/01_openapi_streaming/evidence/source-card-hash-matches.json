@@ -1,0 +1,26 @@
+[
+  {
+    "path": "README.md",
+    "matches": true
+  },
+  {
+    "path": "CHANGELOG.md",
+    "matches": true
+  },
+  {
+    "path": "pyproject.toml",
+    "matches": true
+  },
+  {
+    "path": "end_to_end_tests/functional_tests/README.md",
+    "matches": true
+  },
+  {
+    "path": "LICENSE",
+    "matches": true
+  },
+  {
+    "path": "openapi_python_client/templates/endpoint_module.py.jinja",
+    "matches": true
+  }
+]

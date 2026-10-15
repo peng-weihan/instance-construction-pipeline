@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "/Users/raymone/Desktop/01_Research/swe-factory/.venv/bin/python",
+    "-m",
+    "pytest",
+    "tests/test_specialized.py",
+    "-q",
+    "--junitxml=.factory-report.xml",
+    "--rootdir=.",
+    "-o",
+    "junit_family=xunit1",
+    "-p",
+    "no:cacheprovider"
+  ],
+  "returncode": 0,
+  "stdout": "...                                                                      [100%]\n- generated xml file: /Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/specialize/specialized/validation/C5/workspace/.factory-report.xml -\n3 passed in 0.01s\n",
+  "stderr": "",
+  "timed_out": false,
+  "elapsed_sec": 0.115,
+  "runtime": {
+    "backend": "host",
+    "isolated": false,
+    "image": null
+  }
+}

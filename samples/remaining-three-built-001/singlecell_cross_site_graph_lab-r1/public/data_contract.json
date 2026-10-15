@@ -1,0 +1,30 @@
+{
+  "train_cells": 31364,
+  "target_cells": 33883,
+  "genes": 4000,
+  "classes": 36,
+  "public_labels": 2576,
+  "dev_cells": 5447,
+  "feedback_cells": 8422,
+  "audit_cells": 20014,
+  "train_batches": [
+    "s1d1",
+    "s1d2",
+    "s2d1",
+    "s2d4",
+    "s2d5"
+  ],
+  "dev_batches": [
+    "s1d3"
+  ],
+  "feedback_batches": [
+    "s3d1"
+  ],
+  "audit_batches": [
+    "s3d6",
+    "s3d7"
+  ],
+  "class_selection": "at least 100 full-source training-batch cells; no target-label-dependent selection",
+  "gene_selection": "4000 highest-variance genes on training cells only",
+  "public_target_annotations": "batch only; ADT-derived annotations and pseudotime excluded"
+}

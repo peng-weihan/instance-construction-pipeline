@@ -1,0 +1,40 @@
+{
+  "task_id": "restler_resource_lifecycle",
+  "category": "Systems & Software Engineering",
+  "title": "恢复 RESTler 异步资源与 create-once 生命周期",
+  "status": "constructed_unverified",
+  "original_anchor": "schemathesis_datagen_pipeline",
+  "sources": [
+    {
+      "repository": "https://github.com/microsoft/restler-fuzzer.git",
+      "commit": "6d984deedbc54aad957fa3da0c7e9e5df23a2aee",
+      "files": [
+        {
+          "path": "restler/engine/core/async_request_utilities.py",
+          "sha256": "873c20af483cd075930b71a856be0f1a6e4a24c011ac9ec0476056eb41f8577b"
+        },
+        {
+          "path": "restler/engine/core/preprocessing.py",
+          "sha256": "54a8760eca0a33005066dc918179fe0599176694a0d4e35bcbb1a65cead84a2e"
+        },
+        {
+          "path": "restler/engine/dependencies.py",
+          "sha256": "230b60a1467a7e83858f08ce9ae26b696715169f8f7f92f460c22c624fa9118a"
+        }
+      ],
+      "acquired": true,
+      "runtime_verified": false
+    }
+  ],
+  "construction_method": "DeepSWE ablation: coherent lifecycle slice, AST body removal, private inverse patch",
+  "authoring": {
+    "mode": "interactive_agent_source_inspection_and_scripted_transformation",
+    "independent_cli_model_called": false
+  },
+  "similarity_claim": "mechanism-level design hypothesis, not empirically same-distribution",
+  "known_gap": "RESTler stateful fuzzing differs from the original Schemathesis project; difficulty and test coverage unmeasured.",
+  "runtime_validation": "deferred_by_user",
+  "difficulty_calibrated": false,
+  "accepted": false,
+  "redistribution_review": "See SOURCE_TO_TASK.md; repository license does not automatically license all third-party data."
+}

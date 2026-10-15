@@ -1,0 +1,27 @@
+{
+  "retrieved_date": "2026-10-14",
+  "host": "173.231.10.234",
+  "scope": "main SKILL.md only; referenced files not yet retrieved",
+  "files": [
+    {
+      "local": "authoring/SKILL.md",
+      "source": "/ws/users/wcgu/skills/edgebench-task-authoring/SKILL.md",
+      "sha256": "87f28b6fad2fbebda944e47c6493097cc074f698b5f9308b1b4245e3781b7307"
+    },
+    {
+      "local": "task-qc/SKILL.md",
+      "source": "/ws/users/wcgu/task-qc/SKILL.md",
+      "sha256": "137560535b009d4e27ec4a89ab3f667735dd7f56ef70abede6c8d18f1478ceee"
+    },
+    {
+      "local": "evaluate-6h/SKILL.md",
+      "source": "/ws/users/wcgu/edgebench/dev/skills/edgebench-evaluate-6h/SKILL.md",
+      "sha256": "16ab2e00d58b03ff1d6af640d7d20c9049f722e0a0df6d8075a5fc260183c3da"
+    },
+    {
+      "local": "delivery-qc/SKILL.md",
+      "source": "/ws/users/wcgu/delivery-qc/skill/SKILL.md",
+      "sha256": "cfa7c3a189318451be49b3f568f8c6ab4e8a139e020ec80e4efc33dd14e6aa60"
+    }
+  ]
+}

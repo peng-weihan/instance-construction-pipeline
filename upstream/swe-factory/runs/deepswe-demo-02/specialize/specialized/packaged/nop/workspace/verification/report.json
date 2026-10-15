@@ -1,0 +1,35 @@
+{
+  "healthy": true,
+  "errors": [],
+  "tests": {
+    "tests/test_specialized.py::test_one_layer": "failed",
+    "tests/test_specialized.py::test_three_layers": "failed",
+    "tests/test_specialized.py::test_empty_layer": "failed",
+    "tests/test_regression.py::test_plain": "passed",
+    "tests/test_target.py::test_parent": "passed",
+    "tests/test_target.py::test_child": "passed",
+    "tests/test_target.py::test_override": "passed",
+    "tests/test_target.py::test_unicode": "passed"
+  },
+  "reward": 0.0,
+  "executions": {
+    "apply_tests": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "timed_out": false
+    },
+    "target": {
+      "returncode": 1,
+      "stdout": "FFF                                                                      [100%]\n=================================== FAILURES ===================================\n________________________________ test_one_layer ________________________________\n\n    def test_one_layer():\n>       assert merge_many({\"a\": 1}) == {\"a\": 1}\nE       AssertionError: assert {} == {'a': 1}\nE         \nE         Right contains 1 more item:\nE         {'a': 1}\nE         Use -v to get more diff\n\ntests/test_specialized.py:3: AssertionError\n______________________________ test_three_layers _______________________________\n\n    def test_three_layers():\n>       assert merge_many({\"a\": 1}, {\"b\": 2}, {\"a\": 3}) == {\"a\": 3, \"b\": 2}\nE       AssertionError: assert {} == {'a': 3, 'b': 2}\nE         \nE         Right contains 2 more items:\nE         {'a': 3, 'b': 2}\nE         Use -v to get more diff\n\ntests/test_specialized.py:5: AssertionError\n_______________________________ test_empty_layer _______________________________\n\n    def test_empty_layer():\n>       assert merge_many({}, {\"b\": 2}, {}) == {\"b\": 2}\nE       AssertionError: assert {} == {'b': 2}\nE         \nE         Right contains 1 more item:\nE         {'b': 2}\nE         Use -v to get more diff\n\ntests/test_specialized.py:7: AssertionError\n- generated xml file: /Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/specialize/specialized/packaged/nop/workspace/verification/workspace/.factory-target.xml -\n=========================== short test summary info ============================\nFAILED tests/test_specialized.py::test_one_layer - AssertionError: assert {} ...\nFAILED tests/test_specialized.py::test_three_layers - AssertionError: assert ...\nFAILED tests/test_specialized.py::test_empty_layer - AssertionError: assert {...\n3 failed in 0.02s\n",
+      "stderr": "",
+      "timed_out": false
+    },
+    "regression": {
+      "returncode": 0,
+      "stdout": ".....                                                                    [100%]\n- generated xml file: /Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/specialize/specialized/packaged/nop/workspace/verification/workspace/.factory-regression.xml -\n5 passed in 0.01s\n",
+      "stderr": "",
+      "timed_out": false
+    }
+  }
+}

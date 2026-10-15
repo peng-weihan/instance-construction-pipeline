@@ -1,0 +1,27 @@
+{
+  "aggregation": "sum(weight[group]*pass_fraction[group])",
+  "groups": {
+    "policy": 0.1,
+    "retry": 0.15,
+    "idempotency": 0.15,
+    "async": 0.15,
+    "leases": 0.2,
+    "trace": 0.1,
+    "replay": 0.15
+  },
+  "feedback_deadline_target_seconds": 300,
+  "fixed_checks_pending": false,
+  "constants": {
+    "group_weights": {
+      "policy": 0.1,
+      "retry": 0.15,
+      "idempotency": 0.15,
+      "async": 0.15,
+      "leases": 0.2,
+      "trace": 0.1,
+      "replay": 0.15
+    },
+    "rpc_limit": 200,
+    "reply_timeout_seconds": 5
+  }
+}

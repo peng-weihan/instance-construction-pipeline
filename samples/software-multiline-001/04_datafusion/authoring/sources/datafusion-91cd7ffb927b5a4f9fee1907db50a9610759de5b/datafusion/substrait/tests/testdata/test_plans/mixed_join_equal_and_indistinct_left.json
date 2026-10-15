@@ -1,0 +1,370 @@
+{
+  "extensions": [
+    { "extensionFunction": { "functionAnchor": 0, "name": "is_not_distinct_from" } },
+    { "extensionFunction": { "functionAnchor": 1, "name": "equal" } },
+    { "extensionFunction": { "functionAnchor": 2, "name": "and" } }
+  ],
+  "relations": [{
+    "root": {
+      "input": {
+        "join": {
+          "common": { "direct": {} },
+          "left": {
+            "read": {
+              "common": { "direct": {} },
+              "baseSchema": {
+                "names": ["id", "val", "comment"],
+                "struct": {
+                  "types": [
+                    { "string": { "nullability": "NULLABILITY_REQUIRED" } },
+                    { "string": { "nullability": "NULLABILITY_NULLABLE" } },
+                    { "string": { "nullability": "NULLABILITY_REQUIRED" } }
+                  ],
+                  "nullability": "NULLABILITY_REQUIRED"
+                }
+              },
+              "virtualTable": {
+                "expressions": [
+                  {
+                    "fields": [
+                      {
+                        "literal": {
+                          "string": "1",
+                          "nullable": false
+                        }
+                      },
+                      {
+                        "literal": {
+                          "string": "a",
+                          "nullable": true
+                        }
+                      },
+                      {
+                        "literal": {
+                          "string": "c1",
+                          "nullable": false
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "literal": {
+                          "string": "2",
+                          "nullable": false
+                        }
+                      },
+                      {
+                        "literal": {
+                          "string": "b",
+                          "nullable": true
+                        }
+                      },
+                      {
+                        "literal": {
+                          "string": "c2",
+                          "nullable": false
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "literal": {
+                          "string": "3",
+                          "nullable": false
+                        }
+                      },
+                      {
+                        "literal": {
+                          "null": {
+                            "string": {
+                              "nullability": "NULLABILITY_NULLABLE"
+                            }
+                          },
+                          "nullable": true
+                        }
+                      },
+                      {
+                        "literal": {
+                          "string": "c3",
+                          "nullable": false
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "literal": {
+                          "string": "4",
+                          "nullable": false
+                        }
+                      },
+                      {
+                        "literal": {
+                          "null": {
+                            "string": {
+                              "nullability": "NULLABILITY_NULLABLE"
+                            }
+                          },
+                          "nullable": true
+                        }
+                      },
+                      {
+                        "literal": {
+                          "string": "c4",
+                          "nullable": false
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "literal": {
+                          "string": "5",
+                          "nullable": false
+                        }
+                      },
+                      {
+                        "literal": {
+                          "string": "e",
+                          "nullable": true
+                        }
+                      },
+                      {
+                        "literal": {
+                          "string": "c5",
+                          "nullable": false
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "literal": {
+                          "string": "6",
+                          "nullable": false
+                        }
+                      },
+                      {
+                        "literal": {
+                          "string": "f",
+                          "nullable": true
+                        }
+                      },
+                      {
+                        "literal": {
+                          "string": "c6",
+                          "nullable": false
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "right": {
+            "read": {
+              "common": { "direct": {} },
+              "baseSchema": {
+                "names": ["id", "val", "comment"],
+                "struct": {
+                  "types": [
+                    { "string": { "nullability": "NULLABILITY_REQUIRED" } },
+                    { "string": { "nullability": "NULLABILITY_NULLABLE" } },
+                    { "string": { "nullability": "NULLABILITY_REQUIRED" } }
+                  ],
+                  "nullability": "NULLABILITY_REQUIRED"
+                }
+              },
+              "virtualTable": {
+                "expressions": [
+                  {
+                    "fields": [
+                      {
+                        "literal": {
+                          "string": "1",
+                          "nullable": false
+                        }
+                      },
+                      {
+                        "literal": {
+                          "string": "a",
+                          "nullable": true
+                        }
+                      },
+                      {
+                        "literal": {
+                          "string": "c1",
+                          "nullable": false
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "literal": {
+                          "string": "2",
+                          "nullable": false
+                        }
+                      },
+                      {
+                        "literal": {
+                          "string": "b",
+                          "nullable": true
+                        }
+                      },
+                      {
+                        "literal": {
+                          "string": "c2",
+                          "nullable": false
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "literal": {
+                          "string": "3",
+                          "nullable": false
+                        }
+                      },
+                      {
+                        "literal": {
+                          "null": {
+                            "string": {
+                              "nullability": "NULLABILITY_NULLABLE"
+                            }
+                          },
+                          "nullable": true
+                        }
+                      },
+                      {
+                        "literal": {
+                          "string": "c3",
+                          "nullable": false
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "literal": {
+                          "string": "4",
+                          "nullable": false
+                        }
+                      },
+                      {
+                        "literal": {
+                          "null": {
+                            "string": {
+                              "nullability": "NULLABILITY_NULLABLE"
+                            }
+                          },
+                          "nullable": true
+                        }
+                      },
+                      {
+                        "literal": {
+                          "string": "c4",
+                          "nullable": false
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "literal": {
+                          "string": "5",
+                          "nullable": false
+                        }
+                      },
+                      {
+                        "literal": {
+                          "string": "e",
+                          "nullable": true
+                        }
+                      },
+                      {
+                        "literal": {
+                          "string": "c5",
+                          "nullable": false
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "literal": {
+                          "string": "6",
+                          "nullable": false
+                        }
+                      },
+                      {
+                        "literal": {
+                          "string": "f",
+                          "nullable": true
+                        }
+                      },
+                      {
+                        "literal": {
+                          "string": "c6",
+                          "nullable": false
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "expression": {
+            "scalarFunction": {
+              "functionReference": 2,
+              "outputType": { "bool": { "nullability": "NULLABILITY_NULLABLE" } },
+              "arguments": [
+                {
+                  "value": {
+                    "scalarFunction": {
+                      "functionReference": 0,
+                      "outputType": { "bool": { "nullability": "NULLABILITY_NULLABLE" } },
+                      "arguments": [
+                        { "value": { "selection": { "directReference": { "structField": { "field": 1 } }, "rootReference": {} } } },
+                        { "value": { "selection": { "directReference": { "structField": { "field": 4 } }, "rootReference": {} } } }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "value": {
+                    "scalarFunction": {
+                      "functionReference": 1,
+                      "outputType": { "bool": { "nullability": "NULLABILITY_NULLABLE" } },
+                      "arguments": [
+                        { "value": { "selection": { "directReference": { "structField": { "field": 0 } }, "rootReference": {} } } },
+                        { "value": { "selection": { "directReference": { "structField": { "field": 3 } }, "rootReference": {} } } }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "type": "JOIN_TYPE_LEFT"
+        }
+      },
+      "names": ["id", "val", "comment", "id0", "val0", "comment0"]
+    }
+  }]
+}

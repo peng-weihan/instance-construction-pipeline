@@ -1,0 +1,14 @@
+{
+  "base_revision": "0a283fe21eeaa23046faf622d4ff4b2c826d2edb",
+  "reference_commit": "1e114ab2d00e83f07faef3398f5a1e2e51465b95",
+  "tree": "59cb9a82d13483b96d80ca63e3d488ec821d8159",
+  "branch": "author/streaming-reference",
+  "changed_files": [
+    "openapi_python_client/parser/openapi.py",
+    "openapi_python_client/parser/responses.py",
+    "openapi_python_client/templates/endpoint_macros.py.jinja",
+    "openapi_python_client/templates/endpoint_module.py.jinja",
+    "openapi_python_client/templates/streaming_endpoint.py.jinja"
+  ],
+  "baseline_HEAD_unchanged": true
+}

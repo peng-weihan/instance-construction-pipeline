@@ -1,0 +1,34 @@
+{
+  "schema": "local-candidate-v2-not-official-Harbor",
+  "agent_budget_seconds": 21600,
+  "submission": "explicit files listed in instruction.md",
+  "runtime_network": {
+    "agent": "none",
+    "verifier": "none"
+  },
+  "separate_environments": true,
+  "stateless_verifier": true,
+  "score_depends_only_on_snapshot": true,
+  "official_run_result": "maximum valid score over submissions on the SAME frozen feedback suite",
+  "audit_holdout": "for transfer/generalization audit only, not a replacement for best-of-run selection",
+  "score_output": {
+    "score": "bounded [0,1]",
+    "valid": "boolean",
+    "checks": "named pass/fail + diagnostic",
+    "raw_metrics": "object"
+  },
+  "budget_note": "Feedback deadlines are construction targets; no timing measurements exist.",
+  "calibration": {
+    "baseline": null,
+    "oracle": null,
+    "model_runs": 0,
+    "difficulty_calibrated": false
+  },
+  "pending_delivery": [
+    "official Harbor schema",
+    "two Docker build contexts",
+    "offline dependency closure",
+    "implemented and audited verifier",
+    "runtime evidence"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "formula": "valid*(0.25*functional_fraction+0.60*clip((U-U_ref)/0.10,0,1)+0.15/(1+scaled_pinball))",
+  "U": "252*mean(log(net_daily_growth))-0.5*sqrt(252)*std(daily_return)-max_drawdown",
+  "scaled_pinball": "mean((0.05-I[r<q])*(r-q))/0.01",
+  "constants": {
+    "functional_weight": 0.25,
+    "utility_weight": 0.6,
+    "calibration_weight": 0.15,
+    "utility_scale": 0.1,
+    "pinball_scale": 0.01,
+    "quantile": 0.05
+  },
+  "reference": "frozen feasible static allocation with same accounting, not yet executed",
+  "feedback_deadline_target_seconds": 300,
+  "normalization_status": "proposed; empirical endpoints pending"
+}

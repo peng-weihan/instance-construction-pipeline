@@ -1,0 +1,6 @@
+{
+  "script": "scripts/build_long_horizon_candidates.py",
+  "sha256": "d97d648015e37534a71df0872f1ee43ec1b7db438bea1c4835c9dca026ac2b14",
+  "model_runs": 0,
+  "runtime_validation_runs": 0
+}

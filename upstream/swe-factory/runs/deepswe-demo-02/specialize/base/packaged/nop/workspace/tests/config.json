@@ -1,0 +1,35 @@
+{
+  "target_command": [
+    "{python}",
+    "-m",
+    "pytest",
+    "tests/test_target.py",
+    "tests/test_boundary.py",
+    "-q"
+  ],
+  "regression_command": [
+    "{python}",
+    "-m",
+    "pytest",
+    "tests/test_regression.py",
+    "-q"
+  ],
+  "build_command": [],
+  "test_paths": [
+    "tests"
+  ],
+  "production_paths": [
+    "calc.py"
+  ],
+  "timeout": 300,
+  "fail_to_pass": [
+    "tests/test_boundary.py::test_none_value",
+    "tests/test_target.py::test_child",
+    "tests/test_target.py::test_override",
+    "tests/test_target.py::test_parent",
+    "tests/test_target.py::test_unicode"
+  ],
+  "pass_to_pass": [
+    "tests/test_regression.py::test_plain"
+  ]
+}

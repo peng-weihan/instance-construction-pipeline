@@ -1,0 +1,21 @@
+# 69_helix · 多选择区编辑事务与分支历史恢复
+
+- 路线/优先级：M4 / `build_scope_probe`；只作素材判断。
+- 固定版本：[ba40e547426b0f9896c8bdc699a4ab11f2b37dbc](https://github.com/helix-editor/helix/tree/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc)；完整树/片段哈希见 `sources/69_helix/manifest.json`。
+- 已有功能：Helix core 已含 Rope 文档、ChangeSet/Transaction、selection 映射、逆操作与分支 undo history；不假设未实现的 ChangeSet::map 是健康功能。
+- 拟题边界：拟保留 Rope/编辑动作壳，关联挖除 compose/invert/apply、selection position 映射与 History 分支路径合成/undo-redo，恢复 Unicode 多光标编辑到历史跳转的完整内核；不含 UI/LSP/语法解析。
+- 拟缺口：尚无缺损副本、健康参考未运行；必须确认缺口连贯且未把上游 TODO/未承诺功能混入合同。
+- 关联链：多选择区操作→retain/delete/insert ChangeSet→Rope 应用→anchor/head affinity 映射/normalize→事务合成/反演→history parent/child→undo/redo/分支 changes_since。
+- 代码/真实测试实读：[helix-core/src/transaction.rs:163](https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/helix-core/src/transaction.rs#L163) compose 连接 docA→docB 和 docB→docC 的操作流。；[helix-core/src/transaction.rs:312](https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/helix-core/src/transaction.rs#L312) invert/apply 以 Rope 字符计数恢复删除文字并更新文档。；[helix-core/src/selection.rs:479](https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/helix-core/src/selection.rs#L479) selection 映射后 normalize，并对 anchor/head 使用方向相关 affinity。；[helix-core/src/history.rs:85](https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/helix-core/src/history.rs#L85) 提交保存 transaction inversion 和原 selection，维护 parent/last_child。；[helix-core/src/history.rs:393](https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/helix-core/src/history.rs#L393) 真实 Unicode 编辑测试验证连续 undo/redo 与根节点 no-op。
+- 组合场景 1：中文/emoji+反向与重叠 selection+多处插删后 compose，检查最终文本、坐标和选区规范化。
+- 组合场景 2：编辑→undo→新分支编辑→redo/earlier/later，检查历史节点路径与文档/selection 恢复。
+- 组合场景 3：多个事务合成/逆操作+空修改/边界粘性+跨分支 changes_since，比较直接应用与复合结果。
+- 基础完成后剩余路径假设 1：单次编辑恢复后仍需操作 compose/invert 与字符坐标/selection affinity 一致。
+- 基础完成后剩余路径假设 2：线性 undo 恢复后仍需分支历史/LCA 路径合成、光标还原和 Unicode/空事务边界。
+- 参考/判据：健康固定 core API 轨迹差分 + 复合/逆操作/撤销后恢复等代数不变量；规范化后比较选区，时间导航用受控 timestamp；健康参考未运行。
+- 正常强基线：Ropey/标准 diff/完整文档快照式 history 是合法强基线；可能满足语义但对 ChangeSet 与 selection 合同的适配需检验，不以任意存储限制卡基线。
+- 首个否证：先用固定健康 core 跑自拟序列；再对 snapshot/diff 基线做 API 映射，若很薄即可覆盖或缺口只剩一个算法，缩退/hold；排除 ChangeSet::map TODO。
+- 离线/架构成本：Rust workspace/ropey/tendril 依赖预装；纯 core 无 GUI/LSP/grammar 下载。时间戳/Unicode 字符与 grapheme 坐标边界须冻结。
+- 许可观察：根 LICENSE 为 MPL-2.0 实际文本；修改文件级义务及 workspace 第三方许可须按实际 starter 核对。
+- 官方资料已核对：[官方 undo/redo/历史与多 selection 用户能力](https://docs.helix-editor.com/keymap.html)；[官方 history/selection 命令定位](https://docs.helix-editor.com/commands.html)
+- 状态：source_reviewed_healthy_reference_unrun；未构题、未 build/运行、未验证六小时难度；仅对照原 EdgeBench 的机制，不复用原题/测试/答案。

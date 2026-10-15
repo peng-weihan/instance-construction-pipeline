@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/judge/verifier/entry.py", line 14, in main
+    report=grade(clean,a.suite)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/judge/verifier/grader.py", line 40, in grade
+    message=worker.exchange(payload,timeout=c['reply_timeout_seconds'])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/judge/verifier/runtime.py", line 116, in exchange
+    if 'bwrap:' in e:raise InfrastructureError(e)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+runtime.InfrastructureError: bwrap: setting up uid map: Operation not permitted
+
+{"status": "verifier_error", "error": "InfrastructureError", "summary": "bwrap: setting up uid map: Operation not permitted\n"}

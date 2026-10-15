@@ -1,0 +1,233 @@
+[
+  {
+    "id": "28_alembic",
+    "repo": "sqlalchemy/alembic",
+    "revision": "1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd",
+    "route": "M1_existing_project_roadmap",
+    "title": "显式重命名意图驱动的数据库重构迁移版本",
+    "priority": "build_scope_probe",
+    "scope": "以 SQLite 与固定 PostgreSQL 两种交付后端为候选：用户提交目标 metadata 和明确的旧名→新名意图，生成保留数据且可逆的重构版本；冲突/过期意图应在生成前报结构化诊断。允许使用原生 rewriter/DDL，不能仅以存在 rename API 判定完成。",
+    "existing_capability": "已有数据库反射、metadata 差分、操作树、upgrade/downgrade 与 Python 渲染；表/列重命名操作本身存在。官方明确自动差分会把重命名识别为 add/drop，需人工修订。",
+    "proposed_gap": "拟增加声明式 rename intent 的验证、反射对象身份映射、依赖顺序、可审查迁移渲染及回退；缺口限于这套整体自动化流程，尚未复现运行。",
+    "evidence": [
+      {
+        "path": "docs/build/autogenerate.rst",
+        "line": 162,
+        "claim": "自动生成不推断表/列重命名，不能把 rename 操作本身冒称新增",
+        "url": "https://github.com/sqlalchemy/alembic/blob/1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd/docs/build/autogenerate.rst#L162"
+      },
+      {
+        "path": "alembic/autogenerate/compare/tables.py",
+        "line": 83,
+        "claim": "反射与目标表名集合比较，新增/删除/共有表走不同路径",
+        "url": "https://github.com/sqlalchemy/alembic/blob/1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd/alembic/autogenerate/compare/tables.py#L83"
+      },
+      {
+        "path": "alembic/autogenerate/api.py",
+        "line": 171,
+        "claim": "差分进入 MigrationScript 操作树",
+        "url": "https://github.com/sqlalchemy/alembic/blob/1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd/alembic/autogenerate/api.py#L171"
+      },
+      {
+        "path": "alembic/operations/ops.py",
+        "line": 1444,
+        "claim": "原生 RenameTableOp 已存在，是必须纳入的强基线",
+        "url": "https://github.com/sqlalchemy/alembic/blob/1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd/alembic/operations/ops.py#L1444"
+      },
+      {
+        "path": "alembic/autogenerate/render.py",
+        "line": 555,
+        "claim": "AlterColumnOp 渲染已支持新列名与类型等修改",
+        "url": "https://github.com/sqlalchemy/alembic/blob/1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd/alembic/autogenerate/render.py#L555"
+      },
+      {
+        "path": "tests/test_autogen_diffs.py",
+        "line": 1837,
+        "claim": "原生回归验证操作反转及 schema 对象结构",
+        "url": "https://github.com/sqlalchemy/alembic/blob/1bc21b86dd6ddd07ac696e2d73b6cb200dd97bbd/tests/test_autogen_diffs.py#L1837"
+      }
+    ],
+    "cheap_baseline": "原生 op.rename_table / alter_column(new_column_name=...) + process_revision_directives/Rewriter；允许直接复用，人工迁移脚本作为语义参考。插件生态是否已经完整满足需后续专门核对。",
+    "first_probe": "先用最短 Rewriter 把单表单列 rename 的 add/drop 改写；若三个综合场景也仅需薄配置且无通用剩余语义，则降级为短题/hold。尚未执行。",
+    "remaining_work_hypotheses": [
+      "单次 rename 成功后，联合外键/索引/约束和同次类型变更的反射身份、执行顺序与 downgrade 数据保持仍需验证。",
+      "简单名称映射成功后，交换名称、跨 schema 同名对象、过期/歧义意图的校验及可重复生成仍可能缺失；先用产品规格决定是否纳入。"
+    ],
+    "license_observation": "根 LICENSE 与 pyproject.toml 显示 MIT；保留版权及许可；SQLAlchemy、数据库驱动与镜像另行清点，未做全依赖许可审计。",
+    "status": "source_audited_scope_hypothesis",
+    "flags": {
+      "task_constructed": false,
+      "runtime_verified": false,
+      "difficulty_verified": false
+    },
+    "end_to_end_scenarios": [
+      "客户表与其字段共同重命名，外键引用和索引同步处理；升级后业务查询读到原记录，降级恢复原 schema 与记录。",
+      "同次重构包含 rename、nullable/default/type 变更；生成脚本在两个固定后端实际执行，再次 autogenerate 无虚假差分。",
+      "两个 schema 有同名表且一份意图已过期；预检指出准确对象并不生成危险 add/drop，修正后稳定输出可审查版本。"
+    ],
+    "independent_evaluation_and_native_regression": "独立 SQLite/PostgreSQL Inspector 和数据查询检查最终 schema、外键与行值；生成脚本实际 upgrade→downgrade→upgrade；复用 test_autogen_diffs/test_autogen_render/batch 回归，不能仅比生成文本。",
+    "dependency_risks": "Python>=3.10、SQLAlchemy>=2.0；SQLite 可离线，PostgreSQL 服务/驱动需预装并提供独立 DB，不能用 mock 声称 DDL 运行兼容；不同 CPU 镜像/驱动 wheel 待验证。"
+  },
+  {
+    "id": "29_sphinx",
+    "repo": "sphinx-doc/sphinx",
+    "revision": "b04a2101295ac3fb725b16111eda0284b6da4cca",
+    "route": "M1_existing_project_roadmap",
+    "title": "基于内容指纹的可解释文档增量构建模式",
+    "priority": "hold",
+    "scope": "交付一套可在文档 CI 使用的构建模式：保留增量收益，对 source/include/autodoc 显式依赖输出可解释的重读/重写原因，串并行与移动工作目录后的语义输出一致。单纯输出依赖 JSON 不足以形成长程题。",
+    "existing_capability": "已有增量读写、依赖记录、mtime 失效、缺失依赖重读、配置失效、并行环境合并和扩展事件。并非从零实现增量编译。",
+    "proposed_gap": "拟增加可选内容指纹缓存和稳定依赖/失效原因清单，覆盖时间戳保留的输入修改及源目录迁移；尚未验证插件能否已低成本满足全部交付，故 hold。",
+    "evidence": [
+      {
+        "path": "sphinx/environment/__init__.py",
+        "line": 521,
+        "claim": "已有 added/changed/removed 判定",
+        "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/sphinx/environment/__init__.py#L521"
+      },
+      {
+        "path": "sphinx/environment/__init__.py",
+        "line": 849,
+        "claim": "已有 _has_doc_changed 以 source/dependency mtime 与缺失状态判定",
+        "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/sphinx/environment/__init__.py#L849"
+      },
+      {
+        "path": "sphinx/environment/collectors/dependencies.py",
+        "line": 24,
+        "claim": "依赖需随文档 purge，并合并并行 worker 状态",
+        "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/sphinx/environment/collectors/dependencies.py#L24"
+      },
+      {
+        "path": "sphinx/builders/__init__.py",
+        "line": 389,
+        "claim": "read→dependent update→环境持久化→write 是真实构建链",
+        "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/sphinx/builders/__init__.py#L389"
+      },
+      {
+        "path": "sphinx/builders/__init__.py",
+        "line": 705,
+        "claim": "重读与重写不同，ToC 依赖还会扩大输出集合",
+        "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/sphinx/builders/__init__.py#L705"
+      },
+      {
+        "path": "tests/test_builders/test_incremental_reading.py",
+        "line": 20,
+        "claim": "原生测试已有源文件增删改与缺失资源重读",
+        "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/tests/test_builders/test_incremental_reading.py#L20"
+      },
+      {
+        "path": "tests/test_environment/test_environment_record_dependencies.py",
+        "line": 14,
+        "claim": "原生测试验证 autodoc Python 模块依赖",
+        "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/tests/test_environment/test_environment_record_dependencies.py#L14"
+      },
+      {
+        "path": "doc/extdev/event_callbacks.rst",
+        "line": 32,
+        "claim": "env-get-outdated/purge/merge 等事件已提供扩展入口",
+        "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/doc/extdev/event_callbacks.rst#L32"
+      }
+    ],
+    "cheap_baseline": "官方 env-get-outdated + note_dependency + purge/merge 事件组成扩展，内容 hash 用标准库；与强制 -E/-a 全量构建语义 oracle 对比。全量构建若不满足事先约定的无关文档不重读要求，才构成有效区别。",
+    "first_probe": "先用标准扩展实现保留 mtime 的 include 修改、串并行持久化、清单输出；若不改核心即完整满足，且无第二层产品交付，则停止升格 long-horizon。尚未执行。",
+    "remaining_work_hypotheses": [
+      "hash 单个 include 成功后，删除与重新出现、共享依赖、autodoc 的依赖清理/合并及缓存升级仍需一致。",
+      "串行构建正确后，源目录迁移、并行进程合并、配置/扩展版本变更及读写集合的稳定原因归属仍可能需要设计；都需先证明不能被简单插件覆盖。"
+    ],
+    "license_observation": "根 LICENSE.rst 与 pyproject.toml 显示代码默认 BSD-2-Clause，文件有 otherwise indicated 条款；主题、文档资产与依赖需再清点。",
+    "status": "source_audited_scope_hypothesis",
+    "flags": {
+      "task_constructed": false,
+      "runtime_verified": false,
+      "difficulty_verified": false
+    },
+    "end_to_end_scenarios": [
+      "CI 恢复保留旧 mtime 的共享 include，多个页面正确更新而无关文档不重读，原因清单关联同一输入。",
+      "autodoc 模块移除一个依赖后再删除旧文件；下一次构建不保留幽灵依赖，生成结果与 fresh build 一致。",
+      "同项目连续以 -j1/-jN 构建并迁移工作目录，逻辑输出与相对路径清单一致；配置变更触发相应失效。"
+    ],
+    "independent_evaluation_and_native_regression": "独立对生成 HTML 的链接/内容与全量 fresh build 比较；用 source-read 和写入事件观测实际集合而非信任自报清单；保留 test_incremental_reading、record_dependencies、HTML/ToC 回归。",
+    "dependency_risks": "Python>=3.12、docutils>=0.21,<0.23；首轮只用 HTML/dummy 且固定主题扩展，禁用外链/网络资产；LaTeX/Graphviz 不应无依据加入；并行在目标 Linux CPU 镜像另验。"
+  },
+  {
+    "id": "30_mitmproxy",
+    "repo": "mitmproxy/mitmproxy",
+    "revision": "77355977e5ea540b51ed029a40ed1dc2f1c2ba7b",
+    "route": "M1_existing_project_roadmap",
+    "title": "会话隔离与动态关联的离线 HTTP 工作流回放版本",
+    "priority": "build_scope_probe",
+    "scope": "面向团队复现登录→创建→查询→删除等 HTTP 业务链，交付场景格式/校验、客户端执行器与离线服务端匹配模式、取消/失败清理、兼容旧 replay 命令及导出报告。首版限 HTTP，WebSocket 只按原行为回归。",
+    "existing_capability": "已有服务端哈希匹配/响应队列、指定请求头和忽略参数匹配、响应日期刷新、客户端队列与串行/无限并发、flow metadata 及文件持久化。",
+    "proposed_gap": "拟增加声明式多步场景、每会话变量捕获/替换、依赖调度、会话隔离与可复现结果报告；未确认整个插件生态不存在同能力，也未运行复现。",
+    "evidence": [
+      {
+        "path": "mitmproxy/addons/serverplayback.py",
+        "line": 177,
+        "claim": "服务端匹配键来自请求字段及配置，不应把可配置匹配宣称缺失",
+        "url": "https://github.com/mitmproxy/mitmproxy/blob/77355977e5ea540b51ed029a40ed1dc2f1c2ba7b/mitmproxy/addons/serverplayback.py#L177"
+      },
+      {
+        "path": "mitmproxy/addons/serverplayback.py",
+        "line": 225,
+        "claim": "已有按哈希消费响应队列/复用",
+        "url": "https://github.com/mitmproxy/mitmproxy/blob/77355977e5ea540b51ed029a40ed1dc2f1c2ba7b/mitmproxy/addons/serverplayback.py#L225"
+      },
+      {
+        "path": "mitmproxy/addons/clientplayback.py",
+        "line": 174,
+        "claim": "现有执行器使用全局请求队列与串行或无限并发模式",
+        "url": "https://github.com/mitmproxy/mitmproxy/blob/77355977e5ea540b51ed029a40ed1dc2f1c2ba7b/mitmproxy/addons/clientplayback.py#L174"
+      },
+      {
+        "path": "mitmproxy/addons/clientplayback.py",
+        "line": 196,
+        "claim": "已有 live/intercepted/missing/WebSocket 回放约束",
+        "url": "https://github.com/mitmproxy/mitmproxy/blob/77355977e5ea540b51ed029a40ed1dc2f1c2ba7b/mitmproxy/addons/clientplayback.py#L196"
+      },
+      {
+        "path": "mitmproxy/flow.py",
+        "line": 143,
+        "claim": "flow metadata 已随状态序列化，可作为扩展基线",
+        "url": "https://github.com/mitmproxy/mitmproxy/blob/77355977e5ea540b51ed029a40ed1dc2f1c2ba7b/mitmproxy/flow.py#L143"
+      },
+      {
+        "path": "mitmproxy/io/io.py",
+        "line": 43,
+        "claim": "已有 HAR/原生 flow 读取，场景格式不能替代兼容回归",
+        "url": "https://github.com/mitmproxy/mitmproxy/blob/77355977e5ea540b51ed029a40ed1dc2f1c2ba7b/mitmproxy/io/io.py#L43"
+      },
+      {
+        "path": "test/mitmproxy/addons/test_clientplayback.py",
+        "line": 59,
+        "claim": "真实本地 HTTP/HTTPS/upstream 与两种并发的原生测试",
+        "url": "https://github.com/mitmproxy/mitmproxy/blob/77355977e5ea540b51ed029a40ed1dc2f1c2ba7b/test/mitmproxy/addons/test_clientplayback.py#L59"
+      },
+      {
+        "path": "test/mitmproxy/addons/test_serverplayback.py",
+        "line": 209,
+        "claim": "原生测试覆盖队列顺序与响应消费",
+        "url": "https://github.com/mitmproxy/mitmproxy/blob/77355977e5ea540b51ed029a40ed1dc2f1c2ba7b/test/mitmproxy/addons/test_serverplayback.py#L209"
+      }
+    ],
+    "cheap_baseline": "内置 client/server replay + use_headers/ignore_params + 官方 addon scripting 实现捕获与替换；允许现有 cookie/header 管理插件，先核实是否可直接满足整体契约，不能人为禁止正常组合。",
+    "first_probe": "先做极小 addon：从响应 JSON 捕获 ID 并替换后续 path/header，再执行两个交错会话；若原生队列+配置已保证隔离/取消/报告且只需薄 glue，则降级或换题。尚未执行。",
+    "remaining_work_hypotheses": [
+      "单会话 token/ID 替换成功后，多会话并发中变量作用域、顺序依赖、失败后的后继跳过及确定性消费仍可能未解决。",
+      "单次业务链成功后，取消在途请求、重复启动/重载场景、原始录制不可变、报告/流导出可复现及旧命令兼容仍需跨生命周期验证。"
+    ],
+    "license_observation": "根 LICENSE 显示 MIT，pyproject 分类亦为 MIT；保留版权许可；mitmproxy_rs、TLS/压缩等依赖与测试证书需单独清点。",
+    "status": "source_audited_scope_hypothesis",
+    "flags": {
+      "task_constructed": false,
+      "runtime_verified": false,
+      "difficulty_verified": false
+    },
+    "end_to_end_scenarios": [
+      "两位用户交错完成登录→创建→查询，响应产生的不同 ID/token 正确进入各自请求，会话间不串变量。",
+      "中间步骤返回失败或被取消，后继依赖请求不发出，其余会话继续；停止后无悬挂任务，报告区分失败、跳过与取消。",
+      "保存/重载场景后离线重放，匹配消费和报告可复现；录制 flow 保持原内容，旧 server/client replay 命令仍工作。"
+    ],
+    "independent_evaluation_and_native_regression": "独立 loopback HTTP 服务记录请求顺序、token/ID 归属和活跃连接；用可控 barrier 驱动交错/取消而非睡眠猜测；原生 test_clientplayback/test_serverplayback 与 flow IO 回归，报告不作为唯一 oracle。",
+    "dependency_risks": "Python>=3.12，含 mitmproxy_rs 与 cryptography 等原生依赖，必须预置目标架构 wheels/工具链；首轮 loopback HTTP 与测试 CA，避免公网、真实账号、根权限透明代理；TLS 与 ARM64/x86_64 安装待验证。"
+  }
+]

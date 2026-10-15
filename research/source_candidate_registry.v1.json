@@ -1,0 +1,544 @@
+{
+  "schema_version": "edgebench.source_candidates.v1",
+  "created_date": "2026-10-14",
+  "status": "research_proposal_and_discovered_sources_only",
+  "scope_note": "Source pages and local task metadata were inspected. These records are not downloaded, built, novelty-cleared, difficulty-calibrated or accepted task instances.",
+  "selection_policy": {
+    "unit": "candidate = pinned source unit + coherent proposed work package + original task anchor + validation contract",
+    "anchor_profile": [
+      "deliverable",
+      "interaction_mode",
+      "editable_scope",
+      "public_information",
+      "domain_subfield",
+      "constraint_and_metric_semantics",
+      "dependency_structure",
+      "runtime_and_feedback_budget"
+    ],
+    "acquisition_order": [
+      "official project or domain catalogue",
+      "documented source revision or dataset release",
+      "reproducible source artifact",
+      "task-specific asset and lineage inventory"
+    ],
+    "hard_gates": [
+      "full original task contract available",
+      "source and task-material reuse terms checked",
+      "same mechanism and matching semantic constraints",
+      "no prohibited original-task material overlap",
+      "environment reproducible",
+      "trusted reference/checker available"
+    ],
+    "ranking_note": "Use separate similarity, novelty, validity, cost and difficulty evidence. Do not replace hard gates with one embedding similarity score.",
+    "novelty_checks": [
+      "source lineage, fork and copy detection",
+      "normalized code/test/solution overlap",
+      "underlying graph/entity/geometry/source-record identity",
+      "normalized theorem goals and proof dependencies",
+      "map/story/puzzle-graph provenance"
+    ],
+    "permitted_shared_assets": "Infrastructure, standard libraries, engines and foundational mathematics may be shared; target task material and answers require independent provenance.",
+    "split_unit": "Group related tasks by source lineage, dataset entities, theorem/project clusters or scene families before train/development/evaluation splitting.",
+    "lanes": [
+      "near_family_unverified",
+      "case_expansion_only",
+      "adjacent_or_scale_shift",
+      "rejected_duplicate",
+      "construction_ready_after_gates",
+      "calibrated_training_candidate"
+    ],
+    "status_progression": [
+      "discovered",
+      "source_profiled",
+      "source_acquired_and_pinned",
+      "overlap_checked",
+      "environment_verified",
+      "constructed",
+      "independently_validated",
+      "difficulty_calibrated",
+      "accepted"
+    ],
+    "original_visibility_limit": "Only 51 public task definitions are locally indexed. Most full task assets remain inside unextracted images; 83 paper-index-only tasks cannot receive high-confidence matching from titles alone.",
+    "model_policy": "Proposed source-inspection, construction and blind-solve agents use gpt-6.1-sol in separate contexts. This registry launches no agents.",
+    "final_holdout_policy": "Construction and calibration use author QA and development evidence; frozen final evaluation contents and answers are never returned to the constructor.",
+    "validation_note": "Novelty against accessible benchmark assets is a bounded claim, not proof of absence from model pretraining."
+  },
+  "candidates": [
+    {
+      "candidate_id": "api_engine_restler",
+      "anchor_task_ids": [
+        "schemathesis_datagen_pipeline",
+        "schemathesis_config_modernization",
+        "schemathesis_reporting_observability"
+      ],
+      "category": "Systems & Software Engineering",
+      "source_name": "RESTler",
+      "source_url": "https://github.com/microsoft/restler-fuzzer",
+      "source_kind": "repository",
+      "status": "provisional_source",
+      "observed_capability": "OpenAPI-driven stateful REST API testing with request dependencies and replayable bug reports.",
+      "candidate_unit": "One coherent feature bundle spanning request generation, state propagation and reporting in a pinned revision.",
+      "similarity_to_preserve": [
+        "API-testing engineering",
+        "cross-module behavior",
+        "executable regression feedback",
+        "source-code submission"
+      ],
+      "novelty_required": [
+        "independent source lineage from Schemathesis",
+        "new feature dependency graph",
+        "new local API fixtures and target behavior"
+      ],
+      "factory_route": "deepswe_query_or_ablation",
+      "blocking_checks": [
+        "Inspect original full task instructions and graders, not only task metadata.",
+        "Build RESTler and local fixtures offline in an isolated environment.",
+        "Identify a feature bundle comparable in scope; language and toolchain changes need separate calibration.",
+        "Check copied code, test and patch lineage against original task assets."
+      ],
+      "source_metadata_checked": true,
+      "revision": null,
+      "artifact_sha256": null,
+      "downloaded": false,
+      "isolated_build_verified": false,
+      "license_and_training_terms_verified": false,
+      "benchmark_overlap_verified": false,
+      "difficulty_calibrated": false,
+      "accepted": false
+    },
+    {
+      "candidate_id": "vcs_mercurial",
+      "anchor_task_ids": [
+        "git_rewrite_in_zig"
+      ],
+      "category": "Systems & Software Engineering",
+      "source_name": "Mercurial",
+      "source_url": "https://mercurial-scm.org/contribute",
+      "source_kind": "repository",
+      "status": "provisional_source",
+      "observed_capability": "Distributed version control with a public development repository and command documentation.",
+      "candidate_unit": "A selected, interacting set of local version-control commands and persistent repository behavior.",
+      "similarity_to_preserve": [
+        "stateful CLI compatibility",
+        "history and working-tree semantics",
+        "output, exit-code and filesystem differential tests",
+        "comparable implementation language constraints"
+      ],
+      "novelty_required": [
+        "different reference application and storage semantics",
+        "new histories and operation sequences"
+      ],
+      "factory_route": "programbench_behavior_reconstruction",
+      "blocking_checks": [
+        "Select scope against original Git task rather than attempting an unbounded full rewrite.",
+        "Pin source revision and build a reference executable.",
+        "Verify local-only commands and deterministic comparison.",
+        "Audit source, behavior fixtures and answers for overlap."
+      ],
+      "source_metadata_checked": true,
+      "revision": null,
+      "artifact_sha256": null,
+      "downloaded": false,
+      "isolated_build_verified": false,
+      "license_and_training_terms_verified": false,
+      "benchmark_overlap_verified": false,
+      "difficulty_calibrated": false,
+      "accepted": false
+    },
+    {
+      "candidate_id": "pixel_libyuv",
+      "anchor_task_ids": [
+        "ffmpeg_swscale_reimplementation"
+      ],
+      "category": "Systems & Software Engineering",
+      "source_name": "libyuv",
+      "source_url": "https://chromium.googlesource.com/libyuv/libyuv/",
+      "source_kind": "repository",
+      "status": "provisional_source",
+      "observed_capability": "YUV scaling, pixel-format conversion and architecture-specific optimized implementations.",
+      "candidate_unit": "A bounded conversion/scaling API surface with an independently built reference, a correct slow starter and a new workload distribution.",
+      "similarity_to_preserve": [
+        "pixel conversion and scaling",
+        "numeric and boundary correctness",
+        "CPU optimization",
+        "correctness-gated speed measurement"
+      ],
+      "novelty_required": [
+        "new target API and reference implementation",
+        "new required function combinations",
+        "new image contents and shape/stride cases"
+      ],
+      "factory_route": "programbench_reference_build_plus_performance",
+      "blocking_checks": [
+        "Check shared algorithms, copied kernels and fixture lineage; a different repository name is insufficient.",
+        "Freeze pixel rounding and border semantics.",
+        "Independently establish measurement stability and a useful performance gap.",
+        "Match source visibility, editable scope, hardware and time budgets to the anchor."
+      ],
+      "source_metadata_checked": true,
+      "revision": null,
+      "artifact_sha256": null,
+      "downloaded": false,
+      "isolated_build_verified": false,
+      "license_and_training_terms_verified": false,
+      "benchmark_overlap_verified": false,
+      "difficulty_calibrated": false,
+      "accepted": false
+    },
+    {
+      "candidate_id": "nesting_esicup",
+      "anchor_task_ids": [
+        "jagua_nesting_optimization"
+      ],
+      "category": "Combinatorial Optimization",
+      "source_name": "ESICUP datasets",
+      "source_url": "https://www.euro-online.org/websites/esicup/data-sets/",
+      "source_kind": "dataset_catalog",
+      "status": "catalog_entry",
+      "observed_capability": "Official cutting-and-packing dataset catalogue points to the ESICUP/datasets repository.",
+      "candidate_unit": "Previously unused 2D irregular strip-packing shape families plus a calibrated optimizer engineering task.",
+      "similarity_to_preserve": [
+        "2D irregular strip packing",
+        "polygon geometry constraints",
+        "optimizer source-code submission",
+        "validity-gated packing objective"
+      ],
+      "novelty_required": [
+        "new underlying shapes and source families",
+        "new engineering starting point or substantive optimization target"
+      ],
+      "factory_route": "optimization_geometry_source_mining",
+      "blocking_checks": [
+        "Extract original jagua-rs benchmark assets before excluding overlap.",
+        "Check dimensions, rotation, holes, clearance and objective compatibility.",
+        "Canonicalize polygons up to relevant rigid transformations and permutations.",
+        "Changing only hidden shapes in the same engineering setup is case expansion, not independent task diversity."
+      ],
+      "source_metadata_checked": true,
+      "revision": null,
+      "artifact_sha256": null,
+      "downloaded": false,
+      "isolated_build_verified": false,
+      "license_and_training_terms_verified": false,
+      "benchmark_overlap_verified": false,
+      "difficulty_calibrated": false,
+      "accepted": false
+    },
+    {
+      "candidate_id": "routing_homberger",
+      "anchor_task_ids": [
+        "vehicle_routing_time_windows"
+      ],
+      "category": "Combinatorial Optimization",
+      "source_name": "Gehring and Homberger VRPTW",
+      "source_url": "https://www.sintef.no/projectweb/top/vrptw/homberger-benchmark/",
+      "source_kind": "dataset_catalog",
+      "status": "scale_shift_reference_only",
+      "observed_capability": "Extended VRPTW benchmark; inspected 1000-customer documentation describes hierarchical vehicle-count/distance objectives and double-precision distances.",
+      "candidate_unit": "Generation-method and parameter-profile reference, not a directly admitted same-distribution replacement for Solomon-100.",
+      "similarity_to_preserve": [
+        "capacity and time windows",
+        "vehicle-count-first objective"
+      ],
+      "novelty_required": [
+        "no original Solomon point sets or route answers"
+      ],
+      "factory_route": "optimization_source_profile_research",
+      "blocking_checks": [
+        "Larger customer counts change scale and runtime profile.",
+        "Published distance conventions differ from the rounded metric in the current EdgeBench task.",
+        "Do not label raw larger cases as distribution-matched.",
+        "Any size reduction changes the data distribution and requires independent validation."
+      ],
+      "source_metadata_checked": true,
+      "revision": null,
+      "artifact_sha256": null,
+      "downloaded": false,
+      "isolated_build_verified": false,
+      "license_and_training_terms_verified": false,
+      "benchmark_overlap_verified": false,
+      "difficulty_calibrated": false,
+      "accepted": false
+    },
+    {
+      "candidate_id": "transport_modflow",
+      "anchor_task_ids": [
+        "borden_source_inversion"
+      ],
+      "category": "Scientific Problems & ML",
+      "source_name": "MODFLOW 6 transport examples",
+      "source_url": "https://modflow6-examples.readthedocs.io/en/latest/_examples/ex-gwt-moc3d-p02tg.html",
+      "source_kind": "simulator_example",
+      "status": "provisional_source",
+      "observed_capability": "A documented three-dimensional dissolved-constituent transport example with analytical-solution references.",
+      "candidate_unit": "A fresh finite-release transport scene, well layout and observation set using a validated forward model.",
+      "similarity_to_preserve": [
+        "3D groundwater transport inversion",
+        "finite-duration source estimation",
+        "sparse noisy observations",
+        "hidden-location and future-time prediction"
+      ],
+      "novelty_required": [
+        "new physical scene and latent parameters",
+        "new monitoring layout and observations",
+        "no copied original concentration field"
+      ],
+      "factory_route": "scientific_forward_model_then_inverse_task",
+      "blocking_checks": [
+        "The linked forward example is not itself an equivalent inverse task.",
+        "Confirm governing equations, boundary conditions, source parameterization and public information are compatible.",
+        "Validate numerical error and identifiability.",
+        "Check overlap with the original Borden reproduction and keep the hidden forward model author-side."
+      ],
+      "source_metadata_checked": true,
+      "revision": null,
+      "artifact_sha256": null,
+      "downloaded": false,
+      "isolated_build_verified": false,
+      "license_and_training_terms_verified": false,
+      "benchmark_overlap_verified": false,
+      "difficulty_calibrated": false,
+      "accepted": false
+    },
+    {
+      "candidate_id": "gravity_harmonica",
+      "anchor_task_ids": [
+        "dabic_gravity_inversion"
+      ],
+      "category": "Scientific Problems & ML",
+      "source_name": "Harmonica and Fatiando gravity modelling",
+      "source_url": "https://www.fatiando.org/harmonica/latest/user_guide/forward_modelling/index.html",
+      "source_kind": "numerical_library",
+      "status": "provisional_source",
+      "observed_capability": "Gravity forward-modelling tools; related Choclo documentation identifies collaboration with SimPEG.",
+      "candidate_unit": "New 3D density geometry and observation scenario supporting a comparable regularized inversion engineering task.",
+      "similarity_to_preserve": [
+        "gravity inversion",
+        "regularization and numerical implementation",
+        "synthetic/observational validation",
+        "code and reproducible results"
+      ],
+      "novelty_required": [
+        "new density model and measurement provenance",
+        "new research scenario, not a renamed Vinton example"
+      ],
+      "factory_route": "scientific_model_adaptation",
+      "blocking_checks": [
+        "A forward-model library alone is not a complete task source.",
+        "Shared numerical kernels mean two library names do not prove independent numerical verification.",
+        "Inspect the original D-ABIC requirements before choosing methods and deliverables.",
+        "Reconstruct an independently validated reference and computational budget."
+      ],
+      "source_metadata_checked": true,
+      "revision": null,
+      "artifact_sha256": null,
+      "downloaded": false,
+      "isolated_build_verified": false,
+      "license_and_training_terms_verified": false,
+      "benchmark_overlap_verified": false,
+      "difficulty_calibrated": false,
+      "accepted": false
+    },
+    {
+      "candidate_id": "graph_ogb",
+      "anchor_task_ids": [
+        "graph_node_classification"
+      ],
+      "category": "Scientific Problems & ML",
+      "source_name": "Open Graph Benchmark node datasets",
+      "source_url": "https://ogb.stanford.edu/docs/nodeprop/",
+      "source_kind": "dataset_catalog",
+      "status": "catalog_entry",
+      "observed_capability": "Node-prediction datasets with documented graphs, labels, splits and metrics.",
+      "candidate_unit": "A previously unused graph/domain with the same prediction setting and a budget-compatible training task.",
+      "similarity_to_preserve": [
+        "node classification",
+        "graph/feature learning",
+        "base-PyTorch and CPU constraints if required by the original",
+        "unseen evaluation"
+      ],
+      "novelty_required": [
+        "new underlying graph and entity provenance",
+        "non-overlapping source records rather than merely new node split indices"
+      ],
+      "factory_route": "ml_dataset_adapter",
+      "blocking_checks": [
+        "Identify the original hidden dataset first; OGB may already be its source.",
+        "Match homogeneous/heterogeneous graph assumptions, label type and transductive/inductive setting.",
+        "Large OGB graphs are not automatically compatible with the original CPU budget.",
+        "Record entity and connected-subgraph overlap; subgraph sampling is not an automatic novelty guarantee."
+      ],
+      "source_metadata_checked": true,
+      "revision": null,
+      "artifact_sha256": null,
+      "downloaded": false,
+      "isolated_build_verified": false,
+      "license_and_training_terms_verified": false,
+      "benchmark_overlap_verified": false,
+      "difficulty_calibrated": false,
+      "accepted": false
+    },
+    {
+      "candidate_id": "formal_lean_projects",
+      "anchor_task_ids": [
+        "lean_analysis_proofs",
+        "carleson_formalization",
+        "pfr_formalization",
+        "sphere_eversion_formalization"
+      ],
+      "category": "Formal Math & Theorem Proving",
+      "source_name": "Lean community project catalogue",
+      "source_url": "https://leanprover-community.github.io/lean_projects.html",
+      "source_kind": "project_catalog",
+      "status": "catalog_entry",
+      "observed_capability": "Lists established mathematical formalization projects and separate early-stage project intentions.",
+      "candidate_unit": "A completed, kernel-checked theorem dependency subgraph in the matching mathematical subfield.",
+      "similarity_to_preserve": [
+        "same mathematical subfield per anchor",
+        "comparable abstraction and dependency depth",
+        "frozen theorem signatures",
+        "proof-body completion and kernel feedback"
+      ],
+      "novelty_required": [
+        "new target theorems and proof dependency subgraph",
+        "no renamed or re-exported original theorem goals"
+      ],
+      "factory_route": "proof_dependency_ablation",
+      "blocking_checks": [
+        "Exclude original projects, duplicated targets and renamed/re-exported declarations.",
+        "Shared foundational mathlib dependencies are permitted but must not expose target results.",
+        "Project intentions and incomplete proofs are not reference solutions.",
+        "Check normalized propositions, imports, axioms and exact Lean/library versions."
+      ],
+      "source_metadata_checked": true,
+      "revision": null,
+      "artifact_sha256": null,
+      "downloaded": false,
+      "isolated_build_verified": false,
+      "license_and_training_terms_verified": false,
+      "benchmark_overlap_verified": false,
+      "difficulty_calibrated": false,
+      "accepted": false
+    },
+    {
+      "candidate_id": "finance_french_catalog",
+      "anchor_task_ids": [
+        "portfolio_risk_calibration",
+        "stock_momentum_backtest"
+      ],
+      "category": "Professional Knowledge Work",
+      "source_name": "Kenneth R. French Data Library",
+      "source_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html",
+      "source_kind": "dataset_catalog",
+      "status": "catalog_entry",
+      "observed_capability": "Published factor and portfolio-return datasets with documented construction and time frequencies.",
+      "candidate_unit": "A separately sourced research case with comparable instruments, information availability, objective and required deliverables.",
+      "similarity_to_preserve": [
+        "time-ordered financial analysis",
+        "portfolio or strategy evaluation only where the full anchor requires it",
+        "comparable reporting and code deliverables"
+      ],
+      "novelty_required": [
+        "new asset/entity and time provenance",
+        "new research question and material package, not renamed instruments"
+      ],
+      "factory_route": "professional_evidence_package",
+      "blocking_checks": [
+        "Obtain the original full task instructions; one anchor is currently paper-index-only locally.",
+        "Portfolio-return series cannot substitute for security-level prices or futures if those are required.",
+        "Check data reuse/training terms and underlying data lineage.",
+        "Use time/entity-aware splits and information-at-the-time constraints.",
+        "Do not infer near-distribution status from the shared finance category."
+      ],
+      "source_metadata_checked": true,
+      "revision": null,
+      "artifact_sha256": null,
+      "downloaded": false,
+      "isolated_build_verified": false,
+      "license_and_training_terms_verified": false,
+      "benchmark_overlap_verified": false,
+      "difficulty_calibrated": false,
+      "accepted": false
+    },
+    {
+      "candidate_id": "game_wesnoth_addons",
+      "anchor_task_ids": [
+        "wesnoth_tactical_ai"
+      ],
+      "category": "Interactive Games & Simulators",
+      "source_name": "Wesnoth 1.18 add-on catalogue",
+      "source_url": "https://addons.wesnoth.org/1.18/",
+      "source_kind": "scenario_catalog",
+      "status": "catalog_entry",
+      "observed_capability": "Downloadable version-specific add-ons of multiple types, including campaigns and multiplayer content.",
+      "candidate_unit": "New compatible multiplayer tactical scenarios with unchanged decision API and comparable victory conditions.",
+      "similarity_to_preserve": [
+        "Wesnoth tactical bot development",
+        "same engine/API generation",
+        "recruitment, terrain and combat decisions",
+        "multi-match evaluation"
+      ],
+      "novelty_required": [
+        "new authored map topology and scenario structure",
+        "no renamed, rotated or resampled original map"
+      ],
+      "factory_route": "game_scenario_adapter",
+      "blocking_checks": [
+        "Filter out content whose single-player quest rules change the original task mechanism.",
+        "Inspect per-add-on assets and reuse terms.",
+        "Canonicalize map geometry and unit/setup provenance.",
+        "Check reachability, balance, default-bot performance and reward stability."
+      ],
+      "source_metadata_checked": true,
+      "revision": null,
+      "artifact_sha256": null,
+      "downloaded": false,
+      "isolated_build_verified": false,
+      "license_and_training_terms_verified": false,
+      "benchmark_overlap_verified": false,
+      "difficulty_calibrated": false,
+      "accepted": false
+    },
+    {
+      "candidate_id": "game_if_archive",
+      "anchor_task_ids": [
+        "anchorhead_text_adventure",
+        "trinity_text_adventure",
+        "tryst_text_adventure"
+      ],
+      "category": "Interactive Games & Simulators",
+      "source_name": "Interactive Fiction Archive",
+      "source_url": "https://mirror.ifarchive.org/indexes/if-archive/games/",
+      "source_kind": "game_catalog",
+      "status": "catalog_entry",
+      "observed_capability": "Interactive-fiction archive includes multiple interpreter formats and source code for many games.",
+      "candidate_unit": "An independently authored, inspectable parser-based game with a comparable puzzle dependency structure and observable progress.",
+      "similarity_to_preserve": [
+        "text-command interaction",
+        "partial observation and inventory state",
+        "multi-step puzzle dependencies",
+        "authoritative environment progression"
+      ],
+      "novelty_required": [
+        "new game, narrative and puzzle graph",
+        "no port, remake, translation or renamed original game"
+      ],
+      "factory_route": "interactive_world_adapter",
+      "blocking_checks": [
+        "Inspect game-specific source availability and training/reuse terms.",
+        "Exclude incompatible browser-only or multiple-choice interfaces when matching parser-game anchors.",
+        "Keep walkthroughs and authoritative solutions private.",
+        "Verify reproducible progression and comparable dependency depth with actual play."
+      ],
+      "source_metadata_checked": true,
+      "revision": null,
+      "artifact_sha256": null,
+      "downloaded": false,
+      "isolated_build_verified": false,
+      "license_and_training_terms_verified": false,
+      "benchmark_overlap_verified": false,
+      "difficulty_calibrated": false,
+      "accepted": false
+    }
+  ]
+}

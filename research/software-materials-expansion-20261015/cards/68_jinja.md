@@ -1,0 +1,21 @@
+# 68_jinja · 模板继承、作用域与异步执行链恢复
+
+- 路线/优先级：M4 / `build_scope_probe`；只作素材判断。
+- 固定版本：[5ef70112a1ff19c05324ff889dd30405b1002044](https://github.com/pallets/jinja/tree/5ef70112a1ff19c05324ff889dd30405b1002044)；完整树/片段哈希见 `sources/68_jinja/manifest.json`。
+- 已有功能：Jinja 已具备 parser→Python codegen→runtime、继承/block/super、context/macro、autoescape 与异步生成。
+- 拟题边界：拟保留 lexer/AST/loader，连贯挖除继承/block/scoped/include 的编译生成与 runtime context/block-chain 调用，并恢复宏/async/escape 组合的真实多模板渲染。
+- 拟缺口：尚未制作缺损 starter；须先健康固定版本运行，再界定跨 compiler/runtime 的自然缺口，不当成上游待新增功能。
+- 关联链：模板依赖/AST→编译 Frame/符号作用域→root/block Python generators→Context vars/block stack→super/macro/include→sync/async emission/escape→关闭生成器。
+- 代码/真实测试实读：[src/jinja2/compiler.py:945](https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/src/jinja2/compiler.py#L945) block codegen 选择 scoped context，并处理 required/async generator cleanup。；[src/jinja2/compiler.py:994](https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/src/jinja2/compiler.py#L994) extends 载入 parent 并将其 blocks 接入当前 context 链。；[src/jinja2/runtime.py:145](https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/src/jinja2/runtime.py#L145) Context 保存 vars/parent/block stacks，super 根据当前 block 找下一级。；[tests/test_inheritance.py:148](https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/tests/test_inheritance.py#L148) 测试动态继承与 scoped/super 在循环中的上下文行为。；[tests/test_async.py:26](https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/tests/test_async.py#L26) 真实测试结合 async 和普通函数调用渲染。
+- 组合场景 1：动态 extends+多级 super+scoped block 在 loop 内调用，检查 context/override 共享语义。
+- 组合场景 2：include/import 的有无 context+macro/caller+autoescape，检查变量隔离及 escaping。
+- 组合场景 3：async function/macro/block+stream 提前结束/异常，检查输出和 generator 生命周期。
+- 基础完成后剩余路径假设 1：静态继承恢复后仍需动态 parent、scoped locals、super 链与宏上下文共同一致。
+- 基础完成后剩余路径假设 2：同步 render 成功后仍需 async/streaming、escape/Markup、错误传播与 close/aclose 清理。
+- 参考/判据：固定健康 Jinja 的 render/generate/async API 差分，加独立 loader/side-effect/close 计数和 escape 期望；不匹配私有生成 Python 文本；健康参考未运行。
+- 正常强基线：Python codegen/AST、MarkupSafe、async 工具合法；安装的健康 Jinja 或替代引擎可作强基线。若残留已编译模板/完整旧引擎能全覆盖，不算恢复困难。
+- 首个否证：先跑固定健康版本的跨模板组合；检查残留 codegen/runtime 或可合法包装的健康引擎能否直接满足；不以私有输出格式卡适配。
+- 离线/架构成本：Python/MarkupSafe/pytest 及模板 fixture 预装，无外服；事件循环/生成器终止和缓存重载语义需冻结。
+- 许可观察：根 LICENSE.txt 实际为 Pallets BSD 条款文本；通常称 BSD-3-Clause，发布须保留版权/条件/免责声明；依赖另审。
+- 官方资料已核对：[官方继承/scoped/context 语义](https://jinja.palletsprojects.com/en/stable/templates/)；[官方 async/environment API；实际任务以固定源码为准](https://jinja.palletsprojects.com/en/stable/api/)
+- 状态：source_reviewed_healthy_reference_unrun；未构题、未 build/运行、未验证六小时难度；仅对照原 EdgeBench 的机制，不复用原题/测试/答案。

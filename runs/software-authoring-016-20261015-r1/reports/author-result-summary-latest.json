@@ -1,0 +1,277 @@
+{
+  "observed_utc": "2026-10-15T11:15:48.813963+00:00",
+  "jobs": [
+    {
+      "id": "01_openapi_streaming",
+      "state": "author_returned",
+      "native_alive": false,
+      "native_exit_code": 0,
+      "completed_tool_items": 58,
+      "task_directory_exists": true,
+      "author_result": {
+        "status": "constructed_unverified"
+      },
+      "package_files": {
+        "instruction.md": true,
+        "task.toml": true,
+        "environment/Dockerfile": true,
+        "verifier/Dockerfile": true,
+        "tests/test.sh": true,
+        "solution/solve.sh": true,
+        "AUTHORING_REPORT.json": true
+      }
+    },
+    {
+      "id": "09_valkey_transactions",
+      "state": "author_returned",
+      "native_alive": false,
+      "native_exit_code": 0,
+      "completed_tool_items": 115,
+      "task_directory_exists": true,
+      "author_result": {
+        "status": "constructed_unverified",
+        "summary": "已构造可审阅的原创事务 RESP3 KV 服务题包，完成 host 本地检查；平台与六小时难度未验收。"
+      },
+      "package_files": {
+        "instruction.md": true,
+        "task.toml": true,
+        "environment/Dockerfile": true,
+        "verifier/Dockerfile": true,
+        "tests/test.sh": true,
+        "solution/solve.sh": true,
+        "AUTHORING_REPORT.json": true
+      }
+    },
+    {
+      "id": "14_tree_sitter_incremental",
+      "state": "author_returned",
+      "native_alive": false,
+      "native_exit_code": 0,
+      "completed_tool_items": 52,
+      "task_directory_exists": true,
+      "author_result": {
+        "status": "constructed_unverified"
+      },
+      "package_files": {
+        "instruction.md": true,
+        "task.toml": true,
+        "environment/Dockerfile": true,
+        "verifier/Dockerfile": true,
+        "tests/test.sh": true,
+        "solution/solve.sh": true,
+        "AUTHORING_REPORT.json": true
+      }
+    },
+    {
+      "id": "02_restler_recovery",
+      "state": "author_returned",
+      "native_alive": false,
+      "native_exit_code": 0,
+      "completed_tool_items": 73,
+      "task_directory_exists": true,
+      "author_result": {
+        "status": "constructed_unverified"
+      },
+      "package_files": {
+        "instruction.md": true,
+        "task.toml": true,
+        "environment/Dockerfile": true,
+        "verifier/Dockerfile": true,
+        "tests/test.sh": true,
+        "solution/solve.sh": true,
+        "AUTHORING_REPORT.json": true
+      }
+    },
+    {
+      "id": "05_uv_resolution",
+      "state": "author_returned",
+      "native_alive": false,
+      "native_exit_code": 0,
+      "completed_tool_items": 101,
+      "task_directory_exists": true,
+      "author_result": {
+        "status": "held_for_evidence",
+        "decision": "交付具体原生代码/参考/评分器与自包含题包供复审；当前最强廉价包装基线也达 1.0，故留置，不计为已接收六小时任务。"
+      },
+      "package_files": {
+        "instruction.md": true,
+        "task.toml": true,
+        "environment/Dockerfile": true,
+        "verifier/Dockerfile": true,
+        "tests/test.sh": true,
+        "solution/solve.sh": true,
+        "AUTHORING_REPORT.json": true
+      }
+    },
+    {
+      "id": "06_wasm_validation",
+      "state": "author_returned",
+      "native_alive": false,
+      "native_exit_code": 0,
+      "completed_tool_items": 29,
+      "task_directory_exists": true,
+      "author_result": {
+        "status": "rejected",
+        "difficulty_accepted": false
+      },
+      "package_files": {
+        "instruction.md": false,
+        "task.toml": false,
+        "environment/Dockerfile": false,
+        "verifier/Dockerfile": false,
+        "tests/test.sh": false,
+        "solution/solve.sh": false,
+        "AUTHORING_REPORT.json": true
+      }
+    },
+    {
+      "id": "10_datafusion_sort",
+      "state": "native_started",
+      "native_alive": true,
+      "native_exit_code": null,
+      "completed_tool_items": 76,
+      "task_directory_exists": true
+    },
+    {
+      "id": "13_toml_lossless",
+      "state": "native_started",
+      "native_alive": true,
+      "native_exit_code": null,
+      "completed_tool_items": 72,
+      "task_directory_exists": true
+    },
+    {
+      "id": "03_httpx_transport",
+      "state": "native_started",
+      "native_alive": true,
+      "native_exit_code": null,
+      "completed_tool_items": 73,
+      "task_directory_exists": true
+    },
+    {
+      "id": "04_pytest_fixtures",
+      "state": "author_returned",
+      "native_alive": false,
+      "native_exit_code": 0,
+      "completed_tool_items": 57,
+      "task_directory_exists": true,
+      "author_result": {
+        "status": "constructed_unverified",
+        "difficulty_accepted": false
+      },
+      "package_files": {
+        "instruction.md": true,
+        "task.toml": true,
+        "environment/Dockerfile": true,
+        "verifier/Dockerfile": true,
+        "tests/test.sh": true,
+        "solution/solve.sh": true,
+        "AUTHORING_REPORT.json": true
+      }
+    },
+    {
+      "id": "07_arrow_ipc",
+      "state": "author_returned",
+      "native_alive": false,
+      "native_exit_code": 0,
+      "completed_tool_items": 37,
+      "task_directory_exists": true,
+      "author_result": {
+        "status": "rejected"
+      },
+      "package_files": {
+        "instruction.md": true,
+        "task.toml": false,
+        "environment/Dockerfile": false,
+        "verifier/Dockerfile": false,
+        "tests/test.sh": false,
+        "solution/solve.sh": false,
+        "AUTHORING_REPORT.json": true
+      }
+    },
+    {
+      "id": "08_http2_session",
+      "state": "author_returned",
+      "native_alive": false,
+      "native_exit_code": 0,
+      "completed_tool_items": 48,
+      "task_directory_exists": true,
+      "author_result": {
+        "status": "rejected"
+      },
+      "package_files": {
+        "instruction.md": true,
+        "task.toml": false,
+        "environment/Dockerfile": false,
+        "verifier/Dockerfile": false,
+        "tests/test.sh": false,
+        "solution/solve.sh": false,
+        "AUTHORING_REPORT.json": true
+      }
+    },
+    {
+      "id": "11_rocksdb_compaction",
+      "state": "native_started",
+      "native_alive": true,
+      "native_exit_code": null,
+      "completed_tool_items": 62,
+      "task_directory_exists": true
+    },
+    {
+      "id": "12_croaring_kernels",
+      "state": "native_started",
+      "native_alive": true,
+      "native_exit_code": null,
+      "completed_tool_items": 53,
+      "task_directory_exists": true
+    },
+    {
+      "id": "15_jq_composition",
+      "state": "author_returned",
+      "native_alive": false,
+      "native_exit_code": 0,
+      "completed_tool_items": 45,
+      "task_directory_exists": true,
+      "author_result": {
+        "status": "rejected",
+        "difficulty_accepted": false
+      },
+      "package_files": {
+        "instruction.md": true,
+        "task.toml": false,
+        "environment/Dockerfile": false,
+        "verifier/Dockerfile": false,
+        "tests/test.sh": false,
+        "solution/solve.sh": false,
+        "AUTHORING_REPORT.json": true
+      }
+    },
+    {
+      "id": "16_libarchive_cli",
+      "state": "author_returned",
+      "native_alive": false,
+      "native_exit_code": 0,
+      "completed_tool_items": 40,
+      "task_directory_exists": true,
+      "author_result": {
+        "status": "rejected",
+        "decision_zh": "候选当前合同被实测廉价强基线否证，交付可复查拒绝证据包，不计合格训练题。"
+      },
+      "package_files": {
+        "instruction.md": true,
+        "task.toml": false,
+        "environment/Dockerfile": false,
+        "verifier/Dockerfile": false,
+        "tests/test.sh": false,
+        "solution/solve.sh": false,
+        "AUTHORING_REPORT.json": true
+      }
+    }
+  ],
+  "counts": {
+    "constructed_unverified": 5,
+    "held_for_evidence": 1,
+    "rejected": 5,
+    "running": 5
+  }
+}

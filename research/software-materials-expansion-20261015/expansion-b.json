@@ -1,0 +1,652 @@
+[
+  {
+    "id": "53_nats",
+    "repo": "nats-io/nats-server",
+    "revision": "b55d969381aa05a7a59c563797b454d1b6b5fa37",
+    "route": "M2",
+    "title": "持久消息流与消费者重放系统",
+    "priority": "build_scope_probe",
+    "existing_capability": "原项目已提供 JetStream streams/consumers、存储、确认、重投与多种 retention；不是等待新增这些功能。",
+    "scope": "拟抽取单节点持久消息子系统：subject→append/sequence→durable pull consumers→filter/batch/ack/redelivery/backoff→retention→成功持久点恢复。保留 NATS 报文与连接壳，排除 Raft/集群/mirror/source/账户联邦，不声称完整 JetStream。",
+    "proposed_gap": "新 starter 尚未制作；拟实现完整 stream/consumer 状态闭环，不能只做 ack helper。若直接删现成实现，应改列 M4 恢复路线。",
+    "chain": "发布 subject/去重标识→stream sequence/文件记录→每 consumer delivered/ack floor/pending→超时重投与窗口→retention 删除→恢复后的消费状态。",
+    "scenarios": [
+      "乱序 ack+MaxAckPending 达限+超时 backoff+下一批 pull，核对 ack floor 与窗口释放。",
+      "多个 filter consumer+Interest/WorkQueue 明示策略+消息删除/过期，核对保留和重投。",
+      "成功持久点后重启+durable consumer 恢复+重复 ack/发布重试，核对 sequence 与 pending。"
+    ],
+    "remaining_work_hypotheses": [
+      "基础 append/pull 之后仍需统一 ack floor、pending、redelivery、窗口与删除通知，防止各模块独立正确却消费者停滞。",
+      "正常重启之后仍需处理持久状态对账、过期/重投边界、消费配置变更及有界资源清理。"
+    ],
+    "cheap_baseline": "直接 stock nats-server -js + 官方客户端/CLI 薄包装很强，纯黑盒 API 可能已被完全满足；标准存储库也合法。",
+    "first_probe": "先把所有拟题合同映射到 stock broker 最薄 wrapper；全部覆盖则 hold 或改成有真实宿主集成的恢复题，不以禁库制造难度。",
+    "oracle": "官方 JetStream 文档定义冻结功能合同；固定 server 作为互通参考，独立客户端生成事件并比较 delivery/ack/retention 允许观察；仅要求明示成功持久点后的恢复。",
+    "offline_architecture_cost": "Go modules/客户端与文件存储离线固定；单 loopback 无外服。虚拟时间与 broker timer、关闭/恢复控制仍须探查。",
+    "license_observation": "根 LICENSE 实际文本为 Apache-2.0；依赖及通知未完整审查。",
+    "evidence": [
+      {
+        "path": "server/consumer.go",
+        "line": 3745,
+        "claim": "ack 处理检查 sequence/pending，更新 ack floor、重投队列和窗口通知。",
+        "url": "https://github.com/nats-io/nats-server/blob/b55d969381aa05a7a59c563797b454d1b6b5fa37/server/consumer.go#L3745"
+      },
+      {
+        "path": "server/jetstream_consumer_test.go",
+        "line": 982,
+        "claim": "真实测试检查 BackOff/MaxDeliver 的有效组合和更新约束。",
+        "url": "https://github.com/nats-io/nats-server/blob/b55d969381aa05a7a59c563797b454d1b6b5fa37/server/jetstream_consumer_test.go#L982"
+      },
+      {
+        "path": "server/consumer.go",
+        "line": 97,
+        "claim": "消费者配置直接包含 AckWait/MaxAckPending 等关联状态约束。",
+        "url": "https://github.com/nats-io/nats-server/blob/b55d969381aa05a7a59c563797b454d1b6b5fa37/server/consumer.go#L97"
+      }
+    ],
+    "source_manifest": "sources/53_nats/manifest.json",
+    "status": "source_reviewed_scope_unproven",
+    "card": "cards/53_nats.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "official_references": [
+      {
+        "url": "https://docs.nats.io/concepts/jetstream",
+        "claim": "stream/consumer 的存储、游标与至少一次投递关系"
+      },
+      {
+        "url": "https://docs.nats.io/nats-concepts/jetstream/consumers",
+        "claim": "确认/重投/consumer 配置合同"
+      }
+    ]
+  },
+  {
+    "id": "54_graphql",
+    "repo": "graphql/graphql-js",
+    "revision": "e35a025d6e947ed2db0c1378e130f2bd0438732c",
+    "route": "M2",
+    "title": "带异步解析器与订阅的 GraphQL 执行系统",
+    "priority": "hold",
+    "existing_capability": "上游已是 GraphQL 参考实现，包含解析、验证、变量转换、执行、订阅和当前实验扩展。",
+    "scope": "拟从 October 2021 规范抽取 schema/query→validation/coercion→query/mutation execution→nested typed completion/error paths→subscription event stream 的完整服务内核；不含 HTTP/WebSocket transport、defer/stream 或当前草案扩展。",
+    "proposed_gap": "暂未发现成熟库包装之外的真实交付缺口；独立 starter 尚未制作。复杂的 completeValue 规则本身不足以证明新题困难。",
+    "chain": "SDL/type graph+document→合法请求/variables→field collection/aliases/fragments→resolver promises→list/non-null/abstract completion→partial data/errors→逐事件订阅结果。",
+    "scenarios": [
+      "fragment/alias+variables/defaults+interface/union+嵌套 list/non-null 与异步 resolver 错误传播。",
+      "mutation 串行副作用+query 异步子字段+coercion 失败，检验解析前后错误边界。",
+      "订阅 source stream+逐事件执行+迭代器终止/异常，避免仅返回初始 stream。"
+    ],
+    "remaining_work_hypotheses": [
+      "简单 resolver 成功以后仍需完成 field merging、抽象类型、non-null 传播、列表元素与 path/locations 的共同语义。",
+      "单请求完成以后仍需 mutation 顺序、订阅每事件隔离与 async iterator 生命周期。成熟库已有这些能力，不能据此称长程。"
+    ],
+    "cheap_baseline": "直接调用 graphql-js 的 buildSchema/graphql/execute/subscribe，或其他成熟规范实现；薄服务包装即可覆盖大多数拟合同。",
+    "first_probe": "逐条映射官方库 API；若全部可包装完成，维持 hold。只有确有宿主运行时约束或受损执行引擎恢复形成额外交付时重开。",
+    "oracle": "固定 October 2021 规范是合同，固定 graphql-js 仅在共同功能集差分；手工错误路径/副作用计数例补充。最新 HEAD 含实验能力，不以当前所有行为替代 2021 规范。",
+    "offline_architecture_cost": "Node/TypeScript 与测试依赖可离线冻结；AsyncIterable 代替真实网络服务。规范年代与 HEAD 草案扩展的能力对齐成本待查。",
+    "license_observation": "根 LICENSE 为 MIT；GraphQL 规范的 OWFa 授权与源码许可须分别保留，第三方依赖未审。",
+    "evidence": [
+      {
+        "path": "src/execution/Executor.ts",
+        "line": 765,
+        "claim": "completeValue 根据 non-null/list/leaf/abstract/object 递归完成结果。",
+        "url": "https://github.com/graphql/graphql-js/blob/e35a025d6e947ed2db0c1378e130f2bd0438732c/src/execution/Executor.ts#L765"
+      },
+      {
+        "path": "src/execution/execute.ts",
+        "line": 1050,
+        "claim": "将 source event stream 每个 payload 重新映射为执行结果。",
+        "url": "https://github.com/graphql/graphql-js/blob/e35a025d6e947ed2db0c1378e130f2bd0438732c/src/execution/execute.ts#L1050"
+      },
+      {
+        "path": "src/execution/__tests__/nonnull-test.ts",
+        "line": 175,
+        "claim": "测试检查非空字段失败令最近 nullable 父对象为 null，并保留 path/location。",
+        "url": "https://github.com/graphql/graphql-js/blob/e35a025d6e947ed2db0c1378e130f2bd0438732c/src/execution/__tests__/nonnull-test.ts#L175"
+      }
+    ],
+    "source_manifest": "sources/54_graphql/manifest.json",
+    "status": "source_reviewed_scope_unproven",
+    "card": "cards/54_graphql.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "official_references": [
+      {
+        "url": "https://spec.graphql.org/October2021/",
+        "claim": "固定执行/变量转换/订阅规范"
+      },
+      {
+        "url": "https://www.graphql-js.org/api-v16/execution/",
+        "claim": "官方订阅返回与每事件执行语义"
+      }
+    ]
+  },
+  {
+    "id": "55_cel_go",
+    "repo": "cel-expr/cel-go",
+    "revision": "5dcc82d6016cbe8ce7aef7b027538c42ed31c2d6",
+    "route": "M2",
+    "title": "类型检查与可复用执行计划的 CEL 表达式系统",
+    "priority": "hold",
+    "source_manifest": "sources/55_cel_go_canonical/manifest.json",
+    "migration_evidence": "sources/55_cel_go/manifest.json",
+    "existing_capability": "canonical CEL-Go 已含环境声明、parse/check、program planning、JSON/protobuf 绑定、求值与成本限制；google/cel-go 当前只读 alias 壳不能当解释器源码。",
+    "scope": "拟抽取 environment/declarations→parse/check typed AST→plan→反复 activation 求值→错误/unknown/cost limit 的完整表达式执行子系统。冻结 CEL 基础功能和宏/容器合同，不含任意脚本/全新异步扩展。",
+    "proposed_gap": "尚无成熟 CEL 实现无法薄包装的真实缺口，维持 hold；不可把语言实现现有 parse/check/eval 写成上游缺失。",
+    "chain": "声明/类型环境→source/AST→overload/type resolution→执行计划→每次独立 activation/frame→value/error/unknown 与成本→复用/释放。",
+    "scenarios": [
+      "嵌套 list/map comprehension+声明/overload+多次不同变量 activation，检查计划复用与隔离。",
+      "短路逻辑+缺失属性/unknown/error+partial activation，核对错误是否被决定性分支消除。",
+      "自定义函数/protobuf 绑定+cost limit 触发+下一次求值，核对资源和状态不泄漏。"
+    ],
+    "remaining_work_hypotheses": [
+      "基本算术之后仍需 typed overload、宏展开、容器、error/unknown 的一致语义。",
+      "单次求值之后仍需计划跨 activation 复用、成本观测、取消和 frame 释放；现成库已实现，不能作为困难断言。"
+    ],
+    "cheap_baseline": "直接使用 cel.dev/cel-go 的 Env.Compile/Program/Eval/CostLimit；其他成熟 CEL 实现也合法，普通 eval 的禁用不等于库包装失效。",
+    "first_probe": "将完整拟 API/场景映射到 canonical CEL-Go；薄包装成立则维持 hold。若做恢复须另冻结完整健康参考并确定自然相关缺口。",
+    "oracle": "CEL 官方三阶段流程和冻结具体功能规范为合同，独立 conformance/手算表达式加至少一个其他实现交叉；不能默认各版本扩展/成本模型一致。",
+    "offline_architecture_cost": "固定 Go modules、CEL/protobuf 类型描述、宏与成本模型版本；无外服。canonical 新功能与旧 import 兼容成本须分开。",
+    "license_observation": "canonical 与旧兼容壳根 LICENSE/源码均为 Apache-2.0；未完整审依赖。",
+    "evidence": [
+      {
+        "path": "cel/env.go",
+        "line": 597,
+        "claim": "CompileSource 按 ParseSource→Check 流程返回 checked AST。",
+        "url": "https://github.com/cel-expr/cel-go/blob/5dcc82d6016cbe8ce7aef7b027538c42ed31c2d6/cel/env.go#L597"
+      },
+      {
+        "path": "cel/program.go",
+        "line": 467,
+        "claim": "Eval 建立或复用 execution frame、捕获成本/error 并在需要时关闭 frame。",
+        "url": "https://github.com/cel-expr/cel-go/blob/5dcc82d6016cbe8ce7aef7b027538c42ed31c2d6/cel/program.go#L467"
+      },
+      {
+        "path": "cel/cel_test.go",
+        "line": 2071,
+        "claim": "真实 CostLimit 测试结合 compile/check/Program/Eval 检查成本边界。",
+        "url": "https://github.com/cel-expr/cel-go/blob/5dcc82d6016cbe8ce7aef7b027538c42ed31c2d6/cel/cel_test.go#L2071"
+      }
+    ],
+    "migration_note": "google/cel-go@6d32ef54e4f124929730b15d5eb9b9205da58992 README:6–23 明示 canonical 迁移；cel/alias.go:16–20 是生成 forwarder，alias_test.go:25 验证旧新类型兼容。",
+    "status": "source_reviewed_scope_unproven",
+    "card": "cards/55_cel_go.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "official_references": [
+      {
+        "url": "https://cel.dev/overview/cel-overview",
+        "claim": "parse/check/evaluate 与 compile once/evaluate many"
+      },
+      {
+        "url": "https://github.com/cel-expr/cel-go",
+        "claim": "当前 canonical 实现"
+      }
+    ]
+  },
+  {
+    "id": "56_flatbuffers",
+    "repo": "google/flatbuffers",
+    "revision": "b8431fbcd7a5c71817f314e18b332c0648554efa",
+    "route": "M2",
+    "title": "schema 驱动的零拷贝二进制数据系统",
+    "priority": "hold",
+    "existing_capability": "上游已有 .fbs parser、flatc 代码生成、binary builder/accessors、reflection 和 verifier；不是现有能力缺失。",
+    "scope": "拟抽取 .fbs/类型引用→布局/默认值→binary 构建/读取→reflection/验证→schema evolution 互通的完整子系统；仅固定 scalar/enum/struct/table/vector/string/union 与 file identifier，排除全部语言后端、RPC/FlexBuffers/64-bit 扩展。",
+    "proposed_gap": "纯编解码/验证工具的合同很容易被 flatc+官方 runtime 覆盖；暂无额外真实交付，暂缓。",
+    "chain": "schema graph/field id→struct/table/vtable 布局→对齐/offset→union tag 与 payload→builder/accessors→bounded verifier→新旧 schema 读取与默认值。",
+    "scenarios": [
+      "嵌套 table/vector/struct+defaults+缺字段+新旧 schema 交叉读，比较值而非物理布局。",
+      "union tag 出现在 JSON payload 之后+namespace+vector of union，检查类型和数据共同解析。",
+      "截断/越界 offset/错 identifier+共享 vtable+深嵌套，核对验证器边界与有效访问。"
+    ],
+    "remaining_work_hypotheses": [
+      "单结构 round trip 后仍需 vtable/对齐/缺字段/union 与 schema graph 一致性。",
+      "有效数据之后仍需验证边界、递归资源限制、新旧 schema 互通；这些现成工具已有，不足以证明新题长程。"
+    ],
+    "cheap_baseline": "flatc --binary/--json/--schema + 生成代码/runtime/reflection；标准 JSON/内存库也合法。正常 wrapper 很可能全解。",
+    "first_probe": "逐合同核对 flatc/reflection APIs；若仅包装即可满足则保持 hold；仅真实新增语言后端/宿主 ABI 或受损整条实现恢复才重开。",
+    "oracle": "固定版本官方格式/演进文档与至少两语言 runtime 双向互通；合法 binary 不要求字节完全相等，因为格式允许不同对象/字段物理布局。",
+    "offline_architecture_cost": "预装 flatc/C++ compiler 与 runtime，固定 schema/fixtures；无外服。语言后端差异、坏数据 oracle 和第三方构建依赖未验证。",
+    "license_observation": "根 LICENSE 为 Apache-2.0；实际生成代码/依赖通知需按 starter 再审。",
+    "evidence": [
+      {
+        "path": "include/flatbuffers/verifier.h",
+        "line": 147,
+        "claim": "验证 vector 长度/溢出、table vtable、root offset/identifier。",
+        "url": "https://github.com/google/flatbuffers/blob/b8431fbcd7a5c71817f314e18b332c0648554efa/include/flatbuffers/verifier.h#L147"
+      },
+      {
+        "path": "tests/parser_test.cpp",
+        "line": 833,
+        "claim": "真实 union 解析测试含 tag 顺序、namespace 及语言生成能力差异。",
+        "url": "https://github.com/google/flatbuffers/blob/b8431fbcd7a5c71817f314e18b332c0648554efa/tests/parser_test.cpp#L833"
+      },
+      {
+        "path": "include/flatbuffers/verifier.h",
+        "line": 185,
+        "claim": "table 验证联合复杂度、对齐和 vtable 边界检查。",
+        "url": "https://github.com/google/flatbuffers/blob/b8431fbcd7a5c71817f314e18b332c0648554efa/include/flatbuffers/verifier.h#L185"
+      }
+    ],
+    "source_manifest": "sources/56_flatbuffers/manifest.json",
+    "status": "source_reviewed_scope_unproven",
+    "card": "cards/56_flatbuffers.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "official_references": [
+      {
+        "url": "https://flatbuffers.dev/internals/",
+        "claim": "offset/vtable/alignment 与允许不同合法 binary 布局"
+      },
+      {
+        "url": "https://flatbuffers.dev/evolution/",
+        "claim": "schema 演进边界"
+      }
+    ]
+  },
+  {
+    "id": "64_nushell",
+    "repo": "nushell/nushell",
+    "revision": "6a4027ff14d55c2a274faa2c53e74ae9921af9a2",
+    "route": "M4",
+    "title": "结构化管线与闭包执行链恢复",
+    "priority": "build_scope_probe",
+    "existing_capability": "上游已具备结构化 Value/ListStream/ByteStream、parser→IR、调用栈/闭包、外部命令与错误处理；普通脚本主要走 IR，不应只删除旧 AST eval 分支。",
+    "scope": "拟在健康固定 workspace 副本中保留 lexer/AST/IR 编译和命令注册，连贯移除 IR block/call 执行、PipelineData 转移/收集与闭包 return/scope 恢复链；恢复真实 typed pipeline 工作流，不扩成重写整个 shell。",
+    "proposed_gap": "未创建缺损 starter；自然关联缺口需经过健康参考运行及差分后才确定，当前不能称可构造完成。",
+    "chain": "source→IR/registers→PipelineData 形态/metadata→custom command/closure stack→stream/external conversion→error/return unwind→调用者状态恢复。",
+    "scenarios": [
+      "table/list→嵌套 each closure→外部字节流→结构化结果，保留类型/metadata/错误位置。",
+      "闭包/自定义命令内 early return+try/finally+上层继续执行，核对 return 不穿透边界。",
+      "流提前停止/错误+下一条管线+环境/变量作用域恢复，核对可重复执行。"
+    ],
+    "remaining_work_hypotheses": [
+      "简单值管线恢复后仍需 stream/metadata/collect 与外部进程边界一致。",
+      "正常调用恢复后仍需递归、return/error/finally unwind 与嵌套 scope/寄存器所有权。"
+    ],
+    "cheap_baseline": "保留旧 AST evaluator 或调 stock nu subprocess 可能绕过部分工作；标准进程/stream 库合法。typed PipelineData/Stack 合同是否足以区分须验证，不能任意加私有接口卡 wrapper。",
+    "first_probe": "先离线构建/跑未改健康参考的拟工作流，再检查旧 evaluator/残留 nu binary 是否足额覆盖；若几个转发调用能恢复或缺口破坏无关功能，则缩退/hold。",
+    "oracle": "固定健康 workspace 的 API/脚本结果差分，加独立类型/metadata/控制流与资源计数断言；本次只读测试，健康参考未运行。",
+    "offline_architecture_cost": "Rust workspace/lock/vendor、固定外部 testbin；不需要网络服务。大工作区构建与平台进程差异是成本，未测时长。",
+    "license_observation": "根 LICENSE 为 MIT；workspace 依赖未完整审查。",
+    "evidence": [
+      {
+        "path": "crates/nu-engine/src/eval_ir.rs",
+        "line": 48,
+        "claim": "IR block 维护递归限制及嵌套 scope/PC 状态恢复。",
+        "url": "https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/crates/nu-engine/src/eval_ir.rs#L48"
+      },
+      {
+        "path": "crates/nu-engine/src/eval.rs",
+        "line": 642,
+        "claim": "eval_block 走 IR；early-return wrapper 吸收 return 标志。",
+        "url": "https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/crates/nu-engine/src/eval.rs#L642"
+      },
+      {
+        "path": "tests/shell/pipeline/commands/internal.rs",
+        "line": 10,
+        "claim": "测试组合 table/list、each closure、external stdin 与结果访问。",
+        "url": "https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/tests/shell/pipeline/commands/internal.rs#L10"
+      },
+      {
+        "path": "crates/nu-protocol/tests/test_pipeline_data.rs",
+        "line": 4,
+        "claim": "测试 PipelineData→Value 的值与 span 转换。",
+        "url": "https://github.com/nushell/nushell/blob/6a4027ff14d55c2a274faa2c53e74ae9921af9a2/crates/nu-protocol/tests/test_pipeline_data.rs#L4"
+      }
+    ],
+    "source_manifest": "sources/64_nushell/manifest.json",
+    "status": "source_reviewed_healthy_reference_unrun",
+    "card": "cards/64_nushell.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "official_references": [
+      {
+        "url": "https://www.nushell.sh/book/pipelines.html",
+        "claim": "结构化值与外部管线"
+      },
+      {
+        "url": "https://www.nushell.sh/book/nu_fundamentals.html",
+        "claim": "list/record/table 数据模型"
+      }
+    ]
+  },
+  {
+    "id": "65_ruff",
+    "repo": "astral-sh/ruff",
+    "revision": "3514027edb659bbc3c787d355be9d130e5587f15",
+    "route": "M4",
+    "title": "Python 解析、恢复与源码范围链恢复",
+    "priority": "build_scope_probe",
+    "existing_capability": "Ruff 已有 Python parser、语法恢复、typed AST/ranges、formatter/linter 消费链；不是新增一个 Python parser。",
+    "scope": "拟保留 lexer/token/AST 类型及下游 formatter/linter，在健康副本中连贯挖除 expression precedence/trailers、statement suites 与 parser recovery/range 协调，恢复固定目标 Python 功能集完整 parse→AST→诊断→下游消费。",
+    "proposed_gap": "未制作缺损版；需先跑健康参考，不能仅挖几个 token helper 或故意混淆多版本语法。",
+    "chain": "tokens/目标版本→expressions/statements/suites→list recovery/progress→AST spans/errors→formatter/linter 可消费树。",
+    "scenarios": [
+      "嵌套 comprehension/lambda/call/slice+运算优先级+注释，比较 AST/ranges 与下游输出。",
+      "缺逗号/括号/缩进+后续合法语句，检查 error recovery 不吞后文且保证进展。",
+      "f-string/模式/版本 gating+Unicode 名称+嵌套 suites，冻结支持集后测试组合而非单 grammar token。"
+    ],
+    "remaining_work_hypotheses": [
+      "正常表达式恢复后仍需 statements/suites、模式和范围在共享 grammar 中一致。",
+      "合法文件完成后仍需 recoverable syntax errors、进展保证、上下文终止和版本边界。"
+    ],
+    "cheap_baseline": "CPython ast/其他 Rust Python parser 或残留健康 parser crate 可作强基线；它们对恢复、Ruff AST 和源码范围未必等价，但不能未经实验排除。",
+    "first_probe": "先跑未改固定 parser 的自拟合法/错误恢复/下游工作流；再检查 CPython/替代 crate + AST 适配是否足额满足，几处 helper 级缺口则不造。",
+    "oracle": "固定健康 Ruff parser/formatter 差分；标准 Python 语法例补充。CPython 只能覆盖共同合法子集，不能直接当 Ruff 错误恢复 oracle；未运行健康参考。",
+    "offline_architecture_cost": "Rust workspace/锁定依赖/fixture，Python 版本固定；无外服。深递归和平台栈差异要单独控制，不编造性能目标。",
+    "license_observation": "根 LICENSE 为 MIT；实际 workspace 和 fixture 归属未完整审查。",
+    "evidence": [
+      {
+        "path": "crates/ruff_python_parser/src/parser/mod.rs",
+        "line": 723,
+        "claim": "parse_list 保存 recovery context、保证进展并处理 enclosing terminator/缩进。",
+        "url": "https://github.com/astral-sh/ruff/blob/3514027edb659bbc3c787d355be9d130e5587f15/crates/ruff_python_parser/src/parser/mod.rs#L723"
+      },
+      {
+        "path": "crates/ruff_python_parser/src/parser/tests.rs",
+        "line": 363,
+        "claim": "真实测试检查深嵌套解析保留前后合法语句。",
+        "url": "https://github.com/astral-sh/ruff/blob/3514027edb659bbc3c787d355be9d130e5587f15/crates/ruff_python_parser/src/parser/tests.rs#L363"
+      },
+      {
+        "path": "crates/ruff_python_parser/tests/fixtures.rs",
+        "line": 19,
+        "claim": "fixture harness 分别验证合法/非法输入并检查 AST/错误快照。",
+        "url": "https://github.com/astral-sh/ruff/blob/3514027edb659bbc3c787d355be9d130e5587f15/crates/ruff_python_parser/tests/fixtures.rs#L19"
+      }
+    ],
+    "source_manifest": "sources/65_ruff/manifest.json",
+    "status": "source_reviewed_healthy_reference_unrun",
+    "card": "cards/65_ruff.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "official_references": [
+      {
+        "url": "https://docs.astral.sh/ruff/formatter/",
+        "claim": "官方 formatter 及格式控制行为，后续需对齐固定版本"
+      }
+    ]
+  },
+  {
+    "id": "66_syn",
+    "repo": "dtolnay/syn",
+    "revision": "7c44a5565b4421035101cc16184e9af08ab5fc77",
+    "route": "M4",
+    "title": "Rust token-stream 到语法树的解析链恢复",
+    "priority": "build_scope_probe",
+    "existing_capability": "Syn 已提供 Rust tokens→typed AST、fork/lookahead、full items/expressions 和 quote 生态；不承担 rustc 完整语义分析。",
+    "scope": "拟保留 proc_macro2 token、AST 数据类型、打印器/visitor，在固定健康副本中恢复 ParseBuffer 的消费/分支语义与 Expr/Item 的相互调用，覆盖函数/impl/宏体等真实输入；不是只补 fork 或优先级表。",
+    "proposed_gap": "未挖缺损、未运行健康参考；full/parsing/printing feature 合同与缺口闭包待定，不能宣称已可构造。",
+    "chain": "TokenStream/Group/span→ParseBuffer cursor/fork/lookahead→precedence/atomic/trailer Expr→Item/Block/Pat 相互调用→typed AST→quote/再解析与诊断。",
+    "scenarios": [
+      "泛型路径/比较运算/结构体字面量歧义+闭包/await/trailer，验证结构和剩余 token。",
+      "impl/function body 内嵌宏/无分隔 Group+属性/lifetime，核对 span 与宏 token 保留。",
+      "range/assign/二元结合性+嵌套语句+错误输入，检查 fork 不误消费和失败位置。"
+    ],
+    "remaining_work_hypotheses": [
+      "基础表达式后仍需歧义消解、边界/优先级与 item/block 交互。",
+      "普通 token 后仍需无分隔 group、span、宏/verbatim、feature gates 与错误游标一致。"
+    ],
+    "cheap_baseline": "proc_macro2/quote 保留使用；rustc/其他 Rust parser 和未挖旧 parsing 分支可能适配。不同 AST/span/token roundtrip 有真实成本但未经验证。",
+    "first_probe": "先健康参考跑自拟 AST/quote/诊断组合，再查保留分支或替代 parser 能否薄适配；若仅改几个 helper 或必须抹去绝大半工程则 hold。",
+    "oracle": "固定健康 Syn 的 AST/quote/错误位置差分，加手工结合性/token 消费断言；Rust Reference 只覆盖标准子集，Syn 的宏/verbatim 行为按固定 API；健康参考未运行。",
+    "offline_architecture_cost": "冻结 Rust/proc_macro2/quote/feature flags、fixtures；无外服。宏编译验证和完整 crate feature matrix 成本未测。",
+    "license_observation": "根 LICENSE-MIT 与 LICENSE-APACHE 实际文本均存在；具体双许可表达/依赖要以实际 Cargo 元数据复核。",
+    "evidence": [
+      {
+        "path": "src/parse.rs",
+        "line": 967,
+        "claim": "fork 克隆 cursor 状态并独立设置 unexpected 记录。",
+        "url": "https://github.com/dtolnay/syn/blob/7c44a5565b4421035101cc16184e9af08ab5fc77/src/parse.rs#L967"
+      },
+      {
+        "path": "src/expr.rs",
+        "line": 1901,
+        "claim": "atom_expr 联合 lookahead、group、closure、path/macro/struct 与控制表达式。",
+        "url": "https://github.com/dtolnay/syn/blob/7c44a5565b4421035101cc16184e9af08ab5fc77/src/expr.rs#L1901"
+      },
+      {
+        "path": "tests/test_expr.rs",
+        "line": 770,
+        "claim": "测试二元与赋值结合性并拒绝无括号链式比较。",
+        "url": "https://github.com/dtolnay/syn/blob/7c44a5565b4421035101cc16184e9af08ab5fc77/tests/test_expr.rs#L770"
+      },
+      {
+        "path": "src/item.rs",
+        "line": 24,
+        "claim": "Item 类型包含函数/impl/宏/模块等与表达式相连的节点。",
+        "url": "https://github.com/dtolnay/syn/blob/7c44a5565b4421035101cc16184e9af08ab5fc77/src/item.rs#L24"
+      }
+    ],
+    "source_manifest": "sources/66_syn/manifest.json",
+    "status": "source_reviewed_healthy_reference_unrun",
+    "card": "cards/66_syn.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "official_references": [
+      {
+        "url": "https://docs.rs/syn/latest/syn/parse/",
+        "claim": "官方 crate parsing API；latest 仅作定位，合同用固定源码"
+      },
+      {
+        "url": "https://docs.rs/syn/latest/syn/fn.parse.html",
+        "claim": "token spans 与字符串输入差异"
+      }
+    ]
+  },
+  {
+    "id": "67_petgraph",
+    "repo": "petgraph/petgraph",
+    "revision": "b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495",
+    "route": "M4",
+    "title": "稳定索引可变图存储与遍历恢复",
+    "priority": "hold",
+    "existing_capability": "上游 StableGraph 已实现删除时其他索引保持、vacancy/free list、并行边、自环、iterator/visitor 和序列化。",
+    "scope": "若重开，需关联恢复 stable node/edge mutation、双向邻接/空槽复用、visitor 索引边界与 serialization holes，并用真实算法消费；单独删 add/remove helper 不足。",
+    "proposed_gap": "未制作缺损版；目前难度可能集中于少量数据结构不变量，且可以标准容器重建，暂缓而非为凑长程扩大 API。",
+    "chain": "节点/边槽位→free list→双向邻接→稳定索引/visitor maps→图算法→holes 序列化与恢复。",
+    "scenarios": [
+      "删除高连接节点+自环/并行边+槽位复用，检查其他索引和双向 iterator。",
+      "有空洞图反向/过滤/clone 后跑 SCC/遍历，核对结果和索引域。",
+      "带空槽图序列化再恢复+继续增删，核对邻接与 free list 一致。"
+    ],
+    "remaining_work_hypotheses": [
+      "基本增删后仍需自环/并行边、双向邻接和 iterator 不变量共同维护。",
+      "遍历成功后仍需 holes/索引上界、visit map、serialization 与后续 mutation；是否足够长程没有证据。"
+    ],
+    "cheap_baseline": "标准 Vec<Option<_>>/HashMap 的直白实现、现存 Graph wrapper 或其他图库可能已覆盖；不要求内部 free list 布局来人为挡基线。",
+    "first_probe": "先跑固定健康图的自拟操作轨迹，再做简单标准容器或 Graph wrapper API 映射；若充分满足/缺口太窄，维持 hold；不加无依据性能门槛。",
+    "oracle": "固定健康 petgraph 的 API 轨迹差分 + 独立集合邻接模型/计数不变量；算法比较集合而非不承诺的访问顺序；健康参考未运行。",
+    "offline_architecture_cost": "Rust lock/vendor 和 serialization features 即可，无外服；trait/索引类型矩阵是工程成本但未验证。",
+    "license_observation": "根 LICENSE-MIT/LICENSE-APACHE 均已获取；具体 Cargo 授权表达与 serialization 依赖未完整审。",
+    "evidence": [
+      {
+        "path": "crates/petgraph/src/graph_impl/stable_graph/mod.rs",
+        "line": 365,
+        "claim": "节点插入复用 vacant 槽，删除节点清理 incident edges 并接回 free list。",
+        "url": "https://github.com/petgraph/petgraph/blob/b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495/crates/petgraph/src/graph_impl/stable_graph/mod.rs#L365"
+      },
+      {
+        "path": "crates/petgraph/tests/stable_graph.rs",
+        "line": 38,
+        "claim": "真实测试删除中间节点后 iterator 保留其他原索引。",
+        "url": "https://github.com/petgraph/petgraph/blob/b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495/crates/petgraph/tests/stable_graph.rs#L38"
+      },
+      {
+        "path": "crates/petgraph/tests/stable_graph.rs",
+        "line": 86,
+        "claim": "clear_edges 后继续复用 node vacancy 并检查邻接为空。",
+        "url": "https://github.com/petgraph/petgraph/blob/b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495/crates/petgraph/tests/stable_graph.rs#L86"
+      }
+    ],
+    "source_manifest": "sources/67_petgraph/manifest.json",
+    "status": "source_reviewed_healthy_reference_unrun",
+    "card": "cards/67_petgraph.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "official_references": [
+      {
+        "url": "https://docs.rs/petgraph/latest/petgraph/stable_graph/struct.StableGraph.html",
+        "claim": "官方 crate StableGraph 索引/API 合同；实际任务锁定源码"
+      }
+    ]
+  },
+  {
+    "id": "68_jinja",
+    "repo": "pallets/jinja",
+    "revision": "5ef70112a1ff19c05324ff889dd30405b1002044",
+    "route": "M4",
+    "title": "模板继承、作用域与异步执行链恢复",
+    "priority": "build_scope_probe",
+    "existing_capability": "Jinja 已具备 parser→Python codegen→runtime、继承/block/super、context/macro、autoescape 与异步生成。",
+    "scope": "拟保留 lexer/AST/loader，连贯挖除继承/block/scoped/include 的编译生成与 runtime context/block-chain 调用，并恢复宏/async/escape 组合的真实多模板渲染。",
+    "proposed_gap": "尚未制作缺损 starter；须先健康固定版本运行，再界定跨 compiler/runtime 的自然缺口，不当成上游待新增功能。",
+    "chain": "模板依赖/AST→编译 Frame/符号作用域→root/block Python generators→Context vars/block stack→super/macro/include→sync/async emission/escape→关闭生成器。",
+    "scenarios": [
+      "动态 extends+多级 super+scoped block 在 loop 内调用，检查 context/override 共享语义。",
+      "include/import 的有无 context+macro/caller+autoescape，检查变量隔离及 escaping。",
+      "async function/macro/block+stream 提前结束/异常，检查输出和 generator 生命周期。"
+    ],
+    "remaining_work_hypotheses": [
+      "静态继承恢复后仍需动态 parent、scoped locals、super 链与宏上下文共同一致。",
+      "同步 render 成功后仍需 async/streaming、escape/Markup、错误传播与 close/aclose 清理。"
+    ],
+    "cheap_baseline": "Python codegen/AST、MarkupSafe、async 工具合法；安装的健康 Jinja 或替代引擎可作强基线。若残留已编译模板/完整旧引擎能全覆盖，不算恢复困难。",
+    "first_probe": "先跑固定健康版本的跨模板组合；检查残留 codegen/runtime 或可合法包装的健康引擎能否直接满足；不以私有输出格式卡适配。",
+    "oracle": "固定健康 Jinja 的 render/generate/async API 差分，加独立 loader/side-effect/close 计数和 escape 期望；不匹配私有生成 Python 文本；健康参考未运行。",
+    "offline_architecture_cost": "Python/MarkupSafe/pytest 及模板 fixture 预装，无外服；事件循环/生成器终止和缓存重载语义需冻结。",
+    "license_observation": "根 LICENSE.txt 实际为 Pallets BSD 条款文本；通常称 BSD-3-Clause，发布须保留版权/条件/免责声明；依赖另审。",
+    "evidence": [
+      {
+        "path": "src/jinja2/compiler.py",
+        "line": 945,
+        "claim": "block codegen 选择 scoped context，并处理 required/async generator cleanup。",
+        "url": "https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/src/jinja2/compiler.py#L945"
+      },
+      {
+        "path": "src/jinja2/compiler.py",
+        "line": 994,
+        "claim": "extends 载入 parent 并将其 blocks 接入当前 context 链。",
+        "url": "https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/src/jinja2/compiler.py#L994"
+      },
+      {
+        "path": "src/jinja2/runtime.py",
+        "line": 145,
+        "claim": "Context 保存 vars/parent/block stacks，super 根据当前 block 找下一级。",
+        "url": "https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/src/jinja2/runtime.py#L145"
+      },
+      {
+        "path": "tests/test_inheritance.py",
+        "line": 148,
+        "claim": "测试动态继承与 scoped/super 在循环中的上下文行为。",
+        "url": "https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/tests/test_inheritance.py#L148"
+      },
+      {
+        "path": "tests/test_async.py",
+        "line": 26,
+        "claim": "真实测试结合 async 和普通函数调用渲染。",
+        "url": "https://github.com/pallets/jinja/blob/5ef70112a1ff19c05324ff889dd30405b1002044/tests/test_async.py#L26"
+      }
+    ],
+    "source_manifest": "sources/68_jinja/manifest.json",
+    "status": "source_reviewed_healthy_reference_unrun",
+    "card": "cards/68_jinja.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "official_references": [
+      {
+        "url": "https://jinja.palletsprojects.com/en/stable/templates/",
+        "claim": "官方继承/scoped/context 语义"
+      },
+      {
+        "url": "https://jinja.palletsprojects.com/en/stable/api/",
+        "claim": "官方 async/environment API；实际任务以固定源码为准"
+      }
+    ]
+  },
+  {
+    "id": "69_helix",
+    "repo": "helix-editor/helix",
+    "revision": "ba40e547426b0f9896c8bdc699a4ab11f2b37dbc",
+    "route": "M4",
+    "title": "多选择区编辑事务与分支历史恢复",
+    "priority": "build_scope_probe",
+    "existing_capability": "Helix core 已含 Rope 文档、ChangeSet/Transaction、selection 映射、逆操作与分支 undo history；不假设未实现的 ChangeSet::map 是健康功能。",
+    "scope": "拟保留 Rope/编辑动作壳，关联挖除 compose/invert/apply、selection position 映射与 History 分支路径合成/undo-redo，恢复 Unicode 多光标编辑到历史跳转的完整内核；不含 UI/LSP/语法解析。",
+    "proposed_gap": "尚无缺损副本、健康参考未运行；必须确认缺口连贯且未把上游 TODO/未承诺功能混入合同。",
+    "chain": "多选择区操作→retain/delete/insert ChangeSet→Rope 应用→anchor/head affinity 映射/normalize→事务合成/反演→history parent/child→undo/redo/分支 changes_since。",
+    "scenarios": [
+      "中文/emoji+反向与重叠 selection+多处插删后 compose，检查最终文本、坐标和选区规范化。",
+      "编辑→undo→新分支编辑→redo/earlier/later，检查历史节点路径与文档/selection 恢复。",
+      "多个事务合成/逆操作+空修改/边界粘性+跨分支 changes_since，比较直接应用与复合结果。"
+    ],
+    "remaining_work_hypotheses": [
+      "单次编辑恢复后仍需操作 compose/invert 与字符坐标/selection affinity 一致。",
+      "线性 undo 恢复后仍需分支历史/LCA 路径合成、光标还原和 Unicode/空事务边界。"
+    ],
+    "cheap_baseline": "Ropey/标准 diff/完整文档快照式 history 是合法强基线；可能满足语义但对 ChangeSet 与 selection 合同的适配需检验，不以任意存储限制卡基线。",
+    "first_probe": "先用固定健康 core 跑自拟序列；再对 snapshot/diff 基线做 API 映射，若很薄即可覆盖或缺口只剩一个算法，缩退/hold；排除 ChangeSet::map TODO。",
+    "oracle": "健康固定 core API 轨迹差分 + 复合/逆操作/撤销后恢复等代数不变量；规范化后比较选区，时间导航用受控 timestamp；健康参考未运行。",
+    "offline_architecture_cost": "Rust workspace/ropey/tendril 依赖预装；纯 core 无 GUI/LSP/grammar 下载。时间戳/Unicode 字符与 grapheme 坐标边界须冻结。",
+    "license_observation": "根 LICENSE 为 MPL-2.0 实际文本；修改文件级义务及 workspace 第三方许可须按实际 starter 核对。",
+    "evidence": [
+      {
+        "path": "helix-core/src/transaction.rs",
+        "line": 163,
+        "claim": "compose 连接 docA→docB 和 docB→docC 的操作流。",
+        "url": "https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/helix-core/src/transaction.rs#L163"
+      },
+      {
+        "path": "helix-core/src/transaction.rs",
+        "line": 312,
+        "claim": "invert/apply 以 Rope 字符计数恢复删除文字并更新文档。",
+        "url": "https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/helix-core/src/transaction.rs#L312"
+      },
+      {
+        "path": "helix-core/src/selection.rs",
+        "line": 479,
+        "claim": "selection 映射后 normalize，并对 anchor/head 使用方向相关 affinity。",
+        "url": "https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/helix-core/src/selection.rs#L479"
+      },
+      {
+        "path": "helix-core/src/history.rs",
+        "line": 85,
+        "claim": "提交保存 transaction inversion 和原 selection，维护 parent/last_child。",
+        "url": "https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/helix-core/src/history.rs#L85"
+      },
+      {
+        "path": "helix-core/src/history.rs",
+        "line": 393,
+        "claim": "真实 Unicode 编辑测试验证连续 undo/redo 与根节点 no-op。",
+        "url": "https://github.com/helix-editor/helix/blob/ba40e547426b0f9896c8bdc699a4ab11f2b37dbc/helix-core/src/history.rs#L393"
+      }
+    ],
+    "source_manifest": "sources/69_helix/manifest.json",
+    "status": "source_reviewed_healthy_reference_unrun",
+    "card": "cards/69_helix.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "official_references": [
+      {
+        "url": "https://docs.helix-editor.com/keymap.html",
+        "claim": "官方 undo/redo/历史与多 selection 用户能力"
+      },
+      {
+        "url": "https://docs.helix-editor.com/commands.html",
+        "claim": "官方 history/selection 命令定位"
+      }
+    ]
+  }
+]

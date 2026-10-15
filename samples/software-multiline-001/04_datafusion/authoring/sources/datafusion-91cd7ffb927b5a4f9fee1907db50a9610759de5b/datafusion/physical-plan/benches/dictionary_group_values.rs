@@ -1,0 +1,329 @@
+// Licensed to the Apache Software Foundation (ASF) under one
+// or more contributor license agreements.  See the NOTICE file
+// distributed with this work for additional information
+// regarding copyright ownership.  The ASF licenses this file
+// to you under the Apache License, Version 2.0 (the
+// "License"); you may not use this file except in compliance
+// with the License.  You may obtain a copy of the License at
+//
+//   http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing,
+// software distributed under the License is distributed on an
+// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+// KIND, either express or implied.  See the License for the
+// specific language governing permissions and limitations
+// under the License.
+
+//! Benchmarks for `GroupValues` over a single `Dictionary<Int32, Utf8>`
+//! column. Each iteration measures `intern` (once or N times) followed by
+//! `emit(EmitTo::All)`. The `Box<dyn GroupValues>` returned by
+//! `new_group_values` is constructed in the setup closure of
+//! `iter_batched_ref` and is not included in the timing.
+
+use arrow::array::{ArrayRef, DictionaryArray, PrimitiveArray, StringArray};
+use arrow::buffer::{Buffer, NullBuffer};
+use arrow::datatypes::{DataType, Field, Int32Type, Schema, SchemaRef};
+use criterion::{
+    BatchSize, BenchmarkId, Criterion, Throughput, criterion_group, criterion_main,
+};
+use datafusion_expr::EmitTo;
+use datafusion_physical_plan::aggregates::group_values::new_group_values;
+use datafusion_physical_plan::aggregates::order::{GroupOrdering, GroupOrderingFull};
+use rand::rngs::StdRng;
+use rand::seq::SliceRandom;
+use rand::{Rng, SeedableRng};
+use std::hint::black_box;
+use std::sync::Arc;
+
+const SIZES: [usize; 2] = [8 * 1024, 64 * 1024];
+const CARDS_RELATIVE: [usize; 4] = [20, 75, 300, 1000];
+const N_BATCHES: usize = 4;
+// Fixed for reproducibility.
+const SEED: u64 = 0xD1C7;
+
+fn dict_schema() -> SchemaRef {
+    let dict_ty =
+        DataType::Dictionary(Box::new(DataType::Int32), Box::new(DataType::Utf8));
+    Arc::new(Schema::new(vec![Field::new("g", dict_ty, true)]))
+}
+
+/// Build a `Dictionary<Int32, Utf8>` column.
+fn make_dict(size: usize, cardinality: usize, null_density: f32, seed: u64) -> ArrayRef {
+    let strings: Vec<String> = (0..cardinality).map(|i| format!("v_{i:08}")).collect();
+    let values = Arc::new(StringArray::from(
+        strings.iter().map(String::as_str).collect::<Vec<_>>(),
+    ));
+
+    let mut rng = StdRng::seed_from_u64(seed);
+    let keys: Vec<i32> = if cardinality == size {
+        let mut perm: Vec<i32> = (0..size as i32).collect();
+        perm.shuffle(&mut rng);
+        perm
+    } else {
+        (0..size)
+            .map(|_| rng.random_range(0..cardinality) as i32)
+            .collect()
+    };
+    let keys_buf = Buffer::from_slice_ref(&keys);
+
+    let nulls: Option<NullBuffer> = (null_density > 0.0).then(|| {
+        (0..size)
+            .map(|_| !rng.random_bool(null_density as f64))
+            .collect()
+    });
+
+    let key_array = PrimitiveArray::<Int32Type>::new(keys_buf.into(), nulls);
+    Arc::new(DictionaryArray::<Int32Type>::try_new(key_array, values).unwrap())
+}
+
+fn bench_id(
+    label: &str,
+    size: usize,
+    cardinality: usize,
+    null_density: f32,
+) -> BenchmarkId {
+    BenchmarkId::new(
+        label,
+        format!("size_{size}_card_{cardinality}_null_{null_density:.2}"),
+    )
+}
+
+fn bench_intern_emit(c: &mut Criterion) {
+    let mut group = c.benchmark_group("dict_intern_emit");
+    let schema = dict_schema();
+    let null_density = 0.0;
+
+    for &size in &SIZES {
+        let mut cards = CARDS_RELATIVE.to_vec();
+        cards.push(size); // all-unique stress case
+        for cardinality in cards {
+            let array = make_dict(size, cardinality, null_density, SEED);
+            group.throughput(Throughput::Elements(size as u64));
+            group.bench_function(
+                bench_id("intern_emit", size, cardinality, null_density),
+                |b| {
+                    b.iter_batched_ref(
+                        || {
+                            (
+                                new_group_values(schema.clone(), &GroupOrdering::None)
+                                    .unwrap(),
+                                Vec::<usize>::with_capacity(size),
+                            )
+                        },
+                        |(gv, groups)| {
+                            gv.intern(std::slice::from_ref(&array), groups).unwrap();
+                            black_box(&*groups);
+                            black_box(gv.emit(EmitTo::All).unwrap());
+                        },
+                        BatchSize::SmallInput,
+                    );
+                },
+            );
+        }
+    }
+    group.finish();
+}
+
+fn bench_repeated_intern_emit(c: &mut Criterion) {
+    let mut group = c.benchmark_group("dict_repeated_intern_emit");
+    let schema = dict_schema();
+    let null_density = 0.10;
+
+    for &size in &SIZES {
+        let mut cards = CARDS_RELATIVE.to_vec();
+        cards.push(size);
+        for cardinality in cards {
+            let batches: Vec<ArrayRef> = (0..N_BATCHES)
+                .map(|i| {
+                    make_dict(
+                        size,
+                        cardinality,
+                        null_density,
+                        SEED.wrapping_add(i as u64),
+                    )
+                })
+                .collect();
+            group.throughput(Throughput::Elements((size * N_BATCHES) as u64));
+            group.bench_function(
+                bench_id("repeated_intern_emit", size, cardinality, null_density),
+                |b| {
+                    b.iter_batched_ref(
+                        || {
+                            (
+                                new_group_values(schema.clone(), &GroupOrdering::None)
+                                    .unwrap(),
+                                Vec::<usize>::with_capacity(size),
+                            )
+                        },
+                        |(gv, groups)| {
+                            for arr in &batches {
+                                gv.intern(std::slice::from_ref(arr), groups).unwrap();
+                                black_box(&*groups);
+                            }
+                            black_box(gv.emit(EmitTo::All).unwrap());
+                        },
+                        BatchSize::SmallInput,
+                    );
+                },
+            );
+        }
+    }
+    group.finish();
+}
+
+// GroupOrdering::Full -> GroupValuesColumn::<true>: scalar append_val/equal_to path.
+fn bench_scalar_append_equal(c: &mut Criterion) {
+    let mut group = c.benchmark_group("dict_scalar_append_equal");
+    let schema = dict_schema();
+    let null_density = 0.1;
+    let size = SIZES[1];
+
+    let mut cards = CARDS_RELATIVE.to_vec();
+    cards.push(size);
+    for cardinality in cards {
+        let array = make_dict(size, cardinality, null_density, SEED);
+        group.throughput(Throughput::Elements(size as u64));
+        group.bench_function(
+            bench_id("scalar_append_equal", size, cardinality, null_density),
+            |b| {
+                b.iter_batched_ref(
+                    || {
+                        (
+                            new_group_values(
+                                schema.clone(),
+                                &GroupOrdering::Full(GroupOrderingFull::new()),
+                            )
+                            .unwrap(),
+                            Vec::<usize>::with_capacity(size),
+                        )
+                    },
+                    |(gv, groups)| {
+                        gv.intern(std::slice::from_ref(&array), groups).unwrap();
+                        black_box(&*groups);
+                        black_box(gv.emit(EmitTo::All).unwrap());
+                    },
+                    BatchSize::SmallInput,
+                );
+            },
+        );
+    }
+    group.finish();
+}
+
+//EmitTo::First exercises repeated
+fn bench_take_n(c: &mut Criterion) {
+    let mut group = c.benchmark_group("dict_take_n");
+    let schema = dict_schema();
+    let null_density = 0.10;
+    let size = SIZES[1];
+
+    let mut cards = CARDS_RELATIVE.to_vec();
+    cards.push(size);
+    for cardinality in cards {
+        let batch = make_dict(size, cardinality, null_density, SEED);
+        group.throughput(Throughput::Elements((size * N_BATCHES) as u64));
+        group.bench_function(bench_id("take_n", size, cardinality, null_density), |b| {
+            b.iter_batched_ref(
+                || {
+                    (
+                        new_group_values(schema.clone(), &GroupOrdering::None).unwrap(),
+                        Vec::<usize>::with_capacity(size),
+                    )
+                },
+                |(gv, groups)| {
+                    for _ in 0..N_BATCHES {
+                        gv.intern(std::slice::from_ref(&batch), groups).unwrap();
+                        black_box(&*groups);
+                        let emit_n = (gv.len() / 2).min(gv.len());
+                        black_box(gv.emit(EmitTo::First(emit_n)).unwrap());
+                    }
+                    black_box(gv.emit(EmitTo::First(gv.len())).unwrap());
+                },
+                BatchSize::SmallInput,
+            );
+        });
+    }
+    group.finish();
+}
+
+/// Batches that share one dictionary values array, as produced downstream of
+/// a repartition or filter: `take`/`filter` clone the values `Arc` and rewrite
+/// only the keys, so the values array is never compacted and its cardinality
+/// reflects the whole upstream stream rather than a single batch.
+///
+/// The other benchmarks here always allocate a fresh values array per batch
+/// and cap cardinality at the batch size, so neither the `Arc` reuse nor the
+/// `cardinality >> rows` regime is covered by them.
+fn bench_shared_values_arc(c: &mut Criterion) {
+    // More batches than `N_BATCHES`: the cost this exercises is paid once per
+    // batch, so a longer run per values array is what a real partition looks
+    // like (thousands of batches sharing one dictionary).
+    const BATCHES: usize = 32;
+
+    let mut group = c.benchmark_group("dict_shared_values_arc");
+    let size = SIZES[0];
+
+    for &cardinality in &[size, 32 * 1024, 64 * 1024, 100_000, 500_000] {
+        // Seeded per cardinality so each configuration is reproducible on its
+        // own and adding one does not change the data used by the others.
+        let mut rng = StdRng::seed_from_u64(SEED);
+        // One values array, shared by every batch.
+        let strings: Vec<String> =
+            (0..cardinality).map(|i| format!("v_{i:08}")).collect();
+        let values: ArrayRef = Arc::new(StringArray::from(
+            strings.iter().map(|s| Some(s.as_str())).collect::<Vec<_>>(),
+        ));
+
+        let batches: Vec<ArrayRef> = (0..BATCHES)
+            .map(|_| {
+                let keys: Vec<i32> = (0..size)
+                    .map(|_| rng.random_range(0..cardinality) as i32)
+                    .collect();
+                Arc::new(DictionaryArray::<Int32Type>::new(
+                    PrimitiveArray::<Int32Type>::from(keys),
+                    Arc::clone(&values),
+                )) as ArrayRef
+            })
+            .collect();
+
+        let schema = dict_schema();
+        group.throughput(Throughput::Elements((size * BATCHES) as u64));
+        group.bench_function(
+            BenchmarkId::new(
+                "shared_values_arc",
+                format!("size_{size}_card_{cardinality}"),
+            ),
+            |b| {
+                b.iter_batched_ref(
+                    || {
+                        (
+                            new_group_values(schema.clone(), &GroupOrdering::None)
+                                .unwrap(),
+                            Vec::<usize>::with_capacity(size),
+                        )
+                    },
+                    |(gv, groups)| {
+                        for arr in &batches {
+                            gv.intern(std::slice::from_ref(arr), groups).unwrap();
+                            black_box(&*groups);
+                        }
+                        black_box(gv.emit(EmitTo::All).unwrap());
+                    },
+                    BatchSize::SmallInput,
+                );
+            },
+        );
+    }
+    group.finish();
+}
+
+criterion_group!(
+    benches,
+    bench_intern_emit,
+    bench_repeated_intern_emit,
+    bench_scalar_append_equal,
+    bench_take_n,
+    bench_shared_values_arc
+);
+criterion_main!(benches);

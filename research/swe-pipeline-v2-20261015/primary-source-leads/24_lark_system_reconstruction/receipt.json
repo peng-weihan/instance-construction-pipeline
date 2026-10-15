@@ -1,0 +1,22 @@
+{
+  "id": "24_lark_system_reconstruction",
+  "repo": "lark-parser/lark",
+  "revision": "9a4fb9c7458e8155636773a3cded0016d52516da",
+  "observed_utc": "2026-10-15T12:43:06.150721+00:00",
+  "status": "source_leads_only",
+  "files": [
+    {
+      "path": "tree.json",
+      "url": "https://api.github.com/repos/lark-parser/lark/git/trees/9a4fb9c7458e8155636773a3cded0016d52516da?recursive=1",
+      "sha256": "489fae4dd01df4a1d2e4ec1a1e2ecc7c076e032fcbf381e854b399621d6a6fbd"
+    },
+    {
+      "path": "recent-issues-and-prs.json",
+      "url": "https://api.github.com/repos/lark-parser/lark/issues?state=all&per_page=20",
+      "sha256": "ff4bbc91916d885eac0ac0fbee8e8b7f7b448b160023f85eebdb35473cb47b5a"
+    }
+  ],
+  "errors": [],
+  "warning": "Issue state is current, not proof of a missing feature at the fixed revision. Build/reproduce before selecting a contract.",
+  "tree_truncated": false
+}

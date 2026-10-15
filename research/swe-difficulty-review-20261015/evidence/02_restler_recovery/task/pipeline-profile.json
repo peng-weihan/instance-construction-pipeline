@@ -1,0 +1,7 @@
+{
+  "agent_image":"edgebench-restler-work:1.0.0",
+  "verifier_image":"edgebench-restler-judge:1.0.0",
+  "artifacts":["/home/workspace/restler-recovery/submission"],
+  "selection":"valid_then_score",
+  "score_direction":"maximize"
+}

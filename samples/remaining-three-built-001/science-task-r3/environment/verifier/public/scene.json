@@ -1,0 +1,74 @@
+{
+  "name": "Heterogeneous-Darcy-DualDomain-62",
+  "grid": {
+    "shape_xyz": [
+      31,
+      17,
+      9
+    ],
+    "spacing_m": [
+      2,
+      2,
+      1
+    ],
+    "origin_m": [
+      0,
+      -17,
+      -4.5
+    ]
+  },
+  "porosity": 0.25,
+  "D_xyz": [
+    0.12,
+    0.025,
+    0.008
+  ],
+  "time_step_days": 0.5,
+  "observation_operator": "cell average at named grid index; x/y/z coordinates identify cell centres",
+  "noise": {
+    "multiplicative_log_sd": 0.05,
+    "detection_limit_g_m3": 0.0003
+  },
+  "units": [
+    "m",
+    "day",
+    "g/m3"
+  ],
+  "initial": "zero concentration",
+  "boundary": "zero inlet concentration; zero concentration gradient at outlet; zero normal flux at y/z boundaries",
+  "storage": "Langmuir mobile storage plus kinetic exchange with immobile water",
+  "calibration_source": {
+    "cx": 7.0,
+    "cy": 0.0,
+    "cz": 0.0,
+    "hx": 1.5,
+    "hy": 1.0,
+    "hz": 0.7,
+    "t_start": 0.0,
+    "duration": 90.0,
+    "rate0": 0.15,
+    "rate1": 0.3,
+    "rate2": 0.08
+  },
+  "source_count": 4,
+  "conductivity_control_shape": [
+    7,
+    4,
+    3
+  ],
+  "base_conductivity_m_day": 0.23,
+  "hydraulic_heads_m": {
+    "0": [
+      6.0,
+      0.0
+    ],
+    "1": [
+      3.0,
+      0.0
+    ]
+  },
+  "hydraulic_observation_noise": {
+    "head_sd_m": 0.0005,
+    "flux_relative_sd": 0.005
+  }
+}

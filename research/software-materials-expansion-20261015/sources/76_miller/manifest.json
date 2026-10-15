@@ -1,0 +1,105 @@
+{
+  "repo": "johnkerl/miller",
+  "revision": "3fa2b291fc7bd93f491c93c2453e7d50a18d645d",
+  "resolved_utc": "2026-10-15T13:31:17.723625+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:34:55.966911+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "9299530df802db766523c64b11c2720c5df27c696d5e96601439ac72269ebf62",
+    "truncated": false,
+    "blob_count": 19583
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE.txt",
+      "bytes": 1543,
+      "sha256": "46f4b1a9cf907dd11c74b0eedc90d77e5d0a1da3e4ef4f1930a0e07497031761",
+      "url": "https://github.com/johnkerl/miller/blob/3fa2b291fc7bd93f491c93c2453e7d50a18d645d/LICENSE.txt"
+    },
+    {
+      "path": "README.md",
+      "bytes": 27773,
+      "sha256": "b384a2b36281dc3f62d8d26b798bb0337d96981b577b437569831bdb358c5e4e",
+      "url": "https://github.com/johnkerl/miller/blob/3fa2b291fc7bd93f491c93c2453e7d50a18d645d/README.md"
+    },
+    {
+      "path": "go.mod",
+      "bytes": 2168,
+      "sha256": "8ee25396ec4178ccfa6e33171b1f0d46a12f6744d0b6b8c2d72824dde15f4b80",
+      "url": "https://github.com/johnkerl/miller/blob/3fa2b291fc7bd93f491c93c2453e7d50a18d645d/go.mod"
+    },
+    {
+      "path": "pkg/dsl/cst/root.go",
+      "bytes": 15871,
+      "sha256": "d022c6377326fc781d10e43d6f987789984d6262414db3e7236e3c1e6af3e268",
+      "url": "https://github.com/johnkerl/miller/blob/3fa2b291fc7bd93f491c93c2453e7d50a18d645d/pkg/dsl/cst/root.go"
+    },
+    {
+      "path": "pkg/transformers/group_by.go",
+      "bytes": 3583,
+      "sha256": "972a58c42d8b8c8a3c3fd8aaf3531409e771f0894b85c7ff52d53fc70b5a0c58",
+      "url": "https://github.com/johnkerl/miller/blob/3fa2b291fc7bd93f491c93c2453e7d50a18d645d/pkg/transformers/group_by.go"
+    },
+    {
+      "path": "pkg/transformers/join.go",
+      "bytes": 27196,
+      "sha256": "056813f50db43be9dd8cf4e23c553c43a402c0e106b2e2e5b4729ceeede85209",
+      "url": "https://github.com/johnkerl/miller/blob/3fa2b291fc7bd93f491c93c2453e7d50a18d645d/pkg/transformers/join.go"
+    },
+    {
+      "path": "pkg/transformers/put_or_filter.go",
+      "bytes": 22058,
+      "sha256": "23a4d814544fedf50ac14c8750c917d059f3949c74dc72ac3362493fbe8b883c",
+      "url": "https://github.com/johnkerl/miller/blob/3fa2b291fc7bd93f491c93c2453e7d50a18d645d/pkg/transformers/put_or_filter.go"
+    },
+    {
+      "path": "test/cases/dsl-json-collection-output/0001/cmd",
+      "bytes": 34,
+      "sha256": "5a0c59e38466cfeda32f22bdd8654fdf5631dec77e02170cd0b8e15986bc0698",
+      "url": "https://github.com/johnkerl/miller/blob/3fa2b291fc7bd93f491c93c2453e7d50a18d645d/test/cases/dsl-json-collection-output/0001/cmd"
+    },
+    {
+      "path": "test/cases/dsl-json-collection-output/0001/expout",
+      "bytes": 17,
+      "sha256": "e79f074e0690e9e9c8fb08ebe1ff1d5d4662cc428fd70c894d3bfa2d97f88ae9",
+      "url": "https://github.com/johnkerl/miller/blob/3fa2b291fc7bd93f491c93c2453e7d50a18d645d/test/cases/dsl-json-collection-output/0001/expout"
+    },
+    {
+      "path": "test/cases/dsl-json-collection-output/0001/input",
+      "bytes": 8,
+      "sha256": "bb157861a164e35cdde9d726b0af9ce2765a8f530c35d9e45732b94ee65e9557",
+      "url": "https://github.com/johnkerl/miller/blob/3fa2b291fc7bd93f491c93c2453e7d50a18d645d/test/cases/dsl-json-collection-output/0001/input"
+    },
+    {
+      "path": "test/cases/verb-join-mixed-format/0001/cmd",
+      "bytes": 99,
+      "sha256": "da80f7128deafdaa72f476bf4b0b72204fe52256cd277efb65f324a9510b7c86",
+      "url": "https://github.com/johnkerl/miller/blob/3fa2b291fc7bd93f491c93c2453e7d50a18d645d/test/cases/verb-join-mixed-format/0001/cmd"
+    },
+    {
+      "path": "test/cases/verb-join-mixed-format/0001/expout",
+      "bytes": 143,
+      "sha256": "836998d100dbad71401ae970fda0b6c27c8c1e1afeba28a0ad891acdcf8c97d0",
+      "url": "https://github.com/johnkerl/miller/blob/3fa2b291fc7bd93f491c93c2453e7d50a18d645d/test/cases/verb-join-mixed-format/0001/expout"
+    },
+    {
+      "path": "test/input/multi-format-join-a.json",
+      "bytes": 56,
+      "sha256": "52f1219353e15663839fd484865598cefb962a2480685e78fa3c8a448a367a28",
+      "url": "https://github.com/johnkerl/miller/blob/3fa2b291fc7bd93f491c93c2453e7d50a18d645d/test/input/multi-format-join-a.json"
+    },
+    {
+      "path": "test/input/multi-format-join-b.json",
+      "bytes": 60,
+      "sha256": "0b323bdee6a66ccbdda7d707dba6cd594fe7d88a41026888702e4c736d7255fc",
+      "url": "https://github.com/johnkerl/miller/blob/3fa2b291fc7bd93f491c93c2453e7d50a18d645d/test/input/multi-format-join-b.json"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

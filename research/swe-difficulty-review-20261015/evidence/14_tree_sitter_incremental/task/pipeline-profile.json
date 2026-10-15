@@ -1,0 +1,9 @@
+{
+  "agent_image": "edgebench-tree-sitter-work:author-v1",
+  "verifier_image": "edgebench-tree-sitter-judge:author-v1",
+  "artifacts": [
+    "/home/workspace/tree-sitter/submission"
+  ],
+  "selection": "valid_then_score",
+  "score_direction": "maximize"
+}

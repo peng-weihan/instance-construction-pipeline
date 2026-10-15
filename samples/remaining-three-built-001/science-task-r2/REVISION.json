@@ -1,0 +1,23 @@
+{
+  "previous_revision": "science-task-r1",
+  "why": "1200 evaluations reached .907 feedback in 77 seconds",
+  "new_physics": "unknown heterogeneous Darcy field coupled to transport and two sources",
+  "parameter_count": 113,
+  "public_forward_supplied": true,
+  "original_formula_constants_unchanged": true,
+  "independent_agreement": {
+    "hydraulic_axis_0": {
+      "head": 6.297184995673888e-13,
+      "flux": 3.4562630535361905e-14,
+      "total": 2.930988785010413e-14
+    },
+    "hydraulic_axis_1": {
+      "head": 4.022338018216942e-13,
+      "flux": 3.690103778097864e-14,
+      "total": 1.1013412404281553e-13
+    },
+    "calibration": 3.6165515027164474e-13,
+    "contaminant": 2.204902926905561e-13
+  },
+  "six_hour_difficulty": "not_measured"
+}

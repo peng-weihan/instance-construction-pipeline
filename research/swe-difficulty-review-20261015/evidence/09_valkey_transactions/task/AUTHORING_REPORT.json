@@ -1,0 +1,208 @@
+{
+  "status": "constructed_unverified",
+  "updated_utc": "2026-10-15T10:56:41.781767+00:00",
+  "task_path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task",
+  "source_revision": "cf5efa70192faedacb6741ee2a8f800d0482862f",
+  "decision": "build_pilot；难度与平台验收 held_for_evidence，非合格六小时题的宣称",
+  "stages": {
+    "material_acquired": "completed: 完整固定 checkout，2050 tracked 文件 hash 一致",
+    "constructed_unverified": "completed: 真实 RESP3 多客户端服务、starter、完整私有参考、独立输入/不变量 verifier",
+    "local_checks_completed": "completed: 仅覆盖所列 host 检查，不代替容器/ARM/Harbor 运行",
+    "held_for_evidence": [
+      "未执行 Docker image build、真实 Harbor trial 或 ARM 验证；本地 Python 为 3.12.3，目标镜像 3.12.8 的给定 manifest-list digest 已固定但本轮未拉取/运行。",
+      "未启动教师或六小时标定；没有 2h→6h 增长、难度接受或三轨迹证据。",
+      "直接 Valkey 基线已实测；完整合法 wrapper 的成本与可能早期满分仍待最低成本否证，不能据目前范围声明六小时难度。",
+      "独立客户端、literal 状态与外部 journal 构造已实现，但合同、参考和测试由同一作者设计；独立人工语义复核及全 payload byte-cut 审计未完成。",
+      "本地验证覆盖进程崩溃/前缀截断，不等于设备断电实测；参考有 fsync-before-reply，独立系统调用顺序审计尚未做。",
+      "真实容器内权限、网络和恶意多进程隔离仍需运行验证；当前证据仅为 host 上实际候选 UID 的编译/运行与拒绝访问探针。",
+      "请求型号为 gpt-6.1-sol，当前会话由父进程管理；本作者未独立取得 provider 型号证明，也未另启模型。"
+    ],
+    "rejected": false
+  },
+  "contract": {
+    "artifact": "/home/workspace/edgekv/submission",
+    "agent_budget_seconds": 21600,
+    "groups": 6,
+    "scored_scenarios": 29,
+    "performance_score_enabled": false,
+    "exactly_once_required": false,
+    "oracle_mode": "ordinary finite semantic oracle; local maximum reachable"
+  },
+  "observed_scores": {
+    "reference_repeats": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "unchanged_starter_NOP": 0.36,
+    "no_watch": 0.81,
+    "stop_exec_on_runtime_error": 0.9200000000000002
+  },
+  "checks": [
+    {
+      "name": "固定源码完整性",
+      "command": "git clone --no-checkout https://github.com/valkey-io/valkey.git material-src/valkey; git -C material-src/valkey checkout --detach cf5efa70192faedacb6741ee2a8f800d0482862f; SHA256 校验全部 tracked files",
+      "result": {
+        "revision": "cf5efa70192faedacb6741ee2a8f800d0482862f",
+        "tracked_files_checked": 2050,
+        "hash_mismatches": [],
+        "tracked_worktree_clean": true,
+        "manifest_sha256": "bcd52909014ea219f7376502607fc9ec41d3b64a32ec379c1cc46bb6d475a29c"
+      },
+      "evidence": "../evidence/source-integrity.json"
+    },
+    {
+      "name": "Valkey 本地原生构建",
+      "command": "make -C material-src/valkey -j4 MALLOC=libc BUILD_TLS=no",
+      "result": "exit 0；无全局安装；使用 vendored dependencies",
+      "evidence": "../evidence/valkey-build.log"
+    },
+    {
+      "name": "Valkey 原生回归",
+      "command": "./runtest --single unit/multi --single unit/protocol --clients 1 --baseport 26000 --config unixsocket '\"\"' --config pidfile /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/valkey-native.pid",
+      "cwd": "material-src/valkey",
+      "result": "119 passed, 0 failed；exit 0",
+      "evidence": "../evidence/valkey-native-final.log"
+    },
+    {
+      "name": "强直接服务器基线",
+      "command": "python3 scripts/baseline_probe.py",
+      "result": "Valkey 已支持普通 RESP3 / MULTI / EXEC / WATCH；直接服务缺少 CLOCK 与 EKV1 合同，不将已有特性称作 upstream gap",
+      "evidence": "../evidence/baseline.json"
+    },
+    {
+      "name": "公开 starter 回归",
+      "command": "python3 task/environment/public/smoke.py",
+      "result": "5 tests, OK",
+      "evidence": "../evidence/starter-smoke-final.log"
+    },
+    {
+      "name": "实际 Harbor schema 快照",
+      "command": ".author-venv/bin/python scripts/validate_schema.py",
+      "result": {
+        "actual_snapshot": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/guidance/harbor-0.23.0-task-config.py",
+        "validated": true,
+        "schema_version": "1.4",
+        "agent_budget": 21600.0,
+        "verifier_mode": "separate",
+        "agent_network": "no-network",
+        "work_network": "no-network",
+        "verifier_network": "no-network",
+        "judge_network": "no-network"
+      },
+      "evidence": "../evidence/schema-validation-final-v1.log"
+    },
+    {
+      "name": "冻结评分矩阵与奖励一致性",
+      "command": "python3 scripts/run_local_checks.py",
+      "result": "17 项执行；5 次全新参考评分同源码 hash 均 1.0；NOP 与两种 near-miss 的 Python/shell 入口及 reward 数值一致；缺文件/语法错误有效 0 分；基础设施注入 invalid、无数值 reward",
+      "evidence": "../evidence/local-check-matrix-r3.json"
+    },
+    {
+      "name": "作者审计",
+      "command": "python3 scripts/author_audit.py",
+      "result": {
+        "checks": [
+          {
+            "name": "watch_persist",
+            "passed": true
+          },
+          {
+            "name": "every_header_cut",
+            "passed": true,
+            "cuts": 12
+          },
+          {
+            "name": "full_frame_atomic",
+            "passed": true
+          }
+        ],
+        "scored": false
+      },
+      "evidence": "../evidence/author-audit-final.log"
+    },
+    {
+      "name": "实际 UID 隔离",
+      "command": "python3 scripts/check_isolation.py",
+      "result": {
+        "uid": 39009,
+        "known_reference_open_denied": true,
+        "known_authoritative_test_open_denied": true,
+        "reward_write_denied": true,
+        "probe_exit": 0,
+        "compile_and_run_share_restrict_function": true
+      },
+      "evidence": "../evidence/isolation-result.json"
+    },
+    {
+      "name": "参考注入与逆补丁",
+      "command": "sh task/solution/solve.sh evidence/final-solution-injection; patch -p1 -i task/solution/reference.patch（在独立 starter 副本中）",
+      "result": {
+        "injection_equal": true,
+        "inverse_patch_exit": 0,
+        "inverse_patch_equal": true,
+        "stdout": "patching file journal.py\npatching file transaction.py\n"
+      },
+      "evidence": "../evidence/final-injection-check.json"
+    },
+    {
+      "name": "build context / private split / test mirror",
+      "command": "python3 scripts/finalize_package.py",
+      "result": {
+        "build_context_closure": true,
+        "test_mirror_hashes_equal": true,
+        "public_private_path_split": true,
+        "reference_injection_bytes_equal": true,
+        "image_build_executed": false,
+        "source_files_unchanged": true
+      },
+      "evidence": "../evidence/package-static-check-final.log"
+    }
+  ],
+  "controls": {
+    "NOP": "unchanged starter, meaningful initial capabilities",
+    "no_watch": "忽略 watch 版本，应下降 WATCH 及跨 journal 边界维度；实测 0.81",
+    "stop_exec": "运行期错误中断剩余队列，应下降事务维度；实测约 0.92",
+    "missing_and_syntax": "普通提交失败，应 valid=true / score=0；双入口实测",
+    "infrastructure_fault": "应 valid=false / score=null / 无 reward；双入口实测"
+  },
+  "historical_failures": {
+    "retained": true,
+    "not_final_evidence": [
+      "../evidence/reference-first.log",
+      "../evidence/reference-fixed/score.json",
+      "../evidence/valkey-native.log",
+      "../evidence/local-check-matrix.log"
+    ],
+    "fixes": [
+      "Unix socket 长路径改为相对 bind 与 proc fd 客户端路径",
+      "权限 probe 字符串换行转义修复；实际 UID 检查通过",
+      "候选解释器关闭 site 初始化；编译与权限探针使用 -I -S，运行使用 -S",
+      "本地主机 shell 入口选择受信解释器路径；目标镜像仍使用给定 Python",
+      "纯十进制 header 的长前导零解析修复并加入同组回归"
+    ]
+  },
+  "scope_notes": [
+    "显式输出均放在当前 job；无子代理、模型 CLI、云沙箱、教师评测、部署、外部消息、global install 或清理。",
+    "依赖下载与 venv 明确位于 job。首次 pip download 未显式关闭默认 cache，日志显示使用 cache；无法据此证明工具没有目录外缓存写入，未检查或改动任何全局缓存；后续下载/安装均使用 --no-cache-dir。",
+    "初始 upstream native harness 的配置日志出现原生默认 /var/run/valkey.pid；未检查或修改该全局路径，不能断言是否产生过写入。最终重跑显式将 pidfile 定位到 job/evidence，原生源码未修改。"
+  ],
+  "teacher_runs": 0,
+  "subagents_started": 0,
+  "cloud_runs": 0,
+  "container_runtime_verified": false,
+  "arm_verified": false,
+  "difficulty_accepted": false,
+  "unresolved": [
+    "未执行 Docker image build、真实 Harbor trial 或 ARM 验证；本地 Python 为 3.12.3，目标镜像 3.12.8 的给定 manifest-list digest 已固定但本轮未拉取/运行。",
+    "未启动教师或六小时标定；没有 2h→6h 增长、难度接受或三轨迹证据。",
+    "直接 Valkey 基线已实测；完整合法 wrapper 的成本与可能早期满分仍待最低成本否证，不能据目前范围声明六小时难度。",
+    "独立客户端、literal 状态与外部 journal 构造已实现，但合同、参考和测试由同一作者设计；独立人工语义复核及全 payload byte-cut 审计未完成。",
+    "本地验证覆盖进程崩溃/前缀截断，不等于设备断电实测；参考有 fsync-before-reply，独立系统调用顺序审计尚未做。",
+    "真实容器内权限、网络和恶意多进程隔离仍需运行验证；当前证据仅为 host 上实际候选 UID 的编译/运行与拒绝访问探针。",
+    "请求型号为 gpt-6.1-sol，当前会话由父进程管理；本作者未独立取得 provider 型号证明，也未另启模型。"
+  ],
+  "final_consistency": "../evidence/final-consistency.json"
+}

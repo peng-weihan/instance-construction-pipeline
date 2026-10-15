@@ -1,0 +1,38 @@
+{
+  "status": "qc_passed",
+  "level": "R1",
+  "instance_dir": "/Users/raymone/Desktop/01_Research/swe-factory/runs/programbench-demo-02/construction/instances/synthetic__bytecopy.10f5d50",
+  "quality": {
+    "passed": true,
+    "kept_native_ids": [
+      "tests/test_2fe81b_core.py::test_bytes_0",
+      "tests/test_2fe81b_core.py::test_bytes_1",
+      "tests/test_2fe81b_core.py::test_bytes_2",
+      "tests/test_2fe81b_core.py::test_bytes_3",
+      "tests/test_2fe81b_core.py::test_bytes_4",
+      "tests/test_2fe81b_core.py::test_bytes_5",
+      "tests/test_2fe81b_core.py::test_bytes_6",
+      "tests/test_2fe81b_core.py::test_bytes_7",
+      "tests/test_2fe81b_core.py::test_bytes_8",
+      "tests/test_2fe81b_core.py::test_bytes_9",
+      "tests/test_2fe81b_core.py::test_error"
+    ],
+    "n_kept": 11,
+    "n_tests": 12,
+    "n_branches": 1,
+    "ignored": [
+      "tests.test_2fe81b_core.test_weak_exit"
+    ]
+  },
+  "source": {
+    "commit": "10f5d5017e1076e86945f289da3d3b364bea0726",
+    "source": "/Users/raymone/Desktop/01_Research/swe-factory/runs/programbench-demo-02/source",
+    "snapshot_sha256": "3d64c3bee49aa045852b1747b959ca54b6df1aad9c10868a07dbe355e38b7dcb"
+  },
+  "model_called": false,
+  "execution": "host",
+  "r2_verified": false,
+  "r3_verified": false,
+  "published": false,
+  "instance_sha256": "a59d1e39ad0a4a6d98c84dd0a501465420a0ddf7a72853e87a725d3b624467be"
+}

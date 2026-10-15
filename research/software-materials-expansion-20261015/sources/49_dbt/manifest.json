@@ -1,0 +1,63 @@
+{
+  "repo": "dbt-labs/dbt-core",
+  "revision": "8843d3dfca9a2ea2646a6273701a89ffffd4b11e",
+  "resolved_utc": "2026-10-15T13:30:28.873917+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:31:09.676341+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "c433c171f23304ab3798383b20cb0862907d589ac1df06d33efdcd06ec3c8c4a",
+    "truncated": false,
+    "blob_count": 4873
+  },
+  "files_acquired": [
+    {
+      "path": "Cargo.toml",
+      "bytes": 26637,
+      "sha256": "b75ff031cb6feedea876b0bb99e5fdb017a65d7a3fe47878550a36087ff3ba7e",
+      "url": "https://github.com/dbt-labs/dbt-core/blob/8843d3dfca9a2ea2646a6273701a89ffffd4b11e/Cargo.toml"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 11343,
+      "sha256": "aaec0fc491a8093b76b7301f6168b9ac05b0fd20e8ea717f7d90691b3b7d8772",
+      "url": "https://github.com/dbt-labs/dbt-core/blob/8843d3dfca9a2ea2646a6273701a89ffffd4b11e/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4412,
+      "sha256": "a003fe448ca06aebb748467227d2dc8b8be263173c6c070400efb95dfb9cb618",
+      "url": "https://github.com/dbt-labs/dbt-core/blob/8843d3dfca9a2ea2646a6273701a89ffffd4b11e/README.md"
+    },
+    {
+      "path": "crates/dbt-defer/src/lib.rs",
+      "bytes": 71100,
+      "sha256": "dbb448985ada29a957197054ccce5574ab96fad39948af0d4ad7d5df1968552f",
+      "url": "https://github.com/dbt-labs/dbt-core/blob/8843d3dfca9a2ea2646a6273701a89ffffd4b11e/crates/dbt-defer/src/lib.rs"
+    },
+    {
+      "path": "crates/dbt-scheduler/src/node_selector.rs",
+      "bytes": 109991,
+      "sha256": "2ca47c24f717488a41a95d90f32021485a85f84a5cdae0a967f8f605749c2df1",
+      "url": "https://github.com/dbt-labs/dbt-core/blob/8843d3dfca9a2ea2646a6273701a89ffffd4b11e/crates/dbt-scheduler/src/node_selector.rs"
+    },
+    {
+      "path": "crates/dbt-schemas/src/schemas/prev_state/mod.rs",
+      "bytes": 125550,
+      "sha256": "24ea2d2949f09be4141f854cc31065deca57b491c85a0dd3d5603250e7c31634",
+      "url": "https://github.com/dbt-labs/dbt-core/blob/8843d3dfca9a2ea2646a6273701a89ffffd4b11e/crates/dbt-schemas/src/schemas/prev_state/mod.rs"
+    },
+    {
+      "path": "crates/dbt-state/src/explain/tests.rs",
+      "bytes": 45651,
+      "sha256": "8e95dd62270ab1d79e03d20453884e47836037f8a152888ba818b16b5902cf3a",
+      "url": "https://github.com/dbt-labs/dbt-core/blob/8843d3dfca9a2ea2646a6273701a89ffffd4b11e/crates/dbt-state/src/explain/tests.rs"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

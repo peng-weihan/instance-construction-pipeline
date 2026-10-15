@@ -1,0 +1,74 @@
+{
+  "repo": "github/cmark-gfm",
+  "revision": "27d942c8b0a62d192f616e5bf3578f4b6a89e180",
+  "resolved_utc": "2026-10-15T13:08:40.085492+00:00",
+  "retrieved_utc": "2026-10-15T13:09:41.489063+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "3dc2f4bd8ff3daacc5bfaa5f0e889ce5df2a1a71af20fb61fd698d9b958343a4",
+    "truncated": false,
+    "blob_count": 162
+  },
+  "files_acquired": [
+    {
+      "path": "COPYING",
+      "bytes": 7567,
+      "sha256": "c22e885f33b821bddb24cf007145e5540655b6c0f403e49e6c76a93c28e6d9a9",
+      "url": "https://github.com/github/cmark-gfm/blob/27d942c8b0a62d192f616e5bf3578f4b6a89e180/COPYING"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7337,
+      "sha256": "7beb500a5a7e9a996fcc91db8d5c2aa2a1b211be5531c9d7b64c09dde663c17b",
+      "url": "https://github.com/github/cmark-gfm/blob/27d942c8b0a62d192f616e5bf3578f4b6a89e180/README.md"
+    },
+    {
+      "path": "api_test/main.c",
+      "bytes": 48004,
+      "sha256": "fd9a392ef45a4285d963c5a1530cafe46107d03c4b5fed363cf17d6d336d953e",
+      "url": "https://github.com/github/cmark-gfm/blob/27d942c8b0a62d192f616e5bf3578f4b6a89e180/api_test/main.c"
+    },
+    {
+      "path": "extensions/table.c",
+      "bytes": 31192,
+      "sha256": "2f021e64aed145578322c767475399138e76b94ec07599696a5a15ee14133ed1",
+      "url": "https://github.com/github/cmark-gfm/blob/27d942c8b0a62d192f616e5bf3578f4b6a89e180/extensions/table.c"
+    },
+    {
+      "path": "src/blocks.c",
+      "bytes": 50856,
+      "sha256": "464266209ed2c94b42ba6c9c4d2768f0f7bda3d668f4e5fa86bcf47b18b7f0ff",
+      "url": "https://github.com/github/cmark-gfm/blob/27d942c8b0a62d192f616e5bf3578f4b6a89e180/src/blocks.c"
+    },
+    {
+      "path": "src/cmark-gfm.h",
+      "bytes": 26571,
+      "sha256": "6502e5b58a822af20e2540819fb2c05cfcd8446c1c837881892da57f29d3cd88",
+      "url": "https://github.com/github/cmark-gfm/blob/27d942c8b0a62d192f616e5bf3578f4b6a89e180/src/cmark-gfm.h"
+    },
+    {
+      "path": "src/inlines.c",
+      "bytes": 56340,
+      "sha256": "89b0c0fb10bba478b0bf71910f1c1a417d60bd8ac2b09134f76a84862a81805e",
+      "url": "https://github.com/github/cmark-gfm/blob/27d942c8b0a62d192f616e5bf3578f4b6a89e180/src/inlines.c"
+    },
+    {
+      "path": "test/extensions.txt",
+      "bytes": 21274,
+      "sha256": "a2a45e98be9fca95f564f927265a0f63beea6cae5369d1cf4bde44caa51b2a3a",
+      "url": "https://github.com/github/cmark-gfm/blob/27d942c8b0a62d192f616e5bf3578f4b6a89e180/test/extensions.txt"
+    },
+    {
+      "path": "test/spec_tests.py",
+      "bytes": 6427,
+      "sha256": "8f2c8ad3f819922b2cf95557b9af91a3c8513b6e7e8a8461a6fb632d59be616e",
+      "url": "https://github.com/github/cmark-gfm/blob/27d942c8b0a62d192f616e5bf3578f4b6a89e180/test/spec_tests.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

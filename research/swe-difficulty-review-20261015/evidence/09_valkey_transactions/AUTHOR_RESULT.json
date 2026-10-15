@@ -1,0 +1,550 @@
+{
+  "status": "constructed_unverified",
+  "task_path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task",
+  "source_revision": "cf5efa70192faedacb6741ee2a8f800d0482862f",
+  "summary": "已构造可审阅的原创事务 RESP3 KV 服务题包，完成 host 本地检查；平台与六小时难度未验收。",
+  "implemented_files": [
+    "task/AUTHORING_REPORT.json",
+    "task/DIFFICULTY.md",
+    "task/MATERIALS.md",
+    "task/authoring/build-manifest.json",
+    "task/authoring/provenance.json",
+    "task/authoring/score-spec.json",
+    "task/environment/Dockerfile",
+    "task/environment/LICENSE",
+    "task/environment/NOTICE",
+    "task/environment/VALKEY-COPYING",
+    "task/environment/public/JOURNAL_EXAMPLE.json",
+    "task/environment/public/smoke.py",
+    "task/environment/submission/journal.py",
+    "task/environment/submission/resp.py",
+    "task/environment/submission/server.py",
+    "task/environment/submission/store.py",
+    "task/environment/submission/transaction.py",
+    "task/instruction.md",
+    "task/pipeline-profile.json",
+    "task/solution/reference/journal.py",
+    "task/solution/reference/resp.py",
+    "task/solution/reference/server.py",
+    "task/solution/reference/store.py",
+    "task/solution/reference/transaction.py",
+    "task/solution/reference.patch",
+    "task/solution/solve.sh",
+    "task/task.toml",
+    "task/tests/cases.py",
+    "task/tests/grader.py",
+    "task/tests/grader_entry.py",
+    "task/tests/score-spec.json",
+    "task/tests/test.sh",
+    "task/tests/wire.py",
+    "task/verifier/Dockerfile",
+    "task/verifier/private/LICENSE",
+    "task/verifier/private/audit/audit_spec.json",
+    "task/verifier/private/audit/author_audit.py",
+    "task/verifier/private/controls/no_watch/journal.py",
+    "task/verifier/private/controls/no_watch/resp.py",
+    "task/verifier/private/controls/no_watch/server.py",
+    "task/verifier/private/controls/no_watch/store.py",
+    "task/verifier/private/controls/no_watch/transaction.py",
+    "task/verifier/private/controls/stop_exec/journal.py",
+    "task/verifier/private/controls/stop_exec/resp.py",
+    "task/verifier/private/controls/stop_exec/server.py",
+    "task/verifier/private/controls/stop_exec/store.py",
+    "task/verifier/private/controls/stop_exec/transaction.py",
+    "task/verifier/private/origin/COPYING",
+    "task/verifier/private/origin/baseline.json",
+    "task/verifier/private/origin/source-manifest.json",
+    "task/verifier/private/reference/journal.py",
+    "task/verifier/private/reference/resp.py",
+    "task/verifier/private/reference/server.py",
+    "task/verifier/private/reference/store.py",
+    "task/verifier/private/reference/transaction.py",
+    "task/verifier/tests/cases.py",
+    "task/verifier/tests/grader.py",
+    "task/verifier/tests/grader_entry.py",
+    "task/verifier/tests/score-spec.json",
+    "task/verifier/tests/test.sh",
+    "task/verifier/tests/wire.py"
+  ],
+  "source_checkout": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/material-src/valkey",
+  "source_manifest": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/material-src/source-manifest.json",
+  "report_path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/AUTHORING_REPORT.json",
+  "checks": [
+    {
+      "name": "固定源码完整性",
+      "command": "git clone --no-checkout https://github.com/valkey-io/valkey.git material-src/valkey; git -C material-src/valkey checkout --detach cf5efa70192faedacb6741ee2a8f800d0482862f; SHA256 校验全部 tracked files",
+      "result": {
+        "revision": "cf5efa70192faedacb6741ee2a8f800d0482862f",
+        "tracked_files_checked": 2050,
+        "hash_mismatches": [],
+        "tracked_worktree_clean": true,
+        "manifest_sha256": "bcd52909014ea219f7376502607fc9ec41d3b64a32ec379c1cc46bb6d475a29c"
+      },
+      "evidence": "evidence/source-integrity.json"
+    },
+    {
+      "name": "Valkey 本地原生构建",
+      "command": "make -C material-src/valkey -j4 MALLOC=libc BUILD_TLS=no",
+      "result": "exit 0；无全局安装；使用 vendored dependencies",
+      "evidence": "evidence/valkey-build.log"
+    },
+    {
+      "name": "Valkey 原生回归",
+      "command": "./runtest --single unit/multi --single unit/protocol --clients 1 --baseport 26000 --config unixsocket '\"\"' --config pidfile /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/valkey-native.pid",
+      "cwd": "material-src/valkey",
+      "result": "119 passed, 0 failed；exit 0",
+      "evidence": "evidence/valkey-native-final.log"
+    },
+    {
+      "name": "强直接服务器基线",
+      "command": "python3 scripts/baseline_probe.py",
+      "result": "Valkey 已支持普通 RESP3 / MULTI / EXEC / WATCH；直接服务缺少 CLOCK 与 EKV1 合同，不将已有特性称作 upstream gap",
+      "evidence": "evidence/baseline.json"
+    },
+    {
+      "name": "公开 starter 回归",
+      "command": "python3 task/environment/public/smoke.py",
+      "result": "5 tests, OK",
+      "evidence": "evidence/starter-smoke-final.log"
+    },
+    {
+      "name": "实际 Harbor schema 快照",
+      "command": ".author-venv/bin/python scripts/validate_schema.py",
+      "result": {
+        "actual_snapshot": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/guidance/harbor-0.23.0-task-config.py",
+        "validated": true,
+        "schema_version": "1.4",
+        "agent_budget": 21600.0,
+        "verifier_mode": "separate",
+        "agent_network": "no-network",
+        "work_network": "no-network",
+        "verifier_network": "no-network",
+        "judge_network": "no-network"
+      },
+      "evidence": "evidence/schema-validation-final-v1.log"
+    },
+    {
+      "name": "冻结评分矩阵与奖励一致性",
+      "command": "python3 scripts/run_local_checks.py",
+      "result": "17 项执行；5 次全新参考评分同源码 hash 均 1.0；NOP 与两种 near-miss 的 Python/shell 入口及 reward 数值一致；缺文件/语法错误有效 0 分；基础设施注入 invalid、无数值 reward",
+      "evidence": "evidence/local-check-matrix-r3.json"
+    },
+    {
+      "name": "作者审计",
+      "command": "python3 scripts/author_audit.py",
+      "result": {
+        "checks": [
+          {
+            "name": "watch_persist",
+            "passed": true
+          },
+          {
+            "name": "every_header_cut",
+            "passed": true,
+            "cuts": 12
+          },
+          {
+            "name": "full_frame_atomic",
+            "passed": true
+          }
+        ],
+        "scored": false
+      },
+      "evidence": "evidence/author-audit-final.log"
+    },
+    {
+      "name": "实际 UID 隔离",
+      "command": "python3 scripts/check_isolation.py",
+      "result": {
+        "uid": 39009,
+        "known_reference_open_denied": true,
+        "known_authoritative_test_open_denied": true,
+        "reward_write_denied": true,
+        "probe_exit": 0,
+        "compile_and_run_share_restrict_function": true
+      },
+      "evidence": "evidence/isolation-result.json"
+    },
+    {
+      "name": "参考注入与逆补丁",
+      "command": "sh task/solution/solve.sh evidence/final-solution-injection; patch -p1 -i task/solution/reference.patch（在独立 starter 副本中）",
+      "result": {
+        "injection_equal": true,
+        "inverse_patch_exit": 0,
+        "inverse_patch_equal": true,
+        "stdout": "patching file journal.py\npatching file transaction.py\n"
+      },
+      "evidence": "evidence/final-injection-check.json"
+    },
+    {
+      "name": "build context / private split / test mirror",
+      "command": "python3 scripts/finalize_package.py",
+      "result": {
+        "build_context_closure": true,
+        "test_mirror_hashes_equal": true,
+        "public_private_path_split": true,
+        "reference_injection_bytes_equal": true,
+        "image_build_executed": false,
+        "source_files_unchanged": true
+      },
+      "evidence": "evidence/package-static-check-final.log"
+    }
+  ],
+  "observed_scores": {
+    "reference_repeats": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "unchanged_starter_NOP": 0.36,
+    "no_watch": 0.81,
+    "stop_exec_on_runtime_error": 0.9200000000000002
+  },
+  "matrix_commands_and_results": [
+    {
+      "name": "r3-frozen-repeat-1",
+      "command": [
+        "/usr/bin/python3",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader_entry.py",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/verifier/private/reference",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-repeat-1",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-repeat-1/score.json",
+      "valid": true,
+      "score": 1.0,
+      "native_reward": "1",
+      "snapshot_sha256": "4e4a9e7976be33717172ab4c62eb87f7c193ede1cf3a8b6ce6fb55104862fba8"
+    },
+    {
+      "name": "r3-frozen-repeat-2",
+      "command": [
+        "sh",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/test.sh",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/verifier/private/reference",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-repeat-2",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-repeat-2/score.json",
+      "valid": true,
+      "score": 1.0,
+      "native_reward": "1",
+      "snapshot_sha256": "4e4a9e7976be33717172ab4c62eb87f7c193ede1cf3a8b6ce6fb55104862fba8"
+    },
+    {
+      "name": "r3-frozen-repeat-3",
+      "command": [
+        "/usr/bin/python3",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader_entry.py",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/verifier/private/reference",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-repeat-3",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-repeat-3/score.json",
+      "valid": true,
+      "score": 1.0,
+      "native_reward": "1",
+      "snapshot_sha256": "4e4a9e7976be33717172ab4c62eb87f7c193ede1cf3a8b6ce6fb55104862fba8"
+    },
+    {
+      "name": "r3-frozen-repeat-4",
+      "command": [
+        "/usr/bin/python3",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader_entry.py",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/verifier/private/reference",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-repeat-4",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-repeat-4/score.json",
+      "valid": true,
+      "score": 1.0,
+      "native_reward": "1",
+      "snapshot_sha256": "4e4a9e7976be33717172ab4c62eb87f7c193ede1cf3a8b6ce6fb55104862fba8"
+    },
+    {
+      "name": "r3-frozen-repeat-5",
+      "command": [
+        "/usr/bin/python3",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader_entry.py",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/verifier/private/reference",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-repeat-5",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-repeat-5/score.json",
+      "valid": true,
+      "score": 1.0,
+      "native_reward": "1",
+      "snapshot_sha256": "4e4a9e7976be33717172ab4c62eb87f7c193ede1cf3a8b6ce6fb55104862fba8"
+    },
+    {
+      "name": "r3-frozen-nop-python",
+      "command": [
+        "/usr/bin/python3",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader_entry.py",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/environment/submission",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-nop-python",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-nop-python/score.json",
+      "valid": true,
+      "score": 0.36,
+      "native_reward": "0.35999999999999999",
+      "snapshot_sha256": "a36e91b01fc170c8d5075badf15b1ec792acc240e694218e40c3c36a4348e2b8"
+    },
+    {
+      "name": "r3-frozen-nop-shell",
+      "command": [
+        "sh",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/test.sh",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/environment/submission",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-nop-shell",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-nop-shell/score.json",
+      "valid": true,
+      "score": 0.36,
+      "native_reward": "0.35999999999999999",
+      "snapshot_sha256": "a36e91b01fc170c8d5075badf15b1ec792acc240e694218e40c3c36a4348e2b8"
+    },
+    {
+      "name": "r3-frozen-no-watch-python",
+      "command": [
+        "/usr/bin/python3",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader_entry.py",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/verifier/private/controls/no_watch",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-no-watch-python",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-no-watch-python/score.json",
+      "valid": true,
+      "score": 0.81,
+      "native_reward": "0.81000000000000005",
+      "snapshot_sha256": "70743ef862e43980c75eb0ae1b7e9231d04c9dc0dc3471b77a6b5740b8acbadd"
+    },
+    {
+      "name": "r3-frozen-no-watch-shell",
+      "command": [
+        "sh",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/test.sh",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/verifier/private/controls/no_watch",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-no-watch-shell",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-no-watch-shell/score.json",
+      "valid": true,
+      "score": 0.81,
+      "native_reward": "0.81000000000000005",
+      "snapshot_sha256": "70743ef862e43980c75eb0ae1b7e9231d04c9dc0dc3471b77a6b5740b8acbadd"
+    },
+    {
+      "name": "r3-frozen-stop-exec-python",
+      "command": [
+        "/usr/bin/python3",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader_entry.py",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/verifier/private/controls/stop_exec",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-stop-exec-python",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-stop-exec-python/score.json",
+      "valid": true,
+      "score": 0.9200000000000002,
+      "native_reward": "0.92000000000000015",
+      "snapshot_sha256": "63072c73f8f3ef10f012d1dadb1ab74530bf58b19ee8538155ca2e8ea5dc96fd"
+    },
+    {
+      "name": "r3-frozen-stop-exec-shell",
+      "command": [
+        "sh",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/test.sh",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/verifier/private/controls/stop_exec",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-stop-exec-shell",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-stop-exec-shell/score.json",
+      "valid": true,
+      "score": 0.9200000000000002,
+      "native_reward": "0.92000000000000015",
+      "snapshot_sha256": "63072c73f8f3ef10f012d1dadb1ab74530bf58b19ee8538155ca2e8ea5dc96fd"
+    },
+    {
+      "name": "r3-frozen-missing-python",
+      "command": [
+        "/usr/bin/python3",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader_entry.py",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/controls/missing",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-missing-python",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-missing-python/score.json",
+      "valid": true,
+      "score": 0.0,
+      "native_reward": "0",
+      "snapshot_sha256": null
+    },
+    {
+      "name": "r3-frozen-missing-shell",
+      "command": [
+        "sh",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/test.sh",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/controls/missing",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-missing-shell",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-missing-shell/score.json",
+      "valid": true,
+      "score": 0.0,
+      "native_reward": "0",
+      "snapshot_sha256": null
+    },
+    {
+      "name": "r3-frozen-syntax-python",
+      "command": [
+        "/usr/bin/python3",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader_entry.py",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/controls/syntax",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-syntax-python",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-syntax-python/score.json",
+      "valid": true,
+      "score": 0.0,
+      "native_reward": "0",
+      "snapshot_sha256": "60169a844e7530945825f6dccdf7c436de099532849fcefc8ce735d87a8a875d"
+    },
+    {
+      "name": "r3-frozen-syntax-shell",
+      "command": [
+        "sh",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/test.sh",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/controls/syntax",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-syntax-shell",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes"
+      ],
+      "exit_code": 0,
+      "score_report": "evidence/r3-frozen-syntax-shell/score.json",
+      "valid": true,
+      "score": 0.0,
+      "native_reward": "0",
+      "snapshot_sha256": "60169a844e7530945825f6dccdf7c436de099532849fcefc8ce735d87a8a875d"
+    },
+    {
+      "name": "r3-frozen-infra-python",
+      "command": [
+        "/usr/bin/python3",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader_entry.py",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/environment/submission",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-infra-python",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes",
+        "--fault-infrastructure"
+      ],
+      "exit_code": 2,
+      "score_report": "evidence/r3-frozen-infra-python/score.json",
+      "valid": false,
+      "score": null,
+      "native_reward": null,
+      "snapshot_sha256": null
+    },
+    {
+      "name": "r3-frozen-infra-shell",
+      "command": [
+        "sh",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/test.sh",
+        "--submission",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/environment/submission",
+        "--output",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/r3-frozen-infra-shell",
+        "--sandbox-root",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/frozen-sandboxes",
+        "--fault-infrastructure"
+      ],
+      "exit_code": 2,
+      "score_report": "evidence/r3-frozen-infra-shell/score.json",
+      "valid": false,
+      "score": null,
+      "native_reward": null,
+      "snapshot_sha256": null
+    }
+  ],
+  "unresolved": [
+    "未执行 Docker image build、真实 Harbor trial 或 ARM 验证；本地 Python 为 3.12.3，目标镜像 3.12.8 的给定 manifest-list digest 已固定但本轮未拉取/运行。",
+    "未启动教师或六小时标定；没有 2h→6h 增长、难度接受或三轨迹证据。",
+    "直接 Valkey 基线已实测；完整合法 wrapper 的成本与可能早期满分仍待最低成本否证，不能据目前范围声明六小时难度。",
+    "独立客户端、literal 状态与外部 journal 构造已实现，但合同、参考和测试由同一作者设计；独立人工语义复核及全 payload byte-cut 审计未完成。",
+    "本地验证覆盖进程崩溃/前缀截断，不等于设备断电实测；参考有 fsync-before-reply，独立系统调用顺序审计尚未做。",
+    "真实容器内权限、网络和恶意多进程隔离仍需运行验证；当前证据仅为 host 上实际候选 UID 的编译/运行与拒绝访问探针。",
+    "请求型号为 gpt-6.1-sol，当前会话由父进程管理；本作者未独立取得 provider 型号证明，也未另启模型。"
+  ],
+  "scope_notes": [
+    "显式输出均放在当前 job；无子代理、模型 CLI、云沙箱、教师评测、部署、外部消息、global install 或清理。",
+    "依赖下载与 venv 明确位于 job。首次 pip download 未显式关闭默认 cache，日志显示使用 cache；无法据此证明工具没有目录外缓存写入，未检查或改动任何全局缓存；后续下载/安装均使用 --no-cache-dir。",
+    "初始 upstream native harness 的配置日志出现原生默认 /var/run/valkey.pid；未检查或修改该全局路径，不能断言是否产生过写入。最终重跑显式将 pidfile 定位到 job/evidence，原生源码未修改。"
+  ],
+  "teacher_runs": 0,
+  "subagents_started": 0,
+  "cloud_runs": 0,
+  "final_consistency": "evidence/final-consistency.json"
+}

@@ -1,0 +1,1 @@
+{"arguments":{"command":"ls instances/public && cat tools/verify.cpp | tail -65","timeout_seconds":20},"request_id":"d85bf3fb7cbb4a86a98fe0024b162d6f"}

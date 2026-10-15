@@ -1,0 +1,106 @@
+[
+  {
+    "name": "solution-injection",
+    "command": [
+      "/bin/sh",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/solution/solve.sh"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "reference-repeat",
+    "command": [
+      "/usr/local/bin/python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/material-src/tree-sitter",
+      "--base",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/verifier",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/reference-repeat",
+      "--build-parent",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/candidate-builds"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "nop-repeat",
+    "command": [
+      "/usr/local/bin/python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/environment/starter",
+      "--base",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/verifier",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/nop-repeat",
+      "--build-parent",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/candidate-builds"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "online-baseline-repeat",
+    "command": [
+      "/usr/local/bin/python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/controls/full_reparse_starter",
+      "--base",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/verifier",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/online-baseline-repeat",
+      "--build-parent",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/candidate-builds"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "injected-reference",
+    "command": [
+      "/usr/local/bin/python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/injected-reference",
+      "--base",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/verifier",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/injected-reference",
+      "--build-parent",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/candidate-builds"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "candidate-failure",
+    "command": [
+      "/usr/local/bin/python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/invalid-candidate",
+      "--base",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/verifier",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/candidate-failure",
+      "--build-parent",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/candidate-builds"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "infrastructure-failure",
+    "command": [
+      "/usr/local/bin/python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/environment/starter",
+      "--base",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/corrupt-judge",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/infrastructure-failure",
+      "--build-parent",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/candidate-builds"
+    ],
+    "exit_code": 2
+  }
+]

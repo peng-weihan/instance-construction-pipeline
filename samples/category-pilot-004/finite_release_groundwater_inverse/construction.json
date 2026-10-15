@@ -1,0 +1,36 @@
+{
+  "task_id": "finite_release_groundwater_inverse",
+  "category": "Scientific Problems & ML",
+  "title": "稀疏观测下的三维有限时源反演",
+  "status": "constructed_unverified",
+  "original_anchor": "borden_source_inversion",
+  "sources": [
+    {
+      "repository": "https://github.com/MODFLOW-ORG/modflow6-examples.git",
+      "commit": "b6d5d42839349a447579a577f968fe8ac4c1c671",
+      "files": [
+        {
+          "path": "scripts/ex-gwt-moc3d-p02.py",
+          "sha256": "e911ccb39d69a8ff8b359cfef57277c7376e271537eac3c4aedda5a3e35d1d58"
+        },
+        {
+          "path": "doc/sections/ex-gwt-moc3d-p02.tex",
+          "sha256": "7996d8ea8bff0c09056acb80a84410b3ed1b17b65ef95d69837896dcfd9e4ced"
+        }
+      ],
+      "acquired": true,
+      "runtime_verified": false
+    }
+  ],
+  "construction_method": "documented 3-D transport mechanism -> independent finite rectangular-source model -> fixed synthetic observations and held-out query sets",
+  "authoring": {
+    "mode": "interactive_agent_source_inspection_and_scripted_transformation",
+    "independent_cli_model_called": false
+  },
+  "similarity_claim": "mechanism-level design hypothesis, not empirically same-distribution",
+  "known_gap": "Uses an independently authored infinite-domain ADE solver, not the original Borden forward model or a MODFLOW run. Same physics family, uncalibrated difficulty.",
+  "runtime_validation": "deferred_by_user",
+  "difficulty_calibrated": false,
+  "accepted": false,
+  "redistribution_review": "See SOURCE_TO_TASK.md; repository license does not automatically license all third-party data."
+}

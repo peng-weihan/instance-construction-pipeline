@@ -1,0 +1,5 @@
+--- a/datafusion/physical-plan/src/sorts/sort.rs
++++ b/datafusion/physical-plan/src/sorts/sort.rs
+@@ -1272,1 +1272,1 @@
+-        new_sort.fetch = fetch;
++        new_sort.fetch = fetch.map(|k| k.saturating_sub(1));

@@ -1,0 +1,77 @@
+{
+  "repo": "rocq-community/fourcolor",
+  "revision": "c1d6b1cd5288bea4b067aac13cdde3c18dffe018",
+  "resolved_utc": "2026-10-15T14:58:51.601359+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "source_repo_alias": "math-comp/fourcolor",
+  "canonical_observation": "Official GitHub page redirects alias to canonical, 2026-10-15",
+  "retrieved_utc": "2026-10-15T15:01:51.457070+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "5a9b8e2ab4e455c08084339a892642769e1a1d445607ee325e11ce6dd63f039b",
+    "truncated": false,
+    "blob_count": 142
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 21907,
+      "sha256": "e126bedf82d404a67d6ae237bb89f53ef273c356e58ba73cb5dfce7dc5c60eb7",
+      "url": "https://github.com/rocq-community/fourcolor/blob/c1d6b1cd5288bea4b067aac13cdde3c18dffe018/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3161,
+      "sha256": "abce2425f3a2c9235cd6ad3ef737c77e76c548e785868a1150556775eb49fbad",
+      "url": "https://github.com/rocq-community/fourcolor/blob/c1d6b1cd5288bea4b067aac13cdde3c18dffe018/README.md"
+    },
+    {
+      "path": "_CoqProject",
+      "bytes": 3526,
+      "sha256": "bbb6fe8afa56cca88ef58b3c0049f94c610813393c406c41d94f462f1223807b",
+      "url": "https://github.com/rocq-community/fourcolor/blob/c1d6b1cd5288bea4b067aac13cdde3c18dffe018/_CoqProject"
+    },
+    {
+      "path": "coq-fourcolor-reals.opam",
+      "bytes": 384,
+      "sha256": "93eb0bc001641118fe3d8ac85f890f7ea109e55b7a580825b497edf914eb395b",
+      "url": "https://github.com/rocq-community/fourcolor/blob/c1d6b1cd5288bea4b067aac13cdde3c18dffe018/coq-fourcolor-reals.opam"
+    },
+    {
+      "path": "coq-fourcolor.opam",
+      "bytes": 1029,
+      "sha256": "aa1b2f5b8c47a23fa5299feee95ea1ff09a07476e326d8ff2932c1b3ea658961",
+      "url": "https://github.com/rocq-community/fourcolor/blob/c1d6b1cd5288bea4b067aac13cdde3c18dffe018/coq-fourcolor.opam"
+    },
+    {
+      "path": "rocq-fourcolor-reals.opam",
+      "bytes": 871,
+      "sha256": "db9b7efc8369555344db68d6953c86c43c1c79eef969632fa9673258152d4491",
+      "url": "https://github.com/rocq-community/fourcolor/blob/c1d6b1cd5288bea4b067aac13cdde3c18dffe018/rocq-fourcolor-reals.opam"
+    },
+    {
+      "path": "theories/proof/coloring.v",
+      "bytes": 26030,
+      "sha256": "deaa63d6dca0525014411a7b873e3435291014d3e5a0b4c1d2d5d4fa3c8c73c2",
+      "url": "https://github.com/rocq-community/fourcolor/blob/c1d6b1cd5288bea4b067aac13cdde3c18dffe018/theories/proof/coloring.v"
+    },
+    {
+      "path": "theories/proof/combinatorial4ct.v",
+      "bytes": 1613,
+      "sha256": "45594f654d382e81a675aff20d9ec3e76de6b0e7fc500c13105f433e4f7c04c8",
+      "url": "https://github.com/rocq-community/fourcolor/blob/c1d6b1cd5288bea4b067aac13cdde3c18dffe018/theories/proof/combinatorial4ct.v"
+    },
+    {
+      "path": "theories/proof/hypermap.v",
+      "bytes": 21421,
+      "sha256": "b2a64ece0ecd8a39f8a5e2ad857d7e9eed68aba605fc3a2d542211c2aad5a46d",
+      "url": "https://github.com/rocq-community/fourcolor/blob/c1d6b1cd5288bea4b067aac13cdde3c18dffe018/theories/proof/hypermap.v"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

@@ -1,0 +1,4115 @@
+{
+  "sha": "49b07130b3fcd12f2d064bba7c43869543a0e7e7",
+  "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/49b07130b3fcd12f2d064bba7c43869543a0e7e7",
+  "tree": [
+    {
+      "path": ".gitattributes",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2f77e919cdc5d76d29bfc56dbc96e814aee0dc9a",
+      "size": 31,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2f77e919cdc5d76d29bfc56dbc96e814aee0dc9a"
+    },
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b7546ae88bd51df1ab1fc9e29064d1421a820d8f",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/b7546ae88bd51df1ab1fc9e29064d1421a820d8f"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a22f4cf186472dceee7cb17847c845b8285a0765",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/a22f4cf186472dceee7cb17847c845b8285a0765"
+    },
+    {
+      "path": ".github/workflows/pre-commit.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f44dd6d56d4debf304d31d391acc2a41ca7bff57",
+      "size": 997,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f44dd6d56d4debf304d31d391acc2a41ca7bff57"
+    },
+    {
+      "path": ".github/workflows/tests.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "613801225df70c0f22632cbbd89d004b84738b89",
+      "size": 663,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/613801225df70c0f22632cbbd89d004b84738b89"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fb34a68d0db5413a44811af43921045d1674f319",
+      "size": 443,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/fb34a68d0db5413a44811af43921045d1674f319"
+    },
+    {
+      "path": ".pre-commit-config.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "66627d4cd8df0552a935d8c091b067fe4b11a567",
+      "size": 515,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/66627d4cd8df0552a935d8c091b067fe4b11a567"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e586b7799389f7d2f8c8799188b8e76447c3d539",
+      "size": 4295,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e586b7799389f7d2f8c8799188b8e76447c3d539"
+    },
+    {
+      "path": "GALLERY.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c59af1ceffc1b9768e39fcf2584cc2d08bb0202f",
+      "size": 382367,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/c59af1ceffc1b9768e39fcf2584cc2d08bb0202f"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "size": 11357,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    {
+      "path": "NOTICE.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7979a3f759752295c777bab113a505918379887e",
+      "size": 3193,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/7979a3f759752295c777bab113a505918379887e"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d7e3d8e0f644a70c69a0c36e5d33337aed7107ea",
+      "size": 9003,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/d7e3d8e0f644a70c69a0c36e5d33337aed7107ea"
+    },
+    {
+      "path": "assets",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "adab13b456fc120efb68663f0f460d79b753ef64",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/adab13b456fc120efb68663f0f460d79b753ef64"
+    },
+    {
+      "path": "assets/examples.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9279f6fd5c52f495f6db89c58d6273e125eddc51",
+      "size": 737108,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/9279f6fd5c52f495f6db89c58d6273e125eddc51"
+    },
+    {
+      "path": "assets/icon.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a1f6090b37837686bca9a571322c0608887ad5c3",
+      "size": 711322,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/a1f6090b37837686bca9a571322c0608887ad5c3"
+    },
+    {
+      "path": "eval",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "653dd0e8b19e111fe4fe1a19ba2746ebb984c9f9",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/653dd0e8b19e111fe4fe1a19ba2746ebb984c9f9"
+    },
+    {
+      "path": "eval/.gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fbca22537997fac50f623ee6eb31f9bb2bb30799",
+      "size": 9,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/fbca22537997fac50f623ee6eb31f9bb2bb30799"
+    },
+    {
+      "path": "eval/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "67b957095ceb1a7d4cb4e3c40be4fbd3e1898441",
+      "size": 6726,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/67b957095ceb1a7d4cb4e3c40be4fbd3e1898441"
+    },
+    {
+      "path": "eval/dry_run.py",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "f143cda1c465d2fd811b885baf57acd584e3f879",
+      "size": 900,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f143cda1c465d2fd811b885baf57acd584e3f879"
+    },
+    {
+      "path": "eval/eval.py",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "aa369dcf5e2674533c10aaf230712a6139495e91",
+      "size": 37321,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/aa369dcf5e2674533c10aaf230712a6139495e91"
+    },
+    {
+      "path": "eval/eval_config.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "88022c8f45fb4dd3982b73467c4f2c7f3a148929",
+      "size": 7221,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/88022c8f45fb4dd3982b73467c4f2c7f3a148929"
+    },
+    {
+      "path": "eval/example_config.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae83a2f607eb5cc93ffa26cd2ead127df6134b83",
+      "size": 942,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/ae83a2f607eb5cc93ffa26cd2ead127df6134b83"
+    },
+    {
+      "path": "eval/example_config.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "31cb909f9bc8e37b05d83d33d7d4b2141f6d76d4",
+      "size": 766,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/31cb909f9bc8e37b05d83d33d7d4b2141f6d76d4"
+    },
+    {
+      "path": "eval/generate_config.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "43cff90446c9497b9f3a8eb89a2b9766826f88f2",
+      "size": 4600,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/43cff90446c9497b9f3a8eb89a2b9766826f88f2"
+    },
+    {
+      "path": "eval/requirements-eval.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2f01c1cff7039c517f900ed74cde4607356ab789",
+      "size": 59,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2f01c1cff7039c517f900ed74cde4607356ab789"
+    },
+    {
+      "path": "eval/visualize_results.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1fe5740ac92539f80adbc5c70aa2fd2815c3e1ad",
+      "size": 30495,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/1fe5740ac92539f80adbc5c70aa2fd2815c3e1ad"
+    },
+    {
+      "path": "eval/yaml",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4cabfeeb30e63e6414e178551bdcd230f28f3758",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/4cabfeeb30e63e6414e178551bdcd230f28f3758"
+    },
+    {
+      "path": "eval/yaml/easy",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "20fa3dbc3bdcd31170165ed6ec830ac06cfcb67d",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/20fa3dbc3bdcd31170165ed6ec830ac06cfcb67d"
+    },
+    {
+      "path": "eval/yaml/easy/claude-3.5-sonnet.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7555526d453b9247e4443764b55eb96715975eba",
+      "size": 3196,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/7555526d453b9247e4443764b55eb96715975eba"
+    },
+    {
+      "path": "eval/yaml/easy/claude-3.7-sonnet.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d7bdbed00ecc2421c7de7f64138beb4a320ee9f6",
+      "size": 3216,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/d7bdbed00ecc2421c7de7f64138beb4a320ee9f6"
+    },
+    {
+      "path": "eval/yaml/easy/claude-3.7-sonnet_thinking.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2efe0f6f964caa75d9a0c402725687f63a242c03",
+      "size": 3224,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2efe0f6f964caa75d9a0c402725687f63a242c03"
+    },
+    {
+      "path": "eval/yaml/easy/deepseek-r1.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7c2e0cc80e8a043d02f83c972de6e69623106068",
+      "size": 3206,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/7c2e0cc80e8a043d02f83c972de6e69623106068"
+    },
+    {
+      "path": "eval/yaml/easy/google-gemma-3-27b-it.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f184153364f6a47bc882dd8d49b39d32533c4d2d",
+      "size": 3210,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f184153364f6a47bc882dd8d49b39d32533c4d2d"
+    },
+    {
+      "path": "eval/yaml/easy/llama-3.1-8b-instruct.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ccf6f2620528049fdbbcca7efe70b473c9fc3e1d",
+      "size": 3218,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/ccf6f2620528049fdbbcca7efe70b473c9fc3e1d"
+    },
+    {
+      "path": "eval/yaml/easy/llama-3.3-70b-instruct.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ad82e0b42b438c49665c0c3713243eff8e6cd226",
+      "size": 3223,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/ad82e0b42b438c49665c0c3713243eff8e6cd226"
+    },
+    {
+      "path": "eval/yaml/easy/llama-4-maverick.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e2c03d74006f6e93b3103efed4abae9807b8b9dd",
+      "size": 3215,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e2c03d74006f6e93b3103efed4abae9807b8b9dd"
+    },
+    {
+      "path": "eval/yaml/easy/openai-o1.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cc1c215e59508a638561983f91a0bf72b03997ab",
+      "size": 3195,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/cc1c215e59508a638561983f91a0bf72b03997ab"
+    },
+    {
+      "path": "eval/yaml/easy/openai-o3-mini.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c87eb84e38bd58942b019ff15cfc6e32552798a3",
+      "size": 3200,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/c87eb84e38bd58942b019ff15cfc6e32552798a3"
+    },
+    {
+      "path": "eval/yaml/easy/qwen-qwq-32b.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "561a716ed2e5f42cdbbd369f67af088a354e42b5",
+      "size": 3201,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/561a716ed2e5f42cdbbd369f67af088a354e42b5"
+    },
+    {
+      "path": "eval/yaml/hard",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "05dc53db8578c332a1fb98d558aaa29f350572ce",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/05dc53db8578c332a1fb98d558aaa29f350572ce"
+    },
+    {
+      "path": "eval/yaml/hard/claude-3.5-sonnet.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ecbaf4b27a036f7ff307a25975f6f89ae69974c",
+      "size": 11727,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2ecbaf4b27a036f7ff307a25975f6f89ae69974c"
+    },
+    {
+      "path": "eval/yaml/hard/claude-3.7-sonnet_thinking.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8039e541e8309e4ef2e9ea654fbfa7e9e5e44850",
+      "size": 11736,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/8039e541e8309e4ef2e9ea654fbfa7e9e5e44850"
+    },
+    {
+      "path": "eval/yaml/hard/deepseek-r1.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "99d708b651f26a301dc85020dc58b22e1ceb324b",
+      "size": 11717,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/99d708b651f26a301dc85020dc58b22e1ceb324b"
+    },
+    {
+      "path": "eval/yaml/hard/gemini-2.0-flash.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f557a35e8c29153f6908d8f8c3db76f997e2296f",
+      "size": 11734,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f557a35e8c29153f6908d8f8c3db76f997e2296f"
+    },
+    {
+      "path": "eval/yaml/hard/gemma-3-12b.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "65a58159518b1559bdc11aeb3a42f7c27ba63229",
+      "size": 11728,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/65a58159518b1559bdc11aeb3a42f7c27ba63229"
+    },
+    {
+      "path": "eval/yaml/hard/gemma-3-27b.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "12ec21dd2e5c9f2d1f5841a8ab89358026e68a7d",
+      "size": 11728,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/12ec21dd2e5c9f2d1f5841a8ab89358026e68a7d"
+    },
+    {
+      "path": "eval/yaml/hard/gemma-3-4b.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d784653e542781be5328232aa1f62c0e71c83c0",
+      "size": 11727,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/7d784653e542781be5328232aa1f62c0e71c83c0"
+    },
+    {
+      "path": "eval/yaml/hard/grok-3-mini.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "31708282bbe58a56902d4260bef9711bc9e84618",
+      "size": 11715,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/31708282bbe58a56902d4260bef9711bc9e84618"
+    },
+    {
+      "path": "eval/yaml/hard/llama-3.1-8b.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "66ac3e5dce8ea3acdd35a581a63c476b419cb4a7",
+      "size": 11739,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/66ac3e5dce8ea3acdd35a581a63c476b419cb4a7"
+    },
+    {
+      "path": "eval/yaml/hard/llama-3.2-3b.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cfd3372d4e40f84ad5443f3f33462964b963f30d",
+      "size": 11739,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/cfd3372d4e40f84ad5443f3f33462964b963f30d"
+    },
+    {
+      "path": "eval/yaml/hard/llama-3.3-70b.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "436965bfee72d4ce663ac26d187dd2675609cb15",
+      "size": 11739,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/436965bfee72d4ce663ac26d187dd2675609cb15"
+    },
+    {
+      "path": "eval/yaml/hard/llama-4-maverick.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e876c2af2a7d3f2213426c3d4fa89e7980084d5",
+      "size": 11733,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2e876c2af2a7d3f2213426c3d4fa89e7980084d5"
+    },
+    {
+      "path": "eval/yaml/hard/llama-4-scout.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2a9bd8a5e75cc5debf3588b80116a346497f380e",
+      "size": 11731,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2a9bd8a5e75cc5debf3588b80116a346497f380e"
+    },
+    {
+      "path": "eval/yaml/hard/mistral-small-3.1-24b.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5177372b99860dfde8a1a4e6d587ee821c82a891",
+      "size": 11779,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/5177372b99860dfde8a1a4e6d587ee821c82a891"
+    },
+    {
+      "path": "eval/yaml/hard/o3-mini.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "00abb72a5350308432d5d48c6f36b917e2f4bc72",
+      "size": 11711,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/00abb72a5350308432d5d48c6f36b917e2f4bc72"
+    },
+    {
+      "path": "eval/yaml/hard/optimus-alpha.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e530ad53b4fd2eadf7131765e90ce2a0f259781d",
+      "size": 11722,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e530ad53b4fd2eadf7131765e90ce2a0f259781d"
+    },
+    {
+      "path": "eval/yaml/hard/qwen-qwq-32b.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c07ae77edad86ed9c6e0fe4d160f8c2b7c527120",
+      "size": 11719,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/c07ae77edad86ed9c6e0fe4d160f8c2b7c527120"
+    },
+    {
+      "path": "examples",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2e46cbd34afe04a648dd361a1c80984164a944d1",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/2e46cbd34afe04a648dd361a1c80984164a944d1"
+    },
+    {
+      "path": "examples/trl",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "51e36bf588f39ea6d9cb0409b4a2bc3bc280783f",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/51e36bf588f39ea6d9cb0409b4a2bc3bc280783f"
+    },
+    {
+      "path": "examples/trl/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f36966e9cb7e3d86ac3743d029bf2cace2ab37d8",
+      "size": 1444,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f36966e9cb7e3d86ac3743d029bf2cace2ab37d8"
+    },
+    {
+      "path": "examples/trl/config",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d6305d50232a95cd8abf14235a6a59e1c5535e6c",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/d6305d50232a95cd8abf14235a6a59e1c5535e6c"
+    },
+    {
+      "path": "examples/trl/config/ds_zero2.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eb2f091017e7bc33a5875e88859b8a212701b27f",
+      "size": 494,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/eb2f091017e7bc33a5875e88859b8a212701b27f"
+    },
+    {
+      "path": "examples/trl/config/grpo.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "641cbdecd5dab8d0b959d5651f240c7664b4da66",
+      "size": 945,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/641cbdecd5dab8d0b959d5651f240c7664b4da66"
+    },
+    {
+      "path": "examples/trl/grpo.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "17ff4ae5b9c2e8221a576d003450333f30a04578",
+      "size": 9097,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/17ff4ae5b9c2e8221a576d003450333f30a04578"
+    },
+    {
+      "path": "examples/trl/set_env.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "a1f55946955a54784a416fd55c1944a416230d5e",
+      "size": 712,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/a1f55946955a54784a416fd55c1944a416230d5e"
+    },
+    {
+      "path": "examples/trl/train.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "fbf5f93b64285c3ec341e40aa47fedd61d95d50c",
+      "size": 673,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/fbf5f93b64285c3ec341e40aa47fedd61d95d50c"
+    },
+    {
+      "path": "examples/unsloth",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f05f8d7012ee4741f28afda35420abade78aae2a",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/f05f8d7012ee4741f28afda35420abade78aae2a"
+    },
+    {
+      "path": "examples/unsloth/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "90c95a287ecb2fa04c2deb1650f71734ba823c7e",
+      "size": 1164,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/90c95a287ecb2fa04c2deb1650f71734ba823c7e"
+    },
+    {
+      "path": "examples/unsloth/requirements.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a7382c2f8bc1f2e8d590ac32f4192ca431c2b841",
+      "size": 25,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/a7382c2f8bc1f2e8d590ac32f4192ca431c2b841"
+    },
+    {
+      "path": "examples/unsloth/train_grpo_lora.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e191309cdf8b55fab7deb5686849b3ffe10f6451",
+      "size": 6773,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e191309cdf8b55fab7deb5686849b3ffe10f6451"
+    },
+    {
+      "path": "examples/veRL",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4fee383791fbdc51b044b9445e8df76631abb369",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/4fee383791fbdc51b044b9445e8df76631abb369"
+    },
+    {
+      "path": "examples/veRL/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f0e10b53ce8240e2882e7678e9573ad3ae67168",
+      "size": 2218,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/7f0e10b53ce8240e2882e7678e9573ad3ae67168"
+    },
+    {
+      "path": "examples/veRL/config",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5a69ef51d3140c35c1ca861bba69344d71becde0",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/5a69ef51d3140c35c1ca861bba69344d71becde0"
+    },
+    {
+      "path": "examples/veRL/config/grpo_trainer.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fb166d8a158daeebe88fc9c4973bec3879efa001",
+      "size": 7143,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/fb166d8a158daeebe88fc9c4973bec3879efa001"
+    },
+    {
+      "path": "examples/veRL/grpo_train.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fe24486c4d5311828ab6ad956a64736b082dafcd",
+      "size": 12773,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/fe24486c4d5311828ab6ad956a64736b082dafcd"
+    },
+    {
+      "path": "examples/verifiers",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d09c257aae010d99c155bb940447f35fddc46d67",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/d09c257aae010d99c155bb940447f35fddc46d67"
+    },
+    {
+      "path": "examples/verifiers/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "19f966e9cada613230a4f8cdbd104b60cd742dd4",
+      "size": 769,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/19f966e9cada613230a4f8cdbd104b60cd742dd4"
+    },
+    {
+      "path": "examples/verifiers/requirements.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cc2594fcfbbc4f27a39c06b546299b28dfff7bed",
+      "size": 15,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/cc2594fcfbbc4f27a39c06b546299b28dfff7bed"
+    },
+    {
+      "path": "examples/verifiers/vf_rg.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7eebce3a6b1ef8c8d9082ed02fcc92d8db48c457",
+      "size": 945,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/7eebce3a6b1ef8c8d9082ed02fcc92d8db48c457"
+    },
+    {
+      "path": "examples/verifiers/zero3.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7dbe8fe62a2858877d49da247e1cdce3b6087dd",
+      "size": 498,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/c7dbe8fe62a2858877d49da247e1cdce3b6087dd"
+    },
+    {
+      "path": "notebooks",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "62464b5b37bbe0ceca336e91757f8fd1212aeb42",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/62464b5b37bbe0ceca336e91757f8fd1212aeb42"
+    },
+    {
+      "path": "notebooks/check-collisions-in-reasoning-gym-dataset.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cad7e8d2ecca7755442694faea93aa113bf0ae7a",
+      "size": 74756,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/cad7e8d2ecca7755442694faea93aa113bf0ae7a"
+    },
+    {
+      "path": "notebooks/codeio.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0b9f9c999541b82c566b4f476899251ef5e195f0",
+      "size": 28017,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/0b9f9c999541b82c566b4f476899251ef5e195f0"
+    },
+    {
+      "path": "notebooks/codeio",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "379d6c477c9ab0bf0b6f8c65fd82423e2658e382",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/379d6c477c9ab0bf0b6f8c65fd82423e2658e382"
+    },
+    {
+      "path": "notebooks/codeio/.gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6570bb8f6a9471457e60869a0cc9d8e048ba51c0",
+      "size": 19,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/6570bb8f6a9471457e60869a0cc9d8e048ba51c0"
+    },
+    {
+      "path": "notebooks/codeio/PreprocessCode.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "428bf15f8c3e5ab172c3c20dd2eba96b4c490ebe",
+      "size": 49521,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/428bf15f8c3e5ab172c3c20dd2eba96b4c490ebe"
+    },
+    {
+      "path": "notebooks/codeio/ReformatAndFilter.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "587287f875aa8ab2cab8be271a23c7bd0efdbb5a",
+      "size": 22691,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/587287f875aa8ab2cab8be271a23c7bd0efdbb5a"
+    },
+    {
+      "path": "notebooks/collisions",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "396c4dd1acf15319103412fd824d1d165ec39c96",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/396c4dd1acf15319103412fd824d1d165ec39c96"
+    },
+    {
+      "path": "notebooks/collisions/collisions.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "39a4fa00e7d67eb04757fbb3c5c568bfddeb2214",
+      "size": 1531,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/39a4fa00e7d67eb04757fbb3c5c568bfddeb2214"
+    },
+    {
+      "path": "notebooks/generate_anagrams.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb881dfcca0a86bd3157a56fc08f9b9941a3eefa",
+      "size": 2958,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/cb881dfcca0a86bd3157a56fc08f9b9941a3eefa"
+    },
+    {
+      "path": "notebooks/gsm-symbolic-cot.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1d0ca4b25181b1a83252e4bfcc37401eca81b907",
+      "size": 18110,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/1d0ca4b25181b1a83252e4bfcc37401eca81b907"
+    },
+    {
+      "path": "notebooks/gsm_symbolic.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3ee3de3ad0eeb4c0a9d53444296c48bb76ac9f53",
+      "size": 28400,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/3ee3de3ad0eeb4c0a9d53444296c48bb76ac9f53"
+    },
+    {
+      "path": "notebooks/plot_curriculum.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "91a3c4940d6298bac66f895c6222d01b905342e4",
+      "size": 55215,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/91a3c4940d6298bac66f895c6222d01b905342e4"
+    },
+    {
+      "path": "notebooks/test_generator_files.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab1e086285091780bbe997c543b80ea358822f6a",
+      "size": 1939,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/ab1e086285091780bbe997c543b80ea358822f6a"
+    },
+    {
+      "path": "notebooks/verify_gsm_symbolic.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "25a6c14725407a56dc55d97d32b0b6ab3456ae41",
+      "size": 38940,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/25a6c14725407a56dc55d97d32b0b6ab3456ae41"
+    },
+    {
+      "path": "pyproject.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "94513b1a9a83a38456e0660de01f8539900f2d57",
+      "size": 1764,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/94513b1a9a83a38456e0660de01f8539900f2d57"
+    },
+    {
+      "path": "reasoning_gym",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a3a775dfc0e6f390213c4c9cc3f7413d96f31739",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/a3a775dfc0e6f390213c4c9cc3f7413d96f31739"
+    },
+    {
+      "path": "reasoning_gym/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b0dbca4f785ac299e4f420e25a8aa2d4d34932c9",
+      "size": 852,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/b0dbca4f785ac299e4f420e25a8aa2d4d34932c9"
+    },
+    {
+      "path": "reasoning_gym/algebra",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "690ec52881032e2030ac0054c5bea2821df0a48b",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/690ec52881032e2030ac0054c5bea2821df0a48b"
+    },
+    {
+      "path": "reasoning_gym/algebra/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "51013bf84f7833e0ebb74573a3b2ae7d6104f24c",
+      "size": 1301,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/51013bf84f7833e0ebb74573a3b2ae7d6104f24c"
+    },
+    {
+      "path": "reasoning_gym/algebra/complex_arithmetic.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fa4b0b34effe333dd25037e236f1c5ca5515f564",
+      "size": 8782,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/fa4b0b34effe333dd25037e236f1c5ca5515f564"
+    },
+    {
+      "path": "reasoning_gym/algebra/intermediate_integration.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6449bd55e17d96078e0ea9d51f8d99aafc4406db",
+      "size": 13459,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/6449bd55e17d96078e0ea9d51f8d99aafc4406db"
+    },
+    {
+      "path": "reasoning_gym/algebra/polynomial_equations.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b3d1279259b61475c3ab3f4cc3a22ea9623a50d7",
+      "size": 13417,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/b3d1279259b61475c3ab3f4cc3a22ea9623a50d7"
+    },
+    {
+      "path": "reasoning_gym/algebra/polynomial_multiplication.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f0541ac38e806ece06e4999dc307016912a3b915",
+      "size": 10350,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f0541ac38e806ece06e4999dc307016912a3b915"
+    },
+    {
+      "path": "reasoning_gym/algebra/simple_equations.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ee9f81a8878a367974bef63e56feb843437b94d9",
+      "size": 6706,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/ee9f81a8878a367974bef63e56feb843437b94d9"
+    },
+    {
+      "path": "reasoning_gym/algebra/simple_integration.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9fdfb2cddab5246066dd9942a7e3bbede08a843",
+      "size": 5678,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/d9fdfb2cddab5246066dd9942a7e3bbede08a843"
+    },
+    {
+      "path": "reasoning_gym/algorithmic",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4f621dbe2b10d66c067d8faf4c3699e04e64c410",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/4f621dbe2b10d66c067d8faf4c3699e04e64c410"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1816ddaeb18174f8358898b645b13f87ab82df4c",
+      "size": 6302,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/1816ddaeb18174f8358898b645b13f87ab82df4c"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/ab.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "61168d2d342af4ce6330a3432e189b16e1a5e86f",
+      "size": 5132,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/61168d2d342af4ce6330a3432e189b16e1a5e86f"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/base_conversion.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "81de935f52367fc8bfaeca1164377389d49baffe",
+      "size": 5535,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/81de935f52367fc8bfaeca1164377389d49baffe"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/binary_alternation.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ffffd2ab667da9aacb2831b7f57daeec7045bcfd",
+      "size": 4973,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/ffffd2ab667da9aacb2831b7f57daeec7045bcfd"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/binary_matrix.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db1f6088520c77045cdd1d626b8b0cf1f208228e",
+      "size": 5899,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/db1f6088520c77045cdd1d626b8b0cf1f208228e"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/caesar_cipher.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "104492398db06f44cf630dc2fb322dcaf140d3c4",
+      "size": 4545,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/104492398db06f44cf630dc2fb322dcaf140d3c4"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/count_primes.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1fcacd05402e71cb02b6e61f1404da24f99c2dad",
+      "size": 3192,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/1fcacd05402e71cb02b6e61f1404da24f99c2dad"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/cryptarithm.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "952943b81a02d7dbe2c91e7b892d6052f30d59aa",
+      "size": 14717,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/952943b81a02d7dbe2c91e7b892d6052f30d59aa"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/game_of_life.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4e56a20223050c8ddc2860525732c557c4078335",
+      "size": 7193,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/4e56a20223050c8ddc2860525732c557c4078335"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/game_of_life_halting.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d676f63c0947976e832eb335e16f56dac68d172a",
+      "size": 15377,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/d676f63c0947976e832eb335e16f56dac68d172a"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/graph_color.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "36ab7c48ef52b0a1d3d244d66beed5295ce6830f",
+      "size": 9803,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/36ab7c48ef52b0a1d3d244d66beed5295ce6830f"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/group_anagrams.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "665408470a416984d696a2bf797cb4922ea74a30",
+      "size": 6112,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/665408470a416984d696a2bf797cb4922ea74a30"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/isomorphic_strings.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "39b0cb8b3b39ecf2ff1aa2e6ee3a3624c2900710",
+      "size": 5243,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/39b0cb8b3b39ecf2ff1aa2e6ee3a3624c2900710"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/jugs.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cecd01133ce6c3ecc2025fc55305915fc336e2e9",
+      "size": 12083,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/cecd01133ce6c3ecc2025fc55305915fc336e2e9"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/letter_counting.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "509a6171e4a793dadace32ac596df2b3fe2a9187",
+      "size": 3369,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/509a6171e4a793dadace32ac596df2b3fe2a9187"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/letter_jumble.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "55e4d8fb3df8107773724021f324cbcc22517c9d",
+      "size": 7861,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/55e4d8fb3df8107773724021f324cbcc22517c9d"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/manipulate_matrix.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fd0197195220321d2c6e533a24e3bb8ac13fdb4c",
+      "size": 14850,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/fd0197195220321d2c6e533a24e3bb8ac13fdb4c"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/number_filtering.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "884dff3d277434ea9b0828e27e3cbe9cc8cea8e1",
+      "size": 6132,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/884dff3d277434ea9b0828e27e3cbe9cc8cea8e1"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/number_sorting.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7406d96fa9d26e834b01a7f70d3aa41b4943df6e",
+      "size": 7825,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/7406d96fa9d26e834b01a7f70d3aa41b4943df6e"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/palindrome_generation.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9385c0893c9d42a7f6145c2f36ab276668a5fc51",
+      "size": 5181,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/9385c0893c9d42a7f6145c2f36ab276668a5fc51"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/palindrome_partitioning.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cd66954c151fbb0f616d964a9d767c34042beabb",
+      "size": 7158,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/cd66954c151fbb0f616d964a9d767c34042beabb"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/pool_matrix.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "66a17fee658d4da8655bacaffe0864b0de27d253",
+      "size": 6443,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/66a17fee658d4da8655bacaffe0864b0de27d253"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/ransom_note.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "176e69fbd7a6bd150cf2a9d4ebefa71fa73eef1a",
+      "size": 5993,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/176e69fbd7a6bd150cf2a9d4ebefa71fa73eef1a"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/rotate_matrix.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c027733b66405120eb89043821eea03cb490621c",
+      "size": 4529,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/c027733b66405120eb89043821eea03cb490621c"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/rotten_oranges.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f10fb53d06bf276e60c47870a350f7c9ca114f9a",
+      "size": 5393,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f10fb53d06bf276e60c47870a350f7c9ca114f9a"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/sentence_reordering.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "77d14d72d38a63e03f3b87e67b7e733dc65b3b70",
+      "size": 5914,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/77d14d72d38a63e03f3b87e67b7e733dc65b3b70"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/spell_backward.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab26f843a7f3e3162307414f0e6c374c748385ec",
+      "size": 3752,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/ab26f843a7f3e3162307414f0e6c374c748385ec"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/spiral_matrix.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "228d15d63793f306916c9ca06f6de8a1de6e175a",
+      "size": 5541,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/228d15d63793f306916c9ca06f6de8a1de6e175a"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/string_insertion.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7df2d4b20c1e1f1332cd0e6a62b8c23d2f17ec04",
+      "size": 5253,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/7df2d4b20c1e1f1332cd0e6a62b8c23d2f17ec04"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/string_manipulation.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bebb8a6888e217f07a81cb81448f6745dfa07326",
+      "size": 10368,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/bebb8a6888e217f07a81cb81448f6745dfa07326"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/string_splitting.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8bd8192dd707caa1ab6cc9a55f0c50730dfd9536",
+      "size": 6713,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/8bd8192dd707caa1ab6cc9a55f0c50730dfd9536"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/string_synthesis.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f201854d5dfaf65f994f46d4bee57d68352727dd",
+      "size": 7088,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f201854d5dfaf65f994f46d4bee57d68352727dd"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/word_ladder.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "29df82ab4d92761e4bc7e48c19040601803af7b7",
+      "size": 11174,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/29df82ab4d92761e4bc7e48c19040601803af7b7"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/word_sequence_reversal.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a02f46aebd73bd6daec52c48ebdb26455225bb6",
+      "size": 3220,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/3a02f46aebd73bd6daec52c48ebdb26455225bb6"
+    },
+    {
+      "path": "reasoning_gym/algorithmic/word_sorting.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b83c88072193bff0c20edd8d0153d7a446e79bac",
+      "size": 6492,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/b83c88072193bff0c20edd8d0153d7a446e79bac"
+    },
+    {
+      "path": "reasoning_gym/arc",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f443cb9052895d7d61aee5e2aba06b444b7758fb",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/f443cb9052895d7d61aee5e2aba06b444b7758fb"
+    },
+    {
+      "path": "reasoning_gym/arc/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47ba75b178aaac854ace21d10848fa9af61dca59",
+      "size": 396,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/47ba75b178aaac854ace21d10848fa9af61dca59"
+    },
+    {
+      "path": "reasoning_gym/arc/arc_1d.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a767c8dcb9c4062e01852ee60683f61829decb0e",
+      "size": 5007,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/a767c8dcb9c4062e01852ee60683f61829decb0e"
+    },
+    {
+      "path": "reasoning_gym/arc/arc_1d_tasks.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b454220d9bead1397c575012fc8539f77a5568d0",
+      "size": 41219,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/b454220d9bead1397c575012fc8539f77a5568d0"
+    },
+    {
+      "path": "reasoning_gym/arc/arc_agi.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d6894fc8454c765e12004e3a5d6ac5449867301",
+      "size": 8905,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/3d6894fc8454c765e12004e3a5d6ac5449867301"
+    },
+    {
+      "path": "reasoning_gym/arc/board_format.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b0a40636e0122bfe0ba0e587a14123d0891c0ff4",
+      "size": 3829,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/b0a40636e0122bfe0ba0e587a14123d0891c0ff4"
+    },
+    {
+      "path": "reasoning_gym/arc/rearc.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "05d3563fa41c8fad9fcb108ea4b93244005b777f",
+      "size": 7847,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/05d3563fa41c8fad9fcb108ea4b93244005b777f"
+    },
+    {
+      "path": "reasoning_gym/arc/rearc_utils",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "eb196051584ff7e8503fca99bd8bf2f80c114d18",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/eb196051584ff7e8503fca99bd8bf2f80c114d18"
+    },
+    {
+      "path": "reasoning_gym/arc/rearc_utils/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "reasoning_gym/arc/rearc_utils/dsl.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "464971895f991f367f0a1897e9ef9f01c629d885",
+      "size": 35151,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/464971895f991f367f0a1897e9ef9f01c629d885"
+    },
+    {
+      "path": "reasoning_gym/arc/rearc_utils/generators",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "01f07d7de778c1cc6874347cb3cdec38dd56fc74",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/01f07d7de778c1cc6874347cb3cdec38dd56fc74"
+    },
+    {
+      "path": "reasoning_gym/arc/rearc_utils/generators/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3c0f32f03960d4f6f78c19c7ce61ea2bd24bc11e",
+      "size": 134,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/3c0f32f03960d4f6f78c19c7ce61ea2bd24bc11e"
+    },
+    {
+      "path": "reasoning_gym/arc/rearc_utils/generators/generators_00_99.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d7d157cb0900e7b84c6319df47276878a247028c",
+      "size": 120701,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/d7d157cb0900e7b84c6319df47276878a247028c"
+    },
+    {
+      "path": "reasoning_gym/arc/rearc_utils/generators/generators_100_199.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3508bdb52d41caab951e391338977b4c47737417",
+      "size": 118939,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/3508bdb52d41caab951e391338977b4c47737417"
+    },
+    {
+      "path": "reasoning_gym/arc/rearc_utils/generators/generators_200_299.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb82c139e1f5ae5114bcca897be681db08421387",
+      "size": 145569,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/bb82c139e1f5ae5114bcca897be681db08421387"
+    },
+    {
+      "path": "reasoning_gym/arc/rearc_utils/generators/generators_300_399.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "99cb14a65b7bc8494783a216885ec724f32d535b",
+      "size": 193233,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/99cb14a65b7bc8494783a216885ec724f32d535b"
+    },
+    {
+      "path": "reasoning_gym/arc/rearc_utils/utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "456c50e45dd6a39971384491c116fcbaae29305e",
+      "size": 3996,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/456c50e45dd6a39971384491c116fcbaae29305e"
+    },
+    {
+      "path": "reasoning_gym/arc/rearc_utils/verifiers.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9da37bedb6daf50e03bf561d13abb10d65125e58",
+      "size": 276614,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/9da37bedb6daf50e03bf561d13abb10d65125e58"
+    },
+    {
+      "path": "reasoning_gym/arithmetic",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "64915e031bd958e8d05dd540788bd40c00965ee8",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/64915e031bd958e8d05dd540788bd40c00965ee8"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "487052799169da7bb0eef77c35c4b6e9fb527267",
+      "size": 3128,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/487052799169da7bb0eef77c35c4b6e9fb527267"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/basic_arithmetic.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b3958b26fef62fb2503ddb34e4d5625104cc658d",
+      "size": 10686,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/b3958b26fef62fb2503ddb34e4d5625104cc658d"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/bitwise_arithmetic.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "28fccc9879e452c2c22c98b689fb7a0323bd2999",
+      "size": 7396,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/28fccc9879e452c2c22c98b689fb7a0323bd2999"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/calendar_arithmetic.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "023432d5b1dec0cf8fa945b902b7d77b2d166cbb",
+      "size": 21642,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/023432d5b1dec0cf8fa945b902b7d77b2d166cbb"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/chain_sum.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d4778b7a01165a662bf807497967db39f3075af2",
+      "size": 5556,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/d4778b7a01165a662bf807497967db39f3075af2"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/count_bits.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "366f21830c12d764ad90e9ca927cae4ce1ed67df",
+      "size": 2466,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/366f21830c12d764ad90e9ca927cae4ce1ed67df"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/decimal_arithmetic.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "93dc0c8a3cc7d168d03f06ea83de97dfe8c4f973",
+      "size": 10040,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/93dc0c8a3cc7d168d03f06ea83de97dfe8c4f973"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/decimal_chain_sum.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a58a5f1a629d98bb3c0b2ce38e9ee35bc89d1f60",
+      "size": 7582,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/a58a5f1a629d98bb3c0b2ce38e9ee35bc89d1f60"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/dice.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "46f15e4192765403d817262c0d8d8ef28207e379",
+      "size": 6468,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/46f15e4192765403d817262c0d8d8ef28207e379"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/fraction_simplification.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "75a19966b5453dd6cfed4dc6a2de523132786039",
+      "size": 8391,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/75a19966b5453dd6cfed4dc6a2de523132786039"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/gcd.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b019dd7b608da3ac4c41022267772e9d430dd905",
+      "size": 3764,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/b019dd7b608da3ac4c41022267772e9d430dd905"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/gsm_symbolic",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d33e61250970034d3882e7b02d4fd1678e38f5ce",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/d33e61250970034d3882e7b02d4fd1678e38f5ce"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/gsm_symbolic/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "17f2f35cb5138e6ee79f0126b9e124872feee68e",
+      "size": 144,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/17f2f35cb5138e6ee79f0126b9e124872feee68e"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/gsm_symbolic/generators_00_49.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "68af4149ee5aeea2a6d46bf524f2072d8f3b4e3a",
+      "size": 172378,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/68af4149ee5aeea2a6d46bf524f2072d8f3b4e3a"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/gsm_symbolic/generators_50_99.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0f862e17a9342ce8c1bfec01d1374ca753428132",
+      "size": 170045,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/0f862e17a9342ce8c1bfec01d1374ca753428132"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/gsm_symbolic/gsm_symbolic.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "962f5f521ac5073fed95a3eb6393447bb96bd697",
+      "size": 3976,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/962f5f521ac5073fed95a3eb6393447bb96bd697"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/lcm.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "71ca660fd729f0d2b351dbcd27347ac9bb2d0fef",
+      "size": 3874,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/71ca660fd729f0d2b351dbcd27347ac9bb2d0fef"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/leg_counting.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4c515aa38f44ab48023526c5f7def24a42dd3404",
+      "size": 5138,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/4c515aa38f44ab48023526c5f7def24a42dd3404"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/number_format.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9663a8deba33380c95cba6a7242a3d352d6c275",
+      "size": 5769,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/c9663a8deba33380c95cba6a7242a3d352d6c275"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/power_function.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c5db17a0fc264559b30015187b4ed833d554c875",
+      "size": 3742,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/c5db17a0fc264559b30015187b4ed833d554c875"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/prime_factorization.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0a3072842bbb46de951a99659954691a8ffa1b55",
+      "size": 4024,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/0a3072842bbb46de951a99659954691a8ffa1b55"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/products.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b504935ce9479fc948e3f261ed405ef090df3a33",
+      "size": 5169,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/b504935ce9479fc948e3f261ed405ef090df3a33"
+    },
+    {
+      "path": "reasoning_gym/arithmetic/time_intervals.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1cf7c1b09be83d57fcdc0db2f134236b8c386adc",
+      "size": 16164,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/1cf7c1b09be83d57fcdc0db2f134236b8c386adc"
+    },
+    {
+      "path": "reasoning_gym/coaching",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "84b476cc4ff32a5a82468d729049973d55592af1",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/84b476cc4ff32a5a82468d729049973d55592af1"
+    },
+    {
+      "path": "reasoning_gym/coaching/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b4927a8d7a2451f3b55d479183b66d58cbf7f18",
+      "size": 666,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2b4927a8d7a2451f3b55d479183b66d58cbf7f18"
+    },
+    {
+      "path": "reasoning_gym/coaching/attributes.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "737d4cb0cb239a08d076d9998acd95c5f72ff609",
+      "size": 1528,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/737d4cb0cb239a08d076d9998acd95c5f72ff609"
+    },
+    {
+      "path": "reasoning_gym/coaching/base_curriculum.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c47551419639a3df7d9e1cf3ecd2430a4e92dcc0",
+      "size": 11175,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/c47551419639a3df7d9e1cf3ecd2430a4e92dcc0"
+    },
+    {
+      "path": "reasoning_gym/coaching/curriculum_config.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "452e29a3d84a73d97543da8610cac249188fb6e3",
+      "size": 2949,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/452e29a3d84a73d97543da8610cac249188fb6e3"
+    },
+    {
+      "path": "reasoning_gym/coaching/experiment.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53384e62e6ca53addb36a59750a8f8407cd05dcb",
+      "size": 4587,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/53384e62e6ca53addb36a59750a8f8407cd05dcb"
+    },
+    {
+      "path": "reasoning_gym/coaching/registry.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "076ea1cdeba972b2a07625d7e0de80c6396cd9b7",
+      "size": 1160,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/076ea1cdeba972b2a07625d7e0de80c6396cd9b7"
+    },
+    {
+      "path": "reasoning_gym/coaching/score_board.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "533e201b8a4c2c10db006f2ceb0983a0fd693dd7",
+      "size": 7635,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/533e201b8a4c2c10db006f2ceb0983a0fd693dd7"
+    },
+    {
+      "path": "reasoning_gym/code",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "52b12b1f6ebe8a278e76f737aa7c278cb6fec449",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/52b12b1f6ebe8a278e76f737aa7c278cb6fec449"
+    },
+    {
+      "path": "reasoning_gym/code/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "89d039c104c9cce7a4f81c5672f6b011a61937df",
+      "size": 277,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/89d039c104c9cce7a4f81c5672f6b011a61937df"
+    },
+    {
+      "path": "reasoning_gym/code/bf.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "973a41a646ef47b65c5fda9257b8b3a706de85a7",
+      "size": 4117,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/973a41a646ef47b65c5fda9257b8b3a706de85a7"
+    },
+    {
+      "path": "reasoning_gym/code/codeio.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "36b4469d9761baaaeabc082d0b518211e6ff6f73",
+      "size": 11153,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/36b4469d9761baaaeabc082d0b518211e6ff6f73"
+    },
+    {
+      "path": "reasoning_gym/code/contrib",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "be51785557243d8aa61441b784eaba1cb28aa6c5",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/be51785557243d8aa61441b784eaba1cb28aa6c5"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c90b09f26a2b2f3caea399275370380861b1db87",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/c90b09f26a2b2f3caea399275370380861b1db87"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit/BF-it.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ccdb3fc03fe1cafdcfb76a2d7ddecbda985db86e",
+      "size": 1833,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/ccdb3fc03fe1cafdcfb76a2d7ddecbda985db86e"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit/Compiler",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c4dd548f23fa886dc71f47ef166297530525a7f9",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/c4dd548f23fa886dc71f47ef166297530525a7f9"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit/Compiler/Compiler.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e1f602584d96878077bc05c377780852a5d98002",
+      "size": 8907,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e1f602584d96878077bc05c377780852a5d98002"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit/Compiler/Exceptions.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5d11702cecab5e9e0677116ca3da52555648b658",
+      "size": 86,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/5d11702cecab5e9e0677116ca3da52555648b658"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit/Compiler/FunctionCompiler.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1603ac643ea0975c24cd9bba190f2ca65f470199",
+      "size": 52833,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/1603ac643ea0975c24cd9bba190f2ca65f470199"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit/Compiler/Functions.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a4ed4b9a098f22abc0c916f8887a87e7f976df33",
+      "size": 1259,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/a4ed4b9a098f22abc0c916f8887a87e7f976df33"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit/Compiler/General.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6abab5cf4d17e06c4cd97383be0b85d9b04a249b",
+      "size": 45608,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/6abab5cf4d17e06c4cd97383be0b85d9b04a249b"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit/Compiler/Globals.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0eaaac80ee1e298daf83d75aa47b5018c965e98e",
+      "size": 2558,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/0eaaac80ee1e298daf83d75aa47b5018c965e98e"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit/Compiler/Lexical_analyzer.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "091bbcf7d8c2f6c7f11abf818f260d195dcbb445",
+      "size": 7763,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/091bbcf7d8c2f6c7f11abf818f260d195dcbb445"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit/Compiler/LibraryFunctionCompiler.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "feb2497a4e65ce9742c5bb8ca0d017625f010ee9",
+      "size": 4003,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/feb2497a4e65ce9742c5bb8ca0d017625f010ee9"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit/Compiler/Minify.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ea0411e342773fd89a150a46ae6a7428bb2f105a",
+      "size": 301,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/ea0411e342773fd89a150a46ae6a7428bb2f105a"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit/Compiler/Node.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "581ace92db43d1579f803a1dc02faf3d71973b7b",
+      "size": 18579,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/581ace92db43d1579f803a1dc02faf3d71973b7b"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit/Compiler/Optimizer.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "992bfe49c05f699ed470b8de3dea27704fc615c0",
+      "size": 4031,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/992bfe49c05f699ed470b8de3dea27704fc615c0"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit/Compiler/Parser.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "900ae41d2bb14e98913f6b80893ace5bff7af601",
+      "size": 5033,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/900ae41d2bb14e98913f6b80893ace5bff7af601"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit/Compiler/Token.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "df43a6f5c65df10c83000a8c4c39ec7007d0014b",
+      "size": 1648,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/df43a6f5c65df10c83000a8c4c39ec7007d0014b"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit/Compiler/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit/Interpreter.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9281772bc026d168d80cd1a37dfbd459b58a653e",
+      "size": 2500,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/9281772bc026d168d80cd1a37dfbd459b58a653e"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit/LICENSE.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e1249203e7e963f5f23eace7b7ca6113871be489",
+      "size": 1065,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e1249203e7e963f5f23eace7b7ca6113871be489"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b503c05b07f78c8eadc9ef573e4161db29a59a8",
+      "size": 3596,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2b503c05b07f78c8eadc9ef573e4161db29a59a8"
+    },
+    {
+      "path": "reasoning_gym/code/contrib/bfit/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "reasoning_gym/cognition",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1fdc7d46e85a5d426f87adfef4e0b3f59c94e438",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/1fdc7d46e85a5d426f87adfef4e0b3f59c94e438"
+    },
+    {
+      "path": "reasoning_gym/cognition/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "890ac81fca33e5d50110697362727ef4259a8522",
+      "size": 1283,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/890ac81fca33e5d50110697362727ef4259a8522"
+    },
+    {
+      "path": "reasoning_gym/cognition/color_cube_rotation.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e2aa9c63eca4eaea4cfb49f6caedac5e5a00ea88",
+      "size": 8173,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e2aa9c63eca4eaea4cfb49f6caedac5e5a00ea88"
+    },
+    {
+      "path": "reasoning_gym/cognition/figlet_fonts.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e54f5c56073f7456b5a7aa8e1f745c1ac0d90cc8",
+      "size": 6973,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e54f5c56073f7456b5a7aa8e1f745c1ac0d90cc8"
+    },
+    {
+      "path": "reasoning_gym/cognition/modulo_grid.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8fe0b52adacc7d9df2815727940d1425fa99bbb3",
+      "size": 7053,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/8fe0b52adacc7d9df2815727940d1425fa99bbb3"
+    },
+    {
+      "path": "reasoning_gym/cognition/needle_data.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5367314b6ad7881135895854c82d5650080240fc",
+      "size": 50850,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/5367314b6ad7881135895854c82d5650080240fc"
+    },
+    {
+      "path": "reasoning_gym/cognition/needle_haystack.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "90fbdbc0975a983e492c518901c67d0c3f64d297",
+      "size": 5845,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/90fbdbc0975a983e492c518901c67d0c3f64d297"
+    },
+    {
+      "path": "reasoning_gym/cognition/number_sequences.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6fd6d503944be2d33585f8dda6f7acef48ad0c41",
+      "size": 9000,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/6fd6d503944be2d33585f8dda6f7acef48ad0c41"
+    },
+    {
+      "path": "reasoning_gym/cognition/rectangle_count.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c11af17cca3be29bd7a80fcd67d74390ae5fe00",
+      "size": 6045,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/8c11af17cca3be29bd7a80fcd67d74390ae5fe00"
+    },
+    {
+      "path": "reasoning_gym/cognition/rubiks_cube.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb51e4bce395bc291a53732e2b1e666dc017493d",
+      "size": 8419,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/cb51e4bce395bc291a53732e2b1e666dc017493d"
+    },
+    {
+      "path": "reasoning_gym/composite.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a96af3436f59ac4fa9acceead37ceffda87c6482",
+      "size": 11266,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/a96af3436f59ac4fa9acceead37ceffda87c6482"
+    },
+    {
+      "path": "reasoning_gym/data",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "60f9b76d1b03d07f06eaa480c577334ad22d384d",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/60f9b76d1b03d07f06eaa480c577334ad22d384d"
+    },
+    {
+      "path": "reasoning_gym/data/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bfff2eb755d2a62aa2952b14798725aa4627801e",
+      "size": 1015,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/bfff2eb755d2a62aa2952b14798725aa4627801e"
+    },
+    {
+      "path": "reasoning_gym/data/acre_objects.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ffb2a8c1beb6ca6ff2926e0873b7103913c83094",
+      "size": 6047,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/ffb2a8c1beb6ca6ff2926e0873b7103913c83094"
+    },
+    {
+      "path": "reasoning_gym/data/anagrams.jsonl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6a5a67887ce6e07a5558e2961d8c4618175271ee",
+      "size": 8027234,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/6a5a67887ce6e07a5558e2961d8c4618175271ee"
+    },
+    {
+      "path": "reasoning_gym/data/codeio-hq.jsonl.gz",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5356927177112b697bee3a27006fd2b6113f7639",
+      "size": 2594920,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/5356927177112b697bee3a27006fd2b6113f7639"
+    },
+    {
+      "path": "reasoning_gym/data/codeio.jsonl.gz",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "960e17cf948db9fe37b5cf62bdaaf62f6fe3dbcf",
+      "size": 2350897,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/960e17cf948db9fe37b5cf62bdaaf62f6fe3dbcf"
+    },
+    {
+      "path": "reasoning_gym/data/holdout_words.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ccdea7324d79af7033f64ddb0a3db520677b8db",
+      "size": 3000,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/1ccdea7324d79af7033f64ddb0a3db520677b8db"
+    },
+    {
+      "path": "reasoning_gym/data/in_the_year_2889.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d0042014352a52888aef721a276c150cdedf5ae",
+      "size": 52851,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/7d0042014352a52888aef721a276c150cdedf5ae"
+    },
+    {
+      "path": "reasoning_gym/data/rush_18k.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "afbbc6164e26944168ea5051496b856532928c82",
+      "size": 809802,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/afbbc6164e26944168ea5051496b856532928c82"
+    },
+    {
+      "path": "reasoning_gym/data/wordle_words.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9742314df24dc59d2203b4260162db431d98abdd",
+      "size": 30114,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/9742314df24dc59d2203b4260162db431d98abdd"
+    },
+    {
+      "path": "reasoning_gym/data/words.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "941fe6c880dfc8d49a217768659d9f4a1cbaaa29",
+      "size": 60734,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/941fe6c880dfc8d49a217768659d9f4a1cbaaa29"
+    },
+    {
+      "path": "reasoning_gym/data/words3to10.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a3ac5af796b51a4bce8db9dd889bd49ed296850",
+      "size": 1338903,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/4a3ac5af796b51a4bce8db9dd889bd49ed296850"
+    },
+    {
+      "path": "reasoning_gym/dataset.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7cef17ce2277ad58f81501531246b79017374d98",
+      "size": 5430,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/7cef17ce2277ad58f81501531246b79017374d98"
+    },
+    {
+      "path": "reasoning_gym/factory.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d2f39a6c01e4c17a280033f9acfe7ab08fb966d",
+      "size": 3220,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/3d2f39a6c01e4c17a280033f9acfe7ab08fb966d"
+    },
+    {
+      "path": "reasoning_gym/games",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8ce290a4739ff7cb828dcc1e61482fd2b3d7b0c4",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/8ce290a4739ff7cb828dcc1e61482fd2b3d7b0c4"
+    },
+    {
+      "path": "reasoning_gym/games/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "91e5ca737b647cfc789860864ba2bd27c8a595ed",
+      "size": 2596,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/91e5ca737b647cfc789860864ba2bd27c8a595ed"
+    },
+    {
+      "path": "reasoning_gym/games/boxnet.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c4adb00a33068ddfbab9e32450ad9fae452efec9",
+      "size": 12328,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/c4adb00a33068ddfbab9e32450ad9fae452efec9"
+    },
+    {
+      "path": "reasoning_gym/games/contrib",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2ad6dbc8605b6482bb6778c14e968ab35ecf9f93",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/2ad6dbc8605b6482bb6778c14e968ab35ecf9f93"
+    },
+    {
+      "path": "reasoning_gym/games/contrib/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "reasoning_gym/games/contrib/sokoban",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1610481eaf2bda5574a4d38fb9fb17a240793c81",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/1610481eaf2bda5574a4d38fb9fb17a240793c81"
+    },
+    {
+      "path": "reasoning_gym/games/contrib/sokoban/LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "84d0d484489e8a14c259e4441d3afbb3b13152b4",
+      "size": 1070,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/84d0d484489e8a14c259e4441d3afbb3b13152b4"
+    },
+    {
+      "path": "reasoning_gym/games/contrib/sokoban/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44d565eacf8ce579b26d21b63f24abfe74adff70",
+      "size": 2405,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/44d565eacf8ce579b26d21b63f24abfe74adff70"
+    },
+    {
+      "path": "reasoning_gym/games/contrib/sokoban/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "reasoning_gym/games/contrib/sokoban/src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1fe00cde312cf2d0cfddc76199b78ab2de27da41",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/1fe00cde312cf2d0cfddc76199b78ab2de27da41"
+    },
+    {
+      "path": "reasoning_gym/games/contrib/sokoban/src/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "reasoning_gym/games/contrib/sokoban/src/astar.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "10b185f63753d8aae8f28b0bae69f68b9a7f31a0",
+      "size": 2955,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/10b185f63753d8aae8f28b0bae69f68b9a7f31a0"
+    },
+    {
+      "path": "reasoning_gym/games/contrib/sokoban/src/bfs.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d6a376c9ea2174fa877a9c7ac673563472e651b7",
+      "size": 2201,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/d6a376c9ea2174fa877a9c7ac673563472e651b7"
+    },
+    {
+      "path": "reasoning_gym/games/contrib/sokoban/src/box.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e816db9a0e3eaa8c5f94ccdf627e7a23deb19a94",
+      "size": 1215,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e816db9a0e3eaa8c5f94ccdf627e7a23deb19a94"
+    },
+    {
+      "path": "reasoning_gym/games/contrib/sokoban/src/game.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "be50b52ce29fd148a6d9e0d13599723f5988fca9",
+      "size": 6358,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/be50b52ce29fd148a6d9e0d13599723f5988fca9"
+    },
+    {
+      "path": "reasoning_gym/games/contrib/sokoban/src/generator.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3fdfd2b08a5d005fb4a33b775a579d406dc8b68f",
+      "size": 4191,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/3fdfd2b08a5d005fb4a33b775a579d406dc8b68f"
+    },
+    {
+      "path": "reasoning_gym/games/contrib/sokoban/src/player.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1299ea7cbd300a90ec0c861bda0d00406f97e7b6",
+      "size": 4311,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/1299ea7cbd300a90ec0c861bda0d00406f97e7b6"
+    },
+    {
+      "path": "reasoning_gym/games/contrib/sokoban/src/utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "106fb8d17531eca5b3d6aaa07d3eee3499ab6fb6",
+      "size": 5916,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/106fb8d17531eca5b3d6aaa07d3eee3499ab6fb6"
+    },
+    {
+      "path": "reasoning_gym/games/countdown.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "202b2e1c8461d21dbef473604c79c9072e5c21c6",
+      "size": 10516,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/202b2e1c8461d21dbef473604c79c9072e5c21c6"
+    },
+    {
+      "path": "reasoning_gym/games/emoji_mystery.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "18efa8f17b6587d6dfb778cf8530c2c6b6b3ec45",
+      "size": 7005,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/18efa8f17b6587d6dfb778cf8530c2c6b6b3ec45"
+    },
+    {
+      "path": "reasoning_gym/games/futoshiki.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4246e8b99e8e27b0d679fbfbf89e70b6046c0093",
+      "size": 29652,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/4246e8b99e8e27b0d679fbfbf89e70b6046c0093"
+    },
+    {
+      "path": "reasoning_gym/games/kakurasu.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a95539a58e67e9ebd1857729b0275db0a2dcd93b",
+      "size": 15010,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/a95539a58e67e9ebd1857729b0275db0a2dcd93b"
+    },
+    {
+      "path": "reasoning_gym/games/knight_swap.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9c7b4db36fd274071074708baa23c9f38c6133f3",
+      "size": 18479,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/9c7b4db36fd274071074708baa23c9f38c6133f3"
+    },
+    {
+      "path": "reasoning_gym/games/mahjong.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f8ff47c161f064b6716e6c2e16ed5653536e74e7",
+      "size": 6163,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f8ff47c161f064b6716e6c2e16ed5653536e74e7"
+    },
+    {
+      "path": "reasoning_gym/games/maze.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "30ea938d0a12690f0738cd8217e7c3346471e2eb",
+      "size": 8767,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/30ea938d0a12690f0738cd8217e7c3346471e2eb"
+    },
+    {
+      "path": "reasoning_gym/games/mini_sudoku.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5efd2aaa0b3a1ecde5381ee65b2c39110369e0ea",
+      "size": 9456,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/5efd2aaa0b3a1ecde5381ee65b2c39110369e0ea"
+    },
+    {
+      "path": "reasoning_gym/games/n_queens.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "06e53f0c44559fbae6a1b7eeb32010ad75450c99",
+      "size": 7094,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/06e53f0c44559fbae6a1b7eeb32010ad75450c99"
+    },
+    {
+      "path": "reasoning_gym/games/puzzle24.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4334be8190984461163463597d398b3976b8f29d",
+      "size": 5542,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/4334be8190984461163463597d398b3976b8f29d"
+    },
+    {
+      "path": "reasoning_gym/games/rush_hour.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5274fc01949646149f19d233784254a5278fa041",
+      "size": 12926,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/5274fc01949646149f19d233784254a5278fa041"
+    },
+    {
+      "path": "reasoning_gym/games/sokoban.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8a5686949ab4931bc2ff83b4081e7601761745b6",
+      "size": 5347,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/8a5686949ab4931bc2ff83b4081e7601761745b6"
+    },
+    {
+      "path": "reasoning_gym/games/sudoku.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d658ff5f19ed682556a8c0d1d06e7368befc8a8f",
+      "size": 10087,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/d658ff5f19ed682556a8c0d1d06e7368befc8a8f"
+    },
+    {
+      "path": "reasoning_gym/games/survo.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6f2fac9fb790aa7619cf47852b768c8ecd887bed",
+      "size": 7774,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/6f2fac9fb790aa7619cf47852b768c8ecd887bed"
+    },
+    {
+      "path": "reasoning_gym/games/tower_of_hanoi.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2fe59914a73cdda9425e4dcb4de8cc62aefafedc",
+      "size": 17791,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2fe59914a73cdda9425e4dcb4de8cc62aefafedc"
+    },
+    {
+      "path": "reasoning_gym/games/tsumego.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fe8ace2bf26692eb1bc9859309158a9cce47ca8e",
+      "size": 13648,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/fe8ace2bf26692eb1bc9859309158a9cce47ca8e"
+    },
+    {
+      "path": "reasoning_gym/geometry",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f8e60654e7512294913ec084fe6d6e7c80311851",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/f8e60654e7512294913ec084fe6d6e7c80311851"
+    },
+    {
+      "path": "reasoning_gym/geometry/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3026ec4b541a449eff6cf07340da53a84c02b54a",
+      "size": 405,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/3026ec4b541a449eff6cf07340da53a84c02b54a"
+    },
+    {
+      "path": "reasoning_gym/geometry/advanced_geometry.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d45cfc4a329c8de41b36940357f98327140e315f",
+      "size": 12181,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/d45cfc4a329c8de41b36940357f98327140e315f"
+    },
+    {
+      "path": "reasoning_gym/geometry/simple_geometry.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b1c0d49920e6ccbaeef498a730e542b6517f7b1b",
+      "size": 7079,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/b1c0d49920e6ccbaeef498a730e542b6517f7b1b"
+    },
+    {
+      "path": "reasoning_gym/graphs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5a262c9f9dc74038835ade8dcfae83e1aa870ced",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/5a262c9f9dc74038835ade8dcfae83e1aa870ced"
+    },
+    {
+      "path": "reasoning_gym/graphs/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1018e33a6c3b5d3b963e6e3d8078ee92e8e42ada",
+      "size": 1094,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/1018e33a6c3b5d3b963e6e3d8078ee92e8e42ada"
+    },
+    {
+      "path": "reasoning_gym/graphs/course_schedule.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3e6bc744292fb15db5970d4b55613e42f777fcda",
+      "size": 7589,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/3e6bc744292fb15db5970d4b55613e42f777fcda"
+    },
+    {
+      "path": "reasoning_gym/graphs/family_relationships.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1de0c1c83a8fc0abd91630dbc0bfe106f3da603e",
+      "size": 14470,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/1de0c1c83a8fc0abd91630dbc0bfe106f3da603e"
+    },
+    {
+      "path": "reasoning_gym/graphs/largest_island.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eddedc89f6cb210cb2a3d8585e47bc6fb12b91ff",
+      "size": 7674,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/eddedc89f6cb210cb2a3d8585e47bc6fb12b91ff"
+    },
+    {
+      "path": "reasoning_gym/graphs/path_star.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53be8845a31021e93806e5343bb5d58de7581633",
+      "size": 5465,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/53be8845a31021e93806e5343bb5d58de7581633"
+    },
+    {
+      "path": "reasoning_gym/graphs/quantum_lock.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5aaa754667a65c584a7204b9dfe9e34d9ad0de31",
+      "size": 9310,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/5aaa754667a65c584a7204b9dfe9e34d9ad0de31"
+    },
+    {
+      "path": "reasoning_gym/graphs/shortest_path.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4e33a9b2031f48b1bb420bb8005d7cd53eac1e64",
+      "size": 7586,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/4e33a9b2031f48b1bb420bb8005d7cd53eac1e64"
+    },
+    {
+      "path": "reasoning_gym/induction",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6db6fadf7e7e7cdbfe49d78983202f2c21443f98",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/6db6fadf7e7e7cdbfe49d78983202f2c21443f98"
+    },
+    {
+      "path": "reasoning_gym/induction/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "814d846c79b48b1a7760162df5631529eafe495f",
+      "size": 296,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/814d846c79b48b1a7760162df5631529eafe495f"
+    },
+    {
+      "path": "reasoning_gym/induction/acre",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "463cdeaa8c2987f3d4db44dd961ebd0aeb0be8c2",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/463cdeaa8c2987f3d4db44dd961ebd0aeb0be8c2"
+    },
+    {
+      "path": "reasoning_gym/induction/acre/acre.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d2211a6b1abf0438d626d896eb44b5e7a328267d",
+      "size": 3957,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/d2211a6b1abf0438d626d896eb44b5e7a328267d"
+    },
+    {
+      "path": "reasoning_gym/induction/acre/blicket.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d3658a16a666761affbcebafdfe9e91ebe4533d",
+      "size": 25789,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/7d3658a16a666761affbcebafdfe9e91ebe4533d"
+    },
+    {
+      "path": "reasoning_gym/induction/acre/const.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "337ee09912fb890240ff583c2c458658135b0505",
+      "size": 259,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/337ee09912fb890240ff583c2c458658135b0505"
+    },
+    {
+      "path": "reasoning_gym/induction/list_functions",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b7cc31423a3fc0a5742e40df2b4890991853d9b5",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/b7cc31423a3fc0a5742e40df2b4890991853d9b5"
+    },
+    {
+      "path": "reasoning_gym/induction/list_functions/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d99a03b97527546a7e228b362da5cea875616f7b",
+      "size": 154,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/d99a03b97527546a7e228b362da5cea875616f7b"
+    },
+    {
+      "path": "reasoning_gym/induction/list_functions/generators.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b88444881f78af82911dad479c6c7f8daa4dfe93",
+      "size": 10540,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/b88444881f78af82911dad479c6c7f8daa4dfe93"
+    },
+    {
+      "path": "reasoning_gym/induction/list_functions/list_functions.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c1b0deda62135c0c390a5f09d94255326cc4bf5b",
+      "size": 2944,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/c1b0deda62135c0c390a5f09d94255326cc4bf5b"
+    },
+    {
+      "path": "reasoning_gym/logic",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ff7f8698c03b3179950b1627e34e95ef1f8371c2",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/ff7f8698c03b3179950b1627e34e95ef1f8371c2"
+    },
+    {
+      "path": "reasoning_gym/logic/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "601161151d74659a1b4e9ae26a680c72df2590ba",
+      "size": 1329,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/601161151d74659a1b4e9ae26a680c72df2590ba"
+    },
+    {
+      "path": "reasoning_gym/logic/aiw.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e6c1109f899bba278af99afedd7f2eacc996d221",
+      "size": 9841,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e6c1109f899bba278af99afedd7f2eacc996d221"
+    },
+    {
+      "path": "reasoning_gym/logic/circuit_logic.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a77f1a6ef64031f6531811372f5f3eda760d7341",
+      "size": 16042,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/a77f1a6ef64031f6531811372f5f3eda760d7341"
+    },
+    {
+      "path": "reasoning_gym/logic/contrib",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d257be8d8c9fee032c098590d1539fafdb47d062",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/d257be8d8c9fee032c098590d1539fafdb47d062"
+    },
+    {
+      "path": "reasoning_gym/logic/contrib/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "reasoning_gym/logic/contrib/logic_puzzle",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f1e341ba00570bcc84c06dd98eabe9563e8429bd",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/f1e341ba00570bcc84c06dd98eabe9563e8429bd"
+    },
+    {
+      "path": "reasoning_gym/logic/contrib/logic_puzzle/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5a448243fbee27fa487e4e7ca063a2a8ba3ad97f",
+      "size": 736,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/5a448243fbee27fa487e4e7ca063a2a8ba3ad97f"
+    },
+    {
+      "path": "reasoning_gym/logic/contrib/logic_puzzle/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "reasoning_gym/logic/contrib/logic_puzzle/clues.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96096737562ae245965b6a37c8a413c2aab18243",
+      "size": 8295,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/96096737562ae245965b6a37c8a413c2aab18243"
+    },
+    {
+      "path": "reasoning_gym/logic/contrib/logic_puzzle/generate.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9bc4bb02ef38c2f7d8a8c3dc06c788fcb8c0c7f5",
+      "size": 15718,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/9bc4bb02ef38c2f7d8a8c3dc06c788fcb8c0c7f5"
+    },
+    {
+      "path": "reasoning_gym/logic/contrib/logic_puzzle/literals.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7e6cc354d23660312fb4606a76b434d9a6eb5d65",
+      "size": 17104,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/7e6cc354d23660312fb4606a76b434d9a6eb5d65"
+    },
+    {
+      "path": "reasoning_gym/logic/contrib/logic_puzzle/puzzle.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "640b3a0fadbee534cb8e81940858367ded6453bf",
+      "size": 11746,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/640b3a0fadbee534cb8e81940858367ded6453bf"
+    },
+    {
+      "path": "reasoning_gym/logic/contrib/logic_puzzle/sat_utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5454aef119f1a3ca1ad85bb22d1d04f2d2425e96",
+      "size": 5083,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/5454aef119f1a3ca1ad85bb22d1d04f2d2425e96"
+    },
+    {
+      "path": "reasoning_gym/logic/knights_knaves.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cd2970eceab8550dc05b9d8a9ecdc6d9b709b408",
+      "size": 20743,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/cd2970eceab8550dc05b9d8a9ecdc6d9b709b408"
+    },
+    {
+      "path": "reasoning_gym/logic/propositional_logic.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "961f94f313433a835f59c2213db92e2a5272917c",
+      "size": 14809,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/961f94f313433a835f59c2213db92e2a5272917c"
+    },
+    {
+      "path": "reasoning_gym/logic/self_reference.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d2c9d68c153642eced31aca8ef23dff68e371dba",
+      "size": 14174,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/d2c9d68c153642eced31aca8ef23dff68e371dba"
+    },
+    {
+      "path": "reasoning_gym/logic/syllogisms.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6a56594f02b36ae115b7c2d69346d64c67ea71af",
+      "size": 18824,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/6a56594f02b36ae115b7c2d69346d64c67ea71af"
+    },
+    {
+      "path": "reasoning_gym/logic/zebra_puzzles.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "909b24ce2a2baf76d73494e435c9647930a1610e",
+      "size": 3438,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/909b24ce2a2baf76d73494e435c9647930a1610e"
+    },
+    {
+      "path": "reasoning_gym/probability",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "77b5bb06082702585d464da8d9e783e623c95bab",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/77b5bb06082702585d464da8d9e783e623c95bab"
+    },
+    {
+      "path": "reasoning_gym/probability/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e08e34bdc2ba56c82eaf2ec91e64b2346c07b561",
+      "size": 184,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e08e34bdc2ba56c82eaf2ec91e64b2346c07b561"
+    },
+    {
+      "path": "reasoning_gym/probability/coin_flip.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6aeac2321f40859e1cbfdad951fc90c63e410870",
+      "size": 5968,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/6aeac2321f40859e1cbfdad951fc90c63e410870"
+    },
+    {
+      "path": "reasoning_gym/scoring.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2bd12e647707308165b2e4c6e00bd54bbaf6d5fc",
+      "size": 6310,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2bd12e647707308165b2e4c6e00bd54bbaf6d5fc"
+    },
+    {
+      "path": "reasoning_gym/utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "83ab6d46ba155cc945e40a93d73dd84175c80f9d",
+      "size": 6451,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/83ab6d46ba155cc945e40a93d73dd84175c80f9d"
+    },
+    {
+      "path": "reasoning_gym/version_manager.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b01f075eea5a8b2b4bda0232de4fddc0ece4ed2",
+      "size": 2318,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/9b01f075eea5a8b2b4bda0232de4fddc0ece4ed2"
+    },
+    {
+      "path": "requirements-dev.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "18cbc82d99c5fbbfec8d78aef158fc037d01e530",
+      "size": 121,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/18cbc82d99c5fbbfec8d78aef158fc037d01e530"
+    },
+    {
+      "path": "scripts",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7ca72e82d54346c8672427cec394525664724d58",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/7ca72e82d54346c8672427cec394525664724d58"
+    },
+    {
+      "path": "scripts/debug_curricula.py",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "5e2f76ccecb8a3eaf1044c25c8c004d16c9ab388",
+      "size": 7236,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/5e2f76ccecb8a3eaf1044c25c8c004d16c9ab388"
+    },
+    {
+      "path": "scripts/generate_gallery.py",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "a48b22e54998544c2caf90ba779699668fac209a",
+      "size": 2789,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/a48b22e54998544c2caf90ba779699668fac209a"
+    },
+    {
+      "path": "scripts/hf_dataset",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "90652a02ebff0da7af880bf86f2b81c577ebd318",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/90652a02ebff0da7af880bf86f2b81c577ebd318"
+    },
+    {
+      "path": "scripts/hf_dataset/example_hf_dataset_config.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7388c038a1ccf4f588acfcc54a9e729ccd6dba50",
+      "size": 1125,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/7388c038a1ccf4f588acfcc54a9e729ccd6dba50"
+    },
+    {
+      "path": "scripts/hf_dataset/save_hf_dataset.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "641b9784c31c73865b6e4a9fc57bf9232f703526",
+      "size": 7938,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/641b9784c31c73865b6e4a9fc57bf9232f703526"
+    },
+    {
+      "path": "tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f2747034d6d0cb0c090b10102ff9b7543aa52921",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/f2747034d6d0cb0c090b10102ff9b7543aa52921"
+    },
+    {
+      "path": "tests/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "73d90cd21ba55138a466a96fe57c0e36353f8007",
+      "size": 30,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/73d90cd21ba55138a466a96fe57c0e36353f8007"
+    },
+    {
+      "path": "tests/coaching",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e62a118872b6699ed5d6766bcd3c4a4d089b20d5",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/e62a118872b6699ed5d6766bcd3c4a4d089b20d5"
+    },
+    {
+      "path": "tests/coaching/test_curriculum_experiment.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "490724833e3dd9533ca0e5a69bc3fa651511899e",
+      "size": 4895,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/490724833e3dd9533ca0e5a69bc3fa651511899e"
+    },
+    {
+      "path": "tests/test_ab.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a5ed018899bb8755ecad1042d9d67699811179f9",
+      "size": 4119,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/a5ed018899bb8755ecad1042d9d67699811179f9"
+    },
+    {
+      "path": "tests/test_acre.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a0c4ab74129c6cff59d8a52176240c3d15d142f0",
+      "size": 1982,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/a0c4ab74129c6cff59d8a52176240c3d15d142f0"
+    },
+    {
+      "path": "tests/test_advanced_geometry.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a2562a48251eac26b07142c8fff396c975c2f4b",
+      "size": 4214,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/4a2562a48251eac26b07142c8fff396c975c2f4b"
+    },
+    {
+      "path": "tests/test_aiw.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "222dd6ea75abacb8c96fed881f0ee1a1af405cef",
+      "size": 5083,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/222dd6ea75abacb8c96fed881f0ee1a1af405cef"
+    },
+    {
+      "path": "tests/test_arc_1d.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "de14ad635040ce48bb8cfd270d2a03e292d131be",
+      "size": 6498,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/de14ad635040ce48bb8cfd270d2a03e292d131be"
+    },
+    {
+      "path": "tests/test_arc_1d_tasks.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4692b03018761a166195ab94a1bb1868d972f0db",
+      "size": 4317,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/4692b03018761a166195ab94a1bb1868d972f0db"
+    },
+    {
+      "path": "tests/test_arc_agi.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f1c48314e2ca80360628cdd9218a0d95b8175dc",
+      "size": 8313,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/1f1c48314e2ca80360628cdd9218a0d95b8175dc"
+    },
+    {
+      "path": "tests/test_base_conversion.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e08840b8fc3297fcdb29cc6c779128f968a441b",
+      "size": 7191,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/1e08840b8fc3297fcdb29cc6c779128f968a441b"
+    },
+    {
+      "path": "tests/test_basic_arithmetic.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e6a9de355d156b3b0177168cdb06f09a4ce30e46",
+      "size": 7385,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e6a9de355d156b3b0177168cdb06f09a4ce30e46"
+    },
+    {
+      "path": "tests/test_bf.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "523e3ec6bb177cbbf8242440528c651d02928e50",
+      "size": 1667,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/523e3ec6bb177cbbf8242440528c651d02928e50"
+    },
+    {
+      "path": "tests/test_binary_alternation.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e4d434fde9fb6a7773897a15ee262017b123ad8d",
+      "size": 4183,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e4d434fde9fb6a7773897a15ee262017b123ad8d"
+    },
+    {
+      "path": "tests/test_binary_matrix.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5d5f6ca9cbe7e36c55f2f106000a0de0e4edcc97",
+      "size": 4963,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/5d5f6ca9cbe7e36c55f2f106000a0de0e4edcc97"
+    },
+    {
+      "path": "tests/test_bitwise_arithmetic.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2756f5c036d65b934188ddb16f25bedb595accf3",
+      "size": 5445,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2756f5c036d65b934188ddb16f25bedb595accf3"
+    },
+    {
+      "path": "tests/test_boxnet.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e6313f9b22059570d04d5138d6ad87824aebd149",
+      "size": 7720,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e6313f9b22059570d04d5138d6ad87824aebd149"
+    },
+    {
+      "path": "tests/test_caesar_cipher.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ae6c4dae25ff8288c997f0bf279039a17a716fe",
+      "size": 4580,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2ae6c4dae25ff8288c997f0bf279039a17a716fe"
+    },
+    {
+      "path": "tests/test_calendar_arithmetic.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c8665357f5ea622f6a544d40db4599fa3802ac7",
+      "size": 7977,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2c8665357f5ea622f6a544d40db4599fa3802ac7"
+    },
+    {
+      "path": "tests/test_chain_sum.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eedbaae316b0141b1fde4f3d83fc85a9c512115d",
+      "size": 5871,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/eedbaae316b0141b1fde4f3d83fc85a9c512115d"
+    },
+    {
+      "path": "tests/test_circuit_logic.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "138b46b8fd376f624280c51af195a323212147a9",
+      "size": 9339,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/138b46b8fd376f624280c51af195a323212147a9"
+    },
+    {
+      "path": "tests/test_codeio.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b7544e6fd59796f1d82544fcfa555a5a6288f25d",
+      "size": 2135,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/b7544e6fd59796f1d82544fcfa555a5a6288f25d"
+    },
+    {
+      "path": "tests/test_coin_flip.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "29f41abed451571afc31b033fa74a90565aa2d41",
+      "size": 3393,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/29f41abed451571afc31b033fa74a90565aa2d41"
+    },
+    {
+      "path": "tests/test_color_cube_rotation.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d97b6ccff5bd84f9873f6bec1268bda9150121a3",
+      "size": 3879,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/d97b6ccff5bd84f9873f6bec1268bda9150121a3"
+    },
+    {
+      "path": "tests/test_complex_arithmetic.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a3e3638a81b4b2789e169010bf2184cf79d478a2",
+      "size": 8738,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/a3e3638a81b4b2789e169010bf2184cf79d478a2"
+    },
+    {
+      "path": "tests/test_composite.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "93cc6f0ba666c49ca99324818f6c0d8d1388ea49",
+      "size": 8594,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/93cc6f0ba666c49ca99324818f6c0d8d1388ea49"
+    },
+    {
+      "path": "tests/test_count_bits.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "14702acf951268fb68b3479b2a7d403fb765a934",
+      "size": 3236,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/14702acf951268fb68b3479b2a7d403fb765a934"
+    },
+    {
+      "path": "tests/test_count_primes.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e61dde7f273193b174bbfeedf8a085b1cb863324",
+      "size": 3684,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e61dde7f273193b174bbfeedf8a085b1cb863324"
+    },
+    {
+      "path": "tests/test_countdown.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab32506cd5637773602207f07ab6e98c6081f4cd",
+      "size": 6789,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/ab32506cd5637773602207f07ab6e98c6081f4cd"
+    },
+    {
+      "path": "tests/test_course_schedule.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "153b1264f5a709f96c3fbc972b8df2ad80614a3f",
+      "size": 6128,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/153b1264f5a709f96c3fbc972b8df2ad80614a3f"
+    },
+    {
+      "path": "tests/test_cryptarithm.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "396b8b3c7a9a78898a5d18687975869693821cba",
+      "size": 12256,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/396b8b3c7a9a78898a5d18687975869693821cba"
+    },
+    {
+      "path": "tests/test_dataset.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "88ff79f77f1a9f46520e995392d69e9480a2a798",
+      "size": 1992,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/88ff79f77f1a9f46520e995392d69e9480a2a798"
+    },
+    {
+      "path": "tests/test_dataset_common.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d65c4cb595a4b1ede1d3ed413f9f5f5e5e83c194",
+      "size": 708,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/d65c4cb595a4b1ede1d3ed413f9f5f5e5e83c194"
+    },
+    {
+      "path": "tests/test_decimal_arithmetic.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "068e1fcc4329c9ddbd8956ab8a402a47fbd63ee2",
+      "size": 3276,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/068e1fcc4329c9ddbd8956ab8a402a47fbd63ee2"
+    },
+    {
+      "path": "tests/test_decimal_chain_sum.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0553686499b1ef9a2e724226aa673d47cfa07925",
+      "size": 10522,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/0553686499b1ef9a2e724226aa673d47cfa07925"
+    },
+    {
+      "path": "tests/test_dice.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9e34cd60a5621ea838de8b886c81539ed1be47d6",
+      "size": 1841,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/9e34cd60a5621ea838de8b886c81539ed1be47d6"
+    },
+    {
+      "path": "tests/test_emoji_mystery.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3b54b65292c013f471dd075e39e5c2de4b0c6d5a",
+      "size": 4638,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/3b54b65292c013f471dd075e39e5c2de4b0c6d5a"
+    },
+    {
+      "path": "tests/test_family_relationships.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b3793e995434a721057bda308e81913256555529",
+      "size": 5402,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/b3793e995434a721057bda308e81913256555529"
+    },
+    {
+      "path": "tests/test_figlet_fonts.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "915d141291adc9885b60c11db1dcdc23472681a1",
+      "size": 2575,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/915d141291adc9885b60c11db1dcdc23472681a1"
+    },
+    {
+      "path": "tests/test_fraction_simplification.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "49437d1f80aa4bf26f099c684815a5cfaa0a497c",
+      "size": 5970,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/49437d1f80aa4bf26f099c684815a5cfaa0a497c"
+    },
+    {
+      "path": "tests/test_futoshiki.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "156b2fdda1a205d0c6239d541e83d22a0ab73a98",
+      "size": 10690,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/156b2fdda1a205d0c6239d541e83d22a0ab73a98"
+    },
+    {
+      "path": "tests/test_game_of_life.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b8a2b54cd73312573d58b87cd30bedbb7d5d469",
+      "size": 6456,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/9b8a2b54cd73312573d58b87cd30bedbb7d5d469"
+    },
+    {
+      "path": "tests/test_game_of_life_halting.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7ee78b378a460eb4f047269ee5c58b7e74f858b7",
+      "size": 2615,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/7ee78b378a460eb4f047269ee5c58b7e74f858b7"
+    },
+    {
+      "path": "tests/test_gcd.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "14c6bce7c9f7ab348fe44d4676dc287c1b9b130d",
+      "size": 5128,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/14c6bce7c9f7ab348fe44d4676dc287c1b9b130d"
+    },
+    {
+      "path": "tests/test_get_score_answer_fn.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3b0482e95e8265d20a9d1ca49b11c1412341bfcf",
+      "size": 2126,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/3b0482e95e8265d20a9d1ca49b11c1412341bfcf"
+    },
+    {
+      "path": "tests/test_graph_color.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "975405c1320a18dbee948547c51ea0f0018478b6",
+      "size": 3193,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/975405c1320a18dbee948547c51ea0f0018478b6"
+    },
+    {
+      "path": "tests/test_group_anagrams.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "807a614095457b8ed523991fa1a8fc5010677388",
+      "size": 5843,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/807a614095457b8ed523991fa1a8fc5010677388"
+    },
+    {
+      "path": "tests/test_gsm_symbolic.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb8590ccde83e42a5569fce25f182ed85646314f",
+      "size": 3207,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/cb8590ccde83e42a5569fce25f182ed85646314f"
+    },
+    {
+      "path": "tests/test_intermediate_integration.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1be50ced496afe36ca3e23fce52e39c7bf3708bb",
+      "size": 8019,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/1be50ced496afe36ca3e23fce52e39c7bf3708bb"
+    },
+    {
+      "path": "tests/test_isomorphic_strings.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f9cb5d39335922c28d81d6ce2c6372d64e437770",
+      "size": 4189,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f9cb5d39335922c28d81d6ce2c6372d64e437770"
+    },
+    {
+      "path": "tests/test_jugs.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a11fdbe18b50440e18c47df4e889be1ea6205014",
+      "size": 3261,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/a11fdbe18b50440e18c47df4e889be1ea6205014"
+    },
+    {
+      "path": "tests/test_kakurasu.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b67b814219ff51140b4eae9b8a03d9e55b63ea4",
+      "size": 7211,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2b67b814219ff51140b4eae9b8a03d9e55b63ea4"
+    },
+    {
+      "path": "tests/test_knight_swap.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6067132637907cc9978d098fca71d36d20b8061d",
+      "size": 7179,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/6067132637907cc9978d098fca71d36d20b8061d"
+    },
+    {
+      "path": "tests/test_knights_knaves.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "02eb1db71274af8f4823a93e0a48daa89a11fab8",
+      "size": 10193,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/02eb1db71274af8f4823a93e0a48daa89a11fab8"
+    },
+    {
+      "path": "tests/test_largest_island.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "37319080f305a1dc2b057d88d56ec3333fbbdc06",
+      "size": 5860,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/37319080f305a1dc2b057d88d56ec3333fbbdc06"
+    },
+    {
+      "path": "tests/test_lcm.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f241100a3825ac9579bb118baf3342fd77dd3b72",
+      "size": 5086,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f241100a3825ac9579bb118baf3342fd77dd3b72"
+    },
+    {
+      "path": "tests/test_leg_counting.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7ecbf265a5a5514a0cca10d86771f76dbc9e1ab8",
+      "size": 4037,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/7ecbf265a5a5514a0cca10d86771f76dbc9e1ab8"
+    },
+    {
+      "path": "tests/test_letter_counting.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "832e5fedba4bf7d430111997ed82a2071ea94e18",
+      "size": 3456,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/832e5fedba4bf7d430111997ed82a2071ea94e18"
+    },
+    {
+      "path": "tests/test_letter_jumble.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b8c984491d83e49a5f36bacb50ff0fc3dab88ba",
+      "size": 5561,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/8b8c984491d83e49a5f36bacb50ff0fc3dab88ba"
+    },
+    {
+      "path": "tests/test_list_functions.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6e7ee0c06ae450329299b3a9b3688522aaf9193d",
+      "size": 2585,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/6e7ee0c06ae450329299b3a9b3688522aaf9193d"
+    },
+    {
+      "path": "tests/test_mahjong_puzzle.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eaa0d9c018463e2e77ed0b2a008a08c20922ad3b",
+      "size": 4022,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/eaa0d9c018463e2e77ed0b2a008a08c20922ad3b"
+    },
+    {
+      "path": "tests/test_manipulate_matrix.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "00294a0d5a9a72a858eb52c3cc6c2eba77b992e6",
+      "size": 7687,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/00294a0d5a9a72a858eb52c3cc6c2eba77b992e6"
+    },
+    {
+      "path": "tests/test_maze.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b59fac484d85484e178f47b4b2a78360ced72ff8",
+      "size": 4619,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/b59fac484d85484e178f47b4b2a78360ced72ff8"
+    },
+    {
+      "path": "tests/test_mini_sudoku.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ac892f4f84744487b7f1099f13ee99d2446250db",
+      "size": 4704,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/ac892f4f84744487b7f1099f13ee99d2446250db"
+    },
+    {
+      "path": "tests/test_modulo_grid.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f4335495699a1ad9dd3ff9c21d107c67e674ce59",
+      "size": 1904,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f4335495699a1ad9dd3ff9c21d107c67e674ce59"
+    },
+    {
+      "path": "tests/test_n_queens.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "62d803db4d685f79e6c2eaf9a90438787a7a506f",
+      "size": 5912,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/62d803db4d685f79e6c2eaf9a90438787a7a506f"
+    },
+    {
+      "path": "tests/test_needle_haystack.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce1710f2743c462619b83819d1d8672a0ecb5463",
+      "size": 3675,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/ce1710f2743c462619b83819d1d8672a0ecb5463"
+    },
+    {
+      "path": "tests/test_number_filtering.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d55c5509aacdc0658fac54b19a0c626a07e3f218",
+      "size": 5549,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/d55c5509aacdc0658fac54b19a0c626a07e3f218"
+    },
+    {
+      "path": "tests/test_number_format.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5fb960b62781c5cc36055a945d87c09d65b40462",
+      "size": 5514,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/5fb960b62781c5cc36055a945d87c09d65b40462"
+    },
+    {
+      "path": "tests/test_number_sequences.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7222aba4ee01bc36bbf14c114096fab6bc407169",
+      "size": 3816,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/7222aba4ee01bc36bbf14c114096fab6bc407169"
+    },
+    {
+      "path": "tests/test_number_sorting.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6eae626585ddb5198c7cde5d6d51e194b6ffda84",
+      "size": 7191,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/6eae626585ddb5198c7cde5d6d51e194b6ffda84"
+    },
+    {
+      "path": "tests/test_palindrome.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "48171d9a4b0ae9ab857cba23c96dd25d214b3ebe",
+      "size": 4140,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/48171d9a4b0ae9ab857cba23c96dd25d214b3ebe"
+    },
+    {
+      "path": "tests/test_palindrome_partitioning.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f0240d962176e1b1ea9d8520fdedd7d98b5f8eab",
+      "size": 5360,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f0240d962176e1b1ea9d8520fdedd7d98b5f8eab"
+    },
+    {
+      "path": "tests/test_path_star.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5436813a665cbafaab540a2be4c9c2fa13b5506c",
+      "size": 6979,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/5436813a665cbafaab540a2be4c9c2fa13b5506c"
+    },
+    {
+      "path": "tests/test_polynomial_equations.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c63baab3da2598db16f4b7947ad7346af8e570b3",
+      "size": 6219,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/c63baab3da2598db16f4b7947ad7346af8e570b3"
+    },
+    {
+      "path": "tests/test_polynomial_multiplication.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "05567c788de2548af9f619c9904e4eb15d914778",
+      "size": 11511,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/05567c788de2548af9f619c9904e4eb15d914778"
+    },
+    {
+      "path": "tests/test_pool_matrix.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "caa569d31d041bce0537b20130d3dbcaec767a1a",
+      "size": 6766,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/caa569d31d041bce0537b20130d3dbcaec767a1a"
+    },
+    {
+      "path": "tests/test_power_function.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f56a9ce9513d3c7eae33e5cfa411b0b28fc0b561",
+      "size": 4432,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f56a9ce9513d3c7eae33e5cfa411b0b28fc0b561"
+    },
+    {
+      "path": "tests/test_prime_factorization.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "389b89a4fba2a2b876b274f7b66e94e7ab370305",
+      "size": 5018,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/389b89a4fba2a2b876b274f7b66e94e7ab370305"
+    },
+    {
+      "path": "tests/test_products.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e4d8dae89dd58fbd5530c404c5e6744f9722c00",
+      "size": 6641,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/1e4d8dae89dd58fbd5530c404c5e6744f9722c00"
+    },
+    {
+      "path": "tests/test_propositional_logic.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d1f205ccb962c7226516a2a6105a021e8c6325e",
+      "size": 5048,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/9d1f205ccb962c7226516a2a6105a021e8c6325e"
+    },
+    {
+      "path": "tests/test_puzzle24.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4b6d30362f9e9683aeea66176081dac9138c14da",
+      "size": 4421,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/4b6d30362f9e9683aeea66176081dac9138c14da"
+    },
+    {
+      "path": "tests/test_quantum_lock.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6cac9ffa055f0332e930afeae4fef996bfba9b48",
+      "size": 6479,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/6cac9ffa055f0332e930afeae4fef996bfba9b48"
+    },
+    {
+      "path": "tests/test_ransom_note.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a5e78fa5966a6d99713a97e42308328662ef8662",
+      "size": 5330,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/a5e78fa5966a6d99713a97e42308328662ef8662"
+    },
+    {
+      "path": "tests/test_rearc.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b2f992c11f25a8a6be8feeaa9462123dd03acc67",
+      "size": 5368,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/b2f992c11f25a8a6be8feeaa9462123dd03acc67"
+    },
+    {
+      "path": "tests/test_rectangle_count.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f9eafcec9c4d3e621353fd90c3dcd81b5ffa2972",
+      "size": 1717,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f9eafcec9c4d3e621353fd90c3dcd81b5ffa2972"
+    },
+    {
+      "path": "tests/test_rotate_matrix.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4ac4fdada4ec05dc4ebd90cbac752dcf0cd77e5a",
+      "size": 5249,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/4ac4fdada4ec05dc4ebd90cbac752dcf0cd77e5a"
+    },
+    {
+      "path": "tests/test_rotten_oranges.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "613de36dec4d4b84fa599588ca9124877a48e681",
+      "size": 4366,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/613de36dec4d4b84fa599588ca9124877a48e681"
+    },
+    {
+      "path": "tests/test_rubiks_cube.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f9a77efabddfce4fb6460c1e87b78050d8345ada",
+      "size": 3412,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f9a77efabddfce4fb6460c1e87b78050d8345ada"
+    },
+    {
+      "path": "tests/test_rush_hour.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "70d0d562f75c8d79396eb4c3306f6eab611d479e",
+      "size": 4740,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/70d0d562f75c8d79396eb4c3306f6eab611d479e"
+    },
+    {
+      "path": "tests/test_score_board.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ac55a43a9ebdb7cc16190e33516d49d9c535b3a9",
+      "size": 7222,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/ac55a43a9ebdb7cc16190e33516d49d9c535b3a9"
+    },
+    {
+      "path": "tests/test_scoring.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c8b1540bca0c6690c63cffba74712b2dcb706bee",
+      "size": 8551,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/c8b1540bca0c6690c63cffba74712b2dcb706bee"
+    },
+    {
+      "path": "tests/test_self_reference.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7bd2b4fbce9232f5e6f85bc6654eb2e0db7d6181",
+      "size": 4717,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/7bd2b4fbce9232f5e6f85bc6654eb2e0db7d6181"
+    },
+    {
+      "path": "tests/test_sentence_reordering.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cf55cc76b31db4c4507d704d76fb21695abde18f",
+      "size": 2662,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/cf55cc76b31db4c4507d704d76fb21695abde18f"
+    },
+    {
+      "path": "tests/test_shortest_path.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed6b22bc57cafe0cff58ee6a6991feefd0b6e411",
+      "size": 6779,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/ed6b22bc57cafe0cff58ee6a6991feefd0b6e411"
+    },
+    {
+      "path": "tests/test_simple_equations.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4424de38f5e0102d8624f6551240b90bab386bb3",
+      "size": 7806,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/4424de38f5e0102d8624f6551240b90bab386bb3"
+    },
+    {
+      "path": "tests/test_simple_geometry.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f8833f7cc41c6b65fba0ee0abf9c82aa24e1669d",
+      "size": 4006,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f8833f7cc41c6b65fba0ee0abf9c82aa24e1669d"
+    },
+    {
+      "path": "tests/test_simple_integration.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "641928f476f8823f4daa25211fd8ca7a219ff654",
+      "size": 5909,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/641928f476f8823f4daa25211fd8ca7a219ff654"
+    },
+    {
+      "path": "tests/test_sokoban.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eb8e93cb49fb3309748ee54300e2a2bbfec58430",
+      "size": 5640,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/eb8e93cb49fb3309748ee54300e2a2bbfec58430"
+    },
+    {
+      "path": "tests/test_spell_backward.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4495c3831745d39caa1bd5f8e50f02ee93792977",
+      "size": 2814,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/4495c3831745d39caa1bd5f8e50f02ee93792977"
+    },
+    {
+      "path": "tests/test_spiral_matrix.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6aec30ecfa465e390313c6a7c762d30bf51b81e",
+      "size": 3896,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/a6aec30ecfa465e390313c6a7c762d30bf51b81e"
+    },
+    {
+      "path": "tests/test_string_insertion.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2bf602a02bd77193a5ce4dca2ea5eb0ab6a214d3",
+      "size": 4480,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2bf602a02bd77193a5ce4dca2ea5eb0ab6a214d3"
+    },
+    {
+      "path": "tests/test_string_manipulation.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1d16db9c9657f3785a74ae9b575d3316cf70a532",
+      "size": 10519,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/1d16db9c9657f3785a74ae9b575d3316cf70a532"
+    },
+    {
+      "path": "tests/test_string_splitting.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6d8f9e6b6218b245e50d01eca7a8639e6eef4b38",
+      "size": 4361,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/6d8f9e6b6218b245e50d01eca7a8639e6eef4b38"
+    },
+    {
+      "path": "tests/test_string_synthesis.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "909ab6d5740051fd71f634a825865f2f7d77c296",
+      "size": 4863,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/909ab6d5740051fd71f634a825865f2f7d77c296"
+    },
+    {
+      "path": "tests/test_sudoku.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "27cc9a931e167bf14213ecd057315ede8935f37c",
+      "size": 4602,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/27cc9a931e167bf14213ecd057315ede8935f37c"
+    },
+    {
+      "path": "tests/test_survo.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d1d69549ed4e8fa60a835fa28aca517ca0081a3a",
+      "size": 5175,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/d1d69549ed4e8fa60a835fa28aca517ca0081a3a"
+    },
+    {
+      "path": "tests/test_syllogisms.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "843075257a9814b4f21d9477810b899fd5bc8a22",
+      "size": 13189,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/843075257a9814b4f21d9477810b899fd5bc8a22"
+    },
+    {
+      "path": "tests/test_time_intervals.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ca5cfbfa619cc1dd1b127a71dfa0a68f32af671",
+      "size": 4414,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/1ca5cfbfa619cc1dd1b127a71dfa0a68f32af671"
+    },
+    {
+      "path": "tests/test_tower_of_hanoi.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01ae5d1d7cd2b6567dbd64b6be4f3743380f12d3",
+      "size": 11267,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/01ae5d1d7cd2b6567dbd64b6be4f3743380f12d3"
+    },
+    {
+      "path": "tests/test_tsumego.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e0f75510c6962db6cdd8ae2ca2af7e24151ab8de",
+      "size": 12812,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e0f75510c6962db6cdd8ae2ca2af7e24151ab8de"
+    },
+    {
+      "path": "tests/test_utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f64544d9ca50220fd47cd20b32a13d126fc6f20c",
+      "size": 1763,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f64544d9ca50220fd47cd20b32a13d126fc6f20c"
+    },
+    {
+      "path": "tests/test_word_ladder.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ad16eaddf55e42c8d2cc7d37581d3a54e01e7dd8",
+      "size": 14996,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/ad16eaddf55e42c8d2cc7d37581d3a54e01e7dd8"
+    },
+    {
+      "path": "tests/test_word_sequence_reversal.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a874e6708918bb54a925df0a8e415f0279a89fdb",
+      "size": 3555,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/a874e6708918bb54a925df0a8e415f0279a89fdb"
+    },
+    {
+      "path": "tests/test_word_sorting.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e81266de64310a14bcbe921f3ba3dc595a5f0f82",
+      "size": 6953,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e81266de64310a14bcbe921f3ba3dc595a5f0f82"
+    },
+    {
+      "path": "tests/test_zebra.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "21ca9bb028889e384aa5ae3b1da134e8f154b6e2",
+      "size": 4467,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/21ca9bb028889e384aa5ae3b1da134e8f154b6e2"
+    },
+    {
+      "path": "tools",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3696c3db29c64a3f8af79758b5b5b7fede957fd4",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/3696c3db29c64a3f8af79758b5b5b7fede957fd4"
+    },
+    {
+      "path": "tools/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f61171c19a9e731eb1cfaa45ec9be3325b9a853d",
+      "size": 1554,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f61171c19a9e731eb1cfaa45ec9be3325b9a853d"
+    },
+    {
+      "path": "tools/cli",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2c06117c701367f62fe320ffba3b6d4064125dae",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/2c06117c701367f62fe320ffba3b6d4064125dae"
+    },
+    {
+      "path": "tools/cli/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tools/cli/rgc",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "859a76a7911d062d2c9d0d7d5a7363dd79d3ce20",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/859a76a7911d062d2c9d0d7d5a7363dd79d3ce20"
+    },
+    {
+      "path": "tools/cli/rgc/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7286e7611bce37ab725f8e063ba07726e80ba800",
+      "size": 74,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/7286e7611bce37ab725f8e063ba07726e80ba800"
+    },
+    {
+      "path": "tools/cli/rgc/client.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "487913773ca3514dfad700a3e58e3989302d2930",
+      "size": 4305,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/487913773ca3514dfad700a3e58e3989302d2930"
+    },
+    {
+      "path": "tools/cli/rgc/main.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "827c413a27665f34f373327702c7aa06545f649b",
+      "size": 8326,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/827c413a27665f34f373327702c7aa06545f649b"
+    },
+    {
+      "path": "tools/server",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "282734830b702e97d75a3b3f17eab25493b48e86",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/282734830b702e97d75a3b3f17eab25493b48e86"
+    },
+    {
+      "path": "tools/server/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64926c4cee2d4c8f528eed9f9bda0aea6bf3d331",
+      "size": 195,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/64926c4cee2d4c8f528eed9f9bda0aea6bf3d331"
+    },
+    {
+      "path": "tools/server/config.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5957b947fa9eebf2ca42dada3536869c538da948",
+      "size": 665,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/5957b947fa9eebf2ca42dada3536869c538da948"
+    },
+    {
+      "path": "tools/server/middleware.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "24920cb63368c842dd7f5db6db2a99008a956683",
+      "size": 803,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/24920cb63368c842dd7f5db6db2a99008a956683"
+    },
+    {
+      "path": "tools/server/models.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1b6b505cbdcafb91b4cd694575fca27856388c98",
+      "size": 2619,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/1b6b505cbdcafb91b4cd694575fca27856388c98"
+    },
+    {
+      "path": "tools/server/server.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6f437bc3cecced81343acb8e4e91b42185df0a0a",
+      "size": 6424,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/6f437bc3cecced81343acb8e4e91b42185df0a0a"
+    },
+    {
+      "path": "tools/server/tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4791276b82de6216f7e62f581a8b0550d5e28e88",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/4791276b82de6216f7e62f581a8b0550d5e28e88"
+    },
+    {
+      "path": "tools/server/tests/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f634e958c60c866e5960bdf93d788a50539b8bcb",
+      "size": 42,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f634e958c60c866e5960bdf93d788a50539b8bcb"
+    },
+    {
+      "path": "tools/server/tests/test_config.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c8475225f0dd108d4a9d54e05fbcf131e74fc0e",
+      "size": 639,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2c8475225f0dd108d4a9d54e05fbcf131e74fc0e"
+    },
+    {
+      "path": "tools/server/tests/test_endpoints.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "69cfee65926ed188c752998f385643e76200565e",
+      "size": 8269,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/69cfee65926ed188c752998f385643e76200565e"
+    },
+    {
+      "path": "tools/server/tests/test_registry.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e84f2db2ac8261985dfb71f5437cfc9c97c1d667",
+      "size": 1458,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/e84f2db2ac8261985dfb71f5437cfc9c97c1d667"
+    },
+    {
+      "path": "training",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "78fcb48d67c48590ce9c00ef112ee192e60748f4",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/78fcb48d67c48590ce9c00ef112ee192e60748f4"
+    },
+    {
+      "path": "training/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d5733e688c4829e5cb355ed34a864dbaa0a316e7",
+      "size": 6784,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/d5733e688c4829e5cb355ed34a864dbaa0a316e7"
+    },
+    {
+      "path": "training/configs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "542cf2905061567a9474bcf615d04f9f85a832d1",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/542cf2905061567a9474bcf615d04f9f85a832d1"
+    },
+    {
+      "path": "training/configs/curriculum",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "801efa83d2b979b8a38d99f87451d1898faaad2b",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/801efa83d2b979b8a38d99f87451d1898faaad2b"
+    },
+    {
+      "path": "training/configs/curriculum/knights_knaves_curriculum.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "29051545014b27328495273ec1b9a4c4042fd744",
+      "size": 6690,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/29051545014b27328495273ec1b9a4c4042fd744"
+    },
+    {
+      "path": "training/configs/curriculum/knights_knaves_noncurriculum.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f4f6541f313a2c569742f807cb00f560ac1d493",
+      "size": 6820,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/7f4f6541f313a2c569742f807cb00f560ac1d493"
+    },
+    {
+      "path": "training/configs/curriculum/spell_backward.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c295ba0f7ce2534409cf41ec5f5a948cf1b7d94",
+      "size": 6783,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2c295ba0f7ce2534409cf41ec5f5a948cf1b7d94"
+    },
+    {
+      "path": "training/configs/external_benchmarks",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a7bef5dbecc0aa7fcb1d799d0ac2dcfdb1adcdbf",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/a7bef5dbecc0aa7fcb1d799d0ac2dcfdb1adcdbf"
+    },
+    {
+      "path": "training/configs/external_benchmarks/maths_llama_3b.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "abf4b908c93090e8a6e71a67d4045ad4a49ecc71",
+      "size": 7143,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/abf4b908c93090e8a6e71a67d4045ad4a49ecc71"
+    },
+    {
+      "path": "training/configs/inter_generalisation",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "96778d29804111ff9ed80f04286fd146f70d6245",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/96778d29804111ff9ed80f04286fd146f70d6245"
+    },
+    {
+      "path": "training/configs/inter_generalisation/algebra_qwen_3b.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b010a6b6bfc8b85d6b07e821ac5a9fa1318fbeca",
+      "size": 7045,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/b010a6b6bfc8b85d6b07e821ac5a9fa1318fbeca"
+    },
+    {
+      "path": "training/configs/inter_generalisation/algorithmic_qwen_3b.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e2fd5ba1ffadc0922bc4eb5e6e57d08b8d83618",
+      "size": 7460,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2e2fd5ba1ffadc0922bc4eb5e6e57d08b8d83618"
+    },
+    {
+      "path": "training/configs/inter_generalisation/games_qwen_3b.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "965823583dbea892287ec6a5e5e2166c5f7d5109",
+      "size": 7053,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/965823583dbea892287ec6a5e5e2166c5f7d5109"
+    },
+    {
+      "path": "training/configs/inter_generalisation/logic_qwen_3b.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd967b5e2a5cde4be36c7224aa709d0108767cb3",
+      "size": 7029,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/bd967b5e2a5cde4be36c7224aa709d0108767cb3"
+    },
+    {
+      "path": "training/configs/intra_generalisation",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c1bdd601af76e3ad8fd1c40140806265bda325c7",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/c1bdd601af76e3ad8fd1c40140806265bda325c7"
+    },
+    {
+      "path": "training/configs/intra_generalisation/algebra_qwen_3b.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "58aaf72093db65fcbfcac49a9facb1fc3c47b135",
+      "size": 7189,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/58aaf72093db65fcbfcac49a9facb1fc3c47b135"
+    },
+    {
+      "path": "training/configs/intra_generalisation/algorithmic_qwen_3b.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "63a3f7e6583375a4b4c34928cd64dea3cfb1d71e",
+      "size": 7282,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/63a3f7e6583375a4b4c34928cd64dea3cfb1d71e"
+    },
+    {
+      "path": "training/configs/intra_generalisation/arithmetic_qwen_3b.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b8ac7ef116d4d6f38e813b713d47dc4b70dc378",
+      "size": 7300,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2b8ac7ef116d4d6f38e813b713d47dc4b70dc378"
+    },
+    {
+      "path": "training/configs/intra_generalisation/cognition_qwen_3b.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae7d9412a179522f913d80bb0b056d6c94641226",
+      "size": 7105,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/ae7d9412a179522f913d80bb0b056d6c94641226"
+    },
+    {
+      "path": "training/configs/intra_generalisation/games_qwen_3b.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "75a8c0d20517408767d7906740542768238407bd",
+      "size": 7441,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/75a8c0d20517408767d7906740542768238407bd"
+    },
+    {
+      "path": "training/configs/intra_generalisation/graphs_qwen_3b.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "13ccce8f38145a00742623f91a33fe1bd2ca2b86",
+      "size": 7248,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/13ccce8f38145a00742623f91a33fe1bd2ca2b86"
+    },
+    {
+      "path": "training/evaluations",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "251b611692df867ae931ce454df7a8fa9140d2ef",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/251b611692df867ae931ce454df7a8fa9140d2ef"
+    },
+    {
+      "path": "training/evaluations/curriculum",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "02d50d9147866de176d9a4e5547d5841eafa5ca9",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/02d50d9147866de176d9a4e5547d5841eafa5ca9"
+    },
+    {
+      "path": "training/evaluations/curriculum/knights_knaves.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b5f1b4902a329f23af07e93da61b7655540b079c",
+      "size": 1114,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/b5f1b4902a329f23af07e93da61b7655540b079c"
+    },
+    {
+      "path": "training/evaluations/evaluate_model.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2714eeaa8bde6638de86b499fe67b984c2cbe6e7",
+      "size": 8966,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2714eeaa8bde6638de86b499fe67b984c2cbe6e7"
+    },
+    {
+      "path": "training/evaluations/inter_generalisation",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b7c73b8a8f4edd96346e8850e7000d64d686fe45",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/b7c73b8a8f4edd96346e8850e7000d64d686fe45"
+    },
+    {
+      "path": "training/evaluations/inter_generalisation/algebra.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "436add52403c1ae6b4438355ce01c7f838fe55e7",
+      "size": 1203,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/436add52403c1ae6b4438355ce01c7f838fe55e7"
+    },
+    {
+      "path": "training/evaluations/inter_generalisation/algorithmic.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f96613efe1408278ee8da9ec755653d5fa72d7b",
+      "size": 1772,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/9f96613efe1408278ee8da9ec755653d5fa72d7b"
+    },
+    {
+      "path": "training/evaluations/inter_generalisation/arc.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "67bb1eef4dc7428093be86ad7450f13bcbceeb40",
+      "size": 925,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/67bb1eef4dc7428093be86ad7450f13bcbceeb40"
+    },
+    {
+      "path": "training/evaluations/inter_generalisation/arithmetic.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7cd854c87fe79a277c7be9ad3409595f638fa863",
+      "size": 1766,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/7cd854c87fe79a277c7be9ad3409595f638fa863"
+    },
+    {
+      "path": "training/evaluations/inter_generalisation/cognition.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c9d62f99d3f7250a9548a063b283f39e4838118",
+      "size": 1224,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/5c9d62f99d3f7250a9548a063b283f39e4838118"
+    },
+    {
+      "path": "training/evaluations/inter_generalisation/games.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f07a8463639528bd7280a9299227a0ccb335626f",
+      "size": 1247,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f07a8463639528bd7280a9299227a0ccb335626f"
+    },
+    {
+      "path": "training/evaluations/inter_generalisation/geometry.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "501a2859438041c5c7ec570ec97c974d0674720e",
+      "size": 904,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/501a2859438041c5c7ec570ec97c974d0674720e"
+    },
+    {
+      "path": "training/evaluations/inter_generalisation/graphs.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "90da88756684e8c4110bc0727f565e382cccd877",
+      "size": 1089,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/90da88756684e8c4110bc0727f565e382cccd877"
+    },
+    {
+      "path": "training/evaluations/intra-generalisation",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fd59f1349726ff220160d139ea2a7c333e22cca4",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/fd59f1349726ff220160d139ea2a7c333e22cca4"
+    },
+    {
+      "path": "training/evaluations/intra-generalisation/eval_algebraic_composite.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f79514b4b0018072a3aeb15690eee80c32fadf39",
+      "size": 619,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/f79514b4b0018072a3aeb15690eee80c32fadf39"
+    },
+    {
+      "path": "training/evaluations/intra-generalisation/eval_algorithmic_composite.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1adba40ff4b66424874b38ad497c5819e640b5e4",
+      "size": 635,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/1adba40ff4b66424874b38ad497c5819e640b5e4"
+    },
+    {
+      "path": "training/evaluations/intra-generalisation/eval_arithmetic_composite.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "388cfdb36440d88a29ebd19c580704f8fe4ab991",
+      "size": 531,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/388cfdb36440d88a29ebd19c580704f8fe4ab991"
+    },
+    {
+      "path": "training/evaluations/intra-generalisation/eval_cognition_composite.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6b5a2279b97a16ac7e4f06f813ec45088d8afc58",
+      "size": 973,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/6b5a2279b97a16ac7e4f06f813ec45088d8afc58"
+    },
+    {
+      "path": "training/evaluations/intra-generalisation/eval_games_composite.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a609a74bf0a3115db8feeadeba2547aae59adf5d",
+      "size": 575,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/a609a74bf0a3115db8feeadeba2547aae59adf5d"
+    },
+    {
+      "path": "training/evaluations/lmeh",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5c9cbb626ff6e6197aac958fadd25a4ebdcaafd5",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/5c9cbb626ff6e6197aac958fadd25a4ebdcaafd5"
+    },
+    {
+      "path": "training/evaluations/lmeh/gsm8k_cot_rg.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e4859c89a04d22d245c69d7def13a8394af5b4f",
+      "size": 4083,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/2e4859c89a04d22d245c69d7def13a8394af5b4f"
+    },
+    {
+      "path": "training/evaluations/lmeh/llama_math_algebra.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c2d2e108eb4113a38da7e0c98b18eb1f80861b7",
+      "size": 1698,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/5c2d2e108eb4113a38da7e0c98b18eb1f80861b7"
+    },
+    {
+      "path": "training/rewards",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "dee92d51897b8b7f09c06a38b58b6e93d3bf9983",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/dee92d51897b8b7f09c06a38b58b6e93d3bf9983"
+    },
+    {
+      "path": "training/rewards/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5dab880288078f782af2478c9793df9b8db19b24",
+      "size": 67,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/5dab880288078f782af2478c9793df9b8db19b24"
+    },
+    {
+      "path": "training/rewards/reward.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9988e7dd86422eb140b8b36114238f29cd081fcd",
+      "size": 3112,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/9988e7dd86422eb140b8b36114238f29cd081fcd"
+    },
+    {
+      "path": "training/train_grpo.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ccf5b6f81d6e4a25571893f0f86cfa692ef59bc",
+      "size": 5143,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/0ccf5b6f81d6e4a25571893f0f86cfa692ef59bc"
+    },
+    {
+      "path": "training/trainers",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d2a0dbf635c700704a636db43eca90c93ece2954",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/d2a0dbf635c700704a636db43eca90c93ece2954"
+    },
+    {
+      "path": "training/trainers/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8509e769dd4de89ee27b084dc91e1bbba0453e2e",
+      "size": 75,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/8509e769dd4de89ee27b084dc91e1bbba0453e2e"
+    },
+    {
+      "path": "training/trainers/ray_grpo_trainer.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b8c6bb1510d83d2338edfad705a1cd88a3661dcc",
+      "size": 18466,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/b8c6bb1510d83d2338edfad705a1cd88a3661dcc"
+    },
+    {
+      "path": "training/utils",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d167b27d7b15d81ecdcdaed971d67d30deee5d1a",
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/trees/d167b27d7b15d81ecdcdaed971d67d30deee5d1a"
+    },
+    {
+      "path": "training/utils/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a81a20cd0b4f7b5f5cb1dc2d3eb16c4d7157186f",
+      "size": 107,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/a81a20cd0b4f7b5f5cb1dc2d3eb16c4d7157186f"
+    },
+    {
+      "path": "training/utils/datasets.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3c9cf0aecd05fb1743d225e94c45a17631444485",
+      "size": 4856,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/3c9cf0aecd05fb1743d225e94c45a17631444485"
+    },
+    {
+      "path": "training/utils/load_fsdp_to_hf.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "495266c31dc784af703777e123e09498ef7ad861",
+      "size": 1104,
+      "url": "https://api.github.com/repos/open-thought/reasoning-gym/git/blobs/495266c31dc784af703777e123e09498ef7ad861"
+    }
+  ],
+  "truncated": false
+}

@@ -1,0 +1,64 @@
+{
+  "id": "10_datafusion_sort",
+  "repo": "apache/datafusion",
+  "revision": "10343c18292fc3a9ca62b59c8bb530169fe79b82",
+  "family": "correctness_constrained_performance",
+  "new_source": false,
+  "title": "有界内存排序、TopK与多分区合并",
+  "files": [
+    "README.md",
+    "Cargo.toml",
+    "benchmarks/README.md",
+    "datafusion/physical-plan/src/sorts/sort.rs"
+  ],
+  "retrieved_utc": "2026-10-15T09:20:44.667078+00:00",
+  "files_acquired": [
+    {
+      "path": "README.md",
+      "bytes": 7621,
+      "sha256": "f719979f2578726b36a44d4b6a51e93859d593340ec49e3f7956228c1c12db0d",
+      "url": "https://github.com/apache/datafusion/blob/10343c18292fc3a9ca62b59c8bb530169fe79b82/README.md"
+    },
+    {
+      "path": "Cargo.toml",
+      "bytes": 9573,
+      "sha256": "242dcd9c8c25d871b44a98f97ce45895f660032bd176c16691e7f845774ad2cc",
+      "url": "https://github.com/apache/datafusion/blob/10343c18292fc3a9ca62b59c8bb530169fe79b82/Cargo.toml"
+    },
+    {
+      "path": "benchmarks/README.md",
+      "bytes": 31771,
+      "sha256": "636cf607dbd37d61521d9a93ec7fbcefc9f36b0af0712b9e13141c36cf1d00e1",
+      "url": "https://github.com/apache/datafusion/blob/10343c18292fc3a9ca62b59c8bb530169fe79b82/benchmarks/README.md"
+    },
+    {
+      "path": "datafusion/physical-plan/src/sorts/sort.rs",
+      "bytes": 89140,
+      "sha256": "4f5b23220727ce7b7e1284520549d9761ea24d76e240c123b575859d9c03533c",
+      "url": "https://github.com/apache/datafusion/blob/10343c18292fc3a9ca62b59c8bb530169fe79b82/datafusion/physical-plan/src/sorts/sort.rs"
+    },
+    {
+      "path": "LICENSE.txt",
+      "bytes": 11645,
+      "sha256": "232588dc9ad2096eb589a4f46bd58aafc3b57a38b146196c3d38dec884359888",
+      "url": "https://github.com/apache/datafusion/blob/10343c18292fc3a9ca62b59c8bb530169fe79b82/LICENSE.txt"
+    }
+  ],
+  "missing_paths": [
+    "LICENSE",
+    "LICENSE.md",
+    "COPYING",
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "runtime_validation": false,
+  "six_hour_difficulty_verified": false,
+  "tree_manifest": {
+    "path": "git-tree.json",
+    "sha256": "2e1daf2225a6e74a4d52e81c10b0c19d21ac96841c806b448a49a5376dc716da",
+    "blob_count": 2516,
+    "truncated": false
+  },
+  "resolved_initial_404_paths": {},
+  "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+}

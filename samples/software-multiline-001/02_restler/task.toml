@@ -1,0 +1,27 @@
+schema_version = "1.4"
+artifacts = ["/home/workspace/restler_campaign_recovery/submission"]
+[metadata]
+task_id = "restler_campaign_recovery"
+status = "hold_for_evidence_do_not_launch"
+reward_type = "bounded_continuous"
+reference_status = "partial_native_checkpoint_only"
+formal_grader_status = "incomplete_Polaris_closure_returns_invalid_no_reward"
+[agent]
+timeout_sec = 21600
+network_mode = "no-network"
+[environment]
+docker_image = "edgebench-restler-work:draft"
+workdir = "/home/workspace/restler_campaign_recovery"
+network_mode = "no-network"
+cpus = 2
+memory_mb = 4096
+[verifier]
+timeout_sec = 600
+network_mode = "no-network"
+environment_mode = "separate"
+[verifier.environment]
+docker_image = "edgebench-restler-judge:draft"
+workdir = "/home/workspace/restler_campaign_recovery"
+network_mode = "no-network"
+cpus = 2
+memory_mb = 4096

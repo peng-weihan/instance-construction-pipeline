@@ -1,0 +1,18 @@
+{
+  "returncode": 0,
+  "stdout": "{\"uid\": 2000, \"gid\": 2000, \"judge_visible\": false, \"status\": [\"CapEff:\\t0000000000000000\", \"NoNewPrivs:\\t1\"], \"uid_map\": \"      2000          0          1\\n\", \"routes\": \"Iface\\tDestination\\tGateway \\tFlags\\tRefCnt\\tUse\\tMetric\\tMask\\t\\tMTU\\tWindow\\tIRTT                                                       \\n\"}\n\n\n",
+  "stderr": "",
+  "image": "sha256:c564487ad31fc9caef69db28eb3f3b0c4f3fefecaf8693a37521ace82d6f79ca",
+  "candidate": {
+    "uid": 2000,
+    "gid": 2000,
+    "judge_visible": false,
+    "status": [
+      "CapEff:\t0000000000000000",
+      "NoNewPrivs:\t1"
+    ],
+    "uid_map": "      2000          0          1\n",
+    "routes": "Iface\tDestination\tGateway \tFlags\tRefCnt\tUse\tMetric\tMask\t\tMTU\tWindow\tIRTT                                                       \n"
+  },
+  "passed": true
+}

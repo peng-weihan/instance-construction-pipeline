@@ -1,0 +1,17 @@
+{
+  "version": "jq-1.7.1",
+  "path": "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/06_jq/authoring/build/jq",
+  "system_jq_version": "jq-1.7.1-apple",
+  "host_platform": "macOS-26.6.2-arm64-arm-64bit",
+  "groups": {
+    "streams": 12,
+    "structure": 12,
+    "operators": 12,
+    "bindings": 10,
+    "control": 10,
+    "reductions": 10,
+    "cli": 9,
+    "errors": 9
+  },
+  "case_count": 84
+}

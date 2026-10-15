@@ -1,0 +1,57 @@
+{
+  "repo": "HaliteChallenge/Halite-III",
+  "revision": "e1050ee924292997b3a446b4be4c821848944fd8",
+  "resolved_utc": "2026-10-15T14:58:55.421219+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:42.317980+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "139ce42dcf05221b64914858780a848e2ffb37132112eaec988e71a3dc4ce27a",
+    "truncated": false,
+    "blob_count": 1579
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 1097,
+      "sha256": "1876d95e2fff174b81eb6259df49f84b06d67ed3e141371feba717eca599889f",
+      "url": "https://github.com/HaliteChallenge/Halite-III/blob/e1050ee924292997b3a446b4be4c821848944fd8/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 967,
+      "sha256": "fbaaa8cb959fc20cfb37de4aa6dd7f86b40f1fdbce567312dd78ab0a07df6eee",
+      "url": "https://github.com/HaliteChallenge/Halite-III/blob/e1050ee924292997b3a446b4be4c821848944fd8/README.md"
+    },
+    {
+      "path": "game_engine/core/HaliteImpl.cpp",
+      "bytes": 30433,
+      "sha256": "895d8107f40e017788c23ff88e35df86172982f63a39d98a28b26b61e8a6cadc",
+      "url": "https://github.com/HaliteChallenge/Halite-III/blob/e1050ee924292997b3a446b4be4c821848944fd8/game_engine/core/HaliteImpl.cpp"
+    },
+    {
+      "path": "game_engine/model/Map.cpp",
+      "bytes": 2719,
+      "sha256": "ba1580e81730e37f935b7002267099a43145639441fd5617ca254b0b6087042f",
+      "url": "https://github.com/HaliteChallenge/Halite-III/blob/e1050ee924292997b3a446b4be4c821848944fd8/game_engine/model/Map.cpp"
+    },
+    {
+      "path": "game_engine/test/integration_test.py",
+      "bytes": 6484,
+      "sha256": "47198609ed7a10be035e4d260d81e701294fc6c176e407475cf75d21d1386ec2",
+      "url": "https://github.com/HaliteChallenge/Halite-III/blob/e1050ee924292997b3a446b4be4c821848944fd8/game_engine/test/integration_test.py"
+    },
+    {
+      "path": "game_engine/test/integration_test_bot.py",
+      "bytes": 1268,
+      "sha256": "9b09e22073b5a6c1e5249a5c678793363acf19a586e90f379d843df2b8faa0f6",
+      "url": "https://github.com/HaliteChallenge/Halite-III/blob/e1050ee924292997b3a446b4be4c821848944fd8/game_engine/test/integration_test_bot.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

@@ -1,0 +1,69 @@
+{
+  "repo": "go-task/task",
+  "revision": "ad2782e1709f0bcf8fbbe0d8e00c2d239141e099",
+  "resolved_utc": "2026-10-15T13:30:26.912978+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:31:09.004402+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "bf84df45da409f878771cd4a5696d250c8fe6892c902cba86751a5b4579c2014",
+    "truncated": false,
+    "blob_count": 982
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 1080,
+      "sha256": "ae22882adc54d4c2cec2bb1ce5e0b252c7f3344efd55c72144738e8fcc89509b",
+      "url": "https://github.com/go-task/task/blob/ad2782e1709f0bcf8fbbe0d8e00c2d239141e099/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2523,
+      "sha256": "e3dc4099507c52d2c22f10cb5d67f858b323b5cb01659ded83d0f322416fc585",
+      "url": "https://github.com/go-task/task/blob/ad2782e1709f0bcf8fbbe0d8e00c2d239141e099/README.md"
+    },
+    {
+      "path": "go.mod",
+      "bytes": 6722,
+      "sha256": "e557a7d38bab500f8ed2eac5dcfdb0a0e1b67450d98b39f8b4ce2c341f9d8a30",
+      "url": "https://github.com/go-task/task/blob/ad2782e1709f0bcf8fbbe0d8e00c2d239141e099/go.mod"
+    },
+    {
+      "path": "internal/fingerprint/sources_checksum.go",
+      "bytes": 3327,
+      "sha256": "111ef5a960e4c074a59784a26909e13bf7d6b3cfb4a693ae8bdba7480b93e0b9",
+      "url": "https://github.com/go-task/task/blob/ad2782e1709f0bcf8fbbe0d8e00c2d239141e099/internal/fingerprint/sources_checksum.go"
+    },
+    {
+      "path": "internal/fingerprint/sources_checksum_test.go",
+      "bytes": 532,
+      "sha256": "2869a2a173e083a5559d94d3060e4742e96834e4383423d5a719521005ad2ed5",
+      "url": "https://github.com/go-task/task/blob/ad2782e1709f0bcf8fbbe0d8e00c2d239141e099/internal/fingerprint/sources_checksum_test.go"
+    },
+    {
+      "path": "status.go",
+      "bytes": 624,
+      "sha256": "debf58e80fc617b0e3ace887ea7a009bfcf95d362d24225186202c36cd035ddc",
+      "url": "https://github.com/go-task/task/blob/ad2782e1709f0bcf8fbbe0d8e00c2d239141e099/status.go"
+    },
+    {
+      "path": "task.go",
+      "bytes": 18372,
+      "sha256": "49bede36531b4a2e57d4524f9532070ceb9501087b3c4234695afe07923382eb",
+      "url": "https://github.com/go-task/task/blob/ad2782e1709f0bcf8fbbe0d8e00c2d239141e099/task.go"
+    },
+    {
+      "path": "task_test.go",
+      "bytes": 95387,
+      "sha256": "431875cbb9236baf3bb3cbf798176e99dd921dab0aecd353c6c3543a6a321d02",
+      "url": "https://github.com/go-task/task/blob/ad2782e1709f0bcf8fbbe0d8e00c2d239141e099/task_test.go"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

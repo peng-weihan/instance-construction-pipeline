@@ -1,0 +1,191 @@
+{
+  "chair_order1": {
+    "length": 33.070866,
+    "area_lower_bound": 10.221582804936585,
+    "pieces": 8,
+    "input_sha256": "f1d87bda8f05a818b9683f4043df61c6d5662feb88478638100e5468648c13a2",
+    "certificate_sha256": "9ae83048a74fd1c1ebcf2ed57b1b38fbbd0fbf4c65241fbb8f0c9fb6a4308524"
+  },
+  "chair_order2": {
+    "length": 38.10725304945957,
+    "area_lower_bound": 20.44316560987317,
+    "pieces": 16,
+    "input_sha256": "3d4bb764f231b45a12738acf3f4157f46cd0b0f96667199b7fc8df213fc4fea0",
+    "certificate_sha256": "d9ea955770e34d6f42f6e50266d15f5ae52dee36a7b03b379f15eeabe283fed1"
+  },
+  "chair_order3": {
+    "length": 52.845680754766185,
+    "area_lower_bound": 30.66474841480975,
+    "pieces": 24,
+    "input_sha256": "9e434eaef34e54554bce99042ba5a7daca3a4fa8d35295e536cabb21cf08b462",
+    "certificate_sha256": "6889eeedf3dce6bd6d260582b5bdaf0552b681634585fd6d8fc04538b51739c1"
+  },
+  "stool_x10_order1": {
+    "length": 139.88392185698697,
+    "area_lower_bound": 89.58207800393087,
+    "pieces": 50,
+    "input_sha256": "e196f71abc05efb65eba9ce325af017c2392dcf205d2ff7f9a66198f43d345a2",
+    "certificate_sha256": "6e6b8bd44095b9dc7e7721dac4cefe646a470cc2162d5d8587146058fc2e6228"
+  },
+  "stool_x10_order2": {
+    "length": 290.77388838406785,
+    "area_lower_bound": 179.16415600786175,
+    "pieces": 100,
+    "input_sha256": "ba41d810855ff0fc71bb02176c2ed919360d88efa9d0f7bbf8a4025ff9e82462",
+    "certificate_sha256": "a23224f1c1bd00d69221a6e13e8c476f12f8f86464099e62b3009d17fa356c5d"
+  },
+  "stool_x10_order3": {
+    "length": 431.79922425033266,
+    "area_lower_bound": 268.7462340117927,
+    "pieces": 150,
+    "input_sha256": "2242c8c90353f6209974fa3e9e5cd113136e39ade405adf1f8e708705dfcec3a",
+    "certificate_sha256": "950c36c4542b679d894778060d5f49e9c21ae602c229e3b86f260af1b0ece896"
+  },
+  "stepladder_order1": {
+    "length": 63.93784479,
+    "area_lower_bound": 31.555181462465544,
+    "pieces": 22,
+    "input_sha256": "e0f61ccb5bbb7465fdfded87bb62e7890a78c622a5345e6888a1d9d11d06676c",
+    "certificate_sha256": "7066e222954ac4bdf7728c82a531c12604e14fd4ee314c6e0dcdceaf4e009b79"
+  },
+  "stepladder_order2": {
+    "length": 115.45600449999998,
+    "area_lower_bound": 63.11036292493109,
+    "pieces": 44,
+    "input_sha256": "82d622745adbd26d22aba735908e11043a0aec0f44d614ec23e6f929ee9e721b",
+    "certificate_sha256": "160b425d3216e7a677884709d7dcfd30324e29293b5c47bb44838b8cdcd6ff9a"
+  },
+  "stepladder_order3": {
+    "length": 159.69301233,
+    "area_lower_bound": 94.66554438739664,
+    "pieces": 66,
+    "input_sha256": "e6fc81f87c3a982463c52241e598c751a385caac4c621533c5b65c4cc517fc18",
+    "certificate_sha256": "dcf398c7376804a313ea31cf2703b399441dff446c8ec74e1de65be9f1b51c3f"
+  },
+  "adirondack_chair_order1": {
+    "length": 53.51616269472555,
+    "area_lower_bound": 39.531253493875624,
+    "pieces": 30,
+    "input_sha256": "d738113a0a0f68b2215ec188eaa38df84731842d78896ba2ebc48e5d7354a7fb",
+    "certificate_sha256": "09b22ff52667977233265b567650f91bfc1d3cc88202416678ffb47c4d83e0df"
+  },
+  "adirondack_chair_order2": {
+    "length": 104.7493345222553,
+    "area_lower_bound": 79.06250698775125,
+    "pieces": 60,
+    "input_sha256": "def75b09daf90ecd4fb027ebf8ec9fc0bdb6e1d11f977a7b21de2aaa180d93fa",
+    "certificate_sha256": "8860ffe88a1dfda888bfb55b0171f6d8e2daa5fc5a175cb1cc2a44d95e6e92c0"
+  },
+  "adirondack_chair_order3": {
+    "length": 163.55485179030322,
+    "area_lower_bound": 118.59376048162689,
+    "pieces": 90,
+    "input_sha256": "df7790349975dffd1a8795554ad46a0047df2b8134653baf0a5982385ed6ee47",
+    "certificate_sha256": "97015b3c6d00e0fc1d1c8b0faffcfeb461212da9e8178e547b37b966802d6614"
+  },
+  "deer_order1": {
+    "length": 554.3914966903478,
+    "area_lower_bound": 338.007280429479,
+    "pieces": 26,
+    "input_sha256": "9f6c932810fedf3dc2459c6ab00e95f10353d5d95d5ae19b3411acf485082ea6",
+    "certificate_sha256": "789446bd241c66e7eeb4783ee26ea9bbdb4cab4e75254f646886a20c0786a460"
+  },
+  "deer_order2": {
+    "length": 1068.138591382317,
+    "area_lower_bound": 676.014560858958,
+    "pieces": 52,
+    "input_sha256": "7d6ebc5bdc912471d5461023226619f48ac615ed581c30c31e6e9f66cb2315f7",
+    "certificate_sha256": "bbf5ad3be8616ec5710ab46eb56386094cd3bb3d3658c1d2cd859f5c733e18d1"
+  },
+  "deer_order3": {
+    "length": 1612.3546248658881,
+    "area_lower_bound": 1014.0218412884371,
+    "pieces": 78,
+    "input_sha256": "0ab42b1c818df7ccff1f397a73129cf1237cd20aa1cc286b63e5160316cda73b",
+    "certificate_sha256": "2498b3be16a291a3a1d7bd6078b1f9eebb4bb117a0a885219605b2b2abb08f28"
+  },
+  "table_order1": {
+    "length": 92.24426228999998,
+    "area_lower_bound": 58.314385960330675,
+    "pieces": 13,
+    "input_sha256": "9f3f54579f14e62d325305b0886b1f7506976c0df7fed516f8100398ebd0c432",
+    "certificate_sha256": "e81bcde20189cd0b1afdd54374f3ed7e8edfde55d6540742fa3aafe15c1d806b"
+  },
+  "table_order2": {
+    "length": 159.14801168477715,
+    "area_lower_bound": 116.62877192066135,
+    "pieces": 26,
+    "input_sha256": "1844e84a0ce70d356b18bdf50f3555e8c683a0e382e2a50c01ebdcd783bbe34c",
+    "certificate_sha256": "788a97aaa915e9407f271dba4d45184b06d2c4fe54d9dcfde40d4ac9d9c12d5e"
+  },
+  "table_order3": {
+    "length": 240.0756088505272,
+    "area_lower_bound": 174.943157880992,
+    "pieces": 39,
+    "input_sha256": "a40562a2f9451998c2755a6d3a538a6141f3cb8d5bd1e168f50de2d91bbad52b",
+    "certificate_sha256": "a7b1a6a0f0d821674c99b6d329e946387c873f72770c772fa4ac7932393ef20b"
+  },
+  "sofa_structure_order1": {
+    "length": 143.48780991630824,
+    "area_lower_bound": 68.53108091395238,
+    "pieces": 89,
+    "input_sha256": "6fc8a8e97e2aa23331a33f12bd97582d2604a6e9ae82cde8222156b87dc7edfd",
+    "certificate_sha256": "4c7ec2f2b8dffc385ee706c30a2550752cb4bdf3cfe9c9345dfc52727d540155"
+  },
+  "sofa_structure_order2": {
+    "length": 293.6445115436972,
+    "area_lower_bound": 137.06216182790476,
+    "pieces": 178,
+    "input_sha256": "4304f122cff24bd74dc541911ab59e9ae4d8ebd38c920be585b84e4e5ca0d52f",
+    "certificate_sha256": "12403f9ab622dce6376876639c3660c22744339bb69026b642ceb0bcc893fe87"
+  },
+  "sofa_structure_order3": {
+    "length": 413.8455623464799,
+    "area_lower_bound": 205.59324274185713,
+    "pieces": 267,
+    "input_sha256": "1487f1ddf442a62831576976adaa47802c5ca667a366bfc2a0ec138bb87b1603",
+    "certificate_sha256": "82c99a7b099aed5cff541c790fa650f80dc9501920d83deda5dc6e5778b3b15c"
+  },
+  "knight_armor_order1": {
+    "length": 1819.5812002440384,
+    "area_lower_bound": 1405.901474012904,
+    "pieces": 100,
+    "input_sha256": "50dc8283a61f59c73535851d13c78229d45046f5cf5bd4dae1b7bf7ea85fb69e",
+    "certificate_sha256": "8b4e3586783babd7bd6667207fb7c9b36383b5fea939094cf6417d83e0a30c54"
+  },
+  "knight_armor_order2": {
+    "length": 3574.081069228317,
+    "area_lower_bound": 2811.802948025808,
+    "pieces": 200,
+    "input_sha256": "10fcfd864f3dba6160422d4e5f536092d4fd19c4b5fea7d32cd808fdca7a2e06",
+    "certificate_sha256": "75e34d8ec10bf2827778a5facc7de14a69c5c6d83594cb780a5dcaa297c52936"
+  },
+  "knight_armor_order3": {
+    "length": 5342.724560054142,
+    "area_lower_bound": 4217.7044220387115,
+    "pieces": 300,
+    "input_sha256": "5c2746b8f8e541ac1e96f12bf84ae18f961571fb6b40067e5160925f6e823fc0",
+    "certificate_sha256": "b80c83bd94147bceb6d44ceb36b1e44fd8f9fd6d62ea5b8c1cb7e49147006d08"
+  },
+  "knight_body_order1": {
+    "length": 1633.5067466959997,
+    "area_lower_bound": 951.8733223260218,
+    "pieces": 53,
+    "input_sha256": "fe4e51b91b84fb015defa035f59183191903d0615cc6099d3ff075bdbcf1bc91",
+    "certificate_sha256": "beed0eb40dec63a3896a82ab732f375264222d0733dade72d6b5f2ce94ca6cbc"
+  },
+  "knight_body_order2": {
+    "length": 2410.023649012895,
+    "area_lower_bound": 1903.7466446520436,
+    "pieces": 106,
+    "input_sha256": "34eed49d15093a75d35258805befc478c6bfce6d6a65f9458f79da2d88ce2f6e",
+    "certificate_sha256": "91beaaeca320aa99ea0b0833a0bb6486c4cb9434b40446c46c8fde574352fd36"
+  },
+  "knight_body_order3": {
+    "length": 3765.3262613036095,
+    "area_lower_bound": 2855.6199669780653,
+    "pieces": 159,
+    "input_sha256": "09d88561fe056f0232b828b02076768921f7218a5fb82b5d1ea765dd977adb51",
+    "certificate_sha256": "340b0d06029c968857ab99495504bb6636957b0aa9a126556692a60914a6bf69"
+  }
+}

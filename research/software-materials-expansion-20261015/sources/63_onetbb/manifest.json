@@ -1,0 +1,63 @@
+{
+  "repo": "uxlfoundation/oneTBB",
+  "revision": "885b7813d38de698a9942e5026ad1bd9d16125d9",
+  "resolved_utc": "2026-10-15T13:30:47.590280+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:31:20.302988+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "362eae338367c1ce3064a93a687c627d22f2a0cd616fcf964965eb8e109b9989",
+    "truncated": false,
+    "blob_count": 1698
+  },
+  "files_acquired": [
+    {
+      "path": "CMakeLists.txt",
+      "bytes": 18033,
+      "sha256": "d94f8a78c875b141a04a79ffe3eed9a2f55d53eace24481e10280c5e9ed46775",
+      "url": "https://github.com/uxlfoundation/oneTBB/blob/885b7813d38de698a9942e5026ad1bd9d16125d9/CMakeLists.txt"
+    },
+    {
+      "path": "LICENSE.txt",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "url": "https://github.com/uxlfoundation/oneTBB/blob/885b7813d38de698a9942e5026ad1bd9d16125d9/LICENSE.txt"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4895,
+      "sha256": "5ac5321642dd22a08965cfea2363acd6241a8eea308594f0f3b56d15e99df8ed",
+      "url": "https://github.com/uxlfoundation/oneTBB/blob/885b7813d38de698a9942e5026ad1bd9d16125d9/README.md"
+    },
+    {
+      "path": "include/oneapi/tbb/partitioner.h",
+      "bytes": 27811,
+      "sha256": "976306541d1468fa19549060611ec46e5a3af5e28bcbec63e39b0ce34d5181d5",
+      "url": "https://github.com/uxlfoundation/oneTBB/blob/885b7813d38de698a9942e5026ad1bd9d16125d9/include/oneapi/tbb/partitioner.h"
+    },
+    {
+      "path": "src/tbb/arena.cpp",
+      "bytes": 42840,
+      "sha256": "540d59bc4dc705333159393573004f3f1c3b5ad58de082f78a81d2a860de9860",
+      "url": "https://github.com/uxlfoundation/oneTBB/blob/885b7813d38de698a9942e5026ad1bd9d16125d9/src/tbb/arena.cpp"
+    },
+    {
+      "path": "src/tbb/task_dispatcher.cpp",
+      "bytes": 9522,
+      "sha256": "bcbff06d8f1b8af981fb117186e67caedba2181a9a61bc9d5e50d1732eb79043",
+      "url": "https://github.com/uxlfoundation/oneTBB/blob/885b7813d38de698a9942e5026ad1bd9d16125d9/src/tbb/task_dispatcher.cpp"
+    },
+    {
+      "path": "test/tbb/test_task_arena.cpp",
+      "bytes": 86000,
+      "sha256": "f2a60a1e6b764306d167940d051a34c340cf479720d5b25c27c650871dabb2d4",
+      "url": "https://github.com/uxlfoundation/oneTBB/blob/885b7813d38de698a9942e5026ad1bd9d16125d9/test/tbb/test_task_arena.cpp"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

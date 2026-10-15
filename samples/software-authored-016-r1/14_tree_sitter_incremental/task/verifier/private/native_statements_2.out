@@ -1,0 +1,64 @@
+@initial
+0 module 1 0 0 0 0 0 179 0 0 4 0
+field -
+1 future_import_statement 1 0 0 0 0 0 38 0 0 0 38
+field -
+2 from 0 0 0 0 0 0 4 0 0 0 4
+field -
+2 __future__ 0 0 0 0 0 5 15 0 5 0 15
+field -
+2 import 0 0 0 0 0 16 22 0 16 0 22
+field name
+2 dotted_name 1 0 0 0 0 23 38 0 23 0 38
+field -
+3 identifier 1 0 0 0 0 23 38 0 23 0 38
+field -
+1 future_import_statement 1 0 0 0 0 39 69 1 0 1 30
+field -
+2 from 0 0 0 0 0 39 43 1 0 1 4
+field -
+2 __future__ 0 0 0 0 0 44 54 1 5 1 15
+field -
+2 import 0 0 0 0 0 55 61 1 16 1 22
+field name
+2 dotted_name 1 0 0 0 0 62 69 1 23 1 30
+field -
+3 identifier 1 0 0 0 0 62 69 1 23 1 30
+field -
+1 future_import_statement 1 0 0 0 0 70 178 2 0 3 41
+field -
+2 from 0 0 0 0 0 70 74 2 0 2 4
+field -
+2 __future__ 0 0 0 0 0 75 85 2 5 2 15
+field -
+2 import 0 0 0 0 0 86 92 2 16 2 22
+field -
+2 ( 0 0 0 0 0 93 94 2 23 2 24
+field name
+2 dotted_name 1 0 0 0 0 94 109 2 24 2 39
+field -
+3 identifier 1 0 0 0 0 94 109 2 24 2 39
+field -
+2 , 0 0 0 0 0 109 110 2 39 2 40
+field name
+2 dotted_name 1 0 0 0 0 111 119 2 41 2 49
+field -
+3 identifier 1 0 0 0 0 111 119 2 41 2 49
+field -
+2 , 0 0 0 0 0 119 120 2 49 2 50
+field name
+2 dotted_name 1 0 0 0 0 121 135 2 51 2 65
+field -
+3 identifier 1 0 0 0 0 121 135 2 51 2 65
+field -
+2 , 0 0 0 0 0 135 136 2 65 2 66
+field name
+2 dotted_name 1 0 0 0 0 161 177 3 24 3 40
+field -
+3 identifier 1 0 0 0 0 161 177 3 24 3 40
+field -
+2 ) 0 0 0 0 0 177 178 3 40 3 41
+@end
+@sexp
+(module (future_import_statement (dotted_name (identifier))) (future_import_statement (dotted_name (identifier))) (future_import_statement (dotted_name (identifier)) (dotted_name (identifier)) (dotted_name (identifier)) (dotted_name (identifier))))
+@end

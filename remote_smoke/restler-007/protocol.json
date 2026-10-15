@@ -1,0 +1,38 @@
+{
+  "task_id": "restler_resilient_execution",
+  "batch": "007",
+  "format": "local task.toml schema, not native Harbor",
+  "framework": "direct Docker auxiliary component smoke",
+  "model_runs": 0,
+  "six_hour_runs": 0,
+  "accepted": false,
+  "manifest_sha256": "3fb71947a579b50ecfe4a51752c81ec81c705fd49fc6bb87257f4f88357415b2",
+  "controls": [
+    "reference_public",
+    "reference_feedback",
+    "reference_audit",
+    "unchanged_starter_feedback",
+    "empty_feedback"
+  ],
+  "expected": {
+    "reference_score": 1,
+    "empty_score": 0,
+    "empty_valid": false,
+    "starter_score": "measure without imposing an invented threshold"
+  },
+  "score_range": [
+    0,
+    1
+  ],
+  "network": {
+    "build": "public dependency retrieval",
+    "agent": "none",
+    "verifier": "none"
+  },
+  "resources": {
+    "cpus": 2,
+    "agent_memory_gb": 4,
+    "verifier_memory_gb": 12
+  },
+  "limits": "No formal acceptance; valid=false on ordinary missing submission differs from remote Harbor contract and needs subsequent revision."
+}

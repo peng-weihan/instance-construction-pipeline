@@ -1,0 +1,63 @@
+{
+  "repo": "verilog-to-routing/vtr-verilog-to-routing",
+  "revision": "5c65c868eb4e4d03697010e331d6abaa1cb46d4e",
+  "resolved_utc": "2026-10-15T14:59:58.600971+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:02:13.182997+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "99d3e1bb20c18b4a091cfbeb766c9dcb02ad49b6b03782f7f830d264f508eef1",
+    "truncated": false,
+    "blob_count": 13933
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE.md",
+      "bytes": 3383,
+      "sha256": "222b41cfa55b39daccf902c6f10c110d4b30ec79121f5ae600f33a46f07b7863",
+      "url": "https://github.com/verilog-to-routing/vtr-verilog-to-routing/blob/5c65c868eb4e4d03697010e331d6abaa1cb46d4e/LICENSE.md"
+    },
+    {
+      "path": "README.developers.md",
+      "bytes": 144335,
+      "sha256": "0d933061304b4ef9929803b8da6b1b8ac550d8af3691be27df56e2c94f6a5cf9",
+      "url": "https://github.com/verilog-to-routing/vtr-verilog-to-routing/blob/5c65c868eb4e4d03697010e331d6abaa1cb46d4e/README.developers.md"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6811,
+      "sha256": "a14c0f830dcf6e9fad05eab1a1049b37362909c17f255e6b4a9f3678f3acf09b",
+      "url": "https://github.com/verilog-to-routing/vtr-verilog-to-routing/blob/5c65c868eb4e4d03697010e331d6abaa1cb46d4e/README.md"
+    },
+    {
+      "path": "doc/src/vpr/placement_constraints.rst",
+      "bytes": 12738,
+      "sha256": "191d33eb188ab53795da63bc559d7b091cf0f4a301036229fe06fbfb6317b62a",
+      "url": "https://github.com/verilog-to-routing/vtr-verilog-to-routing/blob/5c65c868eb4e4d03697010e331d6abaa1cb46d4e/doc/src/vpr/placement_constraints.rst"
+    },
+    {
+      "path": "doc/src/vpr/relative_placement_constraints.rst",
+      "bytes": 6267,
+      "sha256": "b3d86a611a1a94f8f69a843125485183c796dd4dbea861de7a380948b677ad25",
+      "url": "https://github.com/verilog-to-routing/vtr-verilog-to-routing/blob/5c65c868eb4e4d03697010e331d6abaa1cb46d4e/doc/src/vpr/relative_placement_constraints.rst"
+    },
+    {
+      "path": "vpr/src/place/placer.cpp",
+      "bytes": 22191,
+      "sha256": "5806f249df5b3a5ce845b6ee1dbd32d782fa09a01982c62c76e10cc238288c62",
+      "url": "https://github.com/verilog-to-routing/vtr-verilog-to-routing/blob/5c65c868eb4e4d03697010e331d6abaa1cb46d4e/vpr/src/place/placer.cpp"
+    },
+    {
+      "path": "vtr_flow/tasks/power/power_quick/config/config.txt",
+      "bytes": 1177,
+      "sha256": "2e31edb5ba84a31a6b4bc4b5408693f65418550e6167a92d9451956548c8f424",
+      "url": "https://github.com/verilog-to-routing/vtr-verilog-to-routing/blob/5c65c868eb4e4d03697010e331d6abaa1cb46d4e/vtr_flow/tasks/power/power_quick/config/config.txt"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

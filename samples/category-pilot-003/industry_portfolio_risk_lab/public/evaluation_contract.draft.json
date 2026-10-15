@@ -1,0 +1,73 @@
+{
+  "schema": "local-authoring-draft-v1-not-Harbor",
+  "task_id": "industry_portfolio_risk_lab",
+  "agent_budget_seconds": 10800,
+  "submit_paths": [
+    "submission/risk_model.py",
+    "submission/report.md"
+  ],
+  "snapshot_only": true,
+  "verifier_stateless": true,
+  "runtime_network": {
+    "agent": "none",
+    "verifier": "none"
+  },
+  "run_aggregation": "max(valid_submission_scores)",
+  "curve": "elapsed_interaction_seconds,best_score_so_far",
+  "score": {
+    "direction": "higher_is_better",
+    "range": [
+      0,
+      1
+    ],
+    "formula": "1/(1+0.7*mean_QLIKE_divergence+0.3*mean_scaled_pinball)",
+    "constants": {
+      "variance_floor": 1e-08,
+      "pinball_scale": 0.01,
+      "variance_weight": 0.7,
+      "quantile_weight": 0.3,
+      "quantiles": [
+        0.01,
+        0.05
+      ],
+      "realized_window_days": 21,
+      "forecast_stride_days": 21,
+      "warmup_days": 756
+    },
+    "raw_metrics_required": true,
+    "baseline_measured": null,
+    "upper_endpoint_measured": null,
+    "normalization_policy": "fixed_bounded_formula_v1; empirical endpoints pending"
+  },
+  "named_checks": [
+    "history_only",
+    "output_schema",
+    "finite_forecasts",
+    "positive_variance",
+    "ordered_quantiles",
+    "variance_loss",
+    "tail_loss"
+  ],
+  "feedback_schema": {
+    "score": "finite number in [0,1]",
+    "valid": "boolean",
+    "checks": [
+      {
+        "name": "string",
+        "pass": "boolean",
+        "summary": "string"
+      }
+    ],
+    "raw_metrics": "object",
+    "summary": "string"
+  },
+  "invalid_submission": "valid=false, score=0, named diagnostics",
+  "verifier_failure": "separate infrastructure error, never silently score zero",
+  "feedback_policy": "aggregate by named group; never return hidden inputs or target values",
+  "pending_delivery": [
+    "official Harbor schema/network fields",
+    "two Docker build contexts",
+    "offline dependency closure and dual-architecture digests",
+    "oracle/nop scores and repeated-model curves"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "status": "failed",
+  "task": "restler_resilient_execution",
+  "started_unix": 1791987058.4325578,
+  "model_runs": 0,
+  "six_hour_runs": 0,
+  "accepted": false,
+  "architecture": "x86_64",
+  "agent_image": "edge-raymone-agent:ac9a9a982a5a",
+  "judge_image": "edge-raymone-judge:ac9a9a982a5a",
+  "reports": {},
+  "build_network": "host",
+  "runtime_network": "none",
+  "judge_capabilities": [
+    "SYS_ADMIN",
+    "SETUID",
+    "SETGID",
+    "SETFCAP"
+  ],
+  "stage": "grading",
+  "agent_image_id": "sha256:ceb84e69b8bcef3a38075214e82d4690332fdeb04cbc06187dfdef28ec28a98b",
+  "verifier_image_id": "sha256:269ab784e813fb5e606c9ca9247af8323fe89bc207d921fc4f5c71eeaa407e09",
+  "error": "RuntimeError: command failed (2); see reference_public.json",
+  "finished_unix": 1791987094.9374516
+}

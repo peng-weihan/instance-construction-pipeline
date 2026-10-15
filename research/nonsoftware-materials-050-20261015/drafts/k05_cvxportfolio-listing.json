@@ -1,0 +1,11 @@
+{
+  "repo": "cvxgrp/cvxportfolio",
+  "revision": "351c782b9b8b395c1a5f886b77e0d55f1bc9396e",
+  "matching_paths": [
+    "LICENSE",
+    "examples/paper_examples/single_period_opt.py",
+    "examples/paper_examples/single_period_opt_lin_tcost.py"
+  ],
+  "match_count": 3,
+  "tree_truncated": false
+}

@@ -1,0 +1,63 @@
+{
+  "repo": "jobovy/galpy",
+  "revision": "9f11deffca05346bebafd4da0e77da2e6b7ec54d",
+  "resolved_utc": "2026-10-15T14:58:25.467830+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:09.263175+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "286015f74699d00a231fc8c3b12e02ccbb51a9d7272fc3ca3972a6aadee33798",
+    "truncated": false,
+    "blob_count": 1031
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 1478,
+      "sha256": "8a98be73e23233d8cde50e016c1d20364d8b9911e35f2a33c18083054210ed5c",
+      "url": "https://github.com/jobovy/galpy/blob/9f11deffca05346bebafd4da0e77da2e6b7ec54d/LICENSE"
+    },
+    {
+      "path": "README.dev",
+      "bytes": 1425,
+      "sha256": "baf54cb8c27d8a9e623dadadad4c7376d8658d2e13b2a941cd01b3950ecaec7e",
+      "url": "https://github.com/jobovy/galpy/blob/9f11deffca05346bebafd4da0e77da2e6b7ec54d/README.dev"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6101,
+      "sha256": "117f4542714fe4fedb4fcea6ee6d8a73f9b1805e4bc319cd1f804ad0fff16156",
+      "url": "https://github.com/jobovy/galpy/blob/9f11deffca05346bebafd4da0e77da2e6b7ec54d/README.md"
+    },
+    {
+      "path": "README.nemo",
+      "bytes": 1173,
+      "sha256": "945a7810876f71a1d5b893e7ded2eb2ea32204999f039680cbb2b39ed2cbb695",
+      "url": "https://github.com/jobovy/galpy/blob/9f11deffca05346bebafd4da0e77da2e6b7ec54d/README.nemo"
+    },
+    {
+      "path": "galpy/actionAngle/actionAngleIsochrone.py",
+      "bytes": 14670,
+      "sha256": "1afdcfa42a9e8908bb5bb37e3962416f1662e76a51f524b74c9b9b84848c476f",
+      "url": "https://github.com/jobovy/galpy/blob/9f11deffca05346bebafd4da0e77da2e6b7ec54d/galpy/actionAngle/actionAngleIsochrone.py"
+    },
+    {
+      "path": "galpy/df/streamdf.py",
+      "bytes": 167133,
+      "sha256": "bc6ae1d13850cb3dc9a413f0b514727af180484c314d8eb5cd6e1d8cdd8cda85",
+      "url": "https://github.com/jobovy/galpy/blob/9f11deffca05346bebafd4da0e77da2e6b7ec54d/galpy/df/streamdf.py"
+    },
+    {
+      "path": "tests/test_streamdf.py",
+      "bytes": 134951,
+      "sha256": "2e4cb65b83d95c3ec780f359b8a6b1ba2b66987f26cd1477a7a8855930f2fa9d",
+      "url": "https://github.com/jobovy/galpy/blob/9f11deffca05346bebafd4da0e77da2e6b7ec54d/tests/test_streamdf.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

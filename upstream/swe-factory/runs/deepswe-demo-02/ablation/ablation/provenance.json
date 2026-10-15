@@ -1,0 +1,29 @@
+{
+  "source": {
+    "commit": "a04c9bc80b9a3cd41bfda7948f6787e3c4d1cf1f",
+    "source": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/ablation-source",
+    "snapshot_sha256": "3bbfe0f9d2f716459eb206f506c71b0f99c2abec8935702e1b25494f78fdf63e"
+  },
+  "problem_sha256": "a51295e21f1bdff7fb3c74d1d885ae824dec4aabadb34db07e072d14e183e625",
+  "task_sha256": "4ecca0637fe8bbde234fec7d98d073ba9aacca59bf78e02f751b4086d5ceddd7",
+  "verification": {
+    "passed": true,
+    "fail_to_pass": [
+      "tests/test_target.py::test_child",
+      "tests/test_target.py::test_override",
+      "tests/test_target.py::test_parent",
+      "tests/test_target.py::test_unicode"
+    ],
+    "pass_to_pass": [
+      "tests/test_regression.py::test_plain"
+    ],
+    "errors": [],
+    "base_missing_ids": []
+  },
+  "packaged": {
+    "nop": 0.0,
+    "oracle": 1.0
+  },
+  "outer_harbor_verified": false,
+  "near_miss_status": "not_run"
+}

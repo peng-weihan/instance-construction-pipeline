@@ -1,0 +1,22 @@
+{
+  "id": "25_datafusion_execution_optimization",
+  "repo": "apache/datafusion",
+  "revision": "10343c18292fc3a9ca62b59c8bb530169fe79b82",
+  "observed_utc": "2026-10-15T12:43:08.845899+00:00",
+  "status": "source_leads_only",
+  "files": [
+    {
+      "path": "tree.json",
+      "url": "https://api.github.com/repos/apache/datafusion/git/trees/10343c18292fc3a9ca62b59c8bb530169fe79b82?recursive=1",
+      "sha256": "646dbbddce2f13db060d95bc1a09639044771f4775dd08edb8ba63ee874b3ee7"
+    },
+    {
+      "path": "recent-issues-and-prs.json",
+      "url": "https://api.github.com/repos/apache/datafusion/issues?state=all&per_page=20",
+      "sha256": "f3c192f3f976a189ae9fd495b77c5cbf8dc4f8c1e3f6b9085a5c0ce13e6c807f"
+    }
+  ],
+  "errors": [],
+  "warning": "Issue state is current, not proof of a missing feature at the fixed revision. Build/reproduce before selecting a contract.",
+  "tree_truncated": false
+}

@@ -1,0 +1,27 @@
+{
+  "scope": "grader handshake/timing/output-comparison only; Python driver is NOT a DataFusion solution or performance control",
+  "host_limit_override": "Linux resource preexec skipped for this macOS protocol-only component check; setsid retained. Original attempt failed in macOS preexec, so no Linux limit evidence is claimed.",
+  "results": [
+    {
+      "mode": "correct",
+      "passed": true,
+      "elapsed_sec": 0.0030972089734859765,
+      "exit_code": 0,
+      "output_bytes": 1971
+    },
+    {
+      "mode": "short",
+      "passed": false,
+      "elapsed_sec": 0.0031005420023575425,
+      "exit_code": 0,
+      "output_bytes": 1909
+    },
+    {
+      "mode": "wrong-null",
+      "passed": false,
+      "elapsed_sec": 0.002945750020444393,
+      "exit_code": 0,
+      "output_bytes": 1981
+    }
+  ]
+}

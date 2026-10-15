@@ -1,0 +1,126 @@
+{
+  "task": "portfolio_risk_calibration",
+  "image": "seededge/edgebench.work.portfolio_risk_calibration:e9e47d60871d",
+  "manifest_sha256": "3896947ed3eadfeec699b08819e9e0a27af234d0d9b17e1ab77997f2b72cf9ef",
+  "extraction": "selected layer members, not full OCI filesystem; whiteouts not applied",
+  "layers": [
+    {
+      "index": 0,
+      "size": 49302320,
+      "digest": "sha256:307f8152a55ef1e9eeb1acbbee7bc81232615329eaeb00d8dd93b46be297f34c"
+    },
+    {
+      "index": 1,
+      "size": 25623106,
+      "digest": "sha256:caf6c0a95e34418907d5abfe604d08c5cc6bf9d689943856fcd842eb2be82c6c"
+    },
+    {
+      "index": 2,
+      "size": 67789206,
+      "digest": "sha256:82a92b93bf7181c9d6b4525236a1a2fec85dc591d4deee481e828e707853f42c"
+    },
+    {
+      "index": 3,
+      "size": 236145627,
+      "digest": "sha256:5470790761244112ed0b9ea9218282e5185dc7fd1e91840e855a32550e2ecd73"
+    },
+    {
+      "index": 4,
+      "size": 6085071,
+      "digest": "sha256:ee1920716a2a8bdef4cf45a2d2076bd8f7c782838b345ebed4b7e28b06aecbff"
+    },
+    {
+      "index": 5,
+      "size": 23970060,
+      "digest": "sha256:0fd907e853402ac828a9db5ac4d91c2591830ee225b3b951f0254220adb572e4"
+    },
+    {
+      "index": 6,
+      "size": 251,
+      "digest": "sha256:b54c7cfea51e72cfb7b6cf8aca80d9b1dc7169c06bcc78b9812efd3707dd0e13"
+    },
+    {
+      "index": 7,
+      "size": 6002721,
+      "digest": "sha256:35ce7214bd77a296146ea76de08db446c24ee11b4ad119e816f1659861a20c32"
+    },
+    {
+      "index": 8,
+      "size": 225135659,
+      "digest": "sha256:1e3651dcf640957a7803c31cb28a66b68453d5adec5c5d2fb190a075298fb28c"
+    },
+    {
+      "index": 9,
+      "size": 817192,
+      "digest": "sha256:f65885a8a1123026e157fccc92320992da1f6383b0558741d9f0027dc0364c1e"
+    },
+    {
+      "index": 10,
+      "size": 32,
+      "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1"
+    }
+  ],
+  "found": [
+    {
+      "layer": 9,
+      "path": "home/workspace/attachments/requirements.txt",
+      "bytes": 2276,
+      "sha256": "832048cf2bdf835c5ba7ef22e5277760b5e13478d99f332641fe854e63fd3dfc"
+    },
+    {
+      "layer": 9,
+      "path": "home/workspace/attachments/train_period.txt",
+      "bytes": 21,
+      "sha256": "6a356fc84138d85e94f7d4bee216c2514cec8b893990625630e7392f7c7ab3b7"
+    },
+    {
+      "layer": 9,
+      "path": "home/workspace/attachments/valid_period.txt",
+      "bytes": 21,
+      "sha256": "a06832de5c8b24ee71ae06b54ea4640faa719cde468017cb7a00127663cfe5c7"
+    },
+    {
+      "layer": 9,
+      "path": "home/workspace/requirements.txt",
+      "bytes": 2276,
+      "sha256": "832048cf2bdf835c5ba7ef22e5277760b5e13478d99f332641fe854e63fd3dfc"
+    },
+    {
+      "layer": 9,
+      "path": "home/workspace/task_instruction.md",
+      "bytes": 14161,
+      "sha256": "a903d2361d017c92fe8b2e6975fafbea485d9b031d5e6231a7989bf3216cd191"
+    },
+    {
+      "layer": 9,
+      "path": "home/workspace/task_instruction.meta.json",
+      "bytes": 585,
+      "sha256": "27a5f0a16baeb5365eddcf8211cac0684c6d78b164e759a03413bcba4b6ad0a2"
+    },
+    {
+      "layer": 9,
+      "path": "home/workspace/train_period.txt",
+      "bytes": 21,
+      "sha256": "6a356fc84138d85e94f7d4bee216c2514cec8b893990625630e7392f7c7ab3b7"
+    },
+    {
+      "layer": 9,
+      "path": "home/workspace/valid_period.txt",
+      "bytes": 21,
+      "sha256": "a06832de5c8b24ee71ae06b54ea4640faa719cde468017cb7a00127663cfe5c7"
+    }
+  ],
+  "skipped": [
+    {
+      "index": 3,
+      "reason": "size limit",
+      "bytes": 236145627
+    },
+    {
+      "index": 8,
+      "reason": "size limit",
+      "bytes": 225135659
+    }
+  ],
+  "image_executed": false
+}

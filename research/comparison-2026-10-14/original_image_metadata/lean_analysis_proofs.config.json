@@ -1,0 +1,184 @@
+{
+  "created": "2026-07-02T19:17:59.539653721+08:00",
+  "architecture": "amd64",
+  "os": "linux",
+  "rootfs": {
+    "type": "layers",
+    "diff_ids": [
+      "sha256:8bba68e7621928237aa6d6e2c680cb9572c942ee23c2adabd22016bb67cb938d",
+      "sha256:5b24f2a84e645bf1fa84ab6a43ed6d561a50a0b4cf0faa1809b81c582fc67819",
+      "sha256:c2ea831c8cb31d4a57c94ea0693a07bc680f1b9d5a360ab2dd4be8b8f0ac28b5",
+      "sha256:9fa47f0cf23c8d81606e37f19960610c71dc8c95483ee77c79f446aa0319f836",
+      "sha256:a8821e0a1a516245f84c6aff3272078bb4586acd15f973a13eeb87e6c3bb0eaf",
+      "sha256:45766002d41896b16f7734054be6f18a650b3a316ed3dedb4026544314da2e07",
+      "sha256:731e70f8fcbe74c5c1b8ee47de2f065e9eee3fef589c5f308264479e804be368",
+      "sha256:834b7cfe519abc96ef75a1b0640643f7fa32fd0e2692e52a59ec14dd0d551135",
+      "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "sha256:c23695f133433e95651360a634c7a866e8155d63a3cab1463f87952d1f35c0f0",
+      "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "sha256:63f3182b02003fc75c55100aadd327f907ee1d0bc94421a1abb58c2f23623aba",
+      "sha256:29fbe4f5b51c153f30cfd4356514ca7bfbff836bc22887848c14566886335f56",
+      "sha256:b32b76c47f9d008285d8233a94ca8ea040d71f1f0988ff467bb0678a1052069f"
+    ]
+  },
+  "history": [
+    {
+      "created": "2026-05-09T04:49:21.13252211Z",
+      "created_by": "/bin/sh -c #(nop)  ARG RELEASE",
+      "empty_layer": true
+    },
+    {
+      "created": "2026-05-09T04:49:21.172080751Z",
+      "created_by": "/bin/sh -c #(nop)  ARG LAUNCHPAD_BUILD_ARCH",
+      "empty_layer": true
+    },
+    {
+      "created": "2026-05-09T04:49:21.201472883Z",
+      "created_by": "/bin/sh -c #(nop)  LABEL org.opencontainers.image.version=22.04",
+      "empty_layer": true
+    },
+    {
+      "created": "2026-05-09T04:49:23.398545964Z",
+      "created_by": "/bin/sh -c #(nop) ADD file:14c8897ef5107db11b35f5a0c05bdcb883c0a6daa83d07d4439865541f08514c in / "
+    },
+    {
+      "created": "2026-05-09T04:49:23.781944552Z",
+      "created_by": "/bin/sh -c #(nop)  CMD [\"/bin/bash\"]",
+      "empty_layer": true
+    },
+    {
+      "created": "2026-06-17T20:14:17.285431632+08:00",
+      "created_by": "USER root",
+      "comment": "buildkit.dockerfile.v0",
+      "empty_layer": true
+    },
+    {
+      "created": "2026-06-17T20:14:17.285431632+08:00",
+      "created_by": "ARG DEBIAN_FRONTEND=noninteractive",
+      "comment": "buildkit.dockerfile.v0",
+      "empty_layer": true
+    },
+    {
+      "created": "2026-06-17T20:14:17.285431632+08:00",
+      "created_by": "ENV TZ=Etc/UTC",
+      "comment": "buildkit.dockerfile.v0",
+      "empty_layer": true
+    },
+    {
+      "created": "2026-06-17T20:14:17.285431632+08:00",
+      "created_by": "RUN |1 DEBIAN_FRONTEND=noninteractive /bin/sh -c apt-get update && apt-get install -y --no-install-recommends     git     curl     jq     build-essential     gcc     g++     python3     make     procps     ca-certificates sudo     && rm -rf /var/lib/apt/lists/*     && useradd -m -s /bin/bash agent     && echo 'agent ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers     && git config --global safe.directory '*' # buildkit",
+      "comment": "buildkit.dockerfile.v0"
+    },
+    {
+      "created": "2026-06-17T20:14:17.285431632+08:00",
+      "created_by": "ENV ELAN_HOME=/opt/elan",
+      "comment": "buildkit.dockerfile.v0",
+      "empty_layer": true
+    },
+    {
+      "created": "2026-06-17T20:14:17.285431632+08:00",
+      "created_by": "ENV PATH=/opt/elan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "comment": "buildkit.dockerfile.v0",
+      "empty_layer": true
+    },
+    {
+      "created": "2026-06-17T20:14:17.427021209+08:00",
+      "created_by": "RUN |1 DEBIAN_FRONTEND=noninteractive /bin/sh -c mkdir -p /opt/elan && chown -R agent:agent /opt/elan # buildkit",
+      "comment": "buildkit.dockerfile.v0"
+    },
+    {
+      "created": "2026-06-17T20:14:18.499081817+08:00",
+      "created_by": "RUN |1 DEBIAN_FRONTEND=noninteractive /bin/sh -c curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | env ELAN_HOME=/opt/elan sh -s -- -y --default-toolchain none # buildkit",
+      "comment": "buildkit.dockerfile.v0"
+    },
+    {
+      "created": "2026-06-17T20:14:18.526768691+08:00",
+      "created_by": "WORKDIR /home/workspace",
+      "comment": "buildkit.dockerfile.v0"
+    },
+    {
+      "created": "2026-06-17T20:17:29.421330703+08:00",
+      "created_by": "RUN |1 DEBIAN_FRONTEND=noninteractive /bin/sh -c lake +leanprover/lean4:v4.28.0 new baseline math # buildkit",
+      "comment": "buildkit.dockerfile.v0"
+    },
+    {
+      "created": "2026-06-17T20:17:29.421330703+08:00",
+      "created_by": "ENTRYPOINT []",
+      "comment": "buildkit.dockerfile.v0",
+      "empty_layer": true
+    },
+    {
+      "created": "2026-06-25T16:32:27.123196858+08:00",
+      "created_by": "COPY /home /home # buildkit",
+      "comment": "buildkit.dockerfile.v0"
+    },
+    {
+      "created": "2026-06-25T16:32:58.246559056+08:00",
+      "created_by": "COPY /opt /opt # buildkit",
+      "comment": "buildkit.dockerfile.v0"
+    },
+    {
+      "created": "2026-06-25T16:32:58.564965576+08:00",
+      "created_by": "COPY /tmp /tmp # buildkit",
+      "comment": "buildkit.dockerfile.v0"
+    },
+    {
+      "created": "2026-06-25T16:39:31.906297662+08:00",
+      "created_by": "RUN /bin/sh -c chown -R agent:agent /home/workspace/ # buildkit",
+      "comment": "buildkit.dockerfile.v0"
+    },
+    {
+      "created": "2026-06-25T16:39:32.732948525+08:00",
+      "created_by": "USER agent",
+      "comment": "buildkit.dockerfile.v0",
+      "empty_layer": true
+    },
+    {
+      "created": "2026-06-25T16:39:32.732948525+08:00",
+      "created_by": "WORKDIR /home/workspace/",
+      "comment": "buildkit.dockerfile.v0"
+    },
+    {
+      "created": "2026-07-01T20:41:42.676769265+08:00",
+      "created_by": "cat"
+    },
+    {
+      "created": "2026-07-01T20:42:40.034385792+08:00",
+      "created_by": "true",
+      "empty_layer": true
+    },
+    {
+      "created": "2026-07-01T20:43:47.944064492+08:00",
+      "created_by": "true",
+      "empty_layer": true
+    },
+    {
+      "created": "2026-07-02T01:55:40.156709736+08:00",
+      "created_by": "bash -c python3 /tmp/fix_lake_git.py"
+    },
+    {
+      "created": "2026-07-02T12:29:44.675716282+08:00",
+      "created_by": "true",
+      "empty_layer": true
+    },
+    {
+      "created": "2026-07-02T19:17:59.539653721+08:00",
+      "created_by": "/bin/sh -c set -e; rm -f /tmp/fix_lake_git.py /tmp/setup_workspace.sh /tmp/setup_judge.sh; \nexport GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=safe.directory GIT_CONFIG_VALUE_0=\"*\"\nfor g in $(find /home/workspace /home/*_agent /app -maxdepth 3 -name .git -type d 2>/dev/null | grep -v \"/\\.lake/\"); do\n  d=$(dirname \"$g\")\n  dirty=$(git -C \"$d\" status --porcelain 2>/dev/null | head -1)\n  [ -z \"$dirty\" ] && continue\n  before=$(git -C \"$d\" ls-files | wc -l)\n  own=$(stat -c %u:%g \"$d\")\n  cd \"$d\"\n  rm -rf .git\n  git init -q\n  git symbolic-ref HEAD refs/heads/master\n  git config user.email \"sebench@local\"\n  git config user.name \"sebench\"\n  git add -A\n  git commit -q -m init\n  after=$(git ls-files | wc -l)\n  # sanity: tracked count must not explode (e.g. .lake accidentally added)\n  if [ \"$after\" -gt $((before * 2 + 50)) ]; then echo \"TRACKED_EXPLODED $d $before->$after\"; exit 9; fi\n  chown -R \"$own\" .git\n  echo \"REINIT $d tracked $before->$after\"\n  cd /\ndone\n"
+    }
+  ],
+  "config": {
+    "User": "agent",
+    "Env": [
+      "PATH=/opt/elan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "TZ=Etc/UTC",
+      "ELAN_HOME=/opt/elan"
+    ],
+    "Cmd": [
+      "bash"
+    ],
+    "WorkingDir": "/home/workspace",
+    "Labels": {
+      "org.opencontainers.image.version": "22.04"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+# 65_ruff · Python 解析、恢复与源码范围链恢复
+
+- 路线/优先级：M4 / `build_scope_probe`；只作素材判断。
+- 固定版本：[3514027edb659bbc3c787d355be9d130e5587f15](https://github.com/astral-sh/ruff/tree/3514027edb659bbc3c787d355be9d130e5587f15)；完整树/片段哈希见 `sources/65_ruff/manifest.json`。
+- 已有功能：Ruff 已有 Python parser、语法恢复、typed AST/ranges、formatter/linter 消费链；不是新增一个 Python parser。
+- 拟题边界：拟保留 lexer/token/AST 类型及下游 formatter/linter，在健康副本中连贯挖除 expression precedence/trailers、statement suites 与 parser recovery/range 协调，恢复固定目标 Python 功能集完整 parse→AST→诊断→下游消费。
+- 拟缺口：未制作缺损版；需先跑健康参考，不能仅挖几个 token helper 或故意混淆多版本语法。
+- 关联链：tokens/目标版本→expressions/statements/suites→list recovery/progress→AST spans/errors→formatter/linter 可消费树。
+- 代码/真实测试实读：[crates/ruff_python_parser/src/parser/mod.rs:723](https://github.com/astral-sh/ruff/blob/3514027edb659bbc3c787d355be9d130e5587f15/crates/ruff_python_parser/src/parser/mod.rs#L723) parse_list 保存 recovery context、保证进展并处理 enclosing terminator/缩进。；[crates/ruff_python_parser/src/parser/tests.rs:363](https://github.com/astral-sh/ruff/blob/3514027edb659bbc3c787d355be9d130e5587f15/crates/ruff_python_parser/src/parser/tests.rs#L363) 真实测试检查深嵌套解析保留前后合法语句。；[crates/ruff_python_parser/tests/fixtures.rs:19](https://github.com/astral-sh/ruff/blob/3514027edb659bbc3c787d355be9d130e5587f15/crates/ruff_python_parser/tests/fixtures.rs#L19) fixture harness 分别验证合法/非法输入并检查 AST/错误快照。
+- 组合场景 1：嵌套 comprehension/lambda/call/slice+运算优先级+注释，比较 AST/ranges 与下游输出。
+- 组合场景 2：缺逗号/括号/缩进+后续合法语句，检查 error recovery 不吞后文且保证进展。
+- 组合场景 3：f-string/模式/版本 gating+Unicode 名称+嵌套 suites，冻结支持集后测试组合而非单 grammar token。
+- 基础完成后剩余路径假设 1：正常表达式恢复后仍需 statements/suites、模式和范围在共享 grammar 中一致。
+- 基础完成后剩余路径假设 2：合法文件完成后仍需 recoverable syntax errors、进展保证、上下文终止和版本边界。
+- 参考/判据：固定健康 Ruff parser/formatter 差分；标准 Python 语法例补充。CPython 只能覆盖共同合法子集，不能直接当 Ruff 错误恢复 oracle；未运行健康参考。
+- 正常强基线：CPython ast/其他 Rust Python parser 或残留健康 parser crate 可作强基线；它们对恢复、Ruff AST 和源码范围未必等价，但不能未经实验排除。
+- 首个否证：先跑未改固定 parser 的自拟合法/错误恢复/下游工作流；再检查 CPython/替代 crate + AST 适配是否足额满足，几处 helper 级缺口则不造。
+- 离线/架构成本：Rust workspace/锁定依赖/fixture，Python 版本固定；无外服。深递归和平台栈差异要单独控制，不编造性能目标。
+- 许可观察：根 LICENSE 为 MIT；实际 workspace 和 fixture 归属未完整审查。
+- 官方资料已核对：[官方 formatter 及格式控制行为，后续需对齐固定版本](https://docs.astral.sh/ruff/formatter/)
+- 状态：source_reviewed_healthy_reference_unrun；未构题、未 build/运行、未验证六小时难度；仅对照原 EdgeBench 的机制，不复用原题/测试/答案。

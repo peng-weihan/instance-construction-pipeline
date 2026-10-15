@@ -1,0 +1,101 @@
+{
+  "schema_version": "research-blueprint-v1",
+  "status": "design_proposal_not_implemented_or_calibrated",
+  "purpose": "Author-side templates for new EdgeBench-style tasks; this is not a SForge task JSON.",
+  "terminology": {
+    "task_family": "A reusable problem mechanism, validator, and generator.",
+    "task_instance": "A complete agent workspace with a fixed specification, resources, feedback protocol, and scoring contract.",
+    "test_case": "One input, episode, workload, or proof obligation evaluated within a task instance."
+  },
+  "common_contract": {
+    "author_manifest_fields": [
+      "family_id", "generator_version", "instance_id", "structural_config",
+      "author_seed_commitment", "source_revisions", "asset_sha256",
+      "case_partition_commitments", "resource_limits", "feedback_protocol",
+      "score_direction", "normalization_anchors", "baseline_results", "calibration_status"
+    ],
+    "outputs": [
+      "public/specification", "public/starter_code", "public/development_data",
+      "feedback_judge/checker", "feedback_judge/private_cases",
+      "final_judge/checker", "final_judge/unseen_cases",
+      "author_private/reference_solutions", "author_private/generation_certificates",
+      "task.json", "BENCHMARK.yaml", "manifest.json"
+    ],
+    "private_information_rule": "Keep actual private seeds, labels, references and regeneration secrets outside the agent workspace and its build history; a hash commitment alone is not a substitute for adequate seed entropy.",
+    "family_level_splits": ["development_structures", "held_out_parameters", "held_out_structures"],
+    "within_instance_splits": ["public_development", "feedback_only", "never_feedback_final"],
+    "final_selection_rule": "Choose one archive by the predeclared feedback-based rule, then evaluate it once on final cases.",
+    "final_holdout_implementation": "New orchestration outside the current standard one-judge TaskSpec; do not treat it as an existing SForge option.",
+    "release_gates": [
+      "Same author seed and pinned dependencies recreate identical task assets.",
+      "A trusted feasible reference passes; tiny cases agree with an independent exact oracle.",
+      "Invalid, empty, malformed, non-finite, timed-out and forged-score submissions cannot receive valid reward.",
+      "Reference, weak and stronger baselines demonstrate useful score separation on repeated evaluations.",
+      "Public specification and grader agree on every required constraint.",
+      "Feedback reveals useful diagnostics without disclosing target answers.",
+      "A long-run pilot shows room for improvement and has affordable evaluation latency."
+    ]
+  },
+  "families": [
+    {
+      "family_id": "constrained_routing",
+      "inspiration_task_id": "vehicle_routing_time_windows",
+      "submission": "solver.py implementing a published input/output protocol",
+      "task_instance_axes": {
+        "constraint_profile": ["capacity_time_windows", "capacity_time_windows_route_duration", "pickup_delivery_precedence"],
+        "customer_distribution": ["uniform", "clustered", "mixed"],
+        "objective_contract": ["fixed_vehicle_budget_min_distance", "weighted_vehicle_and_distance_cost"]
+      },
+      "case_axes": ["coordinates", "demands", "service_times", "case_seed"],
+      "difficulty_axes": ["customer_count", "time_window_slack", "capacity_utilization", "cluster_separation", "solver_runtime_budget"],
+      "example_candidate_config": {"customers": 120, "distribution": "clustered", "window_slack_fraction": 0.2, "capacity_utilization_target": 0.8},
+      "generation": "Construct legal routes first, derive compatible demands and service windows, then permute identifiers and hide the construction witness. Validate feasibility after every structural mutation.",
+      "checker": "Independently check every visit, route, capacity, service time and window; compute distance from private canonical input, never from reported cost.",
+      "baselines": ["small-case exhaustive or exact optimization", "feasible insertion", "savings plus local search", "strong solver with fixed runtime"],
+      "feedback": "Aggregate feasible-case fraction, constraint-failure type and objective summary; do not disclose hidden routes.",
+      "sforge_scoring": {"parser": "structured_json", "selection": "valid_then_score", "score_direction": "maximize"},
+      "score_design": "Use independently checked per-case utility with zero for infeasible cases; fail the submission only for protocol/resource violations. Report feasibility and raw cost separately; set score anchors after calibration.",
+      "long_horizon_design": "Require a general solver across diverse regimes so construction, neighborhoods, search scheduling and implementation efficiency remain improvable."
+    },
+    {
+      "family_id": "specification_driven_stream_engine",
+      "inspiration_task_ids": ["arc_compiler_runtime", "stream_processing_engine"],
+      "inspiration_source_scope": {"arc_compiler_runtime": "public_task_definition", "stream_processing_engine": "paper_only_not_in_public_51"},
+      "submission": "Source tree exposing a fixed CLI over JSON event streams",
+      "task_instance_axes": {
+        "operator_set": ["filter_project_group", "group_window_join"],
+        "window_semantics": ["tumbling_event_time", "sliding_event_time"],
+        "ordering_contract": ["ordered", "bounded_lateness_with_watermarks"]
+      },
+      "case_axes": ["event_values", "key_cardinality", "arrival_order", "boundary_timestamps"],
+      "difficulty_axes": ["operator_dependency_depth", "stateful_operator_count", "late_event_rate", "memory_budget", "throughput_target"],
+      "example_candidate_config": {"operators": ["filter", "project", "group", "tumbling_window"], "late_event_policy": "drop_after_watermark", "null_semantics": "explicitly_specified"},
+      "generation": "Sample a typed semantic specification from a constrained DSL; render the human specification, starter interfaces and reference interpreter from that same object. Maintain an independent test oracle or metamorphic checks to catch shared-generator mistakes.",
+      "checker": "Differential tests against a trusted interpreter, semantics-preserving metamorphic tests, exact boundary tests, then performance tests only after the required correctness gate.",
+      "baselines": ["trusted slow interpreter", "minimal conforming implementation", "incomplete operator implementation as negative control", "optimized reference"],
+      "feedback": "Feature-level pass rates and public minimal counterexamples; keep final event streams unseen.",
+      "sforge_scoring": {"parser": "structured_json", "selection": "valid_then_score", "score_direction": "maximize"},
+      "long_horizon_design": "Score meaningful feature milestones and their cross-module composition; add performance only once functional coverage has a clear gate."
+    },
+    {
+      "family_id": "transport_source_inversion",
+      "inspiration_task_id": "borden_source_inversion",
+      "submission": "Forward-model and inverse-estimation code using a published sensor-data API",
+      "task_instance_axes": {
+        "source_model": ["single_finite_release", "multiple_releases"],
+        "flow_regime": ["homogeneous", "piecewise_heterogeneous"],
+        "observation_contract": ["concentration_only", "concentration_with_detection_limits"]
+      },
+      "case_axes": ["source_coordinates", "release_time", "release_strength", "sensor_noise_seed"],
+      "difficulty_axes": ["sensor_coverage", "signal_to_noise_ratio", "parameter_coupling", "missingness", "forward_solver_budget"],
+      "example_candidate_config": {"source_model": "single_finite_release", "flow_regime": "homogeneous", "sensors": 16, "relative_noise": 0.05},
+      "generation": "Sample physical parameters within validated ranges, solve a trusted forward model, create noisy sparse observations and retain private latent parameters and dense fields. Reject non-identifiable or numerically unstable configurations.",
+      "checker": "Evaluate held-out observation prediction and field consistency; use parameter-recovery scores only for identifiable quantities, with a forward model independent enough to detect simulator artifacts.",
+      "baselines": ["truth forward simulation", "coarse grid search", "nonlinear least squares", "multi-start or Bayesian inverse method"],
+      "feedback": "Aggregate residual diagnostics and physical constraint checks; avoid exact per-point hidden target errors.",
+      "sforge_scoring": {"parser": "structured_json", "selection": "valid_then_score", "score_direction": "maximize"},
+      "long_horizon_design": "Progress can come from forward-model accuracy, parameterization, optimization, experimental design and uncertainty estimation.",
+      "realism_validation": "Calibrate synthetic ranges to documented physical scenes and reserve independently sourced real observations when available; report synthetic and real-data results separately."
+    }
+  ]
+}

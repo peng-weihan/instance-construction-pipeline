@@ -1,0 +1,125 @@
+{
+  "sha": "03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c",
+  "node_id": "C_kwDOAAiu0doAKDAzZjNmNGM2ZDk3YmUzYzJjOWFkNDIwMTBmNjVlNjFiZjBhMmMwNWM",
+  "commit": {
+    "author": {
+      "name": "Stefan Eissing",
+      "email": "stefan@eissing.org",
+      "date": "2026-10-15T07:00:55Z"
+    },
+    "committer": {
+      "name": "Daniel Stenberg",
+      "email": "daniel@haxx.se",
+      "date": "2026-10-15T11:13:31Z"
+    },
+    "message": "share: connection pool shutdowns\n\nWhen closing a share with a connection pool, do not run the shutdown\nsequences even once as there is no \"multi\" to operate on. Just terminate\nthe connections.\n\nmulti.c: handle a call to `Curl_multi_connchanged()` with a NULL\nargument.\n\ntest_60_05: check shutdown in parallel mode that has the\nconnection pool at the multi handle, not a share.\n\nCloses #23404",
+    "tree": {
+      "sha": "f19ccdd2ef111991cc81ef75bd85a907a254e67b",
+      "url": "https://api.github.com/repos/curl/curl/git/trees/f19ccdd2ef111991cc81ef75bd85a907a254e67b"
+    },
+    "url": "https://api.github.com/repos/curl/curl/git/commits/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFDBAABCgAtFiEEJ+3q8i86vOtQ25oSXMkI/bceEsIFAmrQtVsPHGRhbmllbEBo\nYXh4LnNlAAoJEFzJCP23HhLCLzMIAInJFRJST3cdKn3UpvPc5QCEdQHV3eokIael\njADN6DC8qwTgN2rkz+SEqzGXPFc6XGZglX38XKHjN7h1aaIqWoUH5ZdjcHXtNa3M\nOBVab1BNGIyrIPGw7X3501+R/3IrSVnOqhrALdMf3PKgt4k8fl9ZLaTU716w84+w\nKNsZJ3IxXBNKpZnWhIWN3I5cnELBasSmYrEB/eK9sqk46OnIQi/ez3QEgeyffwNe\nSK+JS+40+Egk/1A9NAVfcQEPAQXCIK8OJWe9PE38POly3MzN0PA8JGg8Ao+kC2PU\ngdeJ7ef342wu5KYD9PPW1khsEg1OAzqpTp0CWtolst6bb1eUqXc=\n=OrKv\n-----END PGP SIGNATURE-----",
+      "payload": "tree f19ccdd2ef111991cc81ef75bd85a907a254e67b\nparent 3dd11582cbf42a92672a20868002d7a61b951434\nauthor Stefan Eissing <stefan@eissing.org> 1792047655 +0200\ncommitter Daniel Stenberg <daniel@haxx.se> 1792062811 +0200\n\nshare: connection pool shutdowns\n\nWhen closing a share with a connection pool, do not run the shutdown\nsequences even once as there is no \"multi\" to operate on. Just terminate\nthe connections.\n\nmulti.c: handle a call to `Curl_multi_connchanged()` with a NULL\nargument.\n\ntest_60_05: check shutdown in parallel mode that has the\nconnection pool at the multi handle, not a share.\n\nCloses #23404\n",
+      "verified_at": "2026-10-15T11:13:37Z"
+    }
+  },
+  "url": "https://api.github.com/repos/curl/curl/commits/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c",
+  "html_url": "https://github.com/curl/curl/commit/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c",
+  "comments_url": "https://api.github.com/repos/curl/curl/commits/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c/comments",
+  "author": {
+    "login": "icing",
+    "id": 15102,
+    "node_id": "MDQ6VXNlcjE1MTAy",
+    "avatar_url": "https://avatars.githubusercontent.com/u/15102?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/icing",
+    "html_url": "https://github.com/icing",
+    "followers_url": "https://api.github.com/users/icing/followers",
+    "following_url": "https://api.github.com/users/icing/following{/other_user}",
+    "gists_url": "https://api.github.com/users/icing/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/icing/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/icing/subscriptions",
+    "organizations_url": "https://api.github.com/users/icing/orgs",
+    "repos_url": "https://api.github.com/users/icing/repos",
+    "events_url": "https://api.github.com/users/icing/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/icing/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "bagder",
+    "id": 177011,
+    "node_id": "MDQ6VXNlcjE3NzAxMQ==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/177011?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/bagder",
+    "html_url": "https://github.com/bagder",
+    "followers_url": "https://api.github.com/users/bagder/followers",
+    "following_url": "https://api.github.com/users/bagder/following{/other_user}",
+    "gists_url": "https://api.github.com/users/bagder/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/bagder/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/bagder/subscriptions",
+    "organizations_url": "https://api.github.com/users/bagder/orgs",
+    "repos_url": "https://api.github.com/users/bagder/repos",
+    "events_url": "https://api.github.com/users/bagder/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/bagder/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "3dd11582cbf42a92672a20868002d7a61b951434",
+      "url": "https://api.github.com/repos/curl/curl/commits/3dd11582cbf42a92672a20868002d7a61b951434",
+      "html_url": "https://github.com/curl/curl/commit/3dd11582cbf42a92672a20868002d7a61b951434"
+    }
+  ],
+  "stats": {
+    "total": 10,
+    "additions": 7,
+    "deletions": 3
+  },
+  "files": [
+    {
+      "sha": "143576f6734b46edf8b3d450f2c56cf0049fcab1",
+      "filename": "lib/multi.c",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "blob_url": "https://github.com/curl/curl/blob/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c/lib%2Fmulti.c",
+      "raw_url": "https://github.com/curl/curl/raw/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c/lib%2Fmulti.c",
+      "contents_url": "https://api.github.com/repos/curl/curl/contents/lib%2Fmulti.c?ref=03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c",
+      "patch": "@@ -1740,7 +1740,9 @@ static bool multi_ischanged(struct Curl_multi *multi, bool clear)\n  */\n void Curl_multi_connchanged(struct Curl_multi *multi)\n {\n-  multi->recheckstate = TRUE;\n+  /* May be invoked for a `data->multi` when no multi is present. */\n+  if(multi)\n+    multi->recheckstate = TRUE;\n }\n \n CURLMcode Curl_multi_add_perform(struct Curl_multi *multi,"
+    },
+    {
+      "sha": "ea8d013df9e6519d39676013cf0012da420942de",
+      "filename": "tests/http/test_19_shutdown.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "blob_url": "https://github.com/curl/curl/blob/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c/tests%2Fhttp%2Ftest_19_shutdown.py",
+      "raw_url": "https://github.com/curl/curl/raw/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c/tests%2Fhttp%2Ftest_19_shutdown.py",
+      "contents_url": "https://api.github.com/repos/curl/curl/contents/tests%2Fhttp%2Ftest_19_shutdown.py?ref=03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c",
+      "patch": "@@ -101,7 +101,9 @@ def test_19_03_shutdown_by_server(self, env: Env, httpd, proto):\n         r.check_response(http_status=200, count=count)\n         shutdowns = [line for line in r.trace_lines\n                      if re.match(r'.*\\[SHUTDOWN] shutdown, done=1', line)]\n-        assert len(shutdowns) == count, f'{shutdowns}'\n+        # count-1 shutdowns should definitely happen and the last connection\n+        # *may* remain until the share shuts down and just terminates the conn\n+        assert len(shutdowns) >= count - 1, f'{shutdowns}'\n \n     # run downloads with CURLOPT_FORBID_REUSE set, meaning *we* close\n     # the connection after each request"
+    },
+    {
+      "sha": "6e110fb7c8715da5554cf780bf0f45fc930278cc",
+      "filename": "tests/http/test_60_h3_proxy.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/curl/curl/blob/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c/tests%2Fhttp%2Ftest_60_h3_proxy.py",
+      "raw_url": "https://github.com/curl/curl/raw/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c/tests%2Fhttp%2Ftest_60_h3_proxy.py",
+      "contents_url": "https://api.github.com/repos/curl/curl/contents/tests%2Fhttp%2Ftest_60_h3_proxy.py?ref=03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c",
+      "patch": "@@ -331,7 +331,7 @@ def test_60_05_graceful_shutdown(self, env: Env, h2o_server, h2o_proxy):\n         curl = CurlClient(env=env, run_env={\"CURL_DEBUG\": \"all\"})\n         url = f\"https://localhost:{h2o_server.port}/data.json\"\n         proxy_args = curl.get_proxy_args(proto=\"h3\", tunnel=True)\n-        proxy_args.extend([\"--cacert\", env.ca.cert_file, \"--insecure\"])\n+        proxy_args.extend([\"--cacert\", env.ca.cert_file, \"--insecure\", '--parallel'])\n \n         r = curl.http_download(\n             urls=[url], alpn_proto=\"h3\", with_stats=True, extra_args=proxy_args"
+    }
+  ]
+}

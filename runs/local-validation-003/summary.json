@@ -1,0 +1,92 @@
+{
+  "mode": "trusted_author_components_on_macos_arm64",
+  "latest_batch": "samples/long-horizon-built-007",
+  "docker_executed": false,
+  "model_runs": 0,
+  "six_hour_runs": 0,
+  "formal_lean_executed": false,
+  "accepted": false,
+  "rows": [
+    {
+      "category": "software",
+      "report": "runs/local-validation-002/software/report.json",
+      "status": "passed",
+      "checks": 50,
+      "passed": 50,
+      "tested_component_files_match_latest": true,
+      "files_compared": 12
+    },
+    {
+      "category": "science",
+      "report": "runs/local-validation-001/science/report.json",
+      "status": "passed",
+      "checks": 4,
+      "passed": 4,
+      "tested_component_files_match_latest": true,
+      "files_compared": 4
+    },
+    {
+      "category": "finance",
+      "report": "runs/local-validation-003/finance/report.json",
+      "status": "passed",
+      "checks": 9,
+      "passed": 9,
+      "tested_component_files_match_latest": true,
+      "files_compared": 6
+    },
+    {
+      "category": "packing",
+      "report": "runs/local-validation-001/packing/report.json",
+      "status": "passed",
+      "checks": 4,
+      "passed": 4,
+      "tested_component_files_match_latest": true,
+      "files_compared": 7
+    },
+    {
+      "category": "game",
+      "report": "runs/local-validation-001/game/report.json",
+      "status": "passed",
+      "checks": 5,
+      "passed": 5,
+      "tested_component_files_match_latest": true,
+      "files_compared": 5
+    }
+  ],
+  "science_inference": {
+    "budget": {
+      "evaluations": 200,
+      "evaluation_budget": 200,
+      "elapsed_seconds": 6.492232584045269,
+      "best_public_loss": 0.6061331624685583,
+      "uses_private_truth": false
+    },
+    "checkpoints": 41,
+    "first_feedback_score": 0.060927947496003367,
+    "final_feedback_score": 0.9624014432162908,
+    "final_audit_score": 0.9766415760816273,
+    "repeat_differences": {
+      "public": 0.0,
+      "feedback": 0.0,
+      "audit": 0.0
+    },
+    "trajectory_type": "reference optimizer checkpoints scored retrospectively; not an agent run"
+  },
+  "finance_score_recomputed_from_ledger_metrics": {
+    "public": 0.39331859409079584,
+    "feedback": 0.9921456090247853,
+    "audit": 0.8368072915227553
+  },
+  "difficulty_flags": [
+    "science inversion saturates quickly given a finished forward implementation",
+    "finance feedback score saturates for the current reference; score scale/baseline need calibration"
+  ],
+  "dependencies": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "shapely": "2.1.1",
+    "requests": "2.32.4",
+    "applicationinsights": "0.11.10",
+    "lupa": "2.6"
+  }
+}

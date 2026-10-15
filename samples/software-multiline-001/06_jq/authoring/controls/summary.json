@@ -1,0 +1,14 @@
+{
+  "scores": {
+    "reference": 1.0,
+    "reference_repeat": 1.0,
+    "starter": 0.32708333333333334,
+    "nop": 0.0,
+    "mask_runtime_errors": 0.29930555555555555,
+    "truncate_stream": 0.27152777777777776
+  },
+  "reference_repeat_equal": true,
+  "syntax_valid_zero": true,
+  "fixture_corruption_invalid_no_reward": true,
+  "container_isolation_verified": false
+}

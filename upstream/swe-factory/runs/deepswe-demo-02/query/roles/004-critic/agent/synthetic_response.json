@@ -1,0 +1,6 @@
+{
+  "status": "ok",
+  "verdict": "valid",
+  "failure_matches_query": true,
+  "reason": "Reported assertion failures compare empty dict with requested merge output"
+}

@@ -1,0 +1,11 @@
+{
+  "upstream_failures": {
+    "tests.test_timeouts.test_write_timeout[trio]": "pytest.PytestUnraisableExceptionWarning: Exception ignored in: <async_generator object ByteStream.__aiter__ at 0x7e3177c856c0>\nEnable tracemalloc to get traceback where the object was allocated.\nSee https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info."
+  },
+  "reference_failures": {
+    "tests.test_timeouts.test_write_timeout[trio]": "pytest.PytestUnraisableExceptionWarning: Exception ignored in: <async_generator object ByteStream.__aiter__ at 0x743337f85d80>\nEnable tracemalloc to get traceback where the object was allocated.\nSee https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info."
+  },
+  "same_failure_identities": true,
+  "reference_only_failures": [],
+  "scope": "Native broad audit with clean environment, Python -s, chardet 5.2.0; no network-marked tests"
+}

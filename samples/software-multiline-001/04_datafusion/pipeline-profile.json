@@ -1,0 +1,1 @@
+{"agent_image":"edgebench/datafusion-sort-topk-work:pilot","verifier_image":"edgebench/datafusion-sort-topk-judge:pilot","artifacts":["/home/workspace/datafusion-sort-topk/submission"],"selection":"valid_then_score","score_direction":"maximize","snapshot_contract":"source file snapshots; no persistent judge state","status":"not_executed; anchors_missing"}

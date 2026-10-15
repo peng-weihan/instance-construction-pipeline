@@ -1,0 +1,6 @@
+{
+  "status": "failed",
+  "stage": "ablation_validation",
+  "reason": "Both F2P and P2P must be nonempty; Required tests are missing/skipped/failing in gold; Required tests are missing/skipped/errored in problem state; Regression test identities changed across states",
+  "accepted": false
+}

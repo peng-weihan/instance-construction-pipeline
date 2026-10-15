@@ -1,0 +1,360 @@
+{
+  "observed_utc": "2026-10-15T12:46:01.790293+00:00",
+  "batches": {
+    "swe-authoring-016-20261015-r1": [
+      {
+        "id": "01_openapi_streaming",
+        "state": "author_returned",
+        "account": "raymone/3",
+        "native_pid": 764331,
+        "result_status": "constructed_unverified",
+        "source_revision": "0a283fe21eeaa23046faf622d4ff4b2c826d2edb",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      },
+      {
+        "id": "02_restler_recovery",
+        "state": "author_returned",
+        "account": "raymone/1",
+        "native_pid": 83598,
+        "result_status": "constructed_unverified",
+        "source_revision": "6d984deedbc54aad957fa3da0c7e9e5df23a2aee",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      },
+      {
+        "id": "03_httpx_transport",
+        "state": "author_returned",
+        "account": "raymone/3",
+        "native_pid": 422184,
+        "result_status": "constructed_unverified",
+        "source_revision": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      },
+      {
+        "id": "04_pytest_fixtures",
+        "state": "author_returned",
+        "account": "raymone/1",
+        "native_pid": 593062,
+        "result_status": "constructed_unverified",
+        "source_revision": "c9c19f8e62c12834ad83193a1869cc82fe9c700e",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      },
+      {
+        "id": "05_uv_resolution",
+        "state": "author_returned",
+        "account": "raymone/1",
+        "native_pid": 83639,
+        "result_status": "held_for_evidence",
+        "source_revision": "9385290f1bf895cb3f587118ce92cce9a0585f77",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      },
+      {
+        "id": "06_wasm_validation",
+        "state": "author_returned",
+        "account": "raymone/3",
+        "native_pid": 83707,
+        "result_status": "rejected",
+        "source_revision": "d910f03bd6d6477656fc5070b5098e8f909305d3",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      },
+      {
+        "id": "07_arrow_ipc",
+        "state": "author_returned",
+        "account": "raymone/3",
+        "native_pid": 593199,
+        "result_status": "rejected",
+        "source_revision": "ca5564e007a209e251b9d4648af4bc6a53c68c4f",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      },
+      {
+        "id": "08_http2_session",
+        "state": "author_returned",
+        "account": "raymone/3",
+        "native_pid": 686838,
+        "result_status": "rejected",
+        "source_revision": "7e10fcf3c58e692902939bab8f898bdd9ec9cff7",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      },
+      {
+        "id": "09_valkey_transactions",
+        "state": "author_returned",
+        "account": "raymone/3",
+        "native_pid": 4175455,
+        "result_status": "constructed_unverified",
+        "source_revision": "cf5efa70192faedacb6741ee2a8f800d0482862f",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      },
+      {
+        "id": "10_datafusion_sort",
+        "state": "author_returned",
+        "account": "raymone/3",
+        "native_pid": 316926,
+        "result_status": "constructed_unverified",
+        "source_revision": "10343c18292fc3a9ca62b59c8bb530169fe79b82",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      },
+      {
+        "id": "11_rocksdb_compaction",
+        "state": "author_returned",
+        "account": "raymone/1",
+        "native_pid": 708133,
+        "result_status": "held_for_evidence",
+        "source_revision": "a215c38a8ed34848edc152f7435eabc128208111",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      },
+      {
+        "id": "12_croaring_kernels",
+        "state": "author_returned",
+        "account": "raymone/1",
+        "native_pid": 708134,
+        "result_status": "constructed_unverified",
+        "source_revision": "f2d9c6d3affaed28c8a899e96d85334ce4ae35af",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      },
+      {
+        "id": "13_toml_lossless",
+        "state": "author_returned",
+        "account": "raymone/2",
+        "native_pid": 422004,
+        "result_status": "held_for_evidence",
+        "source_revision": "ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      },
+      {
+        "id": "14_tree_sitter_incremental",
+        "state": "author_returned",
+        "account": "raymone/3",
+        "native_pid": 764332,
+        "result_status": "constructed_unverified",
+        "source_revision": "8ca548849fc8dbefd699edcec26546bb14112820",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      },
+      {
+        "id": "15_jq_composition",
+        "state": "author_returned",
+        "account": "raymone/1",
+        "native_pid": 708136,
+        "result_status": "rejected",
+        "source_revision": "71c2ab509a8628dbbad4bc7b3f98a64aa90d3297",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      },
+      {
+        "id": "16_libarchive_cli",
+        "state": "author_returned",
+        "account": "raymone/3",
+        "native_pid": 708135,
+        "result_status": "rejected",
+        "source_revision": "b10312a52e5e4d1baf047b563e501b4fb184adde",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      }
+    ],
+    "swe-authoring-006-20261015-r2": [
+      {
+        "id": "17_duckdb_execution",
+        "state": "author_returned",
+        "account": "raymone/4",
+        "native_pid": 1478494,
+        "result_status": "held_for_evidence",
+        "source_revision": "e77c438470ba9e80a0362991aae4829386b06a77",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      },
+      {
+        "id": "18_polars_streaming",
+        "state": "author_returned",
+        "account": "raymone/5",
+        "native_pid": 1478726,
+        "result_status": "constructed_unverified",
+        "source_revision": "bc7ab1054522f1c59356ac3666997eb4d0b50e7d",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      },
+      {
+        "id": "19_ruff_project_analysis",
+        "state": "author_returned",
+        "account": "raymone/6",
+        "native_pid": 1480048,
+        "result_status": "constructed_unverified",
+        "source_revision": "829455624d78f2e89669e4b4b14af2b96abdb1ae",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      },
+      {
+        "id": "20_libcst_project_migration",
+        "state": "author_returned",
+        "account": "raymone/4",
+        "native_pid": 1478725,
+        "result_status": "constructed_unverified",
+        "source_revision": "d9a255843b5cdbecc6834684d233bce1f2987f9d",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      },
+      {
+        "id": "21_coverage_context_merge",
+        "state": "author_returned",
+        "account": "raymone/5",
+        "native_pid": 1478731,
+        "result_status": "constructed_unverified",
+        "source_revision": "991c3ec79d6494926f407412b3bcd03f4546660a",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      },
+      {
+        "id": "22_sphinx_incremental_build",
+        "state": "author_returned",
+        "account": "raymone/6",
+        "native_pid": 1478981,
+        "result_status": "constructed_unverified",
+        "source_revision": "b04a2101295ac3fb725b16111eda0284b6da4cca",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": false
+      }
+    ],
+    "swe-route-authoring-005-20261015-r3": [
+      {
+        "id": "23_scrapy_product_roadmap",
+        "state": "native_started",
+        "account": "raymone/4",
+        "native_pid": 2268035,
+        "result_status": null,
+        "source_revision": "db2404bb8691d1579f75ca823d5385749b77693c",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": true,
+        "completed_commands": 20,
+        "error_events": 0,
+        "prompt_sha256": "485a9bfc8e14e36886e5d0265a0c215ead6e75262a31afbac7528e8e847f6328"
+      },
+      {
+        "id": "24_lark_system_reconstruction",
+        "state": "native_started",
+        "account": "raymone/5",
+        "native_pid": 2268144,
+        "result_status": null,
+        "source_revision": "9a4fb9c7458e8155636773a3cded0016d52516da",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": true,
+        "completed_commands": 25,
+        "error_events": 0,
+        "prompt_sha256": "fad344b11e6adfbf98886b2c4f3fa2cb24b5ea221c73495b883c41c9bf348e9f"
+      },
+      {
+        "id": "25_datafusion_execution_optimization",
+        "state": "native_started",
+        "account": "raymone/6",
+        "native_pid": 2268145,
+        "result_status": null,
+        "source_revision": "10343c18292fc3a9ca62b59c8bb530169fe79b82",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": true,
+        "completed_commands": 26,
+        "error_events": 0,
+        "prompt_sha256": "b377f588c473160e02c3bb3d56a6a586bfb59ebc6224516a1fddf532f8589224"
+      },
+      {
+        "id": "26_ripgrep_multicrate_reconstruction",
+        "state": "native_started",
+        "account": "raymone/4",
+        "native_pid": 2268045,
+        "result_status": null,
+        "source_revision": "3fce3b5bb0236da2df6d99672afb8a719642eca7",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": true,
+        "completed_commands": 26,
+        "error_events": 0,
+        "prompt_sha256": "29ad308e33e3a942bd6142a2c8093676050dac9041f30d5d442865b335ee5425"
+      },
+      {
+        "id": "27_ninja_behavioral_port",
+        "state": "native_started",
+        "account": "raymone/5",
+        "native_pid": 2268103,
+        "result_status": null,
+        "source_revision": "b81e306232dfa644e92145c7d2871690017969e8",
+        "independent_new_scope_review": "not_performed",
+        "native_alive": true,
+        "completed_commands": 33,
+        "error_events": 0,
+        "prompt_sha256": "15e89f438040e2ed505aedb48bf11b1ef4b6147bd740c828e46a0d633a126141"
+      }
+    ]
+  },
+  "new_batch_startup": {
+    "started_utc": "2026-10-15T12:43:11.919614+00:00",
+    "phase": "authoring_only",
+    "dispatched": [
+      {
+        "id": "23_scrapy_product_roadmap",
+        "route": "M1",
+        "account": "raymone/4",
+        "worker_pid": 2268004
+      },
+      {
+        "id": "24_lark_system_reconstruction",
+        "route": "M2",
+        "account": "raymone/5",
+        "worker_pid": 2268005
+      },
+      {
+        "id": "25_datafusion_execution_optimization",
+        "route": "M3",
+        "account": "raymone/6",
+        "worker_pid": 2268006
+      },
+      {
+        "id": "26_ripgrep_multicrate_reconstruction",
+        "route": "M4",
+        "account": "raymone/4",
+        "worker_pid": 2268007
+      },
+      {
+        "id": "27_ninja_behavioral_port",
+        "route": "M5",
+        "account": "raymone/5",
+        "worker_pid": 2268008
+      }
+    ],
+    "account_observations": {
+      "raymone/4": [
+        {
+          "pid": 1478494,
+          "comm": "codex",
+          "start_ticks": "84928479",
+          "host_harbor": false
+        },
+        {
+          "pid": 2186827,
+          "comm": "codex",
+          "start_ticks": "85180765",
+          "host_harbor": false
+        }
+      ],
+      "raymone/5": [],
+      "raymone/6": [
+        {
+          "pid": 1480048,
+          "comm": "codex",
+          "start_ticks": "84928580",
+          "host_harbor": false
+        }
+      ]
+    },
+    "teacher_rollouts_started": 0,
+    "shared_registry_modified": false
+  },
+  "deployed_controller_sha256": "c5725b59d63d3a2547a9a4bdcaf203728d0c698c5e10dd1737952417881f4f14"
+}

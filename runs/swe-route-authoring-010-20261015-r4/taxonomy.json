@@ -1,0 +1,193 @@
+{
+  "schema_version": 2,
+  "classification": "author research labels over the 36 original Systems & Software Engineering tasks; not official subclasses",
+  "routes": {
+    "M1": {
+      "name": "产品级多目标演进",
+      "factory": "DeepSWE C + NL2Repo specification extraction",
+      "anchors": [
+        "schemathesis_datagen_pipeline",
+        "schemathesis_config_modernization",
+        "schemathesis_reporting_observability"
+      ],
+      "source_strategy": "从真实版本roadmap、多个关联PR/issue、原生接口和集成回归中提取一个完整产品里程碑。先核对已有能力，不把已有功能说成新需求。",
+      "scope_strategy": "交付完整产品路线：多组真实能力、共享配置/状态、端到端兼容与错误路径。相对独立但有实际产品价值的目标可以保留。不能收缩成一个retry、journal或helper。",
+      "difficulty_strategy": "先增大真实工程覆盖，再增加跨模块设计与兼容难点。需求数量和代码行数只是描述，不自动作为难度门槛。",
+      "shortcut_probes": [
+        "原生默认配置/公开插件",
+        "最强合法包装与小规模配置修改",
+        "既有版本是否已完整实现"
+      ],
+      "required_evidence": [
+        "完整产品需求矩阵",
+        "已有与缺失能力清单",
+        "生产模块与集成场景对应",
+        "普通包装和原生起点实测"
+      ],
+      "rejection": "一项窄扩展覆盖了全部需求，或普通配置/插件已饱和；不要禁用合理工具挽救。",
+      "original_tasks": [
+        "copier_modular_refactor",
+        "entt_graph_module",
+        "litestar_infra_refactor",
+        "mimesis_modular_refactor",
+        "nlohmann_json_modularization",
+        "packer_plugin_datasources",
+        "pocketbase_backend_architecture",
+        "pocketbase_tools_extensions",
+        "schemathesis_datagen_pipeline",
+        "schemathesis_reporting_observability",
+        "schemathesis_config_modernization",
+        "vault_sdk_resilience",
+        "zstd_api_modernization"
+      ],
+      "original_count": 13,
+      "public_count": 3
+    },
+    "M2": {
+      "name": "按规格构建完整系统能力",
+      "factory": "NL2Repo + independent specification/reference review",
+      "anchors": [
+        "arc_compiler_runtime",
+        "dependent_type_checker",
+        "postgres_wire_on_sqlite",
+        "stream_processing_engine"
+      ],
+      "source_strategy": "从许可明确且可运行的完整语言工具、查询/协议引擎、服务库抽取公开API、状态语义、错误与集成规格；参考来自固定真实实现。",
+      "scope_strategy": "任务是完整库/引擎或明确的大型子系统，给规格/依赖/骨架，隐藏目标实现及其副本。覆盖解析/语义/执行或协议/状态/持久化等真实工作链。",
+      "difficulty_strategy": "工程广度与核心算法共同增加；通过自然的部分实现支持局部验证，避免全局编译门控导致长期零分。",
+      "shortcut_probes": [
+        "已安装目标包或源码/字节码副本泄漏",
+        "成熟第三方库或系统工具能覆盖多少",
+        "简单解释器/最小协议实现的实际覆盖"
+      ],
+      "required_evidence": [
+        "完整行为规格与API清单",
+        "规格到参考/独立测试映射",
+        "可冻结的中间能力",
+        "目标实现隔离与正常依赖边界"
+      ],
+      "rejection": "仅几个API的玩具替代、规格不足、完整目标实现可直接导入，或无可行partial。",
+      "original_tasks": [
+        "arc_compiler_runtime",
+        "dependent_type_checker",
+        "high_performance_object_mapper",
+        "juliet_vulnerability_analyzer",
+        "odata_query_service",
+        "lua_native_compiler",
+        "postgres_wire_on_sqlite",
+        "quic_transport_stack",
+        "stream_processing_engine",
+        "tls13_handshake_state_machine",
+        "cpu_full_flow",
+        "cfzip_compression_engine"
+      ],
+      "original_count": 12,
+      "public_count": 2
+    },
+    "M3": {
+      "name": "正确性约束下的系统性能优化",
+      "factory": "DeepSWE source/refactor discipline + ProgramBench differential checks + dedicated performance controller",
+      "anchors": [
+        "ann_vector_search_qps",
+        "exchange_core_throughput",
+        "integer_compression_codec",
+        "ffmpeg_swscale_reimplementation",
+        "vliw_kernel_optimization"
+      ],
+      "source_strategy": "从真实端到端workload、profile、性能回归与公开强配置发现瓶颈。先做调参/metadata/普通库基线，再寻找其上的收益。",
+      "scope_strategy": "优化完整执行链或有深度的核心算法，不按文件数强行扩展。代表性负载覆盖真正相互牵制的分布、规模、资源和算法路径。",
+      "difficulty_strategy": "提高算法/表示/资源取舍的深度。先证明可达增益明显超过噪声，并检查简单dispatch/配置是否吞掉空间。",
+      "shortcut_probes": [
+        "最强普通配置与已有metadata",
+        "现成高性能库和简单混合dispatch",
+        "同快照配对重放/独立计时",
+        "缓存固定结果能否绕过任务真实目标"
+      ],
+      "required_evidence": [
+        "正确性oracle",
+        "强起点与真实可达参考",
+        "独立测量和资源契约",
+        "启用且有公式/锚点的性能奖励",
+        "代表性在线候选重复评分"
+      ],
+      "rejection": "性能奖励禁用、starter已达有效上限、波动可解释收益或强普通基线已支配。不得弱化基线或只挑参考占优负载。",
+      "original_tasks": [
+        "ann_vector_search_qps",
+        "exchange_core_throughput",
+        "ffmpeg_swscale_reimplementation",
+        "integer_compression_codec",
+        "notebook_lossless_compression",
+        "vliw_kernel_optimization"
+      ],
+      "original_count": 6,
+      "public_count": 5
+    },
+    "M4": {
+      "name": "跨模块或跨crate实现恢复",
+      "factory": "DeepSWE A/B with coherent subsystem ablation",
+      "anchors": [
+        "rust_multicrate_reconstruction",
+        "regex_automata_repair",
+        "codeflash_repair_performance"
+      ],
+      "source_strategy": "从完整可验证产品的真实生产子系统及API/依赖图选择大范围行为包，保留干净gold和原始测试。",
+      "scope_strategy": "恢复可独立说明的多个生产模块/层次及其集成，保留接口骨架和可工作的周边；不是只反转几个条件。",
+      "difficulty_strategy": "首先保证缺失的真实工程量；再考虑共享数据模型、跨crate契约、异常和资源生命周期。既有回归与局部进度同时保留。",
+      "shortcut_probes": [
+        "上游完整实现是否藏在git/缓存/构建产物",
+        "正常库组合/外部工具等价方案",
+        "绕过恢复点的full-reparse/重算路径",
+        "单个通用补丁是否同时解决全部缺口"
+      ],
+      "required_evidence": [
+        "完整gold健康性",
+        "行为级消融与求逆",
+        "缺失能力/保留能力图",
+        "F2P/P2P和跨层partial",
+        "公开资产答案隔离"
+      ],
+      "rejection": "少量谓词恢复、缺口只是重复适配、原生快捷路径满分或全仓不可工作且无局部反馈。",
+      "original_tasks": [
+        "rust_multicrate_reconstruction",
+        "codeflash_repair_performance",
+        "regex_automata_repair"
+      ],
+      "original_count": 3,
+      "public_count": 1
+    },
+    "M5": {
+      "name": "行为兼容重实现与语言移植",
+      "factory": "ProgramBench + NL2Repo contract + controlled port/reimplementation boundary",
+      "anchors": [
+        "git_rewrite_in_zig",
+        "libexpat_x86_assembly"
+      ],
+      "source_strategy": "选择真实CLI/库的完整核心行为：不仅参数与stdout，还包括文件/持久状态、错误和多步调用；冻结gold并独立探测。",
+      "scope_strategy": "在明确的完整核心范围中交付真正的替代实现，允许正常依赖/工具。重实现目标本身需公开明确；参考可用于观察但不能作为待提交实现被直接委托。",
+      "difficulty_strategy": "增加真实兼容面、状态交互、语法/文件格式和可观察错误路径；通过多步场景而非单条命令重复提高工程量。",
+      "shortcut_probes": [
+        "正常系统工具或成熟库薄包装",
+        "目标二进制/完整原实现是否被直接委托",
+        "只匹配输出未匹配退出码/文件/状态",
+        "典型与未见输入的差分验证"
+      ],
+      "required_evidence": [
+        "完整范围清单",
+        "可运行gold",
+        "多步独立差分输入",
+        "明确合法依赖与真正重实现边界",
+        "有代表性的独立强基线"
+      ],
+      "rejection": "只测几个flag、无真实状态验证、允许的薄包装已全部解决或合同靠临时禁库变难。",
+      "original_tasks": [
+        "git_rewrite_in_zig",
+        "libexpat_x86_assembly"
+      ],
+      "original_count": 2,
+      "public_count": 1
+    }
+  },
+  "original_task_count": 36,
+  "public_task_count": 12,
+  "source_sha256": "f88f0b783049dac9a0bcfb11add85b872b5e194fdbd9c0d857a67ff92eedada0"
+}

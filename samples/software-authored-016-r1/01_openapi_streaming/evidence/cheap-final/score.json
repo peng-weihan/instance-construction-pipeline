@@ -1,0 +1,227 @@
+{
+  "valid": true,
+  "score": 0.6,
+  "pass_rate": 0.5833333333333334,
+  "checks": [
+    {
+      "name": "types_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "types_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "security_signatures",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "required_media_body",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "native_regressions",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "records_sync",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "records_async",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "numbers_sync",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "numbers_async",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "network_sync",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "network_async",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "early_sync",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "early_async",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "empty_sync",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "empty_async",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "malformed_sync",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "malformed_async",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "consumer_sync",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "consumer_async",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "network_early_sync",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "network_early_async",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "cancel_async",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "status_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "status_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "media_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "media_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "anonymous_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "anonymous_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "json_body_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "json_body_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "multipart_body_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "multipart_body_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "optional_sync",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "optional_async",
+      "passed": false,
+      "detail": "semantic predicate failed"
+    },
+    {
+      "name": "shared_sync",
+      "passed": true,
+      "detail": "passed"
+    },
+    {
+      "name": "shared_async",
+      "passed": true,
+      "detail": "passed"
+    }
+  ],
+  "metrics": {
+    "groups": {
+      "generation": {
+        "passed": 2,
+        "total": 5
+      },
+      "delivery": {
+        "passed": 6,
+        "total": 6
+      },
+      "ownership": {
+        "passed": 11,
+        "total": 11
+      },
+      "protocol": {
+        "passed": 0,
+        "total": 4
+      },
+      "requests": {
+        "passed": 2,
+        "total": 10
+      }
+    },
+    "passed": 21,
+    "total": 36
+  },
+  "diagnostics": {
+    "generation": {
+      "returncode": 0,
+      "timeout": false,
+      "output": "Generating /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/grade/grade-4vkolubt/generated/stream_sdk\n"
+    },
+    "native_regressions": {
+      "returncode": 0,
+      "timeout": false,
+      "output": ".......................................                                  [100%]\n=============================== warnings summary ===============================\n../../../.venv/lib/python3.12/site-packages/_pytest/cacheprovider.py:469\n  /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/lib/python3.12/site-packages/_pytest/cacheprovider.py:469: PytestCacheWarning: could not create cache path /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/grade/grade-4vkolubt/.pytest_cache/v/cache/nodeids: [Errno 13] Permission denied: '/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/grade/grade-4vkolubt/pytest-cache-files-ei5jijls'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n39 passed, 1 warning in 0.10s\n"
+    }
+  },
+  "spec_sha256": "488615cb6d745a238a21d06542c1b90c8c4725d512a2cc81c2cf6e6d1276f125",
+  "summary": "21/36 named checks passed"
+}

@@ -1,0 +1,7 @@
+{
+  "status": "ok",
+  "captured_patch": "diff --git a/tests/test_boundary.py b/tests/test_boundary.py\nnew file mode 100644\nindex 0000000..a8115b4\n--- /dev/null\n+++ b/tests/test_boundary.py\n@@ -0,0 +1,3 @@\n+from calc import combine\n+def test_none_value():\n+    assert combine({\"a\": 1}, {\"a\": None}) == {\"a\": None}\n",
+  "changed_paths": [
+    "tests/test_boundary.py"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "formula": "mean(valid_i*(0.2+0.8*clip((L_ref_i-L_i)/max(L_ref_i-LB_i,epsilon_i),0,1)))",
+  "lower_bound": "total_item_area/strip_height",
+  "epsilon_i": "max(1e-9,1e-6*L_ref_i)",
+  "constants": {
+    "validity_weight": 0.2,
+    "improvement_weight": 0.8,
+    "seconds_per_case": 20,
+    "cpu_affinity_cores": 1,
+    "per_case_seconds": 20,
+    "wall_seconds": 25,
+    "boundary_tolerance_factor": 1e-07,
+    "intersection_area_tolerance_factor": 1e-09,
+    "rotation_tolerance_degrees": 1e-08,
+    "epsilon_absolute": 1e-09,
+    "epsilon_reference_fraction": 1e-06
+  },
+  "baseline_endpoint": "unchanged feasible baseline = 0.2; not empirically measured",
+  "feedback_cases": 6,
+  "feedback_deadline_target_seconds": 300,
+  "reference_lengths_pending": true,
+  "reference_materialization": "implemented, executes during explicit judge image build"
+}

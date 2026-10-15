@@ -1,0 +1,123 @@
+{
+  "status": "constructed_unverified",
+  "material_acquired": true,
+  "constructed_unverified": true,
+  "local_checks_completed": true,
+  "held_for_evidence": [
+    "尚未构建或运行 Docker 镜像；镜像 tag 是构建目标而非已存在镜像的声明",
+    "Harbor 原生 test.sh 入口、separate verifier 的实际 artifact 传递与周期适配器双入口未执行",
+    "ARM 未验证",
+    "完整 TaskConfig 运行依赖未随 schema 快照提供；仅完成实际字段的 AST 静态检查",
+    "独立语义评审和更强的内部方法包装插件廉价解未完成；难度可能早饱和",
+    "未启动六小时教师或任何正式难度轨迹；21600 秒仅是预定预算"
+  ],
+  "rejected": false,
+  "decision": "已构造可审阅的生产源码扩展草稿；六小时价值暂缓验收，不计难度通过题",
+  "source_revision": "c9c19f8e62c12834ad83193a1869cc82fe9c700e",
+  "stage_history": [
+    {
+      "stage": "material_acquired",
+      "evidence": "authoring/source-manifest.json"
+    },
+    {
+      "stage": "constructed_unverified",
+      "evidence": [
+        "instruction.md",
+        "environment/submission",
+        "solution/reference.tar.gz",
+        "tests/grader.py"
+      ]
+    },
+    {
+      "stage": "local_checks_completed",
+      "evidence": "authoring/checks.json"
+    }
+  ],
+  "control_results": {
+    "reference": {
+      "score": 1.0,
+      "passed_checks": 24,
+      "native_regressions_passed": true,
+      "snapshot_sha256": "208da5d9c15b61c25799774eec671d5fb16a14cce49aa8bf99604acd1a5fd446",
+      "score_spec_sha256": "61484652e467cef8b3b52fc841b85cb81ca89ee8beddb05f7a5b01a20417864c",
+      "evidence": "authoring/evidence/reference/score.json"
+    },
+    "starter": {
+      "score": 0.5,
+      "passed_checks": 12,
+      "native_regressions_passed": true,
+      "snapshot_sha256": "1417617888b598e5b154b21beeb1735c3e576414551637b5e17f418ec1268b4f",
+      "score_spec_sha256": "61484652e467cef8b3b52fc841b85cb81ca89ee8beddb05f7a5b01a20417864c",
+      "evidence": "authoring/evidence/starter/score.json"
+    },
+    "nop": {
+      "score": 0.0,
+      "passed_checks": 0,
+      "native_regressions_passed": true,
+      "snapshot_sha256": "29f9693fad2f92bac1671a934053183eb46597360dfe452ebba3b6a76ba95ead",
+      "score_spec_sha256": "61484652e467cef8b3b52fc841b85cb81ca89ee8beddb05f7a5b01a20417864c",
+      "evidence": "authoring/evidence/nop/score.json"
+    },
+    "no-item-cache": {
+      "score": 0.9166666666666666,
+      "passed_checks": 22,
+      "native_regressions_passed": true,
+      "snapshot_sha256": "5d5e8307f7d6c10c07264f8cb17b75c5e8930edfa1bfeba7cef1539f03168b3d",
+      "score_spec_sha256": "61484652e467cef8b3b52fc841b85cb81ca89ee8beddb05f7a5b01a20417864c",
+      "evidence": "authoring/evidence/no-item-cache/score.json"
+    },
+    "scope-only": {
+      "score": 0.9166666666666666,
+      "passed_checks": 22,
+      "native_regressions_passed": true,
+      "snapshot_sha256": "549461cd4ab9f1dfd353481384b5a77bcd70618f43c5d1194661bb54562813db",
+      "score_spec_sha256": "61484652e467cef8b3b52fc841b85cb81ca89ee8beddb05f7a5b01a20417864c",
+      "evidence": "authoring/evidence/scope-only/score.json"
+    }
+  },
+  "native_full_regressions": {
+    "passed": 243,
+    "skipped": 1,
+    "xfailed": 2,
+    "initial_failures": 4,
+    "initial_failure_explanation": "额外解析调用帧改变错误诊断调用位置，改用保持原栈的 context manager 后修复；原失败日志保留",
+    "evidence": "authoring/evidence/native-full-reference-fixed2.log"
+  },
+  "same_snapshot_regrading": "authoring/evidence/same-snapshot-regrade.json",
+  "checks": "authoring/checks.json",
+  "scope_deviations": [
+    {
+      "stage": "初始依赖获取",
+      "detail": "首个 pip download/install 命令未显式设置 PIP_CACHE_DIR，可能读取或写入系统默认缓存；具体外部缓存写入未审计。后续 pip 缓存和依赖锁均在 job 内。"
+    },
+    {
+      "stage": "初始原生构建/回归",
+      "detail": "初次工具调用未显式设置 TMPDIR/basetemp；原生失败日志记录了 /tmp/pytest-of-root/pytest-10。后续复验均将临时目录指定在 job 内；没有尝试清理系统临时目录或任何外部工作。"
+    }
+  ],
+  "hardening_history": [
+    "初版额外调用帧导致四处原生错误位置失败；已通过保持原栈的 context manager 修复。",
+    "本机初期隔离配置尚未冻结；后续保护参考/私有路径，原生公开测试副本改为 root 持有只读，并按镜像内 600/700 私有权限重跑全部交付控制。"
+  ],
+  "teacher_started": false,
+  "cloud_started": false,
+  "container_runtime_verified": false,
+  "ARM_verified": false,
+  "difficulty_accepted": false,
+  "requested_model": "gpt-6.1-sol",
+  "actual_model_independently_verified": false,
+  "unresolved": [
+    "尚未构建或运行 Docker 镜像；镜像 tag 是构建目标而非已存在镜像的声明",
+    "Harbor 原生 test.sh 入口、separate verifier 的实际 artifact 传递与周期适配器双入口未执行",
+    "ARM 未验证",
+    "完整 TaskConfig 运行依赖未随 schema 快照提供；仅完成实际字段的 AST 静态检查",
+    "独立语义评审和更强的内部方法包装插件廉价解未完成；难度可能早饱和",
+    "未启动六小时教师或任何正式难度轨迹；21600 秒仅是预定预算"
+  ],
+  "package_static_check": {
+    "passed": true,
+    "evidence": "authoring/evidence/package-static-check.json",
+    "scope": "静态文件、构建上下文和字节哈希；不是容器或 Harbor 运行"
+  },
+  "preserved_controls": "authoring/controls/controls.json"
+}

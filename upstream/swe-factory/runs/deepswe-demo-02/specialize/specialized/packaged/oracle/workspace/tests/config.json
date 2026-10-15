@@ -1,0 +1,37 @@
+{
+  "target_command": [
+    "{python}",
+    "-m",
+    "pytest",
+    "tests/test_specialized.py",
+    "-q"
+  ],
+  "regression_command": [
+    "{python}",
+    "-m",
+    "pytest",
+    "tests/test_regression.py",
+    "tests/test_target.py",
+    "-q"
+  ],
+  "build_command": [],
+  "test_paths": [
+    "tests"
+  ],
+  "production_paths": [
+    "calc.py"
+  ],
+  "timeout": 300,
+  "fail_to_pass": [
+    "tests/test_specialized.py::test_empty_layer",
+    "tests/test_specialized.py::test_one_layer",
+    "tests/test_specialized.py::test_three_layers"
+  ],
+  "pass_to_pass": [
+    "tests/test_regression.py::test_plain",
+    "tests/test_target.py::test_child",
+    "tests/test_target.py::test_override",
+    "tests/test_target.py::test_parent",
+    "tests/test_target.py::test_unicode"
+  ]
+}

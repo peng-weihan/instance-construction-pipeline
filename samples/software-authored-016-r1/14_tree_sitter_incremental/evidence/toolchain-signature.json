@@ -1,0 +1,39 @@
+{
+  "url": "https://snapshot.debian.org/archive/debian/20250113T000000Z/dists/bookworm/InRelease",
+  "inrelease_sha256": "319b045ff7ef6edc40fbd0240e26a945926d16bc8157b31425132ac0abd7a21a",
+  "gpgv_exit_code": 0,
+  "package_indexes": {
+    "amd64": {
+      "path": "main/binary-amd64/Packages.xz",
+      "signature_bound_hash_matches": true,
+      "size_matches": true
+    },
+    "arm64": {
+      "path": "main/binary-arm64/Packages.xz",
+      "signature_bound_hash_matches": true,
+      "size_matches": true
+    }
+  },
+  "apt_installation_executed": false,
+  "initial_missing_system_keyring_exit_code": 2,
+  "public_key_sources": [
+    {
+      "url": "https://ftp-master.debian.org/keys/archive-key-12.asc",
+      "sha256": "c2a9a16fde95e037bafd0fa6b7e31f41b4ff1e85851de5558f19a2a2f0e955e2"
+    },
+    {
+      "url": "https://ftp-master.debian.org/keys/archive-key-12-security.asc",
+      "sha256": "74f81645b4e3156d1e9a88c8dd9259271b89c7099d64af89a2a6996b592faa1f"
+    },
+    {
+      "url": "https://ftp-master.debian.org/keys/release-12.asc",
+      "sha256": "521e9f6a9f9b92ee8d5ce74345e8cfd04028dae9db6f571259d584b293549824"
+    },
+    {
+      "url": "https://ftp-master.debian.org/keys/archive-key-11.asc",
+      "sha256": "0b7dc94b880f0b63e2093394b113cafd870badb86e020a35614f49b9d83beb1e"
+    }
+  ],
+  "public_key_trust_basis": "HTTPS Debian ftp-master key publication; no independent fingerprint audit",
+  "intermediate_missing_old_signer_key_exit_code": 2
+}

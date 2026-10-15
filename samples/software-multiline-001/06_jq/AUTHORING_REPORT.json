@@ -1,0 +1,111 @@
+{
+  "task_id": "jq-profile",
+  "status": "hold_for_evidence",
+  "stage": "build_pilot",
+  "source_revision": "71c2ab509a8628dbbad4bc7b3f98a64aa90d3297",
+  "author_model": {
+    "requested": "gpt-6.1-sol",
+    "provider_receipt_verified": false
+  },
+  "local_controls": {
+    "scores": {
+      "reference": 1.0,
+      "reference_repeat": 1.0,
+      "starter": 0.32708333333333334,
+      "nop": 0.0,
+      "mask_runtime_errors": 0.29930555555555555,
+      "truncate_stream": 0.27152777777777776
+    },
+    "reference_repeat_equal": true,
+    "syntax_valid_zero": true,
+    "fixture_corruption_invalid_no_reward": true,
+    "container_isolation_verified": false
+  },
+  "evidence": {
+    "raw_case_inputs_and_oracle_outputs": "verifier/private/cases.json",
+    "oracle_generation": "authoring/oracle-evidence.json",
+    "local_scores": "authoring/controls/*/score.json",
+    "commands_stdout_stderr_exit": "authoring/controls/commands.json",
+    "solution_recipe": "solution/solve.sh",
+    "recipe_score": "authoring/controls/recipe_reference/score.json",
+    "fixture_and_syntax_failures": [
+      "authoring/controls/infra_failure/score.json",
+      "authoring/controls/syntax/score.json"
+    ]
+  },
+  "validation_scope": "trusted author controls on macOS host only; not container or Harbor acceptance",
+  "unverified": [
+    "Docker builds and Linux startup",
+    "candidate UID 65534 cannot read a known private file or write reward path",
+    "network runtime enforcement",
+    "Harbor native Oracle and NOP",
+    "periodic adapter snapshot/best-of-run integration",
+    "apt build-package version closure",
+    "Linux numeric/output equivalence for frozen host-generated fixtures",
+    "multi-architecture builds",
+    "independent hidden-corpus/grader audit",
+    "2h and 6h model improvement trajectories",
+    "training utility"
+  ],
+  "blockers": [
+    "No container execution authorized in this round",
+    "Broad compositional jq profile is only sampled by current fixtures; difficulty and pollution/shortcut audit remain unmeasured"
+  ],
+  "schema": {
+    "source": "../guidance/harbor-0.23.0-task-config.py",
+    "version": "Harbor 0.23.0",
+    "fields_checked_manually": [
+      "schema_version",
+      "artifacts",
+      "agent.timeout_sec",
+      "network_mode",
+      "environment.workdir",
+      "verifier.environment_mode",
+      "verifier.environment"
+    ],
+    "pydantic_runtime_validation": "pending parent audit",
+    "reward_type_mapping": "metadata.reward_type because Harbor schema has no top-level reward_type"
+  },
+  "scoring": {
+    "formula": "mean(passed[g]/total[g]) across 8 frozen groups",
+    "group_count": 8,
+    "frozen_denominators": {
+      "streams": 12,
+      "structure": 12,
+      "operators": 12,
+      "bindings": 10,
+      "control": 10,
+      "reductions": 10,
+      "cli": 9,
+      "errors": 9
+    },
+    "case_count": 84,
+    "reference_at_formula_upper_bound_on_host": true,
+    "global_language_conformance_claimed": false
+  },
+  "earlier_local_failure": {
+    "kind": "Darwin RLIMIT_AS lowering rejects with ValueError",
+    "evidence": "authoring/controls/preexec_failure_command.json",
+    "resolution": "Memory limit is Linux-only; macOS host evidence has no address-space isolation claim"
+  },
+  "prohibited_actions_run": {
+    "teacher_model": false,
+    "docker": false,
+    "ssh": false,
+    "cloud": false,
+    "ci": false
+  },
+  "parent_handoff": "Two pilots are not two accepted benchmark tasks",
+  "authoring_cwd_incident": {
+    "description": "First configure ran from workspace root; six known generated outputs were moved into authoring/misplaced-configure; no existing root files were intentionally altered",
+    "retained_evidence": "authoring/misplaced-configure/",
+    "root_temp_files_remaining": false
+  },
+  "base_image": {
+    "image": "python:3.12.8-slim-bookworm@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+    "evidence": "authoring/base-image-pin.json",
+    "manifest_index": "authoring/base-image-manifest-index.json",
+    "index_sha256_verified": true,
+    "container_build_verified": false
+  }
+}

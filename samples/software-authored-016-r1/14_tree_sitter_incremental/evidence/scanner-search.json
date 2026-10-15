@@ -1,0 +1,27 @@
+{
+  "seed": 14023,
+  "attempts": 18,
+  "found": [
+    {
+      "index": 9,
+      "source": "def f():\n    a = \"\"\"one\ntwo\nthree\"\"\"\n    b = \"four\"\n    return b\nx = 4\n",
+      "start": 18,
+      "end": 26,
+      "replacement": "("
+    },
+    {
+      "index": 15,
+      "source": "x = [\n    1,\n    2,\n    3\n]\ny = 4\n",
+      "start": 11,
+      "end": 12,
+      "replacement": "\n    "
+    },
+    {
+      "index": 17,
+      "source": "def f():\n    a = \"\"\"one\ntwo\nthree\"\"\"\n    b = \"four\"\n    return b\nx = 4\n",
+      "start": 6,
+      "end": 17,
+      "replacement": "\n"
+    }
+  ]
+}

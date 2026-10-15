@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-15",
+  "purpose": "Check existence of strong normal configurations; snapshot analysis remains tied to candidate commits; no speedup figures adopted",
+  "sources": [
+    {
+      "title": "DuckDB External Aggregation",
+      "url": "https://duckdb.org/2024/03/29/external-aggregation",
+      "supports": "parallel external aggregation is an existing capability, not a proposed missing feature"
+    },
+    {
+      "title": "oneTBB Controlling Chunking",
+      "url": "https://uxlfoundation.github.io/oneTBB/main/tbb_userguide/Controlling_Chunking_os.html",
+      "supports": "grain size and partitioner tuning are existing legal baseline choices"
+    },
+    {
+      "title": "libjxl encode effort",
+      "url": "https://github.com/libjxl/libjxl/blob/main/doc/encode_effort.md",
+      "supports": "effort options already trade encoding speed against compression; performance remaining work is unmeasured"
+    },
+    {
+      "title": "Symas LMDB",
+      "url": "https://www.symas.com/lmdb.php",
+      "supports": "MVCC, serialized writes and memory-mapping are already implemented"
+    }
+  ]
+}

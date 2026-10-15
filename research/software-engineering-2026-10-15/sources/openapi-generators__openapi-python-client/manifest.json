@@ -1,0 +1,80 @@
+{
+  "repo": "openapi-generators/openapi-python-client",
+  "default_branch": "main",
+  "commit": "0a283fe21eeaa23046faf622d4ff4b2c826d2edb",
+  "commit_date": "2026-10-14T14:44:53Z",
+  "retrieved_at_utc": "2026-10-15T08:17:54.463139+00:00",
+  "license_metadata": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit",
+    "node_id": "MDc6TGljZW5zZTEz"
+  },
+  "tree_truncated": false,
+  "blob_count": 488,
+  "selected_files": [
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "d8bfe97e16a0f42c31a1a67b90aa7f204273fd614743de1a829a332ee9fa4488",
+      "bytes": 66790,
+      "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/CHANGELOG.md"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "e1da71418a98d030776936ae46ba9846ebba05536c3d225d61e513dec1faa506",
+      "bytes": 1075,
+      "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "sha256": "0db70b7a141fbe516d03277eda5075b2495b3028875e8b7d787eeb5d209a9025",
+      "bytes": 10377,
+      "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/README.md"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "ce1a113eb2a184bbc24f8c8fa8d44e642ba6a137034ce9ce8c16c1118ecca2b2",
+      "bytes": 3813,
+      "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/pyproject.toml"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "sha256": "60ae36c9c91e76abaf7281b2a98bb87618b9d259e0e34a9ca2bca62907cea934",
+      "bytes": 7440,
+      "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/CONTRIBUTING.md"
+    },
+    {
+      "path": "end_to_end_tests/functional_tests/README.md",
+      "sha256": "4c11cc45e198db053db73447055ac0a2937a1808a37a284cbc60b48601787277",
+      "bytes": 3840,
+      "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/end_to_end_tests/functional_tests/README.md"
+    },
+    {
+      "path": "end_to_end_tests/functional_tests/generated_code_execution/test_unions.py",
+      "sha256": "4d99fa2700884b0bbf37528ae7a2e814dbab84a48a651a84701fce6529eb7556",
+      "bytes": 4271,
+      "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/end_to_end_tests/functional_tests/generated_code_execution/test_unions.py"
+    },
+    {
+      "path": "end_to_end_tests/functional_tests/generated_code_execution/test_properties.py",
+      "sha256": "c6cfe2ea2d912f7305cfa7eca0a3206f9901b8571334a96c8fb027bb3ee49b41",
+      "bytes": 8407,
+      "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/end_to_end_tests/functional_tests/generated_code_execution/test_properties.py"
+    },
+    {
+      "path": "openapi_python_client/parser/properties/merge_properties.py",
+      "sha256": "c784c34145c1e83e807b5af6ef266574df6afa5cf9ead12739b1e59d98846341",
+      "bytes": 9773,
+      "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/openapi_python_client/parser/properties/merge_properties.py"
+    }
+  ],
+  "status": "source_reconnaissance_only_not_constructed_or_calibrated",
+  "additional_evidence": [
+    {
+      "local_path": "open-issues.json",
+      "sha256": "780e2da6bd0dd2094664c95b400e7d3a58d78167ed3f4dcbcc4e7a1727cf6528",
+      "provenance": "GitHub issues API response filtered to non-PR records; first page only; body/state not runtime-reproduced"
+    }
+  ]
+}

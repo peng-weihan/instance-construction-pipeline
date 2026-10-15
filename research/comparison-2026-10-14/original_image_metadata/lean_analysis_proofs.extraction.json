@@ -1,0 +1,99 @@
+{
+  "task": "lean_analysis_proofs",
+  "image": "seededge/edgebench.work.lean_analysis_proofs:7a7b0144d6c2",
+  "manifest_sha256": "4e95c9b04bf2ad7dcd8320f2d7bcff830f2892333e626c336c18d9b0a4922dd9",
+  "extraction": "selected layer members, not full OCI filesystem; whiteouts not applied",
+  "layers": [
+    {
+      "index": 0,
+      "size": 29736684,
+      "digest": "sha256:40d16f30db405106ef8074779bdf41f012465c2a785bbeaa2eab9f2081099b47"
+    },
+    {
+      "index": 1,
+      "size": 113588592,
+      "digest": "sha256:94713710eb647bf7ad4aef2162ef19332e80e13cd80615e9dd050a4f60e0a0fb"
+    },
+    {
+      "index": 2,
+      "size": 121,
+      "digest": "sha256:07e1d15c00535845feebc195095e994976a734dff7a1bf4edd89ec01e146ad2a"
+    },
+    {
+      "index": 3,
+      "size": 5117034,
+      "digest": "sha256:9697d0c1d8b57975e263a578fd7c87201e57fba6d522018d6d321becb08aa048"
+    },
+    {
+      "index": 4,
+      "size": 119,
+      "digest": "sha256:42a5a438f33b1f0c27bc8490dc806e6574759b733f0b80f30d3c359040155a2d"
+    },
+    {
+      "index": 5,
+      "size": 3568493632,
+      "digest": "sha256:9ffff6e0085f16e3a335938958bc32de82f73ff542ec61c5e268222460b202f0"
+    },
+    {
+      "index": 6,
+      "size": 3933966883,
+      "digest": "sha256:c8d5195941994971ff61d2097576df2ffab1ef2ceafc24bea51333f007914dea"
+    },
+    {
+      "index": 7,
+      "size": 5124724,
+      "digest": "sha256:a9173e303ae3c6adf8a2adfe9a3c3d3e1b5bb502e66b77b2df53f995669c5435"
+    },
+    {
+      "index": 8,
+      "size": 32,
+      "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1"
+    },
+    {
+      "index": 9,
+      "size": 597857245,
+      "digest": "sha256:6c6b6904ea8e3822109bb602f03dd2f2b8d2d96c2720fa0eb765d8dfcbbcd8f9"
+    },
+    {
+      "index": 10,
+      "size": 32,
+      "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1"
+    },
+    {
+      "index": 11,
+      "size": 1767,
+      "digest": "sha256:284fa695415b1adcb33efb922224f778f1501d6a15680f7430d9366c2a3d8b89"
+    },
+    {
+      "index": 12,
+      "size": 3464,
+      "digest": "sha256:41ed2e6814a1efcd0eec909eac742c9dc7534af307c9ca22315044d9997dcc5f"
+    },
+    {
+      "index": 13,
+      "size": 301615,
+      "digest": "sha256:06455f3393a9fe0ad8bccd12857cae6e4c8381e2048aef544e66f6d553c06bf6"
+    }
+  ],
+  "found": [
+    {
+      "layer": 11,
+      "path": "home/workspace/se-bmk-intern/analysis/ListDeclAxiom.lean",
+      "bytes": 4576,
+      "sha256": "af482b7af56a231f1b18400ecb7922fa96016bb9b5407f81526c822f677dfdf1"
+    }
+  ],
+  "skipped": [
+    {
+      "index": 6,
+      "reason": "size limit",
+      "bytes": 3933966883
+    },
+    {
+      "index": 9,
+      "reason": "size limit",
+      "bytes": 597857245
+    }
+  ],
+  "image_executed": false
+}

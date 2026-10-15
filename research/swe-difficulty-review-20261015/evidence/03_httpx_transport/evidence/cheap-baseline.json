@@ -1,0 +1,36 @@
+{
+  "source": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/material-src/httpx/__init__.py",
+  "redirect_retry": {
+    "outer": {
+      "observed": [
+        "https://a.test/root",
+        "https://a.test/leaf",
+        "https://a.test/root"
+      ],
+      "status": 503,
+      "budget_2_respected": false,
+      "retries_current_hop": false
+    },
+    "transport": {
+      "observed": [
+        "https://a.test/root",
+        "https://a.test/leaf",
+        "https://a.test/leaf"
+      ],
+      "status": 503,
+      "budget_2_respected": false,
+      "retries_current_hop": true
+    }
+  },
+  "stream_retry": {
+    "exception": "StreamConsumed",
+    "bodies": [
+      "onetwo"
+    ]
+  },
+  "capability": {
+    "has_execution_policy": false,
+    "existing_transport_connect_retries": true,
+    "mock_transport_caches_request_body": true
+  }
+}

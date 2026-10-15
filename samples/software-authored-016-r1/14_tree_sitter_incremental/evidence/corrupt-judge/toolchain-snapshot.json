@@ -1,0 +1,154 @@
+{
+  "amd64": {
+    "url": "https://snapshot.debian.org/archive/debian/20250113T000000Z/dists/bookworm/main/binary-amd64/Packages.xz",
+    "index_sha256": "165e96f1b0790f39fed2ee02ea760225c643f2a8d1c78636db4629112006ed6b",
+    "packages": [
+      {
+        "Package": "binutils",
+        "Version": "2.40-2",
+        "Architecture": "amd64",
+        "Filename": "pool/main/b/binutils/binutils_2.40-2_amd64.deb",
+        "SHA256": "83c3e20b53e1fbd84d764c3ba27d26a0376e361ae5d7fb37120196934dd87424"
+      },
+      {
+        "Package": "cpp-12",
+        "Version": "12.2.0-14",
+        "Architecture": "amd64",
+        "Filename": "pool/main/g/gcc-12/cpp-12_12.2.0-14_amd64.deb",
+        "SHA256": "6f8c90780705bb2434d02e2360881b581319307ccde43abcd1f781e05928db04"
+      },
+      {
+        "Package": "gcc-12",
+        "Version": "12.2.0-14",
+        "Architecture": "amd64",
+        "Filename": "pool/main/g/gcc-12/gcc-12_12.2.0-14_amd64.deb",
+        "SHA256": "54f7a9e77c6b12bafa07ffb1d4c42933a416748119f169514c1ed1119d51f4b3"
+      },
+      {
+        "Package": "libgcc-12-dev",
+        "Version": "12.2.0-14",
+        "Architecture": "amd64",
+        "Filename": "pool/main/g/gcc-12/libgcc-12-dev_12.2.0-14_amd64.deb",
+        "SHA256": "6ffd3721915c49580fc9bcf1ef06deab4ad59e99c52c9f349d03954642b97655"
+      },
+      {
+        "Package": "cpp",
+        "Version": "4:12.2.0-3",
+        "Architecture": "amd64",
+        "Filename": "pool/main/g/gcc-defaults/cpp_12.2.0-3_amd64.deb",
+        "SHA256": "a63db920f7aa1857a57beab185423deffb6111fa09437a99bbb4ef724fb7ba78"
+      },
+      {
+        "Package": "gcc",
+        "Version": "4:12.2.0-3",
+        "Architecture": "amd64",
+        "Filename": "pool/main/g/gcc-defaults/gcc_12.2.0-3_amd64.deb",
+        "SHA256": "bb63b0fb2797e2a3a294dab8a02614930c557ec1f4ea96637c244b8b5f87e630"
+      },
+      {
+        "Package": "libc6",
+        "Version": "2.36-9+deb12u9",
+        "Architecture": "amd64",
+        "Filename": "pool/main/g/glibc/libc6_2.36-9+deb12u9_amd64.deb",
+        "SHA256": "3a043b9dbf1a8c8b5a9e2268253e6dca8c7d431bd7a202fea96364abf374fea9"
+      },
+      {
+        "Package": "libc6-dev",
+        "Version": "2.36-9+deb12u9",
+        "Architecture": "amd64",
+        "Filename": "pool/main/g/glibc/libc6-dev_2.36-9+deb12u9_amd64.deb",
+        "SHA256": "da2062fa167bdfe02349e062f9fb7c063e06f778ad4c14404adeea0eafa80c0c"
+      },
+      {
+        "Package": "make",
+        "Version": "4.3-4.1",
+        "Architecture": "amd64",
+        "Filename": "pool/main/m/make-dfsg/make_4.3-4.1_amd64.deb",
+        "SHA256": "a1a83af8cbd854af887b72ad196b1f4af58387815e21ced1000253a116a46e2a"
+      },
+      {
+        "Package": "patch",
+        "Version": "2.7.6-7",
+        "Architecture": "amd64",
+        "Filename": "pool/main/p/patch/patch_2.7.6-7_amd64.deb",
+        "SHA256": "8c6d49b771530dbe26d7bd060582dc7d2b4eeb603a20789debc1ef4bbbc4ef67"
+      }
+    ]
+  },
+  "arm64": {
+    "url": "https://snapshot.debian.org/archive/debian/20250113T000000Z/dists/bookworm/main/binary-arm64/Packages.xz",
+    "index_sha256": "12c241c753fa2d452b77985c9e87b16b558331443a70742bc6bccf037af3839e",
+    "packages": [
+      {
+        "Package": "binutils",
+        "Version": "2.40-2",
+        "Architecture": "arm64",
+        "Filename": "pool/main/b/binutils/binutils_2.40-2_arm64.deb",
+        "SHA256": "546129bb85470fa3b5398d7429cd87c5353ab47f37e9d5e28abc57e6923a24fa"
+      },
+      {
+        "Package": "cpp-12",
+        "Version": "12.2.0-14",
+        "Architecture": "arm64",
+        "Filename": "pool/main/g/gcc-12/cpp-12_12.2.0-14_arm64.deb",
+        "SHA256": "7a69b35b2c99958acc3e288137eb6b26b493e506a97de962a6eeb028bdc057ad"
+      },
+      {
+        "Package": "gcc-12",
+        "Version": "12.2.0-14",
+        "Architecture": "arm64",
+        "Filename": "pool/main/g/gcc-12/gcc-12_12.2.0-14_arm64.deb",
+        "SHA256": "08e8df9c180b00fe260b7b3f0a7b89d6b03b2abb703e351d13cb5de539d2452f"
+      },
+      {
+        "Package": "libgcc-12-dev",
+        "Version": "12.2.0-14",
+        "Architecture": "arm64",
+        "Filename": "pool/main/g/gcc-12/libgcc-12-dev_12.2.0-14_arm64.deb",
+        "SHA256": "fb74956b50ec86fd82a7a20aede3047e728155da019c34ff4fcbd3e3b79bbda8"
+      },
+      {
+        "Package": "cpp",
+        "Version": "4:12.2.0-3",
+        "Architecture": "arm64",
+        "Filename": "pool/main/g/gcc-defaults/cpp_12.2.0-3_arm64.deb",
+        "SHA256": "b4a7ff301927330e6120450fcfcbcf016cf58e485dc6f113b110e8a8280fbfca"
+      },
+      {
+        "Package": "gcc",
+        "Version": "4:12.2.0-3",
+        "Architecture": "arm64",
+        "Filename": "pool/main/g/gcc-defaults/gcc_12.2.0-3_arm64.deb",
+        "SHA256": "81e86d3d3cd6731201b88fe5d8881aa281d7ffbfd8cc1c269c7a116c7b405e8d"
+      },
+      {
+        "Package": "libc6",
+        "Version": "2.36-9+deb12u9",
+        "Architecture": "arm64",
+        "Filename": "pool/main/g/glibc/libc6_2.36-9+deb12u9_arm64.deb",
+        "SHA256": "564ad8beb7d6d80620ed5f6387cd0da5e3bc839e0c43293b4233678e8366c283"
+      },
+      {
+        "Package": "libc6-dev",
+        "Version": "2.36-9+deb12u9",
+        "Architecture": "arm64",
+        "Filename": "pool/main/g/glibc/libc6-dev_2.36-9+deb12u9_arm64.deb",
+        "SHA256": "c32eb959732f0ea43e02c312e4fd2dde56cd372d7418437a4dbf4e5e9f604705"
+      },
+      {
+        "Package": "make",
+        "Version": "4.3-4.1",
+        "Architecture": "arm64",
+        "Filename": "pool/main/m/make-dfsg/make_4.3-4.1_arm64.deb",
+        "SHA256": "7ef5f5c0e3f909c811f941598107119af0a0554641b5cc590f584cea6a55d204"
+      },
+      {
+        "Package": "patch",
+        "Version": "2.7.6-7",
+        "Architecture": "arm64",
+        "Filename": "pool/main/p/patch/patch_2.7.6-7_arm64.deb",
+        "SHA256": "11e5e56f3cb4b306c9589bb37f9c701bf23bb37c410bac12e6a50d6461e71bd6"
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "healthy": true,
+  "tests": {
+    "runs/deepswe-demo-01/ablation/ablation/validation/C2/workspace/tests/test_target.py::test_parent": "failed",
+    "runs/deepswe-demo-01/ablation/ablation/validation/C2/workspace/tests/test_target.py::test_child": "failed",
+    "runs/deepswe-demo-01/ablation/ablation/validation/C2/workspace/tests/test_target.py::test_override": "failed",
+    "runs/deepswe-demo-01/ablation/ablation/validation/C2/workspace/tests/test_target.py::test_unicode": "failed"
+  },
+  "errors": [],
+  "returncode": 1,
+  "timed_out": false,
+  "evidence": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-01/ablation/ablation/validation/C2"
+}

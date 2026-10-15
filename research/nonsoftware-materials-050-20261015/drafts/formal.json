@@ -1,0 +1,680 @@
+[
+  {
+    "id": "f01_equational",
+    "name": "Equational Theories",
+    "source_unit": "MagmaLaw推导、自由magma商模型、Birkhoff完备性",
+    "title": "多类型等式逻辑的自由代数与完备性簇",
+    "proposed_task": "对有限多类型算子签名形式化项代换、可导关系和商代数，证明可靠性、自由模型通用性质与完备性；单类型magma仅作作者参考。",
+    "difficulty_sources": [
+      "带类型代换与同余商必须兼容变量扩张，不能用有限真值表替代一般命题。",
+      "商运算良定义、求值同态和通用性质构成连续依赖链。"
+    ],
+    "baseline": "查mathlib通用代数/等式逻辑同义定理，允许simp、aesop和正常检索。",
+    "first_probe": "正规化目标，尝试通用定理短适配，再证明双类型求值与代换交换引理。",
+    "stop_condition": "现成多类型完备性可直接实例化，或改名即可复用全部参考，则淘汰此范围。",
+    "novelty_and_overlap": "主来源未在旧登记中；公开单类型完整同义定理必须隔离，不能只删除body却继续import同义结果。新增签名不自动证明新难度。",
+    "offline_and_compute": "已取Lean4.29.1、lake锁、根许可和3个证明/定义文件；完整mathlib缓存、离线构建和内核未验。",
+    "license_observation": "根LICENSE为Apache-2.0。",
+    "potential": "high",
+    "priority": "hold_baseline",
+    "category": "formal",
+    "repo": "teorth/equational_theories",
+    "revision": "1aec8a7acf223b7c56e4830977b6e90d4ef1924b",
+    "source_manifest": "sources/f01_equational/manifest.json",
+    "card": "cards/f01_equational.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/f01_equational/files/equational_theories/MagmaLaw.lean",
+        "start": 21,
+        "end": 62,
+        "kind": "specification"
+      },
+      {
+        "path": "sources/f01_equational/files/equational_theories/Completeness.lean",
+        "start": 130,
+        "end": 173,
+        "kind": "proof"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/f01_equational/files/equational_theories/MagmaLaw.lean",
+        "line": 21,
+        "claim": "推导系统含代换、同余和传递规则",
+        "url": "https://github.com/teorth/equational_theories/blob/1aec8a7acf223b7c56e4830977b6e90d4ef1924b/equational_theories/MagmaLaw.lean#L21"
+      },
+      {
+        "path": "sources/f01_equational/files/equational_theories/Completeness.lean",
+        "line": 130,
+        "claim": "现有单类型Birkhoff完备性已有证明项，不是尚缺能力",
+        "url": "https://github.com/teorth/equational_theories/blob/1aec8a7acf223b7c56e4830977b6e90d4ef1924b/equational_theories/Completeness.lean#L130"
+      }
+    ],
+    "deliverable": "固定定义与命题签名的证明文件、依赖清单和作者侧假设报告；在干净评测进程中重新内核检查。",
+    "grader_plan": "grader持有独立目标声明，对提交proof进行类型检查；递归检查公理/依赖，拒绝sorryAx、Admitted或新增无证明假设。评分只计预定义引理和终点，不计代码量；另审命题忠实性与非空假设。",
+    "generation_and_split": "按定义、证明方法和依赖子图划分开发/隐藏目标；改符号或换自然数不计新实例。归一化比较库内同义定理；作者参考证明不进入求解环境，保留普通合法自动化和基础库。",
+    "static_trust_observation": {
+      "lexical_hits_in_acquired_proof_files_including_comments": [],
+      "transitive_axioms_checked": false,
+      "kernel_executed": false,
+      "scope": "仅所取文件静态词法扫描；没有命中也不证明传递依赖无公理。"
+    }
+  },
+  {
+    "id": "f02_brouwer",
+    "name": "Brouwer / Scarf",
+    "source_unit": "单纯形Brouwer、有限乘积回缩和公理审计入口",
+    "title": "凸多面体回缩及连续自映射不动点证明",
+    "proposed_task": "在独立有限约束多面体表示上证明非空紧凸条件、与单纯形/乘积的连续回缩关系及自映射不动点存在性，明确空维数和边界。",
+    "difficulty_sources": [
+      "离散Scarf、紧性子列和坐标和约束连接，单纯形结论不能直接当任意表示结论。",
+      "投影嵌入需要兼顾分母为零、连续性及回缩恒等式。"
+    ],
+    "baseline": "允许Brouwer_Product及mathlib紧凸不动点定理，先试短回缩适配。",
+    "first_probe": "固定依赖版本检索同义定理，闭合非单纯形多面体的回缩；后续执行上游AxiomAudit。",
+    "stop_condition": "只需现有紧凸Brouwer直接实例化或简单类型别名则降为短题。",
+    "novelty_and_overlap": "替换与原medium_prime_number_theorem重叠的PNT源；证明产物不是求Nash策略。公开Brouwer/Nash证明污染需按子图隔离。",
+    "offline_and_compute": "Lean4.33.0、lake锁、MIT许可、Scarf/Brouwer/示例/审计已取；AxiomAudit只读未执行。",
+    "license_observation": "根LICENSE为MIT；论文或蓝图另用需单独核权。",
+    "potential": "high",
+    "priority": "hold_baseline",
+    "category": "formal",
+    "repo": "math-xmum/Brouwer",
+    "revision": "f9dc162170e8711f78059a87edcd38ffc44a1bfb",
+    "source_manifest": "sources/f02_brouwer/manifest.json",
+    "card": "cards/f02_brouwer.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/f02_brouwer/files/Gametheory/Brouwer.lean",
+        "start": 734,
+        "end": 770,
+        "kind": "proof"
+      },
+      {
+        "path": "sources/f02_brouwer/files/Gametheory/Brouwer_product.lean",
+        "start": 662,
+        "end": 678,
+        "kind": "specification"
+      },
+      {
+        "path": "sources/f02_brouwer/files/Gametheory/AxiomAudit.lean",
+        "start": 1,
+        "end": 32,
+        "kind": "audit_specification"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/f02_brouwer/files/Gametheory/Brouwer.lean",
+        "line": 734,
+        "claim": "Brouwer终点有具体子列和坐标证明",
+        "url": "https://github.com/math-xmum/Brouwer/blob/f9dc162170e8711f78059a87edcd38ffc44a1bfb/Gametheory/Brouwer.lean#L734"
+      },
+      {
+        "path": "sources/f02_brouwer/files/Gametheory/Brouwer_product.lean",
+        "line": 662,
+        "claim": "乘积终点通过连续投影嵌入回缩实现",
+        "url": "https://github.com/math-xmum/Brouwer/blob/f9dc162170e8711f78059a87edcd38ffc44a1bfb/Gametheory/Brouwer_product.lean#L662"
+      },
+      {
+        "path": "sources/f02_brouwer/files/Gametheory/AxiomAudit.lean",
+        "line": 1,
+        "claim": "上游提供公理审计入口，本轮没有执行",
+        "url": "https://github.com/math-xmum/Brouwer/blob/f9dc162170e8711f78059a87edcd38ffc44a1bfb/Gametheory/AxiomAudit.lean#L1"
+      }
+    ],
+    "deliverable": "固定定义与命题签名的证明文件、依赖清单和作者侧假设报告；在干净评测进程中重新内核检查。",
+    "grader_plan": "grader持有独立目标声明，对提交proof进行类型检查；递归检查公理/依赖，拒绝sorryAx、Admitted或新增无证明假设。评分只计预定义引理和终点，不计代码量；另审命题忠实性与非空假设。",
+    "generation_and_split": "按定义、证明方法和依赖子图划分开发/隐藏目标；改符号或换自然数不计新实例。归一化比较库内同义定理；作者参考证明不进入求解环境，保留普通合法自动化和基础库。",
+    "static_trust_observation": {
+      "lexical_hits_in_acquired_proof_files_including_comments": [],
+      "transitive_axioms_checked": false,
+      "kernel_executed": false,
+      "scope": "仅所取文件静态词法扫描；没有命中也不证明传递依赖无公理。"
+    }
+  },
+  {
+    "id": "f03_kolmogorov",
+    "name": "Kolmogorov Extension 4",
+    "source_unit": "紧柱集系统、正则content和投射极限测度",
+    "title": "时变状态空间的核到路径律及唯一性证明",
+    "proposed_task": "从时变Polish状态空间初始分布和可测转移核构造有限维联合律，证明一致性、路径律存在唯一及截断/重索引相容。",
+    "difficulty_sources": [
+      "递推核积分与依赖类型坐标限制需要共同满足可测性及投射一致性。",
+      "有限维到无限路径测度之间有正则性、σ可加性与唯一性条件，有限样本不能代替证明。"
+    ],
+    "baseline": "优先查mathlib Ionescu–Tulcea、Markov路径律和现成KolmogorovAPI。",
+    "first_probe": "比较同义路径律，先闭合非齐次核的有限维投射一致性和唯一性。",
+    "stop_condition": "库已有完整路径律，只需参数改名或别名则淘汰该范围。",
+    "novelty_and_overlap": "共享旧brownian-motion的概率基础，但不要求Brownian连续版本。源码可能已上游mathlib；原隐藏命题未全取，重叠仍需归一化检查。",
+    "offline_and_compute": "Lean4.33.0-rc1和lake锁已取；仅3个定向证明文件，完整依赖闭包、缓存和内核未验。",
+    "license_observation": "根LICENSE为Apache-2.0。",
+    "potential": "high",
+    "priority": "hold_baseline",
+    "category": "formal",
+    "repo": "RemyDegenne/kolmogorov_extension4",
+    "revision": "7d76e184c3d2138a2741baf923b57e9a01b9cf25",
+    "source_manifest": "sources/f03_kolmogorov/manifest.json",
+    "card": "cards/f03_kolmogorov.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/f03_kolmogorov/files/KolmogorovExtension4/CompactSystem.lean",
+        "start": 252,
+        "end": 287,
+        "kind": "proof"
+      },
+      {
+        "path": "sources/f03_kolmogorov/files/KolmogorovExtension4/KolmogorovExtension.lean",
+        "start": 99,
+        "end": 165,
+        "kind": "specification"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/f03_kolmogorov/files/KolmogorovExtension4/CompactSystem.lean",
+        "line": 252,
+        "claim": "闭紧柱集紧系统有具体证明",
+        "url": "https://github.com/RemyDegenne/kolmogorov_extension4/blob/7d76e184c3d2138a2741baf923b57e9a01b9cf25/KolmogorovExtension4/CompactSystem.lean#L252"
+      },
+      {
+        "path": "sources/f03_kolmogorov/files/KolmogorovExtension4/KolmogorovExtension.lean",
+        "line": 99,
+        "claim": "projectiveLimit及其定理已实现，不可当新增能力",
+        "url": "https://github.com/RemyDegenne/kolmogorov_extension4/blob/7d76e184c3d2138a2741baf923b57e9a01b9cf25/KolmogorovExtension4/KolmogorovExtension.lean#L99"
+      }
+    ],
+    "deliverable": "固定定义与命题签名的证明文件、依赖清单和作者侧假设报告；在干净评测进程中重新内核检查。",
+    "grader_plan": "grader持有独立目标声明，对提交proof进行类型检查；递归检查公理/依赖，拒绝sorryAx、Admitted或新增无证明假设。评分只计预定义引理和终点，不计代码量；另审命题忠实性与非空假设。",
+    "generation_and_split": "按定义、证明方法和依赖子图划分开发/隐藏目标；改符号或换自然数不计新实例。归一化比较库内同义定理；作者参考证明不进入求解环境，保留普通合法自动化和基础库。",
+    "static_trust_observation": {
+      "lexical_hits_in_acquired_proof_files_including_comments": [],
+      "transitive_axioms_checked": false,
+      "kernel_executed": false,
+      "scope": "仅所取文件静态词法扫描；没有命中也不证明传递依赖无公理。"
+    }
+  },
+  {
+    "id": "f04_corn",
+    "name": "CoRN Constructive Analysis",
+    "source_unit": "构造性Taylor余项、变量代换积分规则及可计算积分示例",
+    "title": "带可证明误差界的构造性求积证书",
+    "proposed_task": "对具有显式导数界和连续模数的函数，证明分段求积误差界、区间代换的证书组合及有理输出区间包含真实积分；交付核可检证明而非拟合数值。",
+    "difficulty_sources": [
+      "构造实数的apartness、偏函数定义域见证和区间次序必须贯穿代换与Taylor余项。",
+      "局部误差到分区总误差及有理包围证书需要连接分析定理与可计算表示。"
+    ],
+    "baseline": "使用CoRN已有Taylor、IntegrationBySubstition、Integrate及标准数值证明自动化，先试直接生成证书。",
+    "first_probe": "固定opam版本后跑上游健康编译，再对一个非多项式小函数证明局部/全局误差桥；读取既有可计算积分接口是否已全覆盖。",
+    "stop_condition": "现有求积器已提供完整同义证书，只需调用和打印结果，或题目只是大精度计算等待，则下调。",
+    "novelty_and_overlap": "新仓库；与原lean_analysis领域可能相邻但Rocq构造分析目标不同，原隐藏命题未知仍需比较。替换不闭合的E8 Sphere-Packing源；不是把公开Taylor定理改名当原创。",
+    "offline_and_compute": "已取opam Coq>=8.19,<9.1或dev、math-classes/elpi/bignums规格和3个证明/示例；尚未解出全依赖锁或执行示例，构建等待不计难度。",
+    "license_observation": "根LICENSE和opam标GPL-2.0；派生题包须保留相应许可与归属，不能整体改MIT。",
+    "potential": "high",
+    "priority": "scope_probe",
+    "category": "formal",
+    "repo": "rocq-community/corn",
+    "revision": "ada7c0b497ff15dd67cf7932c6f20e143a2aee2f",
+    "source_manifest": "sources/f04_corn/manifest.json",
+    "card": "cards/f04_corn.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/f04_corn/files/ftc/IntegrationRules.v",
+        "start": 24,
+        "end": 72,
+        "kind": "specification"
+      },
+      {
+        "path": "sources/f04_corn/files/ftc/Taylor.v",
+        "start": 195,
+        "end": 235,
+        "kind": "proof"
+      },
+      {
+        "path": "sources/f04_corn/files/examples/IntegrationExamples.v",
+        "start": 22,
+        "end": 50,
+        "kind": "example_specification"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/f04_corn/files/ftc/IntegrationRules.v",
+        "line": 24,
+        "claim": "积分变量代换的全部定义域和连续性假设显式列出",
+        "url": "https://github.com/rocq-community/corn/blob/ada7c0b497ff15dd67cf7932c6f20e143a2aee2f/ftc/IntegrationRules.v#L24"
+      },
+      {
+        "path": "sources/f04_corn/files/ftc/Taylor.v",
+        "line": 195,
+        "claim": "Taylor余项存在性有具体构造性证明",
+        "url": "https://github.com/rocq-community/corn/blob/ada7c0b497ff15dd67cf7932c6f20e143a2aee2f/ftc/Taylor.v#L195"
+      },
+      {
+        "path": "sources/f04_corn/files/examples/IntegrationExamples.v",
+        "line": 22,
+        "claim": "示例展示有理近似和统一连续积分接口，本轮未执行",
+        "url": "https://github.com/rocq-community/corn/blob/ada7c0b497ff15dd67cf7932c6f20e143a2aee2f/examples/IntegrationExamples.v#L22"
+      }
+    ],
+    "deliverable": "固定定义与命题签名的证明文件、依赖清单和作者侧假设报告；在干净评测进程中重新内核检查。",
+    "grader_plan": "grader持有独立目标声明，对提交proof进行类型检查；递归检查公理/依赖，拒绝sorryAx、Admitted或新增无证明假设。评分只计预定义引理和终点，不计代码量；另审命题忠实性与非空假设。",
+    "generation_and_split": "按定义、证明方法和依赖子图划分开发/隐藏目标；改符号或换自然数不计新实例。归一化比较库内同义定理；作者参考证明不进入求解环境，保留普通合法自动化和基础库。",
+    "static_trust_observation": {
+      "lexical_hits_in_acquired_proof_files_including_comments": [],
+      "transitive_axioms_checked": false,
+      "kernel_executed": false,
+      "scope": "仅所取文件静态词法扫描；没有命中也不证明传递依赖无公理。"
+    }
+  },
+  {
+    "id": "f05_logic",
+    "name": "Foundation — First-order LK",
+    "source_unit": "一致序列偏序、典范forcing、Henkin项模型反模型",
+    "title": "语言扩张下的反模型与紧致性证明链",
+    "proposed_task": "在固定一阶语言/证明系统接口下证明保守语言扩张、有限可满足性到模型存在性和反模型见证的可迁移性；不得把原Gödel不完备性当新目标。",
+    "difficulty_sources": [
+      "语法替换、自由/绑定变量和语言嵌入必须与项模型语义相容。",
+      "典范forcing、泛滤子、Henkin见证到真实结构求值需要逐层桥接，单条一阶自动化不覆盖元定理。"
+    ],
+    "baseline": "允许现有LK完备性、compactness及语言重命名引理，先查目标是否已被短推论覆盖。",
+    "first_probe": "比较库内紧致性/保守扩张结果，闭合一个新语言扩张的forcing与求值交换图；后续审目标递归公理。",
+    "stop_condition": "完全可由现成compactness或consequence定理一行推出，或目标定义不忠实/前提不可满足，则淘汰范围。",
+    "novelty_and_overlap": "与原godel_incompleteness_formalization同属逻辑但选LK反模型子图，避开不完备性/停机簇；是否同原隐藏源或同义目标待核，公开proof必须作者侧隔离。",
+    "offline_and_compute": "Lean4.35.0及lake锁已取；CanonicalModel/CounterModel和导出模块定向读取，mathlib缓存及完整公理闭包未执行。",
+    "license_observation": "根LICENSE为Apache-2.0。",
+    "potential": "high",
+    "priority": "hold_baseline",
+    "category": "formal",
+    "repo": "FormalizedFormalLogic/Foundation",
+    "revision": "c3eb37ae896dc8f1d239ba1511e74d9f25e9d158",
+    "source_manifest": "sources/f05_logic/manifest.json",
+    "card": "cards/f05_logic.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/f05_logic/files/Foundation/FirstOrder/LK/Completeness/CanonicalModel.lean",
+        "start": 10,
+        "end": 54,
+        "kind": "specification"
+      },
+      {
+        "path": "sources/f05_logic/files/Foundation/FirstOrder/LK/Completeness/CounterModel.lean",
+        "start": 173,
+        "end": 220,
+        "kind": "proof"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/f05_logic/files/Foundation/FirstOrder/LK/Completeness/CanonicalModel.lean",
+        "line": 10,
+        "claim": "一致序列偏序及forcing明确依赖不可证性",
+        "url": "https://github.com/FormalizedFormalLogic/Foundation/blob/c3eb37ae896dc8f1d239ba1511e74d9f25e9d158/Foundation/FirstOrder/LK/Completeness/CanonicalModel.lean#L10"
+      },
+      {
+        "path": "sources/f05_logic/files/Foundation/FirstOrder/LK/Completeness/CounterModel.lean",
+        "line": 173,
+        "claim": "项模型forcing lemma连接结构求值，继而构造可满足性反模型",
+        "url": "https://github.com/FormalizedFormalLogic/Foundation/blob/c3eb37ae896dc8f1d239ba1511e74d9f25e9d158/Foundation/FirstOrder/LK/Completeness/CounterModel.lean#L173"
+      }
+    ],
+    "deliverable": "固定定义与命题签名的证明文件、依赖清单和作者侧假设报告；在干净评测进程中重新内核检查。",
+    "grader_plan": "grader持有独立目标声明，对提交proof进行类型检查；递归检查公理/依赖，拒绝sorryAx、Admitted或新增无证明假设。评分只计预定义引理和终点，不计代码量；另审命题忠实性与非空假设。",
+    "generation_and_split": "按定义、证明方法和依赖子图划分开发/隐藏目标；改符号或换自然数不计新实例。归一化比较库内同义定理；作者参考证明不进入求解环境，保留普通合法自动化和基础库。",
+    "static_trust_observation": {
+      "lexical_hits_in_acquired_proof_files_including_comments": [],
+      "transitive_axioms_checked": false,
+      "kernel_executed": false,
+      "scope": "仅所取文件静态词法扫描；没有命中也不证明传递依赖无公理。"
+    }
+  },
+  {
+    "id": "f06_physlean",
+    "name": "Physlib — Hamiltonian Mechanics",
+    "source_unit": "Poisson bracket定义、乘法规则及Hamilton流导数定理",
+    "title": "有限维Poisson代数与Hamilton守恒律",
+    "proposed_task": "对有限维实相空间和足够光滑函数证明规范坐标交换关系、Jacobi恒等式、Poisson括号的导子性质及沿Hamilton流的守恒推论；准确声明二阶光滑性。",
+    "difficulty_sources": [
+      "梯度、Fréchet导数、二阶混合导数对称性需要与坐标无关定义兼容。",
+      "Jacobi取消和流上的链式法则必须共享符号约定及光滑性条件，数值轨道不构成证明。"
+    ],
+    "baseline": "允许mathlib辛/Poisson/李代数定理、Clairaut和ring等正常自动化，先尝试现有几何实例桥接。",
+    "first_probe": "核查当前依赖是否已有Jacobi完整结果；证明三函数的一个有限维混合导数关键项，再做完整Jacobi概念验证。",
+    "stop_condition": "现成Poisson实例直接给出所有目标，或新范围只剩ring标准化，则降档；若正则性假设不足必须修规格。",
+    "novelty_and_overlap": "HEPLean/PhysLean已迁到leanprover-community/physlib，仅计一次。选Physlib核心，不选较低审核PhyslibAlpha；原13无此主目标。Jacobi当前明确TODO，现有流导数仅是已完成参考，未声称新目标已证。",
+    "offline_and_compute": "Lean4.35.0、lake锁、根许可和3个力学源码已取；未构建，独立内核、公理闭包和全部光滑性可行性未验。",
+    "license_observation": "根LICENSE为Apache-2.0。",
+    "potential": "high",
+    "priority": "hold_reference",
+    "category": "formal",
+    "repo": "leanprover-community/physlib",
+    "revision": "059336966f1c21765a9249ed19dac0f35435f1fd",
+    "source_manifest": "sources/f06_physlean/manifest.json",
+    "card": "cards/f06_physlean.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/f06_physlean/files/Physlib/ClassicalMechanics/HamiltonianMechanics/PoissonBracket.lean",
+        "start": 50,
+        "end": 91,
+        "kind": "specification"
+      },
+      {
+        "path": "sources/f06_physlean/files/Physlib/ClassicalMechanics/HamiltonianMechanics/PoissonBracket.lean",
+        "start": 195,
+        "end": 237,
+        "kind": "proof"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/f06_physlean/files/Physlib/ClassicalMechanics/HamiltonianMechanics/PoissonBracket.lean",
+        "line": 50,
+        "claim": "括号按位置/动量梯度定义，Jacobi与规范交换关系明确TODO",
+        "url": "https://github.com/leanprover-community/physlib/blob/059336966f1c21765a9249ed19dac0f35435f1fd/Physlib/ClassicalMechanics/HamiltonianMechanics/PoissonBracket.lean#L50"
+      },
+      {
+        "path": "sources/f06_physlean/files/Physlib/ClassicalMechanics/HamiltonianMechanics/PoissonBracket.lean",
+        "line": 195,
+        "claim": "沿Hamilton流的导数等于Poisson bracket已有证明",
+        "url": "https://github.com/leanprover-community/physlib/blob/059336966f1c21765a9249ed19dac0f35435f1fd/Physlib/ClassicalMechanics/HamiltonianMechanics/PoissonBracket.lean#L195"
+      }
+    ],
+    "deliverable": "固定定义与命题签名的证明文件、依赖清单和作者侧假设报告；在干净评测进程中重新内核检查。",
+    "grader_plan": "grader持有独立目标声明，对提交proof进行类型检查；递归检查公理/依赖，拒绝sorryAx、Admitted或新增无证明假设。评分只计预定义引理和终点，不计代码量；另审命题忠实性与非空假设。",
+    "generation_and_split": "按定义、证明方法和依赖子图划分开发/隐藏目标；改符号或换自然数不计新实例。归一化比较库内同义定理；作者参考证明不进入求解环境，保留普通合法自动化和基础库。",
+    "static_trust_observation": {
+      "lexical_hits_in_acquired_proof_files_including_comments": [],
+      "transitive_axioms_checked": false,
+      "kernel_executed": false,
+      "scope": "仅所取文件静态词法扫描；没有命中也不证明传递依赖无公理。"
+    },
+    "source_repo_alias": "HEPLean/PhysLean"
+  },
+  {
+    "id": "f07_fourcolor",
+    "name": "Four Color — Combinatorial Hypermaps",
+    "source_unit": "超图排列、面/点着色及four_color_hypermap证明",
+    "title": "带边界迹的平面超图拼接与着色转移",
+    "proposed_task": "形式化具有指定边界环的超图拼接，证明连接/平面条件保持、边界颜色迹兼容和局部着色到全局着色的转移；四色主定理仅作已知上界。",
+    "difficulty_sources": [
+      "超图以edge/node/face排列表示，拼接需保持排列恒等式及拓扑不变量。",
+      "局部边界色迹与全局邻接约束必须一致，直接枚举一张图不能证明一般拼接。"
+    ],
+    "baseline": "允许现有ring_trace、preembedding、dual及four_color_hypermap，先试标准连接或重标号证明。",
+    "first_probe": "检索现有边界拼接/着色扩张API，并核验最小非平凡边界的结构及着色转移。",
+    "stop_condition": "全部目标可由现有preembedding一条引理给出，或只改变颜色名/有限图size，则不是新的高难题。",
+    "novelty_and_overlap": "math-comp/fourcolor迁移至rocq-community/fourcolor，只计一次；与F09共享MathComp及可选FourColor依赖，不能当完全独立技能。选组合子库，避免实数公理化拓扑入口。",
+    "offline_and_compute": "根许可、Rocq/Coq依赖opam及_CoqProject已取；9个定向文件，完整MathComp锁和上游健康内核未验，有限配置计算耗时不计难。",
+    "license_observation": "根LICENSE为CeCILL-B，源码头一致；不应按MIT处理。",
+    "potential": "medium",
+    "priority": "hold_baseline",
+    "category": "formal",
+    "repo": "rocq-community/fourcolor",
+    "revision": "c1d6b1cd5288bea4b067aac13cdde3c18dffe018",
+    "source_manifest": "sources/f07_fourcolor/manifest.json",
+    "card": "cards/f07_fourcolor.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/f07_fourcolor/files/theories/proof/coloring.v",
+        "start": 65,
+        "end": 122,
+        "kind": "specification"
+      },
+      {
+        "path": "sources/f07_fourcolor/files/theories/proof/combinatorial4ct.v",
+        "start": 1,
+        "end": 30,
+        "kind": "proof"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/f07_fourcolor/files/theories/proof/coloring.v",
+        "line": 65,
+        "claim": "面着色、点着色和边界ring_trace有独立定义",
+        "url": "https://github.com/rocq-community/fourcolor/blob/c1d6b1cd5288bea4b067aac13cdde3c18dffe018/theories/proof/coloring.v#L65"
+      },
+      {
+        "path": "sources/f07_fourcolor/files/theories/proof/combinatorial4ct.v",
+        "line": 1,
+        "claim": "四色终点经cube与unavoidability/reducibility得出，不是未知定理",
+        "url": "https://github.com/rocq-community/fourcolor/blob/c1d6b1cd5288bea4b067aac13cdde3c18dffe018/theories/proof/combinatorial4ct.v#L1"
+      }
+    ],
+    "deliverable": "固定定义与命题签名的证明文件、依赖清单和作者侧假设报告；在干净评测进程中重新内核检查。",
+    "grader_plan": "grader持有独立目标声明，对提交proof进行类型检查；递归检查公理/依赖，拒绝sorryAx、Admitted或新增无证明假设。评分只计预定义引理和终点，不计代码量；另审命题忠实性与非空假设。",
+    "generation_and_split": "按定义、证明方法和依赖子图划分开发/隐藏目标；改符号或换自然数不计新实例。归一化比较库内同义定理；作者参考证明不进入求解环境，保留普通合法自动化和基础库。",
+    "static_trust_observation": {
+      "lexical_hits_in_acquired_proof_files_including_comments": [],
+      "transitive_axioms_checked": false,
+      "kernel_executed": false,
+      "scope": "仅所取文件静态词法扫描；没有命中也不证明传递依赖无公理。"
+    },
+    "source_repo_alias": "math-comp/fourcolor"
+  },
+  {
+    "id": "f08_oddorder",
+    "name": "Odd Order — Coprime Actions",
+    "source_unit": "BGsection1有限群结构定义及可解Wielandt不动点恒等式",
+    "title": "互素群作用的正规列分解与固定点不变量",
+    "proposed_task": "对带G稳定正规列的有限可解群建立中心化子阶的分解和加权固定点乘积恒等式，证明商群/正规子群桥接及所需互素条件；不把奇数阶定理整段恢复作为默认题。",
+    "difficulty_sources": [
+      "群作用、商群中心化子和互素阶条件在归纳每层都要保持。",
+      "加权固定点计数与模表示/同态结构共同作用，整数代数化简只处理末端。"
+    ],
+    "baseline": "允许现有solvable_Wielandt_fixpoint、MathComp coprime quotient centralizer及群自动化，先试直接推论。",
+    "first_probe": "对两层非平凡正规列写出精确目标并尝试现有恒等式；审查新增分解是否仅是现有定理重复。",
+    "stop_condition": "直接套Wielandt加bigop即可闭合全合同，或删互素条件使命题错误，则重设范围。",
+    "novelty_and_overlap": "独立主仓库但与其他Rocq项共享MathComp；不覆盖原FLT/数论主目标。公开proof已有同义加权恒等式，必须将其当基线而非新发现。",
+    "offline_and_compute": "实际Rocq opam规格和兼容包、_CoqProject、3个证明文件已取；依赖尚未完全版本锁定，未构建/检查递归假设。",
+    "license_observation": "当前树无根LICENSE文件；opam和BGsection1头声明CeCILL-B。完整许可文本与打包权链需补齐后再发布题包。",
+    "potential": "medium",
+    "priority": "hold_license",
+    "category": "formal",
+    "repo": "math-comp/odd-order",
+    "revision": "ba734c020d9f7dce5758fa822904dea29e2624ba",
+    "source_manifest": "sources/f08_oddorder/manifest.json",
+    "card": "cards/f08_oddorder.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/f08_oddorder/files/theories/BGsection1.v",
+        "start": 1,
+        "end": 24,
+        "kind": "license_specification"
+      },
+      {
+        "path": "sources/f08_oddorder/files/theories/BGsection1.v",
+        "start": 60,
+        "end": 99,
+        "kind": "specification"
+      },
+      {
+        "path": "sources/f08_oddorder/files/theories/wielandt_fixpoint.v",
+        "start": 452,
+        "end": 490,
+        "kind": "proof"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/f08_oddorder/files/theories/BGsection1.v",
+        "line": 1,
+        "claim": "源码头声明CeCILL-B并列所覆盖群论结果",
+        "url": "https://github.com/math-comp/odd-order/blob/ba734c020d9f7dce5758fa822904dea29e2624ba/theories/BGsection1.v#L1"
+      },
+      {
+        "path": "sources/f08_oddorder/files/theories/BGsection1.v",
+        "line": 60,
+        "claim": "p稳定与正规生成等结构有显式定义",
+        "url": "https://github.com/math-comp/odd-order/blob/ba734c020d9f7dce5758fa822904dea29e2624ba/theories/BGsection1.v#L60"
+      },
+      {
+        "path": "sources/f08_oddorder/files/theories/wielandt_fixpoint.v",
+        "line": 452,
+        "claim": "Wielandt固定点乘积恒等式有具体正规子群/商群归纳证明",
+        "url": "https://github.com/math-comp/odd-order/blob/ba734c020d9f7dce5758fa822904dea29e2624ba/theories/wielandt_fixpoint.v#L452"
+      }
+    ],
+    "deliverable": "固定定义与命题签名的证明文件、依赖清单和作者侧假设报告；在干净评测进程中重新内核检查。",
+    "grader_plan": "grader持有独立目标声明，对提交proof进行类型检查；递归检查公理/依赖，拒绝sorryAx、Admitted或新增无证明假设。评分只计预定义引理和终点，不计代码量；另审命题忠实性与非空假设。",
+    "generation_and_split": "按定义、证明方法和依赖子图划分开发/隐藏目标；改符号或换自然数不计新实例。归一化比较库内同义定理；作者参考证明不进入求解环境，保留普通合法自动化和基础库。",
+    "static_trust_observation": {
+      "lexical_hits_in_acquired_proof_files_including_comments": [],
+      "transitive_axioms_checked": false,
+      "kernel_executed": false,
+      "scope": "仅所取文件静态词法扫描；没有命中也不证明传递依赖无公理。"
+    }
+  },
+  {
+    "id": "f09_graph",
+    "name": "Graph Theory — Minors and Treewidth",
+    "source_unit": "minor映射、树分解及K4-free↔treewidth≤2证明",
+    "title": "树宽二消元证书的可靠性与完备性",
+    "proposed_task": "定义有限图消元/分解证书，证明校验器接受则无K4 minor且有宽度≤2树分解，并从适用消元步骤构造完整证书；交付一般正确性证明而非只求一张图。",
+    "difficulty_sources": [
+      "minor支集的连通不交与分解袋覆盖条件需要在删除/补边/合并中保持。",
+      "存在性定理到可检消元证书需要显式构造与不变量，单个SAT解不能完成泛化定理。"
+    ],
+    "baseline": "允许现有excluded_minor_TW2、图分解和有限反射自动化；先试库内算法/证书接口。",
+    "first_probe": "从简单环及含二点分离集图验证证书定义，再证明一个删除/补边步骤的双向不变量并查有无同义checker。",
+    "stop_condition": "库已提供完全相同可计算证书及正确性，只需包装；或规格把bag size≤3错写树宽≤3，需先修定义。",
+    "novelty_and_overlap": "新主来源；与FourColor共享作者生态，但本簇不依赖平面Wagner可选FourColor包。避免把现有存在性定理删body后直接调用其推论。",
+    "offline_and_compute": "Coq>=8.19、MathComp>=2.5、HB>=1.5及dune构建规格、meta和3个证明已取；未解精确依赖锁/跑内核。",
+    "license_observation": "README与opam声明CeCILL-B，但固定树没有其链接指向的根LICENSE；须补原版许可文本和权链后发布派生包。",
+    "potential": "high",
+    "priority": "hold_license",
+    "category": "formal",
+    "repo": "rocq-community/graph-theory",
+    "revision": "322e352b72c4ca3f153e5f80123c5020a0d40620",
+    "source_manifest": "sources/f09_graph/manifest.json",
+    "card": "cards/f09_graph.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/f09_graph/files/theories/core/minor.v",
+        "start": 1,
+        "end": 31,
+        "kind": "specification"
+      },
+      {
+        "path": "sources/f09_graph/files/theories/core/excluded.v",
+        "start": 376,
+        "end": 425,
+        "kind": "proof"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/f09_graph/files/theories/core/minor.v",
+        "line": 1,
+        "claim": "minor正反映射显式要求连通、互不相交与边见证",
+        "url": "https://github.com/rocq-community/graph-theory/blob/322e352b72c4ca3f153e5f80123c5020a0d40620/theories/core/minor.v#L1"
+      },
+      {
+        "path": "sources/f09_graph/files/theories/core/excluded.v",
+        "line": 376,
+        "claim": "K4-free到袋大小≤3的树分解已有分离集归纳证明",
+        "url": "https://github.com/rocq-community/graph-theory/blob/322e352b72c4ca3f153e5f80123c5020a0d40620/theories/core/excluded.v#L376"
+      }
+    ],
+    "deliverable": "固定定义与命题签名的证明文件、依赖清单和作者侧假设报告；在干净评测进程中重新内核检查。",
+    "grader_plan": "grader持有独立目标声明，对提交proof进行类型检查；递归检查公理/依赖，拒绝sorryAx、Admitted或新增无证明假设。评分只计预定义引理和终点，不计代码量；另审命题忠实性与非空假设。",
+    "generation_and_split": "按定义、证明方法和依赖子图划分开发/隐藏目标；改符号或换自然数不计新实例。归一化比较库内同义定理；作者参考证明不进入求解环境，保留普通合法自动化和基础库。",
+    "static_trust_observation": {
+      "lexical_hits_in_acquired_proof_files_including_comments": [],
+      "transitive_axioms_checked": false,
+      "kernel_executed": false,
+      "scope": "仅所取文件静态词法扫描；没有命中也不证明传递依赖无公理。"
+    }
+  },
+  {
+    "id": "f10_compcert",
+    "name": "CompCert — Optimization Correctness",
+    "source_unit": "RTL常量传播transf_instr及前向模拟正确性证明",
+    "title": "新局部优化规则的语义保持证明链",
+    "proposed_task": "在给定RTL语义和明确的新优化规则下，证明抽象值可靠性、寄存器/内存匹配、单步模拟及程序前向模拟；实现规则本身保持小范围，评分主体是证明。",
+    "difficulty_sources": [
+      "未定义值、地址/内存扩展和数据流近似共同决定规则何时可用，数学整数等价不自动成立。",
+      "分支后继变化和可消去步骤要求良基度量及匹配关系，局部指令结果正确不足以推出可观察行为保持。"
+    ],
+    "baseline": "允许CompCert已验证Constprop和现有strength reduction证明；先试现有通用模拟框架或已实现同义规则。",
+    "first_probe": "先确认确为新增且语义正确的规则，闭合一条涉及内存/控制流的步骤模拟；构题前跑原参考健康构建与Print Assumptions。",
+    "stop_condition": "规则已被现有优化/引理覆盖而仅需实例化，或题目难点只在安装编译器，则缩减/淘汰；许可不允许目标用途则不打包。",
+    "novelty_and_overlap": "现有软工素材登记未见同仓；交付为Rocq证明因此归形式验证。公开完整Constpropproof是作者参考，新增规则和目标签名要独立审查，不能假称未有常量传播证明。",
+    "offline_and_compute": "已取configure、Makefile、VERSION及优化/证明/Smallstep文件；完整目标架构、Rocq/OCaml/Menhir环境和内核未验证。",
+    "license_observation": "根LICENSE为INRIA非商业许可或AbsInt软件协议；README明确非自由软件。研究评估用途不等于可任意训练/商业再分发，先hold_license。",
+    "potential": "high",
+    "priority": "hold_license",
+    "category": "formal",
+    "repo": "AbsInt/CompCert",
+    "revision": "e276a3f881669252e2a5c4b5fec06f51f7143161",
+    "source_manifest": "sources/f10_compcert/manifest.json",
+    "card": "cards/f10_compcert.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/f10_compcert/files/backend/Constprop.v",
+        "start": 166,
+        "end": 200,
+        "kind": "specification"
+      },
+      {
+        "path": "sources/f10_compcert/files/backend/Constpropproof.v",
+        "start": 581,
+        "end": 625,
+        "kind": "proof"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/f10_compcert/files/backend/Constprop.v",
+        "line": 166,
+        "claim": "变换指令依赖抽象寄存器及内存分析并可能改后继",
+        "url": "https://github.com/AbsInt/CompCert/blob/e276a3f881669252e2a5c4b5fec06f51f7143161/backend/Constprop.v#L166"
+      },
+      {
+        "path": "sources/f10_compcert/files/backend/Constpropproof.v",
+        "line": 581,
+        "claim": "程序正确性以带良基度量的forward_simulation证明",
+        "url": "https://github.com/AbsInt/CompCert/blob/e276a3f881669252e2a5c4b5fec06f51f7143161/backend/Constpropproof.v#L581"
+      }
+    ],
+    "deliverable": "固定定义与命题签名的证明文件、依赖清单和作者侧假设报告；在干净评测进程中重新内核检查。",
+    "grader_plan": "grader持有独立目标声明，对提交proof进行类型检查；递归检查公理/依赖，拒绝sorryAx、Admitted或新增无证明假设。评分只计预定义引理和终点，不计代码量；另审命题忠实性与非空假设。",
+    "generation_and_split": "按定义、证明方法和依赖子图划分开发/隐藏目标；改符号或换自然数不计新实例。归一化比较库内同义定理；作者参考证明不进入求解环境，保留普通合法自动化和基础库。",
+    "static_trust_observation": {
+      "lexical_hits_in_acquired_proof_files_including_comments": [],
+      "transitive_axioms_checked": false,
+      "kernel_executed": false,
+      "scope": "仅所取文件静态词法扫描；没有命中也不证明传递依赖无公理。"
+    }
+  }
+]

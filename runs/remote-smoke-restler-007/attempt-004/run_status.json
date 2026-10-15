@@ -1,0 +1,559 @@
+{
+  "status": "smoke_completed",
+  "task": "restler_resilient_execution",
+  "started_unix": 1791987196.6178932,
+  "model_runs": 0,
+  "six_hour_runs": 0,
+  "accepted": false,
+  "architecture": "x86_64",
+  "agent_image": "edge-raymone-agent:8cd3bfc2a671",
+  "judge_image": "edge-raymone-judge:8cd3bfc2a671",
+  "reports": {
+    "reference_public": {
+      "status": "scored",
+      "score": 1.0,
+      "valid": true,
+      "checks": [
+        {
+          "name": "global_override",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "retry_503",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "idempotency_GET",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "async_completion_final_get",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "reverse_dependency",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "redacted_trace",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "replay_deterministic",
+          "pass": true,
+          "summary": "ok"
+        }
+      ],
+      "raw_metrics": {
+        "group_pass_fraction": {
+          "policy": 1.0,
+          "retry": 1.0,
+          "idempotency": 1.0,
+          "async": 1.0,
+          "leases": 1.0,
+          "trace": 1.0,
+          "replay": 1.0
+        },
+        "check_count": 7
+      },
+      "summary": "7/7 named checks passed"
+    },
+    "reference_feedback": {
+      "status": "scored",
+      "score": 1.0,
+      "valid": true,
+      "checks": [
+        {
+          "name": "global_override",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "method_override",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "reject_max_attempts",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "reject_deadline_seconds",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "reject_retry_statuses",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "reject_jitter_fraction",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "reject_extra",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "retry_503",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "max_attempts",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "retry_after_seconds",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "retry_after_date",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "malformed_retry_after",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "deadline_blocks_sleep",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "idempotency_GET",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "idempotency_HEAD",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "idempotency_PUT",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "idempotency_DELETE",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "idempotency_POST",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "idempotency_PATCH",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "idempotency_explicit",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "unsafe_network_reset",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "async_completion_final_get",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "shared_deadline",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "cancellation",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "reverse_dependency",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "shared_parent_retained",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "leased_child_blocks_parent",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "cycle_rejected",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "rollback_via_restler",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "full_workflow_cleanup",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "redacted_trace",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "trace_failure",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "replay_deterministic",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "ordinary_success",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "legacy_policy_disabled",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "legacy_retry_compatibility",
+          "pass": true,
+          "summary": "ok"
+        }
+      ],
+      "raw_metrics": {
+        "group_pass_fraction": {
+          "policy": 1.0,
+          "retry": 1.0,
+          "idempotency": 1.0,
+          "async": 1.0,
+          "leases": 1.0,
+          "trace": 1.0,
+          "replay": 1.0
+        },
+        "check_count": 36
+      },
+      "summary": "36/36 named checks passed"
+    },
+    "reference_audit": {
+      "status": "scored",
+      "score": 1.0,
+      "valid": true,
+      "checks": [
+        {
+          "name": "audit_path_default",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "audit_capped_backoff",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "audit_patch_key",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "audit_late_response",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "audit_cleanup_budget",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "audit_unauthorized_trace",
+          "pass": true,
+          "summary": "ok"
+        },
+        {
+          "name": "audit_replay_retry_after",
+          "pass": true,
+          "summary": "ok"
+        }
+      ],
+      "raw_metrics": {
+        "group_pass_fraction": {
+          "policy": 1.0,
+          "retry": 1.0,
+          "idempotency": 1.0,
+          "async": 1.0,
+          "leases": 1.0,
+          "trace": 1.0,
+          "replay": 1.0
+        },
+        "check_count": 7
+      },
+      "summary": "7/7 named checks passed"
+    },
+    "starter_feedback": {
+      "status": "scored",
+      "score": 0.0,
+      "valid": true,
+      "checks": [
+        {
+          "name": "global_override",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "method_override",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "reject_max_attempts",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "reject_deadline_seconds",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "reject_retry_statuses",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "reject_jitter_fraction",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "reject_extra",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "retry_503",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "max_attempts",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "retry_after_seconds",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "retry_after_date",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "malformed_retry_after",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "deadline_blocks_sleep",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "idempotency_GET",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "idempotency_HEAD",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "idempotency_PUT",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "idempotency_DELETE",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "idempotency_POST",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "idempotency_PATCH",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "idempotency_explicit",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "unsafe_network_reset",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "async_completion_final_get",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "shared_deadline",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "cancellation",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "reverse_dependency",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "shared_parent_retained",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "leased_child_blocks_parent",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "cycle_rejected",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "rollback_via_restler",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "full_workflow_cleanup",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "redacted_trace",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "trace_failure",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "replay_deterministic",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "ordinary_success",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "legacy_policy_disabled",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        },
+        {
+          "name": "legacy_retry_compatibility",
+          "pass": false,
+          "summary": "behavior does not meet the published contract"
+        }
+      ],
+      "raw_metrics": {
+        "group_pass_fraction": {
+          "policy": 0.0,
+          "retry": 0.0,
+          "idempotency": 0.0,
+          "async": 0.0,
+          "leases": 0.0,
+          "trace": 0.0,
+          "replay": 0.0
+        },
+        "check_count": 36
+      },
+      "summary": "0/36 named checks passed"
+    },
+    "empty_feedback": {
+      "status": "scored",
+      "score": 0,
+      "valid": false,
+      "checks": [
+        {
+          "name": "submission_contract",
+          "pass": false,
+          "summary": "snapshot root must contain restler_settings.py and engine/"
+        }
+      ],
+      "raw_metrics": {},
+      "summary": "0/1 named checks passed"
+    }
+  },
+  "build_network": "host",
+  "runtime_network": "none",
+  "judge_capabilities": [
+    "SYS_ADMIN",
+    "SETUID",
+    "SETGID",
+    "SETFCAP"
+  ],
+  "judge_security_options": [
+    "seccomp=unconfined",
+    "apparmor=unconfined",
+    "systempaths=unconfined"
+  ],
+  "stage": "grading",
+  "agent_image_id": "sha256:7373190bdb9eb5e3bffbebd6968eff036bf28ed61df33d0c9261b464306ae23b",
+  "verifier_image_id": "sha256:9031ecd65b42e0d08b6f1b3fb844983204fb42b9c1e1c9daa276680ba6073a5e",
+  "sandbox_preflight": "passed",
+  "reference_has_positive_score": true,
+  "empty_rejected": true,
+  "reference_all_suites_full_score": true,
+  "scope": "Direct Docker reference/public/feedback/audit, unchanged starter and empty controls. No native Harbor, isolation audit, determinism or six-hour claim. Current local empty-submission valid=false semantics still need Harbor alignment.",
+  "finished_unix": 1791987330.8399644
+}

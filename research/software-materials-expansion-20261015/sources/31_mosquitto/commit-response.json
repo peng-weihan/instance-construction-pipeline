@@ -1,0 +1,101 @@
+{
+  "sha": "83f2620f0b955b89aadce32cceb96a8e81950f5e",
+  "node_id": "C_kwDOAzIWbtoAKDgzZjI2MjBmMGI5NTViODlhYWRjZTMyY2NlYjk2YThlODE5NTBmNWU",
+  "commit": {
+    "author": {
+      "name": "Roger A. Light",
+      "email": "roger@atchoo.org",
+      "date": "2026-10-04T09:31:29Z"
+    },
+    "committer": {
+      "name": "Roger A. Light",
+      "email": "roger@atchoo.org",
+      "date": "2026-10-04T09:31:29Z"
+    },
+    "message": "else if should be if",
+    "tree": {
+      "sha": "7d7aaedb265de44154211765edb16c7284b8d389",
+      "url": "https://api.github.com/repos/eclipse-mosquitto/mosquitto/git/trees/7d7aaedb265de44154211765edb16c7284b8d389"
+    },
+    "url": "https://api.github.com/repos/eclipse-mosquitto/mosquitto/git/commits/83f2620f0b955b89aadce32cceb96a8e81950f5e",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\niQJFBAABCgAvFiEEoNbuodyuSaY1o7Lwd5si37PnF7cFAmrCHPERHHJvZ2VyQGF0\nY2hvby5vcmcACgkQd5si37PnF7cwcBAAlIjGdxkp2EZcP19czWwCpjQFtGwO2jXP\nkA2Dd//1ew+o8Z9fu0JlxMQUP85AFDNiC5YwIKyZKNaXfOwciFUjMPOSeBRtt8h5\np7ctgGUdA19co9lkZuxKS5+KBpGR4ieIyVICVMyZGV9yF4opprVIr20MJhVSFGW2\nrnNhJLROw65JIskNT2mUYYSn8Si0HZXu4of3USDP/yAnGau/Pv7E2Xe8RpL0HDG4\nHDZmGafwI52Cyn+5Df8hn6QR0DqOYtEe1IOXHHqtmkBZE6m1PLoEv4rttTi9k5c+\n0gwx2c5np3v8pQQFfPf8iWBlzXTMZcqCpToLZKiAv91LhqwmPnIe6jAWWrV8BDci\nm6Wm1jUqL/HeqCzbjTO2jVUKildfqXmIdWZnOg99K1l/+P3QFbt2NsatOZPtsPaD\nG+t51jVQ8bhsDsQKfk+pgsTCIWgVdcf0tai7sArIn2gjF7z58a87PGCK8Oc8iZbo\nh6iKJ//UBkyI9/QmuercCXnEloozjYkb74lnlE3Zu2lo99KvFeddhbzLIAgf2JAw\nq120V8KgLJdD8vHnc076QnvhYhfW1iy2lT9ZwkXXWnKp10zn2KZPuwUe4KZAiLS6\nsd1Hbjpdmtbxqrhtf8edkeBWWH/MBenzY/5wn/06IBqmfVSdeRi7INpRZjic4udZ\nwF3dNHD+gOQ=\n=woVO\n-----END PGP SIGNATURE-----",
+      "payload": "tree 7d7aaedb265de44154211765edb16c7284b8d389\nparent 6aaba32614eb1160ddbfeafd616f9f67e7914a41\nauthor Roger A. Light <roger@atchoo.org> 1791106289 +0100\ncommitter Roger A. Light <roger@atchoo.org> 1791106289 +0100\n\nelse if should be if\n",
+      "verified_at": "2026-10-04T09:31:38Z"
+    }
+  },
+  "url": "https://api.github.com/repos/eclipse-mosquitto/mosquitto/commits/83f2620f0b955b89aadce32cceb96a8e81950f5e",
+  "html_url": "https://github.com/eclipse-mosquitto/mosquitto/commit/83f2620f0b955b89aadce32cceb96a8e81950f5e",
+  "comments_url": "https://api.github.com/repos/eclipse-mosquitto/mosquitto/commits/83f2620f0b955b89aadce32cceb96a8e81950f5e/comments",
+  "author": {
+    "login": "ralight",
+    "id": 79578,
+    "node_id": "MDQ6VXNlcjc5NTc4",
+    "avatar_url": "https://avatars.githubusercontent.com/u/79578?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/ralight",
+    "html_url": "https://github.com/ralight",
+    "followers_url": "https://api.github.com/users/ralight/followers",
+    "following_url": "https://api.github.com/users/ralight/following{/other_user}",
+    "gists_url": "https://api.github.com/users/ralight/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/ralight/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/ralight/subscriptions",
+    "organizations_url": "https://api.github.com/users/ralight/orgs",
+    "repos_url": "https://api.github.com/users/ralight/repos",
+    "events_url": "https://api.github.com/users/ralight/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/ralight/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "ralight",
+    "id": 79578,
+    "node_id": "MDQ6VXNlcjc5NTc4",
+    "avatar_url": "https://avatars.githubusercontent.com/u/79578?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/ralight",
+    "html_url": "https://github.com/ralight",
+    "followers_url": "https://api.github.com/users/ralight/followers",
+    "following_url": "https://api.github.com/users/ralight/following{/other_user}",
+    "gists_url": "https://api.github.com/users/ralight/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/ralight/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/ralight/subscriptions",
+    "organizations_url": "https://api.github.com/users/ralight/orgs",
+    "repos_url": "https://api.github.com/users/ralight/repos",
+    "events_url": "https://api.github.com/users/ralight/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/ralight/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "6aaba32614eb1160ddbfeafd616f9f67e7914a41",
+      "url": "https://api.github.com/repos/eclipse-mosquitto/mosquitto/commits/6aaba32614eb1160ddbfeafd616f9f67e7914a41",
+      "html_url": "https://github.com/eclipse-mosquitto/mosquitto/commit/6aaba32614eb1160ddbfeafd616f9f67e7914a41"
+    }
+  ],
+  "stats": {
+    "total": 3,
+    "additions": 2,
+    "deletions": 1
+  },
+  "files": [
+    {
+      "sha": "7bd926d4280573c821716f56d10e00315b0db8e4",
+      "filename": "src/plugin_public.c",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "blob_url": "https://github.com/eclipse-mosquitto/mosquitto/blob/83f2620f0b955b89aadce32cceb96a8e81950f5e/src%2Fplugin_public.c",
+      "raw_url": "https://github.com/eclipse-mosquitto/mosquitto/raw/83f2620f0b955b89aadce32cceb96a8e81950f5e/src%2Fplugin_public.c",
+      "contents_url": "https://api.github.com/repos/eclipse-mosquitto/mosquitto/contents/src%2Fplugin_public.c?ref=83f2620f0b955b89aadce32cceb96a8e81950f5e",
+      "patch": "@@ -734,7 +734,8 @@ BROKER_EXPORT int mosquitto_persist_client_msg_clear(struct mosquitto_client_msg\n \n \tif(client_msg->direction == mosq_bmd_in || client_msg->direction == mosq_bmd_all){\n \t\tdb__messages_delete_incoming(context);\n-\t}else if(client_msg->direction == mosq_bmd_out || client_msg->direction == mosq_bmd_all){\n+\t}\n+\tif(client_msg->direction == mosq_bmd_out || client_msg->direction == mosq_bmd_all){\n \t\tdb__messages_delete_outgoing(context);\n \t}\n \treturn MOSQ_ERR_SUCCESS;"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "status": "ok",
+  "target_command": [
+    "{python}",
+    "-m",
+    "pytest",
+    "tests/test_target.py",
+    "-q"
+  ],
+  "regression_command": [
+    "{python}",
+    "-m",
+    "pytest",
+    "tests/test_regression.py",
+    "-q"
+  ],
+  "build_command": [],
+  "captured_patch": "diff --git a/tests/test_target.py b/tests/test_target.py\nnew file mode 100644\nindex 0000000..7b371a5\n--- /dev/null\n+++ b/tests/test_target.py\n@@ -0,0 +1,9 @@\n+from calc import combine\n+def test_parent():\n+    assert combine({\"a\": 1}, {}) == {\"a\": 1}\n+def test_child():\n+    assert combine({}, {\"b\": 2}) == {\"b\": 2}\n+def test_override():\n+    assert combine({\"a\": 1, \"b\": 2}, {\"a\": 3}) == {\"a\": 3, \"b\": 2}\n+def test_unicode():\n+    assert combine({\"名字\": \"甲\"}, {\"名字\": \"乙\"}) == {\"名字\": \"乙\"}\n",
+  "changed_paths": [
+    "tests/test_target.py"
+  ]
+}

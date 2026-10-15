@@ -1,0 +1,237 @@
+[
+  {
+    "id": "official_i32_add_1",
+    "group": "integer",
+    "request": {
+      "module": "0061736d01000000010c0260027f7f017f60017f017f031e1d000000000000000000000000000000010101010000000000000000000007c5011d036164640000037375620001036d756c0002056469765f730003056469765f7500040572656d5f7300050572656d5f75000603616e640007026f72000803786f7200090373686c000a057368725f73000b057368725f75000c04726f746c000d04726f7472000e03636c7a000f0363747a001006706f70636e7400110365717a00120265710013026e650014046c745f730015046c745f750016046c655f730017046c655f7500180467745f7300190467745f75001a0467655f73001b0467655f75001c0ae1011d0700200020016a0b0700200020016b0b0700200020016c0b0700200020016d0b0700200020016e0b0700200020016f0b070020002001700b070020002001710b070020002001720b070020002001730b070020002001740b070020002001750b070020002001760b070020002001770b070020002001780b05002000670b05002000680b05002000690b05002000450b070020002001460b070020002001470b070020002001480b070020002001490b0700200020014c0b0700200020014d0b0700200020014a0b0700200020014b0b0700200020014e0b0700200020014f0b00e501046e616d6502dd011d00020001780101790102000178010179020200017801017903020001780101790402000178010179050200017801017906020001780101790702000178010179080200017801017909020001780101790a020001780101790b020001780101790c020001780101790d020001780101790e020001780101790f0100017810010001781101000178120100017813020001780101791402000178010179150200017801017916020001780101791702000178010179180200017801017919020001780101791a020001780101791b020001780101791c02000178010179",
+      "calls": [
+        {
+          "export": "add",
+          "args": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "source": "test/core/i32.wast:(assert_return (invoke \"add\" (i32.const 1) (i32.const 1)) (i32.const 2))",
+    "wat": ";; i32 operations\n\n(module\n  (func (export \"add\") (param $x i32) (param $y i32) (result i32) (i32.add (local.get $x) (local.get $y)))\n  (func (export \"sub\") (param $x i32) (param $y i32) (result i32) (i32.sub (local.get $x) (local.get $y)))\n  (func (export \"mul\") (param $x i32) (param $y i32) (result i32) (i32.mul (local.get $x) (local.get $y)))\n  (func (export \"div_s\") (param $x i32) (param $y i32) (result i32) (i32.div_s (local.get $x) (local.get $y)))\n  (func (export \"div_u\") (param $x i32) (param $y i32) (result i32) (i32.div_u (local.get $x) (local.get $y)))\n  (func (export \"rem_s\") (param $x i32) (param $y i32) (result i32) (i32.rem_s (local.get $x) (local.get $y)))\n  (func (export \"rem_u\") (param $x i32) (param $y i32) (result i32) (i32.rem_u (local.get $x) (local.get $y)))\n  (func (export \"and\") (param $x i32) (param $y i32) (result i32) (i32.and (local.get $x) (local.get $y)))\n  (func (export \"or\") (param $x i32) (param $y i32) (result i32) (i32.or (local.get $x) (local.get $y)))\n  (func (export \"xor\") (param $x i32) (param $y i32) (result i32) (i32.xor (local.get $x) (local.get $y)))\n  (func (export \"shl\") (param $x i32) (param $y i32) (result i32) (i32.shl (local.get $x) (local.get $y)))\n  (func (export \"shr_s\") (param $x i32) (param $y i32) (result i32) (i32.shr_s (local.get $x) (local.get $y)))\n  (func (export \"shr_u\") (param $x i32) (param $y i32) (result i32) (i32.shr_u (local.get $x) (local.get $y)))\n  (func (export \"rotl\") (param $x i32) (param $y i32) (result i32) (i32.rotl (local.get $x) (local.get $y)))\n  (func (export \"rotr\") (param $x i32) (param $y i32) (result i32) (i32.rotr (local.get $x) (local.get $y)))\n  (func (export \"clz\") (param $x i32) (result i32) (i32.clz (local.get $x)))\n  (func (export \"ctz\") (param $x i32) (result i32) (i32.ctz (local.get $x)))\n  (func (export \"popcnt\") (param $x i32) (result i32) (i32.popcnt (local.get $x)))\n  (func (export \"eqz\") (param $x i32) (result i32) (i32.eqz (local.get $x)))\n  (func (export \"eq\") (param $x i32) (param $y i32) (result i32) (i32.eq (local.get $x) (local.get $y)))\n  (func (export \"ne\") (param $x i32) (param $y i32) (result i32) (i32.ne (local.get $x) (local.get $y)))\n  (func (export \"lt_s\") (param $x i32) (param $y i32) (result i32) (i32.lt_s (local.get $x) (local.get $y)))\n  (func (export \"lt_u\") (param $x i32) (param $y i32) (result i32) (i32.lt_u (local.get $x) (local.get $y)))\n  (func (export \"le_s\") (param $x i32) (param $y i32) (result i32) (i32.le_s (local.get $x) (local.get $y)))\n  (func (export \"le_u\") (param $x i32) (param $y i32) (result i32) (i32.le_u (local.get $x) (local.get $y)))\n  (func (export \"gt_s\") (param $x i32) (param $y i32) (result i32) (i32.gt_s (local.get $x) (local.get $y)))\n  (func (export \"gt_u\") (param $x i32) (param $y i32) (result i32) (i32.gt_u (local.get $x) (local.get $y)))\n  (func (export \"ge_s\") (param $x i32) (param $y i32) (result i32) (i32.ge_s (local.get $x) (local.get $y)))\n  (func (export \"ge_u\") (param $x i32) (param $y i32) (result i32) (i32.ge_u (local.get $x) (local.get $y)))\n)",
+    "expected": {
+      "results": [
+        2
+      ],
+      "memory": []
+    }
+  },
+  {
+    "id": "official_i32_div_s_1",
+    "group": "traps",
+    "request": {
+      "module": "0061736d01000000010c0260027f7f017f60017f017f031e1d000000000000000000000000000000010101010000000000000000000007c5011d036164640000037375620001036d756c0002056469765f730003056469765f7500040572656d5f7300050572656d5f75000603616e640007026f72000803786f7200090373686c000a057368725f73000b057368725f75000c04726f746c000d04726f7472000e03636c7a000f0363747a001006706f70636e7400110365717a00120265710013026e650014046c745f730015046c745f750016046c655f730017046c655f7500180467745f7300190467745f75001a0467655f73001b0467655f75001c0ae1011d0700200020016a0b0700200020016b0b0700200020016c0b0700200020016d0b0700200020016e0b0700200020016f0b070020002001700b070020002001710b070020002001720b070020002001730b070020002001740b070020002001750b070020002001760b070020002001770b070020002001780b05002000670b05002000680b05002000690b05002000450b070020002001460b070020002001470b070020002001480b070020002001490b0700200020014c0b0700200020014d0b0700200020014a0b0700200020014b0b0700200020014e0b0700200020014f0b00e501046e616d6502dd011d00020001780101790102000178010179020200017801017903020001780101790402000178010179050200017801017906020001780101790702000178010179080200017801017909020001780101790a020001780101790b020001780101790c020001780101790d020001780101790e020001780101790f0100017810010001781101000178120100017813020001780101791402000178010179150200017801017916020001780101791702000178010179180200017801017919020001780101791a020001780101791b020001780101791c02000178010179",
+      "calls": [
+        {
+          "export": "div_s",
+          "args": [
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    "source": "test/core/i32.wast:(assert_trap (invoke \"div_s\" (i32.const 1) (i32.const 0)) \"integer divide by zero\")",
+    "wat": ";; i32 operations\n\n(module\n  (func (export \"add\") (param $x i32) (param $y i32) (result i32) (i32.add (local.get $x) (local.get $y)))\n  (func (export \"sub\") (param $x i32) (param $y i32) (result i32) (i32.sub (local.get $x) (local.get $y)))\n  (func (export \"mul\") (param $x i32) (param $y i32) (result i32) (i32.mul (local.get $x) (local.get $y)))\n  (func (export \"div_s\") (param $x i32) (param $y i32) (result i32) (i32.div_s (local.get $x) (local.get $y)))\n  (func (export \"div_u\") (param $x i32) (param $y i32) (result i32) (i32.div_u (local.get $x) (local.get $y)))\n  (func (export \"rem_s\") (param $x i32) (param $y i32) (result i32) (i32.rem_s (local.get $x) (local.get $y)))\n  (func (export \"rem_u\") (param $x i32) (param $y i32) (result i32) (i32.rem_u (local.get $x) (local.get $y)))\n  (func (export \"and\") (param $x i32) (param $y i32) (result i32) (i32.and (local.get $x) (local.get $y)))\n  (func (export \"or\") (param $x i32) (param $y i32) (result i32) (i32.or (local.get $x) (local.get $y)))\n  (func (export \"xor\") (param $x i32) (param $y i32) (result i32) (i32.xor (local.get $x) (local.get $y)))\n  (func (export \"shl\") (param $x i32) (param $y i32) (result i32) (i32.shl (local.get $x) (local.get $y)))\n  (func (export \"shr_s\") (param $x i32) (param $y i32) (result i32) (i32.shr_s (local.get $x) (local.get $y)))\n  (func (export \"shr_u\") (param $x i32) (param $y i32) (result i32) (i32.shr_u (local.get $x) (local.get $y)))\n  (func (export \"rotl\") (param $x i32) (param $y i32) (result i32) (i32.rotl (local.get $x) (local.get $y)))\n  (func (export \"rotr\") (param $x i32) (param $y i32) (result i32) (i32.rotr (local.get $x) (local.get $y)))\n  (func (export \"clz\") (param $x i32) (result i32) (i32.clz (local.get $x)))\n  (func (export \"ctz\") (param $x i32) (result i32) (i32.ctz (local.get $x)))\n  (func (export \"popcnt\") (param $x i32) (result i32) (i32.popcnt (local.get $x)))\n  (func (export \"eqz\") (param $x i32) (result i32) (i32.eqz (local.get $x)))\n  (func (export \"eq\") (param $x i32) (param $y i32) (result i32) (i32.eq (local.get $x) (local.get $y)))\n  (func (export \"ne\") (param $x i32) (param $y i32) (result i32) (i32.ne (local.get $x) (local.get $y)))\n  (func (export \"lt_s\") (param $x i32) (param $y i32) (result i32) (i32.lt_s (local.get $x) (local.get $y)))\n  (func (export \"lt_u\") (param $x i32) (param $y i32) (result i32) (i32.lt_u (local.get $x) (local.get $y)))\n  (func (export \"le_s\") (param $x i32) (param $y i32) (result i32) (i32.le_s (local.get $x) (local.get $y)))\n  (func (export \"le_u\") (param $x i32) (param $y i32) (result i32) (i32.le_u (local.get $x) (local.get $y)))\n  (func (export \"gt_s\") (param $x i32) (param $y i32) (result i32) (i32.gt_s (local.get $x) (local.get $y)))\n  (func (export \"gt_u\") (param $x i32) (param $y i32) (result i32) (i32.gt_u (local.get $x) (local.get $y)))\n  (func (export \"ge_s\") (param $x i32) (param $y i32) (result i32) (i32.ge_s (local.get $x) (local.get $y)))\n  (func (export \"ge_u\") (param $x i32) (param $y i32) (result i32) (i32.ge_u (local.get $x) (local.get $y)))\n)",
+    "expected": {
+      "results": [
+        {
+          "trap": true
+        }
+      ],
+      "memory": []
+    }
+  },
+  {
+    "id": "choose_0",
+    "group": "control",
+    "request": {
+      "module": "0061736d01000000010d0260017f017f60037f7f7f017f0306050000000001072a050663686f6f73650000066573636170650001066e65737465640002057461626c6500030373656c00040a5b050c002000047f41110541770b0b0e00027f412920000d001a41170b0b1200027f0240410c20000d011a0b41e3000b0b2001017f02400240024020000e020001020b410a21010c010b411421010b20010b09002000200120021b0b",
+      "calls": [
+        {
+          "export": "choose",
+          "args": [
+            0
+          ]
+        }
+      ]
+    },
+    "source": "adapted test/core/{if,br_if,br_table,block}.wast",
+    "wat": "(module\n (func (export \"choose\") (param i32) (result i32)\n   (if (result i32) (local.get 0) (then (i32.const 17)) (else (i32.const -9))))\n (func (export \"escape\") (param i32) (result i32)\n   (block (result i32) (i32.const 41) (local.get 0) (br_if 0) (drop) (i32.const 23)))\n (func (export \"nested\") (param i32) (result i32)\n   (block (result i32) (block (i32.const 12) (local.get 0) (br_if 1) (drop)) (i32.const 99)))\n (func (export \"table\") (param i32) (result i32) (local i32)\n   (block (block (block (local.get 0) (br_table 0 1 2)) (i32.const 10) (local.set 1) (br 1)) (i32.const 20) (local.set 1)) (local.get 1))\n (func (export \"sel\") (param i32 i32 i32) (result i32) (select (local.get 0) (local.get 1) (local.get 2))))",
+    "expected": {
+      "results": [
+        -9
+      ],
+      "memory": []
+    }
+  },
+  {
+    "id": "loop_sum_0",
+    "group": "loops",
+    "request": {
+      "module": "0061736d0100000001060160017f017f030201000707010373756d00000a23012101017f024003402000450d01200120006a2101200041016b21000c000b0b20010b0021046e616d65020901000200016e010173030f01000200036f75740105616761696e",
+      "calls": [
+        {
+          "export": "sum",
+          "args": [
+            0
+          ]
+        }
+      ]
+    },
+    "source": "adapted test/core/loop.wast and br_if.wast",
+    "wat": "(module (func (export \"sum\") (param $n i32) (result i32) (local $s i32)\n (block $out (loop $again (br_if $out (i32.eqz (local.get $n)))\n (local.set $s (i32.add (local.get $s) (local.get $n)))\n (local.set $n (i32.sub (local.get $n) (i32.const 1))) (br $again))) (local.get $s)))",
+    "expected": {
+      "results": [
+        0
+      ],
+      "memory": []
+    }
+  },
+  {
+    "id": "factorial_0",
+    "group": "calls",
+    "request": {
+      "module": "0061736d01000000010c0260017f017f60027f7f017f03050400010000071a030466616374000007636f6d706f73650002056561726c7900030a34041700200041014d047f4101052000200041016b10006c0b0b0700200020016b0b0a0020001000410710010b070020000f41090b001b046e616d65010c020004666163740103737562020601000100016e",
+      "calls": [
+        {
+          "export": "fact",
+          "args": [
+            0
+          ]
+        },
+        {
+          "export": "compose",
+          "args": [
+            0
+          ]
+        },
+        {
+          "export": "early",
+          "args": [
+            0
+          ]
+        }
+      ]
+    },
+    "source": "adapted test/core/call.wast recursive factorial and return semantics",
+    "wat": "(module\n (func $fact (export \"fact\") (param $n i32) (result i32)\n   (if (result i32) (i32.le_u (local.get $n) (i32.const 1)) (then (i32.const 1))\n    (else (i32.mul (local.get $n) (call $fact (i32.sub (local.get $n) (i32.const 1)))))))\n (func $sub (param i32 i32) (result i32) (i32.sub (local.get 0) (local.get 1)))\n (func (export \"compose\") (param i32) (result i32) (call $sub (call $fact (local.get 0)) (i32.const 7)))\n (func (export \"early\") (param i32) (result i32) (local.get 0) (return) (i32.const 9)))",
+    "expected": {
+      "results": [
+        1,
+        -6,
+        0
+      ],
+      "memory": []
+    }
+  },
+  {
+    "id": "memory_roundtrip_0",
+    "group": "memory",
+    "request": {
+      "module": "0061736d01000000010f0360027f7f0060017f017f6000017f0309080001010101000102050401010102075109066d656d6f72790200057772697465000004726561640001077369676e656438000209756e7369676e6564380003087369676e656431360004066e6172726f7700050467726f7700060473697a6500070a41080900200020013602000b070020002802000b070020002c00000b070020002d00000b070020002e01000b0900200020013a00000b0600200040000b04003f000b0b0a010041030b04414243ff",
+      "calls": [
+        {
+          "export": "write",
+          "args": [
+            0,
+            -12345
+          ]
+        },
+        {
+          "export": "read",
+          "args": [
+            0
+          ]
+        },
+        {
+          "export": "signed8",
+          "args": [
+            0
+          ]
+        },
+        {
+          "export": "unsigned8",
+          "args": [
+            0
+          ]
+        },
+        {
+          "export": "signed16",
+          "args": [
+            0
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "offset": 0,
+          "length": 4
+        }
+      ]
+    },
+    "source": "adapted test/core/{memory,store,load,endianness}.wast",
+    "wat": "(module (memory (export \"memory\") 1 2) (data (i32.const 3) \"ABC\\ff\")\n (func (export \"write\") (param i32 i32) (local.get 0) (local.get 1) (i32.store))\n (func (export \"read\") (param i32) (result i32) (i32.load (local.get 0)))\n (func (export \"signed8\") (param i32) (result i32) (i32.load8_s (local.get 0)))\n (func (export \"unsigned8\") (param i32) (result i32) (i32.load8_u (local.get 0)))\n (func (export \"signed16\") (param i32) (result i32) (i32.load16_s (local.get 0)))\n (func (export \"narrow\") (param i32 i32) (i32.store8 (local.get 0) (local.get 1)))\n (func (export \"grow\") (param i32) (result i32) (memory.grow (local.get 0)))\n (func (export \"size\") (result i32) (memory.size)))",
+    "expected": {
+      "results": [
+        null,
+        -12345,
+        -57,
+        199,
+        -12345
+      ],
+      "memory": [
+        "c7cfffff"
+      ]
+    }
+  },
+  {
+    "id": "loop_call_store_3",
+    "group": "composition",
+    "request": {
+      "module": "0061736d0100000001060160017f017f03030200000503010001071002066d656d6f727902000372756e00010a3e020a00200041036c41016a0b3101017f02400340200120004f0d01200141046c20011000360200200141016a21010c000b0b200041016b41046c2802000b002a046e616d65010701000473746570020901010200016e010169030f0101020004646f6e6501046e657874",
+      "calls": [
+        {
+          "export": "run",
+          "args": [
+            3
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "offset": 0,
+          "length": 12
+        }
+      ]
+    },
+    "source": "author integration of official loop/call/store semantics",
+    "wat": "(module (memory (export \"memory\") 1)\n     (func $step (param i32) (result i32) (i32.add (i32.mul (local.get 0) (i32.const 3)) (i32.const 1)))\n     (func (export \"run\") (param $n i32) (result i32) (local $i i32)\n      (block $done (loop $next (br_if $done (i32.ge_u (local.get $i) (local.get $n)))\n       (i32.store (i32.mul (local.get $i) (i32.const 4)) (call $step (local.get $i)))\n       (local.set $i (i32.add (local.get $i) (i32.const 1))) (br $next)))\n      (i32.load (i32.mul (i32.sub (local.get $n) (i32.const 1)) (i32.const 4)))))",
+    "expected": {
+      "results": [
+        7
+      ],
+      "memory": [
+        "010000000400000007000000"
+      ]
+    }
+  },
+  {
+    "id": "magic",
+    "group": "binary",
+    "request": {
+      "module": "4241442101000000"
+    },
+    "source": "test/core/binary.wast header/section framing semantics",
+    "expected": {
+      "error": "invalid"
+    }
+  }
+]

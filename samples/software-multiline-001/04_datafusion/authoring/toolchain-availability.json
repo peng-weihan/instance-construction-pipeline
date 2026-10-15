@@ -1,0 +1,12 @@
+{
+  "1.99.0": {
+    "checksum_url": "https://static.rust-lang.org/dist/rust-1.99.0-aarch64-apple-darwin.tar.xz.sha256",
+    "body": "0306e4813a6fa7d4353de68f0bb9a8216b4ca04b1cdee409d0e301f958e55dd2  rust-1.99.0-aarch64-apple-darwin.tar.xz\n",
+    "available": true
+  },
+  "1.95.0": {
+    "checksum_url": "https://static.rust-lang.org/dist/rust-1.95.0-aarch64-apple-darwin.tar.xz.sha256",
+    "body": "0382ac0e7acab0daa24710701442e9fd284148b75265bdb2f59e38b60b03ac3c  rust-1.95.0-aarch64-apple-darwin.tar.xz\n",
+    "available": true
+  }
+}

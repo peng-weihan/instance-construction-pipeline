@@ -1,0 +1,146 @@
+{
+  "o01_ortools": [
+    "google/or-tools",
+    [
+      "examples/python/jobshop_with_maintenance_sat.py",
+      "examples/python/jobshop_ft06_distance_sat.py",
+      "ortools/sat/samples/minimal_jobshop_sat.py"
+    ]
+  ],
+  "o02_pyvrp": [
+    "PyVRP/PyVRP",
+    [
+      "pyvrp/cpp/CostEvaluator.cpp",
+      "pyvrp/cpp/CostEvaluator.h",
+      "tests/test_CostEvaluator.py",
+      "tests/test_Solution.py",
+      "pyvrp/Model.py"
+    ]
+  ],
+  "o03_scip": [
+    "scipopt/scip",
+    [
+      "examples/SCFLP/doc/xternal_scflp.c",
+      "examples/SCFLP/src/probdata_scflp.c",
+      "examples/SCFLP/src/reader_scflp.c",
+      "examples/SCFLP/data/cap41.cap",
+      "examples/SCFLP/check/testset/short.test",
+      "examples/SCFLP/INSTALL.md"
+    ]
+  ],
+  "o04_networkit": [
+    "networkit/networkit",
+    [
+      "networkit/cpp/community/PLM.cpp",
+      "include/networkit/community/PLM.hpp",
+      "networkit/test/test_community.py",
+      "networkit/cpp/community/test/CommunityGTest.cpp"
+    ]
+  ],
+  "o05_mapf": [
+    "MAPF-Competition/Start-Kit",
+    [
+      "src/ActionModel.cpp",
+      "src/CompetitionSystem.cpp",
+      "Input_Output_Format.md",
+      "Prepare_Your_Submission.md",
+      "example_problems/maze.domain/maze-example_40.json"
+    ]
+  ],
+  "o06_vtr": [
+    "verilog-to-routing/vtr-verilog-to-routing",
+    [
+      "vpr/src/place/placer.cpp",
+      "doc/src/vpr/placement_constraints.rst",
+      "doc/src/vpr/relative_placement_constraints.rst",
+      "vtr_flow/tasks/power/power_quick/config/config.txt"
+    ]
+  ],
+  "o07_kahypar": [
+    "kahypar/kahypar",
+    [
+      "kahypar/partition/metrics.h",
+      "tests/partition/metrics_test.cc",
+      "tests/interface/test_instances/unweighted_hypergraph.hgr",
+      "kahypar/partition/partitioner.h"
+    ]
+  ],
+  "o08_bqskit": [
+    "BQSKit/bqskit",
+    [
+      "bqskit/passes/mapping/routing/sabre.py",
+      "bqskit/passes/mapping/layout/sabre.py",
+      "tests/passes/mapping/test_sabre.py",
+      "examples/tfim.qasm",
+      "examples/compile.py"
+    ]
+  ],
+  "o09_openwbo": [
+    "sat-group/open-wbo",
+    [
+      "MaxSAT.cc",
+      "ParserMaxSAT.h",
+      "algorithms/Alg_OLL.cc",
+      "test/valgrind/sat.cnf",
+      "test/valgrind/run.sh"
+    ]
+  ],
+  "o10_setcover": [
+    "fontanf/setcoveringsolver",
+    [
+      "include/setcoveringsolver/solution.hpp",
+      "src/algorithms/large_neighborhood_search.cpp",
+      "src/algorithms/greedy.cpp",
+      "data/data.csv",
+      "scripts/download_data.py"
+    ]
+  ],
+  "k01_beancount": [
+    "beancount/beancount",
+    [
+      "beancount/parser/booking_full.py",
+      "beancount/parser/booking_full_test.py",
+      "beancount/ops/balance_test.py",
+      "examples/simple/basic.beancount",
+      "beancount/scripts/example.py"
+    ]
+  ],
+  "k02_openfisca": [
+    "openfisca/openfisca-france",
+    [
+      "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "tests/formulas/irpp.yaml",
+      "tests/impot_revenu/pfu_bareme.yaml"
+    ]
+  ],
+  "k03_chainladder": [
+    "casact/chainladder-python",
+    [
+      "chainladder/methods/mack.py",
+      "chainladder/methods/tests/test_mack.py",
+      "chainladder/utils/data/raa.csv",
+      "chainladder/utils/data/genins.csv"
+    ]
+  ],
+  "k04_stockpyl": [
+    "LarrySnyder/stockpyl",
+    [
+      "src/stockpyl/ss.py",
+      "src/stockpyl/sim.py",
+      "src/stockpyl/supply_chain_network.py",
+      "src/stockpyl/datasets/stockpyl_instances.json",
+      "tests/test_ss.py"
+    ]
+  ],
+  "k05_cvxportfolio": [
+    "cvxgrp/cvxportfolio",
+    [
+      "cvxportfolio/simulator.py",
+      "cvxportfolio/costs.py",
+      "cvxportfolio/tests/test_simulator.py",
+      "cvxportfolio/tests/returns.csv",
+      "cvxportfolio/tests/volumes.csv",
+      "examples/market_neutral.py"
+    ]
+  ]
+}

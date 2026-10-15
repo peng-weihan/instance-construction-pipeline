@@ -1,0 +1,43 @@
+schema_version = "1.4"
+artifacts = ["/home/workspace/tree-sitter/submission"]
+
+[task]
+name = "edgebench/tree-sitter-edit-recovery"
+version = "0.1.0-draft"
+description = "Recover linked incremental editing semantics in the native tree-sitter C core"
+
+[metadata]
+reward_type = "bounded_continuous"
+construction_status = "constructed_unverified"
+difficulty_status = "held_for_evidence"
+intended_model = "gpt-6.1-sol"
+score_spec = "authoring/score-spec.json"
+work_build_context = "environment"
+verifier_build_context = "verifier"
+
+[agent]
+timeout_sec = 21600
+network_mode = "no-network"
+
+[environment]
+docker_image = "edgebench-tree-sitter-work:author-v1"
+workdir = "/home/workspace/tree-sitter"
+network_mode = "no-network"
+cpus = 2
+memory_mb = 4096
+storage_mb = 4096
+build_timeout_sec = 1200
+
+[verifier]
+timeout_sec = 600
+network_mode = "no-network"
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "edgebench-tree-sitter-judge:author-v1"
+workdir = "/home/workspace/tree-sitter"
+network_mode = "no-network"
+cpus = 2
+memory_mb = 4096
+storage_mb = 4096
+build_timeout_sec = 1200

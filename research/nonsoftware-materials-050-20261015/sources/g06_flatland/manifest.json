@@ -1,0 +1,51 @@
+{
+  "repo": "flatland-association/flatland-rl",
+  "revision": "e355074d0f7afe0df8de92caed2274330369dbcf",
+  "resolved_utc": "2026-10-15T14:58:55.714026+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:41.520644+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "9b8a2114319016992ce6d10c0ade82df294ce5c254d251e429bb8d979df1e9db",
+    "truncated": false,
+    "blob_count": 565
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 1063,
+      "sha256": "32c77d8574f01cd173c318f9b0c6a522ada78bc11faeaecbf20fb183220efd5f",
+      "url": "https://github.com/flatland-association/flatland-rl/blob/e355074d0f7afe0df8de92caed2274330369dbcf/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8203,
+      "sha256": "418bdf73e88e1260b49d8b4d63ca864b885cbb00d5788954347bf70a1db15669",
+      "url": "https://github.com/flatland-association/flatland-rl/blob/e355074d0f7afe0df8de92caed2274330369dbcf/README.md"
+    },
+    {
+      "path": "flatland/envs/rail_env.py",
+      "bytes": 101419,
+      "sha256": "f896a48ead4332c4e11ba43e681a803ffd43b5e966872f9dcc763af7104ac32d",
+      "url": "https://github.com/flatland-association/flatland-rl/blob/e355074d0f7afe0df8de92caed2274330369dbcf/flatland/envs/rail_env.py"
+    },
+    {
+      "path": "tests/test_flatland_envs_rail_env.py",
+      "bytes": 153880,
+      "sha256": "8e0dd24658568eaf0f118427b07823103a0d56a4ccd142b936f217563e4a7286",
+      "url": "https://github.com/flatland-association/flatland-rl/blob/e355074d0f7afe0df8de92caed2274330369dbcf/tests/test_flatland_envs_rail_env.py"
+    },
+    {
+      "path": "tests/test_flatland_envs_rail_env_policies.py",
+      "bytes": 1502,
+      "sha256": "e3b611a1cd9f83cb6bf8bc8bcf9080cc529d82651960ac55f5bd2ad24c5ae28b",
+      "url": "https://github.com/flatland-association/flatland-rl/blob/e355074d0f7afe0df8de92caed2274330369dbcf/tests/test_flatland_envs_rail_env_policies.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

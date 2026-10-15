@@ -1,0 +1,51 @@
+{
+  "repo": "achael/eht-imaging",
+  "revision": "7acf089bfe57f1463219a8e9400c7a18f106d9f1",
+  "resolved_utc": "2026-10-15T14:58:25.500095+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:10.010842+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "0dac36b0aa794057aac313979f8c729371cab113303ac56e48f8b907272d660b",
+    "truncated": false,
+    "blob_count": 140
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE.txt",
+      "bytes": 35147,
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "url": "https://github.com/achael/eht-imaging/blob/7acf089bfe57f1463219a8e9400c7a18f106d9f1/LICENSE.txt"
+    },
+    {
+      "path": "README.rst",
+      "bytes": 13666,
+      "sha256": "98f6e2d26e7a85226a7a83c4ed45fbed2989d4ec52175a62e30e3bc5ab5f541e",
+      "url": "https://github.com/achael/eht-imaging/blob/7acf089bfe57f1463219a8e9400c7a18f106d9f1/README.rst"
+    },
+    {
+      "path": "ehtim/imaging/imager_utils.py",
+      "bytes": 146014,
+      "sha256": "00f2dd7b9f6f50ae0ffb6dd75a01757487d52d99f3134f747db180f5d353ba0b",
+      "url": "https://github.com/achael/eht-imaging/blob/7acf089bfe57f1463219a8e9400c7a18f106d9f1/ehtim/imaging/imager_utils.py"
+    },
+    {
+      "path": "examples/example_im_closure.py",
+      "bytes": 3758,
+      "sha256": "7ded81e743e741941efacbe8268f63e439f9c2035c857c1f1e2cc275f12e0d37",
+      "url": "https://github.com/achael/eht-imaging/blob/7acf089bfe57f1463219a8e9400c7a18f106d9f1/examples/example_im_closure.py"
+    },
+    {
+      "path": "tests/test_gradients.py",
+      "bytes": 5139,
+      "sha256": "5727129e41c0840ccfbbb79aafe32dd6a94fcaee5d37ebd545297cf7b8e21dc4",
+      "url": "https://github.com/achael/eht-imaging/blob/7acf089bfe57f1463219a8e9400c7a18f106d9f1/tests/test_gradients.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

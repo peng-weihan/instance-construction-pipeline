@@ -1,0 +1,1250 @@
+{
+  "valid": true,
+  "score": 0.14090909090909093,
+  "pass_rate": 0.2878787878787879,
+  "checks": [
+    {
+      "name": "rename_same_shape/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "rename_same_shape/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "rename_same_shape/lifecycle",
+      "group": "lifecycle",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "rename_same_shape/parser",
+      "group": "parser",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "rename_same_shape/ranges",
+      "group": "ranges",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "replace_type/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "replace_type/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "replace_type/lifecycle",
+      "group": "lifecycle",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "replace_type/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "replace_type/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "prefix_multiline/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "prefix_multiline/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "prefix_multiline/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "prefix_multiline/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "prefix_multiline/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "delete_cross_children/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "delete_cross_children/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "delete_cross_children/lifecycle",
+      "group": "lifecycle",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "delete_cross_children/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "delete_cross_children/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "batch_before_parse/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "batch_before_parse/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "batch_before_parse/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "batch_before_parse/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "batch_before_parse/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "insert_empty/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "insert_empty/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "insert_empty/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "insert_empty/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "insert_empty/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "insert_empty/scanner",
+      "group": "scanner",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "delete_all/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "delete_all/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "delete_all/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "delete_all/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "delete_all/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "append_eof/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "append_eof/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "append_eof/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "append_eof/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "append_eof/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "noop_then_change/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "noop_then_change/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "noop_then_change/lifecycle",
+      "group": "lifecycle",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "noop_then_change/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "noop_then_change/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "boundary_insert/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "boundary_insert/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "boundary_insert/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "boundary_insert/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "boundary_insert/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "error_bracket/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "error_bracket/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "error_bracket/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "error_bracket/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "error_bracket/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "error_bracket/scanner",
+      "group": "scanner",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "error_suite/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "error_suite/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "error_suite/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "error_suite/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "error_suite/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "error_suite/scanner",
+      "group": "scanner",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "error_delete_colon/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "error_delete_colon/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "error_delete_colon/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "error_delete_colon/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "error_delete_colon/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "error_delete_colon/scanner",
+      "group": "scanner",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "multiedit_recovery/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "multiedit_recovery/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "multiedit_recovery/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "multiedit_recovery/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "multiedit_recovery/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_0/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "unicode_0/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_0/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_0/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_0/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_0/unicode",
+      "group": "unicode",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_prefix_0/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "unicode_prefix_0/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_prefix_0/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_prefix_0/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_prefix_0/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_prefix_0/unicode",
+      "group": "unicode",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_1/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "unicode_1/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_1/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_1/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_1/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_1/unicode",
+      "group": "unicode",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_prefix_1/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "unicode_prefix_1/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_prefix_1/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_prefix_1/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_prefix_1/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_prefix_1/unicode",
+      "group": "unicode",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_2/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "unicode_2/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_2/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_2/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_2/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_2/unicode",
+      "group": "unicode",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_prefix_2/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "unicode_prefix_2/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_prefix_2/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_prefix_2/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_prefix_2/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "unicode_prefix_2/unicode",
+      "group": "unicode",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "crlf/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "crlf/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "crlf/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "crlf/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "crlf/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "indent_shift/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "indent_shift/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "indent_shift/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "indent_shift/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "indent_shift/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "indent_shift/scanner",
+      "group": "scanner",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "nested_indent/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "nested_indent/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "nested_indent/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "nested_indent/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "nested_indent/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "nested_indent/scanner",
+      "group": "scanner",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "triple_string/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "triple_string/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "triple_string/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "triple_string/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "triple_string/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "triple_string/scanner",
+      "group": "scanner",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "f_string/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "f_string/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "f_string/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "f_string/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "f_string/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "f_string/scanner",
+      "group": "scanner",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "tabs/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "tabs/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "tabs/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "tabs/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "tabs/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "tabs/scanner",
+      "group": "scanner",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "comment_indent/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "comment_indent/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "comment_indent/lifecycle",
+      "group": "lifecycle",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "comment_indent/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "comment_indent/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "comment_indent/scanner",
+      "group": "scanner",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "included_prefix/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "included_prefix/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "included_prefix/lifecycle",
+      "group": "lifecycle",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "included_prefix/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "included_prefix/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "included_inside/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "included_inside/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "included_inside/lifecycle",
+      "group": "lifecycle",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "included_inside/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "included_inside/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "included_inside/scanner",
+      "group": "scanner",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "included_unicode/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "included_unicode/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "included_unicode/lifecycle",
+      "group": "lifecycle",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "included_unicode/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "included_unicode/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "included_unicode/unicode",
+      "group": "unicode",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "scanner_state_0/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "scanner_state_0/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "scanner_state_0/lifecycle",
+      "group": "lifecycle",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "scanner_state_0/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "scanner_state_0/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "scanner_state_0/scanner",
+      "group": "scanner",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "scanner_state_1/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "scanner_state_1/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "scanner_state_1/lifecycle",
+      "group": "lifecycle",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "scanner_state_1/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "scanner_state_1/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "scanner_state_1/scanner",
+      "group": "scanner",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "scanner_state_2/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "scanner_state_2/edit",
+      "group": "edit",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "scanner_state_2/lifecycle",
+      "group": "lifecycle",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "scanner_state_2/parser",
+      "group": "parser",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "scanner_state_2/ranges",
+      "group": "ranges",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "scanner_state_2/scanner",
+      "group": "scanner",
+      "passed": false,
+      "detail": "output mismatch"
+    },
+    {
+      "name": "native_expressions_0/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "native_expressions_1/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "native_expressions_2/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "native_literals_0/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "native_literals_1/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "native_literals_2/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "native_pattern_matching_0/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "native_pattern_matching_1/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "native_pattern_matching_2/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "native_statements_0/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "native_statements_1/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "native_statements_2/initial",
+      "group": "initial",
+      "passed": true,
+      "detail": "ok"
+    }
+  ],
+  "metrics": {
+    "groups": {
+      "initial": {
+        "passed": 45,
+        "total": 45,
+        "fraction": 1.0,
+        "weight": 0.1
+      },
+      "edit": {
+        "passed": 0,
+        "total": 33,
+        "fraction": 0.0,
+        "weight": 0.2
+      },
+      "lifecycle": {
+        "passed": 10,
+        "total": 33,
+        "fraction": 0.30303030303030304,
+        "weight": 0.1
+      },
+      "parser": {
+        "passed": 1,
+        "total": 33,
+        "fraction": 0.030303030303030304,
+        "weight": 0.2
+      },
+      "ranges": {
+        "passed": 1,
+        "total": 33,
+        "fraction": 0.030303030303030304,
+        "weight": 0.15
+      },
+      "unicode": {
+        "passed": 0,
+        "total": 7,
+        "fraction": 0.0,
+        "weight": 0.1
+      },
+      "scanner": {
+        "passed": 0,
+        "total": 14,
+        "fraction": 0.0,
+        "weight": 0.15
+      }
+    },
+    "compiled": true
+  },
+  "diagnostics": {
+    "compile": {
+      "returncode": 0,
+      "timeout": false,
+      "stderr": ""
+    }
+  },
+  "scoring_version": "tree-sitter-recovery-v1"
+}

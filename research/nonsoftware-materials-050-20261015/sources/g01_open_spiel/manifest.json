@@ -1,0 +1,51 @@
+{
+  "repo": "google-deepmind/open_spiel",
+  "revision": "48401890ee9857e611678302371378175a8e4c6b",
+  "resolved_utc": "2026-10-15T14:58:55.410956+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:40.372572+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "37c97ac4b9bd75a0660933f6e1c1aef80e050fd02edd8de6fab95837b0124668",
+    "truncated": false,
+    "blob_count": 1867
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "url": "https://github.com/google-deepmind/open_spiel/blob/48401890ee9857e611678302371378175a8e4c6b/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4610,
+      "sha256": "57057c144957e606acd15315d4a0200832702ea8fb7aa3ec616bbd0a2f1f9ed1",
+      "url": "https://github.com/google-deepmind/open_spiel/blob/48401890ee9857e611678302371378175a8e4c6b/README.md"
+    },
+    {
+      "path": "open_spiel/games/goofspiel/goofspiel.cc",
+      "bytes": 31457,
+      "sha256": "443fe6fd7cf8687ce1f60c5f22b3e0ae75a04cf4d9ce04cbe6912ca97a026941",
+      "url": "https://github.com/google-deepmind/open_spiel/blob/48401890ee9857e611678302371378175a8e4c6b/open_spiel/games/goofspiel/goofspiel.cc"
+    },
+    {
+      "path": "open_spiel/games/goofspiel/goofspiel_test.cc",
+      "bytes": 4284,
+      "sha256": "a53f7c33b05858480350238db5e3c7458f2ab5971ab7c795a2917101a624e8e7",
+      "url": "https://github.com/google-deepmind/open_spiel/blob/48401890ee9857e611678302371378175a8e4c6b/open_spiel/games/goofspiel/goofspiel_test.cc"
+    },
+    {
+      "path": "open_spiel/python/tests/rl_environment_test.py",
+      "bytes": 6106,
+      "sha256": "d7ebe02eb35e8dd8c0780d63c408fcbc9da496b70fb16b48039386432bae21bb",
+      "url": "https://github.com/google-deepmind/open_spiel/blob/48401890ee9857e611678302371378175a8e4c6b/open_spiel/python/tests/rl_environment_test.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

@@ -1,0 +1,1444 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.polaris.persistence.nosql.impl.indexes;
+
+import static java.lang.String.format;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.util.Arrays.asList;
+import static java.util.Objects.requireNonNull;
+import static java.util.Spliterators.spliteratorUnknownSize;
+import static java.util.stream.StreamSupport.stream;
+import static org.apache.polaris.persistence.nosql.api.index.IndexKey.INDEX_KEY_SERIALIZER;
+import static org.apache.polaris.persistence.nosql.api.index.IndexKey.key;
+import static org.apache.polaris.persistence.nosql.api.obj.ObjRef.OBJ_REF_SERIALIZER;
+import static org.apache.polaris.persistence.nosql.api.obj.ObjRef.objRef;
+import static org.apache.polaris.persistence.nosql.impl.indexes.IndexesInternal.deserializeStoreIndex;
+import static org.apache.polaris.persistence.nosql.impl.indexes.IndexesInternal.indexElement;
+import static org.apache.polaris.persistence.nosql.impl.indexes.IndexesInternal.newStoreIndex;
+import static org.apache.polaris.persistence.nosql.impl.indexes.KeyIndexTestSet.basicIndexTestSet;
+import static org.apache.polaris.persistence.nosql.impl.indexes.ObjTestValue.OBJ_TEST_SERIALIZER;
+import static org.apache.polaris.persistence.nosql.impl.indexes.ObjTestValue.objTestValueFromString;
+import static org.apache.polaris.persistence.nosql.impl.indexes.ObjTestValue.objTestValueOfSize;
+import static org.apache.polaris.persistence.nosql.impl.indexes.Util.asHex;
+import static org.apache.polaris.persistence.nosql.impl.indexes.Util.randomObjId;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.groups.Tuple.tuple;
+
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.HexFormat;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+import org.apache.polaris.persistence.nosql.api.index.Index;
+import org.apache.polaris.persistence.nosql.api.index.IndexKey;
+import org.apache.polaris.persistence.nosql.api.index.IndexValueSerializer;
+import org.apache.polaris.persistence.nosql.api.obj.ObjRef;
+import org.apache.polaris.persistence.varint.VarInt;
+import org.assertj.core.api.SoftAssertions;
+import org.assertj.core.api.junit.jupiter.InjectSoftAssertions;
+import org.assertj.core.api.junit.jupiter.SoftAssertionsExtension;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
+
+@ExtendWith(SoftAssertionsExtension.class)
+public class TestIndexImpl {
+  @InjectSoftAssertions SoftAssertions soft;
+
+  static Stream<List<String>> lazyKeyPredecessor() {
+    return Stream.of(
+        asList(
+            // "a/" sequence ensures that 'b/ref-  11' (and 12) are not materialized as 'b/ref-   1'
+            // (and 2)
+            // (because of a bad predecessor)
+            "a/ref-   0", "a/ref-   1", "a/ref-   2", "a/ref-  10", "a/ref-  11", "a/ref-  12"),
+        asList(
+            // "b/" sequence ensures that 'a/over' is not materialized as 'a/ever'
+            // (because of a bad predecessor)
+            "b/be", "b/eire", "b/opt", "b/over", "b/salt"));
+  }
+
+  @ParameterizedTest
+  @MethodSource("lazyKeyPredecessor")
+  void lazyKeyPredecessor(List<String> keys) {
+    var index = newStoreIndex(OBJ_REF_SERIALIZER);
+    keys.stream().map(IndexKey::key).map(k -> indexElement(k, randomObjId())).forEach(index::add);
+
+    var serialized = index.serialize();
+    var deserialized = deserializeStoreIndex(serialized, OBJ_REF_SERIALIZER);
+
+    soft.assertThat(deserialized.asKeyList()).containsExactlyElementsOf(index.asKeyList());
+    soft.assertThat(deserialized).containsExactlyElementsOf(index);
+  }
+
+  private static IndexSpi<ObjRef> refs20() {
+    var segment = newStoreIndex(OBJ_REF_SERIALIZER);
+    for (var i = 0; i < 20; i++) {
+      segment.add(indexElement(key(format("refs-%10d", i)), randomObjId()));
+    }
+    return segment;
+  }
+
+  @Test
+  public void entriesCompareAfterReserialize() {
+    var segment = refs20();
+    var keyList = segment.asKeyList();
+
+    var serialized = segment.serialize();
+    var deserialized = deserializeStoreIndex(serialized, OBJ_REF_SERIALIZER);
+
+    for (var i = keyList.size() - 1; i >= 0; i--) {
+      var key = keyList.get(i);
+      soft.assertThat(deserialized.getElement(key)).isEqualTo(segment.getElement(key));
+    }
+  }
+
+  @Test
+  public void deserialized() {
+    var segment = refs20();
+
+    var serialized = segment.serialize();
+    var deserialized = deserializeStoreIndex(serialized, OBJ_REF_SERIALIZER);
+    soft.assertThat(deserialized.asKeyList()).containsExactlyElementsOf(segment.asKeyList());
+    soft.assertThat(deserialized).isEqualTo(segment);
+  }
+
+  @Test
+  public void reserialize() {
+    var segment = refs20();
+
+    var serialized = segment.serialize();
+    var deserialized = deserializeStoreIndex(serialized, OBJ_REF_SERIALIZER);
+    ((IndexImpl<ObjRef>) deserialized).setModified();
+    var serialized2 = deserialized.serialize();
+
+    soft.assertThat(serialized2).isEqualTo(serialized);
+  }
+
+  @Test
+  public void reserializeUnmodified() {
+    var segment = refs20();
+
+    var serialized = segment.serialize();
+    var deserialized = deserializeStoreIndex(serialized, OBJ_REF_SERIALIZER);
+    var serialized2 = deserialized.serialize();
+
+    soft.assertThat(serialized2).isEqualTo(serialized);
+  }
+
+  @Test
+  public void addKeysIntoIndex() {
+    var keyIndexTestSet =
+        KeyIndexTestSet.<ObjRef>newGenerator()
+            .keySet(
+                ImmutableRealisticKeySet.builder()
+                    .namespaceLevels(1)
+                    .foldersPerLevel(1)
+                    .tablesPerNamespace(5)
+                    .deterministic(false)
+                    .build())
+            .elementSupplier(key -> indexElement(key, randomObjId()))
+            .elementSerializer(OBJ_REF_SERIALIZER)
+            .build()
+            .generateIndexTestSet();
+
+    var deserialized = keyIndexTestSet.deserialize();
+    for (var c = 'a'; c <= 'z'; c++) {
+      deserialized.add(indexElement(key(c + "x-key"), randomObjId()));
+    }
+
+    var serialized = deserialized.serialize();
+    var reserialized = deserializeStoreIndex(serialized, OBJ_REF_SERIALIZER);
+    soft.assertThat(reserialized.asKeyList()).containsExactlyElementsOf(deserialized.asKeyList());
+    soft.assertThat(reserialized).containsExactlyElementsOf(deserialized);
+  }
+
+  @Test
+  public void removeKeysFromIndex() {
+    var keyIndexTestSet =
+        KeyIndexTestSet.<ObjRef>newGenerator()
+            .keySet(
+                ImmutableRealisticKeySet.builder()
+                    .namespaceLevels(3)
+                    .foldersPerLevel(3)
+                    .tablesPerNamespace(5)
+                    .deterministic(false)
+                    .build())
+            .elementSupplier(key -> indexElement(key, randomObjId()))
+            .elementSerializer(OBJ_REF_SERIALIZER)
+            .build()
+            .generateIndexTestSet();
+
+    var deserialized = keyIndexTestSet.deserialize();
+    var allKeys = keyIndexTestSet.keys();
+    for (int i = 0; i < 10; i++) {
+      deserialized.remove(allKeys.get(10 * i));
+    }
+
+    var serialized = deserialized.serialize();
+    var reserialized = deserializeStoreIndex(serialized, OBJ_REF_SERIALIZER);
+    soft.assertThat(reserialized.asKeyList()).containsExactlyElementsOf(deserialized.asKeyList());
+    soft.assertThat(reserialized).containsExactlyElementsOf(deserialized);
+  }
+
+  @Test
+  public void randomGetKey() {
+    var keyIndexTestSet =
+        KeyIndexTestSet.<ObjRef>newGenerator()
+            .keySet(
+                ImmutableRealisticKeySet.builder()
+                    .namespaceLevels(5)
+                    .foldersPerLevel(5)
+                    .tablesPerNamespace(5)
+                    .deterministic(true)
+                    .build())
+            .elementSupplier(key -> indexElement(key, randomObjId()))
+            .elementSerializer(OBJ_REF_SERIALIZER)
+            .build()
+            .generateIndexTestSet();
+
+    for (var i = 0; i < 50; i++) {
+      var deserialized = keyIndexTestSet.deserialize();
+      deserialized.getElement(keyIndexTestSet.randomKey());
+    }
+
+    var deserialized = keyIndexTestSet.deserialize();
+    for (var i = 0; i < 50; i++) {
+      deserialized.getElement(keyIndexTestSet.randomKey());
+    }
+  }
+
+  @Test
+  public void similarPrefixLengths() {
+    var keyA = key("axA");
+    var keyB = key("bxA");
+    var keyC = key("cxA");
+    var keyD = key("dxA");
+    var keyE = key("exA");
+    var keyExB = key("exB");
+    var keyExD = key("exD");
+    var keyEyC = key("eyC");
+    var keyExC = key("exC");
+    var segment = newStoreIndex(OBJ_REF_SERIALIZER);
+    Stream.of(keyA, keyB, keyC, keyD, keyE, keyExB, keyExD, keyEyC, keyExC)
+        .map(k -> indexElement(k, randomObjId()))
+        .forEach(segment::add);
+
+    var serialized = segment.serialize();
+    var deserialized = deserializeStoreIndex(serialized, OBJ_REF_SERIALIZER);
+    soft.assertThat(deserialized).isEqualTo(segment);
+    soft.assertThat(deserialized.serialize()).isEqualTo(serialized);
+
+    deserialized = deserializeStoreIndex(serialized, OBJ_REF_SERIALIZER);
+    soft.assertThat(deserialized.asKeyList()).containsExactlyElementsOf(segment.asKeyList());
+    soft.assertThat(deserialized.serialize()).isEqualTo(serialized);
+  }
+
+  @Test
+  public void isModified() {
+    var segment = newStoreIndex(OBJ_REF_SERIALIZER);
+    soft.assertThat(segment.isModified()).isFalse();
+
+    segment = deserializeStoreIndex(segment.serialize(), OBJ_REF_SERIALIZER);
+    soft.assertThat(segment.isModified()).isFalse();
+    segment.add(indexElement(key("foo"), randomObjId()));
+    soft.assertThat(segment.isModified()).isTrue();
+
+    segment = deserializeStoreIndex(segment.serialize(), OBJ_REF_SERIALIZER);
+    soft.assertThat(segment.isModified()).isFalse();
+    segment.remove(key("foo"));
+    soft.assertThat(segment.isModified()).isTrue();
+  }
+
+  @ParameterizedTest
+  @ValueSource(ints = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000})
+  public void indexKeyToIndexKeyIndex(int numKeys) {
+    var keys = IntStream.range(0, numKeys).mapToObj(IndexKey::key).toList();
+    var values = IntStream.range(0, numKeys).mapToObj(i -> key("value-" + i)).toList();
+
+    var index = newStoreIndex(INDEX_KEY_SERIALIZER);
+
+    for (int i = 0; i < keys.size(); i++) {
+      soft.assertThat(index.put(keys.get(i), values.get(i))).isTrue();
+    }
+
+    for (int i = 0; i < keys.size(); i++) {
+      soft.assertThat(index.contains(keys.get(i))).isTrue();
+      soft.assertThat(index.get(keys.get(i))).isEqualTo(values.get(i));
+    }
+
+    var serialized = index.serialize();
+    var deserialized = deserializeStoreIndex(serialized, INDEX_KEY_SERIALIZER);
+
+    for (int i = 0; i < keys.size(); i++) {
+      soft.assertThat(deserialized.contains(keys.get(i))).isTrue();
+      soft.assertThat(deserialized.get(keys.get(i))).isEqualTo(values.get(i));
+    }
+
+    var valuesAgain = new ArrayList<IndexKey>(numKeys);
+    for (int i = 0; i < numKeys; i++) {
+      if ((i % 5) == 2) {
+        valuesAgain.add(key("value-UPDATED-" + i));
+      } else {
+        valuesAgain.add(values.get(i));
+      }
+      soft.assertThat(deserialized.put(keys.get(i), valuesAgain.get(i))).isFalse();
+    }
+
+    var serializedAgain = deserialized.serialize();
+    var deserializedAgain = deserializeStoreIndex(serializedAgain, INDEX_KEY_SERIALIZER);
+
+    for (int i = 0; i < keys.size(); i++) {
+      soft.assertThat(deserializedAgain.contains(keys.get(i))).isTrue();
+      soft.assertThat(deserializedAgain.get(keys.get(i))).isEqualTo(valuesAgain.get(i));
+    }
+  }
+
+  @Test
+  public void keyIndexSegment() {
+    var segment = newStoreIndex(OBJ_TEST_SERIALIZER);
+    var id1 = objTestValueFromString("12345678");
+    var id2 =
+        objTestValueFromString("1234567812345678123456781234567812345678123456781234567812345678");
+    var id3 =
+        objTestValueFromString("1111111122222222111111112222222211111111222222221111111122222222");
+    var id4 = objTestValueOfSize(256);
+
+    var keyA = key("axA");
+    var keyB = key("bxA");
+    var keyC = key("cxA");
+    var keyD = key("dxA");
+    var keyE = key("exA");
+    var keyExB = key("exB");
+    var keyExD = key("exD");
+    var keyEyC = key("eyC");
+    var keyExC = key("exC");
+    var keyNotExist = key("doesnotexist");
+
+    var hexKeyA = HexFormat.of().formatHex(keyA.toString().getBytes(UTF_8));
+    var hexKeyB = HexFormat.of().formatHex(keyB.toString().getBytes(UTF_8));
+    var hexKeyC = HexFormat.of().formatHex(keyC.toString().getBytes(UTF_8));
+    var hexKeyD = HexFormat.of().formatHex(keyD.toString().getBytes(UTF_8));
+    var hexKeyE = HexFormat.of().formatHex(keyE.toString().getBytes(UTF_8));
+
+    var serializationFormatVersion = "01";
+
+    var serializedA =
+        hexKeyA
+            + "01" // IndexKey.EOF
+            + "04" // 4 bytes key
+            + id1;
+    var serializedB =
+        hexKeyB
+            + "01" // IndexKey.EOF
+            + "20" // 32 bytes key
+            + id2;
+    var serializedC =
+        hexKeyC
+            + "01" // IndexKey.EOF
+            + "20" // 32 bytes key
+            + id3;
+    var serializedD =
+        hexKeyD
+            + "01" // IndexKey.EOF
+            + "8002" // varint - 256 bytes key (0 == 256 here!)
+            + id4;
+    var serializedE =
+        hexKeyE
+            + "01" // IndexKey.EOF
+            + "04" // 4 bytes key
+            + id1;
+    var serializedExB =
+        "42"
+            + "01" // IndexKey.EOF
+            + "20" // 32 bytes key
+            + id2;
+    var serializedExD =
+        "44"
+            + "01" // IndexKey.EOF
+            + "20" // 32 bytes key
+            + id3;
+    var serializedEyC =
+        "7943"
+            + "01" // IndexKey.EOF
+            + "8002" // varint - 256 bytes key (0 == 256 here!)
+            + id4;
+    var serializedExC =
+        "43"
+            + "01" // IndexKey.EOF
+            + "04" // 4 bytes key
+            + id1;
+    var serializedExCmodified =
+        "43"
+            + "01" // IndexKey.EOF
+            + "20" // 32 bytes key
+            + id2;
+
+    Function<IndexSpi<ObjTestValue>, IndexSpi<ObjTestValue>> reSerialize =
+        seg -> deserializeStoreIndex(seg.serialize(), OBJ_TEST_SERIALIZER);
+
+    soft.assertThat(asHex(segment.serialize())).isEqualTo(serializationFormatVersion + "00");
+    soft.assertThat(reSerialize.apply(segment)).isEqualTo(segment);
+    soft.assertThat(segment.asKeyList()).isEmpty();
+
+    soft.assertThat(segment.add(indexElement(keyD, id4))).isEqualTo(IndexSpi.AddResult.NEW_KEY);
+    soft.assertThat(reSerialize.apply(segment)).isEqualTo(segment);
+    soft.assertThat(segment.asKeyList()).containsExactly(keyD);
+    soft.assertThat(asHex(segment.serialize()))
+        .isEqualTo(
+            serializationFormatVersion //
+                + "01"
+                + serializedD);
+
+    soft.assertThat(segment.add(indexElement(keyB, id2))).isEqualTo(IndexSpi.AddResult.NEW_KEY);
+    soft.assertThat(reSerialize.apply(segment)).isEqualTo(segment);
+    soft.assertThat(segment.asKeyList()).containsExactly(keyB, keyD);
+    soft.assertThat(asHex(segment.serialize()))
+        .isEqualTo(
+            serializationFormatVersion //
+                + "02"
+                + serializedB
+                + "04" // strip
+                + serializedD);
+
+    soft.assertThat(segment.add(indexElement(keyC, id3))).isEqualTo(IndexSpi.AddResult.NEW_KEY);
+    soft.assertThat(reSerialize.apply(segment)).isEqualTo(segment);
+    soft.assertThat(segment.asKeyList()).containsExactly(keyB, keyC, keyD);
+    soft.assertThat(asHex(segment.serialize()))
+        .isEqualTo(
+            serializationFormatVersion //
+                + "03"
+                + serializedB
+                + "04" // strip
+                + serializedC
+                + "04" // strip
+                + serializedD);
+
+    soft.assertThat(segment.add(indexElement(keyE, id1))).isEqualTo(IndexSpi.AddResult.NEW_KEY);
+    soft.assertThat(reSerialize.apply(segment)).isEqualTo(segment);
+    soft.assertThat(segment.asKeyList()).containsExactly(keyB, keyC, keyD, keyE);
+    soft.assertThat(asHex(segment.serialize()))
+        .isEqualTo(
+            serializationFormatVersion //
+                + "04"
+                + serializedB
+                + "04" // strip
+                + serializedC
+                + "04" // strip
+                + serializedD
+                + "04" // strip
+                + serializedE);
+
+    soft.assertThat(segment.add(indexElement(keyA, id1))).isEqualTo(IndexSpi.AddResult.NEW_KEY);
+    soft.assertThat(reSerialize.apply(segment)).isEqualTo(segment);
+    soft.assertThat(segment.asKeyList()).containsExactly(keyA, keyB, keyC, keyD, keyE);
+    soft.assertThat(asHex(segment.serialize()))
+        .isEqualTo(
+            serializationFormatVersion //
+                + "05"
+                + serializedA
+                + "04" // strip
+                + serializedB
+                + "04" // strip
+                + serializedC
+                + "04" // strip
+                + serializedD
+                + "04" // strip
+                + serializedE);
+
+    soft.assertThat(segment.add(indexElement(keyExB, id2))).isEqualTo(IndexSpi.AddResult.NEW_KEY);
+    soft.assertThat(reSerialize.apply(segment)).isEqualTo(segment);
+    soft.assertThat(segment.asKeyList()).containsExactly(keyA, keyB, keyC, keyD, keyE, keyExB);
+    soft.assertThat(asHex(segment.serialize()))
+        .isEqualTo(
+            serializationFormatVersion //
+                + "06"
+                + serializedA
+                + "04" // strip
+                + serializedB
+                + "04" // strip
+                + serializedC
+                + "04" // strip
+                + serializedD
+                + "04" // strip
+                + serializedE
+                + "02" // strip
+                + serializedExB);
+
+    soft.assertThat(segment.add(indexElement(keyExD, id3))).isEqualTo(IndexSpi.AddResult.NEW_KEY);
+    soft.assertThat(reSerialize.apply(segment)).isEqualTo(segment);
+    soft.assertThat(segment.asKeyList())
+        .containsExactly(keyA, keyB, keyC, keyD, keyE, keyExB, keyExD);
+    soft.assertThat(asHex(segment.serialize()))
+        .isEqualTo(
+            serializationFormatVersion //
+                + "07"
+                + serializedA
+                + "04" // strip
+                + serializedB
+                + "04" // strip
+                + serializedC
+                + "04" // strip
+                + serializedD
+                + "04" // strip
+                + serializedE
+                + "02" // strip
+                + serializedExB
+                + "02" // strip
+                + serializedExD);
+
+    soft.assertThat(segment.add(indexElement(keyEyC, id4))).isEqualTo(IndexSpi.AddResult.NEW_KEY);
+    soft.assertThat(reSerialize.apply(segment)).isEqualTo(segment);
+    soft.assertThat(segment.asKeyList())
+        .containsExactly(keyA, keyB, keyC, keyD, keyE, keyExB, keyExD, keyEyC);
+    soft.assertThat(asHex(segment.serialize()))
+        .isEqualTo(
+            serializationFormatVersion //
+                + "08"
+                + serializedA
+                + "04" // add
+                + serializedB
+                + "04" // add
+                + serializedC
+                + "04" // add
+                + serializedD
+                + "04" // add
+                + serializedE
+                + "02" // strip
+                + serializedExB
+                + "02" // strip
+                + serializedExD
+                + "03" // strip
+                + serializedEyC);
+
+    soft.assertThat(segment.add(indexElement(keyExC, id1))).isEqualTo(IndexSpi.AddResult.NEW_KEY);
+    soft.assertThat(reSerialize.apply(segment)).isEqualTo(segment);
+    soft.assertThat(segment.asKeyList())
+        .containsExactly(keyA, keyB, keyC, keyD, keyE, keyExB, keyExC, keyExD, keyEyC);
+    soft.assertThat(asHex(segment.serialize()))
+        .isEqualTo(
+            serializationFormatVersion //
+                + "09"
+                + serializedA
+                + "04" // add
+                + serializedB
+                + "04" // add
+                + serializedC
+                + "04" // add
+                + serializedD
+                + "04" // add
+                + serializedE
+                + "02" // strip
+                + serializedExB
+                + "02" // strip
+                + serializedExC
+                + "02" // strip
+                + serializedExD
+                + "03" // strip
+                + serializedEyC);
+    soft.assertThat(segment.getElement(keyExC)).isEqualTo(indexElement(keyExC, id1));
+
+    // Re-add with a BIGGER serialized object-id
+    soft.assertThat(segment.add(indexElement(keyExC, id2))).isEqualTo(IndexSpi.AddResult.UPDATED);
+    soft.assertThat(reSerialize.apply(segment)).isEqualTo(segment);
+    soft.assertThat(segment.asKeyList())
+        .containsExactly(keyA, keyB, keyC, keyD, keyE, keyExB, keyExC, keyExD, keyEyC);
+    soft.assertThat(asHex(segment.serialize()))
+        .isEqualTo(
+            serializationFormatVersion //
+                + "09"
+                + serializedA
+                + "04" // add
+                + serializedB
+                + "04" // add
+                + serializedC
+                + "04" // add
+                + serializedD
+                + "04" // add
+                + serializedE
+                + "02" // strip
+                + serializedExB
+                + "02" // strip
+                + serializedExCmodified
+                + "02" // strip
+                + serializedExD
+                + "03" // strip
+                + serializedEyC);
+    soft.assertThat(segment.getElement(keyExC)).isEqualTo(indexElement(keyExC, id2));
+
+    soft.assertThat(segment.remove(keyNotExist)).isFalse();
+    soft.assertThat(reSerialize.apply(segment)).isEqualTo(segment);
+    soft.assertThat(segment.asKeyList())
+        .containsExactly(keyA, keyB, keyC, keyD, keyE, keyExB, keyExC, keyExD, keyEyC);
+    soft.assertThat(segment.containsElement(keyNotExist)).isFalse();
+
+    soft.assertThat(segment.remove(keyD)).isTrue();
+    soft.assertThat(reSerialize.apply(segment)).isEqualTo(segment);
+    soft.assertThat(segment.asKeyList().size()).isEqualTo(8);
+    soft.assertThat(asHex(segment.serialize()))
+        .isEqualTo(
+            serializationFormatVersion //
+                + "08"
+                + serializedA
+                + "04" // add
+                + serializedB
+                + "04" // add
+                + serializedC
+                + "04" // add
+                + serializedE
+                + "02" // strip
+                + serializedExB
+                + "02" // strip
+                + serializedExCmodified
+                + "02" // strip
+                + serializedExD
+                + "03" // strip
+                + serializedEyC);
+    soft.assertThat(segment.asKeyList())
+        .containsExactly(keyA, keyB, keyC, keyE, keyExB, keyExC, keyExD, keyEyC);
+    soft.assertThat(segment.containsElement(keyD)).isFalse();
+    soft.assertThat(segment.containsElement(keyNotExist)).isFalse();
+    soft.assertThat(segment.getElement(keyD)).isNull();
+  }
+
+  @Test
+  public void getFirstLast() {
+    var index = newStoreIndex(OBJ_REF_SERIALIZER);
+
+    var id = randomObjId();
+    for (var e1 = 'j'; e1 >= 'a'; e1--) {
+      for (var e2 = 'J'; e2 >= 'A'; e2--) {
+        var key = key("" + e1 + e2);
+        index.add(indexElement(key, id));
+      }
+    }
+
+    soft.assertThat(index.asKeyList().size()).isEqualTo(10 * 10);
+    soft.assertThat(index.first()).isEqualTo(key("aA"));
+    soft.assertThat(index.last()).isEqualTo(key("jJ"));
+  }
+
+  @Test
+  public void iterator() {
+    var index = newStoreIndex(OBJ_REF_SERIALIZER);
+
+    var id = randomObjId();
+    for (var e1 = 'j'; e1 >= 'a'; e1--) {
+      for (var e2 = 'J'; e2 >= 'A'; e2--) {
+        var key = key("" + e1 + e2);
+        index.add(indexElement(key, id));
+      }
+    }
+    var allKeys = new ArrayList<>(index.asKeyList());
+
+    soft.assertThat(index.asKeyList().size()).isEqualTo(10 * 10);
+
+    soft.assertThatIterable(index).hasSize(10 * 10);
+    soft.assertThatIterator(index.iterator(null, null, false)).toIterable().hasSize(10 * 10);
+
+    for (var pairs :
+        List.of(
+            tuple(key("a0"), key("a"), 0),
+            tuple(key("0"), key("9"), 0),
+            tuple(key("jJ"), key("k"), 1),
+            tuple(key("aA"), key("aA"), 1),
+            tuple(key("bB"), key("bB"), 1),
+            tuple(key("b"), key("bB"), 2),
+            tuple(key("aC"), key("aZ"), 8),
+            tuple(key("j"), null, 10),
+            tuple(key("b"), key("b"), 10),
+            tuple(key("b"), key("c"), 10),
+            tuple(key("b"), key("cA"), 11),
+            tuple(key("b"), key("j"), 8 * 10),
+            tuple(key("a"), key("j"), 9 * 10),
+            tuple(null, key("j"), 9 * 10),
+            tuple(null, null, 10 * 10),
+            tuple(key("a"), null, 10 * 10))) {
+      var lower = (IndexKey) pairs.toList().get(0);
+      var higher = (IndexKey) pairs.toList().get(1);
+      var size = (int) pairs.toList().get(2);
+
+      var prefix = lower != null && lower.equals(higher);
+      var expected =
+          prefix
+              ? allKeys.stream().filter(k -> k.startsWith(lower)).toList()
+              : allKeys.stream()
+                  .filter(
+                      k ->
+                          (lower == null || k.compareTo(lower) >= 0)
+                              && (higher == null || k.compareTo(higher) <= 0))
+                  .toList();
+
+      soft.assertThatIterator(index.iterator(lower, higher, false))
+          .toIterable()
+          .describedAs("%s..%s", lower, higher)
+          .hasSize(size)
+          .extracting(Index.Element::key)
+          .containsExactlyElementsOf(expected);
+
+      if (!prefix) {
+        soft.assertThatIterator(index.reverseIterator(lower, higher, false))
+            .toIterable()
+            .describedAs("reverse %s..%s", lower, higher)
+            .hasSize(size)
+            .extracting(Index.Element::key)
+            .containsExactlyElementsOf(expected.reversed());
+      } else {
+        soft.assertThatIllegalArgumentException()
+            .isThrownBy(() -> index.reverseIterator(lower, higher, false));
+      }
+    }
+
+    soft.assertThatIllegalArgumentException()
+        .isThrownBy(() -> index.iterator(key("z"), key("a"), false));
+  }
+
+  @Test
+  public void updateAll() {
+    var indexTestSet = basicIndexTestSet();
+
+    soft.assertThat(indexTestSet.keyIndex()).isNotEmpty().allMatch(el -> el.value().id() > 0);
+
+    var index = indexTestSet.keyIndex();
+    for (var k : indexTestSet.keys()) {
+      var el = requireNonNull(index.get(k));
+      index.put(k, objRef(el.type(), ~el.id(), 1));
+    }
+
+    soft.assertThat(indexTestSet.keyIndex())
+        .hasSize(indexTestSet.keys().size())
+        .allMatch(el -> el.value().id() < 0);
+    soft.assertThatIterator(indexTestSet.keyIndex().elementIterator())
+        .toIterable()
+        .hasSize(indexTestSet.keys().size())
+        .allMatch(el -> el.value().id() < 0);
+
+    indexTestSet.keys().forEach(index::remove);
+
+    soft.assertThat(indexTestSet.keyIndex()).isEmpty();
+  }
+
+  @Test
+  public void invalidSplitByTargetSize() {
+    for (var i = -5; i <= 0; i++) {
+      var targetSize = i;
+      soft.assertThatIllegalArgumentException()
+          .isThrownBy(() -> newStoreIndex(OBJ_REF_SERIALIZER).splitByTargetSize(targetSize))
+          .withMessageStartingWith("Target serialized size ")
+          .withMessageContaining(" must be greater than 0");
+    }
+  }
+
+  @ParameterizedTest
+  @ValueSource(longs = {32, 48, 64, 96, 128})
+  public void splitByTargetSize(long targetSize) {
+    var indexTestSet = basicIndexTestSet();
+    var index = indexTestSet.keyIndex();
+
+    var splits = index.splitByTargetSize(targetSize);
+
+    soft.assertThat(splits.stream().mapToInt(i -> i.asKeyList().size()).sum())
+        .isEqualTo(index.asKeyList().size());
+    soft.assertThat(splits.stream().flatMap(i -> i.asKeyList().stream()))
+        .containsExactlyElementsOf(index.asKeyList());
+    soft.assertThat(
+            splits.stream().flatMap(i -> stream(spliteratorUnknownSize(i.iterator(), 0), false)))
+        .containsExactlyElementsOf(index);
+    soft.assertThat(splits.getFirst().first()).isEqualTo(index.first());
+    soft.assertThat(splits.getLast().last()).isEqualTo(index.last());
+    soft.assertThat(splits).allSatisfy(split -> assertSplitRespectsTargetSize(split, targetSize));
+  }
+
+  @Test
+  public void splitByTargetSizeIsolatesLargeEntries() {
+    var index = newStoreIndex(OBJ_TEST_SERIALIZER);
+    var firstKey = key("a");
+    var largeKey = key("b");
+    var lastKey = key("c");
+    var firstValue = objTestValueFromString("cafe");
+    var lastValue = objTestValueFromString("babe");
+    var targetSize = 128L;
+    var largeValue =
+        objTestValueOfSize(
+            smallestValueSizeAboveActualSingleEntrySerializedSize(largeKey, targetSize));
+
+    index.put(firstKey, firstValue);
+    index.put(largeKey, largeValue);
+    index.put(lastKey, lastValue);
+
+    var splits = index.splitByTargetSize(targetSize);
+
+    soft.assertThat(splits).hasSize(3);
+    soft.assertThat(splits.get(0).asKeyList()).containsExactly(firstKey);
+    soft.assertThat(splits.get(1).asKeyList()).containsExactly(largeKey);
+    soft.assertThat(splits.get(2).asKeyList()).containsExactly(lastKey);
+  }
+
+  @Test
+  public void splitByTargetSizeReturnsSameSingletonInstance() {
+    var key = key("singleton");
+    var targetSize = 64L;
+    var value =
+        objTestValueOfSize(smallestValueSizeAboveActualSingleEntrySerializedSize(key, targetSize));
+
+    var modified = newStoreIndex(OBJ_TEST_SERIALIZER);
+    modified.put(key, value);
+    soft.assertThat(modified.splitByTargetSize(targetSize)).containsExactly(modified);
+    soft.assertThat(modified.isModified()).isTrue();
+
+    var deserialized = deserializeStoreIndex(modified.serialize(), OBJ_TEST_SERIALIZER);
+    soft.assertThat(deserialized.isModified()).isFalse();
+    soft.assertThat(deserialized.splitByTargetSize(targetSize)).containsExactly(deserialized);
+    soft.assertThat(deserialized.isModified()).isFalse();
+  }
+
+  @ParameterizedTest
+  @ValueSource(ints = {127, 128, 16_383, 16_384})
+  public void splitByTargetSizeElementCountVarIntBoundary(int entryCount) {
+    var index = newStoreIndex(OBJ_REF_SERIALIZER);
+    for (var i = 0; i < entryCount; i++) {
+      index.put(key(format("entry-%03d", i)), randomObjId());
+    }
+
+    var splits = index.splitByTargetSize(Long.MAX_VALUE);
+
+    soft.assertThat(splits).hasSize(1);
+    soft.assertThat(splits.getFirst().asKeyList()).hasSize(entryCount);
+    assertThatCode(() -> splits.getFirst().serialize()).doesNotThrowAnyException();
+    soft.assertThat(splits.getFirst().estimatedSerializedSize())
+        .isGreaterThanOrEqualTo(splits.getFirst().serialize().remaining());
+  }
+
+  @Test
+  public void splitByTargetSizeReturnsSameMultiElementInstanceWhenAlreadyWithinTarget() {
+    var index = basicIndexTestSet().keyIndex();
+    var targetSize = index.serialize().remaining();
+
+    soft.assertThat(index.splitByTargetSize(targetSize)).containsExactly(index);
+  }
+
+  @Test
+  public void splitByTargetSizeUsesActualSerializedKeySizeForLongCommonPrefixes() {
+    var index = newStoreIndex(OBJ_REF_SERIALIZER);
+    var keyPrefix = "catalog/" + "shared-prefix/".repeat(32);
+    for (var i = 0; i < 64; i++) {
+      index.put(key(keyPrefix + format("table-%03d", i)), randomObjId());
+    }
+
+    var actualSerializedSize = index.serialize().remaining();
+
+    soft.assertThat(index.estimatedSerializedSize()).isGreaterThan(actualSerializedSize);
+    soft.assertThat(index.splitByTargetSize(actualSerializedSize)).containsExactly(index);
+  }
+
+  @Test
+  public void stateRelated() {
+    var indexTestSet = basicIndexTestSet();
+    var index = indexTestSet.keyIndex();
+
+    soft.assertThat(index.asMutableIndex()).isSameAs(index);
+    soft.assertThat(index.isMutable()).isTrue();
+    soft.assertThatCode(() -> index.splitByTargetSize(3)).doesNotThrowAnyException();
+  }
+
+  private static int smallestValueSizeAboveActualSingleEntrySerializedSize(
+      IndexKey key, long maxEntrySerializedSize) {
+    var valueSize = (int) Math.min(maxEntrySerializedSize, Integer.MAX_VALUE);
+    while (((long) IndexImpl.INDEX_SERIALIZATION_HEADER_SIZE
+            + key.serializedSize()
+            + OBJ_TEST_SERIALIZER.serializedSize(objTestValueOfSize(valueSize)))
+        <= maxEntrySerializedSize) {
+      valueSize++;
+    }
+    return valueSize;
+  }
+
+  private static void assertSplitRespectsTargetSize(IndexSpi<?> split, long targetSize) {
+    var estimatedSize = split.estimatedSerializedSize();
+    if (estimatedSize <= targetSize) {
+      return;
+    }
+    assertThat(split.asKeyList()).hasSize(1);
+  }
+
+  /**
+   * Verifies that an index containing null-valued elements (tombstones) can be serialized and
+   * deserialized without data corruption. This is a test for a potential bug where {@code
+   * IndexValueSerializer.serialize(null, target)} could write to a different buffer instead of
+   * {@code target}, causing the serialized byte stream to be shifted and subsequent deserialization
+   * to fail with a {@link java.nio.BufferUnderflowException}.
+   */
+  @Test
+  void serializeDeserializeWithNullValues() {
+    var index = newStoreIndex(OBJ_REF_SERIALIZER);
+    var key1 = key("table1");
+    var key2 = key("table2");
+    var key3 = key("table3");
+    var key4 = key("table4");
+
+    var value1 = randomObjId();
+    var value3 = randomObjId();
+
+    index.add(indexElement(key1, value1));
+    index.add(indexElement(key2, (ObjRef) null)); // tombstone
+    index.add(indexElement(key3, value3));
+    index.add(indexElement(key4, (ObjRef) null)); // tombstone
+
+    var serialized = index.serialize();
+    var deserialized = deserializeStoreIndex(serialized, OBJ_REF_SERIALIZER);
+
+    soft.assertThat(deserialized.estimatedSerializedSize()).isEqualTo(serialized.remaining());
+
+    var el1 = deserialized.getElement(key1);
+    var el2 = deserialized.getElement(key2);
+    var el3 = deserialized.getElement(key3);
+    var el4 = deserialized.getElement(key4);
+
+    soft.assertThat(el1).isNotNull();
+    soft.assertThat(el1.key()).isEqualTo(key1);
+    soft.assertThat(el1.valueNullable()).isEqualTo(value1);
+
+    soft.assertThat(el2).isNotNull();
+    soft.assertThat(el2.key()).isEqualTo(key2);
+    soft.assertThat(el2.valueNullable()).isNull();
+
+    soft.assertThat(el3).isNotNull();
+    soft.assertThat(el3.key()).isEqualTo(key3);
+    soft.assertThat(el3.valueNullable()).isEqualTo(value3);
+
+    soft.assertThat(el4).isNotNull();
+    soft.assertThat(el4.key()).isEqualTo(key4);
+    soft.assertThat(el4.valueNullable()).isNull();
+
+    // Verify that the deserialized index can be re-serialized and deserialized again.
+    // Add an element to force re-serialization (modified flag).
+    var key5 = key("table5");
+    var value5 = randomObjId();
+    deserialized.add(indexElement(key5, value5));
+    var reserialized = deserialized.serialize();
+    var redeserialized = deserializeStoreIndex(reserialized, OBJ_REF_SERIALIZER);
+
+    soft.assertThat(redeserialized.getElement(key1).valueNullable()).isEqualTo(value1);
+    soft.assertThat(redeserialized.getElement(key2).valueNullable()).isNull();
+    soft.assertThat(redeserialized.getElement(key3).valueNullable()).isEqualTo(value3);
+    soft.assertThat(redeserialized.getElement(key4).valueNullable()).isNull();
+  }
+
+  @Test
+  void serializeDeserializeWithNullValuesObjTest() {
+    var index = newStoreIndex(OBJ_TEST_SERIALIZER);
+    var key1 = key("a");
+    var key2 = key("b");
+    var key3 = key("c");
+
+    index.add(indexElement(key1, objTestValueFromString("cafe")));
+    index.add(indexElement(key2, (ObjTestValue) null)); // tombstone
+    index.add(indexElement(key3, objTestValueFromString("babe")));
+
+    var serialized = index.serialize();
+    var deserialized = deserializeStoreIndex(serialized, OBJ_TEST_SERIALIZER);
+
+    soft.assertThat(deserialized.getElement(key1).valueNullable())
+        .isEqualTo(objTestValueFromString("cafe"));
+    soft.assertThat(deserialized.getElement(key2).valueNullable()).isNull();
+    soft.assertThat(deserialized.getElement(key3).valueNullable())
+        .isEqualTo(objTestValueFromString("babe"));
+  }
+
+  /** Tests that replacing a non-null value with null (tombstone) round-trips correctly. */
+  @Test
+  void replaceValueWithNull() {
+    var index = newStoreIndex(OBJ_REF_SERIALIZER);
+    var key1 = key("table1");
+    var key2 = key("table2");
+
+    var value1 = randomObjId();
+    var value2 = randomObjId();
+
+    index.add(indexElement(key1, value1));
+    index.add(indexElement(key2, value2));
+
+    // Serialize, deserialize, then replace key2 with null (tombstone)
+    var serialized = index.serialize();
+    var deserialized = deserializeStoreIndex(serialized, OBJ_REF_SERIALIZER);
+
+    deserialized.add(indexElement(key2, (ObjRef) null));
+
+    var reserialized = deserialized.serialize();
+    var final_ = deserializeStoreIndex(reserialized, OBJ_REF_SERIALIZER);
+
+    soft.assertThat(final_.getElement(key1).valueNullable()).isEqualTo(value1);
+    soft.assertThat(final_.getElement(key2).valueNullable()).isNull();
+  }
+
+  /**
+   * Tests that an index with only null-valued elements (all tombstones) round-trips correctly. This
+   * is an edge case where every serialized value is the null marker.
+   */
+  @Test
+  void allNullValues() {
+    var index = newStoreIndex(OBJ_REF_SERIALIZER);
+
+    for (var i = 0; i < 10; i++) {
+      index.add(indexElement(key("key" + i), (ObjRef) null));
+    }
+
+    var serialized = index.serialize();
+    var deserialized = deserializeStoreIndex(serialized, OBJ_REF_SERIALIZER);
+
+    for (var i = 0; i < 10; i++) {
+      var el = deserialized.getElement(key("key" + i));
+      soft.assertThat(el).describedAs("Element for key%d", i).isNotNull();
+      soft.assertThat(el.valueNullable()).describedAs("Value for key%d", i).isNull();
+    }
+  }
+
+  @Test
+  void iteratorSkipsLazyNullValuesWithoutDeserializingNonNullValues() {
+    var deserializeCalls = new AtomicInteger();
+    var nullProbeCalls = new AtomicInteger();
+    IndexValueSerializer<String> serializer =
+        new IndexValueSerializer<>() {
+          @Override
+          public int serializedSize(@Nullable String value) {
+            if (value == null) {
+              return 1;
+            }
+            var bytes = value.getBytes(UTF_8);
+            return VarInt.varIntLen(bytes.length) + bytes.length;
+          }
+
+          @Override
+          public @NonNull ByteBuffer serialize(@Nullable String value, @NonNull ByteBuffer target) {
+            if (value == null) {
+              return target.put((byte) 0);
+            }
+            var bytes = value.getBytes(UTF_8);
+            return VarInt.putVarInt(target, bytes.length).put(bytes);
+          }
+
+          @Override
+          public @Nullable String deserialize(@NonNull ByteBuffer buffer) {
+            deserializeCalls.incrementAndGet();
+            var len = VarInt.readVarInt(buffer);
+            if (len == 0) {
+              return null;
+            }
+            var bytes = new byte[len];
+            buffer.get(bytes);
+            return new String(bytes, UTF_8);
+          }
+
+          @Override
+          public boolean isNullSerialized(@NonNull ByteBuffer buffer) {
+            nullProbeCalls.incrementAndGet();
+            return VarInt.readVarInt(buffer.duplicate()) == 0;
+          }
+
+          @Override
+          public void skip(@NonNull ByteBuffer buffer) {
+            var len = VarInt.readVarInt(buffer);
+            if (len > 0) {
+              buffer.position(buffer.position() + len);
+            }
+          }
+        };
+
+    var index = newStoreIndex(serializer);
+    var key1 = key("a");
+    var key2 = key("b");
+    var key3 = key("c");
+    index.add(indexElement(key1, "alpha"));
+    index.add(indexElement(key2, (String) null));
+    index.add(indexElement(key3, "charlie"));
+
+    var deserialized = deserializeStoreIndex(index.serialize(), serializer);
+
+    var iteratedKeys = new ArrayList<IndexKey>();
+    deserialized.iterator().forEachRemaining(element -> iteratedKeys.add(element.key()));
+
+    soft.assertThat(iteratedKeys).containsExactly(key1, key3);
+    soft.assertThat(nullProbeCalls).hasValue(3);
+    soft.assertThat(deserializeCalls).hasValue(0);
+
+    var first = deserialized.iterator().next();
+    soft.assertThat(first.key()).isEqualTo(key1);
+    soft.assertThat(first.value()).isEqualTo("alpha");
+    soft.assertThat(deserializeCalls).hasValue(1);
+  }
+
+  @Test
+  void hasNonNullValueMarksLazyNullValueWithoutDeserializingIt() {
+    var deserializeCalls = new AtomicInteger();
+    var nullProbeCalls = new AtomicInteger();
+    IndexValueSerializer<String> serializer =
+        new IndexValueSerializer<>() {
+          @Override
+          public int serializedSize(@Nullable String value) {
+            if (value == null) {
+              return 1;
+            }
+            var bytes = value.getBytes(UTF_8);
+            return VarInt.varIntLen(bytes.length) + bytes.length;
+          }
+
+          @Override
+          public @NonNull ByteBuffer serialize(@Nullable String value, @NonNull ByteBuffer target) {
+            if (value == null) {
+              return target.put((byte) 0);
+            }
+            var bytes = value.getBytes(UTF_8);
+            return VarInt.putVarInt(target, bytes.length).put(bytes);
+          }
+
+          @Override
+          public @Nullable String deserialize(@NonNull ByteBuffer buffer) {
+            deserializeCalls.incrementAndGet();
+            var len = VarInt.readVarInt(buffer);
+            if (len == 0) {
+              return null;
+            }
+            var bytes = new byte[len];
+            buffer.get(bytes);
+            return new String(bytes, UTF_8);
+          }
+
+          @Override
+          public boolean isNullSerialized(@NonNull ByteBuffer buffer) {
+            nullProbeCalls.incrementAndGet();
+            return VarInt.readVarInt(buffer.duplicate()) == 0;
+          }
+
+          @Override
+          public void skip(@NonNull ByteBuffer buffer) {
+            var len = VarInt.readVarInt(buffer);
+            if (len > 0) {
+              buffer.position(buffer.position() + len);
+            }
+          }
+        };
+
+    var index = newStoreIndex(serializer);
+    var key1 = key("a");
+    index.add(indexElement(key1, (String) null));
+
+    var deserialized = deserializeStoreIndex(index.serialize(), serializer);
+    var element = deserialized.getElement(key1);
+
+    soft.assertThat(element.hasValue()).isFalse();
+    soft.assertThat(nullProbeCalls).hasValue(1);
+    soft.assertThat(deserializeCalls).hasValue(0);
+
+    soft.assertThat(element.valueNullable()).isNull();
+    soft.assertThat(nullProbeCalls).hasValue(1);
+    soft.assertThat(deserializeCalls).hasValue(0);
+  }
+
+  @Test
+  void lazyValueStateRemainsConsistentAcrossThreads() throws Exception {
+    var index = newStoreIndex(OBJ_REF_SERIALIZER);
+    var key1 = key("a");
+    var value1 = Util.randomObjId();
+    index.add(indexElement(key1, value1));
+
+    var deserialized = deserializeStoreIndex(index.serialize(), OBJ_REF_SERIALIZER);
+    var element = deserialized.getElement(key1);
+
+    var threads = Runtime.getRuntime().availableProcessors();
+
+    try (var executor = Executors.newFixedThreadPool(threads)) {
+      var latch = new CountDownLatch(threads);
+      var start = new Semaphore(0);
+
+      var futures =
+          IntStream.range(0, threads)
+              .mapToObj(
+                  i ->
+                      CompletableFuture.runAsync(
+                          () -> {
+                            latch.countDown();
+                            try {
+                              start.acquire();
+                            } catch (InterruptedException e) {
+                              throw new RuntimeException(e);
+                            }
+                            for (var iter = 0; iter < 1_000; iter++) {
+                              if ((iter & 1) == 0) {
+                                if (!element.hasValue()) {
+                                  throw new AssertionError("Unexpected null-value state");
+                                }
+                              } else if (!value1.equals(element.valueNullable())) {
+                                throw new AssertionError("Unexpected materialized value");
+                              }
+                            }
+                          },
+                          executor))
+              .toArray(CompletableFuture[]::new);
+
+      latch.await();
+      start.release(threads);
+
+      CompletableFuture.allOf(futures).get(30, TimeUnit.SECONDS);
+    }
+
+    soft.assertThat(element.hasValue()).isTrue();
+    soft.assertThat(element.valueNullable()).isEqualTo(value1);
+  }
+
+  // The following multithreaded "tests" are only there to verify that no ByteBuffer related
+  // exceptions are thrown.
+
+  @Test
+  public void multithreadedGetKey() throws Exception {
+    multithreaded(KeyIndexTestSet::randomGetKey, 200);
+  }
+
+  @Test
+  public void multithreadedSerialize() throws Exception {
+    multithreaded(KeyIndexTestSet::serialize, 50);
+  }
+
+  @Test
+  public void multithreadedFirst() throws Exception {
+    multithreaded(ts -> ts.keyIndex().first(), 50);
+  }
+
+  @Test
+  public void multithreadedLast() throws Exception {
+    multithreaded(ts -> ts.keyIndex().last(), 50);
+  }
+
+  @Test
+  public void multithreadedKeys() throws Exception {
+    multithreaded(ts -> ts.keyIndex().asKeyList(), 50);
+  }
+
+  @Test
+  public void multithreadedElementIterator() throws Exception {
+    multithreaded(ts -> ts.keyIndex().elementIterator().forEachRemaining(el -> {}), 50);
+  }
+
+  @Test
+  public void multithreadedIterator() throws Exception {
+    var numKeys = 2_048;
+    var everyFourthIsNull = new AtomicInteger();
+    var expectedCount = numKeys - numKeys / 4;
+    var indexTestSet =
+        KeyIndexTestSet.<ObjRef>newGenerator()
+            .keySet(ImmutableRandomUuidKeySet.builder().numKeys(numKeys).build())
+            .elementSupplier(
+                key ->
+                    indexElement(
+                        key,
+                        everyFourthIsNull.getAndIncrement() % 4 == 0 ? null : Util.randomObjId()))
+            .elementSerializer(OBJ_REF_SERIALIZER)
+            .build()
+            .generateIndexTestSet();
+
+    multithreaded(
+        indexTestSet,
+        ts -> {
+          var count = 0;
+          for (Index.Element<ObjRef> element : ts.keyIndex()) {
+            count++;
+          }
+          if (count != expectedCount) {
+            throw new AssertionError(
+                format("Expected %s non-null elements, got %s", expectedCount, count));
+          }
+        },
+        50);
+  }
+
+  void multithreaded(Consumer<KeyIndexTestSet<ObjRef>> worker, int iterationsPerThread)
+      throws Exception {
+    var indexTestSet =
+        KeyIndexTestSet.<ObjRef>newGenerator()
+            .keySet(ImmutableRandomUuidKeySet.builder().numKeys(100_000).build())
+            .elementSupplier(key -> indexElement(key, Util.randomObjId()))
+            .elementSerializer(OBJ_REF_SERIALIZER)
+            .build()
+            .generateIndexTestSet();
+
+    multithreaded(indexTestSet, worker, iterationsPerThread);
+  }
+
+  void multithreaded(
+      KeyIndexTestSet<ObjRef> indexTestSet,
+      Consumer<KeyIndexTestSet<ObjRef>> worker,
+      int iterationsPerThread)
+      throws Exception {
+
+    var threads = Runtime.getRuntime().availableProcessors();
+
+    try (var executor = Executors.newFixedThreadPool(threads)) {
+      var latch = new CountDownLatch(threads);
+      var start = new Semaphore(0);
+
+      var futures =
+          IntStream.range(0, threads)
+              .mapToObj(
+                  i ->
+                      CompletableFuture.runAsync(
+                          () -> {
+                            latch.countDown();
+                            try {
+                              start.acquire();
+                            } catch (InterruptedException e) {
+                              throw new RuntimeException(e);
+                            }
+                            for (var iter = 0; iter < iterationsPerThread; iter++) {
+                              worker.accept(indexTestSet);
+                            }
+                          },
+                          executor))
+              .toArray(CompletableFuture[]::new);
+
+      latch.await();
+      start.release(threads);
+
+      CompletableFuture.allOf(futures).get(60, TimeUnit.SECONDS);
+    }
+  }
+
+  @Test
+  void scratchPoolAcquireRelease() {
+    IndexImpl.clearScratchPool();
+    var buf = IndexImpl.acquireScratchKeyBuffer();
+    soft.assertThat(buf).isNotNull();
+    soft.assertThat(buf.position()).isEqualTo(0);
+
+    // Write some data, then release
+    buf.put((byte) 42);
+    IndexImpl.releaseScratchKeyBuffer(buf);
+    soft.assertThat(IndexImpl.scratchPoolSize()).isEqualTo(1);
+
+    // Re-acquire from the same thread should return the same buffer, cleared
+    var buf2 = IndexImpl.acquireScratchKeyBuffer();
+    try {
+      soft.assertThat(buf2).isSameAs(buf);
+      soft.assertThat(buf2.position()).isEqualTo(0);
+    } finally {
+      IndexImpl.releaseScratchKeyBuffer(buf2);
+    }
+  }
+
+  @Test
+  void scratchPoolNestedAcquire() {
+    IndexImpl.clearScratchPool();
+
+    // First acquire takes the buffer from the slot
+    var outer = IndexImpl.acquireScratchKeyBuffer();
+    // Second acquire from the same thread hits the same (now empty) slot, must allocate fresh
+    soft.assertThat(IndexImpl.scratchPoolSize()).isEqualTo(0);
+    var inner = IndexImpl.acquireScratchKeyBuffer();
+
+    soft.assertThat(inner).isNotSameAs(outer);
+
+    // Both buffers are independently usable
+    outer.put((byte) 1);
+    inner.put((byte) 2);
+    soft.assertThat(outer.get(0)).isEqualTo((byte) 1);
+    soft.assertThat(inner.get(0)).isEqualTo((byte) 2);
+
+    // Release inner first, then outer — outer wins the slot (last-write-wins)
+    IndexImpl.releaseScratchKeyBuffer(inner);
+    soft.assertThat(IndexImpl.scratchPoolSize()).isEqualTo(1);
+    IndexImpl.releaseScratchKeyBuffer(outer);
+    soft.assertThat(IndexImpl.scratchPoolSize()).isEqualTo(1);
+
+    // Re-acquire should get the outer buffer (last released to this slot)
+    soft.assertThat(IndexImpl.scratchPoolSize()).isEqualTo(1);
+    var reacquired = IndexImpl.acquireScratchKeyBuffer();
+    soft.assertThat(IndexImpl.scratchPoolSize()).isEqualTo(0);
+    soft.assertThat(reacquired).isSameAs(outer);
+    IndexImpl.releaseScratchKeyBuffer(reacquired);
+    soft.assertThat(IndexImpl.scratchPoolSize()).isEqualTo(1);
+    IndexImpl.releaseScratchKeyBuffer(outer);
+    soft.assertThat(IndexImpl.scratchPoolSize()).isEqualTo(1);
+  }
+
+  @Test
+  void scratchPoolConcurrentAccess() throws Exception {
+    IndexImpl.clearScratchPool();
+
+    var threads = Runtime.getRuntime().availableProcessors() * 2;
+    var iterationsPerThread = 1000;
+    var latch = new CountDownLatch(threads);
+    var start = new Semaphore(0);
+
+    try (var executor = Executors.newFixedThreadPool(threads)) {
+      var futures =
+          IntStream.range(0, threads)
+              .mapToObj(
+                  i ->
+                      CompletableFuture.runAsync(
+                          () -> {
+                            latch.countDown();
+                            try {
+                              start.acquire();
+                            } catch (InterruptedException e) {
+                              throw new RuntimeException(e);
+                            }
+                            for (var iter = 0; iter < iterationsPerThread; iter++) {
+                              var buf = IndexImpl.acquireScratchKeyBuffer();
+                              // Write a marker to verify no buffer is shared concurrently
+                              var marker = (byte) (Thread.currentThread().hashCode() & 0xFF);
+                              buf.put(0, marker);
+                              // Simulate work
+                              for (var j = 1; j < 16; j++) {
+                                buf.put(j, marker);
+                              }
+                              // Verify our marker is still intact (no other thread overwrote it)
+                              for (var j = 0; j < 16; j++) {
+                                if (buf.get(j) != marker) {
+                                  throw new AssertionError(
+                                      "Buffer was concurrently modified at position " + j);
+                                }
+                              }
+                              IndexImpl.releaseScratchKeyBuffer(buf);
+                            }
+                          },
+                          executor))
+              .toArray(CompletableFuture[]::new);
+
+      latch.await();
+      start.release(threads);
+
+      CompletableFuture.allOf(futures).get(60, TimeUnit.SECONDS);
+    }
+
+    // Pool should still be bounded
+    soft.assertThat(IndexImpl.scratchPoolSize()).isLessThanOrEqualTo(IndexImpl.POOL_SIZE);
+  }
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "full_reparse_complete_apis",
+    "base": "environment/starter",
+    "patch": "full_reparse_complete_apis.patch",
+    "expected_direction": "can satisfy all semantics, retained as strongest cheap baseline",
+    "actual_score": 1.0,
+    "actual_report": "authoring/evidence/full_reparse_complete_apis/score.json",
+    "source_digest": "a9bb9c39c64c8e5eb2fd389f982f4a661d5ddacd39bfe1940f175c88bc3d23ed"
+  },
+  {
+    "id": "full_reparse_starter",
+    "base": "environment/starter",
+    "patch": "full_reparse_starter.patch",
+    "expected_direction": "parser group improves; edit and range semantics remain incomplete",
+    "actual_score": 0.46861471861471865,
+    "actual_report": "authoring/evidence/full_reparse_starter/score.json",
+    "source_digest": "52ac0d3e248ce40f4c489c6894dcd5fcf519a27a8a967ddc62120334aa051ce6"
+  },
+  {
+    "id": "edit_only",
+    "base": "environment/starter",
+    "patch": "edit_only.patch",
+    "expected_direction": "edit dimensions improve; reuse/range gaps persist",
+    "actual_score": 0.38484848484848483,
+    "actual_report": "authoring/evidence/edit_only/score.json",
+    "source_digest": "200ab85e7b425a9204492939e3228f00ed362d2681c9ea0974fad3f8e1c20be9"
+  },
+  {
+    "id": "range_only",
+    "base": "environment/starter",
+    "patch": "range_only.patch",
+    "expected_direction": "little gain because invalidation/reuse dependencies remain",
+    "actual_score": 0.14090909090909093,
+    "actual_report": "authoring/evidence/range_only/score.json",
+    "source_digest": "d2b8e9a0481ec86180ed4bbdf46b6e4998cf2080c49ffec7015b80c628a6b1b2"
+  },
+  {
+    "id": "scanner_gate_missing",
+    "base": "environment/starter",
+    "patch": "scanner_gate_missing.patch",
+    "expected_direction": "near-complete but scanner safety counterexamples fail",
+    "actual_score": 0.9405844155844156,
+    "actual_report": "authoring/evidence/scanner_gate_missing/score.json",
+    "source_digest": "effc593eb9c6c777344b0d6331d6baf4ca1f75f7255cacb44f9e4b6d6e412e1c"
+  }
+]

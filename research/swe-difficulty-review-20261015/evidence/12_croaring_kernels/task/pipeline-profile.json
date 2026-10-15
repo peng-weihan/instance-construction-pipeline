@@ -1,0 +1,7 @@
+{
+  "agent_image": "edgebench-croaring-venn3-agent:draft1",
+  "verifier_image": "edgebench-croaring-venn3-verifier:draft1",
+  "artifacts": ["/home/workspace/croaring/submission/src", "/home/workspace/croaring/submission/include"],
+  "selection": "valid_then_score",
+  "score_direction": "maximize"
+}

@@ -1,0 +1,64 @@
+{
+  "id": "04_pytest_fixtures",
+  "repo": "pytest-dev/pytest",
+  "family": "engineering_evolution",
+  "new_source": true,
+  "title": "fixture生命周期、动态收集与插件交互",
+  "files": [
+    "README.rst",
+    "src/_pytest/fixtures.py",
+    "testing/python/fixtures.py",
+    "doc/en/explanation/fixtures.rst"
+  ],
+  "revision": "c9c19f8e62c12834ad83193a1869cc82fe9c700e",
+  "retrieved_utc": "2026-10-15T09:20:33.133969+00:00",
+  "files_acquired": [
+    {
+      "path": "README.rst",
+      "bytes": 5454,
+      "sha256": "37c713f12b48774c77c40accfe3a6a28c25d7e763c9c5e34266261cf738713b5",
+      "url": "https://github.com/pytest-dev/pytest/blob/c9c19f8e62c12834ad83193a1869cc82fe9c700e/README.rst"
+    },
+    {
+      "path": "src/_pytest/fixtures.py",
+      "bytes": 102988,
+      "sha256": "d22df766fedb26845c5aaa2572c6d06718dcdfaec15fa8b9cad17f25b2176ef5",
+      "url": "https://github.com/pytest-dev/pytest/blob/c9c19f8e62c12834ad83193a1869cc82fe9c700e/src/_pytest/fixtures.py"
+    },
+    {
+      "path": "testing/python/fixtures.py",
+      "bytes": 196490,
+      "sha256": "9af290a1930f81b7e5fd0fc661367602bb79df322507a8313cddcf367c30d0d7",
+      "url": "https://github.com/pytest-dev/pytest/blob/c9c19f8e62c12834ad83193a1869cc82fe9c700e/testing/python/fixtures.py"
+    },
+    {
+      "path": "doc/en/explanation/fixtures.rst",
+      "bytes": 6090,
+      "sha256": "aa98786d14e9415396ff5e1c1d4cb350dc420438c984e20104823186761ef6ef",
+      "url": "https://github.com/pytest-dev/pytest/blob/c9c19f8e62c12834ad83193a1869cc82fe9c700e/doc/en/explanation/fixtures.rst"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1091,
+      "sha256": "ca836a5f9ecca3b2f350230faa20a48fb8b145653b5568d784862df864706b9b",
+      "url": "https://github.com/pytest-dev/pytest/blob/c9c19f8e62c12834ad83193a1869cc82fe9c700e/LICENSE"
+    }
+  ],
+  "missing_paths": [
+    "LICENSE.txt",
+    "LICENSE.md",
+    "COPYING",
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "runtime_validation": false,
+  "six_hour_difficulty_verified": false,
+  "tree_manifest": {
+    "path": "git-tree.json",
+    "sha256": "7db8018f557d6d290051035ddf62d4e36afbebf0062f82bae58656b3d7bcb6e6",
+    "blob_count": 727,
+    "truncated": false
+  },
+  "resolved_initial_404_paths": {},
+  "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+}

@@ -1,0 +1,2 @@
+Starter, header, Makefile and checker adapted from ByteDance-Seed/EdgeBench vehicle_routing_time_windows public task images. Task assets: CC BY 4.0. https://huggingface.co/datasets/ByteDance-Seed/EdgeBench
+Fresh synthetic inputs and local feedback client by this factory; not official benchmark questions.

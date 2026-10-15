@@ -1,0 +1,68 @@
+{
+  "repo": "tokio-rs/tokio",
+  "revision": "52ac7816230efabcae6fcc09cbe7ae630a48eddf",
+  "resolved_utc": "2026-10-15T13:08:19.466213+00:00",
+  "retrieved_utc": "2026-10-15T13:09:15.347778+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "9d4974a8d0a832515180bcfde6b4ab300a818d934b351cd57800ce178fda1948",
+    "truncated": false,
+    "blob_count": 886
+  },
+  "files_acquired": [
+    {
+      "path": "Cargo.toml",
+      "bytes": 835,
+      "sha256": "34ea03adbf7667b3b1a4cad02847027d286f7ff80f66224f6710ddb72554eaa9",
+      "url": "https://github.com/tokio-rs/tokio/blob/52ac7816230efabcae6fcc09cbe7ae630a48eddf/Cargo.toml"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1070,
+      "sha256": "253cd04c6714889df2d32f3f64d669179a1c95c76ac43c40882c52eb06bc3552",
+      "url": "https://github.com/tokio-rs/tokio/blob/52ac7816230efabcae6fcc09cbe7ae630a48eddf/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9505,
+      "sha256": "a56de20f5463b7e749ba310b692e4d47e77016a26e05227d3ad1ab77b21b7a57",
+      "url": "https://github.com/tokio-rs/tokio/blob/52ac7816230efabcae6fcc09cbe7ae630a48eddf/README.md"
+    },
+    {
+      "path": "tokio/src/runtime/scheduler/multi_thread/mod.rs",
+      "bytes": 2488,
+      "sha256": "922e3a3c0650b960f6dea1c54e39ae57cdb8cc6e831a8ee0b36cc05e65d01277",
+      "url": "https://github.com/tokio-rs/tokio/blob/52ac7816230efabcae6fcc09cbe7ae630a48eddf/tokio/src/runtime/scheduler/multi_thread/mod.rs"
+    },
+    {
+      "path": "tokio/src/runtime/task/state.rs",
+      "bytes": 21947,
+      "sha256": "8b836adf0874bb00e9e61efec6d15010619f0acc23680e2fc23e856b1fa9ffce",
+      "url": "https://github.com/tokio-rs/tokio/blob/52ac7816230efabcae6fcc09cbe7ae630a48eddf/tokio/src/runtime/task/state.rs"
+    },
+    {
+      "path": "tokio/src/time/sleep.rs",
+      "bytes": 15875,
+      "sha256": "a5c092e8c268fcb10c63b7923dc4aae1282bda60805f9d87f3987c4fecde4595",
+      "url": "https://github.com/tokio-rs/tokio/blob/52ac7816230efabcae6fcc09cbe7ae630a48eddf/tokio/src/time/sleep.rs"
+    },
+    {
+      "path": "tokio/tests/rt_common.rs",
+      "bytes": 40869,
+      "sha256": "2a004048490d779a5703a492632646efd34666b39bb63a62c6f7eec3d01e2018",
+      "url": "https://github.com/tokio-rs/tokio/blob/52ac7816230efabcae6fcc09cbe7ae630a48eddf/tokio/tests/rt_common.rs"
+    },
+    {
+      "path": "tokio/tests/time_sleep.rs",
+      "bytes": 10319,
+      "sha256": "20c1ba93264911a9fdf904e9f97d8f12e31089000b0579d13d00d04a9b3b897e",
+      "url": "https://github.com/tokio-rs/tokio/blob/52ac7816230efabcae6fcc09cbe7ae630a48eddf/tokio/tests/time_sleep.rs"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

@@ -1,0 +1,806 @@
+{
+  "kind": "direct_offline_docker_runtime_reuse",
+  "runtime_image_id": "sha256:196c328b2fe18970b07a30df5c11283d6a652cf0c5899d76d6af5b4fd2269f9f",
+  "source_task": "/ws/users/raymone/edgebench/remaining-three-001/finance-task-r3",
+  "source_dockerfile_rebuilt": false,
+  "native_harbor_verified": false,
+  "model_runs": 0,
+  "results": {
+    "reference": {
+      "seconds": 115.17640689504333,
+      "status": "scored",
+      "score": 0.6058140125784419,
+      "valid": true,
+      "checks": [
+        {
+          "name": "feedback_2014_ordinary/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2014_ordinary/positive_utility_gain",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2014_ordinary/tail_calibration",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2014_costly/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2014_costly/positive_utility_gain",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2014_costly/tail_calibration",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2015_ordinary/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2015_ordinary/positive_utility_gain",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2015_ordinary/tail_calibration",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2015_costly/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2015_costly/positive_utility_gain",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2015_costly/tail_calibration",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2016_ordinary/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2016_ordinary/positive_utility_gain",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2016_ordinary/tail_calibration",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2016_costly/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2016_costly/positive_utility_gain",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2016_costly/tail_calibration",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2017_ordinary/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2017_ordinary/positive_utility_gain",
+          "pass": false,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2017_ordinary/tail_calibration",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2017_costly/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2017_costly/positive_utility_gain",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2017_costly/tail_calibration",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2018_ordinary/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2018_ordinary/positive_utility_gain",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2018_ordinary/tail_calibration",
+          "pass": false,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2018_costly/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2018_costly/positive_utility_gain",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2018_costly/tail_calibration",
+          "pass": false,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2019_ordinary/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2019_ordinary/positive_utility_gain",
+          "pass": false,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2019_ordinary/tail_calibration",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2019_costly/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2019_costly/positive_utility_gain",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2019_costly/tail_calibration",
+          "pass": true,
+          "summary": ""
+        }
+      ],
+      "raw_metrics": {
+        "episodes": [
+          {
+            "case": "feedback_2014_ordinary",
+            "score": 0.46106597541076866,
+            "reference_utility": 0.016730413478137085,
+            "utility": 0.027455653051171244,
+            "annual_log_growth": 0.05668708517697273,
+            "annual_volatility": 0.027813778163408027,
+            "max_drawdown": 0.015324543044097472,
+            "pinball": 0.00022393568305076057,
+            "variance_mse": 2.8751161444778132e-11,
+            "breach_rate": 0.03571428571428571,
+            "turnover": 1.065717085777457,
+            "days": 252,
+            "final_nav": 1058324.5931240427,
+            "rebalance_count": 37
+          },
+          {
+            "case": "feedback_2014_costly",
+            "score": 0.5287227478823402,
+            "reference_utility": 0.003626218572537976,
+            "utility": 0.02563007119501852,
+            "annual_log_growth": 0.05508840435455463,
+            "annual_volatility": 0.02792061372177679,
+            "max_drawdown": 0.015498026298647716,
+            "pinball": 0.00022497451453904198,
+            "variance_mse": 2.919551912660399e-11,
+            "breach_rate": 0.03968253968253968,
+            "turnover": 1.065709110229218,
+            "days": 252,
+            "final_nav": 1056634.0215953246,
+            "rebalance_count": 37
+          },
+          {
+            "case": "feedback_2015_ordinary",
+            "score": 0.8371116554482396,
+            "reference_utility": -0.144691608192385,
+            "utility": -0.0710895455120116,
+            "annual_log_growth": -0.01001341047344598,
+            "annual_volatility": 0.03766529598994538,
+            "max_drawdown": 0.04224348704359293,
+            "pinball": 0.0003093294106755879,
+            "variance_mse": 1.3005597184802295e-10,
+            "breach_rate": 0.07936507936507936,
+            "turnover": 0.9789204469755017,
+            "days": 252,
+            "final_nav": 990036.5568011877,
+            "rebalance_count": 54
+          },
+          {
+            "case": "feedback_2015_costly",
+            "score": 0.9370246695178392,
+            "reference_utility": -0.1632461402331258,
+            "utility": -0.07299124763024689,
+            "annual_log_growth": -0.011482834366549845,
+            "annual_volatility": 0.03764083431382838,
+            "max_drawdown": 0.042687996106782866,
+            "pinball": 0.0003096103907863839,
+            "variance_mse": 1.3022643342871585e-10,
+            "breach_rate": 0.07936507936507936,
+            "turnover": 0.9789179581532192,
+            "days": 252,
+            "final_nav": 988582.8417529621,
+            "rebalance_count": 54
+          },
+          {
+            "case": "feedback_2016_ordinary",
+            "score": 0.4057500477766496,
+            "reference_utility": -0.03897744006511079,
+            "utility": -0.03743806899045473,
+            "annual_log_growth": 0.018563737712779655,
+            "annual_volatility": 0.0305256319439324,
+            "max_drawdown": 0.04073899073126819,
+            "pinball": 0.00023794196613473323,
+            "variance_mse": 4.749694437239444e-11,
+            "breach_rate": 0.05952380952380952,
+            "turnover": 1.122827465171454,
+            "days": 252,
+            "final_nav": 1018737.1150739497,
+            "rebalance_count": 44
+          },
+          {
+            "case": "feedback_2016_costly",
+            "score": 0.4919902778291906,
+            "reference_utility": -0.05555954925280016,
+            "utility": -0.03964672076741506,
+            "annual_log_growth": 0.016879593421141696,
+            "annual_volatility": 0.030547563302373855,
+            "max_drawdown": 0.041252532537369824,
+            "pinball": 0.00023797791180142565,
+            "variance_mse": 4.741443546540202e-11,
+            "breach_rate": 0.05952380952380952,
+            "turnover": 1.1228418190254343,
+            "days": 252,
+            "final_nav": 1017022.8587096387,
+            "rebalance_count": 44
+          },
+          {
+            "case": "feedback_2017_ordinary",
+            "score": 0.3972740114920792,
+            "reference_utility": 0.0463900985809578,
+            "utility": 0.04488822656803097,
+            "annual_log_growth": 0.06601718375780187,
+            "annual_volatility": 0.02291625566083882,
+            "max_drawdown": 0.009670829359351485,
+            "pinball": 0.00018509637106390765,
+            "variance_mse": 1.633582433291236e-11,
+            "breach_rate": 0.035856573705179286,
+            "turnover": 1.5283968672159969,
+            "days": 251,
+            "final_nav": 1067965.258811691,
+            "rebalance_count": 43
+          },
+          {
+            "case": "feedback_2017_costly",
+            "score": 0.4740758619589748,
+            "reference_utility": 0.029602582795907516,
+            "utility": 0.0424047274179671,
+            "annual_log_growth": 0.06371500403672437,
+            "annual_volatility": 0.02293941645603988,
+            "max_drawdown": 0.009840568390737325,
+            "pinball": 0.0001858583541477378,
+            "variance_mse": 1.642701635285986e-11,
+            "breach_rate": 0.035856573705179286,
+            "turnover": 1.5283969376987074,
+            "days": 251,
+            "final_nav": 1065519.172952733,
+            "rebalance_count": 43
+          },
+          {
+            "case": "feedback_2018_ordinary",
+            "score": 0.931275317651947,
+            "reference_utility": -0.19995655202396,
+            "utility": -0.11048347601422834,
+            "annual_log_growth": -0.025841581654382273,
+            "annual_volatility": 0.042418694218937805,
+            "max_drawdown": 0.06343254725037717,
+            "pinball": 0.000385160570858812,
+            "variance_mse": 6.692517323205428e-10,
+            "breach_rate": 0.10756972111553785,
+            "turnover": 2.1158410774042045,
+            "days": 251,
+            "final_nav": 974589.3894679699,
+            "rebalance_count": 65
+          },
+          {
+            "case": "feedback_2018_costly",
+            "score": 0.9944203000834229,
+            "reference_utility": -0.22140305496624907,
+            "utility": -0.11544975321095009,
+            "annual_log_growth": -0.029028550843214797,
+            "annual_volatility": 0.042448097098943774,
+            "max_drawdown": 0.06519715381826341,
+            "pinball": 0.00038635149721708126,
+            "variance_mse": 6.756669761342997e-10,
+            "breach_rate": 0.10756972111553785,
+            "turnover": 2.1159154379065908,
+            "days": 251,
+            "final_nav": 971500.633402179,
+            "rebalance_count": 65
+          },
+          {
+            "case": "feedback_2019_ordinary",
+            "score": 0.3965532414206154,
+            "reference_utility": 0.0416563085016414,
+            "utility": 0.032514289433418775,
+            "annual_log_growth": 0.06753161171126013,
+            "annual_volatility": 0.030460148569251444,
+            "max_drawdown": 0.01978724799321563,
+            "pinball": 0.00023518815046145807,
+            "variance_mse": 3.022254874762068e-11,
+            "breach_rate": 0.07539682539682539,
+            "turnover": 1.0240373762355643,
+            "days": 252,
+            "final_nav": 1069864.0792977118,
+            "rebalance_count": 25
+          },
+          {
+            "case": "feedback_2019_costly",
+            "score": 0.4145040444692355,
+            "reference_utility": 0.02792002564081053,
+            "utility": 0.030912276213869404,
+            "annual_log_growth": 0.0659951881304217,
+            "annual_volatility": 0.030443157692765885,
+            "max_drawdown": 0.01986133307016935,
+            "pinball": 0.00023537674749292645,
+            "variance_mse": 3.0218903353641283e-11,
+            "breach_rate": 0.07539682539682539,
+            "turnover": 1.024037379518205,
+            "days": 252,
+            "final_nav": 1068221.5770107172,
+            "rebalance_count": 25
+          }
+        ],
+        "episode_count": 12,
+        "aggregation": "equal mean of original per-episode formula"
+      },
+      "summary": "32/36 named checks passed",
+      "pass_rate": 0.8888888888888888
+    },
+    "starter": {
+      "seconds": 114.57705458102282,
+      "status": "scored",
+      "score": 0.39329753265088446,
+      "valid": true,
+      "checks": [
+        {
+          "name": "feedback_2014_ordinary/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2014_ordinary/positive_utility_gain",
+          "pass": false,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2014_ordinary/tail_calibration",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2014_costly/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2014_costly/positive_utility_gain",
+          "pass": false,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2014_costly/tail_calibration",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2015_ordinary/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2015_ordinary/positive_utility_gain",
+          "pass": false,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2015_ordinary/tail_calibration",
+          "pass": false,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2015_costly/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2015_costly/positive_utility_gain",
+          "pass": false,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2015_costly/tail_calibration",
+          "pass": false,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2016_ordinary/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2016_ordinary/positive_utility_gain",
+          "pass": false,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2016_ordinary/tail_calibration",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2016_costly/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2016_costly/positive_utility_gain",
+          "pass": false,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2016_costly/tail_calibration",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2017_ordinary/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2017_ordinary/positive_utility_gain",
+          "pass": false,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2017_ordinary/tail_calibration",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2017_costly/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2017_costly/positive_utility_gain",
+          "pass": false,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2017_costly/tail_calibration",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2018_ordinary/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2018_ordinary/positive_utility_gain",
+          "pass": false,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2018_ordinary/tail_calibration",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2018_costly/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2018_costly/positive_utility_gain",
+          "pass": false,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2018_costly/tail_calibration",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2019_ordinary/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2019_ordinary/positive_utility_gain",
+          "pass": false,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2019_ordinary/tail_calibration",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2019_costly/allocation_and_causality",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2019_costly/positive_utility_gain",
+          "pass": false,
+          "summary": ""
+        },
+        {
+          "name": "feedback_2019_costly/tail_calibration",
+          "pass": true,
+          "summary": ""
+        }
+      ],
+      "raw_metrics": {
+        "episodes": [
+          {
+            "case": "feedback_2014_ordinary",
+            "score": 0.3931646033818818,
+            "reference_utility": 0.016730413478137085,
+            "utility": 0.016730413478137085,
+            "annual_log_growth": 0.0890674128417632,
+            "annual_volatility": 0.05830306089260979,
+            "max_drawdown": 0.043185468917321224,
+            "pinball": 0.00047745018368019505,
+            "variance_mse": 6.048217706967933e-10,
+            "breach_rate": 0.03968253968253968,
+            "turnover": 7.962917954853517,
+            "days": 252,
+            "final_nav": 1093154.3464834522,
+            "rebalance_count": 175
+          },
+          {
+            "case": "feedback_2014_costly",
+            "score": 0.3931426309345649,
+            "reference_utility": 0.003626218572537976,
+            "utility": 0.003626218572537976,
+            "annual_log_growth": 0.07712090090554759,
+            "annual_volatility": 0.058400854637458616,
+            "max_drawdown": 0.044294255014280304,
+            "pinball": 0.0004790584761970556,
+            "variance_mse": 6.124555303542181e-10,
+            "breach_rate": 0.03968253968253968,
+            "turnover": 7.962916632825446,
+            "days": 252,
+            "final_nav": 1080172.662351487,
+            "rebalance_count": 175
+          },
+          {
+            "case": "feedback_2015_ordinary",
+            "score": 0.39345507020372494,
+            "reference_utility": -0.144691608192385,
+            "utility": -0.144691608192385,
+            "annual_log_growth": -0.03384743427721521,
+            "annual_volatility": 0.0548250090560805,
+            "max_drawdown": 0.08343166938712954,
+            "pinball": 0.0004562355158991836,
+            "variance_mse": 7.48030317586855e-10,
+            "breach_rate": 0.09126984126984126,
+            "turnover": 7.23440236800365,
+            "days": 252,
+            "final_nav": 966718.9815674088,
+            "rebalance_count": 83
+          },
+          {
+            "case": "feedback_2015_costly",
+            "score": 0.3933959038829652,
+            "reference_utility": -0.1632461402331258,
+            "utility": -0.1632461402331258,
+            "annual_log_growth": -0.044702415014753805,
+            "annual_volatility": 0.05467912657511458,
+            "max_drawdown": 0.09120416193081471,
+            "pinball": 0.0004605498440474868,
+            "variance_mse": 7.481946138963168e-10,
+            "breach_rate": 0.09126984126984126,
+            "turnover": 7.234421485370328,
+            "days": 252,
+            "final_nav": 956282.0146638764,
+            "rebalance_count": 83
+          },
+          {
+            "case": "feedback_2016_ordinary",
+            "score": 0.39365486966762514,
+            "reference_utility": -0.03897744006511079,
+            "utility": -0.03897744006511079,
+            "annual_log_growth": 0.049076725741988486,
+            "annual_volatility": 0.05892487553760446,
+            "max_drawdown": 0.05859172803829704,
+            "pinball": 0.00044169267265743153,
+            "variance_mse": 1.6886030612930162e-09,
+            "breach_rate": 0.027777777777777776,
+            "turnover": 7.583687693240376,
+            "days": 252,
+            "final_nav": 1050300.9327670084,
+            "rebalance_count": 75
+          },
+          {
+            "case": "feedback_2016_costly",
+            "score": 0.3936809286294426,
+            "reference_utility": -0.05555954925280016,
+            "utility": -0.05555954925280016,
+            "annual_log_growth": 0.037697491976010064,
+            "annual_volatility": 0.05888141836072745,
+            "max_drawdown": 0.0638163320484465,
+            "pinball": 0.00043979889542991786,
+            "variance_mse": 1.6899970736283646e-09,
+            "breach_rate": 0.027777777777777776,
+            "turnover": 7.5837137759618125,
+            "days": 252,
+            "final_nav": 1038417.0558687127,
+            "rebalance_count": 75
+          },
+          {
+            "case": "feedback_2017_ordinary",
+            "score": 0.39470875783466597,
+            "reference_utility": 0.0463900985809578,
+            "utility": 0.0463900985809578,
+            "annual_log_growth": 0.0983157399254931,
+            "annual_volatility": 0.05037163622487327,
+            "max_drawdown": 0.02673982323209867,
+            "pinball": 0.0003656476805211324,
+            "variance_mse": 2.547296124224392e-10,
+            "breach_rate": 0.027888446215139442,
+            "turnover": 10.144858217627498,
+            "days": 251,
+            "final_nav": 1102880.7256348256,
+            "rebalance_count": 134
+          },
+          {
+            "case": "feedback_2017_costly",
+            "score": 0.3947390861261604,
+            "reference_utility": 0.029602582795907516,
+            "utility": 0.029602582795907516,
+            "annual_log_growth": 0.0830348304831106,
+            "annual_volatility": 0.050451332322484374,
+            "max_drawdown": 0.028206581525960894,
+            "pinball": 0.00036347568681302934,
+            "variance_mse": 2.556623641157201e-10,
+            "breach_rate": 0.027888446215139442,
+            "turnover": 10.144851964802617,
+            "days": 251,
+            "final_nav": 1086221.681386363,
+            "rebalance_count": 134
+          },
+          {
+            "case": "feedback_2018_ordinary",
+            "score": 0.39129759103090955,
+            "reference_utility": -0.19995655202396,
+            "utility": -0.19995655202396,
+            "annual_log_growth": -0.058891258465646155,
+            "annual_volatility": 0.06669264163183805,
+            "max_drawdown": 0.10771897274239484,
+            "pinball": 0.0006158922388978855,
+            "variance_mse": 3.958272871232184e-09,
+            "breach_rate": 0.0796812749003984,
+            "turnover": 8.94801205262524,
+            "days": 251,
+            "final_nav": 943029.6421178775,
+            "rebalance_count": 119
+          },
+          {
+            "case": "feedback_2018_costly",
+            "score": 0.3912756703167638,
+            "reference_utility": -0.22140305496624907,
+            "utility": -0.22140305496624907,
+            "annual_log_growth": -0.07237218663255213,
+            "annual_volatility": 0.06660421419412255,
+            "max_drawdown": 0.11572876123663567,
+            "pinball": 0.0006175394293776685,
+            "variance_mse": 3.98619591454829e-09,
+            "breach_rate": 0.0796812749003984,
+            "turnover": 8.94801224301091,
+            "days": 251,
+            "final_nav": 930451.8083119268,
+            "rebalance_count": 119
+          },
+          {
+            "case": "feedback_2019_ordinary",
+            "score": 0.39352451785250325,
+            "reference_utility": 0.0416563085016414,
+            "utility": 0.0416563085016414,
+            "annual_log_growth": 0.11189722312946754,
+            "annual_volatility": 0.0641655924110039,
+            "max_drawdown": 0.038158118422324194,
+            "pinball": 0.0004511760251409755,
+            "variance_mse": 6.015897750793932e-10,
+            "breach_rate": 0.07539682539682539,
+            "turnover": 8.586451087658281,
+            "days": 252,
+            "final_nav": 1118397.909300849,
+            "rebalance_count": 98
+          },
+          {
+            "case": "feedback_2019_costly",
+            "score": 0.3935307619494055,
+            "reference_utility": 0.02792002564081053,
+            "utility": 0.02792002564081053,
+            "annual_log_growth": 0.09901524252679099,
+            "annual_volatility": 0.06406750897232692,
+            "max_drawdown": 0.039061462399817004,
+            "pinball": 0.0004507213619387659,
+            "variance_mse": 5.972771380175636e-10,
+            "breach_rate": 0.07539682539682539,
+            "turnover": 8.586384517993693,
+            "days": 252,
+            "final_nav": 1104083.1284472877,
+            "rebalance_count": 98
+          }
+        ],
+        "episode_count": 12,
+        "aggregation": "equal mean of original per-episode formula"
+      },
+      "summary": "22/36 named checks passed",
+      "pass_rate": 0.6111111111111112
+    },
+    "empty": {
+      "seconds": 13.188663304084912,
+      "status": "scored",
+      "score": 0,
+      "valid": false,
+      "checks": [
+        {
+          "name": "submission_contract",
+          "pass": false,
+          "summary": "policy.py missing"
+        }
+      ],
+      "raw_metrics": {},
+      "summary": "0/1 named checks passed",
+      "pass_rate": 0
+    }
+  },
+  "status": "completed",
+  "reference_deterministic": true,
+  "passed": true,
+  "finished_utc": "2026-10-14T20:06:24.088757+00:00"
+}

@@ -1,0 +1,15 @@
+{
+  "repository": "https://github.com/apache/datafusion",
+  "revision": "91cd7ffb927b5a4f9fee1907db50a9610759de5b",
+  "archive_url": "https://codeload.github.com/apache/datafusion/tar.gz/91cd7ffb927b5a4f9fee1907db50a9610759de5b",
+  "archive_sha256": "0148e5f8384d6b86c4ffb8249c72acd8abc0f5517a8b5ba5d117e5d42672345f",
+  "license": "Apache-2.0",
+  "notice": "NOTICE.txt retained in complete archives",
+  "requested_author_model": "gpt-6.1-sol",
+  "provider_receipt_verified": false,
+  "workload_origin": "new deterministic Arrow workload informed by official partial_sort benchmark",
+  "expected_origin": "independent Python comparator crosschecked against SQLite explicit ORDER BY for all 12 correctness scenarios",
+  "transformation": "no source degradation; genuine upstream is public B and private open-solution reference",
+  "reference_mode": "open-solution",
+  "timestamp_utc": "2026-10-15T08:56:04.889411+00:00"
+}

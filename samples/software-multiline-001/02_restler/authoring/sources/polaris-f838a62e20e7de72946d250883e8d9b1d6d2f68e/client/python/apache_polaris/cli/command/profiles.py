@@ -1,0 +1,187 @@
+#
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+#
+
+from dataclasses import dataclass
+from typing import Dict, Optional, List, Any, cast
+
+from apache_polaris.cli.command import Command
+from apache_polaris.cli.constants import (
+    Subcommands,
+    Arguments,
+    DEFAULT_HEADER,
+    DEFAULT_HOSTNAME,
+    DEFAULT_PORT,
+    DEFAULT_SCHEME,
+)
+from apache_polaris.cli.exceptions import CliError
+from apache_polaris.cli.profile_config import (
+    format_profile_for_display,
+    load_profiles,
+    save_profiles,
+)
+from apache_polaris.sdk.management import PolarisDefaultApi
+
+ALLOWED_SCHEMES = ("http", "https")
+
+
+def _prompt_scheme(default: str) -> str:
+    while True:
+        scheme = (input(f"Polaris URL Scheme [{default}]: ") or default).lower()
+        if scheme in ALLOWED_SCHEMES:
+            return scheme
+        else:
+            print(
+                f"Invalid scheme '{scheme}'. Supported one of {list(ALLOWED_SCHEMES)}."
+            )
+
+
+@dataclass
+class ProfilesCommand(Command):
+    """
+    A Command implementation to represent `polaris profiles`. The instance attributes correspond to parameters
+    that can be provided to various subcommands, except `profiles_subcommand` which represents the subcommand
+    itself.
+
+    Example commands:
+        * polaris profiles create dev
+        * polaris profiles delete dev
+        * polaris profiles update dev
+        * polaris profiles get dev
+        * polaris profiles list
+    """
+
+    profiles_subcommand: str
+    profile_name: Optional[str] = None
+
+    def _create_profile(self, name: str) -> None:
+        profiles = load_profiles()
+        if name not in profiles:
+            client_id = input("Polaris Client ID: ")
+            client_secret = input("Polaris Client Secret: ")
+            host = input(f"Polaris Host [{DEFAULT_HOSTNAME}]: ") or DEFAULT_HOSTNAME
+            port = input(f"Polaris Port [{DEFAULT_PORT}]: ") or DEFAULT_PORT
+            scheme = _prompt_scheme(DEFAULT_SCHEME)
+            realm = input("Polaris Context Realm: ")
+            header = (
+                input(f"Polaris Context Header Name [{DEFAULT_HEADER}]: ")
+                or DEFAULT_HEADER
+            )
+            profiles[name] = {
+                "client_id": client_id,
+                "client_secret": client_secret,
+                "host": host,
+                "port": port,
+                Arguments.SCHEME: scheme,
+                Arguments.REALM: realm,
+                Arguments.HEADER: header,
+            }
+            save_profiles(profiles)
+        else:
+            raise CliError(f"Profile {name} already exists.")
+
+    def _get_profile(self, name: str) -> Optional[Dict[str, Any]]:
+        profiles = load_profiles()
+        return profiles.get(name)
+
+    def _list_profiles(self) -> List[str]:
+        profiles = load_profiles()
+        return list(profiles.keys())
+
+    def _delete_profile(self, name: str) -> None:
+        profiles = load_profiles()
+        if name in profiles:
+            del profiles[name]
+            save_profiles(profiles)
+
+    def _update_profile(self, name: str) -> None:
+        profiles = load_profiles()
+        if name in profiles:
+            current_client_id = profiles[name].get("client_id")
+            current_client_secret = profiles[name].get("client_secret")
+            current_host = profiles[name].get("host")
+            current_port = profiles[name].get("port")
+            current_scheme = profiles[name].get(Arguments.SCHEME) or DEFAULT_SCHEME
+            current_realm = profiles[name].get(Arguments.REALM)
+            current_header = profiles[name].get(Arguments.HEADER)
+
+            client_id = (
+                input(f"Polaris Client ID [{current_client_id}]: ") or current_client_id
+            )
+            client_secret = (
+                input("Enter Polaris Client Secret (empty to reuse previous value): ")
+                or current_client_secret
+            )
+            host = input(f"Polaris Host [{current_host}]: ") or current_host
+            port = input(f"Polaris Port [{current_port}]: ") or current_port
+            scheme = _prompt_scheme(current_scheme)
+            realm = input(f"Polaris Context Realm [{current_realm}]: ") or current_realm
+            header = (
+                input(f"Polaris Context Header Name [{current_header}]: ")
+                or current_header
+            )
+            profiles[name] = {
+                "client_id": client_id,
+                "client_secret": client_secret,
+                "host": host,
+                "port": port,
+                Arguments.SCHEME: scheme,
+                Arguments.REALM: realm,
+                Arguments.HEADER: header,
+            }
+            save_profiles(profiles)
+        else:
+            raise CliError(f"Profile {name} does not exist.")
+
+    def validate(self) -> None:
+        if self.profiles_subcommand in {
+            Subcommands.CREATE,
+            Subcommands.DELETE,
+            Subcommands.UPDATE,
+            Subcommands.GET,
+        }:
+            if not self.profile_name:
+                raise CliError("Missing required argument: profile_name")
+
+    def execute(self, api: Optional[PolarisDefaultApi] = None) -> None:
+        if self.profiles_subcommand == Subcommands.CREATE:
+            self._create_profile(cast(str, self.profile_name))
+            print(f"Polaris profile {self.profile_name} created successfully.")
+        elif self.profiles_subcommand == Subcommands.DELETE:
+            self._delete_profile(cast(str, self.profile_name))
+            print(f"Polaris profile {self.profile_name} deleted successfully.")
+        elif self.profiles_subcommand == Subcommands.UPDATE:
+            self._update_profile(cast(str, self.profile_name))
+            print(f"Polaris profile {self.profile_name} updated successfully.")
+        elif self.profiles_subcommand == Subcommands.GET:
+            profile_name = cast(str, self.profile_name)
+            profile = self._get_profile(profile_name)
+            if profile:
+                print(
+                    f"Polaris profile {profile_name}: "
+                    f"{format_profile_for_display(profile)}"
+                )
+            else:
+                print(f"Polaris profile {profile_name} not found.")
+        elif self.profiles_subcommand == Subcommands.LIST:
+            profiles = self._list_profiles()
+            print("Polaris profiles:")
+            for profile_name in profiles:
+                print(f" - {profile_name}")
+        else:
+            raise CliError(f"{self.profiles_subcommand} is not supported in the CLI")

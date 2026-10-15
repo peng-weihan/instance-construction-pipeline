@@ -1,0 +1,69 @@
+{
+  "repo": "UDST/urbansim",
+  "revision": "1a9a68e9bfe34dd31c68bf9480c4fc65334663e0",
+  "resolved_utc": "2026-10-15T14:58:55.286571+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:44.250606+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "0edb8cee12e71f356bce747ad5afc2e23095b7a50c32edcf312931f5b8c796e0",
+    "truncated": false,
+    "blob_count": 92
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE.txt",
+      "bytes": 1485,
+      "sha256": "6d7865b19728fb2866692311ac2efc6046eed14dc8f088ac1e78cfebaf5dac6f",
+      "url": "https://github.com/UDST/urbansim/blob/1a9a68e9bfe34dd31c68bf9480c4fc65334663e0/LICENSE.txt"
+    },
+    {
+      "path": "README.rst",
+      "bytes": 4259,
+      "sha256": "e44e283613677ae914990d2970acafc79c5eff0a3122c2bf9cc43f14f1511c8d",
+      "url": "https://github.com/UDST/urbansim/blob/1a9a68e9bfe34dd31c68bf9480c4fc65334663e0/README.rst"
+    },
+    {
+      "path": "urbansim/models/dcm.py",
+      "bytes": 70910,
+      "sha256": "97dbb9e39adacd885869421d6348fa54805c66722c9601b4b8af64878a8b83a7",
+      "url": "https://github.com/UDST/urbansim/blob/1a9a68e9bfe34dd31c68bf9480c4fc65334663e0/urbansim/models/dcm.py"
+    },
+    {
+      "path": "urbansim/models/supplydemand.py",
+      "bytes": 7183,
+      "sha256": "0b875bffc97906990bb3cf621acc4efeaa285afbcb3b83eff98f8a95b910c605",
+      "url": "https://github.com/UDST/urbansim/blob/1a9a68e9bfe34dd31c68bf9480c4fc65334663e0/urbansim/models/supplydemand.py"
+    },
+    {
+      "path": "urbansim/models/tests/test_dcm.py",
+      "bytes": 22145,
+      "sha256": "5dc1b88424ce56ec4d67643f12b0fceeae0d6c95a4a19d79f2a3fec00de2e9a2",
+      "url": "https://github.com/UDST/urbansim/blob/1a9a68e9bfe34dd31c68bf9480c4fc65334663e0/urbansim/models/tests/test_dcm.py"
+    },
+    {
+      "path": "urbansim/models/tests/test_supplydemand.py",
+      "bytes": 4111,
+      "sha256": "1546fec199f3fcd67921b7cff83c9a6f9bde1b04548d23e52e64ad7fc51bf5ee",
+      "url": "https://github.com/UDST/urbansim/blob/1a9a68e9bfe34dd31c68bf9480c4fc65334663e0/urbansim/models/tests/test_supplydemand.py"
+    },
+    {
+      "path": "urbansim/models/transition.py",
+      "bytes": 18892,
+      "sha256": "aa1e87107cca37b14327da099d598ab16b50dc30321ca22fc927351e5ede8b31",
+      "url": "https://github.com/UDST/urbansim/blob/1a9a68e9bfe34dd31c68bf9480c4fc65334663e0/urbansim/models/transition.py"
+    },
+    {
+      "path": "urbansim/urbanchoice/tests/data/travel_mode.csv",
+      "bytes": 38592,
+      "sha256": "b5a1cee1f6e7c1c33e04849a2ab89c9d350654056b6dcacff9d05529031d125e",
+      "url": "https://github.com/UDST/urbansim/blob/1a9a68e9bfe34dd31c68bf9480c4fc65334663e0/urbansim/urbanchoice/tests/data/travel_mode.csv"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

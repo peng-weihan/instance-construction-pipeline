@@ -1,0 +1,83 @@
+[
+  {
+    "file": "restler/engine/core/async_request_utilities.py",
+    "symbol": "get_polling_request",
+    "removed_lines": 59,
+    "original_span": [
+      23,
+      81
+    ]
+  },
+  {
+    "file": "restler/engine/core/async_request_utilities.py",
+    "symbol": "make_GET_request",
+    "removed_lines": 10,
+    "original_span": [
+      98,
+      107
+    ]
+  },
+  {
+    "file": "restler/engine/core/async_request_utilities.py",
+    "symbol": "try_parse_GET_request",
+    "removed_lines": 6,
+    "original_span": [
+      122,
+      127
+    ]
+  },
+  {
+    "file": "restler/engine/core/async_request_utilities.py",
+    "symbol": "try_async_poll",
+    "removed_lines": 109,
+    "original_span": [
+      163,
+      271
+    ]
+  },
+  {
+    "file": "restler/engine/core/preprocessing.py",
+    "symbol": "apply_create_once_resources",
+    "removed_lines": 113,
+    "original_span": [
+      208,
+      320
+    ]
+  },
+  {
+    "file": "restler/engine/dependencies.py",
+    "symbol": "clear_saved_local_dyn_objects",
+    "removed_lines": 13,
+    "original_span": [
+      196,
+      208
+    ]
+  },
+  {
+    "file": "restler/engine/dependencies.py",
+    "symbol": "start_saving_local_dyn_objects",
+    "removed_lines": 5,
+    "original_span": [
+      215,
+      219
+    ]
+  },
+  {
+    "file": "restler/engine/dependencies.py",
+    "symbol": "stop_saving_local_dyn_objects",
+    "removed_lines": 4,
+    "original_span": [
+      231,
+      234
+    ]
+  },
+  {
+    "file": "restler/engine/dependencies.py",
+    "symbol": "set_saved_dynamic_objects",
+    "removed_lines": 5,
+    "original_span": [
+      245,
+      249
+    ]
+  }
+]

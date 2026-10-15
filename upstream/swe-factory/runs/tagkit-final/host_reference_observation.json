@@ -1,0 +1,31 @@
+{
+  "status": "host_fixture_observed",
+  "docker": {
+    "image": "nl2repo-tagkit-dependencies"
+  },
+  "env_spec": {
+    "install_commands": [],
+    "test_commands": [
+      "/Users/raymone/Desktop/swe-factory/.venv/bin/python -m pytest -q -p no:cacheprovider"
+    ],
+    "test_files": [
+      "tests/test_api.py"
+    ],
+    "package_files": [
+      "pyproject.toml"
+    ],
+    "fixture_files": []
+  },
+  "oracle_report": {
+    "passed": 4,
+    "failed": 0,
+    "errors": 0,
+    "total": 4,
+    "configured_total": 4,
+    "observed_total": 4,
+    "pytest_collected": null,
+    "reward": 1.0,
+    "collected": 4,
+    "network_none": false
+  }
+}

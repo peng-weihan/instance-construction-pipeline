@@ -1,0 +1,17 @@
+{
+  "repository": "https://github.com/openapi-generators/openapi-python-client",
+  "commit": "0a283fe21eeaa23046faf622d4ff4b2c826d2edb",
+  "license": "MIT",
+  "original_archive": "authoring/sources/upstream.tar.gz",
+  "transformation": "Full upstream is public starter. Private reference adds parser/composition.py and calls it from GeneratorData.from_dict. Native tests are unchanged. New cases are authored SDK contracts, not copied issue attachments.",
+  "truth_sources": [
+    "OAS 3.1.1 schema intersection/union semantics",
+    "JSON Schema annotation documentation",
+    "Explicit application behavior in instruction.md",
+    "Frozen upstream runtime APIs"
+  ],
+  "author_model_requested": "gpt-6.1-sol",
+  "provider_receipt_verified": false,
+  "runtime_models_started": false,
+  "authoring_mode": "local file/command tools only"
+}

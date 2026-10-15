@@ -1,0 +1,340 @@
+[
+  {
+    "id": "k06_pypsa",
+    "name": "PyPSA 能源规划",
+    "source_unit": "优化接口、储能回归测试和storage-hvdc小网络CSV",
+    "title": "电网与储能投资的情景规划审计",
+    "proposed_task": "给定多期负荷、风光时序、成本和排放预算，交付容量/储能/输电投资建议及逐时运行证据，比较低成本、可靠性与政策约束下的方案。",
+    "deliverable": "投资方案表、可重算调度与排放账本、约束核对、情景敏感性及面向决策者的建议。",
+    "difficulty_sources": [
+      "储能跨时段守恒、网架瓶颈和投资期权重相互制约，年度总量平衡不足以保证逐时供电。",
+      "成本、排放和可靠性假设改变方案排序，必须把建议与可复核的运行证据一致起来。"
+    ],
+    "baseline": "允许直接调用PyPSA/HiGHS正常求解，先用默认容量扩展+逐情景求解并生成标准报告。",
+    "first_probe": "用小storage-hvdc网络闭合单位、时序权重、储能守恒和情景报告；评估现成notebook是否已覆盖合同。",
+    "stop_condition": "若题目只是正确填表后一次optimize即全解，则作为专业练习不评高难；不能靠禁用求解器增难。",
+    "grader_plan": "独立重算投资/运行成本、逐时平衡、线容量、SOC和排放；报告结论需引用方案单元格和情景计算，定性判断依预声明规则，不只比最优cost。",
+    "generation_and_split": "用小网络程序生成负荷/可再生相关时序、网架瓶颈、成本和政策情景；按时序机制/瓶颈族留出，公开原CSV仅开发例。",
+    "novelty_and_overlap": "不同于现有金融与地下水反演；与组合优化共享LP但交付是可审计能源决策。不能把同库多电网seed计新来源。",
+    "offline_and_compute": "已取小CSV和接口/测试，未取得完整电网/气象数据；优先合成网+固定HiGHS，CPU模型规模待测。",
+    "license_observation": "根MIT；真实电网和气象数据授权独立核对，小CSV来源权属随发行再审。",
+    "potential": "high",
+    "priority": "hold_baseline",
+    "category": "knowledge",
+    "repo": "PyPSA/PyPSA",
+    "revision": "6c45594596cbc5612511ee9202a9e269e5001d88",
+    "source_manifest": "sources/k06_pypsa/manifest.json",
+    "card": "cards/k06_pypsa.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/k06_pypsa/files/pypsa/optimization/optimize.py",
+        "start": 550,
+        "end": 595,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/k06_pypsa/files/test/test_lopf_storage.py",
+        "start": 14,
+        "end": 47,
+        "kind": "test"
+      },
+      {
+        "path": "sources/k06_pypsa/files/pypsa/optimization/optimize.py",
+        "start": 682,
+        "end": 700,
+        "kind": "implementation"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/k06_pypsa/files/pypsa/optimization/optimize.py",
+        "line": 550,
+        "claim": "原生optimize支持多投资期、输电损耗、机组约束及extra_functionality，默认求解器为HiGHS。",
+        "url": "https://github.com/PyPSA/PyPSA/blob/6c45594596cbc5612511ee9202a9e269e5001d88/pypsa/optimization/optimize.py#L550"
+      },
+      {
+        "path": "sources/k06_pypsa/files/test/test_lopf_storage.py",
+        "line": 14,
+        "claim": "储能回归测试将优化发电时序与固定参考比较，并构造跨时段储能小系统。",
+        "url": "https://github.com/PyPSA/PyPSA/blob/6c45594596cbc5612511ee9202a9e269e5001d88/test/test_lopf_storage.py#L14"
+      },
+      {
+        "path": "sources/k06_pypsa/files/pypsa/optimization/optimize.py",
+        "line": 682,
+        "claim": "求解后只有status=ok才赋值solution/duals并后处理，判题要验证状态而非读取残留结果。",
+        "url": "https://github.com/PyPSA/PyPSA/blob/6c45594596cbc5612511ee9202a9e269e5001d88/pypsa/optimization/optimize.py#L682"
+      }
+    ]
+  },
+  {
+    "id": "k07_wntr",
+    "name": "WNTR 水务韧性",
+    "source_unit": "PDD水力仿真、管段关键性示例、Net3 INP与压力-需求测试",
+    "title": "供水故障的隔离修复与服务恢复计划",
+    "proposed_task": "给定管网、重点用户、破管事件、维修能力和可操作阀门，交付分阶段隔离/修复方案、供水影响评估及恢复优先级。",
+    "deliverable": "阀门与维修时间表、节点服务损失表、重点用户达标检查、恢复曲线和建议依据。",
+    "difficulty_sources": [
+      "关闭故障管既能隔离泄漏又可能切断关键用户，图连通不等于压力和实际供水达标。",
+      "多个修复动作与水箱/控制时序耦合，逐个静态管段排名不能替代阶段恢复评估。"
+    ],
+    "baseline": "原生pipe_criticality单管关闭分析+按影响贪心修复，允许EPANET/WNTR和调度求解器正常使用。",
+    "first_probe": "先复现PDD小例和Net3正常/故障完整仿真；比较单管贪心与阶段方案，明确不收敛返回状态。",
+    "stop_condition": "若只关一管并抄官方关键性示例已达标则下调；若参考仿真不收敛且无可靠可行性标签则hold。",
+    "grader_plan": "judge私有模型重放阀门/维修动作，核对可行班组/预算；独立计算PDD实际供水、压力、重点用户服务和恢复时间，不信报告自报。",
+    "generation_and_split": "新生成管网拓扑、用户权重、相关故障与需水时序；保留可恢复性标签，按失效机制/网络结构分割。",
+    "novelty_and_overlap": "与旧MODFLOW地下水反演不同，是城市供水运营决策；EPANET水力引擎可共享但不同网络不自动算新来源。",
+    "offline_and_compute": "Net3与小PDD测试已取；WNTRSimulator主要水力，水质/污染需另引EPANET接口，不据当前材料承诺；离线依赖/运行未测。",
+    "license_observation": "根声明Revised BSD，并含EPANET等第三方说明；不是简单把政府来源视为无条件公有领域。",
+    "potential": "high",
+    "priority": "scope_probe",
+    "category": "knowledge",
+    "repo": "USEPA/WNTR",
+    "revision": "11eec7d5bf0a9367ffe04d75707918f0c0a890a1",
+    "source_manifest": "sources/k07_wntr/manifest.json",
+    "card": "cards/k07_wntr.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/k07_wntr/files/wntr/sim/core.py",
+        "start": 1190,
+        "end": 1243,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/k07_wntr/files/wntr/tests/test_sim_PDD.py",
+        "start": 21,
+        "end": 43,
+        "kind": "test"
+      },
+      {
+        "path": "sources/k07_wntr/files/examples/pipe_criticality.py",
+        "start": 14,
+        "end": 68,
+        "kind": "example_spec"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/k07_wntr/files/wntr/sim/core.py",
+        "line": 1190,
+        "claim": "run_sim注明仅水力扩展期仿真，不收敛时可返回partial results/error_code，验收须检查完整性。",
+        "url": "https://github.com/USEPA/WNTR/blob/11eec7d5bf0a9367ffe04d75707918f0c0a890a1/wntr/sim/core.py#L1190"
+      },
+      {
+        "path": "sources/k07_wntr/files/wntr/tests/test_sim_PDD.py",
+        "line": 21,
+        "claim": "PDA测试以解析平方根关系核对低压下的真实需求满足量。",
+        "url": "https://github.com/USEPA/WNTR/blob/11eec7d5bf0a9367ffe04d75707918f0c0a890a1/wntr/tests/test_sim_PDD.py#L21"
+      },
+      {
+        "path": "sources/k07_wntr/files/examples/pipe_criticality.py",
+        "line": 14,
+        "claim": "关键性示例关闭单管前reset_initial_values，并扣除正常工况已低压节点，适合作为正常基线。",
+        "url": "https://github.com/USEPA/WNTR/blob/11eec7d5bf0a9367ffe04d75707918f0c0a890a1/examples/pipe_criticality.py#L14"
+      }
+    ]
+  },
+  {
+    "id": "k08_openquake",
+    "name": "OpenQuake 风险评估",
+    "source_unit": "脆弱性计算、classical risk回归测试和含暴露/危害/损失参考的小案例",
+    "title": "资产群地震风险与加固投资建议",
+    "proposed_task": "基于给定暴露清单、危险度曲线、脆弱性和加固选项，交付损失评估、预算内加固组合及风险降低/不确定性说明。",
+    "deliverable": "资产分类/单位审计、基准和加固后损失表、预算分配、尾部风险/敏感性及证据报告。",
+    "difficulty_sources": [
+      "资产分类与脆弱性对应错误会系统改变损失，不能仅把坐标和价值输入黑箱。",
+      "加固方案在均值损失、尾部风险和有限预算间取舍，脆弱性假设变化可推翻排序。"
+    ],
+    "baseline": "运行原生classical risk小例，按预期年损失降低/成本贪心加固，允许正常调用OpenQuake和优化库。",
+    "first_probe": "先以已取exposure/vulnerability/hazard小例核对expected CSV，另构可手算的两资产加固例；确认加固前后脆弱性与会计口径。",
+    "stop_condition": "若只运行公开job.ini并复述CSV即完成合同则不算难；缺少可信加固成本/效果或参考风险闭合时先hold_data。",
+    "grader_plan": "私有数据重新计算资产聚合、预算和方案风险；检查分组/合计/单位、敏感性与引用一致，评分风险改善和解释约束，不只最小cost。",
+    "generation_and_split": "优先合成暴露/危害与加固选项，控制相关性及脆弱性误设；按区域/建筑类别组合留出，公开case只用于健康检查。",
+    "novelty_and_overlap": "独立灾害/工程风险方向，不是投资组合金融；地震预测/反演属科学，当前任务交风险决策与证据链。",
+    "offline_and_compute": "完整引擎及依赖未构建，已取小XML/CSV/job和期望输出；大规模危险度/全球资产数据未下载。",
+    "license_observation": "根AGPL-3.0；外部危险度和暴露数据单独授权，发行容器/服务方式需匹配条款。",
+    "potential": "high",
+    "priority": "hold_data",
+    "category": "knowledge",
+    "repo": "gem/oq-engine",
+    "revision": "cf5abdc04016ca9220d8e916432590c1a4e64249",
+    "source_manifest": "sources/k08_openquake/manifest.json",
+    "card": "cards/k08_openquake.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/k08_openquake/files/openquake/risklib/scientific.py",
+        "start": 186,
+        "end": 230,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/k08_openquake/files/openquake/calculators/tests/classical_risk_test.py",
+        "start": 26,
+        "end": 47,
+        "kind": "test"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/k08_openquake/files/openquake/risklib/scientific.py",
+        "line": 186,
+        "claim": "VulnerabilityFunction定义强度、均值损失率、变异系数及LN/BT等分布，并检查输入。",
+        "url": "https://github.com/gem/oq-engine/blob/cf5abdc04016ca9220d8e916432590c1a4e64249/openquake/risklib/scientific.py#L186"
+      },
+      {
+        "path": "sources/k08_openquake/files/openquake/calculators/tests/classical_risk_test.py",
+        "line": 26,
+        "claim": "classical risk测试对导出平均损失/损失曲线/风险图与参考CSV比较，拒绝超范围概率。",
+        "url": "https://github.com/gem/oq-engine/blob/cf5abdc04016ca9220d8e916432590c1a4e64249/openquake/calculators/tests/classical_risk_test.py#L26"
+      }
+    ]
+  },
+  {
+    "id": "k09_bluesky",
+    "name": "BlueSky 航空运行",
+    "source_unit": "真实statebased冲突检测、航路测试与八机有/无风情景",
+    "title": "受限空域的冲突消解与航班计划审计",
+    "proposed_task": "给定模拟空域、航路点、速度/高度约束、风场和交通计划，交付可执行调整计划及冲突、延误和航路代价证据。",
+    "deliverable": "调整后的场景/指令表、逐航班轨迹、冲突清单、延误/绕飞表和方案说明。",
+    "difficulty_sources": [
+      "水平与垂直间隔必须在同一时间窗成立，分别安全的投影不能保证整体安全。",
+      "局部航向/速度修改会改变下游会遇，需全局回放并核对路线及运行限制。"
+    ],
+    "baseline": "现成statebased检测+MVP消解、简单错峰/高度层分配，允许成熟规划器直接适配。",
+    "first_probe": "先运行有风/无风小情景并启用真正StateBased检测；detection基类返回空结果，不能当无冲突证明；独立几何核验采样间隙。",
+    "stop_condition": "若单次MVP或静态错峰直接满足全部合同则降难；若需要未冻结导航/性能数据在线下载才能重放则hold_data。",
+    "grader_plan": "judge私有重放轨迹，独立检测连续时间/保守细步间隔、速度高度与航路约束；同时评价延误、绕飞和指令复杂度，报告须引用航班/时刻。",
+    "generation_and_split": "生成可行几何航点、交叉/汇聚交通和相关风场，按交通结构和风机制留出；不把现成SUPER8仅换机号当新题。",
+    "novelty_and_overlap": "专业航空计划而非交互奖励游戏；不声称适用于实际空管，评价范围固定为给定模拟模型。",
+    "offline_and_compute": "数组仿真可计划headless；航空器性能/导航数据和插件需要固定版本许可与本地缓存，当前仅源代码/小情景已取。",
+    "license_observation": "当前根MIT（不可依据旧版本印象写GPL）；外部BADA/导航/性能数据的许可不由根MIT覆盖。",
+    "potential": "high",
+    "priority": "hold_data",
+    "category": "knowledge",
+    "repo": "TUDelft-CNS-ATM/bluesky",
+    "revision": "46a2a8a5fa4e0bdd6f6991fefc70dc3512f8fc53",
+    "source_manifest": "sources/k09_bluesky/manifest.json",
+    "card": "cards/k09_bluesky.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/k09_bluesky/files/bluesky/traffic/asas/statebased.py",
+        "start": 28,
+        "end": 88,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/k09_bluesky/files/bluesky/test/traffic/test_route_wpt.py",
+        "start": 49,
+        "end": 82,
+        "kind": "test"
+      },
+      {
+        "path": "sources/k09_bluesky/files/bluesky/traffic/asas/detection.py",
+        "start": 227,
+        "end": 242,
+        "kind": "implementation"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/k09_bluesky/files/bluesky/traffic/asas/statebased.py",
+        "line": 28,
+        "claim": "StateBased用相对速度计算CPA，并求水平/垂直冲突时间窗交集。",
+        "url": "https://github.com/TUDelft-CNS-ATM/bluesky/blob/46a2a8a5fa4e0bdd6f6991fefc70dc3512f8fc53/bluesky/traffic/asas/statebased.py#L28"
+      },
+      {
+        "path": "sources/k09_bluesky/files/bluesky/test/traffic/test_route_wpt.py",
+        "line": 49,
+        "claim": "航路点测试规格列明坐标、类型、速度/高度和flyby限制。",
+        "url": "https://github.com/TUDelft-CNS-ATM/bluesky/blob/46a2a8a5fa4e0bdd6f6991fefc70dc3512f8fc53/bluesky/test/traffic/test_route_wpt.py#L49"
+      },
+      {
+        "path": "sources/k09_bluesky/files/bluesky/traffic/asas/detection.py",
+        "line": 227,
+        "claim": "Detection基类明确要求子类实现并默认返回空冲突；未启用真实检测会产生假安全。",
+        "url": "https://github.com/TUDelft-CNS-ATM/bluesky/blob/46a2a8a5fa4e0bdd6f6991fefc70dc3512f8fc53/bluesky/traffic/asas/detection.py#L227"
+      }
+    ]
+  },
+  {
+    "id": "k10_urbansim",
+    "name": "UrbanSim 城市规划",
+    "source_unit": "区位选择、供需调价、人口转移模型与合成fixture测试",
+    "title": "住房供给情景的城市分布影响评估",
+    "proposed_task": "给定合成地块/家庭/就业和已说明区位选择模型，比较分区或住房供给方案，交付分布影响、容量/预算核对与敏感性建议。",
+    "deliverable": "基准/备选情景表、家庭/住房/就业账本、分群可达性/价格/迁移影响、模型假设与建议。",
+    "difficulty_sources": [
+      "家庭选择概率与住宅容量约束共同决定分配，增建总量不等于目标群体实际获得住房。",
+      "供需调价与迁移改变后续分布，方案优劣取决于行为参数和政策目标，不能只报一个均值。"
+    ],
+    "baseline": "按现有容量比例分配、一次区位选择+官方供需模型，允许直接使用UrbanSim模型和成熟统计方法。",
+    "first_probe": "先用原生合成fixture闭合人口/容量守恒和价格调整，再看多个备选情景的结论是否可独立复算；专业情景数据尚待生成。另检查非字符串alt_segmenter分支的类型错误风险，先冻结可用字符串列接口。",
+    "stop_condition": "若只是运行官方示例和描述图表则下调；若没有明确评价目标/模型可识别性而只能主观判报告，则hold_data。",
+    "grader_plan": "核对容量、人口/岗位守恒、预算、分群指标和模型版本；对同一给定模型重算情景及敏感性，以证据一致性和预声明目标评分，不把政策偏好当唯一真答案。",
+    "generation_and_split": "合成地块/家庭分布、容量、行为参数和政策限制，按空间结构/人群相关性留出；真实城市数据只有授权与可复算后再引入。",
+    "novelty_and_overlap": "独立城市发展专业任务，交评估方案而非训练预测模型；同模型不同城市不能机械计新来源。",
+    "offline_and_compute": "pandas/统计依赖较旧需冻结；已取源码、测试和小travel数据，不含完整真实城市模型/私有家庭微观数据。",
+    "license_observation": "根BSD式再分发条款；真实地块/家庭/就业数据许可与隐私处理另定，当前仅公开测试与拟生成合成数据。",
+    "potential": "medium",
+    "priority": "hold_data",
+    "category": "knowledge",
+    "repo": "UDST/urbansim",
+    "revision": "1a9a68e9bfe34dd31c68bf9480c4fc65334663e0",
+    "source_manifest": "sources/k10_urbansim/manifest.json",
+    "card": "cards/k10_urbansim.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/k10_urbansim/files/urbansim/models/supplydemand.py",
+        "start": 84,
+        "end": 130,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/k10_urbansim/files/urbansim/models/tests/test_supplydemand.py",
+        "start": 103,
+        "end": 150,
+        "kind": "test"
+      },
+      {
+        "path": "sources/k10_urbansim/files/urbansim/models/supplydemand.py",
+        "start": 134,
+        "end": 173,
+        "kind": "implementation"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/k10_urbansim/files/urbansim/models/supplydemand.py",
+        "line": 84,
+        "claim": "供需函数按子市场迭代调整价格并设变化裁剪，依赖已拟合区位选择模型。",
+        "url": "https://github.com/UDST/urbansim/blob/1a9a68e9bfe34dd31c68bf9480c4fc65334663e0/urbansim/models/supplydemand.py#L84"
+      },
+      {
+        "path": "sources/k10_urbansim/files/urbansim/models/tests/test_supplydemand.py",
+        "line": 103,
+        "claim": "测试用合成价格和子市场倍率比较五轮调价及base_multiplier效果，提供可独立复算的小fixture。",
+        "url": "https://github.com/UDST/urbansim/blob/1a9a68e9bfe34dd31c68bf9480c4fc65334663e0/urbansim/models/tests/test_supplydemand.py#L103"
+      },
+      {
+        "path": "sources/k10_urbansim/files/urbansim/models/supplydemand.py",
+        "line": 134,
+        "claim": "实现逐轮乘价格并累计子市场倍率，先复制alternatives再过滤；非字符串alt_segmenter分支需健康测试（源码使用isinstance(..., np.array)）。",
+        "url": "https://github.com/UDST/urbansim/blob/1a9a68e9bfe34dd31c68bf9480c4fc65334663e0/urbansim/models/supplydemand.py#L134"
+      }
+    ]
+  }
+]

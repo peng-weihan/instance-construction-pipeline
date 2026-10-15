@@ -1,0 +1,89 @@
+{
+  "scope": "Authoring review profiles, not empirical difficulty claims or official remote skill requirements",
+  "profiles": [
+    {
+      "task_id": "restler_resilient_execution",
+      "anchor": "schemathesis_datagen_pipeline",
+      "source_repo": "restler-fuzzer",
+      "candidate_pool": "API fuzzing/testing frameworks with complete request, async, configuration and resource-dependency code",
+      "admission": "Pin a real repository with runnable entry points and a coherent missing cross-module feature set; existing functions alone are not a new roadmap",
+      "construction": "Read call chains, define seven consistent feature contracts, implement a private reference branch, then bind each requirement to controlled transport checks",
+      "preserved_work": "Repository navigation, multi-feature implementation, integration and compatibility",
+      "new_work": "RESTler repository and recovery/lifecycle roadmap replace the original Schemathesis features",
+      "progression": ["configuration and basic retry", "async deadlines and cancellation", "dependency cleanup and cross-feature replay"],
+      "near_miss_candidates": ["helper passes unit tests but actual send path bypasses it", "parent deleted while a dependent child is retained", "retry uses a fresh deadline and extends total work"],
+      "public_contract_paths": ["instruction.md", "interface.md", "roadmap.json", "practice_cases.json"],
+      "risk": "Public examples are only a small subset; difficulty depends on integrated faults, not feature count"
+    },
+    {
+      "task_id": "layered_aquifer_source_lab",
+      "anchor": "borden_source_inversion",
+      "source_repo": "modflow6-examples",
+      "candidate_pool": "Open transport-model examples with explicit equations, geometry, units, boundary conditions and source terms",
+      "admission": "The author can fully specify the forward physics and distinguish observed measurements from newly generated synthetic data",
+      "construction": "Author a new layered scene and source, generate frozen observations, implement an independent forward reference, then require inverse-model construction from public specifications",
+      "preserved_work": "Build a forward approximation, infer a source, improve withheld spatial and future prediction",
+      "new_work": "Original layered scene and synthetic observations; source code and truth differ from Borden",
+      "progression": ["working conservative transport approximation", "joint source geometry and timing inference", "censored likelihood, multiple starts and extrapolation"],
+      "near_miss_candidates": ["treat all censored observations as exact zero", "use point source instead of fractional cell overlap", "fit visible wells but extrapolate poorly"],
+      "public_contract_paths": ["instruction.md", "physics.md", "scene.json", "source_bounds.json", "public_observations.csv"],
+      "risk": "Identifiability and numerical agreement remain unmeasured; a synthetic scene is not field evidence"
+    },
+    {
+      "task_id": "industrial_nesting_improvement",
+      "anchor": "jagua_nesting_optimization",
+      "source_repo": "packingsolver",
+      "candidate_pool": "Real irregular-packing solvers and industrial designs with polygons, holes, rotations and repeated parts",
+      "admission": "Input semantics are supported by an independent geometry checker; source-family identity and redistribution terms can be tracked",
+      "construction": "Select disjoint design families, derive realistic orders, freeze the original solver and compute budget, then grade independently checked improvement over saved layouts",
+      "preserved_work": "Profile and improve a genuine geometry/search solver under fixed per-instance compute",
+      "new_work": "C++ PackingSolver and selected design families replace the original Rust solver and inputs",
+      "progression": ["valid layout and profiling", "ordering and placement neighborhoods", "search restarts and geometric acceleration"],
+      "near_miss_candidates": ["drop a difficult piece to shrink length", "allow tiny overlaps beyond published tolerance", "return unchanged baseline layouts"],
+      "public_contract_paths": ["instruction.md", "scoring_metadata.json", "DATA_PROVENANCE.json"],
+      "risk": "Upstream baseline is the current reference, not a proven high-score oracle; improvement headroom and data rights remain open"
+    },
+    {
+      "task_id": "brownian_multibranch_proofs",
+      "anchor": "lean_analysis_proofs",
+      "source_repo": "brownian-motion",
+      "candidate_pool": "Lean projects with completed proofs and several connected but separately approachable theorem branches",
+      "admission": "Keep fixed statement signatures, complete reference bodies, pinned library dependencies and enough branch entry points",
+      "construction": "Inspect theorem and import dependencies, select a coherent proof slice, mask only proof bodies, retain private references, grade kernel axiom closures",
+      "preserved_work": "Complete many fixed Lean goals with partial progress and dependency-sensitive proof work",
+      "new_work": "31 BrownianMotion targets across covariance, covering, moments and continuity",
+      "progression": ["entry covariance and covering lemmas", "moment and process properties", "continuous modification proofs"],
+      "near_miss_candidates": ["replace a target with an axiom", "prove a goal using another unfinished lemma", "modify a statement or frozen import"],
+      "public_contract_paths": ["instruction.md", "targets.json", "scoring_metadata.json"],
+      "risk": "Original benchmark theorem inventory is incomplete locally; strict theorem-level novelty and shortcut absence are not established"
+    },
+    {
+      "task_id": "cross_asset_adaptive_allocator",
+      "anchor": "portfolio_risk_calibration",
+      "source_repo": "portfolio-risk-engine",
+      "candidate_pool": "Cross-asset price panels plus reproducible risk, constrained optimization and execution-accounting projects",
+      "admission": "Track data supplier and redistribution permission independently from code license; keep chronological splits and explicit costs",
+      "construction": "Specify a new investment mandate, build a causal policy interface and trusted ledger, implement a feasible reference policy and freeze time partitions",
+      "preserved_work": "Risk estimation, constrained allocation, transaction costs and dynamic rebalancing as a coupled system",
+      "new_work": "Eight-asset panel, mandate, split periods and utility/calibration score",
+      "progression": ["complete legal causal policy", "covariance and tail-risk calibration", "cost-aware allocation and event-driven rebalance"],
+      "near_miss_candidates": ["use the current close before the decision", "reset drifted holdings without charging turnover", "report a fabricated NAV rather than real policy actions"],
+      "public_contract_paths": ["instruction.md", "policy_interface.md", "accounting.md", "mandate.json", "DATA_PROVENANCE.json"],
+      "risk": "Original macro covariates are not reproduced; cached prices need provenance/rights work and repeat-feedback overfitting control"
+    },
+    {
+      "task_id": "wesnoth_frontier_campaign_ai",
+      "anchor": "wesnoth_tactical_ai",
+      "source_repo": "wesnoth-1.18.0",
+      "candidate_pool": "Official Wesnoth engine and AI interfaces plus independently authored maps with distinct tactical/economic structures",
+      "admission": "Use a pinned engine, fixed legal-action interface, multiple terrain families and paired seats; larger match count alone is insufficient",
+      "construction": "Author maps and scenario configurations, expose observations/actions through a trusted wrapper, write a reference strategy, and freeze opponent/seat/seed combinations",
+      "preserved_work": "Repeated game feedback, Lua strategy development and improvements to economy, tactics and win efficiency",
+      "new_work": "Nine new maps and a restricted pure-policy interface; engine remains Wesnoth",
+      "progression": ["recruitment and village economy", "selective attacks and leader survival", "terrain, time-of-day and faction adaptation"],
+      "near_miss_candidates": ["submit an action index retained from a previous observation", "confuse defense probability with hit probability", "defer every action and rely entirely on the default AI"],
+      "public_contract_paths": ["instruction.md", "policy_interface.md", "adapter.lua", "match_contract.json"],
+      "risk": "The restricted interface differs from original arbitrary Lua/WML extensions; default-policy saturation and runtime are unmeasured"
+    }
+  ]
+}

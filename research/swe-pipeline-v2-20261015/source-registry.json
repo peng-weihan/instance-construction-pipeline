@@ -1,0 +1,42 @@
+{
+  "schema_version": 2,
+  "phase": "authoring_only",
+  "selection_status": "candidate scopes to be mined and falsified, not completed or difficulty-qualified tasks",
+  "jobs": [
+    {
+      "id": "23_scrapy_product_roadmap", "route": "M1", "repo": "scrapy/scrapy",
+      "url": "https://github.com/scrapy/scrapy.git", "revision": "db2404bb8691d1579f75ca823d5385749b77693c",
+      "account": "raymone/4", "codex_home": "/ws/users/wcgu/new-codex-group/raymone/4",
+      "expected_cli_sha256": "76a9d2cc570a9be1386e00040891ca3829d33488ad9f26dcf35dcd7e339eda30",
+      "scope_brief": "构造真实Scrapy产品级roadmap，不能只实现一个持久化journal/重试插件。调查完整crawler engine、调度/请求身份、下载/中间件、item/feed管线、配置与报告之间的真实需求或退化；至少比较三个产品里程碑范围。可在完整固定旧版本上提出新需求，也可在验证过的完整版本上恢复一整组子系统，但必须诚实区分已有能力与新缺口。最终应是多组实质产品能力和跨阶段回归，规模对照原Schemathesis 5～8目标roadmap而非凑相同目标数。服务测试全部本地fixture，不抓真实外网网站。正常现成插件基线若已全解则改选有源码/需求证据的范围。"
+    },
+    {
+      "id": "24_lark_system_reconstruction", "route": "M2", "repo": "lark-parser/lark",
+      "url": "https://github.com/lark-parser/lark.git", "revision": "9a4fb9c7458e8155636773a3cded0016d52516da",
+      "account": "raymone/5", "codex_home": "/ws/users/wcgu/new-codex-group/raymone/5",
+      "expected_cli_sha256": "76a9d2cc570a9be1386e00040891ca3829d33488ad9f26dcf35dcd7e339eda30",
+      "scope_brief": "按NL2Repo方法，从完整可运行Lark参考项目抽出足以重建实质解析工具库/引擎的规格。优先完整的grammar→lexer→parser→tree/visitor/transformer→错误/集成工作链，调查LALR/Earley、文法组合、树转换、位置/错误等真实API；不能只做JSON parser或几个toy表达式。比较三个合理完整系统范围，选择足够大的可运行契约且保留局部进度，不要求完整复刻上游全部可选生态。参考是固定真实源码，不能让模型另造toy gold。学生不见目标实现、git对象、wheel/字节码或副本；正常第三方解析工具不因难度被临时禁止，若包装就完整解决合同则如实否证。工作区是新规格与骨架/空项目，参考不可误装到agent环境。"
+    },
+    {
+      "id": "25_datafusion_execution_optimization", "route": "M3", "repo": "apache/datafusion",
+      "url": "https://github.com/apache/datafusion.git", "revision": "10343c18292fc3a9ca62b59c8bb530169fe79b82",
+      "account": "raymone/6", "codex_home": "/ws/users/wcgu/new-codex-group/raymone/6",
+      "expected_cli_sha256": "76a9d2cc570a9be1386e00040891ca3829d33488ad9f26dcf35dcd7e339eda30",
+      "scope_brief": "从真实DataFusion执行链筛一个完整的性能任务：多分区/TopK/merge/spill/内存协调、不同数据分布或算子交互，至少比较三个真实瓶颈。不是给旧sort题启用随意公式，更不能仅保留identity fast path。上一版正确性starter=reference=0.25，0.75性能关闭；已有正确input-order metadata会让SortExec跳过有序输入，这个强B必须保留。先证明普通batch/阈值/metadata/已有算法组合之上仍有真实收益，再冻结独立性能奖励、目标资源和代表性workload。性能奖励若不能稳定闭合则明确held，不交可roll/可训练状态；禁止为了造难选弱B或只挑参考占优数据。可以只读复用我们自己的固定material-src/vendor构建材料并复制入当前job，禁止依赖旧job的私有答案作为学生可见素材。"
+    },
+    {
+      "id": "26_ripgrep_multicrate_reconstruction", "route": "M4", "repo": "BurntSushi/ripgrep",
+      "url": "https://github.com/BurntSushi/ripgrep.git", "revision": "3fce3b5bb0236da2df6d99672afb8a719642eca7",
+      "account": "raymone/4", "codex_home": "/ws/users/wcgu/new-codex-group/raymone/4",
+      "expected_cli_sha256": "76a9d2cc570a9be1386e00040891ca3829d33488ad9f26dcf35dcd7e339eda30",
+      "scope_brief": "按DeepSWE A/B构造真正的多crate生产能力恢复，对照原Rust multicrate任务。先跑完整固定gold，再调查matcher/searcher/ignore/walk/CLI输出等子系统和依赖。比较三个连贯的大范围行为包，选择API契约、状态与端到端search场景共同支撑的缺失实现；不能只反转少量条件或删几个helper。保留类型/API骨架、周边健康路径、原生回归和跨层部分成果；逆补丁/完整gold私有。学生公开环境不得带回收站、git对象、reference wheel/binary或等价副本。成熟正常regex/encoding库可复用；实际强包装/重算方案若饱和就否定这个恢复合同。不要拿仓库总大小冒充学生工作量。"
+    },
+    {
+      "id": "27_ninja_behavioral_port", "route": "M5", "repo": "ninja-build/ninja",
+      "url": "https://github.com/ninja-build/ninja.git", "revision": "b81e306232dfa644e92145c7d2871690017969e8",
+      "account": "raymone/5", "codex_home": "/ws/users/wcgu/new-codex-group/raymone/5",
+      "expected_cli_sha256": "76a9d2cc570a9be1386e00040891ca3829d33488ad9f26dcf35dcd7e339eda30",
+      "scope_brief": "按ProgramBench构造真实Ninja核心构建系统的Rust行为兼容重实现，而不是几个flag。比较完整manifest/变量/rule解析、构建依赖与增量状态、depfile/dyndep/pool、response file、多步重建和工具命令的三个合理核心范围；从固定文档/源码/真实探针确定支持边界，目标需要完整状态与文件副作用兼容。gold可用于作者/学生观察，提交必须是真正Rust替代实现；此语言移植目标需在题面明确，不是事后为难度禁用所有库。正常工具/依赖允许，verifier执行考生时不提供可委托的目标ninja程序或原C++实现；参考与期望在可信侧独立获得。构建命令可正常调用编译器/脚本，不能误禁构建系统本来必须的subprocess。对比stdout/stderr/退出码/文件与第二次构建行为，并为可行partial提供固定分组。"
+    }
+  ]
+}

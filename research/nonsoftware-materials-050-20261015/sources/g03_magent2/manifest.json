@@ -1,0 +1,69 @@
+{
+  "repo": "Farama-Foundation/MAgent2",
+  "revision": "f3fca5a78504615986dfba37d85137c9e15d1db6",
+  "resolved_utc": "2026-10-15T14:58:55.019349+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:01:09.562991+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "20bf90a0cee01fb62c417972d47998ec9bcb1b70a462be002d851573bc5f33b7",
+    "truncated": false,
+    "blob_count": 114
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 1114,
+      "sha256": "dccec0665304a9ece7bab08217f3884e3c2ed8b17d71b5cb321840237834efba",
+      "url": "https://github.com/Farama-Foundation/MAgent2/blob/f3fca5a78504615986dfba37d85137c9e15d1db6/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2586,
+      "sha256": "8584dcea7eb1c015372357bd72fd10f9c18a4e485fe837d176fe2d2768c0c334",
+      "url": "https://github.com/Farama-Foundation/MAgent2/blob/f3fca5a78504615986dfba37d85137c9e15d1db6/README.md"
+    },
+    {
+      "path": "magent2/environments/battle/battle.py",
+      "bytes": 9705,
+      "sha256": "c5f589f0d81437bd55c3381b2bcf23a09b8f200f1049e84464cb3f20e26c37ed",
+      "url": "https://github.com/Farama-Foundation/MAgent2/blob/f3fca5a78504615986dfba37d85137c9e15d1db6/magent2/environments/battle/battle.py"
+    },
+    {
+      "path": "magent2/environments/battle_v4.py",
+      "bytes": 81,
+      "sha256": "c52fe73c33d4c41d18cc3b30f3f39d445a1db3bce79cf50512d843c9fb21e26c",
+      "url": "https://github.com/Farama-Foundation/MAgent2/blob/f3fca5a78504615986dfba37d85137c9e15d1db6/magent2/environments/battle_v4.py"
+    },
+    {
+      "path": "magent2/environments/magent_env.py",
+      "bytes": 10619,
+      "sha256": "3ca74085a49466f1a40194066eb838ed695b646e3f6015df474967678835838c",
+      "url": "https://github.com/Farama-Foundation/MAgent2/blob/f3fca5a78504615986dfba37d85137c9e15d1db6/magent2/environments/magent_env.py"
+    },
+    {
+      "path": "magent2/gridworld.py",
+      "bytes": 31421,
+      "sha256": "29f00782ce01d799960ed1913fc34fe69ae97bc3a947d25cf11fe7748d191822",
+      "url": "https://github.com/Farama-Foundation/MAgent2/blob/f3fca5a78504615986dfba37d85137c9e15d1db6/magent2/gridworld.py"
+    },
+    {
+      "path": "tests/test_magent2.py",
+      "bytes": 678,
+      "sha256": "00f651c739bfacb2c2341426d38b4cb515b88e7f6f28eb459a0173ee49e653aa",
+      "url": "https://github.com/Farama-Foundation/MAgent2/blob/f3fca5a78504615986dfba37d85137c9e15d1db6/tests/test_magent2.py"
+    },
+    {
+      "path": "tests/test_render.py",
+      "bytes": 1744,
+      "sha256": "29c65097aea69c451d9dfc5e09dc48a0b1b43ab2a1aea60a3d91dd9bd7e3dba9",
+      "url": "https://github.com/Farama-Foundation/MAgent2/blob/f3fca5a78504615986dfba37d85137c9e15d1db6/tests/test_render.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

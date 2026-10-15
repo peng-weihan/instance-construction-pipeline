@@ -1,0 +1,20 @@
+{
+  "mode": "host_baseline_not_agent_or_container",
+  "records": [
+    {
+      "suite": "dev",
+      "score": 0.9013031498826582,
+      "valid": true
+    },
+    {
+      "suite": "feedback",
+      "score": 0.3885168478386856,
+      "valid": true
+    },
+    {
+      "suite": "audit",
+      "score": 0.5837867345666594,
+      "valid": true
+    }
+  ]
+}

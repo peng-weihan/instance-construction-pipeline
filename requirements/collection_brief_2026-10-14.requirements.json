@@ -1,0 +1,303 @@
+{
+  "schema_version": "edgebench.collection_brief.v1",
+  "received_date": "2026-10-14",
+  "authority": "user_provided_task_brief",
+  "raw_source": "collection_brief_2026-10-14.raw.txt",
+  "source_integrity": "incomplete_paste_with_truncations_and_replacement_characters",
+  "recording_policy": "Preserve the received text. Extract only visible requirements; do not reconstruct omitted clauses, quotas, Harbor field paths or allowed enums.",
+  "scope": {
+    "first_batch_tasks": 100,
+    "primary_objective": "Measure quality attainable over hours of iterative environment interaction, reporting score versus interaction time.",
+    "delivery_format": "Harbor",
+    "reference_design": "EdgeBench and SForge; they are references, not a second delivery format.",
+    "formal_schema_status": "Harbor task.toml schema/version, directory structure and naming rules are pending the contract.",
+    "prior_training_goal": "The earlier SFT objective remains relevant, but SFT traces do not replace evaluation-task delivery or acceptance evidence."
+  },
+  "requirements": [
+    {
+      "id": "R01",
+      "status": "confirmed_from_visible_text",
+      "requirement": "首批交付 100 道长时程 agent 评测任务。",
+      "evidence": "首批 100 题。"
+    },
+    {
+      "id": "R02",
+      "status": "confirmed_from_visible_text",
+      "requirement": "支持运行中反复提交、获得评分反馈并继续改进；最终成绩取一次运行中所有提交的最好一次。",
+      "evidence": "最终成绩取一次运行中所有提交里的最好一次，而不是最后一次。"
+    },
+    {
+      "id": "R03",
+      "status": "confirmed_from_visible_text",
+      "requirement": "核心产出为分数对交互时间的曲线。",
+      "evidence": "核心产出是一条分数对交互时间的曲线。"
+    },
+    {
+      "id": "R04",
+      "status": "confirmed_from_visible_text",
+      "requirement": "最终收题采用 Harbor 格式；要求落在 task.toml，完整目录与命名规则待合同。",
+      "evidence": "收题走 Harbor 格式，具体的目录结构和命名规则我们会随合同一起给。"
+    },
+    {
+      "id": "R05",
+      "status": "confirmed_from_visible_text",
+      "requirement": "每题交付分开的 agent 工作环境和 verifier 评判环境；不能以单镜像或共享上下文文件权限替代。",
+      "evidence": "每道题交两个环境：agent（工作）环境",
+      "additional_evidence": "单镜像的题我们收不了",
+      "details_missing": "第三节第 1–3 条正文部分缺失，具体隔离与传递契约待补。"
+    },
+    {
+      "id": "R06",
+      "status": "confirmed_from_visible_text",
+      "requirement": "必须交付 Dockerfile 和构建上下文；预构建 OCI image layout 可附加，不能替代源码重建材料。",
+      "evidence": "Dockerfile 和构建上下文必须交。"
+    },
+    {
+      "id": "R07",
+      "status": "confirmed_from_visible_text",
+      "requirement": "agent 与 verifier 运行均禁网；三个作用域按指定 Harbor 网络策略格式声明。",
+      "evidence": "agent 和 verifier 两个作用域都禁网",
+      "additional_evidence": "三个作用域都按规范指定的 Harbor 网络策略格式声明。",
+      "exact_schema_pending": true
+    },
+    {
+      "id": "R08",
+      "status": "confirmed_from_visible_text",
+      "requirement": "environment 构建期可因拉包设为 public，但须填写 open_internet_justification；运行期仍禁止网络请求。",
+      "evidence": "environment 作用域在镜像构建需要拉包时可以设为 public，但要在 open_internet_justification 里写明原因。"
+    },
+    {
+      "id": "R09",
+      "status": "confirmed_from_visible_text",
+      "requirement": "verifier 无状态，每次提交调用一次，不使用常驻评判服务。",
+      "evidence": "verifier 无状态，每次提交调用一次。不要做常驻的评判服务。"
+    },
+    {
+      "id": "R10",
+      "status": "confirmed_from_visible_text",
+      "requirement": "分数只由明确声明的提交文件决定；submit paths 或 artifacts 目录可快照，不能依赖 agent 活进程。",
+      "evidence": "分数不能有任何一部分依赖 agent 环境里的活进程状态。"
+    },
+    {
+      "id": "R11",
+      "status": "confirmed_from_visible_text",
+      "requirement": "verifier 至少输出总分、有效性标志及具名 pass/fail 检查项，并附解析说明。",
+      "evidence": "至少要有：总分、有效性标志、一组带 pass/fail 的具名检查项。"
+    },
+    {
+      "id": "R12",
+      "status": "confirmed_from_visible_text",
+      "requirement": "结构化输出解析失败应记录为评分失败，不当作低分。",
+      "evidence": "解析不成这个结构的输出算评分失败，不是得低分。"
+    },
+    {
+      "id": "R13",
+      "status": "confirmed_from_visible_text",
+      "requirement": "正式任务预算按小时计；采用正文明确给出的可接受下限 3 小时。",
+      "evidence": "3 小时是能接受的下限。",
+      "minimum_accepted_hours": 3,
+      "additional_evidence": "低于一小时画不出曲线，直接拒。",
+      "note": "分钟级 smoke run 只能验证开发链路，不能用于正式长时程验收。"
+    },
+    {
+      "id": "R14",
+      "status": "confirmed_from_visible_text",
+      "requirement": "奖励类型需显式声明，不能依赖默认值；binary 和 unbounded_continuous 不接受。",
+      "evidence": "另外两种都不行：binary 把题压成 pass/fail，没有曲线可测；unbounded_continuous 题与题之间不可比，没法汇总。",
+      "allowed_enum_values": null,
+      "allowed_values_status": "缺失原文，禁止猜测允许枚举和归一化区间。"
+    },
+    {
+      "id": "R15",
+      "status": "confirmed_from_visible_text",
+      "requirement": "评分公式及所有常量进入机器可读元数据。",
+      "evidence": "评分公式和它的每一个常量都要进机器可读的元数据，不能只存在 verifier 源码里。"
+    },
+    {
+      "id": "R16",
+      "status": "confirmed_from_visible_text",
+      "requirement": "verifier 同时交付归一化分数和原始指标。",
+      "evidence": "直接给归一化之后的分数，同时给原始指标。",
+      "normalization_range": null
+    },
+    {
+      "id": "R17",
+      "status": "confirmed_from_visible_text",
+      "requirement": "声明分数方向并保持目标上的单调性。",
+      "evidence": "声明分数方向（越高越好还是越低越好），并保持单调：不允许做负面操作还涨分。"
+    },
+    {
+      "id": "R18",
+      "status": "confirmed_from_visible_text",
+      "requirement": "逐题声明基线和上限；整批采用同一种机制。",
+      "evidence": "逐题给出基线和上限，整批只用一种机制。",
+      "mechanism_schema_pending": true
+    },
+    {
+      "id": "R19",
+      "status": "confirmed_from_visible_text",
+      "requirement": "需要随题提供确定性证据；完整实验协议待补。",
+      "evidence": "5.1 确定性证据",
+      "repeat_count": null,
+      "tolerance": null,
+      "report_format": null,
+      "partial": true
+    },
+    {
+      "id": "R20",
+      "status": "confirmed_from_visible_text",
+      "requirement": "参考解必须实际执行有意义的求解工作，不能交什么都不干的参考文件。",
+      "evidence": "不能接受的是交一个什么都不干的参考解文件，见第七节。",
+      "section_seven_missing": true,
+      "oracle_must_reach_perfect_score": "not_specified_in_visible_text"
+    },
+    {
+      "id": "R21",
+      "status": "confirmed_from_visible_text",
+      "requirement": "逐题给出 oracle 分值、nop 分值、至少一个前沿模型三次以上运行的平均分。",
+      "evidence": "一张分数表，逐题给出 oracle 分值、nop 分值，以及至少一个前沿模型跑三次以上的平均分。",
+      "minimum_model_runs": 3,
+      "frontier_model_qualification": "需对接方确认，不能仅凭既有 gpt-6.1-sol 偏好认定已符合合同。"
+    },
+    {
+      "id": "R22",
+      "status": "confirmed_from_visible_text",
+      "requirement": "记录参考运行的提交次数。",
+      "evidence": "参考运行提交了多少次。"
+    },
+    {
+      "id": "R23",
+      "status": "confirmed_from_visible_text",
+      "requirement": "优先提供同模型至少三个交互检查点的成绩，2/6/12 小时是示例。",
+      "evidence": "优先项： 同一个模型在三个或更多交互检查点上的成绩，比如 2 小时、6 小时、12 小时。",
+      "priority": "preferred",
+      "example_hours": [
+        2,
+        6,
+        12
+      ],
+      "note": "不将示例误写为所有题必须采用的唯一检查点。"
+    },
+    {
+      "id": "R24",
+      "status": "confirmed_from_visible_text",
+      "requirement": "按原文使用 manifest list digest 固定镜像，支持 x86 与 ARM 两种架构；不采用浮动 tag。",
+      "evidence": "固定 manifest list 的 digest，两条一起满足。",
+      "additional_evidence": "layout 同样要带两种架构。",
+      "explicit_platform": "linux/amd64",
+      "other_architecture": "ARM；精确平台字符串待完整规范确认。"
+    },
+    {
+      "id": "R25",
+      "status": "confirmed_from_visible_text",
+      "requirement": "如固定 gpu_types，说明验证过的加速器及 verifier 是否使用 GPU；单加速器限制须开工前谈定。",
+      "evidence": "如果题目固定了 gpu_types，说明它在哪些加速器上验证过，以及评分是不是在 GPU 上执行。"
+    },
+    {
+      "id": "R26",
+      "status": "confirmed_from_visible_text",
+      "requirement": "可选 OCI layout 必须保证引用摘要、实际 blob 和双架构内容完整自洽。",
+      "evidence": "index 引用的每个 blob 都要在 layout 里。",
+      "technical_interpretation": "同一对象跨引用的 digest 一致且匹配内容。index、manifest、config 是不同对象，不应被实现成强制三者摘要相等。",
+      "interpretation_status": "工程解释，保留原文；正式细节以完整规范为准。"
+    },
+    {
+      "id": "R27",
+      "status": "confirmed_from_visible_text",
+      "requirement": "逐题声明资源占用，并按完整规范在开工前与 Topify 对接人确认。",
+      "evidence": "逐题声明资源占用，并在开工�Topify 对接人。先谈定再动手。",
+      "partial": true,
+      "resource_limits": null
+    }
+  ],
+  "visible_category_quotas": [
+    {
+      "category": "组合优化",
+      "percent": 12,
+      "tasks_if_batch_exactly_100": 12
+    },
+    {
+      "category": "形式化数学与定理证明",
+      "percent": 10,
+      "tasks_if_batch_exactly_100": 10
+    },
+    {
+      "category": "交互式游戏与模拟器",
+      "percent": 9,
+      "tasks_if_batch_exactly_100": 9
+    }
+  ],
+  "quota_note": "其余类别和配额缺失；剩余 69 题不能按 EdgeBench 原始题数或公开子集比例自行分配。",
+  "missing_sections": [
+    {
+      "id": "M01",
+      "location": "第一节末尾至第二节",
+      "missing": "镜像构建相关说明、第二节标题及前三类配额与完整行。"
+    },
+    {
+      "id": "M02",
+      "location": "第三节第 1–3 条及第 6 条后文",
+      "missing": "完整环境隔离、提交与评判流程条款。"
+    },
+    {
+      "id": "M03",
+      "location": "第四节五属性",
+      "missing": "第 1 项尾部、第 2–4 项完整名称与要求；评分成本只剩启动/灌数据不在命令计时中的片段，阈值未知。"
+    },
+    {
+      "id": "M04",
+      "location": "学习曲线成立条件",
+      "missing": "预算段落之后到奖励类型的中间内容、允许奖励类型枚举与相关字段。"
+    },
+    {
+      "id": "M05",
+      "location": "第五节",
+      "missing": "确定性证据完整协议、参考解完整要求、5.2/5.3 标题与部分正文。"
+    },
+    {
+      "id": "M06",
+      "location": "后续章节",
+      "missing": "第六、七节等完整技术与交付条款、双架构精确名称、资源上限、审批/对接范围。"
+    },
+    {
+      "id": "M07",
+      "location": "合同附件",
+      "missing": "Harbor 版本、task.toml 完整 schema、网络策略格式、目录与命名规则。"
+    }
+  ],
+  "project_impact": [
+    {
+      "area": "final_delivery",
+      "action": "以 Harbor 为正式交付目标；保留 SForge 为参考/内部研究适配器，不能作为第二种交付格式。"
+    },
+    {
+      "area": "run_selection",
+      "action": "正式评测保留每次提交的快照、时间、分数和诊断，按声明方向选择历次最佳有效提交。既有内部 holdout 可辅助研究，不能替代合同的 best-of-run 成绩。"
+    },
+    {
+      "area": "runtime_isolation",
+      "action": "现有 host/macOS 文件隔离或工具队列证据不能替代双环境容器交付和 root 条件下的边界验收。"
+    },
+    {
+      "area": "time_and_repetitions",
+      "action": "既有同一 VRPTW 任务的两条至多 600 秒 SFT 轨迹不满足每题至少 3 小时和至少 3 次模型运行的正式证据。"
+    },
+    {
+      "area": "feedback_and_scoring",
+      "action": "增加具名检查项、解析失败状态、机器可读评分公式与常量、每题端点及整批统一机制；具体 Harbor 字段待确认。"
+    },
+    {
+      "area": "interactive_games",
+      "action": "任何游戏/模拟器候选都必须先证明评分由可传递文件快照决定，可在独立无状态 verifier 中验证；活会话分数不能直接作为验收证据。"
+    },
+    {
+      "area": "architecture_and_cost",
+      "action": "在承诺候选前验证双架构可行性和资源需求；GPU/单平台限制按完整规范预先对接。"
+    },
+    {
+      "area": "candidate_filtering",
+      "action": "将双环境、离线、可快照、无状态评判、小时级可进步、双架构和可用参考加入候选准入；仅检索到同类来源不代表通过。"
+    }
+  ],
+  "implementation_status": "Documentation and requirement extraction only; no Harbor deployment, new model run, container acceptance or production compliance claimed."
+}

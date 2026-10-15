@@ -1,0 +1,72 @@
+[
+  {
+    "path": "SOURCE_TO_TASK.md",
+    "bytes": 1039,
+    "sha256": "2c417465839c104603a1215b017be1c2d7fc41dc62066cc4cb4f60b291b6c015"
+  },
+  {
+    "path": "construction.json",
+    "bytes": 1334,
+    "sha256": "6287dca3c40b61324d647e92de036849c12e6cc6316e4a02175dcac3455ae242"
+  },
+  {
+    "path": "private/feedback_returns.csv",
+    "bytes": 476515,
+    "sha256": "08f6b24872ccdf9624151e8f00d5167c9ce18aba4ecf0e84892224c5dd9a37b6"
+  },
+  {
+    "path": "private/final_returns.csv",
+    "bytes": 715415,
+    "sha256": "d1d38b3ce925c9193dc49e37c4af92db72d124beda3033548040cb70c07956bd"
+  },
+  {
+    "path": "private/raw_source.zip",
+    "bytes": 4173817,
+    "sha256": "8f394fe34bea54d41b9aafed410425ee8f8e252ede3c71a7c1cd20bab83040de"
+  },
+  {
+    "path": "private/reference/naive_gaussian.py",
+    "bytes": 687,
+    "sha256": "644c2bdbb8ea20cd2c5c949bd5bfaa6b3399099cd9f5430067c4edfa2cfda4e6"
+  },
+  {
+    "path": "private/source_header.txt",
+    "bytes": 548,
+    "sha256": "14be8e870c4094b7e450a4354d0bdbaf8fd359b192fdf0ec36a2c16f8d94dd8b"
+  },
+  {
+    "path": "private/split_manifest.json",
+    "bytes": 856,
+    "sha256": "563b824b807dcea58ee8b356b4bb9a937f93718835cfc69205d8cb0796a7dcfc"
+  },
+  {
+    "path": "public/evaluation_contract.draft.json",
+    "bytes": 2010,
+    "sha256": "f15c8da6855075fa05c0bb9a4ebd3063942fa3b222f488dfafbdc86e8b552fb6"
+  },
+  {
+    "path": "public/instruction.md",
+    "bytes": 1809,
+    "sha256": "72c0cf1e4e39414b8e014bb7d87fd6fd503b94f302657efb5b3f8b5c0c2398f0"
+  },
+  {
+    "path": "public/mandates.json",
+    "bytes": 12473,
+    "sha256": "c71b7c0155c8398a984af8fb1cf76b4e53b81bc809750eba20d92d4a82070340"
+  },
+  {
+    "path": "public/public_returns.csv",
+    "bytes": 3108339,
+    "sha256": "728bd39a53630445083e092c27e429c82619920d48572764560865c19401d59c"
+  },
+  {
+    "path": "public/submission/report.md",
+    "bytes": 107,
+    "sha256": "de5b3a9a9a2f22ba9e9218c703ea6e7ee5fc3cbc03e9e79dcbfc4d5bbd0c8444"
+  },
+  {
+    "path": "public/submission/risk_model.py",
+    "bytes": 687,
+    "sha256": "644c2bdbb8ea20cd2c5c949bd5bfaa6b3399099cd9f5430067c4edfa2cfda4e6"
+  }
+]

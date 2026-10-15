@@ -1,0 +1,160 @@
+{
+  "sha": "9c003534b1be3bc4f1322bfa7a770a7ffbf247d9",
+  "node_id": "C_kwDOB4jmS9oAKDljMDAzNTM0YjFiZTNiYzRmMTMyMmJmYTdhNzcwYTdmZmJmMjQ3ZDk",
+  "commit": {
+    "author": {
+      "name": "github-actions[bot]",
+      "email": "41898282+github-actions[bot]@users.noreply.github.com",
+      "date": "2026-10-14T23:54:36Z"
+    },
+    "committer": {
+      "name": "github-actions[bot]",
+      "email": "41898282+github-actions[bot]@users.noreply.github.com",
+      "date": "2026-10-14T23:54:36Z"
+    },
+    "message": "5.0.5",
+    "tree": {
+      "sha": "7fe9e2ee16216e321eca6de27fa288c31f59c903",
+      "url": "https://api.github.com/repos/simdjson/simdjson/git/trees/7fe9e2ee16216e321eca6de27fa288c31f59c903"
+    },
+    "url": "https://api.github.com/repos/simdjson/simdjson/git/commits/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/simdjson/simdjson/commits/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9",
+  "html_url": "https://github.com/simdjson/simdjson/commit/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9",
+  "comments_url": "https://api.github.com/repos/simdjson/simdjson/commits/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/comments",
+  "author": {
+    "login": "github-actions[bot]",
+    "id": 41898282,
+    "node_id": "MDM6Qm90NDE4OTgyODI=",
+    "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/github-actions%5Bbot%5D",
+    "html_url": "https://github.com/apps/github-actions",
+    "followers_url": "https://api.github.com/users/github-actions%5Bbot%5D/followers",
+    "following_url": "https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}",
+    "gists_url": "https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/github-actions%5Bbot%5D/subscriptions",
+    "organizations_url": "https://api.github.com/users/github-actions%5Bbot%5D/orgs",
+    "repos_url": "https://api.github.com/users/github-actions%5Bbot%5D/repos",
+    "events_url": "https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/github-actions%5Bbot%5D/received_events",
+    "type": "Bot",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "github-actions[bot]",
+    "id": 41898282,
+    "node_id": "MDM6Qm90NDE4OTgyODI=",
+    "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/github-actions%5Bbot%5D",
+    "html_url": "https://github.com/apps/github-actions",
+    "followers_url": "https://api.github.com/users/github-actions%5Bbot%5D/followers",
+    "following_url": "https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}",
+    "gists_url": "https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/github-actions%5Bbot%5D/subscriptions",
+    "organizations_url": "https://api.github.com/users/github-actions%5Bbot%5D/orgs",
+    "repos_url": "https://api.github.com/users/github-actions%5Bbot%5D/repos",
+    "events_url": "https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/github-actions%5Bbot%5D/received_events",
+    "type": "Bot",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "4a24086c83e149f1a64edb469958b9c62a9408bd",
+      "url": "https://api.github.com/repos/simdjson/simdjson/commits/4a24086c83e149f1a64edb469958b9c62a9408bd",
+      "html_url": "https://github.com/simdjson/simdjson/commit/4a24086c83e149f1a64edb469958b9c62a9408bd"
+    }
+  ],
+  "stats": {
+    "total": 56,
+    "additions": 39,
+    "deletions": 17
+  },
+  "files": [
+    {
+      "sha": "73701b82da3f359f798515ecbfdfd196d72d20fc",
+      "filename": "CMakeLists.txt",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/CMakeLists.txt",
+      "raw_url": "https://github.com/simdjson/simdjson/raw/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/CMakeLists.txt",
+      "contents_url": "https://api.github.com/repos/simdjson/simdjson/contents/CMakeLists.txt?ref=9c003534b1be3bc4f1322bfa7a770a7ffbf247d9",
+      "patch": "@@ -12,7 +12,7 @@ endif()\n project(\n     simdjson\n     # The version number is modified by tools/release.py\n-    VERSION 5.0.4\n+    VERSION 5.0.5\n     DESCRIPTION \"Parsing gigabytes of JSON per second\"\n     HOMEPAGE_URL \"https://simdjson.org/\"\n     LANGUAGES CXX C"
+    },
+    {
+      "sha": "0eea01e2e8090cb562d19fd64ef48db3fe7ddd66",
+      "filename": "Doxyfile",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/Doxyfile",
+      "raw_url": "https://github.com/simdjson/simdjson/raw/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/Doxyfile",
+      "contents_url": "https://api.github.com/repos/simdjson/simdjson/contents/Doxyfile?ref=9c003534b1be3bc4f1322bfa7a770a7ffbf247d9",
+      "patch": "@@ -38,7 +38,7 @@ PROJECT_NAME           = simdjson\n # could be handy for archiving the generated documentation or if some version\n # control system is used.\n \n-PROJECT_NUMBER         = \"5.0.4\"\n+PROJECT_NUMBER         = \"5.0.5\"\n \n # Using the PROJECT_BRIEF tag one can provide an optional one line description\n # for a project that appears at the top of each page and should give viewer a"
+    },
+    {
+      "sha": "349b7dd3f4f1f71d6e6a072fc81b7532f027dc5b",
+      "filename": "include/simdjson/simdjson_version.h",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "blob_url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/include%2Fsimdjson%2Fsimdjson_version.h",
+      "raw_url": "https://github.com/simdjson/simdjson/raw/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/include%2Fsimdjson%2Fsimdjson_version.h",
+      "contents_url": "https://api.github.com/repos/simdjson/simdjson/contents/include%2Fsimdjson%2Fsimdjson_version.h?ref=9c003534b1be3bc4f1322bfa7a770a7ffbf247d9",
+      "patch": "@@ -4,7 +4,7 @@\n #define SIMDJSON_SIMDJSON_VERSION_H\n \n /** The version of simdjson being used (major.minor.revision) */\n-#define SIMDJSON_VERSION \"5.0.4\"\n+#define SIMDJSON_VERSION \"5.0.5\"\n \n namespace simdjson {\n enum {\n@@ -19,7 +19,7 @@ enum {\n   /**\n    * The revision (major.minor.REVISION) of simdjson being used.\n    */\n-  SIMDJSON_VERSION_REVISION = 4\n+  SIMDJSON_VERSION_REVISION = 5\n };\n } // namespace simdjson\n "
+    },
+    {
+      "sha": "e8a2a24a04b4004b1a8327896d30dec604ae95a7",
+      "filename": "singleheader/simdjson.cpp",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "blob_url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/singleheader%2Fsimdjson.cpp",
+      "raw_url": "https://github.com/simdjson/simdjson/raw/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/singleheader%2Fsimdjson.cpp",
+      "contents_url": "https://api.github.com/repos/simdjson/simdjson/contents/singleheader%2Fsimdjson.cpp?ref=9c003534b1be3bc4f1322bfa7a770a7ffbf247d9",
+      "patch": "@@ -1,4 +1,4 @@\n-/* auto-generated on 2026-10-12 00:12:12 -0400. version 5.0.4 Do not edit! */\n+/* auto-generated on 2026-10-14 15:49:28 -0400. version 5.0.5 Do not edit! */\n /* including simdjson.cpp:  */\n /* begin file simdjson.cpp */\n #define SIMDJSON_SRC_SIMDJSON_CPP\n@@ -9475,10 +9475,10 @@ simdjson_fastfloat_really_inline bool rounds_to_nearest() noexcept {\n //  https://stackoverflow.com/questions/46079446/is-there-a-warning-for-floating-point-equality-checking-in-visual-studio-2013\n #elif defined(__clang__)\n #pragma clang diagnostic push\n-#pragma clang diagnostic ignored \"-Wfloat-equal\"\n+SIMDJSON_DISABLE_GCC_WARNING(-Wfloat-equal)\n #elif defined(__GNUC__)\n #pragma GCC diagnostic push\n-#pragma GCC diagnostic ignored \"-Wfloat-equal\"\n+SIMDJSON_DISABLE_GCC_WARNING(-Wfloat-equal)\n #endif\n   return (fmini + 1.0f == 1.0f - fmini);\n #ifdef SIMDJSON_FASTFLOAT_VISUAL_STUDIO\n@@ -9719,7 +9719,7 @@ from_chars_float_advanced(UC const *first, UC const *last, T &value,\n #ifdef __clang__\n #pragma clang diagnostic push\n #if (!defined(__APPLE_CC__) && __clang_major__ >= 10) || (__clang_major__ >= 13)\n-#pragma clang diagnostic ignored \"-Wc++20-extensions\"\n+SIMDJSON_DISABLE_GCC_WARNING(-Wc++20-extensions)\n #endif\n #endif\n   if simdjson_fastfloat_unlikely (pns.too_many_digits) {"
+    },
+    {
+      "sha": "faf21bdc2320964c9181f0738212794c80695e5a",
+      "filename": "singleheader/simdjson.h",
+      "status": "modified",
+      "additions": 31,
+      "deletions": 9,
+      "changes": 40,
+      "blob_url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/singleheader%2Fsimdjson.h",
+      "raw_url": "https://github.com/simdjson/simdjson/raw/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/singleheader%2Fsimdjson.h",
+      "contents_url": "https://api.github.com/repos/simdjson/simdjson/contents/singleheader%2Fsimdjson.h?ref=9c003534b1be3bc4f1322bfa7a770a7ffbf247d9",
+      "patch": "@@ -1,4 +1,4 @@\n-/* auto-generated on 2026-10-12 00:12:12 -0400. version 5.0.4 Do not edit! */\n+/* auto-generated on 2026-10-14 15:49:28 -0400. version 5.0.5 Do not edit! */\n /* including simdjson.h:  */\n /* begin file simdjson.h */\n #ifndef SIMDJSON_H\n@@ -2715,7 +2715,7 @@ namespace std {\n #define SIMDJSON_SIMDJSON_VERSION_H\n \n /** The version of simdjson being used (major.minor.revision) */\n-#define SIMDJSON_VERSION \"5.0.4\"\n+#define SIMDJSON_VERSION \"5.0.5\"\n \n namespace simdjson {\n enum {\n@@ -2730,7 +2730,7 @@ enum {\n   /**\n    * The revision (major.minor.REVISION) of simdjson being used.\n    */\n-  SIMDJSON_VERSION_REVISION = 4\n+  SIMDJSON_VERSION_REVISION = 5\n };\n } // namespace simdjson\n \n@@ -9136,7 +9136,19 @@ inline wildcard_json_path parse_wildcard_json_path(std::string_view json_path) {\n     std::string step;\n     step.reserve(key_and_json_path.first.size() + 1);\n     step += '/';\n-    step.append(key_and_json_path.first.data(), key_and_json_path.first.size());\n+    // The step is consumed by at_pointer, which unescapes ~0/~1, so '~' and\n+    // '/' in the key must be escaped as json_path_to_pointer_conversion does:\n+    // a raw '/' splits the step into two pointer tokens and a raw '~'\n+    // invalidates it, either way addressing the wrong element.\n+    for (const char c : key_and_json_path.first) {\n+      if (c == '~') {\n+        step += \"~0\";\n+      } else if (c == '/') {\n+        step += \"~1\";\n+      } else {\n+        step += c;\n+      }\n+    }\n     result.steps.push_back(std::move(step));\n     path = key_and_json_path.second;\n   }\n@@ -12783,8 +12795,18 @@ inline element_metrics structure_analyzer::analyze_object(const dom::object& obj\n inline size_t structure_analyzer::estimate_string_length(std::string_view s) const {\n   size_t len = 2; // quotes\n   for (char c : s) {\n-    if (c == '\"' || c == '\\\\' || static_cast<unsigned char>(c) < 32) {\n-      len += 2; // escape sequence (at least)\n+    unsigned char uc = static_cast<unsigned char>(c);\n+    if (c == '\"' || c == '\\\\') {\n+      len += 2; // \\\" and \\\\ are two-character escapes\n+    } else if (uc < 0x20) {\n+      switch (c) {\n+        case '\\b': case '\\f': case '\\n': case '\\r': case '\\t':\n+          len += 2; // two-character escapes: \\b \\f \\n \\r \\t\n+          break;\n+        default:\n+          len += 6; // \\u00XX -- six-character escape for other control chars\n+          break;\n+      }\n     } else {\n       len += 1;\n     }\n@@ -245449,10 +245471,10 @@ simdjson_fastfloat_really_inline bool rounds_to_nearest() noexcept {\n //  https://stackoverflow.com/questions/46079446/is-there-a-warning-for-floating-point-equality-checking-in-visual-studio-2013\n #elif defined(__clang__)\n #pragma clang diagnostic push\n-#pragma clang diagnostic ignored \"-Wfloat-equal\"\n+SIMDJSON_DISABLE_GCC_WARNING(-Wfloat-equal)\n #elif defined(__GNUC__)\n #pragma GCC diagnostic push\n-#pragma GCC diagnostic ignored \"-Wfloat-equal\"\n+SIMDJSON_DISABLE_GCC_WARNING(-Wfloat-equal)\n #endif\n   return (fmini + 1.0f == 1.0f - fmini);\n #ifdef SIMDJSON_FASTFLOAT_VISUAL_STUDIO\n@@ -245693,7 +245715,7 @@ from_chars_float_advanced(UC const *first, UC const *last, T &value,\n #ifdef __clang__\n #pragma clang diagnostic push\n #if (!defined(__APPLE_CC__) && __clang_major__ >= 10) || (__clang_major__ >= 13)\n-#pragma clang diagnostic ignored \"-Wc++20-extensions\"\n+SIMDJSON_DISABLE_GCC_WARNING(-Wc++20-extensions)\n #endif\n #endif\n   if simdjson_fastfloat_unlikely (pns.too_many_digits) {"
+    },
+    {
+      "sha": "c61a65d47a9047e60e52fa2fb93d6e385d479010",
+      "filename": "singleheader/singleheader.zip",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "blob_url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/singleheader%2Fsingleheader.zip",
+      "raw_url": "https://github.com/simdjson/simdjson/raw/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/singleheader%2Fsingleheader.zip",
+      "contents_url": "https://api.github.com/repos/simdjson/simdjson/contents/singleheader%2Fsingleheader.zip?ref=9c003534b1be3bc4f1322bfa7a770a7ffbf247d9"
+    }
+  ]
+}

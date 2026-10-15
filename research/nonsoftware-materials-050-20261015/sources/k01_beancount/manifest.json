@@ -1,0 +1,63 @@
+{
+  "repo": "beancount/beancount",
+  "revision": "9747213802acb733ce53acc6e963f5961f47d6cd",
+  "resolved_utc": "2026-10-15T14:59:59.442255+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:02:19.901955+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "e0c5256035d4e4134eb8316dc957619a127b8daa23c2f8b4917ecda9707980e5",
+    "truncated": false,
+    "blob_count": 340
+  },
+  "files_acquired": [
+    {
+      "path": "COPYING",
+      "bytes": 18343,
+      "sha256": "aeb6c47206ea227aad935eb9ff38a8c518e9a96668b2c9ce685b6c4c80bdc853",
+      "url": "https://github.com/beancount/beancount/blob/9747213802acb733ce53acc6e963f5961f47d6cd/COPYING"
+    },
+    {
+      "path": "README.rst",
+      "bytes": 4426,
+      "sha256": "e7cf6618278bf39bcc1d68e703e214afaed777cab5d2b0084a932bed718a64cb",
+      "url": "https://github.com/beancount/beancount/blob/9747213802acb733ce53acc6e963f5961f47d6cd/README.rst"
+    },
+    {
+      "path": "beancount/ops/balance_test.py",
+      "bytes": 13302,
+      "sha256": "46600cb895fcd62a849e1136ef8464dcdfbe07c8e95bb9033a7ba5a792266a8d",
+      "url": "https://github.com/beancount/beancount/blob/9747213802acb733ce53acc6e963f5961f47d6cd/beancount/ops/balance_test.py"
+    },
+    {
+      "path": "beancount/parser/booking_full.py",
+      "bytes": 43094,
+      "sha256": "d6253e11b5dcde3094a771b3af7ff72144e41ec327bcd91c4f5522cfa8a9d96a",
+      "url": "https://github.com/beancount/beancount/blob/9747213802acb733ce53acc6e963f5961f47d6cd/beancount/parser/booking_full.py"
+    },
+    {
+      "path": "beancount/parser/booking_full_test.py",
+      "bytes": 122168,
+      "sha256": "c5770cf90d4740523e1bef3c043b9c114a4db6ca3de36d9439e0f56394e67533",
+      "url": "https://github.com/beancount/beancount/blob/9747213802acb733ce53acc6e963f5961f47d6cd/beancount/parser/booking_full_test.py"
+    },
+    {
+      "path": "beancount/scripts/example.py",
+      "bytes": 65688,
+      "sha256": "192b6bd949194fda7ba32e8586a7e577be46ac24a2dbd5944a44b4bff0d4a713",
+      "url": "https://github.com/beancount/beancount/blob/9747213802acb733ce53acc6e963f5961f47d6cd/beancount/scripts/example.py"
+    },
+    {
+      "path": "examples/simple/basic.beancount",
+      "bytes": 20496,
+      "sha256": "fca081a81af79f6bb27dde0932c089cbba5682cda16a5cee7556e5f60960f0c3",
+      "url": "https://github.com/beancount/beancount/blob/9747213802acb733ce53acc6e963f5961f47d6cd/examples/simple/basic.beancount"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

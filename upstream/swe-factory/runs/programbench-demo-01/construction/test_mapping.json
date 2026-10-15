@@ -1,0 +1,50 @@
+{
+  "28b3825ec8ae": {
+    "name": "core",
+    "ignored": false,
+    "ignore_reason": "",
+    "tests": [
+      "tests.test_28b382_core.test_bytes_0",
+      "tests.test_28b382_core.test_bytes_1",
+      "tests.test_28b382_core.test_bytes_2",
+      "tests.test_28b382_core.test_bytes_3",
+      "tests.test_28b382_core.test_bytes_4",
+      "tests.test_28b382_core.test_bytes_5",
+      "tests.test_28b382_core.test_bytes_6",
+      "tests.test_28b382_core.test_bytes_7",
+      "tests.test_28b382_core.test_bytes_8",
+      "tests.test_28b382_core.test_bytes_9",
+      "tests.test_28b382_core.test_weak_exit",
+      "tests.test_28b382_core.test_error"
+    ],
+    "mapping": {
+      "tests.test_28b382_core.test_bytes_0": "tests/test_28b382_core.py::test_bytes_0",
+      "tests.test_28b382_core.test_bytes_1": "tests/test_28b382_core.py::test_bytes_1",
+      "tests.test_28b382_core.test_bytes_2": "tests/test_28b382_core.py::test_bytes_2",
+      "tests.test_28b382_core.test_bytes_3": "tests/test_28b382_core.py::test_bytes_3",
+      "tests.test_28b382_core.test_bytes_4": "tests/test_28b382_core.py::test_bytes_4",
+      "tests.test_28b382_core.test_bytes_5": "tests/test_28b382_core.py::test_bytes_5",
+      "tests.test_28b382_core.test_bytes_6": "tests/test_28b382_core.py::test_bytes_6",
+      "tests.test_28b382_core.test_bytes_7": "tests/test_28b382_core.py::test_bytes_7",
+      "tests.test_28b382_core.test_bytes_8": "tests/test_28b382_core.py::test_bytes_8",
+      "tests.test_28b382_core.test_bytes_9": "tests/test_28b382_core.py::test_bytes_9",
+      "tests.test_28b382_core.test_weak_exit": "tests/test_28b382_core.py::test_weak_exit",
+      "tests.test_28b382_core.test_error": "tests/test_28b382_core.py::test_error"
+    },
+    "origins": {
+      "tests.test_28b382_core.test_bytes_0": "core/tests/test_core.py::test_bytes_0",
+      "tests.test_28b382_core.test_bytes_1": "core/tests/test_core.py::test_bytes_1",
+      "tests.test_28b382_core.test_bytes_2": "core/tests/test_core.py::test_bytes_2",
+      "tests.test_28b382_core.test_bytes_3": "core/tests/test_core.py::test_bytes_3",
+      "tests.test_28b382_core.test_bytes_4": "core/tests/test_core.py::test_bytes_4",
+      "tests.test_28b382_core.test_bytes_5": "core/tests/test_core.py::test_bytes_5",
+      "tests.test_28b382_core.test_bytes_6": "core/tests/test_core.py::test_bytes_6",
+      "tests.test_28b382_core.test_bytes_7": "core/tests/test_core.py::test_bytes_7",
+      "tests.test_28b382_core.test_bytes_8": "core/tests/test_core.py::test_bytes_8",
+      "tests.test_28b382_core.test_bytes_9": "core/tests/test_core.py::test_bytes_9",
+      "tests.test_28b382_core.test_weak_exit": "core/tests/test_core.py::test_weak_exit",
+      "tests.test_28b382_core.test_error": "core/tests/test_core.py::test_error"
+    },
+    "ignored_tests": []
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "global": {
+    "max_attempts": 4,
+    "deadline_seconds": 30,
+    "cleanup_deadline_seconds": 10,
+    "base_delay_seconds": 1,
+    "delay_cap_seconds": 8,
+    "jitter_fraction": 0,
+    "retry_statuses": [
+      429,
+      503
+    ]
+  },
+  "endpoints": {
+    "/jobs": {
+      "POST": {
+        "idempotency_header": "Idempotency-Key",
+        "max_attempts": 3
+      }
+    }
+  }
+}

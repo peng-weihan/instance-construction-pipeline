@@ -1,0 +1,218 @@
+{
+  "status": "constructed_unverified",
+  "task_path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task",
+  "source_revision": "c9c19f8e62c12834ad83193a1869cc82fe9c700e",
+  "summary_zh": "已交付真实 pytest 完整 starter、私有 core 参考分支、独立语义 verifier、正逆补丁和隔离题包；本机检查完成，容器/ARM/六小时验收待证据。",
+  "implemented_files": [
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/environment/submission/src/_pytest/fixturetrace.py",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/environment/submission/src/_pytest/config/__init__.py",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/environment/submission/src/_pytest/hookspec.py",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/environment/dev_checks/test_trace_public.py",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/tests/grader.py",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/tests/test.sh",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/verifier/private/cases.py",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/verifier/private/integrity.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/verifier/private/score-spec.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/environment/Dockerfile",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/verifier/Dockerfile",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/task.toml",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/instruction.md",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/solution/solve.sh",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/solution/reference.tar.gz",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/solution/reference.patch",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/solution/inverse.patch",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/MATERIALS.md",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/DIFFICULTY.md",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/pipeline-profile.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/AUTHORING_REPORT.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/authoring/provenance.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/authoring/score-spec.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/authoring/build-manifest.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/authoring/checks.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/authoring/control-results.json",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/authoring/source-manifest.json"
+  ],
+  "complete_copied_source_inventory": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/authoring/build-manifest.json",
+  "reference_changes": [
+    "src/_pytest/fixturetrace.py",
+    "src/_pytest/fixtures.py",
+    "src/_pytest/config/__init__.py",
+    "src/_pytest/hookspec.py"
+  ],
+  "actual_checks": [
+    {
+      "command": ".venv/bin/python author-tools/verify_source.py",
+      "result": "727 original blobs verified, export-subst only, no mismatches",
+      "evidence": "authoring/source-manifest.json"
+    },
+    {
+      "command": ".venv/bin/python author-tools/probe_baseline.py",
+      "result": "2 passed; six cached dynamic requests have no per-request native hook callback",
+      "evidence": "authoring/evidence/cheap-baseline.json"
+    },
+    {
+      "command": "TMPDIR=$PWD/local-runs PYTHONPATH=$PWD/reference-src/src .venv/bin/python -m pytest -q reference-src/testing/python/fixtures.py --basetemp=$PWD/local-runs/native-full-fixed",
+      "result": "243 passed, 1 skipped, 2 xfailed; corrected run",
+      "evidence": "authoring/evidence/native-full-reference-fixed2.log"
+    },
+    {
+      "command": "PYTHONPATH=<starter or reference>/src .venv/bin/python -m pytest -q task/environment/dev_checks/test_trace_public.py --basetemp=<job-local-directory>",
+      "result": "starter 1 passed; reference 1 passed",
+      "evidence": [
+        "authoring/evidence/public-starter.log",
+        "authoring/evidence/public-reference.log"
+      ]
+    },
+    {
+      "commands": {
+        "reference": ".judge-venv/bin/python -I task/tests/grader.py --submission /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/reference-src --private /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/verifier/private --output /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/evidence/delivery-reference --scratch-root /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/local-runs",
+        "starter": ".judge-venv/bin/python -I task/tests/grader.py --submission /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/environment/submission --private /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/verifier/private --output /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/evidence/delivery-starter --scratch-root /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/local-runs",
+        "nop": ".judge-venv/bin/python -I task/tests/grader.py --submission /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/material-src/pytest --private /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/verifier/private --output /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/evidence/delivery-nop --scratch-root /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/local-runs",
+        "no-item-cache": ".judge-venv/bin/python -I task/tests/grader.py --submission /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/controls/no_item_cache --private /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/verifier/private --output /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/evidence/delivery-no-item-cache --scratch-root /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/local-runs",
+        "scope-only": ".judge-venv/bin/python -I task/tests/grader.py --submission /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/controls/scope_only --private /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/verifier/private --output /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/evidence/delivery-scope-only --scratch-root /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/local-runs"
+      },
+      "result": {
+        "reference": {
+          "score": 1.0,
+          "passed_checks": 24,
+          "native_regressions_passed": true,
+          "snapshot_sha256": "208da5d9c15b61c25799774eec671d5fb16a14cce49aa8bf99604acd1a5fd446",
+          "score_spec_sha256": "61484652e467cef8b3b52fc841b85cb81ca89ee8beddb05f7a5b01a20417864c",
+          "evidence": "authoring/evidence/reference/score.json"
+        },
+        "starter": {
+          "score": 0.5,
+          "passed_checks": 12,
+          "native_regressions_passed": true,
+          "snapshot_sha256": "1417617888b598e5b154b21beeb1735c3e576414551637b5e17f418ec1268b4f",
+          "score_spec_sha256": "61484652e467cef8b3b52fc841b85cb81ca89ee8beddb05f7a5b01a20417864c",
+          "evidence": "authoring/evidence/starter/score.json"
+        },
+        "nop": {
+          "score": 0.0,
+          "passed_checks": 0,
+          "native_regressions_passed": true,
+          "snapshot_sha256": "29f9693fad2f92bac1671a934053183eb46597360dfe452ebba3b6a76ba95ead",
+          "score_spec_sha256": "61484652e467cef8b3b52fc841b85cb81ca89ee8beddb05f7a5b01a20417864c",
+          "evidence": "authoring/evidence/nop/score.json"
+        },
+        "no-item-cache": {
+          "score": 0.9166666666666666,
+          "passed_checks": 22,
+          "native_regressions_passed": true,
+          "snapshot_sha256": "5d5e8307f7d6c10c07264f8cb17b75c5e8930edfa1bfeba7cef1539f03168b3d",
+          "score_spec_sha256": "61484652e467cef8b3b52fc841b85cb81ca89ee8beddb05f7a5b01a20417864c",
+          "evidence": "authoring/evidence/no-item-cache/score.json"
+        },
+        "scope-only": {
+          "score": 0.9166666666666666,
+          "passed_checks": 22,
+          "native_regressions_passed": true,
+          "snapshot_sha256": "549461cd4ab9f1dfd353481384b5a77bcd70618f43c5d1194661bb54562813db",
+          "score_spec_sha256": "61484652e467cef8b3b52fc841b85cb81ca89ee8beddb05f7a5b01a20417864c",
+          "evidence": "authoring/evidence/scope-only/score.json"
+        }
+      },
+      "evidence": "authoring/control-results.json"
+    },
+    {
+      "command": ".judge-venv/bin/python -I author-tools/security_audit.py",
+      "result": "compile/run private reads denied; reward write denied; native writes denied; candidate failure valid zero; infrastructure integrity fault invalid without numeric reward",
+      "evidence": "authoring/evidence/security-and-fault-audit.json"
+    },
+    {
+      "command": ".judge-venv/bin/python -I author-tools/audit_extended.py",
+      "result": "five scopes, finalizers added during cleanup, hook short circuit, on/off parity and repeat determinism passed",
+      "evidence": "authoring/evidence/extended-author-audit.json"
+    },
+    {
+      "command": ".judge-venv/bin/python -I author-tools/replay_patch.py",
+      "result": "forward/inverse patch exact; complete reference archive 729 files match",
+      "evidence": "authoring/evidence/patch-replay.json"
+    },
+    {
+      "command": ".venv/bin/python author-tools/check_schema.py",
+      "result": "AST supported-field check passed, no unknown fields; full TaskConfig execution unavailable because snapshot imports external Harbor modules",
+      "evidence": "authoring/evidence/schema-check.json"
+    },
+    {
+      "command": ".judge-venv/bin/python -I author-tools/check_package_static.py --final",
+      "result": "passed: required assets, Docker COPY closure, separate contexts, exact native bytes, universal locked dependencies, grader mirror hashes and supplied base pin; no container execution",
+      "evidence": "authoring/evidence/package-static-check.json"
+    }
+  ],
+  "control_results": {
+    "reference": {
+      "score": 1.0,
+      "passed_checks": 24,
+      "native_regressions_passed": true,
+      "snapshot_sha256": "208da5d9c15b61c25799774eec671d5fb16a14cce49aa8bf99604acd1a5fd446",
+      "score_spec_sha256": "61484652e467cef8b3b52fc841b85cb81ca89ee8beddb05f7a5b01a20417864c",
+      "evidence": "authoring/evidence/reference/score.json"
+    },
+    "starter": {
+      "score": 0.5,
+      "passed_checks": 12,
+      "native_regressions_passed": true,
+      "snapshot_sha256": "1417617888b598e5b154b21beeb1735c3e576414551637b5e17f418ec1268b4f",
+      "score_spec_sha256": "61484652e467cef8b3b52fc841b85cb81ca89ee8beddb05f7a5b01a20417864c",
+      "evidence": "authoring/evidence/starter/score.json"
+    },
+    "nop": {
+      "score": 0.0,
+      "passed_checks": 0,
+      "native_regressions_passed": true,
+      "snapshot_sha256": "29f9693fad2f92bac1671a934053183eb46597360dfe452ebba3b6a76ba95ead",
+      "score_spec_sha256": "61484652e467cef8b3b52fc841b85cb81ca89ee8beddb05f7a5b01a20417864c",
+      "evidence": "authoring/evidence/nop/score.json"
+    },
+    "no-item-cache": {
+      "score": 0.9166666666666666,
+      "passed_checks": 22,
+      "native_regressions_passed": true,
+      "snapshot_sha256": "5d5e8307f7d6c10c07264f8cb17b75c5e8930edfa1bfeba7cef1539f03168b3d",
+      "score_spec_sha256": "61484652e467cef8b3b52fc841b85cb81ca89ee8beddb05f7a5b01a20417864c",
+      "evidence": "authoring/evidence/no-item-cache/score.json"
+    },
+    "scope-only": {
+      "score": 0.9166666666666666,
+      "passed_checks": 22,
+      "native_regressions_passed": true,
+      "snapshot_sha256": "549461cd4ab9f1dfd353481384b5a77bcd70618f43c5d1194661bb54562813db",
+      "score_spec_sha256": "61484652e467cef8b3b52fc841b85cb81ca89ee8beddb05f7a5b01a20417864c",
+      "evidence": "authoring/evidence/scope-only/score.json"
+    }
+  },
+  "unresolved": [
+    "尚未构建或运行 Docker 镜像；镜像 tag 是构建目标而非已存在镜像的声明",
+    "Harbor 原生 test.sh 入口、separate verifier 的实际 artifact 传递与周期适配器双入口未执行",
+    "ARM 未验证",
+    "完整 TaskConfig 运行依赖未随 schema 快照提供；仅完成实际字段的 AST 静态检查",
+    "独立语义评审和更强的内部方法包装插件廉价解未完成；难度可能早饱和",
+    "未启动六小时教师或任何正式难度轨迹；21600 秒仅是预定预算"
+  ],
+  "scope_deviations": [
+    {
+      "stage": "初始依赖获取",
+      "detail": "首个 pip download/install 命令未显式设置 PIP_CACHE_DIR，可能读取或写入系统默认缓存；具体外部缓存写入未审计。后续 pip 缓存和依赖锁均在 job 内。"
+    },
+    {
+      "stage": "初始原生构建/回归",
+      "detail": "初次工具调用未显式设置 TMPDIR/basetemp；原生失败日志记录了 /tmp/pytest-of-root/pytest-10。后续复验均将临时目录指定在 job 内；没有尝试清理系统临时目录或任何外部工作。"
+    }
+  ],
+  "requested_model": "gpt-6.1-sol",
+  "actual_model_independently_verified": false,
+  "teacher_started": false,
+  "subagents_started": false,
+  "cloud_started": false,
+  "difficulty_accepted": false,
+  "author_report": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/AUTHORING_REPORT.json",
+  "parent_trajectory": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/trajectory.jsonl",
+  "preserved_controls": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/authoring/controls/controls.json",
+  "package_static_check": {
+    "passed": true,
+    "evidence": "authoring/evidence/package-static-check.json",
+    "scope": "静态文件、构建上下文和字节哈希；不是容器或 Harbor 运行"
+  }
+}

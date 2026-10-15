@@ -1,0 +1,19 @@
+{
+  "passed": 0,
+  "failed": 0,
+  "errors": 2,
+  "total": 4,
+  "configured_total": 4,
+  "observed_total": 2,
+  "pytest_collected": null,
+  "reward": 0.0,
+  "command_results": [
+    {
+      "command": "/Users/raymone/Desktop/swe-factory/.venv/bin/python -m pytest -q -p no:cacheprovider",
+      "returncode": 2,
+      "timed_out": false
+    }
+  ],
+  "timed_out": false,
+  "execution_complete": true
+}

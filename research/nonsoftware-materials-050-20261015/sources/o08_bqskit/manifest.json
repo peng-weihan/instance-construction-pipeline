@@ -1,0 +1,69 @@
+{
+  "repo": "BQSKit/bqskit",
+  "revision": "9324d64a65f147ecffec005a122eb5a491a3fefc",
+  "resolved_utc": "2026-10-15T14:59:57.951371+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:03:40.502792+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "add1877a5e5ae6dc8c6e8b4cde3017fd764e7d19e65ca542d7408b24d7b2dc1a",
+    "truncated": false,
+    "blob_count": 580
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 2527,
+      "sha256": "d96ff1085e33a64de14b852d7f77d2349ecc1e9c7273eb0c5c5b24c7d1a844b6",
+      "url": "https://github.com/BQSKit/bqskit/blob/9324d64a65f147ecffec005a122eb5a491a3fefc/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2854,
+      "sha256": "40a7f45666f31f4e6d117c7980e4a2876eaf2ebd0de12db02bb2a6b86d1f1a57",
+      "url": "https://github.com/BQSKit/bqskit/blob/9324d64a65f147ecffec005a122eb5a491a3fefc/README.md"
+    },
+    {
+      "path": "bqskit/passes/mapping/layout/sabre.py",
+      "bytes": 2796,
+      "sha256": "b1cc1df712e069877e93867b0c95f57e954046c1d13db04843ad2ebdfd09f011",
+      "url": "https://github.com/BQSKit/bqskit/blob/9324d64a65f147ecffec005a122eb5a491a3fefc/bqskit/passes/mapping/layout/sabre.py"
+    },
+    {
+      "path": "bqskit/passes/mapping/routing/sabre.py",
+      "bytes": 1115,
+      "sha256": "17567be3beb802ced0cf2a94294c9bcb37a8a7f132d8def0e12852163cb92642",
+      "url": "https://github.com/BQSKit/bqskit/blob/9324d64a65f147ecffec005a122eb5a491a3fefc/bqskit/passes/mapping/routing/sabre.py"
+    },
+    {
+      "path": "bqskit/passes/mapping/sabre.py",
+      "bytes": 19417,
+      "sha256": "779ec8a2704b9f4b2a8a18d1cf970375a7da9da9ec291d6835746749f5134c15",
+      "url": "https://github.com/BQSKit/bqskit/blob/9324d64a65f147ecffec005a122eb5a491a3fefc/bqskit/passes/mapping/sabre.py"
+    },
+    {
+      "path": "examples/compile.py",
+      "bytes": 481,
+      "sha256": "1ce919f46b0f6cca8eee1cf2f461eae1c224fd1a4c87059d1a89642c4e98efe7",
+      "url": "https://github.com/BQSKit/bqskit/blob/9324d64a65f147ecffec005a122eb5a491a3fefc/examples/compile.py"
+    },
+    {
+      "path": "examples/tfim.qasm",
+      "bytes": 2417,
+      "sha256": "5285b3fc60c5951479028ba576a1d6eafadbd15e13a62103e2ffa9509c6fdb27",
+      "url": "https://github.com/BQSKit/bqskit/blob/9324d64a65f147ecffec005a122eb5a491a3fefc/examples/tfim.qasm"
+    },
+    {
+      "path": "tests/passes/mapping/test_sabre.py",
+      "bytes": 1874,
+      "sha256": "6003c513b302e681c7e8a3ab55e29b821bd421ad691fc6244f558d5896059663",
+      "url": "https://github.com/BQSKit/bqskit/blob/9324d64a65f147ecffec005a122eb5a491a3fefc/tests/passes/mapping/test_sabre.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

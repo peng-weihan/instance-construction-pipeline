@@ -1,0 +1,3486 @@
+{
+  "sha": "6b53f8031161db96387b64b5f412845cd23491f6",
+  "truncated": false,
+  "blobs": [
+    {
+      "path": ".gitattributes",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "35216a569d909766c067e5425f92fe587388d36a",
+      "size": 361,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/35216a569d909766c067e5425f92fe587388d36a"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ccfdc2bd035b9a7b0bc02c00e3bedd471fdbecf0",
+      "size": 936,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/ccfdc2bd035b9a7b0bc02c00e3bedd471fdbecf0"
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0861bb921a5a010962dbceb1cd8afc212bf48764",
+      "size": 331,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/0861bb921a5a010962dbceb1cd8afc212bf48764"
+    },
+    {
+      "path": ".github/workflows/bsd.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fe75fe1d42fe3329461df3438799e521e57cea81",
+      "size": 2840,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/fe75fe1d42fe3329461df3438799e521e57cea81"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d978d5e43f22b758632dab5d49675857f0f7ce9",
+      "size": 12911,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/7d978d5e43f22b758632dab5d49675857f0f7ce9"
+    },
+    {
+      "path": ".github/workflows/decnum.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f7af7a02cd0bcc2b3027f02159521827c4f24e5",
+      "size": 1015,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/4f7af7a02cd0bcc2b3027f02159521827c4f24e5"
+    },
+    {
+      "path": ".github/workflows/manpage.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ea9e04715a3ce17ffdb6990a5ada9641e92f344b",
+      "size": 1428,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/ea9e04715a3ce17ffdb6990a5ada9641e92f344b"
+    },
+    {
+      "path": ".github/workflows/oniguruma.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47ed62c5bf5114b0709e8769e644e89d60cab633",
+      "size": 1949,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/47ed62c5bf5114b0709e8769e644e89d60cab633"
+    },
+    {
+      "path": ".github/workflows/scanbuild.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bffb65daa994024e834a762aeee968e67794a82e",
+      "size": 1334,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/bffb65daa994024e834a762aeee968e67794a82e"
+    },
+    {
+      "path": ".github/workflows/valgrind.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0d068ce3ae445ab16adb6f131d3b821ef39c17bf",
+      "size": 956,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/0d068ce3ae445ab16adb6f131d3b821ef39c17bf"
+    },
+    {
+      "path": ".github/workflows/website.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "95a0d9e35baa8c28f3171ac035a4b829ef76d843",
+      "size": 1061,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/95a0d9e35baa8c28f3171ac035a4b829ef76d843"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7df2dae6d8a4574d364608521aa755eaa551c994",
+      "size": 576,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/7df2dae6d8a4574d364608521aa755eaa551c994"
+    },
+    {
+      "path": ".gitmodules",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "193b8030465d6545eaf20c0e9eef63fb5ea8df9e",
+      "size": 101,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/193b8030465d6545eaf20c0e9eef63fb5ea8df9e"
+    },
+    {
+      "path": "AUTHORS",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "93ab6bf9ba5c4313dff3804fa545a1d720866128",
+      "size": 11645,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/93ab6bf9ba5c4313dff3804fa545a1d720866128"
+    },
+    {
+      "path": "COPYING",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c21d3f1645c72de28f3b46f9d8e01f20e0e496c8",
+      "size": 7887,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c21d3f1645c72de28f3b46f9d8e01f20e0e496c8"
+    },
+    {
+      "path": "ChangeLog",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7dfbe4391940daba42d6328ca04a4b8656146c9a",
+      "size": 33286,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/7dfbe4391940daba42d6328ca04a4b8656146c9a"
+    },
+    {
+      "path": "Dockerfile",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "17950b40e61a0cbecbe744992cb3e9d625fa07c4",
+      "size": 713,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/17950b40e61a0cbecbe744992cb3e9d625fa07c4"
+    },
+    {
+      "path": "KEYS",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b5d6fb2222a1736d42776ec8dd85c1ea14aef27",
+      "size": 421,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2b5d6fb2222a1736d42776ec8dd85c1ea14aef27"
+    },
+    {
+      "path": "Makefile.am",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e20f646e27782a2f340deee043174c11c80bdee2",
+      "size": 10280,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/e20f646e27782a2f340deee043174c11c80bdee2"
+    },
+    {
+      "path": "NEWS.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0e99986732d18d52878ecfc1bd243c3c83e36569",
+      "size": 30353,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/0e99986732d18d52878ecfc1bd243c3c83e36569"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb4a9dd91234fdb16c5748a26fcaafb89b1cd345",
+      "size": 2603,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/bb4a9dd91234fdb16c5748a26fcaafb89b1cd345"
+    },
+    {
+      "path": "SECURITY.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9176bbfd681eb3375a915f1a53cbd2d2f84271b3",
+      "size": 974,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/9176bbfd681eb3375a915f1a53cbd2d2f84271b3"
+    },
+    {
+      "path": "build/.gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f59ec20aabf5842d237244ece8c81ab184faeac1",
+      "size": 1,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/f59ec20aabf5842d237244ece8c81ab184faeac1"
+    },
+    {
+      "path": "compile-ios.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "a6826f7c3dbe20043714ed86792329d48d60eb7f",
+      "size": 3230,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/a6826f7c3dbe20043714ed86792329d48d60eb7f"
+    },
+    {
+      "path": "config/.gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "517595a7ce10f8985858ac19dbf3ed2d081f840f",
+      "size": 95,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/517595a7ce10f8985858ac19dbf3ed2d081f840f"
+    },
+    {
+      "path": "config/m4/.gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "603556284a83c9565f9967bb2fcddf9bb7566b85",
+      "size": 17,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/603556284a83c9565f9967bb2fcddf9bb7566b85"
+    },
+    {
+      "path": "config/m4/check-math-func.m4",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c080068e13535e22dcb1ef6c3ca70723add1475f",
+      "size": 239,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c080068e13535e22dcb1ef6c3ca70723add1475f"
+    },
+    {
+      "path": "config/m4/find-func-no-libs.m4",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f47cd6e688cc6bae5284b7e32f088cb9d5fd4a98",
+      "size": 286,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/f47cd6e688cc6bae5284b7e32f088cb9d5fd4a98"
+    },
+    {
+      "path": "config/m4/find-func-no-libs2.m4",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ee9410a59c011dbdc96a09e9dba904f5c99772ca",
+      "size": 1525,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/ee9410a59c011dbdc96a09e9dba904f5c99772ca"
+    },
+    {
+      "path": "config/m4/find-func.m4",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a4b0290ff2814ec2fcd88d3dd7a8a3939904ae6b",
+      "size": 222,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/a4b0290ff2814ec2fcd88d3dd7a8a3939904ae6b"
+    },
+    {
+      "path": "config/m4/misc.m4",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3dd16bd99b1039f8b0d9aaf89e796bcaa994192b",
+      "size": 130,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3dd16bd99b1039f8b0d9aaf89e796bcaa994192b"
+    },
+    {
+      "path": "configure.ac",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f7067a4341cb1caeba54428571c8edc849b91d56",
+      "size": 10505,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/f7067a4341cb1caeba54428571c8edc849b91d56"
+    },
+    {
+      "path": "docs/Pipfile",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b8477107d4dd26e2e96a5368c0f6e9fcc0db347",
+      "size": 198,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2b8477107d4dd26e2e96a5368c0f6e9fcc0db347"
+    },
+    {
+      "path": "docs/Pipfile.lock",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "93b2a1cc14000ca5a1ee1faabffa50dc18555d2a",
+      "size": 43585,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/93b2a1cc14000ca5a1ee1faabffa50dc18555d2a"
+    },
+    {
+      "path": "docs/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "133583e83c570f8a9a1c16f24e50538ee466f537",
+      "size": 1061,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/133583e83c570f8a9a1c16f24e50538ee466f537"
+    },
+    {
+      "path": "docs/build_manpage.py",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "98e91bc0196e42d779f44888314fd14fbc7d2e31",
+      "size": 8954,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/98e91bc0196e42d779f44888314fd14fbc7d2e31"
+    },
+    {
+      "path": "docs/build_mantests.py",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "bbc7e325bbc2950478c4d124e9dcd44e6bcc14c6",
+      "size": 872,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/bbc7e325bbc2950478c4d124e9dcd44e6bcc14c6"
+    },
+    {
+      "path": "docs/build_website.py",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "48e46104ed7648f70882b9fe64e0a8c7a413f20e",
+      "size": 2559,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/48e46104ed7648f70882b9fe64e0a8c7a413f20e"
+    },
+    {
+      "path": "docs/content/download/default.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c2e5af776be5e76ad5e3a2d23168bad39fa3dc53",
+      "size": 14671,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c2e5af776be5e76ad5e3a2d23168bad39fa3dc53"
+    },
+    {
+      "path": "docs/content/index.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44e2352fa4dfa25ea8a76d973810b3d01aaeb801",
+      "size": 3280,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/44e2352fa4dfa25ea8a76d973810b3d01aaeb801"
+    },
+    {
+      "path": "docs/content/manual/dev/manual.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f4e91a6e6190cf36290be988ab8693b84d24fb8e",
+      "size": 150524,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/f4e91a6e6190cf36290be988ab8693b84d24fb8e"
+    },
+    {
+      "path": "docs/content/manual/manual.yml",
+      "mode": "120000",
+      "type": "blob",
+      "sha": "b52133c31253648df86dfba90d4bc818e8f20171",
+      "size": 15,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/b52133c31253648df86dfba90d4bc818e8f20171"
+    },
+    {
+      "path": "docs/content/manual/v1.3/manual.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "04b10d3e5c12930bc9fe66581308e457c684ba82",
+      "size": 46890,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/04b10d3e5c12930bc9fe66581308e457c684ba82"
+    },
+    {
+      "path": "docs/content/manual/v1.4/manual.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6db4854d5e8f833dc5347bd788850e4fd0fb08c8",
+      "size": 59924,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/6db4854d5e8f833dc5347bd788850e4fd0fb08c8"
+    },
+    {
+      "path": "docs/content/manual/v1.5/manual.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b769c3d092c2abec6b03612cedf827836a866668",
+      "size": 110173,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/b769c3d092c2abec6b03612cedf827836a866668"
+    },
+    {
+      "path": "docs/content/manual/v1.6/manual.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "edbcc23d80430e83dc78c65fbd03f4107aa1afba",
+      "size": 127179,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/edbcc23d80430e83dc78c65fbd03f4107aa1afba"
+    },
+    {
+      "path": "docs/content/manual/v1.7/manual.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "92cb166d2f5443b0b547cf31250439197bf2b43d",
+      "size": 141592,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/92cb166d2f5443b0b547cf31250439197bf2b43d"
+    },
+    {
+      "path": "docs/content/manual/v1.8/manual.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "476ad6e4d640753b29705aec073c9c11fb755345",
+      "size": 147496,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/476ad6e4d640753b29705aec073c9c11fb755345"
+    },
+    {
+      "path": "docs/content/tutorial/default.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dadc74699e24ffffc234ad5c77d4ddeac4536abe",
+      "size": 14455,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/dadc74699e24ffffc234ad5c77d4ddeac4536abe"
+    },
+    {
+      "path": "docs/manual_schema.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "615efad1961984f3dda9886c42ca81b2148f5784",
+      "size": 1339,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/615efad1961984f3dda9886c42ca81b2148f5784"
+    },
+    {
+      "path": "docs/public/.htaccess",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9e9f8215ab1bc24b5379450831da9a94ea7a1349",
+      "size": 735,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/9e9f8215ab1bc24b5379450831da9a94ea7a1349"
+    },
+    {
+      "path": "docs/public/CNAME",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0d1c1a09515d8db9d04b163bc67dc27a34d9d8f5",
+      "size": 11,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/0d1c1a09515d8db9d04b163bc67dc27a34d9d8f5"
+    },
+    {
+      "path": "docs/public/css/style.css",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c2dd10ceab3002919708442a98473880414c30ac",
+      "size": 1712,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c2dd10ceab3002919708442a98473880414c30ac"
+    },
+    {
+      "path": "docs/public/icon.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cfdc8ecda9840955ed9b0031693acbe5606842d6",
+      "size": 4963,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/cfdc8ecda9840955ed9b0031693acbe5606842d6"
+    },
+    {
+      "path": "docs/public/icon.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f518f047f54a0f3abc31ca5a7c87b0e25703e8b",
+      "size": 1006,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1f518f047f54a0f3abc31ca5a7c87b0e25703e8b"
+    },
+    {
+      "path": "docs/public/jq.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f9e2ddf6df7a1d4ab87adea144325ea1e3a37d2",
+      "size": 1035,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1f9e2ddf6df7a1d4ab87adea144325ea1e3a37d2"
+    },
+    {
+      "path": "docs/public/js/manual-search.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c7c72d56e669fc2fcb223fe315771a3bb172011",
+      "size": 1365,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/6c7c72d56e669fc2fcb223fe315771a3bb172011"
+    },
+    {
+      "path": "docs/public/robots.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "14267e90323cf5175815cfbc34eb6affc59412cb",
+      "size": 22,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/14267e90323cf5175815cfbc34eb6affc59412cb"
+    },
+    {
+      "path": "docs/templates/default.html.j2",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ee39e93ce2b7019935d75c68e53ee0169039bac6",
+      "size": 1269,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/ee39e93ce2b7019935d75c68e53ee0169039bac6"
+    },
+    {
+      "path": "docs/templates/index.html.j2",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "442578da29974e94ea879a12d482ff8a7a798c21",
+      "size": 3094,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/442578da29974e94ea879a12d482ff8a7a798c21"
+    },
+    {
+      "path": "docs/templates/manual.html.j2",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2fc9134277f58c32da96858eff0664ec3bb89506",
+      "size": 6175,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2fc9134277f58c32da96858eff0664ec3bb89506"
+    },
+    {
+      "path": "docs/templates/shared/_footer.html.j2",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dbed4f275967361ba98837df3acc1aea9565ecb0",
+      "size": 788,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/dbed4f275967361ba98837df3acc1aea9565ecb0"
+    },
+    {
+      "path": "docs/templates/shared/_head.html.j2",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "280a3401ca154ddb32df222223c3ea349a0b684d",
+      "size": 1622,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/280a3401ca154ddb32df222223c3ea349a0b684d"
+    },
+    {
+      "path": "docs/templates/shared/_navbar.html.j2",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "001f0753efba8e427c8bd55a2d057bcd171b8c50",
+      "size": 3317,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/001f0753efba8e427c8bd55a2d057bcd171b8c50"
+    },
+    {
+      "path": "docs/validate_manual_schema.py",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "4414979df05b0c214cfa7086065f08906d2823e6",
+      "size": 584,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/4414979df05b0c214cfa7086065f08906d2823e6"
+    },
+    {
+      "path": "jq.1.prebuilt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f9f6e8261b7a5c706d6e9c33bf90da86c7e4cc08",
+      "size": 127073,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/f9f6e8261b7a5c706d6e9c33bf90da86c7e4cc08"
+    },
+    {
+      "path": "jq.spec",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd1a5637bdc8d846a3addf0032efea8543dbfcfc",
+      "size": 1431,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/bd1a5637bdc8d846a3addf0032efea8543dbfcfc"
+    },
+    {
+      "path": "libjq.pc.in",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e8dc7c86bdcc6ca7206c68b8fb4cbdf5280bd32d",
+      "size": 246,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/e8dc7c86bdcc6ca7206c68b8fb4cbdf5280bd32d"
+    },
+    {
+      "path": "m4/ax_compare_version.m4",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "74dc0fdd9a40cea41852e138d687b43a05492bd9",
+      "size": 6570,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/74dc0fdd9a40cea41852e138d687b43a05492bd9"
+    },
+    {
+      "path": "m4/ax_prog_bison_version.m4",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3b52920715bbc1ea14ad9e00125083d3009dbac",
+      "size": 2013,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/e3b52920715bbc1ea14ad9e00125083d3009dbac"
+    },
+    {
+      "path": "m4/ax_pthread.m4",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f35d139149f8d9bda17cddb730cd13bcf775465",
+      "size": 22556,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/9f35d139149f8d9bda17cddb730cd13bcf775465"
+    },
+    {
+      "path": "scripts/crosscompile",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "77af751fa32cff9c8f49fb96d33c2b132d3036c3",
+      "size": 854,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/77af751fa32cff9c8f49fb96d33c2b132d3036c3"
+    },
+    {
+      "path": "scripts/gen_utf8_tables.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6fe0a5312b29d5c325332dd6a9ff5727fc15d7f9",
+      "size": 1000,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/6fe0a5312b29d5c325332dd6a9ff5727fc15d7f9"
+    },
+    {
+      "path": "scripts/version",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "f24a18d9dbdf71449cc97e1674eab700f6a2ffc4",
+      "size": 313,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/f24a18d9dbdf71449cc97e1674eab700f6a2ffc4"
+    },
+    {
+      "path": "sig/jq-release-new.key",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "baf8464209a818037ba7b62ceb7636d7958da7e5",
+      "size": 3167,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/baf8464209a818037ba7b62ceb7636d7958da7e5"
+    },
+    {
+      "path": "sig/jq-release-old.key",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "faa53e38d5df6ab080d2f3e8ba1be6ed6319a6df",
+      "size": 2422,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/faa53e38d5df6ab080d2f3e8ba1be6ed6319a6df"
+    },
+    {
+      "path": "sig/v1.3/jq-linux-x86.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5a6b8bfc291e9e4fc2147d2b6f0c0704116a4cdb",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/5a6b8bfc291e9e4fc2147d2b6f0c0704116a4cdb"
+    },
+    {
+      "path": "sig/v1.3/jq-linux-x86_64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6a5c1efc66c4cb922d10177ba290ac460b1ef3c2",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/6a5c1efc66c4cb922d10177ba290ac460b1ef3c2"
+    },
+    {
+      "path": "sig/v1.3/jq-osx-x86.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e17e58fe58fffbb75a34f5e114179bdaf6ecb89",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/5e17e58fe58fffbb75a34f5e114179bdaf6ecb89"
+    },
+    {
+      "path": "sig/v1.3/jq-osx-x86_64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c0ba760df05c3c5d50dde75be75d3160437ba826",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c0ba760df05c3c5d50dde75be75d3160437ba826"
+    },
+    {
+      "path": "sig/v1.3/jq-win32.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "58f4ee1c354f32da712655673cd828cf199752ca",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/58f4ee1c354f32da712655673cd828cf199752ca"
+    },
+    {
+      "path": "sig/v1.3/jq-win64.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d51324d10857dd6bf6bb26bce79333e2527f4c7d",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/d51324d10857dd6bf6bb26bce79333e2527f4c7d"
+    },
+    {
+      "path": "sig/v1.3/sha256sum.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f4400ff38b8540292b3a6ac94e76df6c00fcd8fe",
+      "size": 476,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/f4400ff38b8540292b3a6ac94e76df6c00fcd8fe"
+    },
+    {
+      "path": "sig/v1.4/jq-linux-x86.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c27a3d394a975a67d4fbe0dbfe1ff027b774efde",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c27a3d394a975a67d4fbe0dbfe1ff027b774efde"
+    },
+    {
+      "path": "sig/v1.4/jq-linux-x86_64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "90bb26ebb214235924c7a8353a4ea49aa1a8f820",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/90bb26ebb214235924c7a8353a4ea49aa1a8f820"
+    },
+    {
+      "path": "sig/v1.4/jq-osx-x86.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eac366d04cb675e671ad7518a43ec2c18d6ef954",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/eac366d04cb675e671ad7518a43ec2c18d6ef954"
+    },
+    {
+      "path": "sig/v1.4/jq-osx-x86_64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b760074d24d49df1042b3a226af9a348fc4cee7c",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/b760074d24d49df1042b3a226af9a348fc4cee7c"
+    },
+    {
+      "path": "sig/v1.4/jq-solaris11-32.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d287503c8ac6d374e0f914c49fe69ef8bf11c4aa",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/d287503c8ac6d374e0f914c49fe69ef8bf11c4aa"
+    },
+    {
+      "path": "sig/v1.4/jq-solaris11-64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c26a4b22a50397c6a7b07969376e2b9ebaf298aa",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c26a4b22a50397c6a7b07969376e2b9ebaf298aa"
+    },
+    {
+      "path": "sig/v1.4/jq-win32.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d0df99daa11ab08d20e0600922fcde45dedf3ae8",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/d0df99daa11ab08d20e0600922fcde45dedf3ae8"
+    },
+    {
+      "path": "sig/v1.4/jq-win64.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3c06f0c67998d04ad864ada264f8a3778445e382",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3c06f0c67998d04ad864ada264f8a3778445e382"
+    },
+    {
+      "path": "sig/v1.4/sha256sum.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dd8cc17db9fc825ac0ce99a386b70e0f65c1d22f",
+      "size": 720,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/dd8cc17db9fc825ac0ce99a386b70e0f65c1d22f"
+    },
+    {
+      "path": "sig/v1.5/jq-linux32-no-oniguruma.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b969cfd6be837a844bb3f25efcccb1b816597d20",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/b969cfd6be837a844bb3f25efcccb1b816597d20"
+    },
+    {
+      "path": "sig/v1.5/jq-linux32.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b3da1e10764fb312faa1ce37d8fcf1470b1e932",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2b3da1e10764fb312faa1ce37d8fcf1470b1e932"
+    },
+    {
+      "path": "sig/v1.5/jq-linux64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "995c00e5fd968e4c7ea7a3fc9ca218ab38d9b80f",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/995c00e5fd968e4c7ea7a3fc9ca218ab38d9b80f"
+    },
+    {
+      "path": "sig/v1.5/jq-osx-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8180fd00ebf2c56a3851322dd03209e61b70d926",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/8180fd00ebf2c56a3851322dd03209e61b70d926"
+    },
+    {
+      "path": "sig/v1.5/jq-win32.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6d1ce6217505e35eec177eaa18c3673ba0ed9f88",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/6d1ce6217505e35eec177eaa18c3673ba0ed9f88"
+    },
+    {
+      "path": "sig/v1.5/jq-win64.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "709f177a03b1e448672ca03828dad37a5fbd2f46",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/709f177a03b1e448672ca03828dad37a5fbd2f46"
+    },
+    {
+      "path": "sig/v1.5/sha256sum.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b5eb99d60ad2bb2bff09062e453d591fd05d7ad2",
+      "size": 548,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/b5eb99d60ad2bb2bff09062e453d591fd05d7ad2"
+    },
+    {
+      "path": "sig/v1.5rc1/jq-linux-x86_64-static.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e8980b45a75e9dd03f221b5632dbfde4636e46f6",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/e8980b45a75e9dd03f221b5632dbfde4636e46f6"
+    },
+    {
+      "path": "sig/v1.5rc1/jq-win32.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44193686797ba225f0228ab9890883a67ba7b93b",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/44193686797ba225f0228ab9890883a67ba7b93b"
+    },
+    {
+      "path": "sig/v1.5rc1/jq-win64.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f670098a24ac2e42c7fd90227a5d8f1c92fff3fe",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/f670098a24ac2e42c7fd90227a5d8f1c92fff3fe"
+    },
+    {
+      "path": "sig/v1.5rc1/sha256sum.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b4149bbcb50e7cab8f0930b926a4e08c384d5064",
+      "size": 330,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/b4149bbcb50e7cab8f0930b926a4e08c384d5064"
+    },
+    {
+      "path": "sig/v1.5rc2/jq-linux-x86.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f94ca031f0ec78fff61c483e3e0805cd9acf5d56",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/f94ca031f0ec78fff61c483e3e0805cd9acf5d56"
+    },
+    {
+      "path": "sig/v1.5rc2/jq-linux-x86_64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c652216964210a1c3a2e03233925dfa0e39391ad",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c652216964210a1c3a2e03233925dfa0e39391ad"
+    },
+    {
+      "path": "sig/v1.5rc2/jq-osx-x86_64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a15ea4de38b1dc7e2e461748a603bab192ffd56",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/7a15ea4de38b1dc7e2e461748a603bab192ffd56"
+    },
+    {
+      "path": "sig/v1.5rc2/jq-win32.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f0eb5b4b36d4880a23310529ee177ba01544ce6",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/4f0eb5b4b36d4880a23310529ee177ba01544ce6"
+    },
+    {
+      "path": "sig/v1.5rc2/jq-win64.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1446046750886f1aef033e2269686c6a6360d1a5",
+      "size": 819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1446046750886f1aef033e2269686c6a6360d1a5"
+    },
+    {
+      "path": "sig/v1.5rc2/sha256sum.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c2bdfe6cb594ad2f40d23746666e2ac55deb3789",
+      "size": 562,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c2bdfe6cb594ad2f40d23746666e2ac55deb3789"
+    },
+    {
+      "path": "sig/v1.6/jq-linux32.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0a7b07732bb571d6b6c4cbec849b6a6ffaf363af",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/0a7b07732bb571d6b6c4cbec849b6a6ffaf363af"
+    },
+    {
+      "path": "sig/v1.6/jq-linux64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f81c94cece9beb07f817c60a2ca1648e661dbbf",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/7f81c94cece9beb07f817c60a2ca1648e661dbbf"
+    },
+    {
+      "path": "sig/v1.6/jq-osx-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1626d4b640f3f18c6a1d2e1462c6f5ca1ab2bd95",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1626d4b640f3f18c6a1d2e1462c6f5ca1ab2bd95"
+    },
+    {
+      "path": "sig/v1.6/jq-win32.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "39f5d441dc74ec84743bdb0c7812cc3e18f36ae7",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/39f5d441dc74ec84743bdb0c7812cc3e18f36ae7"
+    },
+    {
+      "path": "sig/v1.6/jq-win64.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f673c8fd251df2f0799cc7863c78210329e7818",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/4f673c8fd251df2f0799cc7863c78210329e7818"
+    },
+    {
+      "path": "sig/v1.6/sha256sum.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3fb988933f6a08af4164629d72ba26407a28ee49",
+      "size": 548,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3fb988933f6a08af4164629d72ba26407a28ee49"
+    },
+    {
+      "path": "sig/v1.7.1/jq-1.7.1.tar.gz.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "841570522d3529e30928d03a2de8ce3b178874b3",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/841570522d3529e30928d03a2de8ce3b178874b3"
+    },
+    {
+      "path": "sig/v1.7.1/jq-1.7.1.zip.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dde68b5312a274ab478ce56023c1fda2edd1d79a",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/dde68b5312a274ab478ce56023c1fda2edd1d79a"
+    },
+    {
+      "path": "sig/v1.7.1/jq-linux-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3c94576fa0fa6c748fd6655953a45acf36151e02",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3c94576fa0fa6c748fd6655953a45acf36151e02"
+    },
+    {
+      "path": "sig/v1.7.1/jq-linux-arm64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c254da095889c13509e6b795cf80432df83d8f5c",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c254da095889c13509e6b795cf80432df83d8f5c"
+    },
+    {
+      "path": "sig/v1.7.1/jq-linux-armel.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f95d72dd887306f4bf788eab30bb34174f1bd0d0",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/f95d72dd887306f4bf788eab30bb34174f1bd0d0"
+    },
+    {
+      "path": "sig/v1.7.1/jq-linux-armhf.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b5993f58f3a30876ac294bec236fb974f3749b1a",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/b5993f58f3a30876ac294bec236fb974f3749b1a"
+    },
+    {
+      "path": "sig/v1.7.1/jq-linux-i386.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "acae3d5216ca215896e6952fb75ee3641974de97",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/acae3d5216ca215896e6952fb75ee3641974de97"
+    },
+    {
+      "path": "sig/v1.7.1/jq-linux-mips.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9af652cc8f60b522630e16e0f3e294041af81f63",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/9af652cc8f60b522630e16e0f3e294041af81f63"
+    },
+    {
+      "path": "sig/v1.7.1/jq-linux-mips64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "68067d3c48e2d16048bcf2e726e59705a09b7f27",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/68067d3c48e2d16048bcf2e726e59705a09b7f27"
+    },
+    {
+      "path": "sig/v1.7.1/jq-linux-mips64el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9194346ffe0756889d60cb99f5c74c3b6c7a6cad",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/9194346ffe0756889d60cb99f5c74c3b6c7a6cad"
+    },
+    {
+      "path": "sig/v1.7.1/jq-linux-mips64r6.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8981fe068769520a5e56b4a6aa45a088c710d841",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/8981fe068769520a5e56b4a6aa45a088c710d841"
+    },
+    {
+      "path": "sig/v1.7.1/jq-linux-mips64r6el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f1fb613bcb444e309c97477de8321788a423983",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/9f1fb613bcb444e309c97477de8321788a423983"
+    },
+    {
+      "path": "sig/v1.7.1/jq-linux-mipsel.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1b2a81a1753cd49139f2d312757a034cb35c8aa6",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1b2a81a1753cd49139f2d312757a034cb35c8aa6"
+    },
+    {
+      "path": "sig/v1.7.1/jq-linux-mipsr6.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1c7aa23681f49a1a90650539346a4d83a71f251e",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1c7aa23681f49a1a90650539346a4d83a71f251e"
+    },
+    {
+      "path": "sig/v1.7.1/jq-linux-mipsr6el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d4e620da22b74fcff53cf830effcb84578bdf65",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3d4e620da22b74fcff53cf830effcb84578bdf65"
+    },
+    {
+      "path": "sig/v1.7.1/jq-linux-powerpc.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b41f1cad26998e6a2f4d595058332c7b8a770108",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/b41f1cad26998e6a2f4d595058332c7b8a770108"
+    },
+    {
+      "path": "sig/v1.7.1/jq-linux-ppc64el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa703a9c32c37937ce4c22ed558788875dd2b119",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/aa703a9c32c37937ce4c22ed558788875dd2b119"
+    },
+    {
+      "path": "sig/v1.7.1/jq-linux-riscv64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "328a843047efebd8a17a11948e15f817e306e00d",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/328a843047efebd8a17a11948e15f817e306e00d"
+    },
+    {
+      "path": "sig/v1.7.1/jq-linux-s390x.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "641e4368be25e6f3d91bb39c04f61427b7c34122",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/641e4368be25e6f3d91bb39c04f61427b7c34122"
+    },
+    {
+      "path": "sig/v1.7.1/jq-linux64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d99bb017cd6548a99f589ebb64b6c5dfa4f808a",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2d99bb017cd6548a99f589ebb64b6c5dfa4f808a"
+    },
+    {
+      "path": "sig/v1.7.1/jq-macos-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1da33f9a5172e7da23532baade76fa6a997e0ef8",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1da33f9a5172e7da23532baade76fa6a997e0ef8"
+    },
+    {
+      "path": "sig/v1.7.1/jq-macos-arm64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7c6e12dc5e0102d9f2b2600acecb65db7d4cdf3c",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/7c6e12dc5e0102d9f2b2600acecb65db7d4cdf3c"
+    },
+    {
+      "path": "sig/v1.7.1/jq-osx-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "197d76e95ff0dcead08b2b97b8738408ba3e2490",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/197d76e95ff0dcead08b2b97b8738408ba3e2490"
+    },
+    {
+      "path": "sig/v1.7.1/jq-win64.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "63225fc936779e200c304d6363c4aabb1d2dfddc",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/63225fc936779e200c304d6363c4aabb1d2dfddc"
+    },
+    {
+      "path": "sig/v1.7.1/jq-windows-amd64.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "63225fc936779e200c304d6363c4aabb1d2dfddc",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/63225fc936779e200c304d6363c4aabb1d2dfddc"
+    },
+    {
+      "path": "sig/v1.7.1/jq-windows-i386.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a87a63df279feb4143241b590c7dd02108c5f904",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/a87a63df279feb4143241b590c7dd02108c5f904"
+    },
+    {
+      "path": "sig/v1.7.1/sha256sum.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "33fdc3656041d55b9bbc914011e86185e6d5d21e",
+      "size": 2129,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/33fdc3656041d55b9bbc914011e86185e6d5d21e"
+    },
+    {
+      "path": "sig/v1.7/jq-1.7.tar.gz.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b281e981e579b2767601580d6dacaa197ed7df8f",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/b281e981e579b2767601580d6dacaa197ed7df8f"
+    },
+    {
+      "path": "sig/v1.7/jq-1.7.zip.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "318b20d115e64b454175b231d953432cb15f6873",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/318b20d115e64b454175b231d953432cb15f6873"
+    },
+    {
+      "path": "sig/v1.7/jq-linux-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d63a44402c4153e1b05a67772d5f7e6ff9b533a4",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/d63a44402c4153e1b05a67772d5f7e6ff9b533a4"
+    },
+    {
+      "path": "sig/v1.7/jq-linux-arm64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aad19bd9051d3d07251b338dd47081e3045bbc13",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/aad19bd9051d3d07251b338dd47081e3045bbc13"
+    },
+    {
+      "path": "sig/v1.7/jq-linux-armel.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c8982d5d87bdcf93ea1f65b1c6feb61411d8faab",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c8982d5d87bdcf93ea1f65b1c6feb61411d8faab"
+    },
+    {
+      "path": "sig/v1.7/jq-linux-armhf.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "062766313a52af007feab66bdce5204e7b4dbd5d",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/062766313a52af007feab66bdce5204e7b4dbd5d"
+    },
+    {
+      "path": "sig/v1.7/jq-linux-i386.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1d03e734a49257edc296b723562718862a2a37b0",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1d03e734a49257edc296b723562718862a2a37b0"
+    },
+    {
+      "path": "sig/v1.7/jq-linux-mips.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "820d5e6bdf27d45b4c9f18f0c6e91439a81f579e",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/820d5e6bdf27d45b4c9f18f0c6e91439a81f579e"
+    },
+    {
+      "path": "sig/v1.7/jq-linux-mips64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6e80b99c298746d33c479ef9bba968922ee6d9ce",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/6e80b99c298746d33c479ef9bba968922ee6d9ce"
+    },
+    {
+      "path": "sig/v1.7/jq-linux-mips64el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "950f5f851ddb2351653999c631e1430a0dacdba3",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/950f5f851ddb2351653999c631e1430a0dacdba3"
+    },
+    {
+      "path": "sig/v1.7/jq-linux-mips64r6.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "550b564898d72c8cb7f3e52a93c0ff46816d102c",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/550b564898d72c8cb7f3e52a93c0ff46816d102c"
+    },
+    {
+      "path": "sig/v1.7/jq-linux-mips64r6el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "45e2a4cf68489bb84d21b78c9597aeb0c2a5902a",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/45e2a4cf68489bb84d21b78c9597aeb0c2a5902a"
+    },
+    {
+      "path": "sig/v1.7/jq-linux-mipsel.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4ff19ba5efeaee6cc6d135b8b793f8a1adb9b091",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/4ff19ba5efeaee6cc6d135b8b793f8a1adb9b091"
+    },
+    {
+      "path": "sig/v1.7/jq-linux-mipsr6.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d013ae176ffd7b049d6393ebcdf8d3e8d9d0a4d",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3d013ae176ffd7b049d6393ebcdf8d3e8d9d0a4d"
+    },
+    {
+      "path": "sig/v1.7/jq-linux-mipsr6el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "420061da88e9fca6ea232399771c1cb5005d636e",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/420061da88e9fca6ea232399771c1cb5005d636e"
+    },
+    {
+      "path": "sig/v1.7/jq-linux-powerpc.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "86aef2493a10ca4c78000744115826b59f2a0973",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/86aef2493a10ca4c78000744115826b59f2a0973"
+    },
+    {
+      "path": "sig/v1.7/jq-linux-ppc64el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "af8398f7833e00a545fd58c3e7cccb4c736b2a38",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/af8398f7833e00a545fd58c3e7cccb4c736b2a38"
+    },
+    {
+      "path": "sig/v1.7/jq-linux-riscv64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a82cb1e7ac0dfced6b72be4771eb41141951867d",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/a82cb1e7ac0dfced6b72be4771eb41141951867d"
+    },
+    {
+      "path": "sig/v1.7/jq-linux-s390x.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e5b53f3ceb634cf73259cec8efa3be78948d5d2c",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/e5b53f3ceb634cf73259cec8efa3be78948d5d2c"
+    },
+    {
+      "path": "sig/v1.7/jq-linux32.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "382a8817b2f3116c5787c90389b6ff6f405139bd",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/382a8817b2f3116c5787c90389b6ff6f405139bd"
+    },
+    {
+      "path": "sig/v1.7/jq-linux64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fdb92360002a50fbde26a3fccc7707751f1c3ebe",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/fdb92360002a50fbde26a3fccc7707751f1c3ebe"
+    },
+    {
+      "path": "sig/v1.7/jq-macos-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c8a88f73f5a1982eb006ba0462df42b8b39831a6",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c8a88f73f5a1982eb006ba0462df42b8b39831a6"
+    },
+    {
+      "path": "sig/v1.7/jq-macos-arm64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96b9b6c9237ff5123c6544f6810fb26be8285118",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/96b9b6c9237ff5123c6544f6810fb26be8285118"
+    },
+    {
+      "path": "sig/v1.7/jq-osx-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c8a88f73f5a1982eb006ba0462df42b8b39831a6",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c8a88f73f5a1982eb006ba0462df42b8b39831a6"
+    },
+    {
+      "path": "sig/v1.7/jq-win32.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ca3aea21404de3a1d9fa68890a77669048005b38",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/ca3aea21404de3a1d9fa68890a77669048005b38"
+    },
+    {
+      "path": "sig/v1.7/jq-win64.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e6921fc26a41d610c9c903b2bf677246cb3e0c1",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/5e6921fc26a41d610c9c903b2bf677246cb3e0c1"
+    },
+    {
+      "path": "sig/v1.7/jq-windows-amd64.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e6921fc26a41d610c9c903b2bf677246cb3e0c1",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/5e6921fc26a41d610c9c903b2bf677246cb3e0c1"
+    },
+    {
+      "path": "sig/v1.7/jq-windows-i386.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ca3aea21404de3a1d9fa68890a77669048005b38",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/ca3aea21404de3a1d9fa68890a77669048005b38"
+    },
+    {
+      "path": "sig/v1.7/sha256sum.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fa1487f98e69f576c503c978909edcfd71b46f54",
+      "size": 1890,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/fa1487f98e69f576c503c978909edcfd71b46f54"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-1.7rc1.tar.gz.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a030fa0c70f4a99c1bf15632508723a2e9e0505",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1a030fa0c70f4a99c1bf15632508723a2e9e0505"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-1.7rc1.zip.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6127171f16f07bfdcf18084c964084d17e63bf34",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/6127171f16f07bfdcf18084c964084d17e63bf34"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-linux-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f278e6cb1e18670590c7887206e3f03773065077",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/f278e6cb1e18670590c7887206e3f03773065077"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-linux-arm64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ad4cece8190087d672e5e0f52561e6bf0917b9e",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1ad4cece8190087d672e5e0f52561e6bf0917b9e"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-linux-armel.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a4617122bb46a9ceda7323dc015793413a788c48",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/a4617122bb46a9ceda7323dc015793413a788c48"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-linux-armhf.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0631f7506a30f3114912f9bcac1b07d4a78638be",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/0631f7506a30f3114912f9bcac1b07d4a78638be"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-linux-i386.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a666fde3bb27d36332141036e7d1c1c61ed5ff0",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/9a666fde3bb27d36332141036e7d1c1c61ed5ff0"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-linux-mips.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c301c99c060e2c72f36fe86323c18ab253213abd",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c301c99c060e2c72f36fe86323c18ab253213abd"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-linux-mips64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d0c1552e92882e3fe935a91d7daaafbfc76bf00",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/9d0c1552e92882e3fe935a91d7daaafbfc76bf00"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-linux-mips64el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3bbc2d503d16ba61b2de83e52fa3dd8123c46846",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3bbc2d503d16ba61b2de83e52fa3dd8123c46846"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-linux-mips64r6.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2fcb8722106393b9b36d9f1cd359dddb1de16ff6",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2fcb8722106393b9b36d9f1cd359dddb1de16ff6"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-linux-mips64r6el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aea932ebf7b9f72479ede5708b774198e28a665e",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/aea932ebf7b9f72479ede5708b774198e28a665e"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-linux-mipsel.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c87e66c41bb98e9e27e9f9ba1dd522622151539",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2c87e66c41bb98e9e27e9f9ba1dd522622151539"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-linux-mipsr6.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6dd011aba600bb004f13f9e102b7bc9820fba28c",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/6dd011aba600bb004f13f9e102b7bc9820fba28c"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-linux-mipsr6el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6e28b0d7eaa326d589dc4ca080d2999f8a71ba6c",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/6e28b0d7eaa326d589dc4ca080d2999f8a71ba6c"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-linux-powerpc.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "93cfb41776d57b3e389f5e44d5d1fbaed635093c",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/93cfb41776d57b3e389f5e44d5d1fbaed635093c"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-linux-ppc64el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f7483f65246a5c65df27a569f5be7a9e3868ca91",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/f7483f65246a5c65df27a569f5be7a9e3868ca91"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-linux-riscv64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "228a0f52286d67f0cc289355003589c895796e75",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/228a0f52286d67f0cc289355003589c895796e75"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-linux-s390x.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b314d605068ce4cf740470c58821d4619a769af",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2b314d605068ce4cf740470c58821d4619a769af"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-macos-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b4c71517db51d4f6039eb25affa535962b2ef8e1",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/b4c71517db51d4f6039eb25affa535962b2ef8e1"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-macos-arm64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "394e7613542c525cd1cbfa8b1870051f235b161f",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/394e7613542c525cd1cbfa8b1870051f235b161f"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-windows-amd64.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ca3279e31b33fee252baf5b33bff5ec7639fe8e3",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/ca3279e31b33fee252baf5b33bff5ec7639fe8e3"
+    },
+    {
+      "path": "sig/v1.7rc1/jq-windows-i386.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d0a1760d8667656c4a6aee5c8847174ffcf1ace7",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/d0a1760d8667656c4a6aee5c8847174ffcf1ace7"
+    },
+    {
+      "path": "sig/v1.7rc1/sha256sum.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c8e5e187bfc969b13dc3fe9a5466ef0df41e286e",
+      "size": 1873,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c8e5e187bfc969b13dc3fe9a5466ef0df41e286e"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-1.7rc2.tar.gz.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "974ec8654fc572a6f3d36486005cc008b7e33dc7",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/974ec8654fc572a6f3d36486005cc008b7e33dc7"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-1.7rc2.zip.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "076824984f8616823e73c830257dbf26fc61c9cb",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/076824984f8616823e73c830257dbf26fc61c9cb"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-linux-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "89ded4368ddb82c2206b9ae0f669f78117da8fcc",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/89ded4368ddb82c2206b9ae0f669f78117da8fcc"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-linux-arm64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "af9c2abbde6f818f11bfd03180c6802687038f70",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/af9c2abbde6f818f11bfd03180c6802687038f70"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-linux-armel.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1bcbe35f1eb92e3b632c577948e62ecc0b65b886",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1bcbe35f1eb92e3b632c577948e62ecc0b65b886"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-linux-armhf.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "99bc019ffd7f82d6933a8dcba25b200743fea7f3",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/99bc019ffd7f82d6933a8dcba25b200743fea7f3"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-linux-i386.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c18b2e878343c56cdadef01bbcaef41287b1af5d",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c18b2e878343c56cdadef01bbcaef41287b1af5d"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-linux-mips.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "672405f8d214306d77f2a84204012d7dc57918e5",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/672405f8d214306d77f2a84204012d7dc57918e5"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-linux-mips64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c5eeee135776bb599924ee23e1a3857de943da55",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c5eeee135776bb599924ee23e1a3857de943da55"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-linux-mips64el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c06df15095f72d4c0face92a35804ded6d3d5cee",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c06df15095f72d4c0face92a35804ded6d3d5cee"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-linux-mips64r6.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "97109a63bdb64241c001a54a5b8a9ad27be58527",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/97109a63bdb64241c001a54a5b8a9ad27be58527"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-linux-mips64r6el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0153575775482452a2aed3c05332b792d4365e15",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/0153575775482452a2aed3c05332b792d4365e15"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-linux-mipsel.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "227e53b8d43c7a82a184442b672efe89a5372a95",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/227e53b8d43c7a82a184442b672efe89a5372a95"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-linux-mipsr6.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cae0a66649913c33fd5556171a3d7f2bcca2aef4",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/cae0a66649913c33fd5556171a3d7f2bcca2aef4"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-linux-mipsr6el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2948968d6f0c540ede51745263ff60221888fb16",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2948968d6f0c540ede51745263ff60221888fb16"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-linux-powerpc.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ee799c2fb4f193d3fea254a8dc9fee79af49f01",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1ee799c2fb4f193d3fea254a8dc9fee79af49f01"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-linux-ppc64el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "afebe5e8167ae3dbed574f1fe5f4b4288cbba756",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/afebe5e8167ae3dbed574f1fe5f4b4288cbba756"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-linux-riscv64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b0d3c68925aa26bff6064ff0eb77fa3a0d77c837",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/b0d3c68925aa26bff6064ff0eb77fa3a0d77c837"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-linux-s390x.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64f045445ba324c525bb7e4f3cc3ac7f57673f0a",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/64f045445ba324c525bb7e4f3cc3ac7f57673f0a"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-macos-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "215b3aa10ae32f3f39798d24dcaed1ba3d33de7f",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/215b3aa10ae32f3f39798d24dcaed1ba3d33de7f"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-macos-arm64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "69e535a7ffc51bff0d4e314eb0861f444cdcabae",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/69e535a7ffc51bff0d4e314eb0861f444cdcabae"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-windows-amd64.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8a25e33b70655f5619b1868d7c96cc6fedcf66af",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/8a25e33b70655f5619b1868d7c96cc6fedcf66af"
+    },
+    {
+      "path": "sig/v1.7rc2/jq-windows-i386.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d91d6325801040dcc0f3bf80eed383cf22192a1",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2d91d6325801040dcc0f3bf80eed383cf22192a1"
+    },
+    {
+      "path": "sig/v1.7rc2/sha256sum.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a1739c69721cde1e5340c4bab5f2e7683c253df6",
+      "size": 1873,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/a1739c69721cde1e5340c4bab5f2e7683c253df6"
+    },
+    {
+      "path": "sig/v1.8.0/jq-1.8.0.tar.gz.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d0d1a831d13fdb1501cfd0d2000963b30705ace",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3d0d1a831d13fdb1501cfd0d2000963b30705ace"
+    },
+    {
+      "path": "sig/v1.8.0/jq-1.8.0.zip.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6036551f650d8f3bae6d977d34f38a41ec0df33a",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/6036551f650d8f3bae6d977d34f38a41ec0df33a"
+    },
+    {
+      "path": "sig/v1.8.0/jq-linux-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "69e0793d7d543d81e310daddcab5ebb7f3cb9f70",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/69e0793d7d543d81e310daddcab5ebb7f3cb9f70"
+    },
+    {
+      "path": "sig/v1.8.0/jq-linux-arm64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c02be92078d5d5ae38cbfeda317ff6e7e226610d",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c02be92078d5d5ae38cbfeda317ff6e7e226610d"
+    },
+    {
+      "path": "sig/v1.8.0/jq-linux-armel.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "134a29f4b9ec8794a6ae14a6f532119152efebc0",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/134a29f4b9ec8794a6ae14a6f532119152efebc0"
+    },
+    {
+      "path": "sig/v1.8.0/jq-linux-armhf.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3ef5da30b2d9d27200e15af2d738f55c614082f3",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3ef5da30b2d9d27200e15af2d738f55c614082f3"
+    },
+    {
+      "path": "sig/v1.8.0/jq-linux-i386.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d336532900e530b39d6a614a2da116b9a3b9576",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/4d336532900e530b39d6a614a2da116b9a3b9576"
+    },
+    {
+      "path": "sig/v1.8.0/jq-linux-mips.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "79430df9978734f604fd6b2f46761f876e5f198b",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/79430df9978734f604fd6b2f46761f876e5f198b"
+    },
+    {
+      "path": "sig/v1.8.0/jq-linux-mips64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a088d83c53732815c359a1a1b2d9e2d1cf52bd45",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/a088d83c53732815c359a1a1b2d9e2d1cf52bd45"
+    },
+    {
+      "path": "sig/v1.8.0/jq-linux-mips64el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a41c5b06e6e4dd9a8d976668be7abc69b37d9d2",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/7a41c5b06e6e4dd9a8d976668be7abc69b37d9d2"
+    },
+    {
+      "path": "sig/v1.8.0/jq-linux-mips64r6.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "71999318083a6d2d806c120ab16cccffe8b0addd",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/71999318083a6d2d806c120ab16cccffe8b0addd"
+    },
+    {
+      "path": "sig/v1.8.0/jq-linux-mips64r6el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3db1e25ad07442a48322a52708a85496a174d0d3",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3db1e25ad07442a48322a52708a85496a174d0d3"
+    },
+    {
+      "path": "sig/v1.8.0/jq-linux-mipsel.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "93ae5e0cba094e1938935c8b23690c3dff6e32a5",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/93ae5e0cba094e1938935c8b23690c3dff6e32a5"
+    },
+    {
+      "path": "sig/v1.8.0/jq-linux-mipsr6.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "28ef953341fbfd4c95d15f51d0aa272f96a38e22",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/28ef953341fbfd4c95d15f51d0aa272f96a38e22"
+    },
+    {
+      "path": "sig/v1.8.0/jq-linux-mipsr6el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d5513f0eb57c8ebbc963ba41c2956df9c7bf03c",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/8d5513f0eb57c8ebbc963ba41c2956df9c7bf03c"
+    },
+    {
+      "path": "sig/v1.8.0/jq-linux-powerpc.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "06bc7432647e06ad058433cf512667517ca2f3d3",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/06bc7432647e06ad058433cf512667517ca2f3d3"
+    },
+    {
+      "path": "sig/v1.8.0/jq-linux-ppc64el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c6e53440afeba091801cbbc9536d8d67d37cf56f",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c6e53440afeba091801cbbc9536d8d67d37cf56f"
+    },
+    {
+      "path": "sig/v1.8.0/jq-linux-riscv64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f17e71ec8fb91840d0e83bc6f54a5009a41d7faa",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/f17e71ec8fb91840d0e83bc6f54a5009a41d7faa"
+    },
+    {
+      "path": "sig/v1.8.0/jq-linux-s390x.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e9d050093aa28516b2c42da23b7e991cbf3123f4",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/e9d050093aa28516b2c42da23b7e991cbf3123f4"
+    },
+    {
+      "path": "sig/v1.8.0/jq-linux64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3bfb91b37bbaa9f44310ea898941c7c4b18003d9",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3bfb91b37bbaa9f44310ea898941c7c4b18003d9"
+    },
+    {
+      "path": "sig/v1.8.0/jq-macos-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "85b3b11699de929ccdb6810c7df1f8f584faf16c",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/85b3b11699de929ccdb6810c7df1f8f584faf16c"
+    },
+    {
+      "path": "sig/v1.8.0/jq-macos-arm64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e784b2b15f075c603f6792e1ed502a7b92918c9d",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/e784b2b15f075c603f6792e1ed502a7b92918c9d"
+    },
+    {
+      "path": "sig/v1.8.0/jq-osx-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0cfc0672adba1783ba4ce7969cb4d185ebd51681",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/0cfc0672adba1783ba4ce7969cb4d185ebd51681"
+    },
+    {
+      "path": "sig/v1.8.0/jq-win64.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "be792db3751f90258e06be14d98e0ea8ddf47df0",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/be792db3751f90258e06be14d98e0ea8ddf47df0"
+    },
+    {
+      "path": "sig/v1.8.0/jq-windows-amd64.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "be792db3751f90258e06be14d98e0ea8ddf47df0",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/be792db3751f90258e06be14d98e0ea8ddf47df0"
+    },
+    {
+      "path": "sig/v1.8.0/jq-windows-i386.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e5f0f989409a2b26d5739a672ccaf7e8223a1ed",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2e5f0f989409a2b26d5739a672ccaf7e8223a1ed"
+    },
+    {
+      "path": "sig/v1.8.0/sha256sum.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2a3fe2457ff312ce96d436d8ff80800b6ef2d0f4",
+      "size": 2129,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2a3fe2457ff312ce96d436d8ff80800b6ef2d0f4"
+    },
+    {
+      "path": "sig/v1.8.1/jq-1.8.1.tar.gz.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fdb20661f467a4d7e3dce38fa4a23c556e9a42f8",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/fdb20661f467a4d7e3dce38fa4a23c556e9a42f8"
+    },
+    {
+      "path": "sig/v1.8.1/jq-1.8.1.zip.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3237dabab7ea9e1877dc70ce8a0f64051c8eb777",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3237dabab7ea9e1877dc70ce8a0f64051c8eb777"
+    },
+    {
+      "path": "sig/v1.8.1/jq-linux-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "69a03c8153e86df30914c9ad69e69974cdefd324",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/69a03c8153e86df30914c9ad69e69974cdefd324"
+    },
+    {
+      "path": "sig/v1.8.1/jq-linux-arm64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "39f39300b5720f7eda4d60e2d7a5a595da33c69e",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/39f39300b5720f7eda4d60e2d7a5a595da33c69e"
+    },
+    {
+      "path": "sig/v1.8.1/jq-linux-armel.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3cc5aeb4d72408e13ed98ab6173effe5464b4c9a",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3cc5aeb4d72408e13ed98ab6173effe5464b4c9a"
+    },
+    {
+      "path": "sig/v1.8.1/jq-linux-armhf.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f0196d7561e5275fefbdba2c63676cda57d7fc9",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/9f0196d7561e5275fefbdba2c63676cda57d7fc9"
+    },
+    {
+      "path": "sig/v1.8.1/jq-linux-i386.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "17bdbff823e27eb9441449e49e2bc2c9604f8fc4",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/17bdbff823e27eb9441449e49e2bc2c9604f8fc4"
+    },
+    {
+      "path": "sig/v1.8.1/jq-linux-mips.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "65b030873fd94ea10cbb6318b73f432c7384c7b5",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/65b030873fd94ea10cbb6318b73f432c7384c7b5"
+    },
+    {
+      "path": "sig/v1.8.1/jq-linux-mips64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2a0cd7c43261e20e21d34b41f41f597ef25511e3",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2a0cd7c43261e20e21d34b41f41f597ef25511e3"
+    },
+    {
+      "path": "sig/v1.8.1/jq-linux-mips64el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "812c970e17179234537d2b9a11e3d60b41fbd945",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/812c970e17179234537d2b9a11e3d60b41fbd945"
+    },
+    {
+      "path": "sig/v1.8.1/jq-linux-mips64r6.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "031462deb3358622c32f610cfb77ca7103d6ef5a",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/031462deb3358622c32f610cfb77ca7103d6ef5a"
+    },
+    {
+      "path": "sig/v1.8.1/jq-linux-mips64r6el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5b6949e555a8df7d697777715e2415420b17f3c6",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/5b6949e555a8df7d697777715e2415420b17f3c6"
+    },
+    {
+      "path": "sig/v1.8.1/jq-linux-mipsel.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "05108709aaaf2f93b38a05cd8c5ba399f6f447e7",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/05108709aaaf2f93b38a05cd8c5ba399f6f447e7"
+    },
+    {
+      "path": "sig/v1.8.1/jq-linux-mipsr6.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "acf37331ad270d1fa37638127e5dd83687ca7ea0",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/acf37331ad270d1fa37638127e5dd83687ca7ea0"
+    },
+    {
+      "path": "sig/v1.8.1/jq-linux-mipsr6el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4199da1c037cf4321e41fb961da59e2b3d235b29",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/4199da1c037cf4321e41fb961da59e2b3d235b29"
+    },
+    {
+      "path": "sig/v1.8.1/jq-linux-powerpc.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "60f310dc526a774c56516b5f8d37cf47937ecf35",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/60f310dc526a774c56516b5f8d37cf47937ecf35"
+    },
+    {
+      "path": "sig/v1.8.1/jq-linux-ppc64el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f1e1b2f1837ccd4bbe3116d77ce8053ec699149",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3f1e1b2f1837ccd4bbe3116d77ce8053ec699149"
+    },
+    {
+      "path": "sig/v1.8.1/jq-linux-riscv64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1008c86b43310d30c1c3840b1ec5094d3ebaa618",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1008c86b43310d30c1c3840b1ec5094d3ebaa618"
+    },
+    {
+      "path": "sig/v1.8.1/jq-linux-s390x.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b40e09c1615e098570f88380ed2c78a7474940dd",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/b40e09c1615e098570f88380ed2c78a7474940dd"
+    },
+    {
+      "path": "sig/v1.8.1/jq-linux64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c1c8be71baaf52c6167992f17e7a68ecb2b27781",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c1c8be71baaf52c6167992f17e7a68ecb2b27781"
+    },
+    {
+      "path": "sig/v1.8.1/jq-macos-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d5dce638303d362f43ea5087d78c6c707d83476",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/8d5dce638303d362f43ea5087d78c6c707d83476"
+    },
+    {
+      "path": "sig/v1.8.1/jq-macos-arm64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44a088c13cdc3dd551769d139f3e58ce59cd7e95",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/44a088c13cdc3dd551769d139f3e58ce59cd7e95"
+    },
+    {
+      "path": "sig/v1.8.1/jq-osx-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ece772160daacf92ab04ec37baea7c33eb1d5fa",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1ece772160daacf92ab04ec37baea7c33eb1d5fa"
+    },
+    {
+      "path": "sig/v1.8.1/jq-win64.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a856480c37e9e54a9f8ca18edbc518f3556381b",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1a856480c37e9e54a9f8ca18edbc518f3556381b"
+    },
+    {
+      "path": "sig/v1.8.1/jq-windows-amd64.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a856480c37e9e54a9f8ca18edbc518f3556381b",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1a856480c37e9e54a9f8ca18edbc518f3556381b"
+    },
+    {
+      "path": "sig/v1.8.1/jq-windows-i386.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e6561021e32d7fe362b572225babaa8b76221ef",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2e6561021e32d7fe362b572225babaa8b76221ef"
+    },
+    {
+      "path": "sig/v1.8.1/sha256sum.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ca0caa462c86aa06ebfbe5139627d52c2bd9b24",
+      "size": 2129,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2ca0caa462c86aa06ebfbe5139627d52c2bd9b24"
+    },
+    {
+      "path": "sig/v1.8.2/jq-1.8.2.tar.gz.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "15934b14e10adbac60594c2501fa3dd00b8f3f52",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/15934b14e10adbac60594c2501fa3dd00b8f3f52"
+    },
+    {
+      "path": "sig/v1.8.2/jq-1.8.2.zip.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c94c7fb4457c96f687cf144744627a5d76289e5",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/0c94c7fb4457c96f687cf144744627a5d76289e5"
+    },
+    {
+      "path": "sig/v1.8.2/jq-attestation.json.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6ff7d81ce1c074122aa71f03007fc0504796f427",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/6ff7d81ce1c074122aa71f03007fc0504796f427"
+    },
+    {
+      "path": "sig/v1.8.2/jq-linux-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5cca316172d577594c0ec1bd4a3465f45a18581a",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/5cca316172d577594c0ec1bd4a3465f45a18581a"
+    },
+    {
+      "path": "sig/v1.8.2/jq-linux-arm64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d84f1992b736da91e7db52dde0f2424b480cbc4a",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/d84f1992b736da91e7db52dde0f2424b480cbc4a"
+    },
+    {
+      "path": "sig/v1.8.2/jq-linux-armel.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "08905752793a1a7834cbe4848ef68b7b2bfe9e10",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/08905752793a1a7834cbe4848ef68b7b2bfe9e10"
+    },
+    {
+      "path": "sig/v1.8.2/jq-linux-armhf.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f9c81d2cc76fa8f7b22845ff346b38149a60a702",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/f9c81d2cc76fa8f7b22845ff346b38149a60a702"
+    },
+    {
+      "path": "sig/v1.8.2/jq-linux-i386.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d8b453a3ae78ff426f99ad7ae1d2ae7d2094f46",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/7d8b453a3ae78ff426f99ad7ae1d2ae7d2094f46"
+    },
+    {
+      "path": "sig/v1.8.2/jq-linux-mips.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d8e6e332a39d443935be84c170d7c45fe2b3e8e5",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/d8e6e332a39d443935be84c170d7c45fe2b3e8e5"
+    },
+    {
+      "path": "sig/v1.8.2/jq-linux-mips64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f5102364aa52124ebbcaa409b3c50f04c702263e",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/f5102364aa52124ebbcaa409b3c50f04c702263e"
+    },
+    {
+      "path": "sig/v1.8.2/jq-linux-mips64el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e18962c93e8be86a55b58c06d6821ffa8c793dc5",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/e18962c93e8be86a55b58c06d6821ffa8c793dc5"
+    },
+    {
+      "path": "sig/v1.8.2/jq-linux-mips64r6.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c021f5493def8ee1cd0e14fa50c1cc7fe0336d6a",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c021f5493def8ee1cd0e14fa50c1cc7fe0336d6a"
+    },
+    {
+      "path": "sig/v1.8.2/jq-linux-mips64r6el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fc34b60e031b8ca908452fc1932c7fd71658b2db",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/fc34b60e031b8ca908452fc1932c7fd71658b2db"
+    },
+    {
+      "path": "sig/v1.8.2/jq-linux-mipsel.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6bfddad8e3d3bab6885adfa558da1a2ea92a283",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/a6bfddad8e3d3bab6885adfa558da1a2ea92a283"
+    },
+    {
+      "path": "sig/v1.8.2/jq-linux-mipsr6.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9672b6723701679714d5847f035eb88968fe23d5",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/9672b6723701679714d5847f035eb88968fe23d5"
+    },
+    {
+      "path": "sig/v1.8.2/jq-linux-mipsr6el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6809402ad9f283c40b7daa6c6ec0dd50420bbe71",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/6809402ad9f283c40b7daa6c6ec0dd50420bbe71"
+    },
+    {
+      "path": "sig/v1.8.2/jq-linux-powerpc.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "97d41e660db74cb96d9db728fe5c341c972e7f97",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/97d41e660db74cb96d9db728fe5c341c972e7f97"
+    },
+    {
+      "path": "sig/v1.8.2/jq-linux-ppc64el.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1bbab8ed2959590ff9919351c23c9e46b6d29ede",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1bbab8ed2959590ff9919351c23c9e46b6d29ede"
+    },
+    {
+      "path": "sig/v1.8.2/jq-linux-riscv64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "039ed80128f6f6a12ba1783d133ce6ac8915e923",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/039ed80128f6f6a12ba1783d133ce6ac8915e923"
+    },
+    {
+      "path": "sig/v1.8.2/jq-linux-s390x.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dafeed90de47781307bf0e0d0f1378f9b628e4b8",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/dafeed90de47781307bf0e0d0f1378f9b628e4b8"
+    },
+    {
+      "path": "sig/v1.8.2/jq-linux64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "424245c3bb1f7e49f652b9305febab1a791a45f7",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/424245c3bb1f7e49f652b9305febab1a791a45f7"
+    },
+    {
+      "path": "sig/v1.8.2/jq-macos-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6b568fdea596d108eae1d69b110db8441ac3e664",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/6b568fdea596d108eae1d69b110db8441ac3e664"
+    },
+    {
+      "path": "sig/v1.8.2/jq-macos-arm64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a62e320419372860261b459656d5584e671b472c",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/a62e320419372860261b459656d5584e671b472c"
+    },
+    {
+      "path": "sig/v1.8.2/jq-osx-amd64.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6b568fdea596d108eae1d69b110db8441ac3e664",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/6b568fdea596d108eae1d69b110db8441ac3e664"
+    },
+    {
+      "path": "sig/v1.8.2/jq-win64.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "75165071fc832a0450a24086543ab7108ed96bf4",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/75165071fc832a0450a24086543ab7108ed96bf4"
+    },
+    {
+      "path": "sig/v1.8.2/jq-windows-amd64.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "75165071fc832a0450a24086543ab7108ed96bf4",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/75165071fc832a0450a24086543ab7108ed96bf4"
+    },
+    {
+      "path": "sig/v1.8.2/jq-windows-arm64.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1532b8b11ae4522334239a6f5e386dfc6b9de859",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1532b8b11ae4522334239a6f5e386dfc6b9de859"
+    },
+    {
+      "path": "sig/v1.8.2/jq-windows-i386.exe.asc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e7bf1610449b67b575ebecf65bcbc5d4728ee46",
+      "size": 833,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2e7bf1610449b67b575ebecf65bcbc5d4728ee46"
+    },
+    {
+      "path": "sig/v1.8.2/sha256sum.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b965766d166e29cc5fec603d07f2f8c6545181eb",
+      "size": 2302,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/b965766d166e29cc5fec603d07f2f8c6545181eb"
+    },
+    {
+      "path": "src/builtin.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4261c30aa96bdf210e6b84b14382a4edcc289c7b",
+      "size": 67147,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/4261c30aa96bdf210e6b84b14382a4edcc289c7b"
+    },
+    {
+      "path": "src/builtin.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "38f3e54c9cd6c421ebafdfac83405ed3d9166214",
+      "size": 428,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/38f3e54c9cd6c421ebafdfac83405ed3d9166214"
+    },
+    {
+      "path": "src/builtin.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "787831432bee03b3b5c5f7419ff5ae5d614eadf7",
+      "size": 9552,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/787831432bee03b3b5c5f7419ff5ae5d614eadf7"
+    },
+    {
+      "path": "src/bytecode.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ef154b8269a907915ff9be8a897f5813412f00a",
+      "size": 4740,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/0ef154b8269a907915ff9be8a897f5813412f00a"
+    },
+    {
+      "path": "src/bytecode.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a4055f594c1ead1d52966b618cae4f1e7bf8438b",
+      "size": 1755,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/a4055f594c1ead1d52966b618cae4f1e7bf8438b"
+    },
+    {
+      "path": "src/compile.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e1780b9a342eef612b88d6d7397dd892c0fd19e3",
+      "size": 44773,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/e1780b9a342eef612b88d6d7397dd892c0fd19e3"
+    },
+    {
+      "path": "src/compile.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d195e9e2e8a171ec948160fefc3b593cde305a99",
+      "size": 3711,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/d195e9e2e8a171ec948160fefc3b593cde305a99"
+    },
+    {
+      "path": "src/exec_stack.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "159c56e4fbaf79e822abb1f87ebb9e74bc189d2f",
+      "size": 3571,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/159c56e4fbaf79e822abb1f87ebb9e74bc189d2f"
+    },
+    {
+      "path": "src/execute.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "02d6ae1771b159f8db5c36348b085b250595c6e7",
+      "size": 36782,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/02d6ae1771b159f8db5c36348b085b250595c6e7"
+    },
+    {
+      "path": "src/inject_errors.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a9fe9a82d5db7c63d50e5e093c46d20929c76d49",
+      "size": 2858,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/a9fe9a82d5db7c63d50e5e093c46d20929c76d49"
+    },
+    {
+      "path": "src/iso8601.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2830daeb75928b2bb4ab7623157b124fa155125b",
+      "size": 10135,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2830daeb75928b2bb4ab7623157b124fa155125b"
+    },
+    {
+      "path": "src/iso8601.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "33f751879ef7dfbf197398c4ee355d60c20cc461",
+      "size": 365,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/33f751879ef7dfbf197398c4ee355d60c20cc461"
+    },
+    {
+      "path": "src/jq.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8e9a7b8cf8a0c03dbe327844e33772603a7abb65",
+      "size": 2550,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/8e9a7b8cf8a0c03dbe327844e33772603a7abb65"
+    },
+    {
+      "path": "src/jq_parser.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "809ace06ed4c8436ff74985e5a41774b106837a1",
+      "size": 208,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/809ace06ed4c8436ff74985e5a41774b106837a1"
+    },
+    {
+      "path": "src/jq_test.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9064fbf109f36d27d14ae1f1c1aa5a0e9f67538e",
+      "size": 22279,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/9064fbf109f36d27d14ae1f1c1aa5a0e9f67538e"
+    },
+    {
+      "path": "src/jv.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "76d2bf82fb62f9436dc134d86fae2ee26168ba58",
+      "size": 57927,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/76d2bf82fb62f9436dc134d86fae2ee26168ba58"
+    },
+    {
+      "path": "src/jv.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0eac43ea12b1779fee374f18ac96676079cc3e6d",
+      "size": 11497,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/0eac43ea12b1779fee374f18ac96676079cc3e6d"
+    },
+    {
+      "path": "src/jv_alloc.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a701d57bbb86cc51f4ad51189e24ef4dd6e5831",
+      "size": 4471,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/4a701d57bbb86cc51f4ad51189e24ef4dd6e5831"
+    },
+    {
+      "path": "src/jv_alloc.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ec391d2215dcfd62cca687c70a6187e40fffc90",
+      "size": 396,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/0ec391d2215dcfd62cca687c70a6187e40fffc90"
+    },
+    {
+      "path": "src/jv_aux.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "72a3816af4218ebdba2fd1dae8c0178fa2b934a0",
+      "size": 25493,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/72a3816af4218ebdba2fd1dae8c0178fa2b934a0"
+    },
+    {
+      "path": "src/jv_dtoa.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f8df4c6beea0caf4e37e9a2b2054612e3b4987d",
+      "size": 88819,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/9f8df4c6beea0caf4e37e9a2b2054612e3b4987d"
+    },
+    {
+      "path": "src/jv_dtoa.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7aa5f08a5707ae4de616d4169903712fc07022ae",
+      "size": 603,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/7aa5f08a5707ae4de616d4169903712fc07022ae"
+    },
+    {
+      "path": "src/jv_dtoa_tsd.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f45e974bba2512cc2c6169f7cfd6d6c64b34cb8",
+      "size": 1305,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3f45e974bba2512cc2c6169f7cfd6d6c64b34cb8"
+    },
+    {
+      "path": "src/jv_dtoa_tsd.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2af7c6deb05510b5dcf4870cd7a3a186bb5512dc",
+      "size": 100,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2af7c6deb05510b5dcf4870cd7a3a186bb5512dc"
+    },
+    {
+      "path": "src/jv_file.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b43d44a13c284c418cf5dfbb01f1d44ae73e698d",
+      "size": 2655,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/b43d44a13c284c418cf5dfbb01f1d44ae73e698d"
+    },
+    {
+      "path": "src/jv_parse.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "649cfae4dff2c7a5fad738aa8c36a90ab0c36402",
+      "size": 26985,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/649cfae4dff2c7a5fad738aa8c36a90ab0c36402"
+    },
+    {
+      "path": "src/jv_print.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "568656dc0a22d72ee2cc5d6945009b8e9da4d46c",
+      "size": 12992,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/568656dc0a22d72ee2cc5d6945009b8e9da4d46c"
+    },
+    {
+      "path": "src/jv_private.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "066520fd87031102af8bcb6d048c3079300a746c",
+      "size": 115,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/066520fd87031102af8bcb6d048c3079300a746c"
+    },
+    {
+      "path": "src/jv_thread.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c6718aba17fcfd58d18491538fab10ef4a81817a",
+      "size": 1782,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c6718aba17fcfd58d18491538fab10ef4a81817a"
+    },
+    {
+      "path": "src/jv_unicode.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "89d90eaa6687a34613a2939b4ee10eb7b5988c49",
+      "size": 4735,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/89d90eaa6687a34613a2939b4ee10eb7b5988c49"
+    },
+    {
+      "path": "src/jv_unicode.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0e5e9557f7fd0f86dc43018ff25ef96ceea07091",
+      "size": 447,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/0e5e9557f7fd0f86dc43018ff25ef96ceea07091"
+    },
+    {
+      "path": "src/jv_utf8_tables.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f1a4252fcebf2c76395dbf64ff0a9dc29c64f55f",
+      "size": 3367,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/f1a4252fcebf2c76395dbf64ff0a9dc29c64f55f"
+    },
+    {
+      "path": "src/lexer.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "60c11335b8962ad6b6911af4a2a53395a16ca58a",
+      "size": 73667,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/60c11335b8962ad6b6911af4a2a53395a16ca58a"
+    },
+    {
+      "path": "src/lexer.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "97866e7ca697f4e6d526585b5a6e6d9edb7c6b55",
+      "size": 16491,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/97866e7ca697f4e6d526585b5a6e6d9edb7c6b55"
+    },
+    {
+      "path": "src/lexer.l",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2990e791cade2b4d7e9a8d582127e20d45015ab2",
+      "size": 4518,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2990e791cade2b4d7e9a8d582127e20d45015ab2"
+    },
+    {
+      "path": "src/libm.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c351f99e0f60869a690d32ea65f9b43e5af91588",
+      "size": 3949,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c351f99e0f60869a690d32ea65f9b43e5af91588"
+    },
+    {
+      "path": "src/linker.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "25833362704752a455b07cd550a56d8e192b4b50",
+      "size": 17094,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/25833362704752a455b07cd550a56d8e192b4b50"
+    },
+    {
+      "path": "src/linker.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f682ca28bfc0704efea783ada2a996b7104d8eb",
+      "size": 161,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3f682ca28bfc0704efea783ada2a996b7104d8eb"
+    },
+    {
+      "path": "src/locfile.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3551b84d49b60e887506ed419c820d21ed68857",
+      "size": 2647,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c3551b84d49b60e887506ed419c820d21ed68857"
+    },
+    {
+      "path": "src/locfile.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9931b009ee20229096192c796296c4cff8a4971f",
+      "size": 578,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/9931b009ee20229096192c796296c4cff8a4971f"
+    },
+    {
+      "path": "src/main.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d786070182365aeb0fea5418be3a8b97216e658",
+      "size": 27222,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3d786070182365aeb0fea5418be3a8b97216e658"
+    },
+    {
+      "path": "src/opcode_list.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9a818958c406ed0f1856e59a7332e87abf8d86d",
+      "size": 1216,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c9a818958c406ed0f1856e59a7332e87abf8d86d"
+    },
+    {
+      "path": "src/parser.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9fd97d618b06771f4c85544792c60ba3e93326b3",
+      "size": 140636,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/9fd97d618b06771f4c85544792c60ba3e93326b3"
+    },
+    {
+      "path": "src/parser.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4fab32dbbcfa5df0bbf77575e38571bccff96764",
+      "size": 6774,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/4fab32dbbcfa5df0bbf77575e38571bccff96764"
+    },
+    {
+      "path": "src/parser.y",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3aef62ebbe3d70959adaf843fa6ecd5371f7f995",
+      "size": 22363,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3aef62ebbe3d70959adaf843fa6ecd5371f7f995"
+    },
+    {
+      "path": "src/util.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "25046c3d22693251753ca90ac06f5291c1a4f372",
+      "size": 37702,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/25046c3d22693251753ca90ac06f5291c1a4f372"
+    },
+    {
+      "path": "src/util.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2db598fb13a091715c06518924c281784cf4249",
+      "size": 2619,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/a2db598fb13a091715c06518924c281784cf4249"
+    },
+    {
+      "path": "tests/base64.test",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "991f1330e73685f995670f48c5b016fe0f5b2443",
+      "size": 764,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/991f1330e73685f995670f48c5b016fe0f5b2443"
+    },
+    {
+      "path": "tests/base64test",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "85fe64b71912150cba9c62b70d068a78e00c74ea",
+      "size": 98,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/85fe64b71912150cba9c62b70d068a78e00c74ea"
+    },
+    {
+      "path": "tests/jq-f-test.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "a9c2fcf36dc2a97ad26c28e13397026725a3d8ac",
+      "size": 118,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/a9c2fcf36dc2a97ad26c28e13397026725a3d8ac"
+    },
+    {
+      "path": "tests/jq.test",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb8dac2c511eec06e7ecfb1e43902aff4b582a83",
+      "size": 58533,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/bb8dac2c511eec06e7ecfb1e43902aff4b582a83"
+    },
+    {
+      "path": "tests/jq_fuzz_compile.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d10148f592555bdd42aeb19ec42174ca827af93",
+      "size": 570,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/9d10148f592555bdd42aeb19ec42174ca827af93"
+    },
+    {
+      "path": "tests/jq_fuzz_execute.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d12af9a66e87db8fe3ed2711d2cd8f1444b90e6",
+      "size": 1352,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/7d12af9a66e87db8fe3ed2711d2cd8f1444b90e6"
+    },
+    {
+      "path": "tests/jq_fuzz_fixed.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "163eef4eccecf8f12d82b4ea96d439d9c1e70f28",
+      "size": 8781,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/163eef4eccecf8f12d82b4ea96d439d9c1e70f28"
+    },
+    {
+      "path": "tests/jq_fuzz_load_file.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fb11277f60261abd00a9451ac04b9f7ced76f976",
+      "size": 572,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/fb11277f60261abd00a9451ac04b9f7ced76f976"
+    },
+    {
+      "path": "tests/jq_fuzz_parse.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e223c15ab4c1ba9bb568e782906d08f23d3e5645",
+      "size": 456,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/e223c15ab4c1ba9bb568e782906d08f23d3e5645"
+    },
+    {
+      "path": "tests/jq_fuzz_parse_extended.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa49544a2c07478ec939e322a29cd36cccd3c0b5",
+      "size": 708,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/aa49544a2c07478ec939e322a29cd36cccd3c0b5"
+    },
+    {
+      "path": "tests/jq_fuzz_parse_stream.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a89073fccb311f5ad982a355e9e3f09afd384da",
+      "size": 937,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1a89073fccb311f5ad982a355e9e3f09afd384da"
+    },
+    {
+      "path": "tests/jqtest",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "2420e0378ffe16734cc6c0ca82c603b128c8c4bb",
+      "size": 94,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2420e0378ffe16734cc6c0ca82c603b128c8c4bb"
+    },
+    {
+      "path": "tests/local.supp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8bb878b06c347e124c954c82f435fb628295b07a",
+      "size": 252,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/8bb878b06c347e124c954c82f435fb628295b07a"
+    },
+    {
+      "path": "tests/man.test",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2818c8228845cb55f9311a4818f1b659288fae04",
+      "size": 14073,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/2818c8228845cb55f9311a4818f1b659288fae04"
+    },
+    {
+      "path": "tests/manonig.test",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b71c59586a909e127e993357e6204a36ac3207f1",
+      "size": 1718,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/b71c59586a909e127e993357e6204a36ac3207f1"
+    },
+    {
+      "path": "tests/manonigtest",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "cc06f42e7b9bc99a54b91489f0b049af6a717fbe",
+      "size": 105,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/cc06f42e7b9bc99a54b91489f0b049af6a717fbe"
+    },
+    {
+      "path": "tests/mantest",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "e9b56e09737e01ee84e690d66e6b2509bb50335c",
+      "size": 181,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/e9b56e09737e01ee84e690d66e6b2509bb50335c"
+    },
+    {
+      "path": "tests/modules/a.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01e3c1bb602367ba5a0c854c1aad079429aa9e0d",
+      "size": 34,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/01e3c1bb602367ba5a0c854c1aad079429aa9e0d"
+    },
+    {
+      "path": "tests/modules/b/b.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3b69e966474471a672492a21851e5921ec601d80",
+      "size": 24,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3b69e966474471a672492a21851e5921ec601d80"
+    },
+    {
+      "path": "tests/modules/c/c.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a6a8ed35cb30bc3f3c7ed3f6e5517ad481304db",
+      "size": 689,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/4a6a8ed35cb30bc3f3c7ed3f6e5517ad481304db"
+    },
+    {
+      "path": "tests/modules/c/d.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d11a18b41014d947cb57d241395fa61d3febf5c",
+      "size": 16,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3d11a18b41014d947cb57d241395fa61d3febf5c"
+    },
+    {
+      "path": "tests/modules/cycle_a.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "30c1deaedf82c4b48a5c51141d27324e04517ded",
+      "size": 36,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/30c1deaedf82c4b48a5c51141d27324e04517ded"
+    },
+    {
+      "path": "tests/modules/cycle_b.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3fdc360fcd3991ab4a6d8ddf1f388ce377da693a",
+      "size": 36,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/3fdc360fcd3991ab4a6d8ddf1f388ce377da693a"
+    },
+    {
+      "path": "tests/modules/cycle_self.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8365eab1a4fe8c6cf0b823a989674f15a01b4f32",
+      "size": 39,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/8365eab1a4fe8c6cf0b823a989674f15a01b4f32"
+    },
+    {
+      "path": "tests/modules/data.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1c4361859febaa2ee6281320f3b1d88dce9b32af",
+      "size": 46,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1c4361859febaa2ee6281320f3b1d88dce9b32af"
+    },
+    {
+      "path": "tests/modules/deep1.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d10e313961ea9911d259d3a8ce362693eff4f0c4",
+      "size": 68,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/d10e313961ea9911d259d3a8ce362693eff4f0c4"
+    },
+    {
+      "path": "tests/modules/deep2a.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b9a2718cc5a47f7a5be3cec4a8c968f7b471e0a7",
+      "size": 40,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/b9a2718cc5a47f7a5be3cec4a8c968f7b471e0a7"
+    },
+    {
+      "path": "tests/modules/deep2b.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e289e41b0733191a774b12cf179683d95bd0be2d",
+      "size": 76,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/e289e41b0733191a774b12cf179683d95bd0be2d"
+    },
+    {
+      "path": "tests/modules/deep3.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bf9cd2548a930a76849b6367dc9243026d5a3811",
+      "size": 22,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/bf9cd2548a930a76849b6367dc9243026d5a3811"
+    },
+    {
+      "path": "tests/modules/home1/.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "69f3763673e04fbfc43b2fb9ac4095be48d152e8",
+      "size": 71,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/69f3763673e04fbfc43b2fb9ac4095be48d152e8"
+    },
+    {
+      "path": "tests/modules/home2/.jq/g.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "15f9e20e15c3cfd8c5d641f594ead8b0398e456a",
+      "size": 10,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/15f9e20e15c3cfd8c5d641f594ead8b0398e456a"
+    },
+    {
+      "path": "tests/modules/lib/jq/e/e.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "84b6a8ccda1fc261798ea4dc900f3d66d3380d6f",
+      "size": 16,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/84b6a8ccda1fc261798ea4dc900f3d66d3380d6f"
+    },
+    {
+      "path": "tests/modules/lib/jq/f.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1018b198927a744b394e53a5833ea23a8de82c85",
+      "size": 20,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1018b198927a744b394e53a5833ea23a8de82c85"
+    },
+    {
+      "path": "tests/modules/shadow1.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47c31eb0ac0036de8307434a9284c6eebcb416e1",
+      "size": 20,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/47c31eb0ac0036de8307434a9284c6eebcb416e1"
+    },
+    {
+      "path": "tests/modules/shadow2.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "61b7c0075b7e63288741ac2838c0fc532fdd6c3f",
+      "size": 10,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/61b7c0075b7e63288741ac2838c0fc532fdd6c3f"
+    },
+    {
+      "path": "tests/modules/syntaxerror/syntaxerror.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0acc54955c2a66777d470e53219b0afa29976a79",
+      "size": 5,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/0acc54955c2a66777d470e53219b0afa29976a79"
+    },
+    {
+      "path": "tests/modules/test_bind_order.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "30e1ee86f0fc840ec1164467021b2b329d31f976",
+      "size": 173,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/30e1ee86f0fc840ec1164467021b2b329d31f976"
+    },
+    {
+      "path": "tests/modules/test_bind_order0.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c2fc0f0002736c43b4e6981e70b534887c2d0708",
+      "size": 26,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c2fc0f0002736c43b4e6981e70b534887c2d0708"
+    },
+    {
+      "path": "tests/modules/test_bind_order1.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0d1034407bf927e6382d05886b82c02215c456ad",
+      "size": 26,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/0d1034407bf927e6382d05886b82c02215c456ad"
+    },
+    {
+      "path": "tests/modules/test_bind_order2.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8647c514857f9b9a3df4f6b17314f93bc0808eb6",
+      "size": 13,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/8647c514857f9b9a3df4f6b17314f93bc0808eb6"
+    },
+    {
+      "path": "tests/no-main-program.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9e90b611a588993a5440d781b8686c1ee607dd0b",
+      "size": 10,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/9e90b611a588993a5440d781b8686c1ee607dd0b"
+    },
+    {
+      "path": "tests/onig.supp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "37c847eebf57f9d2024e04e3c32639b725e6f0c5",
+      "size": 239,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/37c847eebf57f9d2024e04e3c32639b725e6f0c5"
+    },
+    {
+      "path": "tests/onig.test",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0aaeeca22b6a25ae51837da692e9230d87b0ccf4",
+      "size": 5125,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/0aaeeca22b6a25ae51837da692e9230d87b0ccf4"
+    },
+    {
+      "path": "tests/onigtest",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "f4521938059ec9ad3fea7037f863b322285f25bc",
+      "size": 96,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/f4521938059ec9ad3fea7037f863b322285f25bc"
+    },
+    {
+      "path": "tests/optional.test",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aef9b015822bda20f49397e5a1ba15ca1b157a4f",
+      "size": 332,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/aef9b015822bda20f49397e5a1ba15ca1b157a4f"
+    },
+    {
+      "path": "tests/optionaltest",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "1de0a495fe58648231aaf2f16d09dca2b9382272",
+      "size": 100,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1de0a495fe58648231aaf2f16d09dca2b9382272"
+    },
+    {
+      "path": "tests/setup",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "7e6dfe69345a5783e46af48ec85bce2196e344d6",
+      "size": 960,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/7e6dfe69345a5783e46af48ec85bce2196e344d6"
+    },
+    {
+      "path": "tests/shtest",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "17bfe70b3e596e639b90c0ba0186c24d0c33ca31",
+      "size": 33026,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/17bfe70b3e596e639b90c0ba0186c24d0c33ca31"
+    },
+    {
+      "path": "tests/torture/input0.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8dd046b9899961f54f6b2aa588160468e79fcb8b",
+      "size": 151,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/8dd046b9899961f54f6b2aa588160468e79fcb8b"
+    },
+    {
+      "path": "tests/uri.test",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "02acba6874d9b56dfc7c9a19172490c3a06d04cb",
+      "size": 1599,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/02acba6874d9b56dfc7c9a19172490c3a06d04cb"
+    },
+    {
+      "path": "tests/uritest",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "1d2642c51002445e38411fadabd6de0c6fa0a169",
+      "size": 95,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/1d2642c51002445e38411fadabd6de0c6fa0a169"
+    },
+    {
+      "path": "tests/utf8test",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "e9512210886737fc175f2fe89a9c295405e049d1",
+      "size": 1299,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/e9512210886737fc175f2fe89a9c295405e049d1"
+    },
+    {
+      "path": "tests/yes-main-program.jq",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fbbdc3644282b53590c714b88ebbfd72e62de950",
+      "size": 12,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/fbbdc3644282b53590c714b88ebbfd72e62de950"
+    },
+    {
+      "path": "vendor/decNumber/ICU-license.html",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bc99e8bfcce6c313342c35044036f7e6dea440d3",
+      "size": 2022,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/bc99e8bfcce6c313342c35044036f7e6dea440d3"
+    },
+    {
+      "path": "vendor/decNumber/decBasic.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a0ec45521b846a74b1af03de938c132076506207",
+      "size": 183775,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/a0ec45521b846a74b1af03de938c132076506207"
+    },
+    {
+      "path": "vendor/decNumber/decCommon.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6f187aca95316e4ae3a7969f64dfcf354f8127cc",
+      "size": 86898,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/6f187aca95316e4ae3a7969f64dfcf354f8127cc"
+    },
+    {
+      "path": "vendor/decNumber/decContext.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f99759336ee692bed2fc85aa4ac81e8771a84b6",
+      "size": 24547,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/9f99759336ee692bed2fc85aa4ac81e8771a84b6"
+    },
+    {
+      "path": "vendor/decNumber/decContext.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "82e4fcf2db3303919bc1c6bec273d0b505604e98",
+      "size": 12820,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/82e4fcf2db3303919bc1c6bec273d0b505604e98"
+    },
+    {
+      "path": "vendor/decNumber/decDPD.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e6a80c0e4c53e5a2fb4c4381ab76a106104a666e",
+      "size": 95798,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/e6a80c0e4c53e5a2fb4c4381ab76a106104a666e"
+    },
+    {
+      "path": "vendor/decNumber/decDouble.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f5df5323b33e070e05a88cf4002c74d1ddc9404",
+      "size": 7086,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/4f5df5323b33e070e05a88cf4002c74d1ddc9404"
+    },
+    {
+      "path": "vendor/decNumber/decDouble.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fe9c26dccef456d8c0f92e384abf3102badb0ce7",
+      "size": 10452,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/fe9c26dccef456d8c0f92e384abf3102badb0ce7"
+    },
+    {
+      "path": "vendor/decNumber/decNumber.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a10fd4110a8684fb5070fa4a76c8333c598a39e9",
+      "size": 397280,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/a10fd4110a8684fb5070fa4a76c8333c598a39e9"
+    },
+    {
+      "path": "vendor/decNumber/decNumber.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6f8a5a3ee46b2c0a293ca067e6b71e2b4f75dc91",
+      "size": 11603,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/6f8a5a3ee46b2c0a293ca067e6b71e2b4f75dc91"
+    },
+    {
+      "path": "vendor/decNumber/decNumberLocal.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c88a5eaaffd0a25deb29bc0764d5f23b945ff56",
+      "size": 39795,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/5c88a5eaaffd0a25deb29bc0764d5f23b945ff56"
+    },
+    {
+      "path": "vendor/decNumber/decPacked.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9881139de20f212ac42b3427bfe81442e2f11937",
+      "size": 10369,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/9881139de20f212ac42b3427bfe81442e2f11937"
+    },
+    {
+      "path": "vendor/decNumber/decPacked.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "320d53faca83f6cf7de32b7ff6f2eb4ea67a3ce2",
+      "size": 2970,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/320d53faca83f6cf7de32b7ff6f2eb4ea67a3ce2"
+    },
+    {
+      "path": "vendor/decNumber/decQuad.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ba0fd0aa5212c3a7c62310248dff5d3a0f978950",
+      "size": 6696,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/ba0fd0aa5212c3a7c62310248dff5d3a0f978950"
+    },
+    {
+      "path": "vendor/decNumber/decQuad.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4eb7017b897ce5dd0353fe4ece61a9a8b5e85f25",
+      "size": 11220,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/4eb7017b897ce5dd0353fe4ece61a9a8b5e85f25"
+    },
+    {
+      "path": "vendor/decNumber/decSingle.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb69970b42df0d33f72644a7d41c4eaa98a77a54",
+      "size": 3597,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/bb69970b42df0d33f72644a7d41c4eaa98a77a54"
+    },
+    {
+      "path": "vendor/decNumber/decSingle.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0691f7af008f8bd464a6ef041a7c19c26d5295d0",
+      "size": 4961,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/0691f7af008f8bd464a6ef041a7c19c26d5295d0"
+    },
+    {
+      "path": "vendor/decNumber/decimal128.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e5fa45b96088b1651477c64e76c2a4f8dfe03df8",
+      "size": 25853,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/e5fa45b96088b1651477c64e76c2a4f8dfe03df8"
+    },
+    {
+      "path": "vendor/decNumber/decimal128.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47d2f8e6a26ac27174a61f7a3c36b61efb789450",
+      "size": 4351,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/47d2f8e6a26ac27174a61f7a3c36b61efb789450"
+    },
+    {
+      "path": "vendor/decNumber/decimal32.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "775cffd2cc368f537791ca2511aad0e57a2596d9",
+      "size": 22555,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/775cffd2cc368f537791ca2511aad0e57a2596d9"
+    },
+    {
+      "path": "vendor/decNumber/decimal32.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "060640e66fd51a64772431dcbd7139d93cd44741",
+      "size": 4295,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/060640e66fd51a64772431dcbd7139d93cd44741"
+    },
+    {
+      "path": "vendor/decNumber/decimal64.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a21f42fbe3019b2c2bce3d43899b1c0b0fd171fa",
+      "size": 38520,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/a21f42fbe3019b2c2bce3d43899b1c0b0fd171fa"
+    },
+    {
+      "path": "vendor/decNumber/decimal64.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "19a1b5edef835b80dfbceeee02c970beb65ec980",
+      "size": 4363,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/19a1b5edef835b80dfbceeee02c970beb65ec980"
+    },
+    {
+      "path": "vendor/decNumber/decnumber.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f601105beb3031ec5681b5224775e18c371b43f3",
+      "size": 1416382,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/f601105beb3031ec5681b5224775e18c371b43f3"
+    },
+    {
+      "path": "vendor/decNumber/example1.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c204b7ec113b81649bc33ddd52b292a907b27e9f",
+      "size": 1574,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/c204b7ec113b81649bc33ddd52b292a907b27e9f"
+    },
+    {
+      "path": "vendor/decNumber/example2.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb1973041782c65c6be7896d461fb2280250a7dc",
+      "size": 2412,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/cb1973041782c65c6be7896d461fb2280250a7dc"
+    },
+    {
+      "path": "vendor/decNumber/example3.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b84085c01153e7aa12046d8415ebe041b80e9fe0",
+      "size": 2800,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/b84085c01153e7aa12046d8415ebe041b80e9fe0"
+    },
+    {
+      "path": "vendor/decNumber/example4.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce8028bd22132450a85bfe88786ccf688193933b",
+      "size": 2305,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/ce8028bd22132450a85bfe88786ccf688193933b"
+    },
+    {
+      "path": "vendor/decNumber/example5.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5f89d8c3ad749b0fe33fdcf41c2fb8e7f620e2d0",
+      "size": 1500,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/5f89d8c3ad749b0fe33fdcf41c2fb8e7f620e2d0"
+    },
+    {
+      "path": "vendor/decNumber/example6.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "486b97989177073995e69e095e4f688083432edd",
+      "size": 2949,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/486b97989177073995e69e095e4f688083432edd"
+    },
+    {
+      "path": "vendor/decNumber/example7.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cc933cada4c3fc3067a95fe439a8b031928b7a20",
+      "size": 1377,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/cc933cada4c3fc3067a95fe439a8b031928b7a20"
+    },
+    {
+      "path": "vendor/decNumber/example8.c",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7fe35b95fe3772ead8997c34b157d04d54a47f43",
+      "size": 1747,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/7fe35b95fe3772ead8997c34b157d04d54a47f43"
+    },
+    {
+      "path": "vendor/decNumber/readme.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "375623f343ca3326a981a1542dad685837c919ab",
+      "size": 2882,
+      "url": "https://api.github.com/repos/jqlang/jq/git/blobs/375623f343ca3326a981a1542dad685837c919ab"
+    }
+  ]
+}

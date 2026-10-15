@@ -1,0 +1,69 @@
+{
+  "repo": "AbsInt/CompCert",
+  "revision": "e276a3f881669252e2a5c4b5fec06f51f7143161",
+  "resolved_utc": "2026-10-15T14:58:51.419460+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:53.256164+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "07e9cd1b7f98ea78119bba4139b3495b51e42a1e3a04fc388c52cd993f27b8db",
+    "truncated": false,
+    "blob_count": 570
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 43807,
+      "sha256": "40e8151cb26269a4e051309a958714191a706b5dfc7aaec00a61137cb338a648",
+      "url": "https://github.com/AbsInt/CompCert/blob/e276a3f881669252e2a5c4b5fec06f51f7143161/LICENSE"
+    },
+    {
+      "path": "Makefile",
+      "bytes": 15584,
+      "sha256": "500bf963c8579c4541000661c91f038c21b2a0a739896df9979a1aab30dffd2a",
+      "url": "https://github.com/AbsInt/CompCert/blob/e276a3f881669252e2a5c4b5fec06f51f7143161/Makefile"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1449,
+      "sha256": "d4de43de3bbc7d304d73fc45b2cf76b40274626f8053f64f682d443141d045b1",
+      "url": "https://github.com/AbsInt/CompCert/blob/e276a3f881669252e2a5c4b5fec06f51f7143161/README.md"
+    },
+    {
+      "path": "VERSION",
+      "bytes": 35,
+      "sha256": "57a92d905a7ff1b7712a55fa61567c2662bad62c5023ea7a49d71b0a55b0dd6b",
+      "url": "https://github.com/AbsInt/CompCert/blob/e276a3f881669252e2a5c4b5fec06f51f7143161/VERSION"
+    },
+    {
+      "path": "backend/Constprop.v",
+      "bytes": 9332,
+      "sha256": "5bea921f480528d3430351962524ce6476e8d974cb5a523430eb2012e1fb21b4",
+      "url": "https://github.com/AbsInt/CompCert/blob/e276a3f881669252e2a5c4b5fec06f51f7143161/backend/Constprop.v"
+    },
+    {
+      "path": "backend/Constpropproof.v",
+      "bytes": 24655,
+      "sha256": "fe65e349e0b13c47f0ed4710072da2cce4aa97819aa5040d9bdab11373a6a3b7",
+      "url": "https://github.com/AbsInt/CompCert/blob/e276a3f881669252e2a5c4b5fec06f51f7143161/backend/Constpropproof.v"
+    },
+    {
+      "path": "common/Smallstep.v",
+      "bytes": 74444,
+      "sha256": "3279079eafb097a919f1e774a44200a59017a7f7edc665cc708b30c026c3e1b3",
+      "url": "https://github.com/AbsInt/CompCert/blob/e276a3f881669252e2a5c4b5fec06f51f7143161/common/Smallstep.v"
+    },
+    {
+      "path": "configure",
+      "bytes": 27438,
+      "sha256": "047657b483da5b0c783e2dbf765664244c83fb3b5c61f2749186bd2bb00fd980",
+      "url": "https://github.com/AbsInt/CompCert/blob/e276a3f881669252e2a5c4b5fec06f51f7143161/configure"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

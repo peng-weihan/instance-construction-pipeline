@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="3" time="0.042" timestamp="2026-09-26T16:33:21.305670+00:00" hostname="raymonedeMacBook-Air.local"><testcase classname="tests.test_specialized" name="test_one_layer" file="tests/test_specialized.py" line="1" time="0.001"><failure message="AssertionError: assert {} == {'a': 1}&#10;  &#10;  Right contains 1 more item:&#10;  {'a': 1}&#10;  Use -v to get more diff">def test_one_layer():
+&gt;       assert merge_many({"a": 1}) == {"a": 1}
+E       AssertionError: assert {} == {'a': 1}
+E         
+E         Right contains 1 more item:
+E         {'a': 1}
+E         Use -v to get more diff
+
+tests/test_specialized.py:3: AssertionError</failure></testcase><testcase classname="tests.test_specialized" name="test_three_layers" file="tests/test_specialized.py" line="3" time="0.000"><failure message="AssertionError: assert {} == {'a': 3, 'b': 2}&#10;  &#10;  Right contains 2 more items:&#10;  {'a': 3, 'b': 2}&#10;  Use -v to get more diff">def test_three_layers():
+&gt;       assert merge_many({"a": 1}, {"b": 2}, {"a": 3}) == {"a": 3, "b": 2}
+E       AssertionError: assert {} == {'a': 3, 'b': 2}
+E         
+E         Right contains 2 more items:
+E         {'a': 3, 'b': 2}
+E         Use -v to get more diff
+
+tests/test_specialized.py:5: AssertionError</failure></testcase><testcase classname="tests.test_specialized" name="test_empty_layer" file="tests/test_specialized.py" line="5" time="0.000"><failure message="AssertionError: assert {} == {'b': 2}&#10;  &#10;  Right contains 1 more item:&#10;  {'b': 2}&#10;  Use -v to get more diff">def test_empty_layer():
+&gt;       assert merge_many({}, {"b": 2}, {}) == {"b": 2}
+E       AssertionError: assert {} == {'b': 2}
+E         
+E         Right contains 1 more item:
+E         {'b': 2}
+E         Use -v to get more diff
+
+tests/test_specialized.py:7: AssertionError</failure></testcase></testsuite></testsuites>

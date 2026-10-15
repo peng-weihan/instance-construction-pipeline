@@ -1,0 +1,118 @@
+{
+  "schema_version": 2,
+  "sources": [
+    {
+      "id": "23_scrapy_product_roadmap",
+      "repo": "scrapy/scrapy",
+      "revision": "db2404bb8691d1579f75ca823d5385749b77693c",
+      "observed_utc": "2026-10-15T12:43:02.941418+00:00",
+      "status": "source_leads_only",
+      "files": [
+        {
+          "path": "tree.json",
+          "url": "https://api.github.com/repos/scrapy/scrapy/git/trees/db2404bb8691d1579f75ca823d5385749b77693c?recursive=1",
+          "sha256": "29232a527e53559fd3c74ae8f7c4875a7be216978640adf146f98dbf6e2713a5"
+        },
+        {
+          "path": "recent-issues-and-prs.json",
+          "url": "https://api.github.com/repos/scrapy/scrapy/issues?state=all&per_page=20",
+          "sha256": "3b9da7fea8f0c251dd9795b55a26aee8521edb06f01d9bdc5127e4affb9b8ebd"
+        }
+      ],
+      "errors": [],
+      "warning": "Issue state is current, not proof of a missing feature at the fixed revision. Build/reproduce before selecting a contract.",
+      "tree_truncated": false
+    },
+    {
+      "id": "24_lark_system_reconstruction",
+      "repo": "lark-parser/lark",
+      "revision": "9a4fb9c7458e8155636773a3cded0016d52516da",
+      "observed_utc": "2026-10-15T12:43:06.150721+00:00",
+      "status": "source_leads_only",
+      "files": [
+        {
+          "path": "tree.json",
+          "url": "https://api.github.com/repos/lark-parser/lark/git/trees/9a4fb9c7458e8155636773a3cded0016d52516da?recursive=1",
+          "sha256": "489fae4dd01df4a1d2e4ec1a1e2ecc7c076e032fcbf381e854b399621d6a6fbd"
+        },
+        {
+          "path": "recent-issues-and-prs.json",
+          "url": "https://api.github.com/repos/lark-parser/lark/issues?state=all&per_page=20",
+          "sha256": "ff4bbc91916d885eac0ac0fbee8e8b7f7b448b160023f85eebdb35473cb47b5a"
+        }
+      ],
+      "errors": [],
+      "warning": "Issue state is current, not proof of a missing feature at the fixed revision. Build/reproduce before selecting a contract.",
+      "tree_truncated": false
+    },
+    {
+      "id": "25_datafusion_execution_optimization",
+      "repo": "apache/datafusion",
+      "revision": "10343c18292fc3a9ca62b59c8bb530169fe79b82",
+      "observed_utc": "2026-10-15T12:43:08.845899+00:00",
+      "status": "source_leads_only",
+      "files": [
+        {
+          "path": "tree.json",
+          "url": "https://api.github.com/repos/apache/datafusion/git/trees/10343c18292fc3a9ca62b59c8bb530169fe79b82?recursive=1",
+          "sha256": "646dbbddce2f13db060d95bc1a09639044771f4775dd08edb8ba63ee874b3ee7"
+        },
+        {
+          "path": "recent-issues-and-prs.json",
+          "url": "https://api.github.com/repos/apache/datafusion/issues?state=all&per_page=20",
+          "sha256": "f3c192f3f976a189ae9fd495b77c5cbf8dc4f8c1e3f6b9085a5c0ce13e6c807f"
+        }
+      ],
+      "errors": [],
+      "warning": "Issue state is current, not proof of a missing feature at the fixed revision. Build/reproduce before selecting a contract.",
+      "tree_truncated": false
+    },
+    {
+      "id": "26_ripgrep_multicrate_reconstruction",
+      "repo": "BurntSushi/ripgrep",
+      "revision": "3fce3b5bb0236da2df6d99672afb8a719642eca7",
+      "observed_utc": "2026-10-15T12:43:12.793589+00:00",
+      "status": "source_leads_only",
+      "files": [
+        {
+          "path": "tree.json",
+          "url": "https://api.github.com/repos/BurntSushi/ripgrep/git/trees/3fce3b5bb0236da2df6d99672afb8a719642eca7?recursive=1",
+          "sha256": "f99442e56baeac46504c1c308844cd3b057cf5b497e7cd51f75e08076a25c9c4"
+        },
+        {
+          "path": "recent-issues-and-prs.json",
+          "url": "https://api.github.com/repos/BurntSushi/ripgrep/issues?state=all&per_page=20",
+          "sha256": "7bda385d202e486394902af5053893984cd3391d21ac0a75bd9440deca3a8902"
+        }
+      ],
+      "errors": [],
+      "warning": "Issue state is current, not proof of a missing feature at the fixed revision. Build/reproduce before selecting a contract.",
+      "tree_truncated": false
+    },
+    {
+      "id": "27_ninja_behavioral_port",
+      "repo": "ninja-build/ninja",
+      "revision": "b81e306232dfa644e92145c7d2871690017969e8",
+      "observed_utc": "2026-10-15T12:43:18.868118+00:00",
+      "status": "source_leads_only",
+      "files": [
+        {
+          "path": "tree.json",
+          "url": "https://api.github.com/repos/ninja-build/ninja/git/trees/b81e306232dfa644e92145c7d2871690017969e8?recursive=1",
+          "sha256": "5bac00d7438cb4a1d3e4da73da5c47f88d7da320733f349135845520e0094f4e"
+        },
+        {
+          "path": "recent-issues-and-prs.json",
+          "url": "https://api.github.com/repos/ninja-build/ninja/issues?state=all&per_page=20",
+          "sha256": "7e89d5b6bc43cbeda38e3bfc35c367e664964c63d31eee4a02919de3282c66aa"
+        }
+      ],
+      "errors": [],
+      "warning": "Issue state is current, not proof of a missing feature at the fixed revision. Build/reproduce before selecting a contract.",
+      "tree_truncated": false
+    }
+  ],
+  "completed_tasks": 0,
+  "source_selection_validated": false,
+  "next": "Native author reads fixed complete sources, investigates multiple scopes and reproduces strongest ordinary baselines."
+}

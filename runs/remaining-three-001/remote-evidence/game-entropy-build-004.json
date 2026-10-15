@@ -1,0 +1,9 @@
+{
+  "base_image": "edge-raymone-game:initial",
+  "source_commit": "8ba2b3ebd33f6850c2dc4fe7c6478c7e4f9fc3fd",
+  "patched_binary_sha256": "3aca4480ec9d19e4b2c3adb05026081b0b46596edda508394cd3b9bde5b5a3af",
+  "export_matches_running_build": true,
+  "compile_exit": 0,
+  "storage": "source and object files in container RAM only; exported binary retained",
+  "patch": "honor trusted EDGE_GAME_RNG_SEED in default generator, seed_rng, Lua math and hash seeding"
+}

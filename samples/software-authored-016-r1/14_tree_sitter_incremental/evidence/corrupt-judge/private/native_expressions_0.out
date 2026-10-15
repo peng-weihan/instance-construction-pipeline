@@ -1,0 +1,22 @@
+@initial
+0 module 1 0 0 0 0 0 19 0 0 1 0
+field -
+1 expression_statement 1 0 0 0 0 0 18 0 0 0 18
+field -
+2 assignment 1 0 0 0 0 0 18 0 0 0 18
+field left
+3 identifier 1 0 0 0 0 0 3 0 0 0 3
+field -
+3 = 0 0 0 0 0 4 5 0 4 0 5
+field right
+3 binary_operator 1 0 0 0 0 6 18 0 6 0 18
+field left
+4 identifier 1 0 0 0 0 6 11 0 6 0 11
+field operator
+4 + 0 0 0 0 0 12 13 0 12 0 13
+field right
+4 identifier 1 0 0 0 0 14 18 0 14 0 18
+@end
+@sexp
+(module (expression_statement (assignment (identifier) (binary_operator (identifier) (identifier)))))
+@end

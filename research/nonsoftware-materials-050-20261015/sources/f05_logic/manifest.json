@@ -1,0 +1,69 @@
+{
+  "repo": "FormalizedFormalLogic/Foundation",
+  "revision": "c3eb37ae896dc8f1d239ba1511e74d9f25e9d158",
+  "resolved_utc": "2026-10-15T14:58:51.552662+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:00:07.931965+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "c1b931d86497dfae3e8d6337e16f09ff4854953b08e598981d856ba22c2756b3",
+    "truncated": false,
+    "blob_count": 364
+  },
+  "files_acquired": [
+    {
+      "path": "Foundation/FirstOrder/LK/Completeness.lean",
+      "bytes": 213,
+      "sha256": "6f3b9cd959f51dd267b0d1a809543f3415dcb9b8924b741af9e53a808a602cc8",
+      "url": "https://github.com/FormalizedFormalLogic/Foundation/blob/c3eb37ae896dc8f1d239ba1511e74d9f25e9d158/Foundation/FirstOrder/LK/Completeness.lean"
+    },
+    {
+      "path": "Foundation/FirstOrder/LK/Completeness/CanonicalModel.lean",
+      "bytes": 7232,
+      "sha256": "f073824e7f3417e04c79fa28c69c3fa7460fa8043e363371db12556328e4e9ce",
+      "url": "https://github.com/FormalizedFormalLogic/Foundation/blob/c3eb37ae896dc8f1d239ba1511e74d9f25e9d158/Foundation/FirstOrder/LK/Completeness/CanonicalModel.lean"
+    },
+    {
+      "path": "Foundation/FirstOrder/LK/Completeness/CounterModel.lean",
+      "bytes": 12673,
+      "sha256": "80b568228a5f5e983e37fee0b2d7b67998e0412086f0bf7dbac176584940fcef",
+      "url": "https://github.com/FormalizedFormalLogic/Foundation/blob/c3eb37ae896dc8f1d239ba1511e74d9f25e9d158/Foundation/FirstOrder/LK/Completeness/CounterModel.lean"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 11353,
+      "sha256": "37823cdb626011c7f658442954b53cfca18c34c589c5326d4fe307f1158b1145",
+      "url": "https://github.com/FormalizedFormalLogic/Foundation/blob/c3eb37ae896dc8f1d239ba1511e74d9f25e9d158/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8315,
+      "sha256": "4bccc7c3f00cbb7140f3f289ba01f7a4ab3a81613983c1f4e6a09389255120c4",
+      "url": "https://github.com/FormalizedFormalLogic/Foundation/blob/c3eb37ae896dc8f1d239ba1511e74d9f25e9d158/README.md"
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 5010,
+      "sha256": "0be6cd7226bfbdd35b7301f491c690a386dfdc4e7a91d833988ad16b25b535ba",
+      "url": "https://github.com/FormalizedFormalLogic/Foundation/blob/c3eb37ae896dc8f1d239ba1511e74d9f25e9d158/lake-manifest.json"
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 1284,
+      "sha256": "ae215be4f02df6400881c95c2cacf672e9908a28ee1b1efb36f378a4c420019e",
+      "url": "https://github.com/FormalizedFormalLogic/Foundation/blob/c3eb37ae896dc8f1d239ba1511e74d9f25e9d158/lakefile.toml"
+    },
+    {
+      "path": "lean-toolchain",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "url": "https://github.com/FormalizedFormalLogic/Foundation/blob/c3eb37ae896dc8f1d239ba1511e74d9f25e9d158/lean-toolchain"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

@@ -1,0 +1,74 @@
+{
+  "repo": "mitmproxy/mitmproxy",
+  "revision": "77355977e5ea540b51ed029a40ed1dc2f1c2ba7b",
+  "resolved_utc": "2026-10-15T13:08:13.664882+00:00",
+  "retrieved_utc": "2026-10-15T13:09:03.359479+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "d56f43f9d684f5066c343a283b6c471b7b51418c1f2f61f9558900e814f29c7b",
+    "truncated": false,
+    "blob_count": 1295
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 1079,
+      "sha256": "cc4ab04ed7180af6c0ede7147f9ec2aa05212c088d7b3c8e38bbffe91c9c8f82",
+      "url": "https://github.com/mitmproxy/mitmproxy/blob/77355977e5ea540b51ed029a40ed1dc2f1c2ba7b/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4015,
+      "sha256": "3388d7046a275a9b88e9503c6ea5141ab618a6db95a6b03530da1f09d8e9057f",
+      "url": "https://github.com/mitmproxy/mitmproxy/blob/77355977e5ea540b51ed029a40ed1dc2f1c2ba7b/README.md"
+    },
+    {
+      "path": "mitmproxy/addons/clientplayback.py",
+      "bytes": 10484,
+      "sha256": "745a380f6adaccc17ff78f8051bcfc833c42e01ae36e5c4580a690c5d5bb670f",
+      "url": "https://github.com/mitmproxy/mitmproxy/blob/77355977e5ea540b51ed029a40ed1dc2f1c2ba7b/mitmproxy/addons/clientplayback.py"
+    },
+    {
+      "path": "mitmproxy/addons/serverplayback.py",
+      "bytes": 10524,
+      "sha256": "331baecf1e46db3d372a529e216a76f43175ab17e33a6283b2f181603cdc3af8",
+      "url": "https://github.com/mitmproxy/mitmproxy/blob/77355977e5ea540b51ed029a40ed1dc2f1c2ba7b/mitmproxy/addons/serverplayback.py"
+    },
+    {
+      "path": "mitmproxy/flow.py",
+      "bytes": 9570,
+      "sha256": "8d251b95d9ee313e0fe5eaa3c8a6af54a6270b803f3d83791a228b60dc6928a4",
+      "url": "https://github.com/mitmproxy/mitmproxy/blob/77355977e5ea540b51ed029a40ed1dc2f1c2ba7b/mitmproxy/flow.py"
+    },
+    {
+      "path": "mitmproxy/io/io.py",
+      "bytes": 3624,
+      "sha256": "b1f1419041687b24b764a918e202b72365e008674b11e51098c6890738c803d6",
+      "url": "https://github.com/mitmproxy/mitmproxy/blob/77355977e5ea540b51ed029a40ed1dc2f1c2ba7b/mitmproxy/io/io.py"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 9762,
+      "sha256": "ad939bc64a7692a9fea1f1a8c8fa767b236870bab70a8043ed3f2aa033f6ee25",
+      "url": "https://github.com/mitmproxy/mitmproxy/blob/77355977e5ea540b51ed029a40ed1dc2f1c2ba7b/pyproject.toml"
+    },
+    {
+      "path": "test/mitmproxy/addons/test_clientplayback.py",
+      "bytes": 8016,
+      "sha256": "bb6fed6f58711ea38455c1e64dde7adf0b26172c0060393f720c20862c6265ca",
+      "url": "https://github.com/mitmproxy/mitmproxy/blob/77355977e5ea540b51ed029a40ed1dc2f1c2ba7b/test/mitmproxy/addons/test_clientplayback.py"
+    },
+    {
+      "path": "test/mitmproxy/addons/test_serverplayback.py",
+      "bytes": 12978,
+      "sha256": "a87d5c6873ec023bda6dc9438ba55fcb203d201328ed14918553047601260350",
+      "url": "https://github.com/mitmproxy/mitmproxy/blob/77355977e5ea540b51ed029a40ed1dc2f1c2ba7b/test/mitmproxy/addons/test_serverplayback.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

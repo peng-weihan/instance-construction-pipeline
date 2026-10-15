@@ -1,0 +1,127 @@
+{
+  "status": "ok",
+  "eligible": true,
+  "license_file": "LICENSE",
+  "license_reason": "Synthetic fixture created for this repository",
+  "build_command": [
+    "bash",
+    "build.sh"
+  ],
+  "public_files": [
+    "LICENSE"
+  ],
+  "source_globs": [
+    "*.c"
+  ],
+  "core_branches": [
+    "core"
+  ],
+  "probe_cases": [
+    {
+      "id": "help",
+      "args": [
+        "--help"
+      ]
+    },
+    {
+      "id": "bytes-0",
+      "args": [],
+      "stdin_base64": "aGVsbG8="
+    },
+    {
+      "id": "bytes-1",
+      "args": [],
+      "stdin_base64": "YQo="
+    },
+    {
+      "id": "bytes-2",
+      "args": [],
+      "stdin_base64": "AP8="
+    },
+    {
+      "id": "bytes-3",
+      "args": [],
+      "stdin_base64": "5Lit5paH"
+    },
+    {
+      "id": "bytes-4",
+      "args": [],
+      "stdin_base64": "IA=="
+    },
+    {
+      "id": "bytes-5",
+      "args": [],
+      "stdin_base64": "MTIz"
+    },
+    {
+      "id": "bytes-6",
+      "args": [],
+      "stdin_base64": "eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eA=="
+    },
+    {
+      "id": "bytes-7",
+      "args": [],
+      "stdin_base64": "YQ0KYg=="
+    },
+    {
+      "id": "bytes-8",
+      "args": [],
+      "stdin_base64": "Wg=="
+    },
+    {
+      "id": "bytes-9",
+      "args": [],
+      "stdin_base64": "IUAj"
+    },
+    {
+      "id": "empty",
+      "args": []
+    },
+    {
+      "id": "error",
+      "args": [
+        "--invalid"
+      ]
+    }
+  ],
+  "test_observations": {
+    "core/tests/test_core.py::test_bytes_0": [
+      "bytes-0"
+    ],
+    "core/tests/test_core.py::test_bytes_1": [
+      "bytes-1"
+    ],
+    "core/tests/test_core.py::test_bytes_2": [
+      "bytes-2"
+    ],
+    "core/tests/test_core.py::test_bytes_3": [
+      "bytes-3"
+    ],
+    "core/tests/test_core.py::test_bytes_4": [
+      "bytes-4"
+    ],
+    "core/tests/test_core.py::test_bytes_5": [
+      "bytes-5"
+    ],
+    "core/tests/test_core.py::test_bytes_6": [
+      "bytes-6"
+    ],
+    "core/tests/test_core.py::test_bytes_7": [
+      "bytes-7"
+    ],
+    "core/tests/test_core.py::test_bytes_8": [
+      "bytes-8"
+    ],
+    "core/tests/test_core.py::test_bytes_9": [
+      "bytes-9"
+    ],
+    "core/tests/test_core.py::test_weak_exit": [
+      "empty"
+    ],
+    "core/tests/test_core.py::test_error": [
+      "error"
+    ]
+  },
+  "tool_type": "byte-copy CLI",
+  "summary": "Synthetic binary stdin/stdout and error fixture"
+}

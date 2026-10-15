@@ -1,0 +1,69 @@
+{
+  "repo": "libjxl/libjxl",
+  "revision": "ef67fde2ec16d52e644c5a0969230b9a85e3eb31",
+  "resolved_utc": "2026-10-15T13:30:47.357994+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:31:21.662532+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "72bbeda4691241d701277ca984c9979a41bdcc1d23fc670d34a0ac82ea80aa36",
+    "truncated": false,
+    "blob_count": 876
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 1508,
+      "sha256": "8405932022a556380c2d8c272eff154a923feb197233f348ce5f7334fb0a5ede",
+      "url": "https://github.com/libjxl/libjxl/blob/ef67fde2ec16d52e644c5a0969230b9a85e3eb31/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7093,
+      "sha256": "2e71db87654b1152b394a71160f54f08705d3464421ff03e47f3b550cb28b42d",
+      "url": "https://github.com/libjxl/libjxl/blob/ef67fde2ec16d52e644c5a0969230b9a85e3eb31/README.md"
+    },
+    {
+      "path": "doc/encode_effort.md",
+      "bytes": 3595,
+      "sha256": "1bbf3f748a005c0c4f217f70a85e5746160dc894fbd01d2555ffb21df1594eb1",
+      "url": "https://github.com/libjxl/libjxl/blob/ef67fde2ec16d52e644c5a0969230b9a85e3eb31/doc/encode_effort.md"
+    },
+    {
+      "path": "lib/jxl/enc_frame.cc",
+      "bytes": 118199,
+      "sha256": "cc334fab4262e1d33b8f7ac54bb92192248d9663e78924e148172f205ab6bd5f",
+      "url": "https://github.com/libjxl/libjxl/blob/ef67fde2ec16d52e644c5a0969230b9a85e3eb31/lib/jxl/enc_frame.cc"
+    },
+    {
+      "path": "lib/jxl/enc_modular.cc",
+      "bytes": 76604,
+      "sha256": "f519327a6f264a051717ae76f65d0a930fd82c892d6201171939bb41a58288ae",
+      "url": "https://github.com/libjxl/libjxl/blob/ef67fde2ec16d52e644c5a0969230b9a85e3eb31/lib/jxl/enc_modular.cc"
+    },
+    {
+      "path": "third_party/CMakeLists.txt",
+      "bytes": 8203,
+      "sha256": "629222e0bef67216891cb06c119cbdde3af151f4ab644afba21a48841690b615",
+      "url": "https://github.com/libjxl/libjxl/blob/ef67fde2ec16d52e644c5a0969230b9a85e3eb31/third_party/CMakeLists.txt"
+    },
+    {
+      "path": "tools/benchmark/benchmark_codec_jxl.cc",
+      "bytes": 15920,
+      "sha256": "ba12eabca7298b567061e805976447adb2f7f3fab39ab2789d6d6bc40134f48b",
+      "url": "https://github.com/libjxl/libjxl/blob/ef67fde2ec16d52e644c5a0969230b9a85e3eb31/tools/benchmark/benchmark_codec_jxl.cc"
+    },
+    {
+      "path": "tools/benchmark/benchmark_xl.cc",
+      "bytes": 42752,
+      "sha256": "4102da316ded93506337460511deff42299d7bc1b7dc8c6374740169b40792c0",
+      "url": "https://github.com/libjxl/libjxl/blob/ef67fde2ec16d52e644c5a0969230b9a85e3eb31/tools/benchmark/benchmark_xl.cc"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

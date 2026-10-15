@@ -1,0 +1,14 @@
+{
+  "pro_name": "TagKit",
+  "test_case_count": 4,
+  "test_commands": [
+    "/Users/raymone/Desktop/swe-factory/.venv/bin/python -m pytest -q -p no:cacheprovider"
+  ],
+  "test_files": [
+    "tests/test_api.py"
+  ],
+  "package_files": [
+    "pyproject.toml"
+  ],
+  "fixture_files": []
+}

@@ -1,0 +1,48 @@
+{
+  "reference_mode": "open-solution",
+  "reward_type": "bounded_continuous",
+  "direction": "maximize",
+  "correctness_gate": "all 12 correctness workloads and all 18 performance repetitions require exact independent expected rows; candidate failure is valid score0",
+  "raw_metrics": [
+    "external elapsed seconds after READY",
+    "median of 3 repetitions",
+    "per-workload B_i/T_i",
+    "geometric mean speedup"
+  ],
+  "formula": "if correctness: clip(ln(exp(mean_i ln(B_i/T_i)))/ln(R),0,1); requires measured R>1",
+  "fixed_performance_denominator": 6,
+  "fixed_correctness_denominator": 12,
+  "fixed_repetitions": 3,
+  "weights": "six scenarios equally weighted in log space",
+  "bounds": [
+    0,
+    1
+  ],
+  "baseline": {
+    "implementation": "unmodified pinned upstream",
+    "medians_sec": null,
+    "observed": false
+  },
+  "reference": {
+    "implementation": "unmodified pinned upstream open-solution",
+    "raw_score": null,
+    "normalized_score": null,
+    "observed": false
+  },
+  "strong_reference": {
+    "implementation": null,
+    "geomean_speedup": null,
+    "observed": false
+  },
+  "upper_endpoint": {
+    "clip_value": 1,
+    "reachable_evidence": null
+  },
+  "constants": {
+    "baseline_anchor_speedup": 1,
+    "upper_speedup_R": null,
+    "no_invented_1_5x_or_2x": true
+  },
+  "calibration_status": "hold_for_evidence; missing anchors produce invalid score-null with no reward",
+  "performance_is_not_python_oracle_time": true
+}

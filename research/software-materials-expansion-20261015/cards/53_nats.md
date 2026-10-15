@@ -1,0 +1,21 @@
+# 53_nats · 持久消息流与消费者重放系统
+
+- 路线/优先级：M2 / `build_scope_probe`；只作素材判断。
+- 固定版本：[b55d969381aa05a7a59c563797b454d1b6b5fa37](https://github.com/nats-io/nats-server/tree/b55d969381aa05a7a59c563797b454d1b6b5fa37)；完整树/片段哈希见 `sources/53_nats/manifest.json`。
+- 已有功能：原项目已提供 JetStream streams/consumers、存储、确认、重投与多种 retention；不是等待新增这些功能。
+- 拟题边界：拟抽取单节点持久消息子系统：subject→append/sequence→durable pull consumers→filter/batch/ack/redelivery/backoff→retention→成功持久点恢复。保留 NATS 报文与连接壳，排除 Raft/集群/mirror/source/账户联邦，不声称完整 JetStream。
+- 拟缺口：新 starter 尚未制作；拟实现完整 stream/consumer 状态闭环，不能只做 ack helper。若直接删现成实现，应改列 M4 恢复路线。
+- 关联链：发布 subject/去重标识→stream sequence/文件记录→每 consumer delivered/ack floor/pending→超时重投与窗口→retention 删除→恢复后的消费状态。
+- 代码/真实测试实读：[server/consumer.go:3745](https://github.com/nats-io/nats-server/blob/b55d969381aa05a7a59c563797b454d1b6b5fa37/server/consumer.go#L3745) ack 处理检查 sequence/pending，更新 ack floor、重投队列和窗口通知。；[server/jetstream_consumer_test.go:982](https://github.com/nats-io/nats-server/blob/b55d969381aa05a7a59c563797b454d1b6b5fa37/server/jetstream_consumer_test.go#L982) 真实测试检查 BackOff/MaxDeliver 的有效组合和更新约束。；[server/consumer.go:97](https://github.com/nats-io/nats-server/blob/b55d969381aa05a7a59c563797b454d1b6b5fa37/server/consumer.go#L97) 消费者配置直接包含 AckWait/MaxAckPending 等关联状态约束。
+- 组合场景 1：乱序 ack+MaxAckPending 达限+超时 backoff+下一批 pull，核对 ack floor 与窗口释放。
+- 组合场景 2：多个 filter consumer+Interest/WorkQueue 明示策略+消息删除/过期，核对保留和重投。
+- 组合场景 3：成功持久点后重启+durable consumer 恢复+重复 ack/发布重试，核对 sequence 与 pending。
+- 基础完成后剩余路径假设 1：基础 append/pull 之后仍需统一 ack floor、pending、redelivery、窗口与删除通知，防止各模块独立正确却消费者停滞。
+- 基础完成后剩余路径假设 2：正常重启之后仍需处理持久状态对账、过期/重投边界、消费配置变更及有界资源清理。
+- 参考/判据：官方 JetStream 文档定义冻结功能合同；固定 server 作为互通参考，独立客户端生成事件并比较 delivery/ack/retention 允许观察；仅要求明示成功持久点后的恢复。
+- 正常强基线：直接 stock nats-server -js + 官方客户端/CLI 薄包装很强，纯黑盒 API 可能已被完全满足；标准存储库也合法。
+- 首个否证：先把所有拟题合同映射到 stock broker 最薄 wrapper；全部覆盖则 hold 或改成有真实宿主集成的恢复题，不以禁库制造难度。
+- 离线/架构成本：Go modules/客户端与文件存储离线固定；单 loopback 无外服。虚拟时间与 broker timer、关闭/恢复控制仍须探查。
+- 许可观察：根 LICENSE 实际文本为 Apache-2.0；依赖及通知未完整审查。
+- 官方资料已核对：[stream/consumer 的存储、游标与至少一次投递关系](https://docs.nats.io/concepts/jetstream)；[确认/重投/consumer 配置合同](https://docs.nats.io/nats-concepts/jetstream/consumers)
+- 状态：source_reviewed_scope_unproven；未构题、未 build/运行、未验证六小时难度；仅对照原 EdgeBench 的机制，不复用原题/测试/答案。

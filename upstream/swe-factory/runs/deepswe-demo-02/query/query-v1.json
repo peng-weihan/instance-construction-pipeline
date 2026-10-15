@@ -1,0 +1,13 @@
+{
+  "status": "ok",
+  "instruction": "Implement combine(parent, child) to return a new dictionary containing both mappings, with child values winning on duplicate keys. Preserve plain(value).",
+  "requirements": [
+    "R1: parent then child, child overrides"
+  ],
+  "evidence_paths": [
+    "calc.py",
+    "tests/test_regression.py"
+  ],
+  "captured_patch": "",
+  "changed_paths": []
+}

@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "tests_run": 173,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "python": "3.12.13",
+  "source_specs": {
+    "nl2repo.md": {
+      "sha256": "d1283fc5ef3549a3bba762b4e8b990e440b350d7aaa1a409d2b38ca42b2cfc0d",
+      "unchanged": true,
+      "read_only": true
+    },
+    "deepswe.md": {
+      "sha256": "fdbcd876402f488a5579c370312fd8d8e8e0f3c543e26b8c5611648829081565",
+      "unchanged": true,
+      "read_only": true
+    },
+    "programbench.md": {
+      "sha256": "0cdac59c3d6edb32d9193f4157f33ab3e7e4f9a23b8f31beff4208d4426b1966",
+      "unchanged": true,
+      "read_only": true
+    }
+  },
+  "real_model_called": false,
+  "real_docker_executed": false,
+  "test_scope": "unit/adapters plus real host synthetic construction, compiler, pytest and packaged-verifier replay"
+}

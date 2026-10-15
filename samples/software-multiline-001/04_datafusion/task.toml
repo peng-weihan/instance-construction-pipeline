@@ -1,0 +1,33 @@
+schema_version = "1.4"
+artifacts = ["/home/workspace/datafusion-sort-topk/submission"]
+[metadata]
+name = "datafusion-sort-topk"
+reward_type = "bounded_continuous"
+reference_mode = "open-solution"
+status = "hold_for_evidence"
+calibration_ready = false
+work_build_context = "environment"
+judge_build_context = "verifier"
+score_formula = "correctness gate; clip(log(geomean(B_i/T_i))/log(R),0,1), anchors currently null"
+[agent]
+timeout_sec = 21600
+network_mode = "no-network"
+[environment]
+docker_image = "edgebench/datafusion-sort-topk-work:pilot"
+workdir = "/home/workspace/datafusion-sort-topk"
+network_mode = "no-network"
+cpus = 2
+memory_mb = 8192
+storage_mb = 16384
+build_timeout_sec = 3600
+[verifier]
+timeout_sec = 2400
+network_mode = "no-network"
+environment_mode = "separate"
+[verifier.environment]
+docker_image = "edgebench/datafusion-sort-topk-judge:pilot"
+workdir = "/home/workspace/datafusion-sort-topk"
+network_mode = "no-network"
+cpus = 2
+memory_mb = 8192
+storage_mb = 16384

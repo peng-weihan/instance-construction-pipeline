@@ -1,0 +1,695 @@
+[
+  {
+    "id": "57_lz4",
+    "repo": "lz4/lz4",
+    "route": "M3",
+    "title": "LZ4 流式无损编解码的速度、压缩率与内存取舍",
+    "scope": "block/frame 输入→匹配搜索/字典→token 输出→安全解码；限定标准兼容流和内存预算，端到端处理多块数据。",
+    "existing_capability": "已有 acceleration 跳步搜索、HC 模式、字典/连续块和 x86/ARM fast decode；并非从标量无压缩起点造题。",
+    "proposed_gap": "未证实缺口：正常 acceleration/HC/块大小/字典配置后，混合块是否仍有匹配搜索或拷贝热点。",
+    "scenarios": [
+      "短小相似记录：状态重置/字典复用与延迟",
+      "随机不可压缩块：跳步成本与压缩率",
+      "重复长块/跨块字典：匹配深度、内存带宽与输出大小"
+    ],
+    "cheap_baseline": "Release、现有 fast decoder、合理 acceleration/HC 级别、块大小和字典；以同一压缩率/内存合同找正常配置 Pareto 基线。",
+    "first_probe": "仅扫正常配置绘制编码/解码时间、大小、RSS 曲线；若配置已足够或余差在噪声内即撤销，不先定倍率/奖励端点。",
+    "remaining_work_hypotheses": [
+      "强配置后若混合数据仍有不必要 hash 更新/匹配探测，研究上下文复用及搜索策略；须跨数据验证。",
+      "强配置后若小 offset/尾部解码仍为热点，优化拷贝布局和边界快路径；已有 fast loop 必须保留作基线。"
+    ],
+    "correctness_oracle": "固定上游交叉编解码、逐字节 roundtrip、截断/损坏流失败边界；原生 fuzzer 与 frame 规范。基准 XXH 仅是辅助，不能替代逐字节 oracle。",
+    "offline_dependencies": "C 工具链/Make 和完整源码即可评估核心；准备独立 corpus，测试依赖另核。",
+    "license_observation": "lib/ 为 BSD-2-Clause，其余通常 GPL-2.0-or-later；programs/bench.c 随工具许可，不能把整个题包说成 BSD。",
+    "architecture_risk": "x86/ARM 已启用不同 fast loop/内存读策略，分别编译校准并检查对齐/越界。",
+    "official_context": [
+      "https://github.com/lz4/lz4",
+      "https://github.com/lz4/lz4/blob/dev/doc/lz4_manual.html"
+    ],
+    "revision": "48bfbfe351c5d6ea87d4af5557705e87755844e0",
+    "evidence": [
+      {
+        "path": "lib/lz4.c",
+        "line": 479,
+        "claim": "x86 和 aarch64 的既有 fast decode 配置",
+        "url": "https://github.com/lz4/lz4/blob/48bfbfe351c5d6ea87d4af5557705e87755844e0/lib/lz4.c#L479"
+      },
+      {
+        "path": "lib/lz4.c",
+        "line": 1036,
+        "claim": "匹配搜索已有 acceleration 跳步",
+        "url": "https://github.com/lz4/lz4/blob/48bfbfe351c5d6ea87d4af5557705e87755844e0/lib/lz4.c#L1036"
+      },
+      {
+        "path": "programs/bench.c",
+        "line": 360,
+        "claim": "原生基准分块、分配并使用既有压缩配置",
+        "url": "https://github.com/lz4/lz4/blob/48bfbfe351c5d6ea87d4af5557705e87755844e0/programs/bench.c#L360"
+      },
+      {
+        "path": "programs/bench.c",
+        "line": 573,
+        "claim": "原生基准校验解码结果哈希",
+        "url": "https://github.com/lz4/lz4/blob/48bfbfe351c5d6ea87d4af5557705e87755844e0/programs/bench.c#L573"
+      },
+      {
+        "path": "lib/LICENSE",
+        "line": 5,
+        "claim": "库许可保留再分发条款",
+        "url": "https://github.com/lz4/lz4/blob/48bfbfe351c5d6ea87d4af5557705e87755844e0/lib/LICENSE#L5"
+      }
+    ],
+    "priority": "hold_until_baseline",
+    "status": "source_grounded_material_candidate_not_task",
+    "card": "cards/57_lz4.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "baseline_measured": false,
+    "reward_endpoints_measured": false,
+    "edgebench_anchors": [
+      "integer_compression_codec",
+      "notebook_lossless_compression"
+    ]
+  },
+  {
+    "id": "58_lucene",
+    "repo": "apache/lucene",
+    "route": "M3",
+    "title": "Lucene 混合布尔检索的正确 top-k 与尾延迟",
+    "scope": "查询重写→postings/块上界→WAND/minShouldMatch→collector→跨 segment top-k；固定索引、排序和 totalHits 合同。",
+    "existing_capability": "WAND 已有 block-max 上界、collector 最小竞争分数反馈、head/lead/tail 与成本排序；IndexSearcher 已提供并行路径。",
+    "proposed_gap": "未证实缺口：强正常查询计划/缓存/并行后，稀疏密集混合或 segment 倾斜是否仍有调度/迭代开销。",
+    "scenarios": [
+      "高频+低频词和 minShouldMatch：跳过量与上界维护",
+      "多 segment/过滤器：并行利用与合并开销",
+      "大/小 k 与 score tie：竞争阈值与正确排序/尾延迟"
+    ],
+    "cheap_baseline": "当前 JDK 的正常 JIT/Release、已有 WAND/MaxScore/缓存、合适 executor/slice；相同索引/查询与 exact 或 lower-bound totalHits 要求。",
+    "first_probe": "正常设置与查询形态矩阵先测，预热后交错记录 p50/p95、CPU、分配；若现有计划/并行已消除瓶颈则撤销。",
+    "remaining_work_hypotheses": [
+      "若强基线后 segment 工作量倾斜仍造成长尾，研究按成本细分调度和 collector 合并。",
+      "若强基线后上界重算/队列维护仍主导，研究批量推进与上界缓存，严格不漏 competitive hit。"
+    ],
+    "correctness_oracle": "冻结上游结果+小索引穷举完整评分；逐一比较 docID/score/tie/totalHits 语义；原生 WAND scaling 和 basics/random tests。",
+    "offline_dependencies": "固定完整源码/JDK/Gradle wrapper 与依赖缓存，预置 synthetic 索引/corpus；未试离线构建。",
+    "license_observation": "根 Apache-2.0 与 NOTICE 已存；依赖/数据再分发未完整审计。",
+    "architecture_risk": "JDK 向量实现、JIT 与 x86/ARM 缓存不同，分架构热身/校准。",
+    "official_context": [
+      "https://lucene.apache.org/core/10_3_1/core/org/apache/lucene/search/IndexSearcher.html"
+    ],
+    "revision": "8476457b8752be2fd8094eaf5cd9bf0cea9594ae",
+    "evidence": [
+      {
+        "path": "lucene/core/src/java/org/apache/lucene/search/WANDScorer.java",
+        "line": 55,
+        "claim": "已有 block-max WAND 实现和竞争分数反馈",
+        "url": "https://github.com/apache/lucene/blob/8476457b8752be2fd8094eaf5cd9bf0cea9594ae/lucene/core/src/java/org/apache/lucene/search/WANDScorer.java#L55"
+      },
+      {
+        "path": "lucene/core/src/java/org/apache/lucene/search/WANDScorer.java",
+        "line": 111,
+        "claim": "阈值缩放向下取整以免漏匹配",
+        "url": "https://github.com/apache/lucene/blob/8476457b8752be2fd8094eaf5cd9bf0cea9594ae/lucene/core/src/java/org/apache/lucene/search/WANDScorer.java#L111"
+      },
+      {
+        "path": "lucene/core/src/test/org/apache/lucene/search/TestWANDScorer.java",
+        "line": 90,
+        "claim": "原生索引查询正确性测试",
+        "url": "https://github.com/apache/lucene/blob/8476457b8752be2fd8094eaf5cd9bf0cea9594ae/lucene/core/src/test/org/apache/lucene/search/TestWANDScorer.java#L90"
+      },
+      {
+        "path": "lucene/benchmark-jmh/src/java/org/apache/lucene/benchmark/jmh/CompetitiveBenchmark.java",
+        "line": 38,
+        "claim": "原生 JMH competitive 基准，非本次测量",
+        "url": "https://github.com/apache/lucene/blob/8476457b8752be2fd8094eaf5cd9bf0cea9594ae/lucene/benchmark-jmh/src/java/org/apache/lucene/benchmark/jmh/CompetitiveBenchmark.java#L38"
+      }
+    ],
+    "priority": "hold_until_baseline",
+    "status": "source_grounded_material_candidate_not_task",
+    "card": "cards/58_lucene.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "baseline_measured": false,
+    "reward_endpoints_measured": false,
+    "edgebench_anchors": [
+      "ann_vector_search_qps",
+      "exchange_core_throughput"
+    ]
+  },
+  {
+    "id": "59_re2",
+    "repo": "google/re2",
+    "route": "M3",
+    "title": "RE2 受限缓存下批量正则匹配与捕获",
+    "scope": "正则编译→前缀/引擎选择→DFA 缓存/回退→捕获输出；保持指定 RE2 语法、first/longest 和内存预算。",
+    "existing_capability": "已有 DFA、one-pass、bitstate、NFA 选择及内存不足回退；匹配不需要位置时也有专门快路径。",
+    "proposed_gap": "未证实缺口：合理 max_mem、编译复用及现有引擎后，工作集变动/多线程缓存是否仍有实质成本。",
+    "scenarios": [
+      "短锚定少捕获：编译复用与 fast engine",
+      "长非锚定复杂 alternation：DFA 缓存与回退",
+      "共享 pattern 多线程/缓存压力：命中与锁/内存"
+    ],
+    "cheap_baseline": "Release、正常 max_mem、编译对象复用、合适 anchor/捕获 API；尊重语义而不强制 NFA 或禁用缓存造弱基线。",
+    "first_probe": "扫合法 memory budget、线程和复用条件；同时测 compile/match、RSS 与尾延迟；配置足够或安全保证需削弱才能提速则撤销。",
+    "remaining_work_hypotheses": [
+      "强配置后若共享缓存构建/清空仍成为热点，研究状态生命周期与同步粒度。",
+      "强配置后若重复 fallback 转换/扫描仍有成本，研究引擎选择和前缀处理，保留线性时间与捕获顺序。"
+    ],
+    "correctness_oracle": "冻结上游+小规模穷举参考，逐项比较 match/span/captures 与错误；原生 DFA memory/multithread tests 和搜索差分测试。",
+    "offline_dependencies": "C++、Abseil、测试/benchmark 依赖预置；PCRE 仅选定交集参考，不能当全部 RE2 语义 oracle。",
+    "license_observation": "根 BSD 风格许可已存，完整依赖许可未审计。",
+    "architecture_risk": "x86/ARM 原子/缓存与字节扫描差异，分平台测；栈和内存上限保持一致。",
+    "official_context": [
+      "https://github.com/google/re2",
+      "https://github.com/google/re2/blob/main/re2/re2.h"
+    ],
+    "revision": "2da0056814cf180480a19f5cf811e7e1c054bf6d",
+    "evidence": [
+      {
+        "path": "re2/re2.cc",
+        "line": 734,
+        "claim": "已有多引擎选择条件",
+        "url": "https://github.com/google/re2/blob/2da0056814cf180480a19f5cf811e7e1c054bf6d/re2/re2.cc#L734"
+      },
+      {
+        "path": "re2/re2.cc",
+        "line": 885,
+        "claim": "one-pass/bitstate/NFA 的既有回退路径",
+        "url": "https://github.com/google/re2/blob/2da0056814cf180480a19f5cf811e7e1c054bf6d/re2/re2.cc#L885"
+      },
+      {
+        "path": "re2/testing/dfa_test.cc",
+        "line": 53,
+        "claim": "原生共享 DFA 并行构造测试",
+        "url": "https://github.com/google/re2/blob/2da0056814cf180480a19f5cf811e7e1c054bf6d/re2/testing/dfa_test.cc#L53"
+      },
+      {
+        "path": "re2/testing/dfa_test.cc",
+        "line": 95,
+        "claim": "原生 DFA 预算测试",
+        "url": "https://github.com/google/re2/blob/2da0056814cf180480a19f5cf811e7e1c054bf6d/re2/testing/dfa_test.cc#L95"
+      },
+      {
+        "path": "CMakeLists.txt",
+        "line": 32,
+        "claim": "测试/基准构建选项",
+        "url": "https://github.com/google/re2/blob/2da0056814cf180480a19f5cf811e7e1c054bf6d/CMakeLists.txt#L32"
+      }
+    ],
+    "priority": "hold_until_baseline",
+    "status": "source_grounded_material_candidate_not_task",
+    "card": "cards/59_re2.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "baseline_measured": false,
+    "reward_endpoints_measured": false,
+    "edgebench_anchors": [
+      "regex_automata_repair",
+      "integer_compression_codec"
+    ]
+  },
+  {
+    "id": "60_fast_float",
+    "repo": "fastfloat/fast_float",
+    "route": "M3",
+    "title": "正确舍入十进制数值解析的批量吞吐",
+    "scope": "有界字符输入→数值词法→fast path/高精度回退→结果位模式、终止指针及错误；覆盖 float/double 与指定格式。",
+    "existing_capability": "已有 Clinger 快路径、compute_float 与过多位数字回退；包含舍入模式检测和 signed-zero 测试，不能照旧 README 简化行为。",
+    "proposed_gap": "未证实缺口：编译器正常优化后，混合位数/指数的词法分支与稀有高精度路径是否仍有空间。",
+    "scenarios": [
+      "短整数/短小数：fast path 与分支开销",
+      "超长有效位/半 ULP/次正规：精确回退与吞吐",
+      "指数极值/非法尾部：错误/指针合同与扫描成本"
+    ],
+    "cheap_baseline": "当前 header-only Release、正常本机编译与已有快路径；合理 char buffer/循环布局；同语义 std::from_chars 作参考，不拿 locale strtod 宣传倍率当本题收益。",
+    "first_probe": "短数/难舍入/异常混合数据先测位模式正确的强配置；若只有换 API、编译选项或噪声差异则撤销。",
+    "remaining_work_hypotheses": [
+      "强配置后若词法分支对混合数值仍主导，研究扫描与分类布局，保持终止指针/错误精确。",
+      "强配置后若长尾回退重复计算仍主导，研究中间乘积/边界信息复用，须独立精确舍入验证。"
+    ],
+    "correctness_oracle": "MPFR 或整数有理数精确舍入参考+冻结上游，比较 IEEE 位、负零、返回指针/ec；原生不同 rounding-mode 测试。NaN 按已订语义而非未规定 payload 比较。",
+    "offline_dependencies": "核心 header-only；benchmark CMake 会下载 counters 和未固定 master 的外部数据，正式镜像须固定两者并离线预置；测试 doctest 另预置。",
+    "license_observation": "根 Apache-2.0/Boost/MIT 三份许可已存；依据具体选择保留文本，依赖另核。",
+    "architecture_risk": "x86/ARM 的乘法/浮点环境与 compiler 影响路径；不要用 fast-math 弱化合同。",
+    "official_context": [
+      "https://github.com/fastfloat/fast_float"
+    ],
+    "revision": "166d2b3df29cf8101bb715bde2125610881df791",
+    "evidence": [
+      {
+        "path": "include/fast_float/parse_number.h",
+        "line": 219,
+        "claim": "已有 Clinger 快路径及舍入环境处理",
+        "url": "https://github.com/fastfloat/fast_float/blob/166d2b3df29cf8101bb715bde2125610881df791/include/fast_float/parse_number.h#L219"
+      },
+      {
+        "path": "include/fast_float/parse_number.h",
+        "line": 303,
+        "claim": "快路径与过长数字分流",
+        "url": "https://github.com/fastfloat/fast_float/blob/166d2b3df29cf8101bb715bde2125610881df791/include/fast_float/parse_number.h#L303"
+      },
+      {
+        "path": "tests/basictest.cpp",
+        "line": 172,
+        "claim": "原生测试在不同舍入模式核验零位模式",
+        "url": "https://github.com/fastfloat/fast_float/blob/166d2b3df29cf8101bb715bde2125610881df791/tests/basictest.cpp#L172"
+      },
+      {
+        "path": "benchmarks/CMakeLists.txt",
+        "line": 36,
+        "claim": "基准外部数据来源需额外固定",
+        "url": "https://github.com/fastfloat/fast_float/blob/166d2b3df29cf8101bb715bde2125610881df791/benchmarks/CMakeLists.txt#L36"
+      }
+    ],
+    "priority": "hold_until_baseline",
+    "status": "source_grounded_material_candidate_not_task",
+    "card": "cards/60_fast_float.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "baseline_measured": false,
+    "reward_endpoints_measured": false,
+    "edgebench_anchors": [
+      "integer_compression_codec",
+      "vliw_kernel_optimization"
+    ]
+  },
+  {
+    "id": "61_libjxl",
+    "repo": "libjxl/libjxl",
+    "route": "M3",
+    "title": "JPEG XL 无损 Modular 编码的压缩率与资源效率",
+    "scope": "整数像素/alpha 输入→Modular 变换与预测/树→熵编码→标准码流→独立解码；先固定无损，避免混用有损质量指标。",
+    "existing_capability": "已有 effort/speed tier、palette 和估计成本后撤回变换，非缺少基本压缩选择；原生 benchmark 分别计编码和解码。",
+    "proposed_gap": "未证实缺口：正常 effort/线程/Modular 配置的 Pareto 前沿后，特定图族是否仍有训练/树构建或缓冲成本。",
+    "scenarios": [
+      "截图/扁平 RGBA：palette 选择与建树成本",
+      "噪声/摄影纹理：压缩大小与无效搜索",
+      "高位深/大幅图：预测/熵建模、并行与峰值内存"
+    ],
+    "cheap_baseline": "Release+本机 Highway、正常 effort/Modular/线程/已有启发式；按相同无损合同测 encode/decode 时间、字节和RSS前沿。",
+    "first_probe": "先扫现成参数和独立 seed 图片；配置前沿足够、收益只因关质量/元数据或在噪声内则撤销。",
+    "remaining_work_hypotheses": [
+      "强配置后若成本估计反复扫描为热点，研究预测/变换评估的共享统计或提前终止，保持无损。",
+      "强配置后若多 group 树构建/状态复制为热点，研究并行任务和内存布局；不能宣称已有算法缺失。"
+    ],
+    "correctness_oracle": "冻结上游交叉解码、逐像素含 alpha/位深校对、标准码流解码；元数据/方向独立合同。benchmark 也特别固定 orientation，不能忽略其设置。",
+    "offline_dependencies": "CMake、Highway/Brotli 和使用的 codec/test data 需预置，submodule 指针不等于已下载；未构建。",
+    "license_observation": "根 BSD 风格许可；构建文件有 Apache-2.0，依赖分别核查；未完整分发审计。",
+    "architecture_risk": "Highway x86/ARM dispatch、整数边界和线程资源分平台校准。",
+    "official_context": [
+      "https://github.com/libjxl/libjxl/blob/main/doc/encode_effort.md",
+      "https://github.com/libjxl/libjxl/blob/main/doc/benchmarking.md"
+    ],
+    "revision": "ef67fde2ec16d52e644c5a0969230b9a85e3eb31",
+    "evidence": [
+      {
+        "path": "lib/jxl/enc_modular.cc",
+        "line": 314,
+        "claim": "已有 speed-tier 控制变换搜索",
+        "url": "https://github.com/libjxl/libjxl/blob/ef67fde2ec16d52e644c5a0969230b9a85e3eb31/lib/jxl/enc_modular.cc#L314"
+      },
+      {
+        "path": "lib/jxl/enc_modular.cc",
+        "line": 333,
+        "claim": "已有按成本/颜色数选择 palette 的机制",
+        "url": "https://github.com/libjxl/libjxl/blob/ef67fde2ec16d52e644c5a0969230b9a85e3eb31/lib/jxl/enc_modular.cc#L333"
+      },
+      {
+        "path": "tools/benchmark/benchmark_codec_jxl.cc",
+        "line": 268,
+        "claim": "基准分别计编码耗时",
+        "url": "https://github.com/libjxl/libjxl/blob/ef67fde2ec16d52e644c5a0969230b9a85e3eb31/tools/benchmark/benchmark_codec_jxl.cc#L268"
+      },
+      {
+        "path": "tools/benchmark/benchmark_codec_jxl.cc",
+        "line": 322,
+        "claim": "基准显式保持原 orientation 比较",
+        "url": "https://github.com/libjxl/libjxl/blob/ef67fde2ec16d52e644c5a0969230b9a85e3eb31/tools/benchmark/benchmark_codec_jxl.cc#L322"
+      },
+      {
+        "path": "third_party/CMakeLists.txt",
+        "line": 19,
+        "claim": "第三方 SIMD/编码依赖需要预置",
+        "url": "https://github.com/libjxl/libjxl/blob/ef67fde2ec16d52e644c5a0969230b9a85e3eb31/third_party/CMakeLists.txt#L19"
+      }
+    ],
+    "priority": "hold_until_baseline",
+    "status": "source_grounded_material_candidate_not_task",
+    "card": "cards/61_libjxl.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "baseline_measured": false,
+    "reward_endpoints_measured": false,
+    "edgebench_anchors": [
+      "notebook_lossless_compression",
+      "ffmpeg_swscale_reimplementation"
+    ]
+  },
+  {
+    "id": "62_lmdb",
+    "repo": "LMDB/lmdb",
+    "route": "M3",
+    "title": "LMDB 快照读与持久事务写的页复用效率",
+    "scope": "事务/快照→B+tree cursor→copy-on-write/空闲页回收→持久提交→重开读取；固定 durability、读者生命周期和磁盘预算。",
+    "existing_capability": "已有 mmap/MVCC/串行写、loose page/FreeDB 页复用与 oldest reader 限制；不是给简易 KV 加事务。",
+    "proposed_gap": "未证实缺口：合理事务批次/mapsize/page/读者复用后，碎片化和长期读者约束下页搜索/回收是否仍有空间。",
+    "scenarios": [
+      "读密集随机/范围：零拷贝局部性与页缺失",
+      "批量小事务/大值：同步成本、overflow 页与吞吐",
+      "长寿命快照+反复更新：保留页/碎片与写延迟"
+    ],
+    "cheap_baseline": "优化构建、合理 mapsize/事务批次/游标复用与合法顺序写提示；强基线保留合同要求的同步，不用 NOSYNC/MAPASYNC 偷换 durability。",
+    "first_probe": "固定存储和 fsync 合同，先扫正常配置、区分冷/热 OS cache；若收益只来自少同步/结束必要快照/缓存状态则撤销。",
+    "remaining_work_hypotheses": [
+      "强配置后若连续页范围搜索/合并仍耗时，研究 free page 索引或搜索顺序；必须遵守 oldest snapshot。",
+      "强配置后若 COW/overflow 复制和 cursor 更新仍耗时，研究批量布局/页操作，保留提交和崩溃语义。"
+    ],
+    "correctness_oracle": "冻结上游+内存有序映射校对每次读写/abort/快照历史，重开校对；独立进程崩溃注入仅在后续容器验证。原生 mtest 是回归素材，不是完整耐久 oracle。",
+    "offline_dependencies": "C/Make/pthread 与真实支持 mmap/fsync 的本地文件系统；预置生成数据；未编译。",
+    "license_observation": "libraries/liblmdb/LICENSE 为 OpenLDAP Public License 2.8，非 BSD/MIT；发布包须保留 COPYRIGHT/条款。",
+    "architecture_risk": "页大小、对齐、mmap 和内存模型在 ARM/x86 不同；分平台读写/崩溃验证，不能用 RAM disk 外推磁盘。",
+    "official_context": [
+      "https://www.symas.com/lmdb.php"
+    ],
+    "revision": "253ba5219172531b719bc14fee6b4aa1a2a5c4a5",
+    "evidence": [
+      {
+        "path": "libraries/liblmdb/mdb.c",
+        "line": 2704,
+        "claim": "已有 loose/FreeDB 分配与连续范围搜索",
+        "url": "https://github.com/LMDB/lmdb/blob/253ba5219172531b719bc14fee6b4aa1a2a5c4a5/libraries/liblmdb/mdb.c#L2704"
+      },
+      {
+        "path": "libraries/liblmdb/mdb.c",
+        "line": 2651,
+        "claim": "回收受最老活动快照约束",
+        "url": "https://github.com/LMDB/lmdb/blob/253ba5219172531b719bc14fee6b4aa1a2a5c4a5/libraries/liblmdb/mdb.c#L2651"
+      },
+      {
+        "path": "libraries/liblmdb/mtest.c",
+        "line": 24,
+        "claim": "原生事务插入、commit 和 cursor 遍历测试",
+        "url": "https://github.com/LMDB/lmdb/blob/253ba5219172531b719bc14fee6b4aa1a2a5c4a5/libraries/liblmdb/mtest.c#L24"
+      },
+      {
+        "path": "libraries/liblmdb/LICENSE",
+        "line": 1,
+        "claim": "许可版本 2.8",
+        "url": "https://github.com/LMDB/lmdb/blob/253ba5219172531b719bc14fee6b4aa1a2a5c4a5/libraries/liblmdb/LICENSE#L1"
+      }
+    ],
+    "priority": "hold_until_baseline",
+    "status": "source_grounded_material_candidate_not_task",
+    "card": "cards/62_lmdb.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "baseline_measured": false,
+    "reward_endpoints_measured": false,
+    "edgebench_anchors": [
+      "exchange_core_throughput"
+    ]
+  },
+  {
+    "id": "63_onetbb",
+    "repo": "uxlfoundation/oneTBB",
+    "route": "M3",
+    "title": "oneTBB 多 arena 嵌套任务的调度效率",
+    "scope": "应用任务图→partitioner→arena admission/spawn→worker demand/唤醒→任务完成/取消；固定并发上限、嵌套与可见性合同。",
+    "existing_capability": "已有 arena、任务上下文/isolation、局部队列、可调 partitioner 与 worker demand；并非增加基础线程池。",
+    "proposed_gap": "未证实缺口：合理 grain/partitioner/并发/affinity 后，混合任务和多 arena 是否仍有调度或唤醒成本。",
+    "scenarios": [
+      "极短均匀任务：grain/调度开销与均衡",
+      "长短混合嵌套 DAG：窃取、缓存与长尾",
+      "多 arena/外部线程进入：资源限制与唤醒/竞争"
+    ],
+    "cheap_baseline": "Release、正常 scheduler、auto/simple/affinity partitioner 和合理 grain/global_control/task_arena；合法串行阈值也应基线化，不强迫每小任务并行。",
+    "first_probe": "先调现有 API 参数与应用分解，固定输出和并发上限测吞吐/p95/CPU/RSS；若仅 grain/limit 即足够或空任务伪负载则撤销。",
+    "remaining_work_hypotheses": [
+      "强配置后若 arena has_tasks 扫描/唤醒仍为热点，研究可用任务提示与通知粒度，保留不丢任务和可见性。",
+      "强配置后若嵌套隔离任务上下文切换/局部性仍主导，研究队列布局与调度，保留取消/异常传播。"
+    ],
+    "correctness_oracle": "任务图确定性输出+执行计数/依赖顺序与并发上限日志，原生 task_arena 进入/attach/concurrent tests；后续 TSAN/压力测试不能替代输出检查。",
+    "offline_dependencies": "C++/CMake/Threads，按绑定功能固定 hwloc 等依赖与测试框架；未构建。",
+    "license_observation": "根 Apache-2.0 已存，专门 exception/第三方条款按完整发行包核查，未完成审计。",
+    "architecture_risk": "原子/内存序、拓扑与 oversubscription 在 ARM/x86 不同，独立资源上限校准。",
+    "official_context": [
+      "https://uxlfoundation.github.io/oneTBB/main/tbb_userguide/Controlling_Chunking_os.html"
+    ],
+    "revision": "885b7813d38de698a9942e5026ad1bd9d16125d9",
+    "evidence": [
+      {
+        "path": "src/tbb/arena.cpp",
+        "line": 364,
+        "claim": "arena 维护局部、FIFO、resume 等既有任务检查",
+        "url": "https://github.com/uxlfoundation/oneTBB/blob/885b7813d38de698a9942e5026ad1bd9d16125d9/src/tbb/arena.cpp#L364"
+      },
+      {
+        "path": "src/tbb/arena.cpp",
+        "line": 378,
+        "claim": "已有任务池状态与 worker demand 回收",
+        "url": "https://github.com/uxlfoundation/oneTBB/blob/885b7813d38de698a9942e5026ad1bd9d16125d9/src/tbb/arena.cpp#L378"
+      },
+      {
+        "path": "src/tbb/task_dispatcher.cpp",
+        "line": 31,
+        "claim": "spawn 设置上下文与隔离标记",
+        "url": "https://github.com/uxlfoundation/oneTBB/blob/885b7813d38de698a9942e5026ad1bd9d16125d9/src/tbb/task_dispatcher.cpp#L31"
+      },
+      {
+        "path": "test/tbb/test_task_arena.cpp",
+        "line": 1908,
+        "claim": "原生并发 arena 测试",
+        "url": "https://github.com/uxlfoundation/oneTBB/blob/885b7813d38de698a9942e5026ad1bd9d16125d9/test/tbb/test_task_arena.cpp#L1908"
+      }
+    ],
+    "priority": "hold_until_baseline",
+    "status": "source_grounded_material_candidate_not_task",
+    "card": "cards/63_onetbb.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "baseline_measured": false,
+    "reward_endpoints_measured": false,
+    "edgebench_anchors": [
+      "exchange_core_throughput",
+      "vliw_kernel_optimization"
+    ]
+  },
+  {
+    "id": "71_fd",
+    "repo": "sharkdp/fd",
+    "route": "M5",
+    "title": "fd 查找、筛选与批量执行的行为兼容实现",
+    "scope": "完整限定工作流：多 root 目录遍历→ignore/隐藏/类型/regex 筛选→NUL/格式输出→占位符批量执行→退出码与副作用；不是单个 flag。",
+    "existing_capability": "现有 fd 以 ignore 并行遍历、批次 channel 和 exec job/batch 连接整个流程；输出可能从缓冲排序转为流式，不能全局假定排序。",
+    "proposed_gap": "拟为其他实现方式建立上述工作流的兼容合同，不声称上游缺失；全部 fd 选项不是当前已锁定范围。",
+    "scenarios": [
+      "嵌套 ignore/hidden/symlink 与多个 root",
+      "空格/换行/前导减号路径的 NUL 输出和 exec 占位符",
+      "批量大小/多命令/子命令失败的参数、退出码和文件副作用"
+    ],
+    "cheap_baseline": "成熟 regex/ignore/walk/process 库和普通管道组合先试；合法工具/包装如能完成合同即否证难题，不在事后禁库或单加隐藏限制。",
+    "first_probe": "先做冻结上游完整旅程差分与最小合法组合；顺序按接口约定规范化，同时保留逐次 argv/副作用；若薄封装就足够，换范围/项目。",
+    "remaining_work_hypotheses": [
+      "若正常库仍不足，统一字节路径/ignore precedence 与输出格式，跨 walk/filter/serializer 实现兼容。",
+      "若进程组合仍不足，补齐 exec 占位符、参数上限 batching、输出隔离和失败聚合的统一语义。"
+    ],
+    "correctness_oracle": "冻结 fd+独立文件树清单；记录子进程 argv、stdout/stderr、exit 和写入文件；不强行比较非确定顺序；原生 exec tests 为种子，独立新 fixture。",
+    "offline_dependencies": "Rust 1.90/edition2024 与 Cargo.lock 依赖 vendor；测试使用的外部 helper 需固定离线版本。",
+    "license_observation": "Cargo.toml 声明 MIT OR Apache-2.0，根两份许可已存，依赖另核。",
+    "architecture_risk": "POSIX bytes/symlink 与 Windows 路径不同，先固定 Linux；ARM 构建/进程上限另验。",
+    "official_context": [
+      "https://github.com/sharkdp/fd",
+      "https://github.com/sharkdp/fd/blob/master/doc/fd.1"
+    ],
+    "revision": "14dcd92fb76ca0ebc2e82671a275f67c790d25fc",
+    "evidence": [
+      {
+        "path": "src/walk.rs",
+        "line": 15,
+        "claim": "已有成熟并行遍历库",
+        "url": "https://github.com/sharkdp/fd/blob/14dcd92fb76ca0ebc2e82671a275f67c790d25fc/src/walk.rs#L15"
+      },
+      {
+        "path": "src/walk.rs",
+        "line": 27,
+        "claim": "已有缓冲/流式输出模式",
+        "url": "https://github.com/sharkdp/fd/blob/14dcd92fb76ca0ebc2e82671a275f67c790d25fc/src/walk.rs#L27"
+      },
+      {
+        "path": "src/exec/job.rs",
+        "line": 10,
+        "claim": "逐结果执行并合并退出码",
+        "url": "https://github.com/sharkdp/fd/blob/14dcd92fb76ca0ebc2e82671a275f67c790d25fc/src/exec/job.rs#L10"
+      },
+      {
+        "path": "src/exec/job.rs",
+        "line": 45,
+        "claim": "已有批量执行路径",
+        "url": "https://github.com/sharkdp/fd/blob/14dcd92fb76ca0ebc2e82671a275f67c790d25fc/src/exec/job.rs#L45"
+      },
+      {
+        "path": "tests/tests.rs",
+        "line": 1974,
+        "claim": "原生占位符执行测试",
+        "url": "https://github.com/sharkdp/fd/blob/14dcd92fb76ca0ebc2e82671a275f67c790d25fc/tests/tests.rs#L1974"
+      }
+    ],
+    "priority": "scope_probe",
+    "status": "source_grounded_material_candidate_not_task",
+    "card": "cards/71_fd.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "baseline_measured": false,
+    "reward_endpoints_measured": false,
+    "edgebench_anchors": [
+      "git_rewrite_in_zig"
+    ]
+  },
+  {
+    "id": "72_yq",
+    "repo": "mikefarah/yq",
+    "route": "M5",
+    "title": "yq 多文档配置更新与可读输出兼容",
+    "scope": "完整限定工作流：多文档 YAML 读入→路径/递归选择→上下文相关赋值/删除/合并→注释/anchor/style 输出→原位文件更新或 stdout；具体表达式子集先锁定。",
+    "existing_capability": "已有可写/只读 context、相对赋值按子节点反向更新、YAML anchor map 与 leading-content 处理；不是基本 YAML 读写。",
+    "proposed_gap": "拟构造行为兼容实现，非上游功能缺失；必须先确认成熟 YAML/表达式库或合法工具组合是否足够。",
+    "scenarios": [
+      "多文档选择与缺失节点创建/相对更新",
+      "anchor/alias/merge-key 与递归更新顺序",
+      "注释、标量 tag/style、非法表达式下 stdout/原位文件效果"
+    ],
+    "cheap_baseline": "成熟 YAML AST 和表达式/查询库，允许合法工具组合；不得事后禁第三方 parser 维持难度。上游白空格只对已承诺部分精确比较。",
+    "first_probe": "先固定 SHA 的表达式语义/格式合同与文件副作用，跑多操作完整旅程差分；薄封装通过即换范围，不靠无依据字节保真要求加难。",
+    "remaining_work_hypotheses": [
+      "若 AST 库不覆盖全合同，统一选择上下文、node identity/alias 与 children-first 变更的语义。",
+      "若 parser+formatter 仍不足，协同 encoder、document metadata 和更新后 style/comment 保留；跨多文档验证。"
+    ],
+    "correctness_oracle": "冻结 yq+独立解析后树/alias 验证+对已承诺格式的精确文本；比较原位文件前后、退出码和错误；原生 assign scenarios 加新组合。",
+    "offline_dependencies": "固定 Go 版本、go.mod/go.sum module cache；YAML v4 rc 等依赖预置并锁定；只取得片段。",
+    "license_observation": "根 MIT 已存；Go 依赖及文档再分发另审。",
+    "architecture_risk": "主要差异是文件系统/换行/时间和整数处理，不将 ARM 运行视为自动等价；固定 Linux 语义。",
+    "official_context": [
+      "https://mikefarah.gitbook.io/yq/operators",
+      "https://mikefarah.gitbook.io/yq/operators/anchor-and-alias-operators"
+    ],
+    "revision": "a814ff5166040ec745a96bddd79ee31c3a548e83",
+    "evidence": [
+      {
+        "path": "pkg/yqlib/operator_assign.go",
+        "line": 32,
+        "claim": "绝对/相对赋值分支与 children-first 更新",
+        "url": "https://github.com/mikefarah/yq/blob/a814ff5166040ec745a96bddd79ee31c3a548e83/pkg/yqlib/operator_assign.go#L32"
+      },
+      {
+        "path": "pkg/yqlib/decoder_yaml.go",
+        "line": 30,
+        "claim": "解码器保留 anchor map 的现有行为",
+        "url": "https://github.com/mikefarah/yq/blob/a814ff5166040ec745a96bddd79ee31c3a548e83/pkg/yqlib/decoder_yaml.go#L30"
+      },
+      {
+        "path": "pkg/yqlib/decoder_yaml.go",
+        "line": 42,
+        "claim": "已有 leading-content 处理",
+        "url": "https://github.com/mikefarah/yq/blob/a814ff5166040ec745a96bddd79ee31c3a548e83/pkg/yqlib/decoder_yaml.go#L42"
+      },
+      {
+        "path": "pkg/yqlib/operator_assign_test.go",
+        "line": 12,
+        "claim": "原生表达式场景含创建、alias 与自引用",
+        "url": "https://github.com/mikefarah/yq/blob/a814ff5166040ec745a96bddd79ee31c3a548e83/pkg/yqlib/operator_assign_test.go#L12"
+      }
+    ],
+    "priority": "scope_probe",
+    "status": "source_grounded_material_candidate_not_task",
+    "card": "cards/72_yq.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "baseline_measured": false,
+    "reward_endpoints_measured": false,
+    "edgebench_anchors": [
+      "git_rewrite_in_zig",
+      "libexpat_x86_assembly"
+    ]
+  },
+  {
+    "id": "73_restic",
+    "repo": "restic/restic",
+    "route": "M5",
+    "title": "restic 本地仓库快照备份与恢复互操作",
+    "scope": "完整限定工作流：本地仓库初始化→备份→修改后增量快照→列出/选择快照→包含/排除选择恢复→内容/元数据校验；先限定本地后端和格式版本。",
+    "existing_capability": "已有 parent-tree 复用、chunker/blob uploader 与并行文件/树保存；restore 有 overwrite 策略和 include/exclude 合同。",
+    "proposed_gap": "拟构造同格式/行为的兼容客户端，不声称上游缺失；需先确认库/合法现成工具能否已满足完整工作流。",
+    "scenarios": [
+      "未变/改名/局部修改文件跨两个快照恢复",
+      "hardlink/symlink/权限/空目录和选择恢复",
+      "中断/失败输入后原仓库仍可读、已有快照和已提交数据可恢复"
+    ],
+    "cheap_baseline": "正常库、格式/加密/分块组件及合法工具包装先试；允许合理已有组件。若调用现成 restic 即满足合同，撤销或在出题前重新定义真实交付，不事后禁工具。",
+    "first_probe": "先固定仓库格式和 CLI 子集，交叉打开上游/候选写出的仓库并做增量→恢复旅程；简单组合足够或互操作范围无法离线明确则 hold。",
+    "remaining_work_hypotheses": [
+      "若现有组件仍不足，协调分块/内容寻址、索引、pack 与 snapshot tree，保证跨客户端读取和增量复用。",
+      "若流程组合仍不足，协同恢复元数据、overwrite、选择规则及失败清理，保持旧快照和仓库一致。"
+    ],
+    "correctness_oracle": "冻结上游互读+独立源目录字节/元数据清单、snapshot 引用可达检查；不要求随机加密 ciphertext/生成时间逐字节一致；原生 backup/restore integration tests 仅作种子。",
+    "offline_dependencies": "当前 go.mod 要 Go 1.25.8/toolchain1.25.10，module cache 与本地后端测试素材需预置；不以云账号或网络耗时制造难度。",
+    "license_observation": "根 BSD-2-Clause 已存；加密/存储等依赖许可未全审。",
+    "architecture_risk": "Linux 文件元数据、hardlink/symlink与 Windows 语义不同；先固定 Linux，ARM 加密/分块及格式互读另验。",
+    "official_context": [
+      "https://restic.readthedocs.io/en/stable/050_restore.html",
+      "https://github.com/restic/restic/blob/master/doc/design.rst"
+    ],
+    "revision": "9da3b87b07706956e8dc5fd5cb259b99ec940f51",
+    "evidence": [
+      {
+        "path": "internal/archiver/archiver.go",
+        "line": 864,
+        "claim": "已有 chunker/uploader 与文件树 worker",
+        "url": "https://github.com/restic/restic/blob/9da3b87b07706956e8dc5fd5cb259b99ec940f51/internal/archiver/archiver.go#L864"
+      },
+      {
+        "path": "internal/archiver/archiver.go",
+        "line": 883,
+        "claim": "Snapshot 复用 parent tree 保存",
+        "url": "https://github.com/restic/restic/blob/9da3b87b07706956e8dc5fd5cb259b99ec940f51/internal/archiver/archiver.go#L883"
+      },
+      {
+        "path": "internal/restorer/restorer.go",
+        "line": 54,
+        "claim": "恢复 overwrite 合同已有多种策略",
+        "url": "https://github.com/restic/restic/blob/9da3b87b07706956e8dc5fd5cb259b99ec940f51/internal/restorer/restorer.go#L54"
+      },
+      {
+        "path": "cmd/restic/cmd_restore_integration_test.go",
+        "line": 102,
+        "claim": "原生集成测试连接 backup/check/选择 restore",
+        "url": "https://github.com/restic/restic/blob/9da3b87b07706956e8dc5fd5cb259b99ec940f51/cmd/restic/cmd_restore_integration_test.go#L102"
+      },
+      {
+        "path": "doc/design.rst",
+        "line": 35,
+        "claim": "仓库格式要求原子写入，且随机 IV 使加密文件字节不适合作为等价条件",
+        "url": "https://github.com/restic/restic/blob/9da3b87b07706956e8dc5fd5cb259b99ec940f51/doc/design.rst#L35"
+      }
+    ],
+    "priority": "scope_probe",
+    "status": "source_grounded_material_candidate_not_task",
+    "card": "cards/73_restic.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "baseline_measured": false,
+    "reward_endpoints_measured": false,
+    "edgebench_anchors": [
+      "git_rewrite_in_zig"
+    ]
+  }
+]

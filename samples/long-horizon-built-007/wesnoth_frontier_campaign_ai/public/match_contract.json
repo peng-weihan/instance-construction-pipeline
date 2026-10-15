@@ -1,0 +1,40 @@
+{
+  "engine_version": "1.18.0",
+  "era": "era_default",
+  "faction_pairings": [
+    [
+      "Loyalists",
+      "Rebels"
+    ],
+    [
+      "Rebels",
+      "Northerners"
+    ]
+  ],
+  "canonical_feedback": {
+    "maps": 3,
+    "pairings": 2,
+    "paired_seats": 2,
+    "seeds": [
+      17
+    ],
+    "games": 12
+  },
+  "audit": {
+    "maps": 3,
+    "pairings": 2,
+    "paired_seats": 2,
+    "seeds": [
+      29,
+      61,
+      101
+    ],
+    "games": 36
+  },
+  "turn_cap": 45,
+  "per_game_wall_cap_seconds": 40,
+  "feedback_wall_cap_target_seconds": 600,
+  "timeout_policy": "whole-game wall-time budget exceeded: forfeit, score zero; sandbox/engine result protocol failure: verifier_error",
+  "candidate_interface": "pure Lua planner selects immutable legal action IDs; trusted CA executes",
+  "faction_ids_checked_in_source": true
+}

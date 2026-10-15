@@ -1,0 +1,13 @@
+ACTUAL_REFERENCE_IMPORT /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/solution/reference/openapi_python_client/__init__.py
+.........ssss........................................................... [ 22%]
+........................................................................ [ 44%]
+........................................................................ [ 66%]
+........................................................................ [ 88%]
+.....................................                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1345
+  /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1345: PytestAssertRewriteWarning: Module already imported so cannot be rewritten; anyio
+    self._mark_plugins_for_rewrite(hook, disable_autoload)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+321 passed, 4 skipped, 1 warning in 0.61s

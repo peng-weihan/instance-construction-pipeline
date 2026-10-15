@@ -1,0 +1,8 @@
+{
+  "script": "scripts/construct_category_samples.py",
+  "sha256": "339f48c2bffd8151aa7addaf684c8f108421a00b86aed9d4dba3c9fac194850a",
+  "constructors": 6,
+  "external_model_runs": 0,
+  "runtime_validation_runs": 0,
+  "status": "constructed_unverified"
+}

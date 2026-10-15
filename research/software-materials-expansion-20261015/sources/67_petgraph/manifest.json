@@ -1,0 +1,75 @@
+{
+  "repo": "petgraph/petgraph",
+  "revision": "b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495",
+  "resolved_utc": "2026-10-15T13:30:29.181739+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:31:13.190410+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "258d3f6e806fdc049f97422ccf40b3f50b4cb614ed494aea733d35861cdcf252",
+    "truncated": false,
+    "blob_count": 181
+  },
+  "files_acquired": [
+    {
+      "path": "Cargo.toml",
+      "bytes": 2329,
+      "sha256": "d56215e22a374effe0dade331075dae66508bd9948bf999b32b1a592d58333ce",
+      "url": "https://github.com/petgraph/petgraph/blob/b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495/Cargo.toml"
+    },
+    {
+      "path": "LICENSE-APACHE",
+      "bytes": 10847,
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "url": "https://github.com/petgraph/petgraph/blob/b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495/LICENSE-APACHE"
+    },
+    {
+      "path": "LICENSE-MIT",
+      "bytes": 1043,
+      "sha256": "7576269ea71f767b99297934c0b2367532690f8c4badc695edf8e04ab6a1e545",
+      "url": "https://github.com/petgraph/petgraph/blob/b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495/LICENSE-MIT"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6168,
+      "sha256": "0f60a09e7e3b66e1a61474fadfa70b8f0b4cac08005a10127307518a153d909e",
+      "url": "https://github.com/petgraph/petgraph/blob/b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495/README.md"
+    },
+    {
+      "path": "crates/petgraph/src/graph_impl/stable_graph/mod.rs",
+      "bytes": 84792,
+      "sha256": "b0c9dcde61203c973eccb0b0308f91f2d990e1d04664aeb78d145bfcd444afb7",
+      "url": "https://github.com/petgraph/petgraph/blob/b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495/crates/petgraph/src/graph_impl/stable_graph/mod.rs"
+    },
+    {
+      "path": "crates/petgraph/src/graph_impl/stable_graph/serialization.rs",
+      "bytes": 8526,
+      "sha256": "6c147d49fc011e60167ec8707e223bc36e424f03c1f98d8e9c3bf927a338482d",
+      "url": "https://github.com/petgraph/petgraph/blob/b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495/crates/petgraph/src/graph_impl/stable_graph/serialization.rs"
+    },
+    {
+      "path": "crates/petgraph/src/visit/traversal.rs",
+      "bytes": 14558,
+      "sha256": "e1316bdb82437ac8a9dbfc50ee871cfbe493c1c4f5ffa952a697dd905cfb8132",
+      "url": "https://github.com/petgraph/petgraph/blob/b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495/crates/petgraph/src/visit/traversal.rs"
+    },
+    {
+      "path": "crates/petgraph/tests/quickcheck.rs",
+      "bytes": 61370,
+      "sha256": "6617f36479f3f9685f24f69dc96152f6fd9f8c22124537bd7410d92a59d52710",
+      "url": "https://github.com/petgraph/petgraph/blob/b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495/crates/petgraph/tests/quickcheck.rs"
+    },
+    {
+      "path": "crates/petgraph/tests/stable_graph.rs",
+      "bytes": 37648,
+      "sha256": "b60cf80ade88333ff43b5bf7801bf55d11bf6b579018e1e9f27989ffdb50ea2a",
+      "url": "https://github.com/petgraph/petgraph/blob/b3eaf3a73f3ac7347b17bec3ba009f01eb8d2495/crates/petgraph/tests/stable_graph.rs"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

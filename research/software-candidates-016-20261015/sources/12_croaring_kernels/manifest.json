@@ -1,0 +1,72 @@
+{
+  "id": "12_croaring_kernels",
+  "repo": "RoaringBitmap/CRoaring",
+  "family": "correctness_constrained_performance",
+  "new_source": true,
+  "title": "混合容器的bitmap操作与压缩优化",
+  "files": [
+    "README.md",
+    "src/roaring.c",
+    "src/containers/containers.c",
+    "tests/mixed_container_unit.c"
+  ],
+  "revision": "f2d9c6d3affaed28c8a899e96d85334ce4ae35af",
+  "retrieved_utc": "2026-10-15T09:20:44.650371+00:00",
+  "files_acquired": [
+    {
+      "path": "README.md",
+      "bytes": 57285,
+      "sha256": "0a2508ff3e9583764b98b037858737247c26f5e5dfb9e733c1f6a26db076489b",
+      "url": "https://github.com/RoaringBitmap/CRoaring/blob/f2d9c6d3affaed28c8a899e96d85334ce4ae35af/README.md"
+    },
+    {
+      "path": "src/roaring.c",
+      "bytes": 142362,
+      "sha256": "cbe60d24b7574d4336dfe2827a172e27f8badeaec8e0040d409c26b7888c5cae",
+      "url": "https://github.com/RoaringBitmap/CRoaring/blob/f2d9c6d3affaed28c8a899e96d85334ce4ae35af/src/roaring.c"
+    },
+    {
+      "path": "src/containers/containers.c",
+      "bytes": 45463,
+      "sha256": "6cfc74398188abe1771df55c6ea8d56a21de0aa4421df2dc3d0deaa3c8b77cc9",
+      "url": "https://github.com/RoaringBitmap/CRoaring/blob/f2d9c6d3affaed28c8a899e96d85334ce4ae35af/src/containers/containers.c"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 12609,
+      "sha256": "f8e1f16a3f22e001b44ae9b12625420b9a0c4dbb7ec0e9f83b6a3d38a9525411",
+      "url": "https://github.com/RoaringBitmap/CRoaring/blob/f2d9c6d3affaed28c8a899e96d85334ce4ae35af/LICENSE"
+    },
+    {
+      "path": "tests/mixed_container_unit.c",
+      "bytes": 74080,
+      "sha256": "0ae2420821772c84d400b35e573c9e288247e03643f35c3e91fe9c69af846b98",
+      "url": "https://github.com/RoaringBitmap/CRoaring/blob/f2d9c6d3affaed28c8a899e96d85334ce4ae35af/tests/mixed_container_unit.c"
+    },
+    {
+      "path": "tests/robust_deserialization_unit.c",
+      "bytes": 14735,
+      "sha256": "ffd3eb2f5b2cd32c4f0894c17ac512cc99a4d4aa87876d16c670409803d9cce9",
+      "url": "https://github.com/RoaringBitmap/CRoaring/blob/f2d9c6d3affaed28c8a899e96d85334ce4ae35af/tests/robust_deserialization_unit.c"
+    }
+  ],
+  "missing_paths": [
+    "LICENSE.txt",
+    "LICENSE.md",
+    "COPYING",
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "runtime_validation": false,
+  "six_hour_difficulty_verified": false,
+  "tree_manifest": {
+    "path": "git-tree.json",
+    "sha256": "4715b3bdc753c97e7a9d91ac1c8d06a1d9956e9907e28d48b8a38d1fa7078f7f",
+    "blob_count": 1988,
+    "truncated": false
+  },
+  "resolved_initial_404_paths": {
+    "tests/toplevel.c": "tests/mixed_container_unit.c"
+  },
+  "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+}

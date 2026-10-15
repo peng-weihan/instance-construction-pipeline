@@ -1,0 +1,40 @@
+{
+  "category": "packing",
+  "task": "samples/long-horizon-built-005/industrial_nesting_improvement",
+  "mode": "trusted_component_host_validation",
+  "docker_executed": false,
+  "model_runs": 0,
+  "six_hour_runs": 0,
+  "started_unix": 1791983857.1438642,
+  "task_manifest_sha256": "086a04327c5883903e1432117a8aec9477f89c0ed3a813e19d83416239dcf5bd",
+  "checks": [
+    {
+      "name": "touching_is_valid",
+      "pass": true,
+      "geometry": {
+        "length": 2.0,
+        "area_lower_bound": 1.0,
+        "pieces": 2
+      }
+    },
+    {
+      "name": "overlap_rejected",
+      "pass": true,
+      "geometry": null
+    },
+    {
+      "name": "boundary_rejected",
+      "pass": true,
+      "geometry": null
+    },
+    {
+      "name": "missing_piece_rejected",
+      "pass": true,
+      "geometry": null
+    }
+  ],
+  "solver_built": false,
+  "scope": "independent geometry component on designed controls",
+  "status": "passed",
+  "finished_unix": 1791983859.637836
+}

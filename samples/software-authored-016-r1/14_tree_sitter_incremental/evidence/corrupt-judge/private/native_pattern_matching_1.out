@@ -1,0 +1,104 @@
+@initial
+0 module 1 0 0 0 0 0 126 0 0 4 0
+field -
+1 match_statement 1 0 0 0 0 0 125 0 0 3 45
+field -
+2 match 0 0 0 0 0 0 5 0 0 0 5
+field subject
+2 call 1 0 0 0 0 6 21 0 6 0 21
+field function
+3 attribute 1 0 0 0 0 6 19 0 6 0 19
+field object
+4 identifier 1 0 0 0 0 6 13 0 6 0 13
+field -
+4 . 0 0 0 0 0 13 14 0 13 0 14
+field attribute
+4 identifier 1 0 0 0 0 14 19 0 14 0 19
+field arguments
+3 argument_list 1 0 0 0 0 19 21 0 19 0 21
+field -
+4 ( 0 0 0 0 0 19 20 0 19 0 20
+field -
+4 ) 0 0 0 0 0 20 21 0 20 0 21
+field -
+2 : 0 0 0 0 0 21 22 0 21 0 22
+field body
+2 block 1 0 0 0 0 22 125 0 22 3 45
+field alternative
+3 case_clause 1 0 0 0 0 27 125 1 4 3 45
+field -
+4 case 0 0 0 0 0 27 31 1 4 1 8
+field -
+4 case_pattern 1 0 0 0 0 32 50 1 9 1 27
+field -
+5 list_pattern 1 0 0 0 0 32 50 1 9 1 27
+field -
+6 [ 0 0 0 0 0 32 33 1 9 1 10
+field -
+6 case_pattern 1 0 0 0 0 33 39 1 10 1 16
+field -
+7 string 1 0 0 0 0 33 39 1 10 1 16
+field -
+8 string_start 1 0 0 0 0 33 34 1 10 1 11
+field -
+8 string_content 1 0 0 0 0 34 38 1 11 1 15
+field -
+8 string_end 1 0 0 0 0 38 39 1 15 1 16
+field -
+6 , 0 0 0 0 0 39 40 1 16 1 17
+field -
+6 case_pattern 1 0 0 0 0 41 49 1 18 1 26
+field -
+7 splat_pattern 1 0 0 0 0 41 49 1 18 1 26
+field -
+8 * 0 0 0 0 0 41 42 1 18 1 19
+field -
+8 identifier 1 0 0 0 0 42 49 1 19 1 26
+field -
+6 ] 0 0 0 0 0 49 50 1 26 1 27
+field -
+4 : 0 0 0 0 0 50 51 1 27 1 28
+field consequence
+4 block 1 0 0 0 0 60 125 2 8 3 45
+field -
+5 for_statement 1 0 0 0 0 60 125 2 8 3 45
+field -
+6 for 0 0 0 0 0 60 63 2 8 2 11
+field left
+6 identifier 1 0 0 0 0 64 67 2 12 2 15
+field -
+6 in 0 0 0 0 0 68 70 2 16 2 18
+field right
+6 identifier 1 0 0 0 0 71 78 2 19 2 26
+field -
+6 : 0 0 0 0 0 78 79 2 26 2 27
+field body
+6 block 1 0 0 0 0 92 125 3 12 3 45
+field -
+7 expression_statement 1 0 0 0 0 92 125 3 12 3 45
+field -
+8 call 1 0 0 0 0 92 125 3 12 3 45
+field function
+9 attribute 1 0 0 0 0 92 106 3 12 3 26
+field object
+10 identifier 1 0 0 0 0 92 101 3 12 3 21
+field -
+10 . 0 0 0 0 0 101 102 3 21 3 22
+field attribute
+10 identifier 1 0 0 0 0 102 106 3 22 3 26
+field arguments
+9 argument_list 1 0 0 0 0 106 125 3 26 3 45
+field -
+10 ( 0 0 0 0 0 106 107 3 26 3 27
+field -
+10 identifier 1 0 0 0 0 107 110 3 27 3 30
+field -
+10 , 0 0 0 0 0 110 111 3 30 3 31
+field -
+10 identifier 1 0 0 0 0 112 124 3 32 3 44
+field -
+10 ) 0 0 0 0 0 124 125 3 44 3 45
+@end
+@sexp
+(module (match_statement (call (attribute (identifier) (identifier)) (argument_list)) (block (case_clause (case_pattern (list_pattern (case_pattern (string (string_start) (string_content) (string_end))) (case_pattern (splat_pattern (identifier))))) (block (for_statement (identifier) (identifier) (block (expression_statement (call (attribute (identifier) (identifier)) (argument_list (identifier) (identifier)))))))))))
+@end

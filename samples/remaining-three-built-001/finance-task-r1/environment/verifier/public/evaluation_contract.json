@@ -1,0 +1,27 @@
+{
+  "public_years": [
+    2012,
+    2013
+  ],
+  "feedback_years": [
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019
+  ],
+  "audit_years": [
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "configurations_per_year": 2,
+  "calendar_visible_to_policy": false,
+  "source_prices_unchanged": true,
+  "formula_constants_unchanged": true,
+  "baseline": "published shrinkage covariance and constrained allocation policy"
+}

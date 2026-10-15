@@ -1,0 +1,40 @@
+{
+  "task_id": "microrts_resource_frontier",
+  "category": "Interactive Games & Simulators",
+  "title": "资源竞争与瓶颈地形中的长期策略机器人",
+  "status": "constructed_unverified",
+  "original_anchor": "wesnoth_tactical_ai",
+  "sources": [
+    {
+      "repository": "https://github.com/santiontanon/microrts.git",
+      "commit": "72f2fd94039adf3323f4591947e98661a572f927",
+      "files": [
+        {
+          "path": "src/ai/abstraction/WorkerRush.java",
+          "sha256": "5154c7e865827bf7098728a1f217386abd75b7631b7df842f2399722a61d5152"
+        },
+        {
+          "path": "src/rts/GameState.java",
+          "sha256": "d720df4b7cf15354d64cddd34ea4cc58982bc1deb4030a03b383cf2cb597243c"
+        },
+        {
+          "path": "maps/16x16/basesWorkers16x16.xml",
+          "sha256": "a4337f80097a4f23187c8806fa07ce107c72a81162597a0fad0f93c25413e246"
+        }
+      ],
+      "acquired": true,
+      "runtime_verified": false
+    }
+  ],
+  "construction_method": "fixed real simulator and API -> original symmetric maps -> bot engineering with opponent portfolio and paired seats",
+  "authoring": {
+    "mode": "interactive_agent_source_inspection_and_scripted_transformation",
+    "independent_cli_model_called": false
+  },
+  "similarity_claim": "mechanism-level design hypothesis, not empirically same-distribution",
+  "known_gap": "microRTS is a different engine from Wesnoth; bot-development mechanism is shared but exact gameplay distribution is not.",
+  "runtime_validation": "deferred_by_user",
+  "difficulty_calibrated": false,
+  "accepted": false,
+  "redistribution_review": "See SOURCE_TO_TASK.md; repository license does not automatically license all third-party data."
+}

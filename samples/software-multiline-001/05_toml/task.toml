@@ -1,0 +1,32 @@
+schema_version = "1.4"
+artifacts = ["/home/workspace/toml-string-recovery/submission"]
+[metadata]
+name = "toml-string-recovery"
+reward_type = "bounded_continuous"
+reference_mode = "oracle"
+status = "hold_current_profile_for_long_horizon"
+score_formula = "mean of fixed seven capability-group pass fractions"
+work_build_context = "environment"
+judge_build_context = "verifier"
+[agent]
+timeout_sec = 21600
+network_mode = "no-network"
+[environment]
+docker_image = "edgebench/toml-string-recovery-work:pilot"
+workdir = "/home/workspace/toml-string-recovery"
+network_mode = "no-network"
+cpus = 2
+memory_mb = 4096
+storage_mb = 4096
+build_timeout_sec = 1800
+[verifier]
+timeout_sec = 600
+network_mode = "no-network"
+environment_mode = "separate"
+[verifier.environment]
+docker_image = "edgebench/toml-string-recovery-judge:pilot"
+workdir = "/home/workspace/toml-string-recovery"
+network_mode = "no-network"
+cpus = 2
+memory_mb = 4096
+storage_mb = 4096

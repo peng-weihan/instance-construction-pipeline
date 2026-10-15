@@ -1,0 +1,192 @@
+{
+  "data_source": "yfinance",
+  "n_days": 5083,
+  "date_range": [
+    "2006-06-01",
+    "2026-08-14"
+  ],
+  "asset_classes": {
+    "SPY": "US Large Cap",
+    "IWM": "US Small Cap",
+    "EFA": "Intl Developed",
+    "EEM": "Emerging Mkts",
+    "TLT": "Long Treasuries",
+    "GLD": "Gold",
+    "VNQ": "US REITs",
+    "DBC": "Commodities"
+  },
+  "portfolio_weights": {
+    "Equal Weight": {
+      "SPY": 0.125,
+      "IWM": 0.125,
+      "EFA": 0.125,
+      "EEM": 0.125,
+      "TLT": 0.125,
+      "GLD": 0.125,
+      "VNQ": 0.125,
+      "DBC": 0.125
+    },
+    "Min Variance": {
+      "SPY": 0.2524,
+      "IWM": 0.0,
+      "EFA": 0.0,
+      "EEM": 0.0,
+      "TLT": 0.4884,
+      "GLD": 0.0905,
+      "VNQ": 0.0,
+      "DBC": 0.1686
+    },
+    "Max Sharpe": {
+      "SPY": 0.4129,
+      "IWM": 0.0,
+      "EFA": 0.0,
+      "EEM": 0.0,
+      "TLT": 0.3102,
+      "GLD": 0.2769,
+      "VNQ": 0.0,
+      "DBC": 0.0
+    },
+    "Risk Parity": {
+      "SPY": 0.0955,
+      "IWM": 0.0764,
+      "EFA": 0.0811,
+      "EEM": 0.0639,
+      "TLT": 0.3477,
+      "GLD": 0.1421,
+      "VNQ": 0.0665,
+      "DBC": 0.1268
+    }
+  },
+  "portfolio_stats": {
+    "Equal Weight": {
+      "ann_return": 0.0887,
+      "ann_vol": 0.1521,
+      "sharpe": 0.583
+    },
+    "Min Variance": {
+      "ann_return": 0.0687,
+      "ann_vol": 0.0887,
+      "sharpe": 0.7751
+    },
+    "Max Sharpe": {
+      "ann_return": 0.0953,
+      "ann_vol": 0.1006,
+      "sharpe": 0.9471
+    },
+    "Risk Parity": {
+      "ann_return": 0.0752,
+      "ann_vol": 0.1049,
+      "sharpe": 0.7165
+    }
+  },
+  "var_cvar": {
+    "Max Sharpe": {
+      "Parametric": {
+        "var": 0.010048442926219803,
+        "cvar": 0.012697223759291939
+      },
+      "Historical": {
+        "var": 0.009712316975835522,
+        "cvar": 0.01459337132678766
+      },
+      "Monte Carlo": {
+        "var": 0.010026223953006693,
+        "cvar": 0.012686612416034792
+      }
+    },
+    "Risk Parity": {
+      "Parametric": {
+        "var": 0.010574770891216377,
+        "cvar": 0.013336989534368845
+      },
+      "Historical": {
+        "var": 0.010044627972041371,
+        "cvar": 0.015366842852395243
+      },
+      "Monte Carlo": {
+        "var": 0.01057027110623932,
+        "cvar": 0.013334993876870819
+      }
+    }
+  },
+  "backtest_stats": {
+    "Equal Weight": {
+      "cagr": 0.0724,
+      "ann_vol": 0.15,
+      "sharpe": 0.5411,
+      "max_drawdown": -0.4258,
+      "total_turnover": 5.0632
+    },
+    "Min Variance": {
+      "cagr": 0.0717,
+      "ann_vol": 0.089,
+      "sharpe": 0.8228,
+      "max_drawdown": -0.2274,
+      "total_turnover": 17.7487
+    },
+    "Max Sharpe": {
+      "cagr": 0.0821,
+      "ann_vol": 0.1319,
+      "sharpe": 0.6642,
+      "max_drawdown": -0.3356,
+      "total_turnover": 51.9173
+    },
+    "Risk Parity": {
+      "cagr": 0.0611,
+      "ann_vol": 0.1234,
+      "sharpe": 0.5422,
+      "max_drawdown": -0.4049,
+      "total_turnover": 12.2368
+    }
+  },
+  "stress_tests": {
+    "Equal Weight": {
+      "2008 Global Financial Crisis": {
+        "cumulative_return": -0.3714,
+        "max_drawdown": -0.3745,
+        "n_trading_days": 130
+      },
+      "2020 COVID Crash": {
+        "cumulative_return": -0.2522,
+        "max_drawdown": -0.257,
+        "n_trading_days": 24
+      }
+    },
+    "Min Variance": {
+      "2008 Global Financial Crisis": {
+        "cumulative_return": -0.1551,
+        "max_drawdown": -0.1605,
+        "n_trading_days": 130
+      },
+      "2020 COVID Crash": {
+        "cumulative_return": -0.0731,
+        "max_drawdown": -0.1492,
+        "n_trading_days": 24
+      }
+    },
+    "Max Sharpe": {
+      "2008 Global Financial Crisis": {
+        "cumulative_return": -0.1439,
+        "max_drawdown": -0.1781,
+        "n_trading_days": 130
+      },
+      "2020 COVID Crash": {
+        "cumulative_return": -0.1143,
+        "max_drawdown": -0.1459,
+        "n_trading_days": 24
+      }
+    },
+    "Risk Parity": {
+      "2008 Global Financial Crisis": {
+        "cumulative_return": -0.2239,
+        "max_drawdown": -0.2379,
+        "n_trading_days": 130
+      },
+      "2020 COVID Crash": {
+        "cumulative_return": -0.1394,
+        "max_drawdown": -0.1827,
+        "n_trading_days": 24
+      }
+    }
+  }
+}

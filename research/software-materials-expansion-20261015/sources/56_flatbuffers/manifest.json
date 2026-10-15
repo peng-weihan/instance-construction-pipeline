@@ -1,0 +1,63 @@
+{
+  "repo": "google/flatbuffers",
+  "revision": "b8431fbcd7a5c71817f314e18b332c0648554efa",
+  "resolved_utc": "2026-10-15T13:30:29.359300+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:31:10.855165+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "13c4c1a6ba070ae8cacd875702ae042dc6fdae1c58dc12dc43d6b3649c5e72d1",
+    "truncated": false,
+    "blob_count": 1947
+  },
+  "files_acquired": [
+    {
+      "path": "CMakeLists.txt",
+      "bytes": 24543,
+      "sha256": "92e3dea4bd8a021efccd42f16ac3b5224bbaf52d9f4cf9b4f584ad648187ab3f",
+      "url": "https://github.com/google/flatbuffers/blob/b8431fbcd7a5c71817f314e18b332c0648554efa/CMakeLists.txt"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "url": "https://github.com/google/flatbuffers/blob/b8431fbcd7a5c71817f314e18b332c0648554efa/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4861,
+      "sha256": "17dced9b5a2837987d9d99bc4eb82c2ff937fc5a3f5a5d3f7337f83bf06b2f8b",
+      "url": "https://github.com/google/flatbuffers/blob/b8431fbcd7a5c71817f314e18b332c0648554efa/README.md"
+    },
+    {
+      "path": "include/flatbuffers/verifier.h",
+      "bytes": 13516,
+      "sha256": "d7fbf583019088983af684e7d00cbfda23b759093c6501f850c1c33400559b5a",
+      "url": "https://github.com/google/flatbuffers/blob/b8431fbcd7a5c71817f314e18b332c0648554efa/include/flatbuffers/verifier.h"
+    },
+    {
+      "path": "src/idl_parser.cpp",
+      "bytes": 169444,
+      "sha256": "aa650b02871e90772d98dd84d11b558ea0dd26c74ac0746d7cab57b1157f539e",
+      "url": "https://github.com/google/flatbuffers/blob/b8431fbcd7a5c71817f314e18b332c0648554efa/src/idl_parser.cpp"
+    },
+    {
+      "path": "src/reflection.cpp",
+      "bytes": 31608,
+      "sha256": "91b6834efb7df745fc3f49fa244c609be6e97d99aebcb6b40065b1620de39b76",
+      "url": "https://github.com/google/flatbuffers/blob/b8431fbcd7a5c71817f314e18b332c0648554efa/src/reflection.cpp"
+    },
+    {
+      "path": "tests/parser_test.cpp",
+      "bytes": 41222,
+      "sha256": "8d9e3f95d3879bad4692533090c2bf1cd2425f6c763241490fdd5309ef400331",
+      "url": "https://github.com/google/flatbuffers/blob/b8431fbcd7a5c71817f314e18b332c0648554efa/tests/parser_test.cpp"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

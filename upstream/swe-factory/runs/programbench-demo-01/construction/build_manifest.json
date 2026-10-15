@@ -1,0 +1,23 @@
+{
+  "source": {
+    "commit": "d3fe8bf8d9ae6dbc489be24cd7006884dded146f",
+    "source": "/Users/raymone/Desktop/01_Research/swe-factory/runs/programbench-demo-01/source",
+    "snapshot_sha256": "3d64c3bee49aa045852b1747b959ca54b6df1aad9c10868a07dbe355e38b7dcb"
+  },
+  "command": [
+    "bash",
+    "build.sh"
+  ],
+  "binary_sha256": "a5700301ca3f369a63c9edc043fe98d3b076c538ddb6ab17d89862c9c61433c1",
+  "runtime": {
+    "backend": "host",
+    "isolated": false,
+    "image": null
+  },
+  "build_script_sha256": "00e8fb0af28c1a721f75e022bf8efbe751228c619b160c93a8275401e293e5e3",
+  "license": {
+    "path": "LICENSE",
+    "sha256": "7ed801597f085e73714fdb964dd207c23d79ce8e9638546e95ec33c157658523",
+    "reason": "Synthetic fixture created for this repository"
+  }
+}

@@ -1,0 +1,23 @@
+# 33 · Apache Avro：带 schema 演进的跨实现数据文件系统
+
+- 路线：M2 规格驱动系统；优先级 `hold`。语义丰富但现成库可直接覆盖核心交付，尚不足以成立为困难题。
+- 固定版本：[3a207fa6e87c535b95eafca4cf5a6ef524d77df2](https://github.com/apache/avro/tree/3a207fa6e87c535b95eafca4cf5a6ef524d77df2)。完整文件树未截断；源码片段及 SHA-256 见 `sources/33_avro/manifest.json`。
+- 已有能力：上游已有 schema 编译、二进制编解码、writer/reader schema resolution 和 object container；不是发现这些能力缺失。
+- 拟题完整子系统：从固定 Avro 1.12.0 规范抽取独立 starter，交付 schema 加载/命名引用、全原始/复合类型的编解码、reader-schema 投影/提升/默认值、OCF 流式读写/块跳转/错误报告及 CLI。
+- 边界：支持 null/deflate codec；不含 RPC/IDL/代码生成/全部可选 codec。alias、logical type 必须列明选项与支持集；不能把规范可选 alias 行为当成所有实现的强制一致行为。
+- starter 尚未制作；若只把多语言库包装成上述 CLI，现成实现可能已经足够，不宜通过禁止库把普通适配任务包装成长程系统开发。
+- 表示链：JSON schema → 命名类型/递归图 → writer-schema 决定字节布局 → 解码与跳过 → reader-schema 的字段映射/union 选择/默认值 → 类型化值 → codec/块边界/同步标记 → 下一块定位。
+- 源码实读：[ResolvingDecoder.cc:160](https://github.com/apache/avro/blob/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/lang/c++/impl/parsing/ResolvingDecoder.cc#L160) 按 writer 字段生成读取/跳过动作，reader 额外字段生成默认值字节与 fieldOrder；`DataFile.cc:446–486` 依 schema 选择 resolving decoder，并跨块检查 sync。
+- 官方规格实读：[固定规范源:681](https://github.com/apache/avro/blob/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/doc/content/en/docs/1.12.0/Specification/_index.md#L681) 定义递归 resolution/union 首个匹配/缺默认值错误；`:447–515` 定义 OCF、块计数/长度/sync 和 raw deflate；另核对[官网 1.12.0](https://avro.apache.org/docs/1.12.0/specification/)。
+- 组合场景 1：递归 record 内嵌 array/map/union，writer 与 reader 字段不同序、删除大字段并添加嵌套默认值；跨多块读写后比较结构与消费边界。
+- 组合场景 2：数值 promotion 与 union 顺序变更结合，缺 enum symbol 使用 reader 默认或报告错误；避免先转无类型 JSON 造成数值/分支信息丢失。
+- 组合场景 3：null/deflate OCF、块间 seek/sync、部分读取和损坏块组合；检查合法部分与错误边界，而非仅同实现 round trip。
+- 初版完成后的改进假设 A：单 schema round trip 后，补齐递归命名解析、writer/reader 分工、skip/default/union 的共同状态，形成实际 schema 演进能力。
+- 初版完成后的改进假设 B：单块成功后，补齐 codec/块界限/同步跳转/资源边界，使外部实现生成的多块文件稳定可读；这些能力现成库已有，不能据此断言新题困难。
+- 独立参考：固定 1.12.0 官方规范是合同；冻结 Java/Python/C++ 的至少两种实现作为互通参考，分别“参考写→候选读”“候选写→参考读”，再用手工字节/坏文件检查 oracle 共同盲点。
+- 比较规则：比较 schema 驱动的类型和值、选中分支及文件结构约束；不要求压缩字节/随机 sync marker/metadata 迭代顺序一致；不同实现对可选项的差异须先定合同。
+- 强合法廉价基线：直接用官方 Avro Python/Java 库或 fastavro，结合标准 zlib/CLI，完成 OCF 和 schema resolution；此基线很可能足额满足纯系统 API 题。
+- 首个否证：列出完整拟题 API/场景与官方库现有 API 的映射；若仅少量包装已覆盖，不造题。仅在真实宿主运行时集成、受损实现恢复或已证实的互通缺口形成额外交付时重开。
+- 离线/架构成本：镜像冻结 1.12.0 库、schema/fixture 和 zlib，不需要网络服务；C++ 参考还需编译依赖。多语言参考版本/逻辑类型/alias 的能力差异是评测成本，尚未验证。
+- 许可观察：根 `LICENSE.txt` 为 Apache License 2.0，存在 `NOTICE.txt`；第三方 codec 和不同语言包的通知仍须按实际 starter 检查。
+- 状态：素材已核对但暂缓；未构题、未 build/运行、未验证六小时难度；不复制原 EdgeBench 规格题与测试。

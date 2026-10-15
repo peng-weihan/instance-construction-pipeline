@@ -1,0 +1,70 @@
+{
+  "id": "11_rocksdb_compaction",
+  "repo": "facebook/rocksdb",
+  "family": "correctness_constrained_performance",
+  "new_source": true,
+  "title": "读写放大约束下的存储引擎优化",
+  "files": [
+    "README.md",
+    "tools/db_bench_tool.cc",
+    "db/db_compaction_test.cc",
+    "tools/benchmark.sh"
+  ],
+  "revision": "a215c38a8ed34848edc152f7435eabc128208111",
+  "retrieved_utc": "2026-10-15T09:20:45.770267+00:00",
+  "files_acquired": [
+    {
+      "path": "README.md",
+      "bytes": 1689,
+      "sha256": "99d85d5d88c6d853c2e6fda21de51fa33288a51d3aa4959dd2b68535f768894b",
+      "url": "https://github.com/facebook/rocksdb/blob/a215c38a8ed34848edc152f7435eabc128208111/README.md"
+    },
+    {
+      "path": "tools/db_bench_tool.cc",
+      "bytes": 467882,
+      "sha256": "b54ebd53bdd7772c471dd85aadaf17aa3c2aed70bba53ba5f1b16c77d2758143",
+      "url": "https://github.com/facebook/rocksdb/blob/a215c38a8ed34848edc152f7435eabc128208111/tools/db_bench_tool.cc"
+    },
+    {
+      "path": "db/db_compaction_test.cc",
+      "bytes": 501154,
+      "sha256": "a4753dff88d51bde6d887c8458131ee55b2ff3fae7a65dde92cded2da212ac0f",
+      "url": "https://github.com/facebook/rocksdb/blob/a215c38a8ed34848edc152f7435eabc128208111/db/db_compaction_test.cc"
+    },
+    {
+      "path": "tools/benchmark.sh",
+      "bytes": 44198,
+      "sha256": "2a2b5ea910b881042ce49f41899c9b3da7151f6582bc3eceaf50b9bd9800b3dd",
+      "url": "https://github.com/facebook/rocksdb/blob/a215c38a8ed34848edc152f7435eabc128208111/tools/benchmark.sh"
+    },
+    {
+      "path": "COPYING",
+      "bytes": 18092,
+      "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+      "url": "https://github.com/facebook/rocksdb/blob/a215c38a8ed34848edc152f7435eabc128208111/COPYING"
+    },
+    {
+      "path": "LICENSE.Apache",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "url": "https://github.com/facebook/rocksdb/blob/a215c38a8ed34848edc152f7435eabc128208111/LICENSE.Apache"
+    }
+  ],
+  "missing_paths": [
+    "LICENSE",
+    "LICENSE.txt",
+    "LICENSE.md",
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "runtime_validation": false,
+  "six_hour_difficulty_verified": false,
+  "tree_manifest": {
+    "path": "git-tree.json",
+    "sha256": "58ed27e43b7abcad765c5296099caa9afe120409b28bfd08c898f5dbc3d1b8fd",
+    "blob_count": 2350,
+    "truncated": false
+  },
+  "resolved_initial_404_paths": {},
+  "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+}

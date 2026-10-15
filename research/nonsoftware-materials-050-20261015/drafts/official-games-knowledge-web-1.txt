@@ -1,0 +1,150 @@
+GitHub - google-deepmind/open_spiel: OpenSpiel is a collection of environments and algorithms for research in general reinforcement learning and search/planning in games. · GitHub (https://github.com/google-deepmind/open_spiel)
+citeturn41view0 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://github.com/google-deepmind/open_spiel","lineno":null}); Total lines: 315
+L0: cite0†Skip to content L1: ## Navigation Menu
+L2: 
+L3: cite1†Sign in L4: 
+L5: Appearance settings
+L6: 
+L7:   * Platform
+L8: 
+L9:     * AI CODE CREATION
+L10:       * cite2†GitHub CopilotWrite better code with AI L11:       * cite3†GitHub Copilot appDirect agents from issue to merge L12:       * cite4†MCP RegistryIntegrate external tools L13: 
+L14:     * DEVELOPER WORKFLOWS
+L15:       * cite5†ActionsAutomate any workflow L16:       * cite6†CodespacesInstant dev environments L17:       * cite7†IssuesPlan and track work L18:       * cite8†Code ReviewManage code changes L19:       * cite9†Code QualityEnforce quality at merge L20:     * APPLICATION SECURITY
+L21:       * cite10†GitHub Advanced SecurityFind and fix vulnerabilities L22:       * cite11†Code securitySecure your code as you build L23:       * cite12†Secret protectionStop leaks before they start L24: 
+L25:     * EXPLORE
+L26:       * cite13†Why GitHub L27:       * cite14†Documentation†docs.github.com L28:       * cite15†Blog†github.blog L29:       * cite16†Changelog†github.blog L30:       * cite17†Marketplace L31: 
+L32: cite18†View all features L33: 
+L34:   * Solutions
+L35:     * BY COMPANY SIZE
+L36:       * cite19†Enterprises L37:       * cite20†Small and medium teams L38:       * cite21†Startups L39:       * cite22†Nonprofits L40: 
+L41:     * BY USE CASE
+L42:       * cite23†App Modernization L43:       * cite24†DevSecOps L44:       * cite25†DevOps L45:       * cite26†CI/CD L46:       * cite27†View all use cases L47: 
+L48:     * BY INDUSTRY
+L49:       * cite28†Healthcare L50:       * cite29†Financial services L51:       * cite30†Manufacturing L52:       * cite31†Government L53:       * cite32†View all industries L54: 
+L55: cite33†View all solutions L56: 
+L57:   * Resources
+L58:     * EXPLORE BY TOPIC
+L59:       * cite34†AI L60:       * cite35†Software Development L61:       * cite36†DevOps L62:       * cite37†Security L63:       * cite38†View all topics L64: 
+L65:     * EXPLORE BY TYPE
+L66:       * cite39†Customer stories L67:       * cite40†Events & webinars L68:       * cite41†Ebooks & reports L69:       * cite42†Business insights L70:       * cite43†GitHub Skills†skills.github.com L71:     * SUPPORT & SERVICES
+L72:       * cite14†Documentation†docs.github.com L73:       * cite44†Customer support†support.github.com L74:       * cite45†Community forum L75:       * cite46†Trust center L76:       * cite47†Partners L77: 
+L78: cite48†View all resources L79: 
+L80:   * Open Source
+L81: 
+L82:     * COMMUNITY
+L83:       * cite49†GitHub SponsorsFund open source developers L84:     * PROGRAMS
+L85:       * cite50†Security Lab†securitylab.github.com L86:       * cite51†Maintainer Community†maintainers.github.com L87:       * cite52†GitHub Stars†stars.github.com L88:       * cite53†Archive Program†archiveprogram.github.com L89: 
+L90:     * REPOSITORIES
+L91:       * cite54†Topics L92:       * cite55†Trending L93:       * cite56†Collections L94: 
+L95:   * Enterprise
+L96: 
+L97:     * ENTERPRISE SOLUTIONS
+L98:       * cite19†Enterprise platformAI-powered developer platform L99:     * AVAILABLE ADD-ONS
+L100:       * cite10†GitHub Advanced SecurityEnterprise-grade security features L101:       * cite57†Copilot for BusinessEnterprise-grade AI features L102:       * cite58†Premium SupportEnterprise-grade 24/7 support L103: 
+L104:   * cite59†Pricing L105: 
+L106: Search`/`
+L107: 
+L108: cite1†Sign in L109: 
+L110: cite60†Sign up L111: 
+L112: Appearance settings
+L113: You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert
+L114: 
+L115:   1. cite61†google-deepmind L116:   2. cite62†open_spiel L117: ## Repository navigation
+L118: 
+L119:   *   * cite62†Code L120:   * cite63†Issues33 (33) L121:   * cite64†Pull requests49 (49) L122:   * cite65†Discussions L123:   * cite66†Actions L124:   * cite67†Projects L125:   * cite68†Security and quality L126:   * cite69†Insights L127: 
+L128: More items
+L129: 
+L130: cite70†Image: google-deepmind†avatars.githubusercontent.com L131: 
+L132: cite62†open_spiel L133: 
+L134: Public
+L135: 
+L136:   * cite71†Notifications You must be signed in to change notification settings
+L137:   * cite71†Fork1.2k (1.2k) L138:   * cite71†Star5.5k (5.5k) You must be signed in to star a repository
+L139: ## About
+L140: 
+L141: OpenSpiel is a collection of environments and algorithms for research in general reinforcement learning and search/planning in games.
+L142: 
+L143: ### Topics
+L144: 
+L145: cite72†cpp cite73†games cite74†multiagent cite75†python cite76†reinforcement-learning L146: 
+L147: ### Resources
+L148: 
+L149: cite77†Readme L150: 
+L151: cite78†Apache-2.0 license L152: 
+L153: ### Contributing
+L154: 
+L155: cite79†Contributing L156: 
+L157: cite80†Activity L158: 
+L159: cite81†Custom properties L160: 
+L161: ### Stars
+L162: 
+L163: 5.5k stars
+L164: 
+L165: ### Watchers
+L166: 
+L167: 105 watching
+L168: ### Forks
+L169: 
+L170: cite82†1.2k forks L171: 
+L172: cite83†Report repository L173: 
+L174: master
+L175: 
+L176: cite84†Branches cite85†Tags L177: 
+L178: [Input: Go to file]
+L179: 
+L180: Go to file
+L181: 
+L182: Code
+L183: 
+L184: Open more actions menu
+L185: 
+L186: ## Latest commit
+L187: 
+L188: 
+L189: 
+L190: ## History
+L191: 
+L192: 5,568 Commits
+L193: ## Folders and files
+L194: Name  | Name  | Last commit message  | Last commit date
+L195: --- | --- | --- | ---
+L196: cite86†.github/workflows | cite86†.github/workflows |    |
+L197: cite87†docs | cite87†docs |    |
+L198: cite88†open_spiel | cite88†open_spiel |    |
+L199: cite89†.clang-format | cite89†.clang-format |    |
+L200: cite90†.cmake-format.yaml | cite90†.cmake-format.yaml |    |
+L201: cite91†.gitignore | cite91†.gitignore |    |
+L202: cite92†.pre-commit-config.yaml | cite92†.pre-commit-config.yaml |    |
+L203: cite93†CONTRIBUTING.md | cite93†CONTRIBUTING.md |    |
+L204: cite94†Dockerfile.base | cite94†Dockerfile.base |    |
+L205: cite95†LICENSE | cite95†LICENSE |    |
+L206: cite96†MANIFEST.in | cite96†MANIFEST.in |    |
+L207: cite97†README.md | cite97†README.md |    |
+L208: cite98†__init__.py | cite98†__init__.py |    |
+L209: cite99†install.sh | cite99†install.sh |    |
+L210: cite100†pyproject.toml | cite100†pyproject.toml |    |
+L211: cite101†readthedocs.yml | cite101†readthedocs.yml |    |
+L212: cite102†requirements.txt | cite102†requirements.txt |    |
+L213: cite103†setup.py | cite103†setup.py |    |
+L214: [Button: View all files]
+L215: ## Repository files navigation
+L216: 
+L217:   *   * cite104†README L218:   * cite104†Contributing L219:   * cite104†Apache-2.0 license L220: 
+L221: More items
+L222: # OpenSpiel: A Framework for Reinforcement Learning in Games
+L223: OpenSpiel is a collection of environments and algorithms for research in general reinforcement learning and search/planning in games. OpenSpiel supports n-player (single- and multi- agent) zero-sum, cooperative and general-sum, one-shot and sequential, strictly turn-taking and simultaneous-move, perfect and imperfect information games, as well as traditional multiagent environments such as (partially- and fully- observable) grid worlds and social dilemmas.
+--------------------------------------------------------------------------------
+GitHub - Farama-Foundation/Minigrid: Simple and easily configurable grid world environments for reinforcement learning · GitHub (https://github.com/Farama-Foundation/Minigrid)
+citeturn41view1 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://github.com/Farama-Foundation/Minigrid","lineno":null}); Total lines: 308
+--------------------------------------------------------------------------------
+GitHub - Farama-Foundation/MAgent2: An engine for high performance multi-agent environments with very large numbers of agents, along with a set of reference environments · GitHub (https://github.com/Farama-Foundation/MAgent2)
+citeturn41view2 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://github.com/Farama-Foundation/MAgent2","lineno":null}); Total lines: 292
+--------------------------------------------------------------------------------
+GitHub - Lux-AI-Challenge/Lux-Design-S2: Repository for the Lux AI Challenge, season 2 (NeurIPS 23). Hosted on @kaggle · GitHub (https://github.com/Lux-AI-Challenge/Lux-Design-S2)
+citeturn41view3 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://github.com/Lux-AI-Challenge/Lux-Design-S2","lineno":null}); Total lines: 354
+--------------------------------------------------------------------------------
+GitHub - google-deepmind/hanabi-learning-environment: hanabi_learning_environment is a research platform for Hanabi experiments. · GitHub (https://github.com/google-deepmind/hanabi-learning-environment)
+citeturn41view4 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://github.com/google-deepmind/hanabi-learning-environment","lineno":null}); Total lines: 270
+--------------------------------------------------------------------------------
+GitHub - flatland-association/flatland-rl: The Flatland Framework is a multi-purpose environment to tackle problems around resilient resource allocation under uncertainty. It is designed to be a flexible and method agnostic to solve a wide range of problems in the field of operations research and reinforcement learning. · GitHub (https://github.com/flatland-association/flatland-rl)

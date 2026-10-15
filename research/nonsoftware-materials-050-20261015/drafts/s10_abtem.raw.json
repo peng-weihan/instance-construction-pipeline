@@ -1,0 +1,38 @@
+{
+  "id": "s10_abtem",
+  "name": "abTEM 电子显微仿真",
+  "source_unit": "multislice传播实现、传输函数数值等价测试与势物理测试。",
+  "title": "多焦面显微图像中的结构与仪器参数反演",
+  "proposed_task": "给定自建薄晶体的多个离焦/倾角图像，估计限定结构族中的厚度、少量缺陷参数及像差，输出留出离焦/倾角成像预测和可辨识置信域。",
+  "deliverable": "结构/仪器联合推断程序、参数/不确定度、参考结构文件和留出成像预测。",
+  "difficulty_sources": [
+    "厚度、离焦和结构变化会产生相似对比度，单张图像反演不唯一，多条件联合约束才可能可辨识。",
+    "多次散射与热振动使简单投影势近似失效，离散网格/切片误差又可能被优化器当成真实结构变化。"
+  ],
+  "baseline": "现成abTEM正演＋粗网格搜索/贝叶斯优化/多起点最小二乘；先对比弱相位近似与完整multislice，不以禁止仿真库增难。",
+  "first_probe": "低维参数族先做可辨识性与网格/切片收敛；用更细参考正演和不同热振动实现生成，验证结构参数与留出图像能同时恢复。",
+  "stop_condition": "若单帧参数不可区分、参考离散误差大于合理目标，或查表小网格已满足全部合同，重设范围；不靠昂贵DFT等待。",
+  "grader_plan": "独立细网格正演评留出图像/衍射强度误差、可辨识结构参数误差和区间覆盖；对晶胞平移/对称等价定义规范化。",
+  "generation_and_split": "自建ASE晶体与有限缺陷，改变厚度/倾角/像差/热振动噪声族；按结构和仪器机制留出，避免同源高分辨率真图泄漏。",
+  "novelty_and_overlap": "新材料显微来源，不同于地下水/PDE测量；若EdgeBench既有电子显微/相位恢复任务需查底层结构和生成器重合。只换原子seed不足以成新族。",
+  "offline_and_compute": "已取5文件，无真实显微数据、DFT密度或GPU运行。拟先小晶胞CPU/FFT探针，热振动ensemble和细网格参考成本尚未测量。",
+  "license_observation": "根LICENSE为GPL-3.0文本；外部晶体结构库/DFT势许可另查，当前拟使用可审计自建ASE结构，无外部显微图像授权假设。",
+  "potential": "high",
+  "priority": "hold_reference",
+  "segments": [
+    [
+      "abtem/multislice.py",
+      425,
+      491,
+      "implementation",
+      "已有势切片→传输函数→带限→Fresnel传播并支持传播次序"
+    ],
+    [
+      "test/test_transmission_function_multislice.py",
+      16,
+      58,
+      "test",
+      "小CO晶胞/热振动fixture与直接势/传输函数传播的浮点精度等价检验"
+    ]
+  ]
+}

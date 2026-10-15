@@ -1,0 +1,20 @@
+Grammar schema file '../../controls/cheap/restler/unit_tests/log_baseline_test_files/abc_test_grammar.json' does not exist.
+2026-10-15 10:38:45.455: Initializing: Garbage collection every 999 seconds.
+2026-10-15 10:38:45.456: No chekpoint found
+2026-10-15 10:38:45.456: Generation: 1 
+Error parsing header: Restler Test
+Error parsing header: Restler Test
+Error parsing header: Restler Test
+Error parsing header: Restler Test
+2026-10-15 10:38:45.472: Saving checkpoint: /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/02_restler_recovery/evidence/cheap-native/RestlerResults/experiment128477/checkpoints/checkpoint-1
+2026-10-15 10:38:45.472: Terminating garbage collection. Waiting for max 300 seconds. 
+Traceback (most recent call last):
+  File "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/02_restler_recovery/controls/cheap/restler/engine/core/fuzzer.py", line 43, in run
+    self._num_total_sequences = driver.generate_sequences(
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/02_restler_recovery/controls/cheap/restler/engine/core/driver.py", line 861, in generate_sequences
+    saver.save(GrammarRequestCollection(), seq_collection, fuzzing_requests, Monitor(), generation)
+  File "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/02_restler_recovery/controls/cheap/restler/utils/saver.py", line 44, in save
+    pickle.dump(state, f)
+_pickle.PicklingError: Can't pickle <function parse_A at 0x764a8c048f40>: import of module 'abc_test_grammar' failed
+

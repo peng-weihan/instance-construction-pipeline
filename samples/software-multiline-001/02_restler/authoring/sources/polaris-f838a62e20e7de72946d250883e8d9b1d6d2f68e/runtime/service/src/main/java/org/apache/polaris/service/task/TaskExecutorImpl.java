@@ -1,0 +1,381 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.polaris.service.task;
+
+import io.opentelemetry.api.trace.Span;
+import io.opentelemetry.api.trace.Tracer;
+import io.opentelemetry.context.Context;
+import io.opentelemetry.context.Scope;
+import io.quarkus.runtime.Startup;
+import io.smallrye.common.annotation.Identifier;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.control.ActivateRequestContext;
+import jakarta.enterprise.inject.Instance;
+import jakarta.inject.Inject;
+import java.time.Clock;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import org.apache.commons.lang3.function.TriConsumer;
+import org.apache.polaris.core.StructuredLogKeys;
+import org.apache.polaris.core.auth.ImmutablePolarisPrincipal;
+import org.apache.polaris.core.auth.PolarisPrincipal;
+import org.apache.polaris.core.collection.ImmutableAttributeMap;
+import org.apache.polaris.core.context.CallContext;
+import org.apache.polaris.core.entity.PolarisBaseEntity;
+import org.apache.polaris.core.entity.PolarisEntityType;
+import org.apache.polaris.core.entity.TaskEntity;
+import org.apache.polaris.core.persistence.MetaStoreManagerFactory;
+import org.apache.polaris.core.persistence.PolarisMetaStoreManager;
+import org.apache.polaris.core.persistence.dao.entity.BaseResult;
+import org.apache.polaris.core.persistence.dao.entity.EntityResult;
+import org.apache.polaris.service.context.catalog.PolarisPrincipalHolder;
+import org.apache.polaris.service.context.catalog.RealmContextHolder;
+import org.apache.polaris.service.events.EventAttributes;
+import org.apache.polaris.service.events.PolarisEvent;
+import org.apache.polaris.service.events.PolarisEventDispatcher;
+import org.apache.polaris.service.events.PolarisEventMetadata;
+import org.apache.polaris.service.events.PolarisEventMetadataFactory;
+import org.apache.polaris.service.events.PolarisEventType;
+import org.apache.polaris.service.tracing.TracingFilter;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * Given a list of registered {@link TaskHandler}s, execute tasks asynchronously with the provided
+ * {@link CallContext}.
+ */
+@ApplicationScoped
+public class TaskExecutorImpl implements TaskExecutor {
+  private static final Logger LOGGER = LoggerFactory.getLogger(TaskExecutorImpl.class);
+  private static final long TASK_RETRY_DELAY = 1000;
+
+  private final Executor executor;
+  private final Clock clock;
+  private final MetaStoreManagerFactory metaStoreManagerFactory;
+  private final TaskFileIOSupplier fileIOSupplier;
+  private final RealmContextHolder realmContextHolder;
+  private final PolarisPrincipalHolder polarisPrincipalHolder;
+  private final PolarisPrincipal polarisPrincipal;
+  private final List<TaskHandler> taskHandlers = new CopyOnWriteArrayList<>();
+  private final Optional<TriConsumer<Long, Boolean, Throwable>> errorHandler;
+  private final PolarisEventDispatcher polarisEventDispatcher;
+  private final PolarisEventMetadataFactory eventMetadataFactory;
+  @Nullable private final Tracer tracer;
+  private final TaskHandlerConfiguration taskConfiguration;
+
+  @SuppressWarnings("unused") // Required by CDI
+  protected TaskExecutorImpl() {
+    this(null, null, null, null, null, null, null, null, null, null, null, null);
+  }
+
+  @Inject
+  public TaskExecutorImpl(
+      @Identifier("task-executor") Executor executor,
+      @Identifier("task-error-handler")
+          Instance<TriConsumer<Long, Boolean, Throwable>> errorHandler,
+      Clock clock,
+      MetaStoreManagerFactory metaStoreManagerFactory,
+      TaskFileIOSupplier fileIOSupplier,
+      RealmContextHolder realmContextHolder,
+      PolarisEventDispatcher polarisEventDispatcher,
+      PolarisEventMetadataFactory eventMetadataFactory,
+      @Nullable Tracer tracer,
+      PolarisPrincipalHolder polarisPrincipalHolder,
+      PolarisPrincipal polarisPrincipal,
+      TaskHandlerConfiguration taskConfiguration) {
+    this.executor = executor;
+    this.clock = clock;
+    this.metaStoreManagerFactory = metaStoreManagerFactory;
+    this.fileIOSupplier = fileIOSupplier;
+    this.realmContextHolder = realmContextHolder;
+    this.polarisEventDispatcher = polarisEventDispatcher;
+    this.eventMetadataFactory = eventMetadataFactory;
+    this.tracer = tracer;
+    this.polarisPrincipalHolder = polarisPrincipalHolder;
+    this.polarisPrincipal = polarisPrincipal;
+    this.taskConfiguration = taskConfiguration;
+
+    if (errorHandler != null && errorHandler.isResolvable()) {
+      this.errorHandler = Optional.of(errorHandler.get());
+    } else {
+      this.errorHandler = Optional.empty();
+    }
+  }
+
+  @Startup
+  public void init() {
+    addTaskHandler(
+        new TableCleanupTaskHandler(this, clock, metaStoreManagerFactory, fileIOSupplier));
+    addTaskHandler(
+        new ManifestFileCleanupTaskHandler(
+            fileIOSupplier,
+            Executors.newVirtualThreadPerTaskExecutor(),
+            taskConfiguration.fileDeletionTimeout()));
+    addTaskHandler(
+        new BatchFileCleanupTaskHandler(
+            fileIOSupplier,
+            Executors.newVirtualThreadPerTaskExecutor(),
+            taskConfiguration.fileDeletionTimeout()));
+  }
+
+  /**
+   * Add a {@link TaskHandler}. {@link TaskEntity}s will be tested against the {@link
+   * TaskHandler#canHandleTask(TaskEntity)} method and will be handled by the first handler that
+   * responds true.
+   */
+  public void addTaskHandler(TaskHandler taskHandler) {
+    taskHandlers.add(taskHandler);
+  }
+
+  /**
+   * Register a {@link CallContext} for a specific task id. That task will be loaded and executed
+   * asynchronously with a clone of the provided {@link CallContext}.
+   */
+  @Override
+  @SuppressWarnings("FutureReturnValueIgnored") // it _should_ be okay in this particular case
+  public void addTaskHandlerContext(long taskEntityId, CallContext callContext) {
+    errorHandler.ifPresent(h -> h.accept(taskEntityId, true, null));
+    // Unfortunately CallContext is a request-scoped bean and must be cloned now,
+    // because its usage inside the TaskExecutor thread pool will outlive its
+    // lifespan, so the original CallContext will eventually be closed while
+    // the task is still running.
+    // Note: PolarisCallContext has request-scoped beans as well, and must be cloned.
+    // FIXME replace with context propagation?
+    CallContext clone = callContext.copy();
+
+    // Capture the metadata now in order to capture the principal and request ID, if any.
+    PolarisEventMetadata eventMetadata = eventMetadataFactory.create();
+    tryHandleTask(taskEntityId, clone, eventMetadata, null, 1);
+  }
+
+  private @NonNull CompletableFuture<Void> tryHandleTask(
+      long taskEntityId,
+      CallContext callContext,
+      PolarisEventMetadata eventMetadata,
+      Throwable previousError,
+      int attempt) {
+    if (attempt > 3) {
+      return CompletableFuture.failedFuture(previousError);
+    }
+    String realmId = callContext.getRealmContext().getRealmIdentifier();
+
+    PolarisPrincipal principalClone =
+        ImmutablePolarisPrincipal.builder().from(polarisPrincipal).build();
+
+    return CompletableFuture.runAsync(
+            () -> {
+              handleTaskWithTracing(
+                  realmId, taskEntityId, callContext, principalClone, eventMetadata, attempt);
+              errorHandler.ifPresent(h -> h.accept(taskEntityId, false, null));
+            },
+            executor)
+        .exceptionallyComposeAsync(
+            (t) -> {
+              if (previousError != null) {
+                t.addSuppressed(previousError);
+              }
+              errorHandler.ifPresent(h -> h.accept(taskEntityId, false, t));
+              if (!isRetryable(t)) {
+                LOGGER.warn(
+                    "Task entity id {} failed with a terminal error; not retrying in-process. The"
+                        + " task entity stays persisted (the same end state as exhausting retries).",
+                    taskEntityId,
+                    t);
+                return CompletableFuture.<Void>failedFuture(t);
+              }
+              LOGGER.warn("Failed to handle task entity id {}", taskEntityId, t);
+              return tryHandleTask(taskEntityId, callContext, eventMetadata, t, attempt + 1);
+            },
+            CompletableFuture.delayedExecutor(
+                TASK_RETRY_DELAY * (long) attempt, TimeUnit.MILLISECONDS, executor));
+  }
+
+  /**
+   * Determines whether a failed task attempt should be retried in-process. Most failures are
+   * transient and worth retrying, but a {@link FileDeletionTimeoutException} means an object-store
+   * deletion is stalled; retrying would only stack more (uncancellable) deletions onto the same
+   * endpoint, so such failures are treated as terminal for the current execution.
+   */
+  static boolean isRetryable(Throwable t) {
+    for (Throwable cause = t; cause != null; cause = cause.getCause()) {
+      if (cause instanceof FileDeletionTimeoutException) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  protected void handleTask(
+      long taskEntityId, CallContext ctx, PolarisEventMetadata eventMetadata, int attempt) {
+    if (polarisEventDispatcher.hasListeners(PolarisEventType.BEFORE_ATTEMPT_TASK)) {
+      polarisEventDispatcher.dispatch(
+          new PolarisEvent(
+              PolarisEventType.BEFORE_ATTEMPT_TASK,
+              eventMetadataFactory.copy(eventMetadata),
+              ImmutableAttributeMap.builder()
+                  .put(EventAttributes.TASK_ENTITY_ID, taskEntityId)
+                  .put(EventAttributes.TASK_ATTEMPT, attempt)
+                  .build()));
+    }
+
+    boolean success = false;
+    PolarisBaseEntity taskEntity = null;
+    try {
+      LOGGER.info("Handling task entity id {}", taskEntityId);
+      PolarisMetaStoreManager metaStoreManager =
+          metaStoreManagerFactory.getOrCreateMetaStoreManager(ctx.getRealmContext());
+      EntityResult loadResult =
+          metaStoreManager.loadEntity(
+              ctx.getPolarisCallContext(), 0L, taskEntityId, PolarisEntityType.TASK);
+      if (loadResult.getReturnStatus() == BaseResult.ReturnStatus.ENTITY_NOT_FOUND) {
+        // The task entity is gone, so an earlier attempt already handled it and dropped the
+        // entity. A retry reaches this point when the handler completed but the subsequent
+        // dropEntityIfExists failed and was rethrown (see below). There is no work left to do,
+        // so report the attempt as successful.
+        success = true;
+        LOGGER
+            .atInfo()
+            .addKeyValue(StructuredLogKeys.TASK_ENTITY_ID, taskEntityId)
+            .log("Task entity no longer exists; treating the task as already completed");
+        return;
+      }
+      if (!loadResult.isSuccess()) {
+        // Every other non-success status is a load failure, not evidence that the task is done.
+        // EntityResult carries a null entity for all of them, so the status is what distinguishes
+        // "already dropped" from "could not be read"; some, such as
+        // TARGET_ENTITY_CONCURRENTLY_MODIFIED, are explicitly retryable. Fail the attempt so it is
+        // retried instead of being recorded as a success and dropped.
+        throw new IllegalStateException(
+            String.format(
+                "Failed to load task entity id %d: %s",
+                taskEntityId, loadResult.getReturnStatus()));
+      }
+      taskEntity = loadResult.getEntity();
+      if (!PolarisEntityType.TASK.equals(taskEntity.getType())) {
+        throw new IllegalArgumentException("Provided taskId must be a task entity type");
+      }
+      TaskEntity task = TaskEntity.of(taskEntity);
+      Optional<TaskHandler> handlerOpt =
+          taskHandlers.stream().filter(th -> th.canHandleTask(task)).findFirst();
+      if (handlerOpt.isEmpty()) {
+        LOGGER
+            .atWarn()
+            .addKeyValue(StructuredLogKeys.TASK_ENTITY_ID, taskEntityId)
+            .addKeyValue(StructuredLogKeys.TASK_TYPE, task.getTaskType())
+            .log("Unable to find handler for task type");
+        throw new TaskHandlerNotFoundException(
+            "Unable to find handler for task type "
+                + task.getTaskType()
+                + " for task entity id "
+                + taskEntityId);
+      }
+      TaskHandler handler = handlerOpt.get();
+      // Normal return from handleTask means the task work completed successfully. Set success
+      // before dropEntityIfExists so a later cleanup failure still reports TASK_SUCCESS=true
+      // (the exception is rethrown for retry/logging, but the attempt is not a handler failure).
+      handler.handleTask(task, ctx);
+      success = true;
+      LOGGER
+          .atInfo()
+          .addKeyValue(StructuredLogKeys.TASK_ENTITY_ID, taskEntityId)
+          .addKeyValue(StructuredLogKeys.HANDLER_CLASS, handler.getClass())
+          .log("Task successfully handled");
+      metaStoreManager.dropEntityIfExists(
+          ctx.getPolarisCallContext(), null, taskEntity, Map.of(), false);
+    } catch (TaskHandlerNotFoundException e) {
+      // success stays false (never set true). Re-throw without the generic failure log below.
+      throw e;
+    } catch (Exception e) {
+      // Do not force success=false: handleTask may already have completed (success=true) and the
+      // failure may be from post-completion cleanup (e.g. dropEntityIfExists).
+      if (!success) {
+        LOGGER
+            .atWarn()
+            .addKeyValue(StructuredLogKeys.TASK_ENTITY_ID, taskEntityId)
+            .addKeyValue(
+                StructuredLogKeys.TASK_ENTITY_NAME, taskEntity != null ? taskEntity.getName() : "")
+            .log("Unable to execute async task");
+      }
+      throw e;
+    } finally {
+      if (polarisEventDispatcher.hasListeners(PolarisEventType.AFTER_ATTEMPT_TASK)) {
+        polarisEventDispatcher.dispatch(
+            new PolarisEvent(
+                PolarisEventType.AFTER_ATTEMPT_TASK,
+                eventMetadataFactory.copy(eventMetadata),
+                ImmutableAttributeMap.builder()
+                    .put(EventAttributes.TASK_ENTITY_ID, taskEntityId)
+                    .put(EventAttributes.TASK_ATTEMPT, attempt)
+                    .put(EventAttributes.TASK_SUCCESS, success)
+                    .build()));
+      }
+    }
+  }
+
+  @ActivateRequestContext
+  protected void handleTaskWithTracing(
+      String realmId,
+      long taskEntityId,
+      CallContext callContext,
+      PolarisPrincipal principal,
+      PolarisEventMetadata eventMetadata,
+      int attempt) {
+    // Note: each call to this method runs in a new CDI request context
+
+    realmContextHolder.set(() -> realmId);
+    // since this is now a different context we store clone of the principal in a holder object
+    // which essentially reauthenticates the principal. PolarisPrincipal bean always looks for a
+    // principal set in PolarisPrincipalHolder first and assumes that identity if set.
+    polarisPrincipalHolder.set(principal);
+
+    if (tracer == null) {
+      handleTask(taskEntityId, callContext, eventMetadata, attempt);
+    } else {
+      Span span =
+          tracer
+              .spanBuilder("polaris.task")
+              .setParent(Context.current())
+              .setAttribute(
+                  TracingFilter.REALM_ID_ATTRIBUTE,
+                  callContext.getRealmContext().getRealmIdentifier())
+              .setAttribute("polaris.task.entity.id", taskEntityId)
+              .setAttribute("polaris.task.attempt", attempt)
+              .startSpan();
+      try (Scope ignored = span.makeCurrent()) {
+        handleTask(taskEntityId, callContext, eventMetadata, attempt);
+      } finally {
+        span.end();
+      }
+    }
+  }
+
+  private static final class TaskHandlerNotFoundException extends RuntimeException {
+    TaskHandlerNotFoundException(String message) {
+      super(message);
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "public_data_only": true,
+  "uses_public_dev_for_training": true,
+  "fixed_seed": 713,
+  "components": 64,
+  "seconds": 8.701494625012856
+}

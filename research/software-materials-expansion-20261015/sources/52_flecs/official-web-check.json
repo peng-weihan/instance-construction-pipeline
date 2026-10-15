@@ -1,0 +1,10 @@
+{
+  "checked_date": "2026-10-15",
+  "checked_via": "web.run official repositories and official documentation",
+  "urls": [
+    "https://github.com/SanderMertens/flecs",
+    "https://github.com/SanderMertens/flecs/blob/master/docs/ObserversManual.md"
+  ],
+  "canonical_repo": "SanderMertens/flecs",
+  "note": "Rolling docs establish current product context; immutable SHA source excerpts are task design evidence. No build/runtime verification."
+}

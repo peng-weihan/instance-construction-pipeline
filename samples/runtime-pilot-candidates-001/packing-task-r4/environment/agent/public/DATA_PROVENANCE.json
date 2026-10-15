@@ -1,0 +1,22 @@
+{
+  "upstream": [
+    {
+      "repository": "https://github.com/fontanf/packingsolver.git",
+      "commit": "79b67f8f9924018943daa878613da67bca955355",
+      "files": [
+        {
+          "path": "src/irregular/optimize.cpp",
+          "sha256": "df75731b011b22b1938e9d5164f6f2bf3c0e7429b3b617329a383ac52c03ff31"
+        },
+        {
+          "path": "src/irregular/local_search.cpp",
+          "sha256": "01f392f71f4138a0db1efa46d52496301830dc7ade1d641ff5c4f82f64948b61"
+        }
+      ],
+      "acquired": true,
+      "runtime_verified": false
+    }
+  ],
+  "use_scope": "local task construction and review; not cleared for training redistribution",
+  "note": "Code license does not establish underlying third-party dataset redistribution rights."
+}

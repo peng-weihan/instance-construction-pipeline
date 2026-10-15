@@ -1,0 +1,88 @@
+{
+  "id": "06_wasm_validation",
+  "repo": "WebAssembly/spec",
+  "revision": "d910f03bd6d6477656fc5070b5098e8f909305d3",
+  "family": "system_implementation",
+  "new_source": false,
+  "title": "类型验证、间接调用与模块链接的VM",
+  "files": [
+    "README.md",
+    "test/core/call_indirect.wast",
+    "test/core/unwind.wast",
+    "document/core/valid/instructions.rst"
+  ],
+  "retrieved_utc": "2026-10-15T09:20:33.712053+00:00",
+  "files_acquired": [
+    {
+      "path": "README.md",
+      "bytes": 1143,
+      "sha256": "df130951778625853a5b46be7f55ee76a3c55a337941dfc2bc95e31bc979d96e",
+      "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/README.md"
+    },
+    {
+      "path": "test/core/call_indirect.wast",
+      "bytes": 33439,
+      "sha256": "3b400ee77b55671ce648ec5cf76f48eeaa3539c8793fb7fc43dc0c7da3e08775",
+      "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/test/core/call_indirect.wast"
+    },
+    {
+      "path": "test/core/unwind.wast",
+      "bytes": 10276,
+      "sha256": "55da9a7d4d2dc19feb04fca3ab47eb842aa10202f2f9136fb3ca756c0b2bb931",
+      "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/test/core/unwind.wast"
+    },
+    {
+      "path": "document/core/valid/instructions.rst",
+      "bytes": 42263,
+      "sha256": "c867aefe04c4fbb8be4484fca0358e719653f0e563c728a9a9370a520be38316",
+      "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/document/core/valid/instructions.rst"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 376,
+      "sha256": "288b61e62a57d249eded5179eb3d6545cd844b29140e436aa3710e5a80ea5d99",
+      "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/LICENSE"
+    },
+    {
+      "path": "document/core/LICENSE",
+      "bytes": 2014,
+      "sha256": "983b7373bdde9a9aae54b7b2f1f53c5458787cb56ea5f49eae3fe76c5544345b",
+      "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/document/core/LICENSE"
+    },
+    {
+      "path": "test/LICENSE",
+      "bytes": 11358,
+      "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08",
+      "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/test/LICENSE"
+    },
+    {
+      "path": "interpreter/LICENSE",
+      "bytes": 11358,
+      "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08",
+      "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/interpreter/LICENSE"
+    },
+    {
+      "path": "interpreter/valid/valid.ml",
+      "bytes": 21794,
+      "sha256": "5c5810aeb63e8246a57ecbacd4f35ed9adc9a39d7da91b3a94bd41edfeeeb319",
+      "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/interpreter/valid/valid.ml"
+    }
+  ],
+  "missing_paths": [
+    "LICENSE.txt",
+    "LICENSE.md",
+    "COPYING",
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "runtime_validation": false,
+  "six_hour_difficulty_verified": false,
+  "tree_manifest": {
+    "path": "git-tree.json",
+    "sha256": "ea55ff2e4458992a4f8be63b4f83fbba774130c610d43e11763f018e811131a7",
+    "blob_count": 720,
+    "truncated": false
+  },
+  "resolved_initial_404_paths": {},
+  "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+}

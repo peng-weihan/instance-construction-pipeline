@@ -1,0 +1,1906 @@
+{
+  "observed_utc": "2026-10-15T14:42:49.234940+00:00",
+  "model": "gpt-6.1-sol",
+  "learning_budget_seconds": 21600,
+  "grading_interval_seconds": 600,
+  "difficulty_early_stop": false,
+  "tasks": [
+    {
+      "task": "02_restler_recovery",
+      "batch": "swe-rollouts-003-20261015-r4",
+      "path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/02_restler_recovery",
+      "phase": "user_stopped_after_full_score",
+      "periodic_controls_passed": true,
+      "controls": {
+        "reference": {
+          "score": 1.0,
+          "valid": true,
+          "seconds": 113.13750955206342
+        },
+        "starter": {
+          "score": 0.1,
+          "valid": true,
+          "seconds": 78.03592713794205
+        },
+        "empty": {
+          "score": 0.0,
+          "valid": true,
+          "seconds": 65.20877202297561
+        },
+        "partial": {
+          "score": 0.6000000000000001,
+          "valid": true,
+          "seconds": 65.50019647704903
+        }
+      },
+      "native_controls_passed": true,
+      "native_control_details": {
+        "oracle": true,
+        "nop": true,
+        "partial": true
+      },
+      "account": "raymone/1",
+      "worker_alive": false,
+      "latest_admission_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/02_restler_recovery/admission",
+      "actual_model_smoke_passed": true,
+      "latest_run": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/02_restler_recovery/run-6h-001",
+      "host_alive": false,
+      "learning_started_utc": "2026-10-15T13:08:08.330408+00:00",
+      "planned_learning_end_utc": "2026-10-15T19:08:08.330408+00:00",
+      "elapsed_learning_seconds": 5680.904532,
+      "native_session_response_item_counts": {
+        "message": 23,
+        "custom_tool_call": 70,
+        "custom_tool_call_output": 70,
+        "reasoning": 86,
+        "function_call": 1,
+        "function_call_output": 1
+      },
+      "native_tool_outputs": 71,
+      "best_score": 1.0,
+      "best_valid": true,
+      "history_entries": 9,
+      "best_observation": {
+        "entries": [
+          {
+            "type": "submission",
+            "kind": "agent",
+            "round": "agent-1",
+            "status": "completed",
+            "snapshot_time_seconds": 312.738122759969,
+            "snapshot_sha256": "072168718b7bdc50a8b18be0d4428a6a7d76184b30f21e1e7ec82e6cb6289048",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/02_restler_recovery/run-6h-001/evaluation/submissions/agent-1/snapshot",
+            "snapshot_capture_started_sec": null,
+            "snapshot_capture_finished_sec": 312.73812661797274,
+            "snapshot_atomic": false,
+            "failed_checks": [
+              "completed_resume_no_wire"
+            ],
+            "stages": {},
+            "score": 0.9,
+            "valid": true,
+            "pass_rate": 0.9166666666666666,
+            "verifier_seconds": 94.15865195298102,
+            "feedback_time_seconds": 406.9190026719589
+          },
+          {
+            "type": "submission",
+            "kind": "agent",
+            "round": "agent-2",
+            "status": "completed",
+            "snapshot_time_seconds": 477.04211870697327,
+            "snapshot_sha256": "edafa43e711fab7d4e8df608f8b270f0c74fbf81a3916e98b4519aab7c305040",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/02_restler_recovery/run-6h-001/evaluation/submissions/agent-2/snapshot",
+            "snapshot_capture_started_sec": null,
+            "snapshot_capture_finished_sec": 477.04212162294425,
+            "snapshot_atomic": false,
+            "failed_checks": [
+              "completed_resume_no_wire"
+            ],
+            "stages": {},
+            "score": 0.9,
+            "valid": true,
+            "pass_rate": 0.9166666666666666,
+            "verifier_seconds": 109.296537333983,
+            "feedback_time_seconds": 586.3762071869569
+          },
+          {
+            "type": "submission",
+            "kind": "auto",
+            "round": "auto-1",
+            "status": "completed",
+            "snapshot_time_seconds": 600.8107500570001,
+            "snapshot_sha256": "0227de76919da691e29c649a35f2d193213a9155d3830f82d0b03155c85dd058",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/02_restler_recovery/run-6h-001/evaluation/submissions/auto-1/snapshot",
+            "snapshot_capture_started_sec": 599.488380894,
+            "snapshot_capture_finished_sec": 600.8107500570001,
+            "snapshot_atomic": false,
+            "capture_started_cloud_monotonic": 662.551814383,
+            "capture_finished_cloud_monotonic": 663.874183546,
+            "capture_started_cloud_utc": "2026-10-15T13:18:07.818788+00:00",
+            "capture_finished_cloud_utc": "2026-10-15T13:18:09.141146+00:00",
+            "snapshot_capture_host_started_sec": 599.3358939850004,
+            "snapshot_capture_host_finished_sec": 601.3766599959927,
+            "failed_checks": [
+              "completed_resume_no_wire"
+            ],
+            "stages": {},
+            "score": 0.9,
+            "valid": true,
+            "pass_rate": 0.9166666666666666,
+            "verifier_seconds": 85.91304078302346,
+            "feedback_time_seconds": 687.4006187339546
+          },
+          {
+            "type": "submission",
+            "kind": "agent",
+            "round": "agent-3",
+            "status": "completed",
+            "snapshot_time_seconds": 605.469662996009,
+            "snapshot_sha256": "990dbff6eabfcd3a3dc164ec6cb70d7d763eb6f35e4fafe540f369ffa014e30a",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/02_restler_recovery/run-6h-001/evaluation/submissions/agent-3/snapshot",
+            "snapshot_capture_started_sec": null,
+            "snapshot_capture_finished_sec": 605.4696668029064,
+            "snapshot_atomic": false,
+            "failed_checks": [
+              "completed_resume_no_wire"
+            ],
+            "stages": {},
+            "score": 0.9,
+            "valid": true,
+            "pass_rate": 0.9166666666666666,
+            "verifier_seconds": 61.15465134906117,
+            "feedback_time_seconds": 748.5723481229506
+          },
+          {
+            "type": "submission",
+            "kind": "agent",
+            "round": "agent-4",
+            "status": "completed",
+            "snapshot_time_seconds": 839.7463306479622,
+            "snapshot_sha256": "f38c008489d4604f65f318a600ffd8904e60e99f2c25ae770fa5d665dab14de7",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/02_restler_recovery/run-6h-001/evaluation/submissions/agent-4/snapshot",
+            "snapshot_capture_started_sec": null,
+            "snapshot_capture_finished_sec": 839.7463327019941,
+            "snapshot_atomic": false,
+            "failed_checks": [],
+            "stages": {},
+            "score": 1.0,
+            "valid": true,
+            "pass_rate": 1.0,
+            "verifier_seconds": 46.34399995894637,
+            "feedback_time_seconds": 886.1096934489906
+          },
+          {
+            "type": "submission",
+            "kind": "agent",
+            "round": "agent-5",
+            "status": "completed",
+            "snapshot_time_seconds": 987.9756732229143,
+            "snapshot_sha256": "020e025c6c8d1140cceebf7b4fa3c930a4d7b01a241117f68a1de7be2a51f0ac",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/02_restler_recovery/run-6h-001/evaluation/submissions/agent-5/snapshot",
+            "snapshot_capture_started_sec": null,
+            "snapshot_capture_finished_sec": 987.9756744049955,
+            "snapshot_atomic": false,
+            "failed_checks": [],
+            "stages": {},
+            "score": 1.0,
+            "valid": true,
+            "pass_rate": 1.0,
+            "verifier_seconds": 88.2102981149219,
+            "feedback_time_seconds": 1076.1984248999506
+          },
+          {
+            "type": "submission",
+            "kind": "auto",
+            "round": "auto-2",
+            "status": "completed",
+            "snapshot_time_seconds": 1200.823311548,
+            "snapshot_sha256": "77c90435bb704b90c6a378f672110fa936bc72b5d5523a90025f6f465974ced5",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/02_restler_recovery/run-6h-001/evaluation/submissions/auto-2/snapshot",
+            "snapshot_capture_started_sec": 1199.48507271,
+            "snapshot_capture_finished_sec": 1200.823311548,
+            "snapshot_atomic": false,
+            "capture_started_cloud_monotonic": 1262.548506199,
+            "capture_finished_cloud_monotonic": 1263.886745037,
+            "capture_started_cloud_utc": "2026-10-15T13:28:07.815478+00:00",
+            "capture_finished_cloud_utc": "2026-10-15T13:28:09.153708+00:00",
+            "snapshot_capture_host_started_sec": 1199.3359271449735,
+            "snapshot_capture_host_finished_sec": 1201.324126584921,
+            "failed_checks": [],
+            "stages": {},
+            "score": 1.0,
+            "valid": true,
+            "pass_rate": 1.0,
+            "verifier_seconds": 75.52792748599313,
+            "feedback_time_seconds": 1276.9570736848982
+          },
+          {
+            "type": "submission",
+            "kind": "agent",
+            "round": "agent-6",
+            "status": "completed",
+            "snapshot_time_seconds": 1494.2553092989838,
+            "snapshot_sha256": "3f552d7f02bf57052a6a23f08bb72a4ba586d9f82aef738f79cc86fc20465cd3",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/02_restler_recovery/run-6h-001/evaluation/submissions/agent-6/snapshot",
+            "snapshot_capture_started_sec": null,
+            "snapshot_capture_finished_sec": 1494.255310410983,
+            "snapshot_atomic": false,
+            "failed_checks": [],
+            "stages": {},
+            "score": 1.0,
+            "valid": true,
+            "pass_rate": 1.0,
+            "verifier_seconds": 63.523368484922685,
+            "feedback_time_seconds": 1557.8051704110112
+          },
+          {
+            "type": "submission",
+            "kind": "final",
+            "round": "final-1",
+            "status": "completed",
+            "snapshot_time_seconds": 1558.7746842929998,
+            "snapshot_sha256": "fc8adddc3d1a47750251b141cc78fde0680404253b5c6c22e0f300b8bcbcdf4d",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/02_restler_recovery/run-6h-001/evaluation/submissions/final-1/snapshot",
+            "snapshot_capture_started_sec": 1557.455146157,
+            "snapshot_capture_finished_sec": 1558.7746842929998,
+            "snapshot_atomic": false,
+            "capture_started_cloud_monotonic": 1620.518579646,
+            "capture_finished_cloud_monotonic": 1621.838117782,
+            "capture_started_cloud_utc": "2026-10-15T13:34:05.785552+00:00",
+            "capture_finished_cloud_utc": "2026-10-15T13:34:07.105080+00:00",
+            "snapshot_capture_host_started_sec": 1557.3049769469071,
+            "snapshot_capture_host_finished_sec": 1559.3258384329965,
+            "formal_budget_completed": false,
+            "termination_kind": "infrastructure_or_manual_stop",
+            "failed_checks": [],
+            "stages": {},
+            "score": 1.0,
+            "valid": true,
+            "pass_rate": 1.0,
+            "verifier_seconds": 70.55017191101797,
+            "feedback_time_seconds": 1630.143097024993
+          }
+        ],
+        "selection": "valid_then_score",
+        "score_direction": "maximize",
+        "best_score": 1.0,
+        "best_pass_rate": 1.0,
+        "best_round": "agent-4",
+        "best_valid": true,
+        "controller_completed": true,
+        "elapsed_seconds": 1630.1440174519084,
+        "learning_elapsed_seconds": 1556.6019304549554,
+        "post_learning_grading_seconds": 69.14357560791541,
+        "post_learning_drain_budget_seconds": 3840,
+        "pending_at_learning_stop": 1
+      },
+      "exception_type": "RuntimeError",
+      "latest_run_cloud_instances": [
+        {
+          "created": true,
+          "destroyed": true,
+          "sandbox_id": "sbx-f7b0143d-0820-4c90-8778-a79ac46758f9",
+          "native_audit_exec_preflight": {
+            "user": "agent",
+            "exit_code": 0
+          }
+        }
+      ],
+      "user_requested_stop": {
+        "reason": "user_requested_full_score_stop_to_release_resources",
+        "requested_utc": "2026-10-15T13:34:03.191620+00:00",
+        "run": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/02_restler_recovery/run-6h-001",
+        "sandbox_id": "sbx-f7b0143d-0820-4c90-8778-a79ac46758f9",
+        "best_score": 1.0,
+        "best_round": "agent-4",
+        "planned_learning_seconds": 21600,
+        "formal_six_hour_completed": false,
+        "original_history_retained": true,
+        "trusted_stop": {
+          "reason": "user_requested_full_score_stop",
+          "uid_scope": 1500,
+          "exclusive_sandbox_only": true,
+          "learning_started_monotonic": 63.063433489,
+          "learning_started_utc": "2026-10-15T13:08:08.330408+00:00",
+          "launches": [
+            {
+              "pid": 218,
+              "spawned_monotonic": 63.072090451,
+              "spawned_utc": "2026-10-15T13:08:08.339080+00:00"
+            },
+            {
+              "pid": 4725,
+              "spawned_monotonic": 1144.513812573,
+              "spawned_utc": "2026-10-15T13:26:09.780907+00:00"
+            },
+            {
+              "pid": 5635,
+              "spawned_monotonic": 1354.086865769,
+              "spawned_utc": "2026-10-15T13:29:39.353946+00:00"
+            }
+          ],
+          "learning_deadline_monotonic": 21663.063433489,
+          "first_stop_dispatch_monotonic": 1618.554043031,
+          "all_stop_dispatched_monotonic": 1618.55846517,
+          "stop_dispatch_lateness_sec": -20044.509390458,
+          "learning_window_sec": 21600,
+          "actual_stop_dispatch_elapsed_sec": 1555.490609542,
+          "actual_all_stop_dispatched_elapsed_sec": 1555.495031681,
+          "paused_before_termination": true,
+          "stopped_processes": [
+            {
+              "pid": 5635,
+              "start_ticks": "135408"
+            },
+            {
+              "pid": 5638,
+              "start_ticks": "135409"
+            },
+            {
+              "pid": 5639,
+              "start_ticks": "135410"
+            },
+            {
+              "pid": 5640,
+              "start_ticks": "135410"
+            },
+            {
+              "pid": 5929,
+              "start_ticks": "142071"
+            },
+            {
+              "pid": 6466,
+              "start_ticks": "155517"
+            }
+          ],
+          "surviving_learning_processes": [],
+          "finished_utc": "2026-10-15T13:34:03.840188+00:00"
+        },
+        "learning_stopped_utc": "2026-10-15T13:34:03.879588+00:00",
+        "cleanup_checked_utc": "2026-10-15T13:35:52.964123+00:00",
+        "all_created_sandboxes_destroyed": true,
+        "host_process_alive": false,
+        "owned_reservation_released": true,
+        "first_full_score_snapshot_seconds": 839.7463306479622,
+        "native_trajectory_files": 1,
+        "result_classification": "user_stopped_early_after_full_score",
+        "six_hour_acceptance": false
+      },
+      "formal_six_hour_completed": false
+    },
+    {
+      "task": "04_pytest_fixtures",
+      "batch": "swe-rollouts-003-20261015-r4",
+      "path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/04_pytest_fixtures",
+      "phase": "user_stopped_after_full_score",
+      "periodic_controls_passed": true,
+      "controls": {
+        "reference": {
+          "score": 1.0,
+          "valid": true,
+          "seconds": 44.4684196410235
+        },
+        "starter": {
+          "score": 0.5,
+          "valid": true,
+          "seconds": 89.0870811350178
+        },
+        "empty": {
+          "score": 0.0,
+          "valid": true,
+          "seconds": 58.42404922703281
+        },
+        "partial": {
+          "score": 0.9166666666666666,
+          "valid": true,
+          "seconds": 64.19965033698827
+        }
+      },
+      "native_controls_passed": true,
+      "native_control_details": {
+        "oracle": true,
+        "nop": true,
+        "partial": true
+      },
+      "account": "raymone/1",
+      "worker_alive": false,
+      "latest_admission_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/04_pytest_fixtures/admission",
+      "actual_model_smoke_passed": true,
+      "latest_run": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/04_pytest_fixtures/run-6h-005",
+      "host_alive": false,
+      "learning_started_utc": "2026-10-15T13:36:08.143622+00:00",
+      "planned_learning_end_utc": "2026-10-15T19:36:08.143622+00:00",
+      "elapsed_learning_seconds": 4001.091318,
+      "native_session_response_item_counts": {
+        "message": 34,
+        "custom_tool_call": 34,
+        "custom_tool_call_output": 34,
+        "reasoning": 44
+      },
+      "native_tool_outputs": 34,
+      "best_score": 1.0,
+      "best_valid": true,
+      "history_entries": 5,
+      "best_observation": {
+        "entries": [
+          {
+            "type": "submission",
+            "kind": "agent",
+            "round": "agent-1",
+            "status": "completed",
+            "snapshot_time_seconds": 272.6735096569173,
+            "snapshot_sha256": "c5aa4a2c9893a60f1457d88686c178120d246d1ba4b1650636d1653d77fd2756",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/04_pytest_fixtures/run-6h-005/evaluation/submissions/agent-1/snapshot",
+            "snapshot_capture_started_sec": null,
+            "snapshot_capture_finished_sec": 272.6735130029265,
+            "snapshot_atomic": false,
+            "failed_checks": [],
+            "stages": {},
+            "score": 1.0,
+            "valid": true,
+            "pass_rate": 1.0,
+            "verifier_seconds": 30.409392700064927,
+            "feedback_time_seconds": 303.1169530469924
+          },
+          {
+            "type": "submission",
+            "kind": "agent",
+            "round": "agent-2",
+            "status": "completed",
+            "snapshot_time_seconds": 446.98989701096434,
+            "snapshot_sha256": "c9d9ede7585471784bae0241545d3d158b23d7f77c8b38af6ad823e5302ee621",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/04_pytest_fixtures/run-6h-005/evaluation/submissions/agent-2/snapshot",
+            "snapshot_capture_started_sec": null,
+            "snapshot_capture_finished_sec": 446.98989904497284,
+            "snapshot_atomic": false,
+            "failed_checks": [],
+            "stages": {},
+            "score": 1.0,
+            "valid": true,
+            "pass_rate": 1.0,
+            "verifier_seconds": 20.870546302990988,
+            "feedback_time_seconds": 467.8748723749304
+          },
+          {
+            "type": "submission",
+            "kind": "auto",
+            "round": "auto-1",
+            "status": "completed",
+            "snapshot_time_seconds": 601.105652429,
+            "snapshot_sha256": "61275298952ab6d1e12e5b0ab05b964e8c649d4d65c44e6b6c6cdbf99fefa79d",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/04_pytest_fixtures/run-6h-005/evaluation/submissions/auto-1/snapshot",
+            "snapshot_capture_started_sec": 599.540404626,
+            "snapshot_capture_finished_sec": 601.105652429,
+            "snapshot_atomic": false,
+            "capture_started_cloud_monotonic": 660.012381331,
+            "capture_finished_cloud_monotonic": 661.577629134,
+            "capture_started_cloud_utc": "2026-10-15T13:46:07.684030+00:00",
+            "capture_finished_cloud_utc": "2026-10-15T13:46:09.249270+00:00",
+            "snapshot_capture_host_started_sec": 599.4266881619114,
+            "snapshot_capture_host_finished_sec": 601.757410727907,
+            "failed_checks": [],
+            "stages": {},
+            "score": 1.0,
+            "valid": true,
+            "pass_rate": 1.0,
+            "verifier_seconds": 64.78513144305907,
+            "feedback_time_seconds": 666.7269090819173
+          },
+          {
+            "type": "submission",
+            "kind": "agent",
+            "round": "agent-3",
+            "status": "completed",
+            "snapshot_time_seconds": 649.4236853849143,
+            "snapshot_sha256": "bfa0ae956cb1f53dd960e0c743f5162774736e709b813584645b38046dd3066f",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/04_pytest_fixtures/run-6h-005/evaluation/submissions/agent-3/snapshot",
+            "snapshot_capture_started_sec": null,
+            "snapshot_capture_finished_sec": 649.4236867169384,
+            "snapshot_atomic": false,
+            "failed_checks": [],
+            "stages": {},
+            "score": 1.0,
+            "valid": true,
+            "pass_rate": 1.0,
+            "verifier_seconds": 48.16112768696621,
+            "feedback_time_seconds": 714.9058984880103
+          },
+          {
+            "type": "submission",
+            "kind": "final",
+            "round": "final-1",
+            "status": "completed",
+            "snapshot_time_seconds": 832.4888245540001,
+            "snapshot_sha256": "6a61654896ec3bbaccc7a4bbd868fa1c5a3420bf1de97a07ce29b946a95054c7",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/04_pytest_fixtures/run-6h-005/evaluation/submissions/final-1/snapshot",
+            "snapshot_capture_started_sec": 830.937429228,
+            "snapshot_capture_finished_sec": 832.4888245540001,
+            "snapshot_atomic": false,
+            "capture_started_cloud_monotonic": 891.409405933,
+            "capture_finished_cloud_monotonic": 892.960801259,
+            "capture_started_cloud_utc": "2026-10-15T13:49:59.081054+00:00",
+            "capture_finished_cloud_utc": "2026-10-15T13:50:00.632441+00:00",
+            "snapshot_capture_host_started_sec": 830.8247239089105,
+            "snapshot_capture_host_finished_sec": 833.4664987409487,
+            "formal_budget_completed": false,
+            "termination_kind": "infrastructure_or_manual_stop",
+            "failed_checks": [],
+            "stages": {},
+            "score": 1.0,
+            "valid": true,
+            "pass_rate": 1.0,
+            "verifier_seconds": 24.685086517012678,
+            "feedback_time_seconds": 858.4971309729153
+          }
+        ],
+        "selection": "valid_then_score",
+        "score_direction": "maximize",
+        "best_score": 1.0,
+        "best_pass_rate": 1.0,
+        "best_round": "agent-1",
+        "best_valid": true,
+        "controller_completed": true,
+        "elapsed_seconds": 858.4981817859225,
+        "learning_elapsed_seconds": 830.6482115929248,
+        "post_learning_grading_seconds": 23.39800924703013,
+        "post_learning_drain_budget_seconds": 3240,
+        "pending_at_learning_stop": 1
+      },
+      "exception_type": "RuntimeError",
+      "latest_run_cloud_instances": [
+        {
+          "created": true,
+          "destroyed": true,
+          "sandbox_id": "sbx-c16da992-43ca-47cc-8f43-c0e56037a21f",
+          "native_audit_exec_preflight": {
+            "user": "agent",
+            "exit_code": 0
+          }
+        }
+      ],
+      "user_requested_stop": {
+        "reason": "user_authorized_stop_full_score_runs_to_release_resources",
+        "requested_utc": "2026-10-15T13:49:57.304618+00:00",
+        "run": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/04_pytest_fixtures/run-6h-005",
+        "sandbox_id": "sbx-c16da992-43ca-47cc-8f43-c0e56037a21f",
+        "best_score": 1.0,
+        "best_round": "agent-1",
+        "formal_six_hour_completed": false,
+        "original_history_retained": true,
+        "result_classification": "user_stopped_early_after_full_score",
+        "trusted_stop": {
+          "reason": "user_requested_full_score_stop",
+          "uid_scope": 1500,
+          "exclusive_sandbox_only": true,
+          "learning_started_monotonic": 60.471976705,
+          "learning_started_utc": "2026-10-15T13:36:08.143622+00:00",
+          "launches": [
+            {
+              "pid": 224,
+              "spawned_monotonic": 60.480757984,
+              "spawned_utc": "2026-10-15T13:36:08.152464+00:00"
+            },
+            {
+              "pid": 2105,
+              "spawned_monotonic": 545.525723533,
+              "spawned_utc": "2026-10-15T13:44:13.197468+00:00"
+            },
+            {
+              "pid": 2412,
+              "spawned_monotonic": 596.040568943,
+              "spawned_utc": "2026-10-15T13:45:03.712315+00:00"
+            },
+            {
+              "pid": 2543,
+              "spawned_monotonic": 607.04977753,
+              "spawned_utc": "2026-10-15T13:45:14.721547+00:00"
+            },
+            {
+              "pid": 3302,
+              "spawned_monotonic": 793.994437115,
+              "spawned_utc": "2026-10-15T13:48:21.666190+00:00"
+            },
+            {
+              "pid": 3423,
+              "spawned_monotonic": 803.178726521,
+              "spawned_utc": "2026-10-15T13:48:30.850499+00:00"
+            },
+            {
+              "pid": 3556,
+              "spawned_monotonic": 816.920040926,
+              "spawned_utc": "2026-10-15T13:48:44.591771+00:00"
+            },
+            {
+              "pid": 3680,
+              "spawned_monotonic": 826.706075409,
+              "spawned_utc": "2026-10-15T13:48:54.377797+00:00"
+            },
+            {
+              "pid": 3798,
+              "spawned_monotonic": 836.091333573,
+              "spawned_utc": "2026-10-15T13:49:03.763058+00:00"
+            },
+            {
+              "pid": 3961,
+              "spawned_monotonic": 855.519862919,
+              "spawned_utc": "2026-10-15T13:49:23.191617+00:00"
+            },
+            {
+              "pid": 4089,
+              "spawned_monotonic": 865.517118602,
+              "spawned_utc": "2026-10-15T13:49:33.188855+00:00"
+            }
+          ],
+          "learning_deadline_monotonic": 21660.471976705,
+          "first_stop_dispatch_monotonic": 890.194179128,
+          "all_stop_dispatched_monotonic": 890.197354728,
+          "stop_dispatch_lateness_sec": -20770.277797577,
+          "learning_window_sec": 21600,
+          "actual_stop_dispatch_elapsed_sec": 829.722202423,
+          "actual_all_stop_dispatched_elapsed_sec": 829.7253780230001,
+          "paused_before_termination": true,
+          "stopped_processes": [
+            {
+              "pid": 4089,
+              "start_ticks": "86551"
+            },
+            {
+              "pid": 4092,
+              "start_ticks": "86552"
+            },
+            {
+              "pid": 4093,
+              "start_ticks": "86553"
+            },
+            {
+              "pid": 4094,
+              "start_ticks": "86553"
+            }
+          ],
+          "surviving_learning_processes": [],
+          "finished_utc": "2026-10-15T13:49:57.883091+00:00"
+        },
+        "stop_checked_utc": "2026-10-15T13:49:57.920119+00:00",
+        "cleanup_checked_utc": "2026-10-15T13:50:26.998981+00:00",
+        "all_created_sandboxes_destroyed": true,
+        "owned_reservation_released": false
+      },
+      "formal_six_hour_completed": false
+    },
+    {
+      "task": "09_valkey_transactions",
+      "batch": "swe-rollouts-003-20261015-r4",
+      "path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/09_valkey_transactions",
+      "phase": "user_stopped_after_full_score",
+      "periodic_controls_passed": true,
+      "controls": {
+        "reference": {
+          "score": 1.0,
+          "valid": true,
+          "seconds": 89.11163640103769
+        },
+        "starter": {
+          "score": 0.36,
+          "valid": true,
+          "seconds": 87.10035618499387
+        },
+        "empty": {
+          "score": 0.0,
+          "valid": true,
+          "seconds": 89.54113074403722
+        },
+        "partial": {
+          "score": 0.81,
+          "valid": true,
+          "seconds": 123.68845353997312
+        }
+      },
+      "native_controls_passed": true,
+      "native_control_details": {
+        "oracle": true,
+        "nop": true,
+        "partial": true
+      },
+      "account": "raymone/1",
+      "worker_alive": false,
+      "latest_admission_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/09_valkey_transactions/admission",
+      "actual_model_smoke_passed": true,
+      "latest_run": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/09_valkey_transactions/run-6h-001",
+      "host_alive": false,
+      "learning_started_utc": "2026-10-15T13:08:24.637828+00:00",
+      "planned_learning_end_utc": "2026-10-15T19:08:24.637828+00:00",
+      "elapsed_learning_seconds": 5664.597112,
+      "native_session_response_item_counts": {
+        "message": 167,
+        "custom_tool_call": 29,
+        "custom_tool_call_output": 29,
+        "reasoning": 111,
+        "function_call": 4,
+        "function_call_output": 4
+      },
+      "native_tool_outputs": 33,
+      "best_score": 1.0,
+      "best_valid": true,
+      "history_entries": 6,
+      "best_observation": {
+        "entries": [
+          {
+            "type": "submission",
+            "kind": "agent",
+            "round": "agent-1",
+            "status": "completed",
+            "snapshot_time_seconds": 208.02508804609533,
+            "snapshot_sha256": "ca182250dd5388f093c87475b378ce6e8535be9b2f02fdf9da895401a0321883",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/09_valkey_transactions/run-6h-001/evaluation/submissions/agent-1/snapshot",
+            "snapshot_capture_started_sec": null,
+            "snapshot_capture_finished_sec": 208.0250893990742,
+            "snapshot_atomic": false,
+            "failed_checks": [],
+            "stages": {},
+            "score": 1.0,
+            "valid": true,
+            "pass_rate": 1.0,
+            "verifier_seconds": 88.76827145798597,
+            "feedback_time_seconds": 296.8185330510605
+          },
+          {
+            "type": "submission",
+            "kind": "agent",
+            "round": "agent-2",
+            "status": "completed",
+            "snapshot_time_seconds": 335.186772240093,
+            "snapshot_sha256": "9876d74403836262dd2682c76feaeba53fcdbe56cea0e4631c005c3b6f6a7f90",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/09_valkey_transactions/run-6h-001/evaluation/submissions/agent-2/snapshot",
+            "snapshot_capture_started_sec": null,
+            "snapshot_capture_finished_sec": 335.186774164089,
+            "snapshot_atomic": false,
+            "failed_checks": [],
+            "stages": {},
+            "score": 1.0,
+            "valid": true,
+            "pass_rate": 1.0,
+            "verifier_seconds": 46.52983497502282,
+            "feedback_time_seconds": 381.7377350371098
+          },
+          {
+            "type": "submission",
+            "kind": "agent",
+            "round": "agent-3",
+            "status": "completed",
+            "snapshot_time_seconds": 571.9007153490093,
+            "snapshot_sha256": "78b7ae5aff8b75f4c9fcbc5cc943a7dbd8011c97dc7a635a82437f7faf73ae60",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/09_valkey_transactions/run-6h-001/evaluation/submissions/agent-3/snapshot",
+            "snapshot_capture_started_sec": null,
+            "snapshot_capture_finished_sec": 571.9007164310897,
+            "snapshot_atomic": false,
+            "failed_checks": [],
+            "stages": {},
+            "score": 1.0,
+            "valid": true,
+            "pass_rate": 1.0,
+            "verifier_seconds": 41.41017207899131,
+            "feedback_time_seconds": 613.3505996130407
+          },
+          {
+            "type": "submission",
+            "kind": "auto",
+            "round": "auto-1",
+            "status": "completed",
+            "snapshot_time_seconds": 599.4614685700001,
+            "snapshot_sha256": "bd73170b88eed4a3a72230e04eed51b0d2f11d6fa1f06238d8834ad249a18880",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/09_valkey_transactions/run-6h-001/evaluation/submissions/auto-1/snapshot",
+            "snapshot_capture_started_sec": 599.447030317,
+            "snapshot_capture_finished_sec": 599.4614685700001,
+            "snapshot_atomic": false,
+            "capture_started_cloud_monotonic": 657.883680501,
+            "capture_finished_cloud_monotonic": 657.898118754,
+            "capture_started_cloud_utc": "2026-10-15T13:18:24.084856+00:00",
+            "capture_finished_cloud_utc": "2026-10-15T13:18:24.099282+00:00",
+            "snapshot_capture_host_started_sec": 599.2966692160117,
+            "snapshot_capture_host_finished_sec": 599.858271774021,
+            "failed_checks": [],
+            "stages": {},
+            "score": 1.0,
+            "valid": true,
+            "pass_rate": 1.0,
+            "verifier_seconds": 35.523524953983724,
+            "feedback_time_seconds": 648.9147228850052
+          },
+          {
+            "type": "submission",
+            "kind": "auto",
+            "round": "auto-2",
+            "status": "completed",
+            "snapshot_time_seconds": 1199.462005866,
+            "snapshot_sha256": "67b773a93c6726374553206fa81ef787f1a6647fbdf0186bc19bea9bf5675701",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/09_valkey_transactions/run-6h-001/evaluation/submissions/auto-2/snapshot",
+            "snapshot_capture_started_sec": 1199.447640782,
+            "snapshot_capture_finished_sec": 1199.462005866,
+            "snapshot_atomic": false,
+            "capture_started_cloud_monotonic": 1257.884290966,
+            "capture_finished_cloud_monotonic": 1257.89865605,
+            "capture_started_cloud_utc": "2026-10-15T13:28:24.085462+00:00",
+            "capture_finished_cloud_utc": "2026-10-15T13:28:24.099820+00:00",
+            "snapshot_capture_host_started_sec": 1199.2964066740824,
+            "snapshot_capture_host_finished_sec": 1199.8595034490572,
+            "failed_checks": [],
+            "stages": {},
+            "score": 1.0,
+            "valid": true,
+            "pass_rate": 1.0,
+            "verifier_seconds": 50.20189166709315,
+            "feedback_time_seconds": 1250.0877082340885
+          },
+          {
+            "type": "submission",
+            "kind": "final",
+            "round": "final-1",
+            "status": "completed",
+            "snapshot_time_seconds": 1540.91269953,
+            "snapshot_sha256": "df4b126f4a4c1d48fcbd5205aa6173c39645fcc87e39bef48c6909761c3df1ec",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/09_valkey_transactions/run-6h-001/evaluation/submissions/final-1/snapshot",
+            "snapshot_capture_started_sec": 1540.896980146,
+            "snapshot_capture_finished_sec": 1540.91269953,
+            "snapshot_atomic": false,
+            "capture_started_cloud_monotonic": 1599.33363033,
+            "capture_finished_cloud_monotonic": 1599.349349714,
+            "capture_started_cloud_utc": "2026-10-15T13:34:05.534806+00:00",
+            "capture_finished_cloud_utc": "2026-10-15T13:34:05.550514+00:00",
+            "snapshot_capture_host_started_sec": 1540.7471628800267,
+            "snapshot_capture_host_finished_sec": 1541.298309383099,
+            "formal_budget_completed": false,
+            "termination_kind": "infrastructure_or_manual_stop",
+            "failed_checks": [],
+            "stages": {},
+            "score": 1.0,
+            "valid": true,
+            "pass_rate": 1.0,
+            "verifier_seconds": 31.19735947600566,
+            "feedback_time_seconds": 1572.555146206054
+          }
+        ],
+        "selection": "valid_then_score",
+        "score_direction": "maximize",
+        "best_score": 1.0,
+        "best_pass_rate": 1.0,
+        "best_round": "agent-1",
+        "best_valid": true,
+        "controller_completed": true,
+        "elapsed_seconds": 1572.5590392230079,
+        "learning_elapsed_seconds": 1540.456621985999,
+        "post_learning_grading_seconds": 29.917237817076966,
+        "post_learning_drain_budget_seconds": 5040,
+        "pending_at_learning_stop": 1
+      },
+      "exception_type": "RuntimeError",
+      "latest_run_cloud_instances": [
+        {
+          "created": true,
+          "destroyed": true,
+          "sandbox_id": "sbx-85e4cb55-4922-4e0f-9eb2-d034623e5a9b",
+          "native_audit_exec_preflight": {
+            "user": "agent",
+            "exit_code": 0
+          }
+        }
+      ],
+      "user_requested_stop": {
+        "reason": "user_requested_full_score_stop_to_release_resources",
+        "requested_utc": "2026-10-15T13:34:03.880288+00:00",
+        "run": "/ws/users/raymone/edgebench/swe-rollouts-003-20261015-r4/09_valkey_transactions/run-6h-001",
+        "sandbox_id": "sbx-85e4cb55-4922-4e0f-9eb2-d034623e5a9b",
+        "best_score": 1.0,
+        "best_round": "agent-1",
+        "planned_learning_seconds": 21600,
+        "formal_six_hour_completed": false,
+        "original_history_retained": true,
+        "trusted_stop": {
+          "reason": "user_requested_full_score_stop",
+          "uid_scope": 1500,
+          "exclusive_sandbox_only": true,
+          "learning_started_monotonic": 58.436650184,
+          "learning_started_utc": "2026-10-15T13:08:24.637828+00:00",
+          "launches": [
+            {
+              "pid": 208,
+              "spawned_monotonic": 58.44525903,
+              "spawned_utc": "2026-10-15T13:08:24.646451+00:00"
+            },
+            {
+              "pid": 1760,
+              "spawned_monotonic": 445.061439581,
+              "spawned_utc": "2026-10-15T13:14:51.262713+00:00"
+            },
+            {
+              "pid": 2227,
+              "spawned_monotonic": 522.277720471,
+              "spawned_utc": "2026-10-15T13:16:08.478998+00:00"
+            },
+            {
+              "pid": 3001,
+              "spawned_monotonic": 684.307751642,
+              "spawned_utc": "2026-10-15T13:18:50.509040+00:00"
+            },
+            {
+              "pid": 3349,
+              "spawned_monotonic": 760.623234115,
+              "spawned_utc": "2026-10-15T13:20:06.824495+00:00"
+            },
+            {
+              "pid": 3471,
+              "spawned_monotonic": 772.667633117,
+              "spawned_utc": "2026-10-15T13:20:18.868900+00:00"
+            },
+            {
+              "pid": 3947,
+              "spawned_monotonic": 865.065301728,
+              "spawned_utc": "2026-10-15T13:21:51.266595+00:00"
+            },
+            {
+              "pid": 4081,
+              "spawned_monotonic": 877.141838965,
+              "spawned_utc": "2026-10-15T13:22:03.343114+00:00"
+            },
+            {
+              "pid": 4225,
+              "spawned_monotonic": 891.502057644,
+              "spawned_utc": "2026-10-15T13:22:17.703376+00:00"
+            },
+            {
+              "pid": 4418,
+              "spawned_monotonic": 924.094419835,
+              "spawned_utc": "2026-10-15T13:22:50.295683+00:00"
+            },
+            {
+              "pid": 4557,
+              "spawned_monotonic": 937.560051389,
+              "spawned_utc": "2026-10-15T13:23:03.761306+00:00"
+            },
+            {
+              "pid": 4694,
+              "spawned_monotonic": 949.931988707,
+              "spawned_utc": "2026-10-15T13:23:16.133290+00:00"
+            },
+            {
+              "pid": 4827,
+              "spawned_monotonic": 963.587681187,
+              "spawned_utc": "2026-10-15T13:23:29.788930+00:00"
+            },
+            {
+              "pid": 4953,
+              "spawned_monotonic": 974.958402149,
+              "spawned_utc": "2026-10-15T13:23:41.159693+00:00"
+            },
+            {
+              "pid": 5210,
+              "spawned_monotonic": 1006.449795309,
+              "spawned_utc": "2026-10-15T13:24:12.651048+00:00"
+            },
+            {
+              "pid": 5334,
+              "spawned_monotonic": 1017.91649628,
+              "spawned_utc": "2026-10-15T13:24:24.117753+00:00"
+            },
+            {
+              "pid": 5481,
+              "spawned_monotonic": 1032.002972123,
+              "spawned_utc": "2026-10-15T13:24:38.204264+00:00"
+            },
+            {
+              "pid": 5615,
+              "spawned_monotonic": 1046.505252057,
+              "spawned_utc": "2026-10-15T13:24:52.706511+00:00"
+            },
+            {
+              "pid": 5744,
+              "spawned_monotonic": 1059.22394334,
+              "spawned_utc": "2026-10-15T13:25:05.425253+00:00"
+            },
+            {
+              "pid": 5877,
+              "spawned_monotonic": 1072.086145473,
+              "spawned_utc": "2026-10-15T13:25:18.287410+00:00"
+            },
+            {
+              "pid": 6006,
+              "spawned_monotonic": 1083.985485697,
+              "spawned_utc": "2026-10-15T13:25:30.186764+00:00"
+            },
+            {
+              "pid": 6159,
+              "spawned_monotonic": 1097.974805269,
+              "spawned_utc": "2026-10-15T13:25:44.176053+00:00"
+            },
+            {
+              "pid": 6289,
+              "spawned_monotonic": 1111.029568729,
+              "spawned_utc": "2026-10-15T13:25:57.230824+00:00"
+            },
+            {
+              "pid": 6432,
+              "spawned_monotonic": 1122.476259493,
+              "spawned_utc": "2026-10-15T13:26:08.677529+00:00"
+            },
+            {
+              "pid": 6563,
+              "spawned_monotonic": 1135.562596888,
+              "spawned_utc": "2026-10-15T13:26:21.763847+00:00"
+            },
+            {
+              "pid": 6689,
+              "spawned_monotonic": 1146.090382755,
+              "spawned_utc": "2026-10-15T13:26:32.291656+00:00"
+            },
+            {
+              "pid": 6825,
+              "spawned_monotonic": 1158.266561319,
+              "spawned_utc": "2026-10-15T13:26:44.467824+00:00"
+            },
+            {
+              "pid": 6940,
+              "spawned_monotonic": 1168.902126855,
+              "spawned_utc": "2026-10-15T13:26:55.103394+00:00"
+            },
+            {
+              "pid": 7069,
+              "spawned_monotonic": 1181.113685479,
+              "spawned_utc": "2026-10-15T13:27:07.314962+00:00"
+            },
+            {
+              "pid": 7216,
+              "spawned_monotonic": 1193.495136415,
+              "spawned_utc": "2026-10-15T13:27:19.696412+00:00"
+            },
+            {
+              "pid": 7343,
+              "spawned_monotonic": 1202.394275731,
+              "spawned_utc": "2026-10-15T13:27:28.595544+00:00"
+            },
+            {
+              "pid": 7464,
+              "spawned_monotonic": 1210.706763561,
+              "spawned_utc": "2026-10-15T13:27:36.908026+00:00"
+            },
+            {
+              "pid": 7588,
+              "spawned_monotonic": 1219.246321949,
+              "spawned_utc": "2026-10-15T13:27:45.447593+00:00"
+            },
+            {
+              "pid": 7711,
+              "spawned_monotonic": 1228.713856102,
+              "spawned_utc": "2026-10-15T13:27:54.915144+00:00"
+            },
+            {
+              "pid": 7835,
+              "spawned_monotonic": 1238.761776931,
+              "spawned_utc": "2026-10-15T13:28:04.963030+00:00"
+            },
+            {
+              "pid": 7974,
+              "spawned_monotonic": 1252.639198352,
+              "spawned_utc": "2026-10-15T13:28:18.840464+00:00"
+            },
+            {
+              "pid": 8119,
+              "spawned_monotonic": 1262.740981951,
+              "spawned_utc": "2026-10-15T13:28:28.942293+00:00"
+            },
+            {
+              "pid": 8241,
+              "spawned_monotonic": 1270.756351473,
+              "spawned_utc": "2026-10-15T13:28:36.957595+00:00"
+            },
+            {
+              "pid": 8366,
+              "spawned_monotonic": 1279.233697692,
+              "spawned_utc": "2026-10-15T13:28:45.434995+00:00"
+            },
+            {
+              "pid": 8486,
+              "spawned_monotonic": 1286.967691103,
+              "spawned_utc": "2026-10-15T13:28:53.168966+00:00"
+            },
+            {
+              "pid": 8618,
+              "spawned_monotonic": 1297.198297999,
+              "spawned_utc": "2026-10-15T13:29:03.399591+00:00"
+            },
+            {
+              "pid": 8751,
+              "spawned_monotonic": 1307.981369062,
+              "spawned_utc": "2026-10-15T13:29:14.182624+00:00"
+            },
+            {
+              "pid": 8868,
+              "spawned_monotonic": 1317.053545728,
+              "spawned_utc": "2026-10-15T13:29:23.254840+00:00"
+            },
+            {
+              "pid": 8986,
+              "spawned_monotonic": 1324.5934612,
+              "spawned_utc": "2026-10-15T13:29:30.794743+00:00"
+            },
+            {
+              "pid": 9093,
+              "spawned_monotonic": 1332.043542994,
+              "spawned_utc": "2026-10-15T13:29:38.244797+00:00"
+            },
+            {
+              "pid": 9214,
+              "spawned_monotonic": 1340.052010769,
+              "spawned_utc": "2026-10-15T13:29:46.253253+00:00"
+            },
+            {
+              "pid": 9345,
+              "spawned_monotonic": 1348.462068503,
+              "spawned_utc": "2026-10-15T13:29:54.663333+00:00"
+            },
+            {
+              "pid": 9464,
+              "spawned_monotonic": 1355.85332988,
+              "spawned_utc": "2026-10-15T13:30:02.054578+00:00"
+            },
+            {
+              "pid": 9582,
+              "spawned_monotonic": 1364.148279609,
+              "spawned_utc": "2026-10-15T13:30:10.349563+00:00"
+            },
+            {
+              "pid": 9710,
+              "spawned_monotonic": 1371.569377079,
+              "spawned_utc": "2026-10-15T13:30:17.770647+00:00"
+            },
+            {
+              "pid": 9826,
+              "spawned_monotonic": 1381.542661399,
+              "spawned_utc": "2026-10-15T13:30:27.743945+00:00"
+            },
+            {
+              "pid": 9937,
+              "spawned_monotonic": 1390.159948655,
+              "spawned_utc": "2026-10-15T13:30:36.361212+00:00"
+            },
+            {
+              "pid": 10066,
+              "spawned_monotonic": 1398.969207413,
+              "spawned_utc": "2026-10-15T13:30:45.170477+00:00"
+            },
+            {
+              "pid": 10176,
+              "spawned_monotonic": 1406.616236799,
+              "spawned_utc": "2026-10-15T13:30:52.817502+00:00"
+            },
+            {
+              "pid": 10300,
+              "spawned_monotonic": 1413.924675046,
+              "spawned_utc": "2026-10-15T13:31:00.125923+00:00"
+            },
+            {
+              "pid": 10419,
+              "spawned_monotonic": 1421.362895982,
+              "spawned_utc": "2026-10-15T13:31:07.564187+00:00"
+            },
+            {
+              "pid": 10542,
+              "spawned_monotonic": 1432.423881194,
+              "spawned_utc": "2026-10-15T13:31:18.625129+00:00"
+            },
+            {
+              "pid": 10658,
+              "spawned_monotonic": 1440.246169585,
+              "spawned_utc": "2026-10-15T13:31:26.447435+00:00"
+            },
+            {
+              "pid": 10787,
+              "spawned_monotonic": 1450.230145626,
+              "spawned_utc": "2026-10-15T13:31:36.431411+00:00"
+            },
+            {
+              "pid": 10911,
+              "spawned_monotonic": 1457.705174364,
+              "spawned_utc": "2026-10-15T13:31:43.906424+00:00"
+            },
+            {
+              "pid": 11020,
+              "spawned_monotonic": 1465.215114398,
+              "spawned_utc": "2026-10-15T13:31:51.416426+00:00"
+            },
+            {
+              "pid": 11146,
+              "spawned_monotonic": 1476.170362319,
+              "spawned_utc": "2026-10-15T13:32:02.371639+00:00"
+            },
+            {
+              "pid": 11277,
+              "spawned_monotonic": 1485.731582941,
+              "spawned_utc": "2026-10-15T13:32:11.932829+00:00"
+            },
+            {
+              "pid": 11397,
+              "spawned_monotonic": 1493.164847152,
+              "spawned_utc": "2026-10-15T13:32:19.366091+00:00"
+            },
+            {
+              "pid": 11514,
+              "spawned_monotonic": 1500.943105508,
+              "spawned_utc": "2026-10-15T13:32:27.144407+00:00"
+            },
+            {
+              "pid": 11630,
+              "spawned_monotonic": 1508.714843585,
+              "spawned_utc": "2026-10-15T13:32:34.916096+00:00"
+            },
+            {
+              "pid": 11757,
+              "spawned_monotonic": 1518.391552527,
+              "spawned_utc": "2026-10-15T13:32:44.592820+00:00"
+            },
+            {
+              "pid": 11879,
+              "spawned_monotonic": 1527.852742269,
+              "spawned_utc": "2026-10-15T13:32:54.054001+00:00"
+            },
+            {
+              "pid": 11999,
+              "spawned_monotonic": 1535.573868707,
+              "spawned_utc": "2026-10-15T13:33:01.775132+00:00"
+            },
+            {
+              "pid": 12119,
+              "spawned_monotonic": 1543.68230615,
+              "spawned_utc": "2026-10-15T13:33:09.883585+00:00"
+            },
+            {
+              "pid": 12254,
+              "spawned_monotonic": 1554.384068049,
+              "spawned_utc": "2026-10-15T13:33:20.585356+00:00"
+            },
+            {
+              "pid": 12368,
+              "spawned_monotonic": 1563.820441308,
+              "spawned_utc": "2026-10-15T13:33:30.021762+00:00"
+            },
+            {
+              "pid": 12489,
+              "spawned_monotonic": 1572.741292702,
+              "spawned_utc": "2026-10-15T13:33:38.942539+00:00"
+            },
+            {
+              "pid": 12599,
+              "spawned_monotonic": 1580.832851115,
+              "spawned_utc": "2026-10-15T13:33:47.034120+00:00"
+            },
+            {
+              "pid": 12718,
+              "spawned_monotonic": 1589.253204317,
+              "spawned_utc": "2026-10-15T13:33:55.454449+00:00"
+            }
+          ],
+          "learning_deadline_monotonic": 21658.436650184,
+          "first_stop_dispatch_monotonic": 1598.089407286,
+          "all_stop_dispatched_monotonic": 1598.093188873,
+          "stop_dispatch_lateness_sec": -20060.347242898002,
+          "learning_window_sec": 21600,
+          "actual_stop_dispatch_elapsed_sec": 1539.6527571020001,
+          "actual_all_stop_dispatched_elapsed_sec": 1539.656538689,
+          "paused_before_termination": true,
+          "stopped_processes": [
+            {
+              "pid": 12718,
+              "start_ticks": "158924"
+            },
+            {
+              "pid": 12721,
+              "start_ticks": "158926"
+            },
+            {
+              "pid": 12722,
+              "start_ticks": "158926"
+            },
+            {
+              "pid": 12723,
+              "start_ticks": "158926"
+            }
+          ],
+          "surviving_learning_processes": [],
+          "finished_utc": "2026-10-15T13:34:04.330390+00:00"
+        },
+        "learning_stopped_utc": "2026-10-15T13:34:04.419690+00:00",
+        "cleanup_checked_utc": "2026-10-15T13:35:52.965792+00:00",
+        "all_created_sandboxes_destroyed": true,
+        "host_process_alive": false,
+        "owned_reservation_released": true,
+        "first_full_score_snapshot_seconds": 208.02508804609533,
+        "native_trajectory_files": 1,
+        "result_classification": "user_stopped_early_after_full_score",
+        "six_hour_acceptance": false
+      },
+      "formal_six_hour_completed": false
+    },
+    {
+      "task": "01_openapi_streaming",
+      "batch": "swe-rollouts-002-20261015-r6",
+      "path": "/ws/users/raymone/edgebench/swe-rollouts-002-20261015-r6/01_openapi_streaming",
+      "phase": "roll_failed",
+      "periodic_controls_passed": true,
+      "controls": {
+        "reference": {
+          "score": 1.0,
+          "valid": true,
+          "seconds": 100.98987869906705
+        },
+        "starter": {
+          "score": 0.03,
+          "valid": true,
+          "seconds": 122.5032135710353
+        },
+        "empty": {
+          "score": 0.0,
+          "valid": true,
+          "seconds": 42.993063703062944
+        },
+        "partial": {
+          "score": 0.84,
+          "valid": true,
+          "seconds": 180.02035097405314
+        }
+      },
+      "native_controls_passed": true,
+      "native_control_details": {
+        "oracle": true,
+        "nop": true,
+        "partial": true
+      },
+      "account": "raymone/1",
+      "worker_alive": false,
+      "latest_admission_path": "/ws/users/raymone/edgebench/swe-rollouts-002-20261015-r6/01_openapi_streaming/admission-002",
+      "actual_model_smoke_passed": false
+    },
+    {
+      "task": "03_httpx_transport",
+      "batch": "swe-rollouts-002-20261015-r6",
+      "path": "/ws/users/raymone/edgebench/swe-rollouts-002-20261015-r6/03_httpx_transport",
+      "phase": "user_stopped_after_full_score",
+      "periodic_controls_passed": true,
+      "controls": {
+        "reference": {
+          "score": 1.0,
+          "valid": true,
+          "seconds": 54.312111202045344
+        },
+        "starter": {
+          "score": 0.46746031746031746,
+          "valid": true,
+          "seconds": 48.82773011305835
+        },
+        "empty": {
+          "score": 0.0,
+          "valid": true,
+          "seconds": 65.36750461906195
+        },
+        "partial": {
+          "score": 0.9821428571428571,
+          "valid": true,
+          "seconds": 53.883875529048964
+        }
+      },
+      "native_controls_passed": true,
+      "native_control_details": {
+        "oracle": true,
+        "nop": true,
+        "partial": true
+      },
+      "account": "raymone/3",
+      "worker_alive": false,
+      "latest_admission_path": "/ws/users/raymone/edgebench/swe-rollouts-002-20261015-r6/03_httpx_transport/admission",
+      "actual_model_smoke_passed": true,
+      "latest_run": "/ws/users/raymone/edgebench/swe-rollouts-002-20261015-r6/03_httpx_transport/run-6h-001",
+      "host_alive": false,
+      "learning_started_utc": "2026-10-15T13:24:31.556913+00:00",
+      "planned_learning_end_utc": "2026-10-15T19:24:31.556913+00:00",
+      "elapsed_learning_seconds": 4697.678027,
+      "native_session_response_item_counts": {
+        "message": 10,
+        "custom_tool_call": 24,
+        "custom_tool_call_output": 23,
+        "reasoning": 33
+      },
+      "native_tool_outputs": 23,
+      "best_score": 1.0,
+      "best_valid": true,
+      "history_entries": 3,
+      "best_observation": {
+        "entries": [
+          {
+            "type": "submission",
+            "kind": "agent",
+            "round": "agent-1",
+            "status": "completed",
+            "snapshot_time_seconds": 267.47976830403786,
+            "snapshot_sha256": "91d8499ca326417e68b5aa71ecfe5594808bcfe50d88f0c2f1b7d8f45dd01f54",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-002-20261015-r6/03_httpx_transport/run-6h-001/evaluation/submissions/agent-1/snapshot",
+            "snapshot_capture_started_sec": null,
+            "snapshot_capture_finished_sec": 267.47977004700806,
+            "snapshot_atomic": false,
+            "failed_checks": [],
+            "stages": {},
+            "score": 1.0,
+            "valid": true,
+            "pass_rate": 1.0,
+            "verifier_seconds": 67.99893408699427,
+            "feedback_time_seconds": 335.50340866704937
+          },
+          {
+            "type": "submission",
+            "kind": "agent",
+            "round": "agent-2",
+            "status": "completed",
+            "snapshot_time_seconds": 503.8717004620703,
+            "snapshot_sha256": "848c1d526929c178467fd32aa3738f835bd09f3439205f37e2b6f853227655c7",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-002-20261015-r6/03_httpx_transport/run-6h-001/evaluation/submissions/agent-2/snapshot",
+            "snapshot_capture_started_sec": null,
+            "snapshot_capture_finished_sec": 503.8717036379967,
+            "snapshot_atomic": false,
+            "failed_checks": [],
+            "stages": {},
+            "score": 1.0,
+            "valid": true,
+            "pass_rate": 1.0,
+            "verifier_seconds": 45.086920660105534,
+            "feedback_time_seconds": 548.9896359640406
+          },
+          {
+            "type": "submission",
+            "kind": "final",
+            "round": "final-1",
+            "status": "completed",
+            "snapshot_time_seconds": 575.2870542979999,
+            "snapshot_sha256": "c16e82354439e4f0b78db3b8bef8da3087e9e1097166f60b06db3b4fb71abcf8",
+            "snapshot_path": "/ws/users/raymone/edgebench/swe-rollouts-002-20261015-r6/03_httpx_transport/run-6h-001/evaluation/submissions/final-1/snapshot",
+            "snapshot_capture_started_sec": 574.9556735169999,
+            "snapshot_capture_finished_sec": 575.2870542979999,
+            "snapshot_atomic": false,
+            "capture_started_cloud_monotonic": 628.91931009,
+            "capture_finished_cloud_monotonic": 629.250690871,
+            "capture_started_cloud_utc": "2026-10-15T13:34:06.512586+00:00",
+            "capture_finished_cloud_utc": "2026-10-15T13:34:06.843956+00:00",
+            "snapshot_capture_host_started_sec": 574.8489758099895,
+            "snapshot_capture_host_finished_sec": 575.8212009309791,
+            "formal_budget_completed": false,
+            "termination_kind": "infrastructure_or_manual_stop",
+            "failed_checks": [],
+            "stages": {},
+            "score": 1.0,
+            "valid": true,
+            "pass_rate": 1.0,
+            "verifier_seconds": 43.555877313017845,
+            "feedback_time_seconds": 619.4912197330268
+          }
+        ],
+        "selection": "valid_then_score",
+        "score_direction": "maximize",
+        "best_score": 1.0,
+        "best_pass_rate": 1.0,
+        "best_round": "agent-1",
+        "best_valid": true,
+        "controller_completed": true,
+        "elapsed_seconds": 619.4920215670718,
+        "learning_elapsed_seconds": 574.1574516630499,
+        "post_learning_grading_seconds": 42.17906033003237,
+        "post_learning_drain_budget_seconds": 3240,
+        "pending_at_learning_stop": 1
+      },
+      "exception_type": "RuntimeError",
+      "latest_run_cloud_instances": [
+        {
+          "created": true,
+          "destroyed": true,
+          "sandbox_id": "sbx-35b0e387-14bd-4dc6-b549-fb857368a126",
+          "native_audit_exec_preflight": {
+            "user": "agent",
+            "exit_code": 0
+          }
+        }
+      ],
+      "user_requested_stop": {
+        "reason": "user_requested_full_score_stop_to_release_resources",
+        "requested_utc": "2026-10-15T13:34:04.435249+00:00",
+        "run": "/ws/users/raymone/edgebench/swe-rollouts-002-20261015-r6/03_httpx_transport/run-6h-001",
+        "sandbox_id": "sbx-35b0e387-14bd-4dc6-b549-fb857368a126",
+        "best_score": 1.0,
+        "best_round": "agent-1",
+        "planned_learning_seconds": 21600,
+        "formal_six_hour_completed": false,
+        "original_history_retained": true,
+        "trusted_stop": {
+          "reason": "user_requested_full_score_stop",
+          "uid_scope": 1500,
+          "exclusive_sandbox_only": true,
+          "learning_started_monotonic": 53.963636573,
+          "learning_started_utc": "2026-10-15T13:24:31.556913+00:00",
+          "launches": [
+            {
+              "pid": 222,
+              "spawned_monotonic": 53.973553573,
+              "spawned_utc": "2026-10-15T13:24:31.566875+00:00"
+            }
+          ],
+          "learning_deadline_monotonic": 21653.963636573,
+          "first_stop_dispatch_monotonic": 627.293368926,
+          "all_stop_dispatched_monotonic": 627.297719461,
+          "stop_dispatch_lateness_sec": -21026.670267647,
+          "learning_window_sec": 21600,
+          "actual_stop_dispatch_elapsed_sec": 573.3297323529999,
+          "actual_all_stop_dispatched_elapsed_sec": 573.334082888,
+          "paused_before_termination": true,
+          "stopped_processes": [
+            {
+              "pid": 222,
+              "start_ticks": "5396"
+            },
+            {
+              "pid": 225,
+              "start_ticks": "5398"
+            },
+            {
+              "pid": 226,
+              "start_ticks": "5398"
+            },
+            {
+              "pid": 227,
+              "start_ticks": "5398"
+            },
+            {
+              "pid": 312,
+              "start_ticks": "6157"
+            },
+            {
+              "pid": 2352,
+              "start_ticks": "62725"
+            },
+            {
+              "pid": 2356,
+              "start_ticks": "62728"
+            }
+          ],
+          "surviving_learning_processes": [],
+          "finished_utc": "2026-10-15T13:34:04.915828+00:00"
+        },
+        "learning_stopped_utc": "2026-10-15T13:34:04.951210+00:00",
+        "cleanup_checked_utc": "2026-10-15T13:35:52.967043+00:00",
+        "all_created_sandboxes_destroyed": true,
+        "host_process_alive": false,
+        "owned_reservation_released": true,
+        "first_full_score_snapshot_seconds": 267.47976830403786,
+        "native_trajectory_files": 1,
+        "result_classification": "user_stopped_early_after_full_score",
+        "six_hour_acceptance": false
+      },
+      "formal_six_hour_completed": false
+    },
+    {
+      "task": "18_polars_streaming",
+      "batch": "swe-rollouts-005-20261015-r5",
+      "path": "/ws/users/raymone/edgebench/swe-rollouts-005-20261015-r5/18_polars_streaming",
+      "phase": "roll_failed",
+      "preparation_error": null,
+      "periodic_controls_passed": true,
+      "controls": {
+        "reference": {
+          "score": 1.0,
+          "valid": true,
+          "seconds": 95.75032334192656
+        },
+        "starter": {
+          "score": 0.5516666666666667,
+          "valid": true,
+          "seconds": 55.56654788006563
+        },
+        "empty": {
+          "score": 0.0,
+          "valid": true,
+          "seconds": 58.54953837196808
+        },
+        "partial": {
+          "score": 0.4083333333333333,
+          "valid": true,
+          "seconds": 108.65241720003542
+        }
+      },
+      "native_controls_passed": true,
+      "native_control_details": {
+        "oracle": true,
+        "nop": true,
+        "partial": true
+      },
+      "account": "raymone/1",
+      "worker_alive": false,
+      "latest_admission_path": "/ws/users/raymone/edgebench/swe-rollouts-005-20261015-r5/18_polars_streaming/admission-002",
+      "actual_model_smoke_passed": false
+    },
+    {
+      "task": "19_ruff_project_analysis",
+      "batch": "swe-rollouts-005-20261015-r5",
+      "path": "/ws/users/raymone/edgebench/swe-rollouts-005-20261015-r5/19_ruff_project_analysis",
+      "phase": "roll_failed",
+      "preparation_error": null,
+      "periodic_controls_passed": true,
+      "controls": {
+        "reference": {
+          "score": 1.0,
+          "valid": true,
+          "seconds": 299.0002847510623
+        },
+        "starter": {
+          "score": 0.47271825396825395,
+          "valid": true,
+          "seconds": 242.6085199819645
+        },
+        "empty": {
+          "score": 0.0,
+          "valid": true,
+          "seconds": 40.517601359053515
+        },
+        "partial": {
+          "score": 0.90625,
+          "valid": true,
+          "seconds": 228.77761907095555
+        }
+      },
+      "native_controls_passed": true,
+      "native_control_details": {
+        "oracle": true,
+        "nop": true,
+        "partial": true
+      },
+      "account": "raymone/1",
+      "worker_alive": false,
+      "latest_admission_path": "/ws/users/raymone/edgebench/swe-rollouts-005-20261015-r5/19_ruff_project_analysis/admission-002",
+      "actual_model_smoke_passed": false
+    },
+    {
+      "task": "20_libcst_project_migration",
+      "batch": "swe-rollouts-005-20261015-r5",
+      "path": "/ws/users/raymone/edgebench/swe-rollouts-005-20261015-r5/20_libcst_project_migration",
+      "phase": "learning",
+      "preparation_error": null,
+      "periodic_controls_passed": true,
+      "controls": {
+        "reference": {
+          "score": 1.0,
+          "valid": true,
+          "seconds": 105.23877294303384
+        },
+        "starter": {
+          "score": 0.6777777777777777,
+          "valid": true,
+          "seconds": 72.24722435092553
+        },
+        "empty": {
+          "score": 0.0,
+          "valid": true,
+          "seconds": 59.03050992102362
+        },
+        "partial": {
+          "score": 0.7777777777777778,
+          "valid": true,
+          "seconds": 126.99491858505644
+        }
+      },
+      "native_controls_passed": true,
+      "native_control_details": {
+        "oracle": true,
+        "nop": true,
+        "partial": true
+      },
+      "account": "raymone/1",
+      "worker_alive": true,
+      "latest_admission_path": "/ws/users/raymone/edgebench/swe-rollouts-005-20261015-r5/20_libcst_project_migration/admission-002",
+      "actual_model_smoke_passed": true,
+      "latest_run": "/ws/users/raymone/edgebench/swe-rollouts-005-20261015-r5/20_libcst_project_migration/run-6h-001",
+      "host_alive": true,
+      "learning_started_utc": "2026-10-15T14:41:57.279149+00:00",
+      "planned_learning_end_utc": "2026-10-15T20:41:57.279149+00:00",
+      "elapsed_learning_seconds": 51.955791,
+      "native_session_response_item_counts": {
+        "message": 6,
+        "custom_tool_call": 4,
+        "custom_tool_call_output": 4,
+        "reasoning": 2
+      },
+      "native_tool_outputs": 4,
+      "history_entries": 0,
+      "latest_run_cloud_instances": [
+        {
+          "created": true,
+          "destroyed": false,
+          "sandbox_id": "sbx-fd6375aa-86c0-44e8-a1c3-d0f34e50ea96",
+          "native_audit_exec_preflight": {
+            "user": "agent",
+            "exit_code": 0
+          }
+        }
+      ]
+    },
+    {
+      "task": "21_coverage_context_merge",
+      "batch": "swe-rollouts-005-20261015-r5",
+      "path": "/ws/users/raymone/edgebench/swe-rollouts-005-20261015-r5/21_coverage_context_merge",
+      "phase": "learning",
+      "preparation_error": null,
+      "periodic_controls_passed": true,
+      "controls": {
+        "reference": {
+          "score": 1.0,
+          "valid": true,
+          "seconds": 70.19815844390541
+        },
+        "starter": {
+          "score": 0.10000000000000002,
+          "valid": true,
+          "seconds": 22.714348698966205
+        },
+        "empty": {
+          "score": 0.0,
+          "valid": true,
+          "seconds": 17.609360348898917
+        },
+        "partial": {
+          "score": 0.9333333333333333,
+          "valid": true,
+          "seconds": 28.662305436097085
+        }
+      },
+      "native_controls_passed": true,
+      "native_control_details": {
+        "oracle": true,
+        "nop": true,
+        "partial": true
+      },
+      "account": "raymone/1",
+      "worker_alive": true,
+      "latest_admission_path": "/ws/users/raymone/edgebench/swe-rollouts-005-20261015-r5/21_coverage_context_merge/admission-002",
+      "actual_model_smoke_passed": true,
+      "latest_run": "/ws/users/raymone/edgebench/swe-rollouts-005-20261015-r5/21_coverage_context_merge/run-6h-001",
+      "host_alive": true,
+      "learning_started_utc": "2026-10-15T14:41:59.111091+00:00",
+      "planned_learning_end_utc": "2026-10-15T20:41:59.111091+00:00",
+      "elapsed_learning_seconds": 50.123849,
+      "native_session_response_item_counts": {
+        "message": 6,
+        "custom_tool_call": 4,
+        "custom_tool_call_output": 4
+      },
+      "native_tool_outputs": 4,
+      "history_entries": 0,
+      "latest_run_cloud_instances": [
+        {
+          "created": true,
+          "destroyed": false,
+          "sandbox_id": "sbx-10dbcf6b-a54b-486c-a543-ba04b53e9503",
+          "native_audit_exec_preflight": {
+            "user": "agent",
+            "exit_code": 0
+          }
+        }
+      ]
+    },
+    {
+      "task": "22_sphinx_incremental_build",
+      "batch": "swe-rollouts-005-20261015-r5",
+      "path": "/ws/users/raymone/edgebench/swe-rollouts-005-20261015-r5/22_sphinx_incremental_build",
+      "phase": "preparation_failed",
+      "preparation_error": "RuntimeError('judge did not produce score and reward; private logs retained')",
+      "periodic_controls_passed": false,
+      "controls": {},
+      "native_controls_passed": false,
+      "native_control_details": {},
+      "latest_admission_path": "/ws/users/raymone/edgebench/swe-rollouts-005-20261015-r5/22_sphinx_incremental_build/admission",
+      "actual_model_smoke_passed": false
+    }
+  ],
+  "queues": [
+    {
+      "batch": "swe-rollouts-002-20261015-r6",
+      "updated_utc": "2026-10-15T13:23:21.581219+00:00",
+      "pending_preparation_or_account_capacity": [],
+      "attempted": [
+        {
+          "task": "01_openapi_streaming",
+          "account": "raymone/1",
+          "worker_pid": 3425425,
+          "worker_start_ticks": "85456584",
+          "lease": "8647cbb82892459abdbaf90f81fb5336",
+          "model_slots": 1,
+          "started_utc": "2026-10-15T13:22:21.577500+00:00"
+        },
+        {
+          "task": "03_httpx_transport",
+          "account": "raymone/3",
+          "worker_pid": 3425426,
+          "worker_start_ticks": "85456584",
+          "lease": "49cd07a4897c41d387722ae670cf49e4",
+          "model_slots": 1,
+          "started_utc": "2026-10-15T13:22:21.580221+00:00"
+        }
+      ],
+      "model": "gpt-6.1-sol",
+      "budget_seconds": 21600,
+      "interval_seconds": 600,
+      "difficulty_early_stop": false,
+      "does_not_retry_failed_model_or_cloud_attempts": true,
+      "queue_pid": 3239124,
+      "queue_active": false,
+      "preparation_wait_limit_seconds": 21600,
+      "actual_queue_process_alive": false
+    },
+    {
+      "batch": "swe-rollouts-005-20261015-r5",
+      "updated_utc": "2026-10-15T14:42:16.230211+00:00",
+      "pending_preparation_or_account_capacity": [
+        "22_sphinx_incremental_build"
+      ],
+      "attempted": [
+        {
+          "task": "18_polars_streaming",
+          "account": "raymone/1",
+          "worker_pid": 3483597,
+          "worker_start_ticks": "85473147",
+          "lease": "36d33c8b4f3e45479120b31427375dd6",
+          "model_slots": 1,
+          "started_utc": "2026-10-15T13:25:07.209607+00:00"
+        },
+        {
+          "task": "20_libcst_project_migration",
+          "account": "raymone/3",
+          "worker_pid": 3483598,
+          "worker_start_ticks": "85473147",
+          "lease": "f02bc9d16a734dfc9fe1a37cc89a5feb",
+          "model_slots": 1,
+          "started_utc": "2026-10-15T13:25:07.210958+00:00"
+        },
+        {
+          "task": "21_coverage_context_merge",
+          "account": "raymone/1",
+          "worker_pid": 3629712,
+          "worker_start_ticks": "85515607",
+          "lease": "0f5b3c60e0584e85bca6e2415bad8105",
+          "model_slots": 1,
+          "started_utc": "2026-10-15T13:32:11.808784+00:00"
+        },
+        {
+          "task": "19_ruff_project_analysis",
+          "account": "raymone/1",
+          "worker_pid": 3999463,
+          "worker_start_ticks": "85630031",
+          "lease": "2f81fc3db5aa4056b7f9f3b373c52dd5",
+          "model_slots": 1,
+          "started_utc": "2026-10-15T13:51:16.050652+00:00"
+        }
+      ],
+      "model": "gpt-6.1-sol",
+      "budget_seconds": 21600,
+      "interval_seconds": 600,
+      "difficulty_early_stop": false,
+      "does_not_retry_failed_model_or_cloud_attempts": true,
+      "queue_pid": 3176322,
+      "queue_active": true,
+      "preparation_wait_limit_seconds": 21600,
+      "actual_queue_process_alive": true
+    }
+  ],
+  "first_attempt_startup_failure": "r2 missing strace; zero native model turns; own instances stopped and removed",
+  "not_queued_for_current_contract": [
+    "10_datafusion_sort",
+    "12_croaring_kernels",
+    "14_tree_sitter_incremental"
+  ],
+  "phase_counts": {
+    "user_stopped_after_full_score": 4,
+    "roll_failed": 3,
+    "learning": 2,
+    "preparation_failed": 1
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "environment/Dockerfile": {
+    "bytes": 805,
+    "sha256": "87ab81f9b4281b70c45609143ee14a59c5a1ac7958baeacc5b9d0c0ad26a4da8"
+  },
+  "environment/build-probe.sh": {
+    "bytes": 345,
+    "sha256": "89d5299ec243227b439c2c05fb1c1b6252329e9c80421e108e30e27f5c491941"
+  },
+  "environment/probe/__pycache__/workloads.cpython-312.pyc": {
+    "bytes": 4838,
+    "sha256": "7c9afb8ff32cc568bc10ecdcba56b4806ffe7c9d813e393cb6383e8b4b76745b"
+  },
+  "environment/probe/edgebench-sort.rs": {
+    "bytes": 4676,
+    "sha256": "40608316bb1a9060053f90efd63bbf74e6400c9716e0f683cef903cdac184257"
+  },
+  "environment/probe/grader.py": {
+    "bytes": 7835,
+    "sha256": "707f37fef4f985bf1dc9dc686e7757ff915cd3179f3143231cffdc0d3b80b092"
+  },
+  "environment/probe/test.sh": {
+    "bytes": 122,
+    "sha256": "dc9ba58985bb9a35ffd4ec0b6340564377d7326085f855aa51007bb1936807a0"
+  },
+  "environment/probe/workloads.py": {
+    "bytes": 2661,
+    "sha256": "3a606a7549be8c1bfaa35a8c31e78601c191c20651a5129850a24ed5fbb043da"
+  },
+  "environment/upstream.tar.gz": {
+    "bytes": 14043132,
+    "sha256": "0148e5f8384d6b86c4ffb8249c72acd8abc0f5517a8b5ba5d117e5d42672345f"
+  },
+  "verifier/Dockerfile": {
+    "bytes": 788,
+    "sha256": "adebaa205bb463e63e81c1bcf8aa449c92c14bf0e7eb44bf1f6c7f013ef8970f"
+  },
+  "verifier/private/anchors.json": {
+    "bytes": 277,
+    "sha256": "d9b072dac56ecbea2f99b1d97e0b88b05ee3018f9d00f1dc2c60c7f95d91ec1b"
+  },
+  "verifier/private/correctness-expected.json": {
+    "bytes": 376867,
+    "sha256": "5298a7df4393403a888adebedde3d9fc7cf3b7cdb900c48888c7c3a434fab965"
+  },
+  "verifier/tests/__pycache__/workloads.cpython-312.pyc": {
+    "bytes": 4838,
+    "sha256": "7c9afb8ff32cc568bc10ecdcba56b4806ffe7c9d813e393cb6383e8b4b76745b"
+  },
+  "verifier/tests/edgebench-sort.rs": {
+    "bytes": 4676,
+    "sha256": "40608316bb1a9060053f90efd63bbf74e6400c9716e0f683cef903cdac184257"
+  },
+  "verifier/tests/grader.py": {
+    "bytes": 7835,
+    "sha256": "707f37fef4f985bf1dc9dc686e7757ff915cd3179f3143231cffdc0d3b80b092"
+  },
+  "verifier/tests/test.sh": {
+    "bytes": 122,
+    "sha256": "dc9ba58985bb9a35ffd4ec0b6340564377d7326085f855aa51007bb1936807a0"
+  },
+  "verifier/tests/workloads.py": {
+    "bytes": 2661,
+    "sha256": "3a606a7549be8c1bfaa35a8c31e78601c191c20651a5129850a24ed5fbb043da"
+  },
+  "verifier/upstream.tar.gz": {
+    "bytes": 14043132,
+    "sha256": "0148e5f8384d6b86c4ffb8249c72acd8abc0f5517a8b5ba5d117e5d42672345f"
+  },
+  "tests/__pycache__/workloads.cpython-312.pyc": {
+    "bytes": 4838,
+    "sha256": "7c9afb8ff32cc568bc10ecdcba56b4806ffe7c9d813e393cb6383e8b4b76745b"
+  },
+  "tests/edgebench-sort.rs": {
+    "bytes": 4676,
+    "sha256": "40608316bb1a9060053f90efd63bbf74e6400c9716e0f683cef903cdac184257"
+  },
+  "tests/grader.py": {
+    "bytes": 7835,
+    "sha256": "707f37fef4f985bf1dc9dc686e7757ff915cd3179f3143231cffdc0d3b80b092"
+  },
+  "tests/test.sh": {
+    "bytes": 122,
+    "sha256": "dc9ba58985bb9a35ffd4ec0b6340564377d7326085f855aa51007bb1936807a0"
+  },
+  "tests/workloads.py": {
+    "bytes": 2661,
+    "sha256": "3a606a7549be8c1bfaa35a8c31e78601c191c20651a5129850a24ed5fbb043da"
+  },
+  "solution/reference.tar.gz": {
+    "bytes": 14043132,
+    "sha256": "0148e5f8384d6b86c4ffb8249c72acd8abc0f5517a8b5ba5d117e5d42672345f"
+  },
+  "solution/solve.sh": {
+    "bytes": 313,
+    "sha256": "6e632f7c4eb7428276b320d1e16bb84697834c3d79e6dfdf8eaac8d3dbe1752e"
+  }
+}

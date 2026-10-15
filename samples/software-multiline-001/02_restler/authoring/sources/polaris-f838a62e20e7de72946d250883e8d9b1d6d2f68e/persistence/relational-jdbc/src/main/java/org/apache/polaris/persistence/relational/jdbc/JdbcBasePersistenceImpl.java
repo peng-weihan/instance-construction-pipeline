@@ -1,0 +1,1366 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.polaris.persistence.relational.jdbc;
+
+import static org.apache.polaris.persistence.relational.jdbc.QueryGenerator.PreparedQuery;
+
+import com.google.common.base.Preconditions;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.OptionalInt;
+import java.util.Set;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import org.apache.polaris.core.PolarisCallContext;
+import org.apache.polaris.core.PolarisDiagnostics;
+import org.apache.polaris.core.entity.EntityNameLookupRecord;
+import org.apache.polaris.core.entity.EventEntity;
+import org.apache.polaris.core.entity.LocationBasedEntity;
+import org.apache.polaris.core.entity.PolarisBaseEntity;
+import org.apache.polaris.core.entity.PolarisChangeTrackingVersions;
+import org.apache.polaris.core.entity.PolarisEntity;
+import org.apache.polaris.core.entity.PolarisEntityCore;
+import org.apache.polaris.core.entity.PolarisEntityId;
+import org.apache.polaris.core.entity.PolarisEntitySubType;
+import org.apache.polaris.core.entity.PolarisEntityType;
+import org.apache.polaris.core.entity.PolarisEntityUtils;
+import org.apache.polaris.core.entity.PolarisGrantRecord;
+import org.apache.polaris.core.entity.PolarisPrincipalSecrets;
+import org.apache.polaris.core.exceptions.AlreadyExistsException;
+import org.apache.polaris.core.persistence.BasePersistence;
+import org.apache.polaris.core.persistence.EntityAlreadyExistsException;
+import org.apache.polaris.core.persistence.IntegrationPersistence;
+import org.apache.polaris.core.persistence.PolicyMappingAlreadyExistsException;
+import org.apache.polaris.core.persistence.PrincipalSecretsGenerator;
+import org.apache.polaris.core.persistence.RetryOnConcurrencyException;
+import org.apache.polaris.core.persistence.pagination.EntityIdToken;
+import org.apache.polaris.core.persistence.pagination.Page;
+import org.apache.polaris.core.persistence.pagination.PageToken;
+import org.apache.polaris.core.policy.PolarisPolicyMappingRecord;
+import org.apache.polaris.core.policy.PolicyEntity;
+import org.apache.polaris.core.policy.PolicyType;
+import org.apache.polaris.core.storage.PolarisStorageConfigurationInfo;
+import org.apache.polaris.core.storage.PolarisStorageIntegration;
+import org.apache.polaris.core.storage.StorageLocation;
+import org.apache.polaris.persistence.relational.jdbc.models.Converter;
+import org.apache.polaris.persistence.relational.jdbc.models.EntityNameLookupRecordConverter;
+import org.apache.polaris.persistence.relational.jdbc.models.EntityVersionConverter;
+import org.apache.polaris.persistence.relational.jdbc.models.ModelEntity;
+import org.apache.polaris.persistence.relational.jdbc.models.ModelEvent;
+import org.apache.polaris.persistence.relational.jdbc.models.ModelGrantRecord;
+import org.apache.polaris.persistence.relational.jdbc.models.ModelPolicyMappingRecord;
+import org.apache.polaris.persistence.relational.jdbc.models.ModelPrincipalAuthenticationData;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class JdbcBasePersistenceImpl implements BasePersistence, IntegrationPersistence {
+
+  private static final Logger LOGGER = LoggerFactory.getLogger(JdbcBasePersistenceImpl.class);
+
+  private final PolarisDiagnostics diagnostics;
+  private final DatasourceOperations datasourceOperations;
+  private final PrincipalSecretsGenerator secretsGenerator;
+  private final String realmId;
+
+  // The max number of components a location can have before the optimized sibling check is not used
+  private static final int MAX_LOCATION_COMPONENTS = 40;
+
+  // Converter for SELECT 1 existence probes: only the presence of a row matters, so every row maps
+  // to 1 and toMap is never used (existence queries are read-only).
+  private static final Converter<Integer> ROW_EXISTS_CONVERTER =
+      new Converter<>() {
+        @Override
+        public Integer fromResultSet(ResultSet rs) {
+          return 1;
+        }
+
+        @Override
+        public Map<String, Object> toMap(DatabaseType databaseType) {
+          throw new UnsupportedOperationException();
+        }
+      };
+
+  public JdbcBasePersistenceImpl(
+      PolarisDiagnostics diagnostics,
+      DatasourceOperations databaseOperations,
+      PrincipalSecretsGenerator secretsGenerator,
+      String realmId) {
+    this.diagnostics = diagnostics;
+    this.datasourceOperations = databaseOperations;
+    this.secretsGenerator = secretsGenerator;
+    this.realmId = realmId;
+  }
+
+  @Override
+  public long generateNewId(@NonNull PolarisCallContext callCtx) {
+    return IdGenerator.getIdGenerator().nextId();
+  }
+
+  @Override
+  public void writeEntity(
+      @NonNull PolarisCallContext callCtx,
+      @NonNull PolarisBaseEntity entity,
+      boolean nameOrParentChanged,
+      PolarisBaseEntity originalEntity) {
+    try {
+      persistEntity(
+          callCtx,
+          entity,
+          originalEntity,
+          null,
+          (connection, preparedQuery) -> {
+            return datasourceOperations.executeUpdate(preparedQuery);
+          });
+    } catch (SQLException e) {
+      throw new RuntimeException("Error persisting entity", e);
+    }
+  }
+
+  @Override
+  public void writeEntities(
+      @NonNull PolarisCallContext callCtx,
+      @NonNull List<PolarisBaseEntity> entities,
+      List<PolarisBaseEntity> originalEntities) {
+    try {
+      datasourceOperations.runWithinTransaction(
+          connection -> {
+            for (int i = 0; i < entities.size(); i++) {
+              PolarisBaseEntity entity = entities.get(i);
+              PolarisBaseEntity originalEntity =
+                  originalEntities != null ? originalEntities.get(i) : null;
+              if (originalEntity == null && entityExists(connection, entity.getId())) {
+                continue;
+              }
+              persistEntity(
+                  callCtx, entity, originalEntity, connection, datasourceOperations::execute);
+            }
+            return true;
+          });
+    } catch (SQLException e) {
+      throw new RuntimeException(
+          String.format(
+              "Error executing the transaction for writing entities due to %s", e.getMessage()),
+          e);
+    }
+  }
+
+  /**
+   * Returns whether an entity row already exists, using a {@code SELECT 1 ... LIMIT 1} on the
+   * supplied transaction connection. Only existence is needed by {@link #writeEntities} on the
+   * create path, so this avoids fetching the full entity row (including the large JSON property
+   * blobs).
+   */
+  private boolean entityExists(@NonNull Connection connection, long entityId) throws SQLException {
+    AtomicBoolean exists = new AtomicBoolean(false);
+    datasourceOperations.executeSelectOverStream(
+        connection,
+        QueryGenerator.generateExistsQuery(
+            ModelEntity.getAllColumnNames(), ModelEntity.TABLE_NAME, entityKeyParams(entityId)),
+        ROW_EXISTS_CONVERTER,
+        stream -> exists.set(stream.findAny().isPresent()));
+    return exists.get();
+  }
+
+  private void persistEntity(
+      @NonNull PolarisCallContext callCtx,
+      @NonNull PolarisBaseEntity entity,
+      PolarisBaseEntity originalEntity,
+      Connection connection,
+      QueryAction queryAction)
+      throws SQLException {
+    ModelEntity modelEntity = ModelEntity.fromEntity(entity);
+    if (originalEntity == null) {
+      try {
+        List<Object> values =
+            modelEntity.toMap(datasourceOperations.getDatabaseType()).values().stream().toList();
+        queryAction.apply(
+            connection,
+            QueryGenerator.generateInsertQuery(
+                ModelEntity.getAllColumnNames(), ModelEntity.TABLE_NAME, values, realmId));
+      } catch (SQLException e) {
+        if (datasourceOperations.isUniquenessConstraintViolation(e)) {
+          PolarisBaseEntity existingEntity =
+              lookupEntityByName(
+                  callCtx,
+                  entity.getCatalogId(),
+                  entity.getParentId(),
+                  entity.getTypeCode(),
+                  entity.getName());
+          // This happens in two scenarios:
+          // 1. PRIMARY KEY violated
+          // 2. UNIQUE CONSTRAINT on (realm_id, catalog_id, parent_id, type_code, name) violated
+          // With SERIALIZABLE isolation, the conflicting entity may _not_ be visible and
+          // existingEntity can be null. We cannot distinguish a same-id idempotent retry from a
+          // genuine name collision in that case, so we must report a concurrency conflict rather
+          // than fabricate the entity we were trying to create.
+          if (existingEntity != null) {
+            throw new EntityAlreadyExistsException(existingEntity, e);
+          }
+          throw new RetryOnConcurrencyException(
+              e, "Conflicting entity is not visible in the current transaction snapshot; retry");
+        }
+        throw new RuntimeException(
+            String.format("Failed to write entity due to %s", e.getMessage()), e);
+      }
+    } else {
+      // CAS on both entity_version and grant_records_version because grant operations only
+      // bump grant_records_version without touching entity_version.
+      Map<String, Object> params =
+          Map.of(
+              "id",
+              originalEntity.getId(),
+              "catalog_id",
+              originalEntity.getCatalogId(),
+              "entity_version",
+              originalEntity.getEntityVersion(),
+              "grant_records_version",
+              originalEntity.getGrantRecordsVersion(),
+              "realm_id",
+              realmId);
+      try {
+        List<Object> values =
+            modelEntity.toMap(datasourceOperations.getDatabaseType()).values().stream().toList();
+        int rowsUpdated =
+            queryAction.apply(
+                connection,
+                QueryGenerator.generateUpdateQuery(
+                    ModelEntity.getAllColumnNames(), ModelEntity.TABLE_NAME, values, params));
+        if (rowsUpdated == 0) {
+          throw new RetryOnConcurrencyException(
+              "Entity '%s' id '%s' concurrently modified; expected entity_version=%s, grant_records_version=%s",
+              originalEntity.getName(),
+              originalEntity.getId(),
+              originalEntity.getEntityVersion(),
+              originalEntity.getGrantRecordsVersion());
+        }
+      } catch (SQLException e) {
+        throw new RuntimeException(
+            String.format("Failed to write entity due to %s", e.getMessage()), e);
+      }
+    }
+  }
+
+  @Override
+  public void writeToGrantRecords(
+      @NonNull PolarisCallContext callCtx, @NonNull PolarisGrantRecord grantRec) {
+    ModelGrantRecord modelGrantRecord = ModelGrantRecord.fromGrantRecord(grantRec);
+    try {
+      List<Object> values =
+          modelGrantRecord.toMap(datasourceOperations.getDatabaseType()).values().stream().toList();
+      datasourceOperations.executeUpdate(
+          QueryGenerator.generateInsertQuery(
+              ModelGrantRecord.ALL_COLUMNS, ModelGrantRecord.TABLE_NAME, values, realmId));
+    } catch (SQLException e) {
+      if (datasourceOperations.isUniquenessConstraintViolation(e)) {
+        LOGGER.debug("Grant record already exists; treating as no-op: {}", grantRec);
+        return;
+      }
+      throw new RuntimeException(
+          String.format("Failed to write to grant records due to %s", e.getMessage()), e);
+    }
+  }
+
+  @Override
+  public void writeEvents(@NonNull List<EventEntity> events) {
+    if (events.isEmpty()) {
+      return; // or throw if empty list is invalid
+    }
+
+    try {
+      // Generate the SQL using the first event as the reference
+      PreparedQuery firstPreparedQuery =
+          QueryGenerator.generateInsertQuery(
+              ModelEvent.ALL_COLUMNS,
+              ModelEvent.TABLE_NAME,
+              ModelEvent.fromEvent(events.getFirst())
+                  .toMap(datasourceOperations.getDatabaseType())
+                  .values()
+                  .stream()
+                  .toList(),
+              realmId);
+      String expectedSql = firstPreparedQuery.sql();
+
+      List<List<Object>> parametersList = new ArrayList<>();
+      parametersList.add(firstPreparedQuery.parameters());
+
+      // Process remaining events and verify SQL consistency
+      for (int i = 1; i < events.size(); i++) {
+        EventEntity event = events.get(i);
+        PreparedQuery pq =
+            QueryGenerator.generateInsertQuery(
+                ModelEvent.ALL_COLUMNS,
+                ModelEvent.TABLE_NAME,
+                ModelEvent.fromEvent(event)
+                    .toMap(datasourceOperations.getDatabaseType())
+                    .values()
+                    .stream()
+                    .toList(),
+                realmId);
+
+        if (!expectedSql.equals(pq.sql())) {
+          throw new RuntimeException("All events did not generate the same SQL");
+        }
+
+        parametersList.add(pq.parameters());
+      }
+
+      int totalUpdated =
+          datasourceOperations.executeBatchUpdate(
+              new QueryGenerator.PreparedBatchQuery(expectedSql, parametersList));
+
+      if (totalUpdated == 0) {
+        throw new SQLException("No events were inserted.");
+      }
+    } catch (SQLException e) {
+      throw new RuntimeException(
+          String.format("Failed to write events due to %s", e.getMessage()), e);
+    }
+  }
+
+  @Override
+  public void deleteEntity(@NonNull PolarisCallContext callCtx, @NonNull PolarisBaseEntity entity) {
+    ModelEntity modelEntity = ModelEntity.fromEntity(entity);
+    Map<String, Object> params =
+        Map.of(
+            "id",
+            modelEntity.getId(),
+            "catalog_id",
+            modelEntity.getCatalogId(),
+            "realm_id",
+            realmId);
+    try {
+      datasourceOperations.executeUpdate(
+          QueryGenerator.generateDeleteQuery(
+              ModelEntity.getAllColumnNames(), ModelEntity.TABLE_NAME, params));
+    } catch (SQLException e) {
+      throw new RuntimeException(
+          String.format("Failed to delete entity due to %s", e.getMessage()), e);
+    }
+  }
+
+  @Override
+  public void deleteFromGrantRecords(
+      @NonNull PolarisCallContext callCtx, @NonNull PolarisGrantRecord grantRec) {
+    ModelGrantRecord modelGrantRecord = ModelGrantRecord.fromGrantRecord(grantRec);
+    try {
+      Map<String, Object> whereClause =
+          modelGrantRecord.toMap(datasourceOperations.getDatabaseType());
+      whereClause.put("realm_id", realmId);
+      datasourceOperations.executeUpdate(
+          QueryGenerator.generateDeleteQuery(
+              ModelGrantRecord.ALL_COLUMNS, ModelGrantRecord.TABLE_NAME, whereClause));
+    } catch (SQLException e) {
+      throw new RuntimeException(
+          String.format("Failed to delete from grant records due to %s", e.getMessage()), e);
+    }
+  }
+
+  @Override
+  public void deleteAllEntityGrantRecords(
+      @NonNull PolarisCallContext callCtx,
+      @NonNull PolarisEntityCore entity,
+      @NonNull List<PolarisGrantRecord> grantsOnGrantee,
+      @NonNull List<PolarisGrantRecord> grantsOnSecurable) {
+    try {
+      datasourceOperations.executeUpdate(
+          QueryGenerator.generateDeleteQueryForEntityGrantRecords(entity, realmId));
+    } catch (SQLException e) {
+      throw new RuntimeException(
+          String.format("Failed to delete grant records due to %s", e.getMessage()), e);
+    }
+  }
+
+  @Override
+  public void deleteAll(@NonNull PolarisCallContext callCtx) {
+    try {
+      Map<String, Object> params = Map.of("realm_id", realmId);
+      datasourceOperations.runWithinTransaction(
+          connection -> {
+            datasourceOperations.execute(
+                connection,
+                QueryGenerator.generateDeleteQuery(
+                    ModelEntity.getAllColumnNames(), ModelEntity.TABLE_NAME, params));
+            datasourceOperations.execute(
+                connection,
+                QueryGenerator.generateDeleteQuery(
+                    ModelGrantRecord.ALL_COLUMNS, ModelGrantRecord.TABLE_NAME, params));
+            datasourceOperations.execute(
+                connection,
+                QueryGenerator.generateDeleteQuery(
+                    ModelPrincipalAuthenticationData.ALL_COLUMNS,
+                    ModelPrincipalAuthenticationData.TABLE_NAME,
+                    params));
+            datasourceOperations.execute(
+                connection,
+                QueryGenerator.generateDeleteQuery(
+                    ModelPolicyMappingRecord.ALL_COLUMNS,
+                    ModelPolicyMappingRecord.TABLE_NAME,
+                    params));
+            return true;
+          });
+    } catch (SQLException e) {
+      throw new RuntimeException(
+          String.format("Failed to delete all due to %s", e.getMessage()), e);
+    }
+  }
+
+  @Override
+  public PolarisBaseEntity lookupEntity(
+      @NonNull PolarisCallContext callCtx, long catalogId, long entityId, int typeCode) {
+    Map<String, Object> params =
+        Map.of("catalog_id", catalogId, "id", entityId, "type_code", typeCode, "realm_id", realmId);
+    return getPolarisBaseEntity(
+        QueryGenerator.generateSelectQuery(
+            ModelEntity.getAllColumnNames(), ModelEntity.TABLE_NAME, params));
+  }
+
+  private Map<String, Object> entityKeyParams(long entityId) {
+    return Map.of("id", entityId, "realm_id", realmId);
+  }
+
+  @Override
+  public PolarisBaseEntity lookupEntityByName(
+      @NonNull PolarisCallContext callCtx,
+      long catalogId,
+      long parentId,
+      int typeCode,
+      @NonNull String name) {
+    Map<String, Object> params =
+        Map.of(
+            "catalog_id",
+            catalogId,
+            "parent_id",
+            parentId,
+            "type_code",
+            typeCode,
+            "name",
+            name,
+            "realm_id",
+            realmId);
+    return getPolarisBaseEntity(
+        QueryGenerator.generateSelectQuery(
+            ModelEntity.getAllColumnNames(), ModelEntity.TABLE_NAME, params));
+  }
+
+  @Nullable
+  private PolarisBaseEntity getPolarisBaseEntity(QueryGenerator.PreparedQuery query) {
+    try {
+      var results = datasourceOperations.executeSelect(query, new ModelEntity());
+      if (results.isEmpty()) {
+        return null;
+      } else if (results.size() > 1) {
+        throw new IllegalStateException(
+            String.format(
+                "More than one(%s) entities were found for a given type code : %s",
+                results.size(), results.getFirst().getTypeCode()));
+      } else {
+        return results.getFirst();
+      }
+    } catch (SQLException e) {
+      throw new RuntimeException(
+          String.format("Failed to retrieve polaris entity due to %s", e.getMessage()), e);
+    }
+  }
+
+  @NonNull
+  @Override
+  public List<PolarisBaseEntity> lookupEntities(
+      @NonNull PolarisCallContext callCtx, List<PolarisEntityId> entityIds) {
+    if (entityIds == null || entityIds.isEmpty()) return new ArrayList<>();
+    PreparedQuery query = QueryGenerator.generateSelectQueryWithEntityIds(realmId, entityIds);
+    try {
+      Map<PolarisEntityId, PolarisBaseEntity> idMap =
+          datasourceOperations.executeSelect(query, new ModelEntity()).stream()
+              .collect(
+                  Collectors.toMap(
+                      e -> new PolarisEntityId(e.getCatalogId(), e.getId()), Function.identity()));
+      return entityIds.stream().map(idMap::get).collect(Collectors.toList());
+    } catch (SQLException e) {
+      throw new RuntimeException(
+          String.format("Failed to retrieve polaris entities due to %s", e.getMessage()), e);
+    }
+  }
+
+  @NonNull
+  @Override
+  public List<PolarisChangeTrackingVersions> lookupEntityVersions(
+      @NonNull PolarisCallContext callCtx, List<PolarisEntityId> entityIds) {
+    if (entityIds == null || entityIds.isEmpty()) {
+      return new ArrayList<>();
+    }
+    PreparedQuery query =
+        QueryGenerator.generateSelectQueryWithEntityIdsVersionOnly(realmId, entityIds);
+    Map<PolarisEntityId, PolarisChangeTrackingVersions> idToVersions;
+    try {
+      idToVersions =
+          datasourceOperations.executeSelect(query, new EntityVersionConverter()).stream()
+              .collect(
+                  Collectors.toMap(
+                      EntityVersionConverter.EntityVersionRow::entityId,
+                      EntityVersionConverter.EntityVersionRow::versions));
+    } catch (SQLException e) {
+      throw new RuntimeException("Failed to retrieve entity versions: " + e.getMessage(), e);
+    }
+    return entityIds.stream().map(idToVersions::get).collect(Collectors.toList());
+  }
+
+  private PreparedQuery buildEntityQuery(
+      long catalogId,
+      long parentId,
+      PolarisEntityType entityType,
+      PolarisEntitySubType entitySubType,
+      PageToken pageToken,
+      List<String> queryProjections,
+      boolean applyPageSizeLimit) {
+    Map<String, Object> whereEquals =
+        Map.of(
+            "catalog_id",
+            catalogId,
+            "parent_id",
+            parentId,
+            "type_code",
+            entityType.getCode(),
+            "realm_id",
+            realmId);
+
+    if (entitySubType != PolarisEntitySubType.ANY_SUBTYPE) {
+      Map<String, Object> updatedWhereEquals = new HashMap<>(whereEquals);
+      updatedWhereEquals.put("sub_type_code", entitySubType.getCode());
+      whereEquals = updatedWhereEquals;
+    }
+
+    String orderByColumnName = null;
+    Map<String, Object> whereGreater;
+    Integer limit = null;
+    if (pageToken.paginationRequested()) {
+      orderByColumnName = ModelEntity.ID_COLUMN;
+      whereGreater =
+          pageToken
+              .valueAs(EntityIdToken.class)
+              .map(
+                  entityIdToken ->
+                      Map.<String, Object>of(ModelEntity.ID_COLUMN, entityIdToken.entityId()))
+              .orElse(Map.of());
+      OptionalInt pageSize = pageToken.pageSize();
+      if (applyPageSizeLimit && pageSize.isPresent() && pageSize.getAsInt() < Integer.MAX_VALUE) {
+        // One more than the page size, so the caller can still tell whether a next page exists.
+        limit = pageSize.getAsInt() + 1;
+      }
+    } else {
+      whereGreater = Map.of();
+    }
+
+    return QueryGenerator.generateSelectQuery(
+        queryProjections,
+        ModelEntity.TABLE_NAME,
+        whereEquals,
+        whereGreater,
+        orderByColumnName,
+        limit);
+  }
+
+  @NonNull
+  @Override
+  public Page<EntityNameLookupRecord> listEntities(
+      @NonNull PolarisCallContext callCtx,
+      long catalogId,
+      long parentId,
+      @NonNull PolarisEntityType entityType,
+      @NonNull PolarisEntitySubType entitySubType,
+      @NonNull PageToken pageToken) {
+    try {
+      PreparedQuery query =
+          buildEntityQuery(
+              catalogId,
+              parentId,
+              entityType,
+              entitySubType,
+              pageToken,
+              ModelEntity.ENTITY_LOOKUP_COLUMNS,
+              true);
+      AtomicReference<Page<EntityNameLookupRecord>> results = new AtomicReference<>();
+      datasourceOperations.executeSelectOverStream(
+          query,
+          new EntityNameLookupRecordConverter(),
+          stream -> {
+            results.set(
+                Page.mapped(pageToken, stream, Function.identity(), EntityIdToken::fromEntity));
+          });
+      return results.get();
+    } catch (SQLException e) {
+      throw new RuntimeException(
+          String.format("Failed to retrieve polaris entities due to %s", e.getMessage()), e);
+    }
+  }
+
+  @NonNull
+  @Override
+  public <T> Page<T> listFullEntities(
+      @NonNull PolarisCallContext callCtx,
+      long catalogId,
+      long parentId,
+      @NonNull PolarisEntityType entityType,
+      @NonNull PolarisEntitySubType entitySubType,
+      @NonNull Predicate<PolarisBaseEntity> entityFilter,
+      @NonNull Function<PolarisBaseEntity, T> transformer,
+      @NonNull PageToken pageToken) {
+    try {
+      PreparedQuery query =
+          buildEntityQuery(
+              catalogId,
+              parentId,
+              entityType,
+              entitySubType,
+              pageToken,
+              ModelEntity.getAllColumnNames(),
+              // entityFilter is applied after the fetch, so a page size limit could under-fill a
+              // page and drop its continuation token
+              false);
+      AtomicReference<Page<T>> results = new AtomicReference<>();
+      datasourceOperations.executeSelectOverStream(
+          query,
+          new ModelEntity(),
+          stream -> {
+            var data = stream.filter(entityFilter);
+            results.set(Page.mapped(pageToken, data, transformer, EntityIdToken::fromEntity));
+          });
+      return results.get();
+    } catch (SQLException e) {
+      throw new RuntimeException(
+          String.format("Failed to retrieve polaris entities due to %s", e.getMessage()), e);
+    }
+  }
+
+  @Override
+  public int lookupEntityGrantRecordsVersion(
+      @NonNull PolarisCallContext callCtx, long catalogId, long entityId) {
+    List<PolarisChangeTrackingVersions> versions =
+        lookupEntityVersions(callCtx, List.of(new PolarisEntityId(catalogId, entityId)));
+    PolarisChangeTrackingVersions version = versions.getFirst();
+    return version == null ? 0 : version.grantRecordsVersion();
+  }
+
+  @Override
+  public PolarisGrantRecord lookupGrantRecord(
+      @NonNull PolarisCallContext callCtx,
+      long securableCatalogId,
+      long securableId,
+      long granteeCatalogId,
+      long granteeId,
+      int privilegeCode) {
+    Map<String, Object> params =
+        Map.of(
+            "securable_catalog_id",
+            securableCatalogId,
+            "securable_id",
+            securableId,
+            "grantee_catalog_id",
+            granteeCatalogId,
+            "grantee_id",
+            granteeId,
+            "privilege_code",
+            privilegeCode,
+            "realm_id",
+            realmId);
+    try {
+      var results =
+          datasourceOperations.executeSelect(
+              QueryGenerator.generateSelectQuery(
+                  ModelGrantRecord.ALL_COLUMNS, ModelGrantRecord.TABLE_NAME, params),
+              new ModelGrantRecord());
+      if (results.size() > 1) {
+        throw new IllegalStateException(
+            String.format(
+                "More than one grant record %s for a given Grant record", results.getFirst()));
+      } else if (results.isEmpty()) {
+        return null;
+      }
+      return results.getFirst();
+    } catch (SQLException e) {
+      throw new RuntimeException(
+          String.format("Failed to retrieve grant record due to %s", e.getMessage()), e);
+    }
+  }
+
+  @NonNull
+  @Override
+  public List<PolarisGrantRecord> loadAllGrantRecordsOnSecurable(
+      @NonNull PolarisCallContext callCtx, long securableCatalogId, long securableId) {
+    Map<String, Object> params =
+        Map.of(
+            "securable_catalog_id",
+            securableCatalogId,
+            "securable_id",
+            securableId,
+            "realm_id",
+            realmId);
+    try {
+      var results =
+          datasourceOperations.executeSelect(
+              QueryGenerator.generateSelectQuery(
+                  ModelGrantRecord.ALL_COLUMNS, ModelGrantRecord.TABLE_NAME, params),
+              new ModelGrantRecord());
+      return results == null ? Collections.emptyList() : results;
+    } catch (SQLException e) {
+      throw new RuntimeException(
+          String.format(
+              "Failed to retrieve grant records for securableCatalogId: %s securableId: %s due to %s",
+              securableCatalogId, securableId, e.getMessage()),
+          e);
+    }
+  }
+
+  @NonNull
+  @Override
+  public List<PolarisGrantRecord> loadAllGrantRecordsOnGrantee(
+      @NonNull PolarisCallContext callCtx, long granteeCatalogId, long granteeId) {
+    Map<String, Object> params =
+        Map.of(
+            "grantee_catalog_id", granteeCatalogId, "grantee_id", granteeId, "realm_id", realmId);
+    try {
+      var results =
+          datasourceOperations.executeSelect(
+              QueryGenerator.generateSelectQuery(
+                  ModelGrantRecord.ALL_COLUMNS, ModelGrantRecord.TABLE_NAME, params),
+              new ModelGrantRecord());
+      return results == null ? Collections.emptyList() : results;
+    } catch (SQLException e) {
+      throw new RuntimeException(
+          String.format(
+              "Failed to retrieve grant records for granteeCatalogId: %s granteeId: %s due to %s",
+              granteeCatalogId, granteeId, e.getMessage()),
+          e);
+    }
+  }
+
+  @Override
+  public boolean hasChildren(
+      @NonNull PolarisCallContext callContext,
+      PolarisEntityType optionalEntityType,
+      long catalogId,
+      long parentId) {
+    Map<String, Object> params = new HashMap<>();
+    params.put("realm_id", realmId);
+    params.put("catalog_id", catalogId);
+    params.put("parent_id", parentId);
+    if (optionalEntityType != null) {
+      params.put("type_code", optionalEntityType.getCode());
+    }
+    try {
+      var results =
+          datasourceOperations.executeSelect(
+              QueryGenerator.generateExistsQuery(
+                  ModelEntity.getAllColumnNames(), ModelEntity.TABLE_NAME, params),
+              ROW_EXISTS_CONVERTER);
+      return results != null && !results.isEmpty();
+    } catch (SQLException e) {
+      throw new RuntimeException(
+          String.format(
+              "Failed to retrieve entities for catalogId: %s due to %s", catalogId, e.getMessage()),
+          e);
+    }
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public <T extends PolarisEntity & LocationBasedEntity>
+      Optional<Optional<String>> hasOverlappingSiblings(
+          @NonNull PolarisCallContext callContext,
+          @NonNull List<PolarisEntityCore> parentPath,
+          T entity) {
+    if (entity.getBaseLocation().chars().filter(ch -> ch == '/').count()
+        > MAX_LOCATION_COMPONENTS) {
+      return Optional.empty();
+    }
+
+    PreparedQuery query =
+        QueryGenerator.generateOverlapQuery(
+            realmId, entity.getCatalogId(), entity.getBaseLocation());
+    try {
+      var results = datasourceOperations.executeSelect(query, new ModelEntity());
+      if (results.isEmpty()) {
+        return Optional.of(Optional.empty());
+      }
+      // The query matches every entity whose location is an ancestor of, equal to, or a descendant
+      // of the entity's location. The entity's own parent namespaces may match the ancestor terms:
+      // they always do when locations follow the namespace tree, as default locations do. Such an
+      // ancestor is not a sibling.
+      Set<Long> ancestorIds =
+          parentPath.stream().map(PolarisEntityCore::getId).collect(Collectors.toSet());
+
+      StorageLocation entityLocation = StorageLocation.of(entity.getBaseLocation());
+      for (PolarisBaseEntity result : results) {
+        // JDBC materializes persisted rows as PolarisBaseEntity. Resolve the sibling location
+        // via PolarisEntityUtils instead of casting to LocationBasedEntity.
+        Optional<StorageLocation> resultLocation =
+            PolarisEntityUtils.asLocationBasedEntity(PolarisEntity.of(result))
+                .map(LocationBasedEntity::getBaseLocation)
+                .filter(location -> location != null && !location.isBlank())
+                .map(StorageLocation::of);
+        if (resultLocation.isEmpty()) {
+          continue;
+        }
+        boolean containsEntity = entityLocation.isChildOf(resultLocation.get());
+        boolean containedByEntity = resultLocation.get().isChildOf(entityLocation);
+        // An ancestor may contain the entity, but the entity may not sit at exactly its location.
+        if (containsEntity && !containedByEntity && ancestorIds.contains(result.getId())) {
+          continue;
+        }
+        if (containsEntity || containedByEntity) {
+          return Optional.of(Optional.of(resultLocation.get().toString()));
+        }
+      }
+      return Optional.of(Optional.empty());
+    } catch (SQLException e) {
+      LOGGER.error(
+          "Failed to retrieve location overlap for location {} due to {}",
+          entity.getBaseLocation(),
+          e.getMessage(),
+          e);
+      throw new RuntimeException(
+          String.format(
+              "Failed to retrieve location overlap for location: %s", entity.getBaseLocation()),
+          e);
+    }
+  }
+
+  @Nullable
+  @Override
+  public PolarisPrincipalSecrets loadPrincipalSecrets(
+      @NonNull PolarisCallContext callCtx, @NonNull String clientId) {
+    Map<String, Object> params = Map.of("principal_client_id", clientId, "realm_id", realmId);
+    try {
+      var results =
+          datasourceOperations.executeSelect(
+              QueryGenerator.generateSelectQuery(
+                  ModelPrincipalAuthenticationData.ALL_COLUMNS,
+                  ModelPrincipalAuthenticationData.TABLE_NAME,
+                  params),
+              new ModelPrincipalAuthenticationData());
+      return results == null || results.isEmpty() ? null : results.getFirst();
+    } catch (SQLException e) {
+      LOGGER.error(
+          "Failed to retrieve principals secrets for client id: {}, due to {}",
+          clientId,
+          e.getMessage(),
+          e);
+      throw new RuntimeException(
+          String.format("Failed to retrieve principal secrets for clientId: %s", clientId), e);
+    }
+  }
+
+  @NonNull
+  @Override
+  public PolarisPrincipalSecrets generateNewPrincipalSecrets(
+      @NonNull PolarisCallContext callCtx, @NonNull String principalName, long principalId) {
+    // ensure principal client id is unique
+    PolarisPrincipalSecrets principalSecrets;
+    ModelPrincipalAuthenticationData lookupPrincipalSecrets;
+    do {
+      // generate new random client id and secrets
+      principalSecrets = secretsGenerator.produceSecrets(principalName, principalId);
+
+      // load the existing secrets
+      lookupPrincipalSecrets =
+          ModelPrincipalAuthenticationData.fromPrincipalAuthenticationData(
+              loadPrincipalSecrets(callCtx, principalSecrets.getPrincipalClientId()));
+    } while (lookupPrincipalSecrets != null);
+
+    lookupPrincipalSecrets =
+        ModelPrincipalAuthenticationData.fromPrincipalAuthenticationData(principalSecrets);
+
+    // write new principal secrets
+    try {
+      List<Object> values =
+          lookupPrincipalSecrets.toMap(datasourceOperations.getDatabaseType()).values().stream()
+              .toList();
+      datasourceOperations.executeUpdate(
+          QueryGenerator.generateInsertQuery(
+              ModelPrincipalAuthenticationData.ALL_COLUMNS,
+              ModelPrincipalAuthenticationData.TABLE_NAME,
+              values,
+              realmId));
+    } catch (SQLException e) {
+      LOGGER.error(
+          "Failed to generate new principal secrets for principalId: {}, due to {}",
+          principalId,
+          e.getMessage(),
+          e);
+      throw new RuntimeException(
+          String.format(
+              "Failed to generate new principal secrets for principalId: %s", principalId),
+          e);
+    }
+    // if not found, return null
+    return principalSecrets;
+  }
+
+  @Nullable
+  @Override
+  public PolarisPrincipalSecrets storePrincipalSecrets(
+      @NonNull PolarisCallContext callCtx,
+      long principalId,
+      @NonNull String resolvedClientId,
+      String customClientSecret) {
+    PolarisPrincipalSecrets principalSecrets =
+        new PolarisPrincipalSecrets(principalId, resolvedClientId, customClientSecret);
+    try {
+      ModelPrincipalAuthenticationData modelPrincipalAuthenticationData =
+          ModelPrincipalAuthenticationData.fromPrincipalAuthenticationData(principalSecrets);
+      datasourceOperations.executeUpdate(
+          QueryGenerator.generateInsertQuery(
+              ModelPrincipalAuthenticationData.ALL_COLUMNS,
+              ModelPrincipalAuthenticationData.TABLE_NAME,
+              modelPrincipalAuthenticationData
+                  .toMap(datasourceOperations.getDatabaseType())
+                  .values()
+                  .stream()
+                  .toList(),
+              realmId));
+    } catch (SQLException e) {
+      if (datasourceOperations.isUniquenessConstraintViolation(e)) {
+        throw new AlreadyExistsException(e.getMessage(), e);
+      }
+      LOGGER.error(
+          "Failed to storePrincipalSecrets for clientId: {}, due to {}",
+          resolvedClientId,
+          e.getMessage(),
+          e);
+      throw new RuntimeException(
+          String.format("Failed to storePrincipalSecrets for clientId: %s", resolvedClientId), e);
+    }
+
+    // return those
+    return principalSecrets;
+  }
+
+  @Nullable
+  @Override
+  public PolarisPrincipalSecrets rotatePrincipalSecrets(
+      @NonNull PolarisCallContext callCtx,
+      @NonNull String clientId,
+      long principalId,
+      boolean reset,
+      @NonNull String oldSecretHash) {
+    // load the existing secrets
+    PolarisPrincipalSecrets principalSecrets = loadPrincipalSecrets(callCtx, clientId);
+
+    // should be found
+    diagnostics.checkNotNull(
+        principalSecrets,
+        "cannot_find_secrets",
+        "client_id={} principalId={}",
+        clientId,
+        principalId);
+
+    // ensure principal id is matching
+    diagnostics.check(
+        principalId == principalSecrets.getPrincipalId(),
+        "principal_id_mismatch",
+        "expectedId={} id={}",
+        principalId,
+        principalSecrets.getPrincipalId());
+
+    // rotate the secrets
+    principalSecrets.rotateSecrets(oldSecretHash);
+    if (reset) {
+      principalSecrets.rotateSecrets(principalSecrets.getMainSecretHash());
+    }
+
+    Map<String, Object> params =
+        Map.of(
+            "principal_client_id", clientId,
+            "realm_id", realmId,
+            "main_secret_hash", oldSecretHash);
+    try {
+      ModelPrincipalAuthenticationData modelPrincipalAuthenticationData =
+          ModelPrincipalAuthenticationData.fromPrincipalAuthenticationData(principalSecrets);
+      int rowsUpdated =
+          datasourceOperations.executeUpdate(
+              QueryGenerator.generateUpdateQuery(
+                  ModelPrincipalAuthenticationData.ALL_COLUMNS,
+                  ModelPrincipalAuthenticationData.TABLE_NAME,
+                  modelPrincipalAuthenticationData
+                      .toMap(datasourceOperations.getDatabaseType())
+                      .values()
+                      .stream()
+                      .toList(),
+                  params));
+      if (rowsUpdated == 0) {
+        throw new RetryOnConcurrencyException(
+            "Principal secrets for clientId '%s' concurrently modified", clientId);
+      }
+    } catch (SQLException e) {
+      LOGGER.error(
+          "Failed to rotatePrincipalSecrets for clientId: {}, due to {}",
+          clientId,
+          e.getMessage(),
+          e);
+      throw new RuntimeException(
+          String.format("Failed to rotatePrincipalSecrets for clientId: %s", clientId), e);
+    }
+
+    // return those
+    return principalSecrets;
+  }
+
+  @Override
+  public void deletePrincipalSecrets(
+      @NonNull PolarisCallContext callCtx, @NonNull String clientId, long principalId) {
+    Map<String, Object> params =
+        Map.of("principal_client_id", clientId, "principal_id", principalId, "realm_id", realmId);
+    try {
+      datasourceOperations.executeUpdate(
+          QueryGenerator.generateDeleteQuery(
+              ModelPrincipalAuthenticationData.ALL_COLUMNS,
+              ModelPrincipalAuthenticationData.TABLE_NAME,
+              params));
+    } catch (SQLException e) {
+      LOGGER.error(
+          "Failed to delete principalSecrets for clientId: {}, due to {}",
+          clientId,
+          e.getMessage(),
+          e);
+      throw new RuntimeException(
+          String.format("Failed to delete principalSecrets for clientId: %s", clientId), e);
+    }
+  }
+
+  @Override
+  public void writeToPolicyMappingRecords(
+      @NonNull PolarisCallContext callCtx, @NonNull PolarisPolicyMappingRecord record) {
+    try {
+      datasourceOperations.runWithinTransaction(
+          connection -> {
+            PolicyType policyType = PolicyType.fromCode(record.getPolicyTypeCode());
+            Preconditions.checkArgument(
+                policyType != null, "Invalid policy type code: %s", record.getPolicyTypeCode());
+            ModelPolicyMappingRecord modelPolicyMappingRecord =
+                ModelPolicyMappingRecord.fromPolicyMappingRecord(record);
+            List<Object> values =
+                modelPolicyMappingRecord
+                    .toMap(datasourceOperations.getDatabaseType())
+                    .values()
+                    .stream()
+                    .toList();
+            PreparedQuery insertPolicyMappingQuery =
+                QueryGenerator.generateInsertQuery(
+                    ModelPolicyMappingRecord.ALL_COLUMNS,
+                    ModelPolicyMappingRecord.TABLE_NAME,
+                    values,
+                    realmId);
+            if (policyType.isInheritable()) {
+              return handleInheritablePolicy(callCtx, record, insertPolicyMappingQuery, connection);
+            } else {
+              datasourceOperations.execute(connection, insertPolicyMappingQuery);
+            }
+            return true;
+          });
+    } catch (SQLException e) {
+      throw new RuntimeException(
+          String.format("Failed to write to policy mapping records due to %s", e.getMessage()), e);
+    }
+  }
+
+  private boolean handleInheritablePolicy(
+      @NonNull PolarisCallContext callCtx,
+      @NonNull PolarisPolicyMappingRecord record,
+      @NonNull PreparedQuery insertQuery,
+      Connection connection)
+      throws SQLException {
+    List<PolarisPolicyMappingRecord> existingRecords =
+        loadPoliciesOnTargetByType(
+            callCtx,
+            record.getTargetCatalogId(),
+            record.getTargetId(),
+            record.getPolicyTypeCode(),
+            connection);
+    if (existingRecords.size() > 1) {
+      throw new PolicyMappingAlreadyExistsException(existingRecords.getFirst());
+    } else if (existingRecords.size() == 1) {
+      PolarisPolicyMappingRecord existingRecord = existingRecords.getFirst();
+      if (existingRecord.getPolicyCatalogId() != record.getPolicyCatalogId()
+          || existingRecord.getPolicyId() != record.getPolicyId()) {
+        // Only one policy of the same type can be attached to an entity when the policy is
+        // inheritable.
+        throw new PolicyMappingAlreadyExistsException(existingRecord);
+      }
+      Map<String, Object> updateClause = policyMappingIdentity(record);
+      // In case of the mapping exist, update the policy mapping with the new parameters.
+      ModelPolicyMappingRecord modelPolicyMappingRecord =
+          ModelPolicyMappingRecord.fromPolicyMappingRecord(record);
+      PreparedQuery updateQuery =
+          QueryGenerator.generateUpdateQuery(
+              ModelPolicyMappingRecord.ALL_COLUMNS,
+              ModelPolicyMappingRecord.TABLE_NAME,
+              modelPolicyMappingRecord
+                  .toMap(datasourceOperations.getDatabaseType())
+                  .values()
+                  .stream()
+                  .toList(),
+              updateClause);
+      datasourceOperations.execute(connection, updateQuery);
+    } else {
+      // record doesn't exist do an insert.
+      datasourceOperations.execute(connection, insertQuery);
+    }
+    return true;
+  }
+
+  /**
+   * Builds the identity of a policy mapping row: the target and policy ids plus the policy type,
+   * scoped to the realm. These are exactly the table's primary key columns; the mutable {@code
+   * parameters} payload is deliberately excluded.
+   */
+  private Map<String, Object> policyMappingIdentity(@NonNull PolarisPolicyMappingRecord record) {
+    return policyMappingIdentity(
+        record.getTargetCatalogId(),
+        record.getTargetId(),
+        record.getPolicyTypeCode(),
+        record.getPolicyCatalogId(),
+        record.getPolicyId());
+  }
+
+  private Map<String, Object> policyMappingIdentity(
+      long targetCatalogId,
+      long targetId,
+      int policyTypeCode,
+      long policyCatalogId,
+      long policyId) {
+    return Map.of(
+        "target_catalog_id",
+        targetCatalogId,
+        "target_id",
+        targetId,
+        "policy_type_code",
+        policyTypeCode,
+        "policy_id",
+        policyId,
+        "policy_catalog_id",
+        policyCatalogId,
+        "realm_id",
+        realmId);
+  }
+
+  @Override
+  public void deleteFromPolicyMappingRecords(
+      @NonNull PolarisCallContext callCtx, @NonNull PolarisPolicyMappingRecord record) {
+    try {
+      // Keying on the identity, not the full record, means a concurrent update of parameters
+      // cannot turn this delete into a no-op.
+      Map<String, Object> params = policyMappingIdentity(record);
+      datasourceOperations.executeUpdate(
+          QueryGenerator.generateDeleteQuery(
+              ModelPolicyMappingRecord.ALL_COLUMNS, ModelPolicyMappingRecord.TABLE_NAME, params));
+    } catch (SQLException e) {
+      throw new RuntimeException(
+          String.format("Failed to write to policy records due to %s", e.getMessage()), e);
+    }
+  }
+
+  @Override
+  public void deleteAllEntityPolicyMappingRecords(
+      @NonNull PolarisCallContext callCtx,
+      @NonNull PolarisBaseEntity entity,
+      @NonNull List<PolarisPolicyMappingRecord> mappingOnTarget,
+      @NonNull List<PolarisPolicyMappingRecord> mappingOnPolicy) {
+    try {
+      Map<String, Object> queryParams = new LinkedHashMap<>();
+      if (entity.getType() == PolarisEntityType.POLICY) {
+        PolicyEntity policyEntity = PolicyEntity.of(entity);
+        queryParams.put("policy_type_code", policyEntity.getPolicyTypeCode());
+        queryParams.put("policy_catalog_id", policyEntity.getCatalogId());
+        queryParams.put("policy_id", policyEntity.getId());
+      } else {
+        queryParams.put("target_catalog_id", entity.getCatalogId());
+        queryParams.put("target_id", entity.getId());
+      }
+      queryParams.put("realm_id", realmId);
+      datasourceOperations.executeUpdate(
+          QueryGenerator.generateDeleteQuery(
+              ModelPolicyMappingRecord.ALL_COLUMNS,
+              ModelPolicyMappingRecord.TABLE_NAME,
+              queryParams));
+    } catch (SQLException e) {
+      throw new RuntimeException(
+          String.format("Failed to delete policy mapping records due to %s", e.getMessage()), e);
+    }
+  }
+
+  @Nullable
+  @Override
+  public PolarisPolicyMappingRecord lookupPolicyMappingRecord(
+      @NonNull PolarisCallContext callCtx,
+      long targetCatalogId,
+      long targetId,
+      int policyTypeCode,
+      long policyCatalogId,
+      long policyId) {
+    Map<String, Object> params =
+        policyMappingIdentity(targetCatalogId, targetId, policyTypeCode, policyCatalogId, policyId);
+    List<PolarisPolicyMappingRecord> results =
+        fetchPolicyMappingRecords(
+            QueryGenerator.generateSelectQuery(
+                ModelPolicyMappingRecord.ALL_COLUMNS, ModelPolicyMappingRecord.TABLE_NAME, params));
+    Preconditions.checkState(results.size() <= 1, "More than one policy mapping records found");
+    return results.size() == 1 ? results.getFirst() : null;
+  }
+
+  @NonNull
+  @Override
+  public List<PolarisPolicyMappingRecord> loadPoliciesOnTargetByType(
+      @NonNull PolarisCallContext callCtx,
+      long targetCatalogId,
+      long targetId,
+      int policyTypeCode) {
+    Map<String, Object> params =
+        Map.of(
+            "target_catalog_id",
+            targetCatalogId,
+            "target_id",
+            targetId,
+            "policy_type_code",
+            policyTypeCode,
+            "realm_id",
+            realmId);
+    return fetchPolicyMappingRecords(
+        QueryGenerator.generateSelectQuery(
+            ModelPolicyMappingRecord.ALL_COLUMNS, ModelPolicyMappingRecord.TABLE_NAME, params));
+  }
+
+  /**
+   * Connection-aware version for use inside runWithinTransaction (for inheritable policy check).
+   */
+  private List<PolarisPolicyMappingRecord> fetchPolicyMappingRecords(
+      QueryGenerator.PreparedQuery query, @NonNull Connection connection) {
+    try {
+      var results =
+          datasourceOperations.executeSelect(connection, query, new ModelPolicyMappingRecord());
+      return results == null ? Collections.emptyList() : results;
+    } catch (SQLException e) {
+      throw new RuntimeException(
+          String.format("Failed to retrieve policy mapping records %s", e.getMessage()), e);
+    }
+  }
+
+  /** Connection-aware overload for use inside transaction. */
+  @NonNull List<PolarisPolicyMappingRecord> loadPoliciesOnTargetByType(
+      @NonNull PolarisCallContext callCtx,
+      long targetCatalogId,
+      long targetId,
+      int policyTypeCode,
+      @NonNull Connection connection) {
+    Map<String, Object> params =
+        Map.of(
+            "target_catalog_id",
+            targetCatalogId,
+            "target_id",
+            targetId,
+            "policy_type_code",
+            policyTypeCode,
+            "realm_id",
+            realmId);
+    return fetchPolicyMappingRecords(
+        QueryGenerator.generateSelectQuery(
+            ModelPolicyMappingRecord.ALL_COLUMNS, ModelPolicyMappingRecord.TABLE_NAME, params),
+        connection);
+  }
+
+  @NonNull
+  @Override
+  public List<PolarisPolicyMappingRecord> loadAllPoliciesOnTarget(
+      @NonNull PolarisCallContext callCtx, long targetCatalogId, long targetId) {
+    Map<String, Object> params =
+        Map.of("target_catalog_id", targetCatalogId, "target_id", targetId, "realm_id", realmId);
+    return fetchPolicyMappingRecords(
+        QueryGenerator.generateSelectQuery(
+            ModelPolicyMappingRecord.ALL_COLUMNS, ModelPolicyMappingRecord.TABLE_NAME, params));
+  }
+
+  @NonNull
+  @Override
+  public List<PolarisPolicyMappingRecord> loadAllTargetsOnPolicy(
+      @NonNull PolarisCallContext callCtx,
+      long policyCatalogId,
+      long policyId,
+      int policyTypeCode) {
+    Map<String, Object> params =
+        Map.of(
+            "policy_type_code",
+            policyTypeCode,
+            "policy_catalog_id",
+            policyCatalogId,
+            "policy_id",
+            policyId,
+            "realm_id",
+            realmId);
+    return fetchPolicyMappingRecords(
+        QueryGenerator.generateSelectQuery(
+            ModelPolicyMappingRecord.ALL_COLUMNS, ModelPolicyMappingRecord.TABLE_NAME, params));
+  }
+
+  private List<PolarisPolicyMappingRecord> fetchPolicyMappingRecords(
+      QueryGenerator.PreparedQuery query) {
+    try {
+      var results = datasourceOperations.executeSelect(query, new ModelPolicyMappingRecord());
+      return results == null ? Collections.emptyList() : results;
+    } catch (SQLException e) {
+      throw new RuntimeException(
+          String.format("Failed to retrieve policy mapping records %s", e.getMessage()), e);
+    }
+  }
+
+  @Nullable
+  @Override
+  public PolarisStorageIntegration createStorageIntegration(
+      @NonNull PolarisCallContext callCtx,
+      long catalogId,
+      long entityId,
+      PolarisStorageConfigurationInfo polarisStorageConfigurationInfo) {
+    // No-op in OSS: the storage integration is resolved at credential-vending time via
+    // PolarisStorageIntegrationProvider.getStorageIntegration(resolvedEntityPath). This hook
+    // remains available for custom deployments that need to allocate/lease external state
+    // atomically with the catalog-creation transaction.
+    return null;
+  }
+
+  @Override
+  public void persistStorageIntegrationIfNeeded(
+      @NonNull PolarisCallContext callContext,
+      @NonNull PolarisBaseEntity entity,
+      @Nullable PolarisStorageIntegration storageIntegration) {}
+
+  @FunctionalInterface
+  private interface QueryAction {
+    Integer apply(Connection connection, QueryGenerator.PreparedQuery query) throws SQLException;
+  }
+}

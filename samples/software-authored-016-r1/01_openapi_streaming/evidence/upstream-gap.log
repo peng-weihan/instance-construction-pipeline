@@ -1,0 +1,64 @@
+Warning(s) encountered while generating. Client was generated, but some pieces may be missing
+Generating evidence/upstream-generated
+
+WARNING parsing GET /secured within feed.
+
+Cannot parse response for status code <openapi_python_client.schema.untrusted_string.UntrustedString object at 0x7011bc7ad820> (Unsupported content_type application/x-ndjson), response will be omitted from generated client
+
+{
+  "description": "Incremental records",
+  "content": {
+    "application/x-ndjson": {
+      "schema": {
+        "$ref": "#/components/schemas/Event"
+      }
+    }
+  }
+}
+
+WARNING parsing POST /anonymous within feed.
+
+Cannot parse response for status code <openapi_python_client.schema.untrusted_string.UntrustedString object at 0x7011bc7ada90> (Unsupported content_type application/x-ndjson), response will be omitted from generated client
+
+{
+  "description": "Incremental records",
+  "content": {
+    "application/x-ndjson": {
+      "schema": {
+        "$ref": "#/components/schemas/Event"
+      }
+    }
+  }
+}
+
+WARNING parsing GET /optional within feed.
+
+Cannot parse response for status code <openapi_python_client.schema.untrusted_string.UntrustedString object at 0x7011bc7adca0> (Unsupported content_type application/x-ndjson), response will be omitted from generated client
+
+{
+  "description": "Incremental records",
+  "content": {
+    "application/x-ndjson": {
+      "schema": {
+        "$ref": "#/components/schemas/Event"
+      }
+    }
+  }
+}
+
+WARNING parsing GET /numbers within feed.
+
+Cannot parse response for status code <openapi_python_client.schema.untrusted_string.UntrustedString object at 0x7011bc7adfd0> (Unsupported content_type application/x-ndjson), response will be omitted from generated client
+
+{
+  "description": "primitive records",
+  "content": {
+    "application/x-ndjson": {
+      "schema": {
+        "type": "integer"
+      }
+    }
+  }
+}
+
+If you believe this was a mistake or this tool is missing a feature you need, please open an issue at https://github.com/openapi-generators/openapi-python-client/issues/new/choose

@@ -1,0 +1,26 @@
+from pathlib import Path
+import hashlib,json,shutil,subprocess,sys
+ROOT=Path('/ws/users/raymone/edgebench/remaining-three-001');old=ROOT/'finance-pilot';out=ROOT/'finance-pilot-r2';out.mkdir()
+def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def dump(p,x):Path(p).write_text(json.dumps(x,indent=2)+'\n')
+F=out/'framework';subprocess.run(['cp','-a','--reflink=auto',str(old/'framework'),str(F)],check=True)
+p=F/'edgebench_harbor/static_native.py';p.write_text(p.read_text().replace(str(old/'activity'),str(out/'activity')))
+subprocess.run(['cp','-a','--reflink=auto',str(old/'task'),str(out/'task')],check=True)
+source=ROOT/'finance-task-r4';context=out/'judge';context.mkdir()
+for folder in ['public','private','verifier']:shutil.copytree(source/folder,context/folder)
+shutil.copyfile(ROOT/'judge_entry.py',context/'verifier/judge_entry.py')
+(context/'Dockerfile').write_text('FROM edge-raymone-game:initial\nCOPY public /judge/public\nCOPY private /judge/private\nCOPY verifier /judge/verifier\nENTRYPOINT ["/opt/runtime/venv/bin/python", "/judge/verifier/judge_entry.py"]\n')
+with (out/'judge-build.log').open('wb') as log:subprocess.run(['docker','build','--network','none','-t','edge-raymone-finance:pilot-r2',str(context)],stdout=log,stderr=subprocess.STDOUT,check=True)
+image=subprocess.check_output(['docker','image','inspect','edge-raymone-finance:pilot-r2','--format','{{.Id}}'],text=True).strip()
+images=json.loads((old/'images.json').read_text());images['verifier']['image_id']=image;dump(out/'images.json',images)
+notes='\n每个年度/配置使用新的策略进程、独立的工作目录及/tmp，前一配置留下的文件不会进入后一配置。允许在单个配置内通过user_state保持跨日状态。\n'
+p=out/'task/instruction.md';p.write_text(p.read_text()+notes)
+inventory={p.relative_to(F).as_posix():sha(p) for p in F.rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.name!='framework-version.json'}
+tree=hashlib.sha256(json.dumps(inventory,sort_keys=True).encode()).hexdigest();dump(F/'framework-version.json',{'status':'frozen','kind':'six_hour_engineering_pilot','formal_acceptance':False,'runtime_tree_sha256':tree,'runtime_file_hashes':inventory})
+prep=json.loads((old/'preparation.json').read_text());prep.update(source_task=str(source),image_id=image,runtime_tree_sha256=tree,previous_invalid_run=str(old/'run-6h-001'),causal_episode_isolation_fixed=True)
+dump(out/'preparation.json',prep)
+launch=(ROOT/'launch_agent.py').read_text().replace("/(KIND+'-pilot')","/(KIND+'-pilot-r2')").replace("ROOT/'admission-002/report.json'","ROOT/'admission/report.json'")
+(ROOT/'launch_finance_repair.py').write_text(launch)
+advance=(ROOT/'advance_remaining_pilot.py').read_text().replace("/(kind+'-pilot')","/(kind+'-pilot-r2')").replace("'admission-002/report.json'","'admission/report.json'").replace("str(ROOT/'launch_agent.py')","str(ROOT/'launch_finance_repair.py')")
+(ROOT/'advance_finance_repair.py').write_text(advance)
+print('prepared fresh finance pilot',out,image,flush=True)

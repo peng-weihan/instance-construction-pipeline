@@ -1,0 +1,84 @@
+{
+  "time_axis": "snapshot capture time, hours since learning start",
+  "score": "original normalized score, no transformation",
+  "final_snapshot": "After confirmed process freeze, final capture is mapped to the learning cutoff; no extra learning time.",
+  "formal_acceptance": false,
+  "tasks": {
+    "restler": {
+      "learning_hours": 4.0160577492575005,
+      "best_score": 1.0,
+      "completed_grades": 50,
+      "checkpoints_by_snapshot_hour": {
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0
+      },
+      "stop_reason": "infrastructure_or_probe_completion",
+      "history_sha256": "5f90fc1385ec5b7c590209b6691e041145ffd56df2c7a33be7b00b50769429c2",
+      "stop_record_sha256": "4f389cb9b894b932e3cfcc129868ed3af1bfd6287ccc17963991bf2d80cfc861"
+    },
+    "lean": {
+      "learning_hours": 6.000000331570557,
+      "best_score": 1.0,
+      "completed_grades": 43,
+      "checkpoints_by_snapshot_hour": {
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0,
+        "5": 1.0,
+        "6": 1.0
+      },
+      "stop_reason": "learning_budget_exhausted",
+      "history_sha256": "6ad3d9740b9a2675075914b2825c867a317778f8f4372038b7788d407868db87",
+      "stop_record_sha256": "ba432c95aea9b1742dfaf422cd4c41a3b60c009a684bdf6cb03ab2eebd77bce6"
+    },
+    "packing": {
+      "learning_hours": 6.0000000689705555,
+      "best_score": 0.3983375816597537,
+      "completed_grades": 116,
+      "checkpoints_by_snapshot_hour": {
+        "1": 0.26010128913118746,
+        "2": 0.26010128913118746,
+        "3": 0.3514243687639052,
+        "4": 0.3823555024338498,
+        "5": 0.3983375816597537,
+        "6": 0.3983375816597537
+      },
+      "stop_reason": "learning_budget_exhausted",
+      "history_sha256": "6435890ebe2c28ebbe5f59d76b8004d0a5c92dd18b19afa02550625ac5f38903",
+      "stop_record_sha256": "d03110399b9964a58e6ce6a97760f8c0ecf1daed8c15b608fd38a5a97a794c6f"
+    },
+    "game": {
+      "learning_hours": 6.000000056194445,
+      "best_score": 0.8662878787878788,
+      "completed_grades": 198,
+      "checkpoints_by_snapshot_hour": {
+        "1": 0.7738636363636364,
+        "2": 0.7803030303030303,
+        "3": 0.7825757575757576,
+        "4": 0.8621212121212122,
+        "5": 0.8655303030303031,
+        "6": 0.8662878787878788
+      },
+      "stop_reason": "learning_budget_exhausted",
+      "history_sha256": "3250259f1e648daa61ab4ec163779897ac7a0d161f0356ccf2615fe704b262d5",
+      "stop_record_sha256": "f45e3e869c6596d1b6c75d17d55e59ad40a49e0bdeb0331c1190921eec5df884"
+    },
+    "finance": {
+      "learning_hours": 4.217733786179722,
+      "best_score": 0.681844094521565,
+      "completed_grades": 95,
+      "checkpoints_by_snapshot_hour": {
+        "1": 0.6585794837402571,
+        "2": 0.6674936860077185,
+        "3": 0.681844094521565,
+        "4": 0.681844094521565
+      },
+      "stop_reason": "infrastructure_or_probe_completion",
+      "history_sha256": "d9c3e54195114cd1c617bec2990375a6d52096ebb089f61c4846df9c3307b2b2",
+      "stop_record_sha256": "f423d1c25dabdeace67e5e1f8633f818345eea10d318b16f496db328ec36473b"
+    }
+  }
+}

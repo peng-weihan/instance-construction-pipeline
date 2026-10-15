@@ -1,0 +1,85 @@
+{
+  "papers": [
+    {
+      "title": "Reasoning Gym",
+      "arxiv_version": "2505.24760v2",
+      "source_url": "https://arxiv.org/pdf/2505.24760v2",
+      "retrieved_at": "2026-10-14",
+      "pdf_pages": 44,
+      "status": "downloaded_and_pdftotext_extracted",
+      "files": [
+        {
+          "path": "papers/reasoning-gym-2505.24760.pdf",
+          "bytes": 2858388,
+          "sha256": "3a7942a9565df9744008b1f3110da24f5a2f30efc11ed0c4e611560e7664efac"
+        },
+        {
+          "path": "papers/reasoning-gym-2505.24760.txt",
+          "bytes": 204847,
+          "sha256": "8fcf94049a3703cddbf5d02c3c02a76a870713303c09b9badff03b6f16a5bc85"
+        }
+      ]
+    },
+    {
+      "title": "ALE-Bench",
+      "arxiv_version": "2506.09050v2",
+      "source_url": "https://arxiv.org/pdf/2506.09050v2",
+      "retrieved_at": "2026-10-14",
+      "pdf_pages": 46,
+      "status": "downloaded_and_pdftotext_extracted",
+      "files": [
+        {
+          "path": "papers/ale-bench-2506.09050.pdf",
+          "bytes": 4021944,
+          "sha256": "afb8481e20f07228260b5d1da38da663b3991363dae07cbe9a8ae1e7896e94c9"
+        },
+        {
+          "path": "papers/ale-bench-2506.09050.txt",
+          "bytes": 222025,
+          "sha256": "804e1f5e7b2b7986282ef56fb5899ab8fba7917bee05b600d3a446bb3e968935"
+        }
+      ]
+    },
+    {
+      "title": "RE-Bench",
+      "arxiv_version": "2411.15114v2",
+      "source_url": "https://arxiv.org/pdf/2411.15114v2",
+      "retrieved_at": "2026-10-14",
+      "pdf_pages": 68,
+      "status": "downloaded_and_pdftotext_extracted",
+      "files": [
+        {
+          "path": "papers/re-bench-2411.15114.pdf",
+          "bytes": 15256217,
+          "sha256": "9d25c5ea6abfeeb40b5c8fa7a8e637cd8785d2a0f022f2798c33769af8d66992"
+        },
+        {
+          "path": "papers/re-bench-2411.15114.txt",
+          "bytes": 158837,
+          "sha256": "796af8e2c5ddfbf51595bcf2edfa4b7ac7e46cd82b5f212b2014fe208a644c4f"
+        }
+      ]
+    },
+    {
+      "title": "MLE-bench",
+      "arxiv_version": "2410.07095v6",
+      "source_url": "https://arxiv.org/pdf/2410.07095v6",
+      "retrieved_at": "2026-10-14",
+      "pdf_pages": 29,
+      "status": "downloaded_and_pdftotext_extracted",
+      "files": [
+        {
+          "path": "papers/mle-bench-2410.07095.pdf",
+          "bytes": 817725,
+          "sha256": "1dab9a33edeab25ea359c4d6857d03512ccd47ed5782631031cfe8dcbebe7988"
+        },
+        {
+          "path": "papers/mle-bench-2410.07095.txt",
+          "bytes": 117720,
+          "sha256": "b34e6fb3922de9fb10a75fd1f3fe4d5d4be4d00fc1d8cc0578e68d2cdd64f2ba"
+        }
+      ]
+    }
+  ],
+  "failed_downloads": []
+}

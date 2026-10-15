@@ -1,0 +1,12 @@
+{
+  "updated_utc": "2026-10-14T22:21:13.800128+00:00",
+  "game": "runtime_controls_passed_6h_pending",
+  "finance": "runtime_controls_passed_6h_pending_license_unresolved",
+  "science_inverse": "reject_cheap_shortcut",
+  "science_ml_backup": "constructed_host_baseline_only",
+  "user_requested_launch": [
+    "game",
+    "finance"
+  ],
+  "formal_acceptance": false
+}

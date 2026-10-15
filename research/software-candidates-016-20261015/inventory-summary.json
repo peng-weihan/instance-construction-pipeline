@@ -1,0 +1,14 @@
+{
+  "candidate_count": 16,
+  "new_project_count": 10,
+  "revised_source_count": 6,
+  "selected_source_files": 101,
+  "selected_source_bytes": 7372407,
+  "complete_git_tree_indexes": 16,
+  "P1_count": 8,
+  "P2_count": 8,
+  "new_complete_task_profiles": 0,
+  "new_constructor_cli_runs_in_batch": 0,
+  "new_six_hour_rollouts_in_batch": 0,
+  "six_hour_qualified_tasks": 0
+}

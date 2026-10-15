@@ -1,0 +1,38 @@
+{
+  "core/tests/test_core.py::test_bytes_0": [
+    "bytes-0"
+  ],
+  "core/tests/test_core.py::test_bytes_1": [
+    "bytes-1"
+  ],
+  "core/tests/test_core.py::test_bytes_2": [
+    "bytes-2"
+  ],
+  "core/tests/test_core.py::test_bytes_3": [
+    "bytes-3"
+  ],
+  "core/tests/test_core.py::test_bytes_4": [
+    "bytes-4"
+  ],
+  "core/tests/test_core.py::test_bytes_5": [
+    "bytes-5"
+  ],
+  "core/tests/test_core.py::test_bytes_6": [
+    "bytes-6"
+  ],
+  "core/tests/test_core.py::test_bytes_7": [
+    "bytes-7"
+  ],
+  "core/tests/test_core.py::test_bytes_8": [
+    "bytes-8"
+  ],
+  "core/tests/test_core.py::test_bytes_9": [
+    "bytes-9"
+  ],
+  "core/tests/test_core.py::test_weak_exit": [
+    "empty"
+  ],
+  "core/tests/test_core.py::test_error": [
+    "error"
+  ]
+}

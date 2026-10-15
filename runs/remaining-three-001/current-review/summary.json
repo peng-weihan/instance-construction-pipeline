@@ -1,0 +1,32 @@
+{
+  "game": {
+    "actual_learning_seconds": 21600.0002023,
+    "stop_reason": "learning_budget_exhausted",
+    "completed_grades": 198,
+    "best_score": 0.8662878787878788,
+    "best_by_snapshot_hour": {
+      "0.5": 0.7007575757575758,
+      "1": 0.7738636363636364,
+      "2": 0.7803030303030303,
+      "3": 0.7825757575757576,
+      "4": 0.8621212121212122,
+      "6": 0.8662878787878788
+    },
+    "formal_acceptance": false,
+    "relative_gain_2h_to_6h": 0.11019417475728166
+  },
+  "finance": {
+    "actual_learning_seconds": 15183.841630247001,
+    "stop_reason": "infrastructure_or_probe_completion",
+    "completed_grades": 95,
+    "best_score": 0.681844094521565,
+    "best_by_snapshot_hour": {
+      "0.5": 0.6417822513404586,
+      "1": 0.6585794837402571,
+      "2": 0.6674936860077185,
+      "3": 0.681844094521565,
+      "4": 0.681844094521565
+    },
+    "formal_acceptance": false
+  }
+}

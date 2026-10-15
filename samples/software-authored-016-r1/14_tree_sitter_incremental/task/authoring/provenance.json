@@ -1,0 +1,42 @@
+{
+  "source": {
+    "url": "https://github.com/tree-sitter/tree-sitter",
+    "revision": "8ca548849fc8dbefd699edcec26546bb14112820",
+    "license": "MIT"
+  },
+  "grammar": {
+    "url": "https://github.com/tree-sitter/tree-sitter-python",
+    "revision": "bffb65a8cfe4e46290331dfef0dbf0ef3679de11",
+    "tag": "v0.23.6",
+    "license": "MIT",
+    "generated_artifacts": [
+      "src/parser.c",
+      "src/scanner.c",
+      "src/grammar.json",
+      "src/node-types.json"
+    ]
+  },
+  "construction": "controlled_recovery",
+  "mechanism": "native parser reuse/edit invalidation/changed-range state chain",
+  "source_card": "14_tree_sitter_incremental",
+  "reference": "verifier/private/reference.tar",
+  "inverse_patch": "solution/restore.patch",
+  "license_notices": [
+    "environment/starter/LICENSE",
+    "environment/starter/lib/src/unicode/LICENSE",
+    "environment/grammar/LICENSE"
+  ],
+  "original_work": [
+    "native API probe",
+    "33 edit scenes",
+    "isolated grader",
+    "3 independent author-audit scenes",
+    "score and Harbor packaging"
+  ],
+  "native_adaptation": "12 grammar corpus cases projected onto named structure, expected fields stripped; original tests retained",
+  "private_reference_isolation": "only verifier/private and solution; absent from environment context",
+  "requested_author_model": "gpt-6.1-sol",
+  "new_model_sessions": 0,
+  "teacher_runs": 0,
+  "model_identity_verified_by_author": false
+}

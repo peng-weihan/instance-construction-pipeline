@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/tests/grader.py",
+    "--submission",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/solution/reference",
+    "--private",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/controls/corrupt-private",
+    "--output",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/evidence/audit/corrupt-private",
+    "--scratch",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/grade",
+    "--python",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv-offline/bin/python"
+  ],
+  "exit_code": 2,
+  "valid": false,
+  "score": null,
+  "error": "InfrastructureError('trusted asset integrity failure: stream-contract.json')",
+  "stale_reward_files_removed": true
+}

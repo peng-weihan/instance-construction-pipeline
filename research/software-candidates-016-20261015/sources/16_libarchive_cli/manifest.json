@@ -1,0 +1,79 @@
+{
+  "id": "16_libarchive_cli",
+  "repo": "libarchive/libarchive",
+  "family": "behavioral_reimplementation",
+  "new_source": true,
+  "title": "归档读写、链接与流式格式的CLI兼容",
+  "files": [
+    "README.md",
+    "libarchive/archive_read_support_format_tar.c",
+    "libarchive/test/test_read_format_tar.c",
+    "libarchive/test/test_write_format_pax.c",
+    "tar/test/test_option_C_upper.c"
+  ],
+  "revision": "b10312a52e5e4d1baf047b563e501b4fb184adde",
+  "retrieved_utc": "2026-10-15T09:20:52.279464+00:00",
+  "files_acquired": [
+    {
+      "path": "README.md",
+      "bytes": 11351,
+      "sha256": "158527b45cc55cce474530d54e8c7e1a6fd3f57c6cf0967777421c07ea34398d",
+      "url": "https://github.com/libarchive/libarchive/blob/b10312a52e5e4d1baf047b563e501b4fb184adde/README.md"
+    },
+    {
+      "path": "libarchive/archive_read_support_format_tar.c",
+      "bytes": 118395,
+      "sha256": "1a48e05c8a34e50eb59d37c7f1c66c45e74a7ee42795d8db20bbf1c47c52710f",
+      "url": "https://github.com/libarchive/libarchive/blob/b10312a52e5e4d1baf047b563e501b4fb184adde/libarchive/archive_read_support_format_tar.c"
+    },
+    {
+      "path": "libarchive/test/test_read_format_tar.c",
+      "bytes": 25448,
+      "sha256": "d72b3fbbaebc9454417c0b366ddb920ec34ff14471dfacb1640e40680f43e9a0",
+      "url": "https://github.com/libarchive/libarchive/blob/b10312a52e5e4d1baf047b563e501b4fb184adde/libarchive/test/test_read_format_tar.c"
+    },
+    {
+      "path": "libarchive/test/test_write_format_pax.c",
+      "bytes": 11506,
+      "sha256": "db07fb2c03d6d1857665806bab1760a9c59ab07443d146901520443089edd837",
+      "url": "https://github.com/libarchive/libarchive/blob/b10312a52e5e4d1baf047b563e501b4fb184adde/libarchive/test/test_write_format_pax.c"
+    },
+    {
+      "path": "COPYING",
+      "bytes": 3089,
+      "sha256": "30e556b3959e3985d66efefec5eaac51d4995053caa1d3cffe6eb916f146f229",
+      "url": "https://github.com/libarchive/libarchive/blob/b10312a52e5e4d1baf047b563e501b4fb184adde/COPYING"
+    },
+    {
+      "path": "tar/test/test_option_C_upper.c",
+      "bytes": 3557,
+      "sha256": "495e55d5e9637eea15e888cc6746edf65780470f17eaae0149f84e15093bd10c",
+      "url": "https://github.com/libarchive/libarchive/blob/b10312a52e5e4d1baf047b563e501b4fb184adde/tar/test/test_option_C_upper.c"
+    },
+    {
+      "path": "tar/test/test_basic.c",
+      "bytes": 2683,
+      "sha256": "3b6e8e64ce73f5e107c5f85d1047e6d49f44bd461e1572b33302835c109b60e7",
+      "url": "https://github.com/libarchive/libarchive/blob/b10312a52e5e4d1baf047b563e501b4fb184adde/tar/test/test_basic.c"
+    }
+  ],
+  "missing_paths": [
+    "LICENSE",
+    "LICENSE.txt",
+    "LICENSE.md",
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "runtime_validation": false,
+  "six_hour_difficulty_verified": false,
+  "tree_manifest": {
+    "path": "git-tree.json",
+    "sha256": "d91457124cda9e2a97b441ed73cfb8a0cba76333b46303839b106cde1b3f89a4",
+    "blob_count": 1565,
+    "truncated": false
+  },
+  "resolved_initial_404_paths": {
+    "tar/test/test_option_C.c": "tar/test/test_option_C_upper.c"
+  },
+  "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+}

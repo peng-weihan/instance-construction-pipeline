@@ -1,0 +1,14 @@
+{
+  "source_task": "samples/long-horizon-built-007/cross_asset_adaptive_allocator",
+  "price_source_sha256": "00213a0f32a454e32cb76ad29b87fc203e1817090386b2375326b01e6186f906",
+  "source_commit": "a00e1a48e05b1c561a4b753ee03302fdf57f25b9",
+  "changes": [
+    "independent historical years",
+    "paired cost/risk mandates",
+    "public stronger comparison baseline",
+    "causal relative-time episodes"
+  ],
+  "score_constants_unchanged": true,
+  "redistribution_rights": "not_confirmed",
+  "runtime_verified": false
+}

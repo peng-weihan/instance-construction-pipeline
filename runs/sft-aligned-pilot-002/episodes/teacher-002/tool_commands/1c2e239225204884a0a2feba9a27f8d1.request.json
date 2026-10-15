@@ -1,0 +1,1 @@
+{"arguments":{"command":"cat src/solver.cpp; cat include/types.h; ls instances/public; cat feedback.py","timeout_seconds":10},"request_id":"1c2e239225204884a0a2feba9a27f8d1"}

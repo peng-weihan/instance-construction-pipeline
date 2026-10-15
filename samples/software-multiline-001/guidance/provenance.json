@@ -1,0 +1,20 @@
+{
+  "retrieved_utc": "2026-10-15T08:45:59.560063+00:00",
+  "authoring_source_root": "/ws/users/wcgu/skills/edgebench-task-authoring",
+  "harbor_source_root": "/ws/users/wcgu/edgebench/dev/harbor",
+  "harbor_source_commit": "1e5c5c6db929a10a140d05e606882c671ae20729",
+  "declared_harbor_version": "0.23.0",
+  "skill_matches_previously_read_snapshot": true,
+  "sha256": {
+    "reference-anchors.md": "256ffadb5025bec9c0fdaeef49d2e687fdeabdf88eda8ce6ff3de106d23b2898",
+    "material-and-scoring.md": "45010c2a510375b1f915d1f7c7b42fcc819d3677da4ebff463f830815738bd0b",
+    "source-selection.md": "a11360c352c5d7856a028b187a0048ce851d531422ffa925df8a85f8c6547e6c",
+    "growth-judgement.md": "3b13a373aec7b507a300a698f8b4453326159395286b3a8922df0ea6399f921c",
+    "python-3.12.8-manifest-index.json": "2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+    "harbor-0.23.0-task-config.py": "d8c62a49acefb8cd6a0be4c4d48dc0f4f52f31f8a8a6728439aad04e1c62e9fb",
+    "package-contract.md": "dc31566c690924ecfcbcaa99752d088a8d6ca87a4e476336e668fa7ad55ab10f",
+    "python-3.12.8-image-pin.json": "fa5d1bdd4d8bfb7c5ba58b81a3e3cdaccea03c517a5f28745453c0c698c40b55",
+    "authoring-SKILL.md": "87f28b6fad2fbebda944e47c6493097cc074f698b5f9308b1b4245e3781b7307"
+  },
+  "remote_sources_modified": false
+}

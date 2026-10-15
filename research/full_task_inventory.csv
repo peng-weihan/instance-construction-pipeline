@@ -1,0 +1,135 @@
+﻿task_id,official_category,public_task_definition,source
+ann_vector_search_qps,Systems & Software Engineering,True,https://arxiv.org/html/2607.05155v1#A7.T7
+arc_compiler_runtime,Systems & Software Engineering,True,https://arxiv.org/html/2607.05155v1#A7.T7
+rust_multicrate_reconstruction,Systems & Software Engineering,True,https://arxiv.org/html/2607.05155v1#A7.T7
+codeflash_repair_performance,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+copier_modular_refactor,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+dependent_type_checker,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+entt_graph_module,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+exchange_core_throughput,Systems & Software Engineering,True,https://arxiv.org/html/2607.05155v1#A7.T7
+ffmpeg_swscale_reimplementation,Systems & Software Engineering,True,https://arxiv.org/html/2607.05155v1#A7.T7
+git_rewrite_in_zig,Systems & Software Engineering,True,https://arxiv.org/html/2607.05155v1#A7.T7
+high_performance_object_mapper,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+integer_compression_codec,Systems & Software Engineering,True,https://arxiv.org/html/2607.05155v1#A7.T7
+juliet_vulnerability_analyzer,Systems & Software Engineering,True,https://arxiv.org/html/2607.05155v1#A7.T7
+libexpat_x86_assembly,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+odata_query_service,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+litestar_infra_refactor,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+lua_native_compiler,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+mimesis_modular_refactor,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+nlohmann_json_modularization,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+notebook_lossless_compression,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+packer_plugin_datasources,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+pocketbase_backend_architecture,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+pocketbase_tools_extensions,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+postgres_wire_on_sqlite,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+quic_transport_stack,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+regex_automata_repair,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+schemathesis_datagen_pipeline,Systems & Software Engineering,True,https://arxiv.org/html/2607.05155v1#A7.T7
+schemathesis_reporting_observability,Systems & Software Engineering,True,https://arxiv.org/html/2607.05155v1#A7.T7
+schemathesis_config_modernization,Systems & Software Engineering,True,https://arxiv.org/html/2607.05155v1#A7.T7
+stream_processing_engine,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+tls13_handshake_state_machine,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+vault_sdk_resilience,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+vliw_kernel_optimization,Systems & Software Engineering,True,https://arxiv.org/html/2607.05155v1#A7.T7
+cpu_full_flow,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+zstd_api_modernization,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+cfzip_compression_engine,Systems & Software Engineering,False,https://arxiv.org/html/2607.05155v1#A7.T7
+battery_soh_rul_anomaly,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+borden_pump_treat_dispatch,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+borden_source_inversion,Scientific Problems & ML,True,https://arxiv.org/html/2607.05155v1#A7.T7
+borden_sensor_fault_diagnosis,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+bridge_gnss_state_forecast,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+capecod_plume_reconstruction,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+vsg_stability_parameter_optimization,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+cylinder_wake_prediction,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+dabic_gravity_inversion,Scientific Problems & ML,True,https://arxiv.org/html/2607.05155v1#A7.T7
+noisy_product_matching_pipeline,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+neural_net_weight_recovery,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+nanophotonic_simulation_reproduction,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+ftir_polymer_identification,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+molecular_property_regression,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+graph_node_classification,Scientific Problems & ML,True,https://arxiv.org/html/2607.05155v1#A7.T7
+gravitational_wave_signal_detection,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+herbal_depression_target_screening,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+polyimide_homo_lumo_prediction,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+industrial_anomaly_detection,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+bipedalwalker_locomotion_rl,Scientific Problems & ML,True,https://arxiv.org/html/2607.05155v1#A7.T7
+molecular_solubility_prediction,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+motor_clutch_model_reproduction,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+streaming_multilabel_classification,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+barnes_hut_nbody_acceleration,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+blackbox_numerical_integration,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+pancreatic_radiotherapy_meta_analysis,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+monge_ampere_pde_solver,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+pdf_structured_extraction,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+ocean_mt_lab_inversion,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+pv_power_forecasting,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+quantum_architecture_search,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+collaborative_filtering_recommender,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+touchstone_vna_diagnostics,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+ecg_signal_processing_pipeline,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+sketch_solve_least_squares,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+substrate_interface_simulation,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+thermo_fluid_field_prediction,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+csi_time_series_forecasting,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+roof_damage_active_learning,Scientific Problems & ML,False,https://arxiv.org/html/2607.05155v1#A7.T7
+ad_placement_optimization,Combinatorial Optimization,True,https://arxiv.org/html/2607.05155v1#A7.T7
+treant_forest,Combinatorial Optimization,True,https://arxiv.org/html/2607.05155v1#A7.T7
+grid_turing_robot,Combinatorial Optimization,True,https://arxiv.org/html/2607.05155v1#A7.T7
+molecular_self_assembly,Combinatorial Optimization,True,https://arxiv.org/html/2607.05155v1#A7.T7
+apple_incremental_game,Combinatorial Optimization,True,https://arxiv.org/html/2607.05155v1#A7.T7
+first_order_theorem_prover,Combinatorial Optimization,False,https://arxiv.org/html/2607.05155v1#A7.T7
+circuit_layout_optimization,Combinatorial Optimization,False,https://arxiv.org/html/2607.05155v1#A7.T7
+order_addition_permutation_optimization,Combinatorial Optimization,True,https://arxiv.org/html/2607.05155v1#A7.T7
+equivalence_class_divide_and_conquer,Combinatorial Optimization,True,https://arxiv.org/html/2607.05155v1#A7.T7
+jagua_nesting_optimization,Combinatorial Optimization,True,https://arxiv.org/html/2607.05155v1#A7.T7
+sat_solver,Combinatorial Optimization,False,https://arxiv.org/html/2607.05155v1#A7.T7
+smt_solver,Combinatorial Optimization,True,https://arxiv.org/html/2607.05155v1#A7.T7
+symbolic_integration_engine,Combinatorial Optimization,False,https://arxiv.org/html/2607.05155v1#A7.T7
+tree_block_partitioning,Combinatorial Optimization,True,https://arxiv.org/html/2607.05155v1#A7.T7
+triangulation_coloring_optimization,Combinatorial Optimization,True,https://arxiv.org/html/2607.05155v1#A7.T7
+vibrating_path_graph_coloring,Combinatorial Optimization,True,https://arxiv.org/html/2607.05155v1#A7.T7
+vehicle_routing_time_windows,Combinatorial Optimization,True,https://arxiv.org/html/2607.05155v1#A7.T7
+warehouse_forklift_routing,Combinatorial Optimization,True,https://arxiv.org/html/2607.05155v1#A7.T7
+wireless_electricity_layout,Combinatorial Optimization,True,https://arxiv.org/html/2607.05155v1#A7.T7
+lean_analysis_proofs,Formal Math & Theorem Proving,True,https://arxiv.org/html/2607.05155v1#A7.T7
+carleson_formalization,Formal Math & Theorem Proving,True,https://arxiv.org/html/2607.05155v1#A7.T7
+combinatorial_games_formalization,Formal Math & Theorem Proving,True,https://arxiv.org/html/2607.05155v1#A7.T7
+new_foundations_consistency,Formal Math & Theorem Proving,True,https://arxiv.org/html/2607.05155v1#A7.T7
+cup_product_formalization,Formal Math & Theorem Proving,False,https://arxiv.org/html/2607.05155v1#A7.T7
+erdos392_formalization,Formal Math & Theorem Proving,False,https://arxiv.org/html/2607.05155v1#A7.T7
+flt_regular_formalization,Formal Math & Theorem Proving,True,https://arxiv.org/html/2607.05155v1#A7.T7
+godel_incompleteness_formalization,Formal Math & Theorem Proving,False,https://arxiv.org/html/2607.05155v1#A7.T7
+medium_prime_number_theorem,Formal Math & Theorem Proving,False,https://arxiv.org/html/2607.05155v1#A7.T7
+ordinal_notation_well_foundedness,Formal Math & Theorem Proving,True,https://arxiv.org/html/2607.05155v1#A7.T7
+pfr_formalization,Formal Math & Theorem Proving,True,https://arxiv.org/html/2607.05155v1#A7.T7
+sphere_eversion_formalization,Formal Math & Theorem Proving,True,https://arxiv.org/html/2607.05155v1#A7.T7
+turing_machine_halting_proofs,Formal Math & Theorem Proving,False,https://arxiv.org/html/2607.05155v1#A7.T7
+portfolio_risk_calibration,Professional Knowledge Work,True,https://arxiv.org/html/2607.05155v1#A7.T7
+storyboard_ad_copywriting,Professional Knowledge Work,False,https://arxiv.org/html/2607.05155v1#A7.T7
+brand_annual_planning_ppt,Professional Knowledge Work,False,https://arxiv.org/html/2607.05155v1#A7.T7
+securities_protection_training,Professional Knowledge Work,False,https://arxiv.org/html/2607.05155v1#A7.T7
+college_english_exam_bank,Professional Knowledge Work,True,https://arxiv.org/html/2607.05155v1#A7.T7
+cross_border_commission_compliance,Professional Knowledge Work,False,https://arxiv.org/html/2607.05155v1#A7.T7
+cross_border_investment_ppt,Professional Knowledge Work,False,https://arxiv.org/html/2607.05155v1#A7.T7
+cta_risk_budget_optimization,Professional Knowledge Work,True,https://arxiv.org/html/2607.05155v1#A7.T7
+equity_objection_report,Professional Knowledge Work,False,https://arxiv.org/html/2607.05155v1#A7.T7
+expo_visitor_conversion_model,Professional Knowledge Work,False,https://arxiv.org/html/2607.05155v1#A7.T7
+factor_stock_model_optimization,Professional Knowledge Work,False,https://arxiv.org/html/2607.05155v1#A7.T7
+global_terrorism_atlas_report,Professional Knowledge Work,False,https://arxiv.org/html/2607.05155v1#A7.T7
+hebei_gaokao_strategy_report,Professional Knowledge Work,False,https://arxiv.org/html/2607.05155v1#A7.T7
+hk_connect_annual_metrics,Professional Knowledge Work,False,https://arxiv.org/html/2607.05155v1#A7.T7
+k12_math_recommendation,Professional Knowledge Work,True,https://arxiv.org/html/2607.05155v1#A7.T7
+property_actuarial_pricing,Professional Knowledge Work,False,https://arxiv.org/html/2607.05155v1#A7.T7
+real_estate_bid_estimate,Professional Knowledge Work,False,https://arxiv.org/html/2607.05155v1#A7.T7
+stock_momentum_backtest,Professional Knowledge Work,False,https://arxiv.org/html/2607.05155v1#A7.T7
+storm_claim_ring_audit,Professional Knowledge Work,False,https://arxiv.org/html/2607.05155v1#A7.T7
+dcss_dungeon_ai,Interactive Games & Simulators,True,https://arxiv.org/html/2607.05155v1#A7.T7
+anchorhead_text_adventure,Interactive Games & Simulators,True,https://arxiv.org/html/2607.05155v1#A7.T7
+trinity_text_adventure,Interactive Games & Simulators,True,https://arxiv.org/html/2607.05155v1#A7.T7
+tryst_text_adventure,Interactive Games & Simulators,True,https://arxiv.org/html/2607.05155v1#A7.T7
+nethack_dungeon_agent,Interactive Games & Simulators,True,https://arxiv.org/html/2607.05155v1#A7.T7
+openrct2_theme_park_ai,Interactive Games & Simulators,True,https://arxiv.org/html/2607.05155v1#A7.T7
+openttd_transport_ai,Interactive Games & Simulators,True,https://arxiv.org/html/2607.05155v1#A7.T7
+wesnoth_tactical_ai,Interactive Games & Simulators,True,https://arxiv.org/html/2607.05155v1#A7.T7

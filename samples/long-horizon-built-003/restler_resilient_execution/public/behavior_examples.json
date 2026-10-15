@@ -1,0 +1,95 @@
+[
+  {
+    "id": "get_retry_after",
+    "method": "GET",
+    "statuses": [
+      429,
+      200
+    ],
+    "retry_after": "2",
+    "deadline": 10,
+    "expected": {
+      "attempts": 2,
+      "wait_seconds": [
+        2
+      ],
+      "terminal": "succeeded"
+    }
+  },
+  {
+    "id": "unsafe_post",
+    "method": "POST",
+    "statuses": [
+      503,
+      200
+    ],
+    "idempotency_key": null,
+    "deadline": 10,
+    "expected": {
+      "attempts": 1,
+      "terminal": "failed"
+    }
+  },
+  {
+    "id": "deadline_before_retry",
+    "method": "GET",
+    "statuses": [
+      503,
+      200
+    ],
+    "retry_after": "8",
+    "deadline": 5,
+    "expected": {
+      "attempts": 1,
+      "terminal": "timed_out",
+      "extra_transport_calls": 0
+    }
+  },
+  {
+    "id": "rollback_dependency_chain",
+    "resources": [
+      [
+        "namespace",
+        null
+      ],
+      [
+        "job",
+        "namespace"
+      ],
+      [
+        "artifact",
+        "job"
+      ]
+    ],
+    "failure": "artifact creation",
+    "expected": {
+      "cleanup_order": [
+        "job",
+        "namespace"
+      ]
+    }
+  },
+  {
+    "id": "shared_lease",
+    "references": {
+      "namespace": 2
+    },
+    "release_count": 1,
+    "expected": {
+      "deleted_resources": []
+    }
+  },
+  {
+    "id": "trace_redaction",
+    "headers": {
+      "Authorization": "TEST_SECRET",
+      "Idempotency-Key": "TEST_KEY"
+    },
+    "expected": {
+      "forbidden_trace_values": [
+        "TEST_SECRET",
+        "TEST_KEY"
+      ]
+    }
+  }
+]

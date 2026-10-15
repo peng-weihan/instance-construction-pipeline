@@ -1,0 +1,39 @@
+{
+  "category": "game",
+  "task": "samples/long-horizon-built-005/wesnoth_frontier_campaign_ai",
+  "mode": "trusted_component_host_validation",
+  "docker_executed": false,
+  "model_runs": 0,
+  "six_hour_runs": 0,
+  "started_unix": 1791983857.143851,
+  "task_manifest_sha256": "b3279e8c6b036e12953b3fb0c549d6394b0579017c3e3be586c51b9bf8df8de2",
+  "checks": [
+    {
+      "name": "lua_parse/public/adapter.lua",
+      "pass": true,
+      "error": null
+    },
+    {
+      "name": "lua_parse/public/submission/policy.lua",
+      "pass": true,
+      "error": null
+    },
+    {
+      "name": "lua_parse/solution/policy.lua",
+      "pass": true,
+      "error": null
+    },
+    {
+      "name": "reference_defers_without_actions",
+      "pass": true
+    },
+    {
+      "name": "reference_selects_recruit",
+      "pass": true
+    }
+  ],
+  "wesnoth_engine_executed": false,
+  "scope": "Lua 5.4 parsing and reference policy controls, no matches",
+  "status": "passed",
+  "finished_unix": 1791983857.65784
+}

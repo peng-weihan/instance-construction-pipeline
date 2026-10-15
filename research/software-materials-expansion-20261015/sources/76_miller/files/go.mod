@@ -1,0 +1,59 @@
+module github.com/johnkerl/miller/v6
+
+// The repo is 'miller' and the executable is 'mlr', going back many years and
+// predating the Go port.
+//
+// If we had ./mlr.go then 'go build github.com/johnkerl/miller' then the
+// executable would be 'miller' not 'mlr'.
+//
+// So we have cmd/mlr/main.go:
+// * go build   github.com/johnkerl/miller/v6/cmd/mlr
+// * go install github.com/johnkerl/miller/v6/cmd/mlr
+
+// go get github.com/johnkerl/lumin@v1.0.0
+// Local development:
+// replace github.com/johnkerl/lumin => /Users/kerl/git/johnkerl/lumin
+
+go 1.26.0
+
+require (
+	github.com/facette/natsort v0.0.0-20181210072756-2cd4dd1e2dcb
+	github.com/johnkerl/lumin v1.0.0
+	github.com/johnkerl/pgpg/go v1.0.0
+	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51
+	github.com/klauspost/compress v1.20.1
+	github.com/kshedden/statmodel v0.0.0-20210519035403-ee97d3e48df1
+	github.com/lestrrat-go/strftime v1.2.0
+	github.com/mattn/go-isatty v0.0.24
+	github.com/modelcontextprotocol/go-sdk v1.8.0
+	github.com/nine-lives-later/go-windows-terminal-sequences v1.0.4
+	github.com/pkg/profile v1.7.0
+	github.com/rivo/uniseg v0.4.7
+	github.com/stretchr/testify v1.12.1
+	golang.org/x/sys v0.48.0
+	golang.org/x/term v0.46.0
+	golang.org/x/text v0.42.0
+	gopkg.in/yaml.v3 v3.0.1
+	pault.ag/go/debian v0.21.0
+)
+
+require (
+	github.com/ProtonMail/go-crypto v1.4.1 // indirect
+	github.com/cloudflare/circl v1.6.3 // indirect
+	github.com/felixge/fgprof v0.9.3 // indirect
+	github.com/golang/snappy v1.0.0 // indirect
+	github.com/google/jsonschema-go v0.4.3 // indirect
+	github.com/google/pprof v0.0.0-20211214055906-6f57359322fd // indirect
+	github.com/kshedden/dstream v0.0.0-20190512025041-c4c410631beb // indirect
+	github.com/segmentio/asm v1.1.3 // indirect
+	github.com/segmentio/encoding v0.5.4 // indirect
+	github.com/yosida95/uritemplate/v3 v3.0.2 // indirect
+	go.yaml.in/yaml/v3 v3.0.5 // indirect
+	golang.org/x/crypto v0.52.0 // indirect
+	golang.org/x/oauth2 v0.35.0 // indirect
+	golang.org/x/sync v0.23.0 // indirect
+	golang.org/x/time v0.15.0 // indirect
+	golang.org/x/tools v0.49.0 // indirect
+	gonum.org/v1/gonum v0.16.0 // indirect
+	pault.ag/go/topsort v0.1.1 // indirect
+)

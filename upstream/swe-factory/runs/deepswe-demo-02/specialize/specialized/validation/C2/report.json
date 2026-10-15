@@ -1,0 +1,12 @@
+{
+  "healthy": true,
+  "tests": {
+    "tests/test_specialized.py::test_one_layer": "failed",
+    "tests/test_specialized.py::test_three_layers": "failed",
+    "tests/test_specialized.py::test_empty_layer": "failed"
+  },
+  "errors": [],
+  "returncode": 1,
+  "timed_out": false,
+  "evidence": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/specialize/specialized/validation/C2"
+}

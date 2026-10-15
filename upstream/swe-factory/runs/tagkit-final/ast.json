@@ -1,0 +1,297 @@
+{
+  "schema_version": "teamfactory.stage2_ast_payload.v1",
+  "repo_root": "/Users/raymone/Desktop/swe-factory/runs/tagkit-final/source",
+  "scanner_python_version": "3.12.13",
+  "python_grammar_version": "3.11",
+  "project_import_roots": [
+    "tagkit",
+    "tests"
+  ],
+  "project_modules": [
+    "tagkit",
+    "tagkit.api",
+    "tagkit.errors",
+    "tagkit.normalization",
+    "tagkit.parser",
+    "tests.test_api"
+  ],
+  "project_tree": {
+    "entries": [
+      {
+        "path": "README.md",
+        "type": "file",
+        "bytes": 319
+      },
+      {
+        "path": "pyproject.toml",
+        "type": "file",
+        "bytes": 214
+      },
+      {
+        "path": "tagkit",
+        "type": "directory",
+        "bytes": 0
+      },
+      {
+        "path": "tagkit/__init__.py",
+        "type": "file",
+        "bytes": 62
+      },
+      {
+        "path": "tagkit/api.py",
+        "type": "file",
+        "bytes": 349
+      },
+      {
+        "path": "tagkit/errors.py",
+        "type": "file",
+        "bytes": 84
+      },
+      {
+        "path": "tagkit/normalization.py",
+        "type": "file",
+        "bytes": 60
+      },
+      {
+        "path": "tagkit/parser.py",
+        "type": "file",
+        "bytes": 100
+      },
+      {
+        "path": "tests",
+        "type": "directory",
+        "bytes": 0
+      },
+      {
+        "path": "tests/test_api.py",
+        "type": "file",
+        "bytes": 458
+      }
+    ],
+    "entry_count": 10,
+    "truncated": false
+  },
+  "implementation_tree": {
+    "entries": [
+      {
+        "path": "README.md",
+        "type": "file",
+        "bytes": 319
+      },
+      {
+        "path": "pyproject.toml",
+        "type": "file",
+        "bytes": 214
+      },
+      {
+        "path": "tagkit",
+        "type": "directory",
+        "bytes": 0
+      },
+      {
+        "path": "tagkit/__init__.py",
+        "type": "file",
+        "bytes": 62
+      },
+      {
+        "path": "tagkit/api.py",
+        "type": "file",
+        "bytes": 349
+      },
+      {
+        "path": "tagkit/errors.py",
+        "type": "file",
+        "bytes": 84
+      },
+      {
+        "path": "tagkit/normalization.py",
+        "type": "file",
+        "bytes": 60
+      },
+      {
+        "path": "tagkit/parser.py",
+        "type": "file",
+        "bytes": 100
+      }
+    ],
+    "entry_count": 8,
+    "truncated": false
+  },
+  "python_files": [
+    "tagkit/__init__.py",
+    "tagkit/api.py",
+    "tagkit/errors.py",
+    "tagkit/normalization.py",
+    "tagkit/parser.py",
+    "tests/test_api.py"
+  ],
+  "implementation_python_files": [
+    "tagkit/__init__.py",
+    "tagkit/api.py",
+    "tagkit/errors.py",
+    "tagkit/normalization.py",
+    "tagkit/parser.py"
+  ],
+  "public_classes": [
+    {
+      "name": "InvalidTagInput",
+      "qualified_name": "tagkit.errors.InvalidTagInput",
+      "module": "tagkit.errors",
+      "path": "tagkit/errors.py",
+      "lineno": 1,
+      "end_lineno": 2,
+      "bases": [
+        "TypeError"
+      ],
+      "decorators": [],
+      "docstring": "The caller supplied a non-string value.",
+      "methods": []
+    }
+  ],
+  "public_functions": [
+    {
+      "name": "normalize_tags",
+      "qualified_name": "tagkit.api.normalize_tags",
+      "module": "tagkit.api",
+      "path": "tagkit/api.py",
+      "lineno": 6,
+      "end_lineno": 10,
+      "signature": "normalize_tags(text: str) -> list[str]",
+      "docstring": "Return normalized unique nonempty comma-separated tags in input order.",
+      "decorators": [],
+      "is_async": false,
+      "return_annotation": "list[str]",
+      "has_bare_return": false,
+      "has_value_return": true,
+      "return_expressions": [
+        "_unique(_tokens(text))"
+      ],
+      "raises": [
+        "raise InvalidTagInput('text must be a string')"
+      ],
+      "calls": [
+        "isinstance(text, str)",
+        "InvalidTagInput('text must be a string')",
+        "_unique(_tokens(text))",
+        "_tokens(text)"
+      ]
+    },
+    {
+      "name": "test_basic",
+      "qualified_name": "tests.test_api.test_basic",
+      "module": "tests.test_api",
+      "path": "tests/test_api.py",
+      "lineno": 7,
+      "end_lineno": 8,
+      "signature": "test_basic()",
+      "docstring": null,
+      "decorators": [],
+      "is_async": false,
+      "return_annotation": null,
+      "has_bare_return": false,
+      "has_value_return": false,
+      "return_expressions": [],
+      "raises": [],
+      "calls": [
+        "normalize_tags('Red, Blue')"
+      ]
+    },
+    {
+      "name": "test_dedup",
+      "qualified_name": "tests.test_api.test_dedup",
+      "module": "tests.test_api",
+      "path": "tests/test_api.py",
+      "lineno": 11,
+      "end_lineno": 12,
+      "signature": "test_dedup()",
+      "docstring": null,
+      "decorators": [],
+      "is_async": false,
+      "return_annotation": null,
+      "has_bare_return": false,
+      "has_value_return": false,
+      "return_expressions": [],
+      "raises": [],
+      "calls": [
+        "normalize_tags(' red,RED,, blue ,red')"
+      ]
+    },
+    {
+      "name": "test_empty",
+      "qualified_name": "tests.test_api.test_empty",
+      "module": "tests.test_api",
+      "path": "tests/test_api.py",
+      "lineno": 15,
+      "end_lineno": 16,
+      "signature": "test_empty()",
+      "docstring": null,
+      "decorators": [],
+      "is_async": false,
+      "return_annotation": null,
+      "has_bare_return": false,
+      "has_value_return": false,
+      "return_expressions": [],
+      "raises": [],
+      "calls": [
+        "normalize_tags(' , , ')"
+      ]
+    },
+    {
+      "name": "test_type",
+      "qualified_name": "tests.test_api.test_type",
+      "module": "tests.test_api",
+      "path": "tests/test_api.py",
+      "lineno": 19,
+      "end_lineno": 22,
+      "signature": "test_type()",
+      "docstring": null,
+      "decorators": [],
+      "is_async": false,
+      "return_annotation": null,
+      "has_bare_return": false,
+      "has_value_return": false,
+      "return_expressions": [],
+      "raises": [],
+      "calls": [
+        "issubclass(InvalidTagInput, TypeError)",
+        "pytest.raises(InvalidTagInput)",
+        "normalize_tags(None)"
+      ]
+    }
+  ],
+  "test_imported_repo_symbols": [
+    {
+      "kind": "from",
+      "module": "tagkit.errors",
+      "symbol": "tagkit.errors.InvalidTagInput",
+      "test_path": "tests/test_api.py",
+      "lineno": 4,
+      "statement": "from tagkit.errors import InvalidTagInput"
+    },
+    {
+      "kind": "from",
+      "module": "tagkit",
+      "symbol": "tagkit.normalize_tags",
+      "test_path": "tests/test_api.py",
+      "lineno": 3,
+      "statement": "from tagkit import normalize_tags"
+    }
+  ],
+  "required_api_symbols": [
+    "tagkit.errors.InvalidTagInput",
+    "tagkit.normalize_tags"
+  ],
+  "test_case_count": 4,
+  "parse_errors": [],
+  "skipped_paths": [],
+  "summary": {
+    "python_file_count": 6,
+    "implementation_python_file_count": 5,
+    "public_class_count": 1,
+    "public_function_count": 5,
+    "test_case_count": 4,
+    "parse_error_count": 0,
+    "required_api_symbol_count": 2,
+    "skipped_path_count": 0
+  }
+}

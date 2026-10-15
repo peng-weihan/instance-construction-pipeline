@@ -1,0 +1,1 @@
+{"agent_image":"edgebench-restler-work:draft","verifier_image":"edgebench-restler-judge:draft","artifacts":["/home/workspace/restler_campaign_recovery/submission"],"selection":"valid_then_score","score_direction":"maximize"}

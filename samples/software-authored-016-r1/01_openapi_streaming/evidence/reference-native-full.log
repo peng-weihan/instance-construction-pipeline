@@ -1,0 +1,38 @@
+...F.....ssss........................................................... [ 22%]
+........................................................................ [ 44%]
+........................................................................ [ 66%]
+........................................................................ [ 88%]
+.....................................                                    [100%]
+=================================== FAILURES ===================================
+______________ TestProject.test_build_creates_parent_directories _______________
+
+self = <tests.test___init__.TestProject object at 0x7a3df9b6d1f0>
+tmp_path = PosixPath('/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/native-full/test_build_creates_parent_dire0')
+
+    def test_build_creates_parent_directories(self, tmp_path):
+        fresh_config = Config.from_sources(
+            ConfigFile(),
+            MetaType.POETRY,
+            document_source=Path("openapi.yaml"),
+            file_encoding="utf-8",
+            overwrite=False,
+            output_path=None,
+        )
+        project = make_project(fresh_config)
+        project.project_dir = tmp_path / "nested" / "dir" / "my-api-client"
+        project.package_dir = project.project_dir / project.package_name
+    
+        errors = project.build()
+    
+>       assert errors == []
+E       AssertionError: assert [GeneratorErr...Integration')] == []
+E         
+E         Left contains 2 more items, first extra item: GeneratorError(detail='ruff is not in PATH', level=<ErrorLevel.WARNING: 'WARNING'>, header='Skipping Integration')
+E         Use -v to get more diff
+
+material-src/openapi-python-client/tests/test___init__.py:88: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Generating /ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/native-full/test_build_creates_parent_dire0/nested/dir/my-api-client
+=========================== short test summary info ============================
+FAILED material-src/openapi-python-client/tests/test___init__.py::TestProject::test_build_creates_parent_directories
+1 failed, 320 passed, 4 skipped in 1.25s

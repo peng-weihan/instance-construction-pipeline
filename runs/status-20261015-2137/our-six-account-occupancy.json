@@ -1,0 +1,64 @@
+{
+  "observed_utc": "2026-10-15T13:36:37.970441+00:00",
+  "scope": "our EdgeBench only; excludes TB2.1 and others; excludes codex-code-mode helper children",
+  "authoring": [
+    {
+      "account": "raymone/6",
+      "pid": 2268145,
+      "cwd": "/ws/users/raymone/edgebench/swe-route-authoring-005-20261015-r3/jobs/25_datafusion_execution_optimization"
+    }
+  ],
+  "solving_prior_snapshot": [
+    {
+      "host_pid": 3418236,
+      "account": "raymone/1",
+      "run": "/ws/users/raymone/edgebench/remaining-three-001/science-pilot/run-6h-001",
+      "ledger": "/ws/users/raymone/edgebench/remaining-three-001/science-pilot/run-6h-001/jobs/trial/task__Hc3YsQT/aliyun-task__Hc3YsQT__env.json",
+      "sandbox_id": "sbx-413a0d78-fcfc-4935-8fb7-412284726b3f",
+      "sdk_state": "running",
+      "probe_exit": 0,
+      "codex_native_processes": [
+        {
+          "pid": 10699,
+          "comm": "codex"
+        }
+      ],
+      "trusted_stop_present": false
+    },
+    {
+      "host_pid": 3683329,
+      "account": "raymone/1",
+      "run": "/ws/users/raymone/edgebench/remaining-three-001/finance-pilot-r3/run-6h-001",
+      "ledger": "/ws/users/raymone/edgebench/remaining-three-001/finance-pilot-r3/run-6h-001/jobs/trial/task__ZRLbnn6/aliyun-task__ZRLbnn6__env.json",
+      "sandbox_id": "sbx-6ec50be7-3a5b-40ff-aa70-aed1cf15fc83",
+      "sdk_state": "running",
+      "probe_exit": 0,
+      "codex_native_processes": [
+        {
+          "pid": 237,
+          "comm": "codex"
+        }
+      ],
+      "trusted_stop_present": false
+    }
+  ],
+  "solving_new": [
+    {
+      "task": "pytest",
+      "account": "raymone/1",
+      "evidence": {
+        "codex_exec_pids": [
+          228
+        ],
+        "learning_started": true,
+        "stopped": false
+      }
+    }
+  ],
+  "starting_new": [],
+  "stopped_and_resources_released": [
+    "RESTler",
+    "Valkey",
+    "HTTPX"
+  ]
+}

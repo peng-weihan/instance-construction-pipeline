@@ -1,0 +1,10 @@
+{
+  "tests_run": 148,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "passed": true,
+  "python": "3.12.13",
+  "docker_executed": false,
+  "model_called": false
+}

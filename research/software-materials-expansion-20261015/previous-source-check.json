@@ -1,0 +1,103 @@
+{
+  "checked_files": [
+    {
+      "path": "research/software-candidates-016-20261015/candidates.json",
+      "sha256": "1fad89e6594205fcf30cb1091e69ea14bc21a249ded9be7083b5d5eda6e60741"
+    },
+    {
+      "path": "research/swe-pipeline-v2-20261015/source-registry.json",
+      "sha256": "843e9aab97b06d0d6e47d4d9d3dcc7ac3251c0abdd3987f55a4efe7c371c9caf"
+    },
+    {
+      "path": "runs/swe-route-authoring-005-20261015-r3/source-registry.json",
+      "sha256": "9a69f9696d35b8b4214150f4cb465a1bca5f0c707af47071b620866ff5bacd89"
+    },
+    {
+      "path": "research/source_candidate_registry.v1.json",
+      "sha256": "10cfbf21a0fd8567a78a6365b0ecacf82f5888c4343449aa54ba3c26516c45ba"
+    },
+    {
+      "path": "research/source_candidate_registry.v2.json",
+      "sha256": "fc0c267d5fa9bf5179525fd1a013383085c21a11008d0f44ba31ef79366e5983"
+    }
+  ],
+  "known_primary_repositories": [
+    "apache/arrow",
+    "apache/datafusion",
+    "astral-sh/uv",
+    "burntsushi/ripgrep",
+    "encode/httpx",
+    "facebook/rocksdb",
+    "fontanf/packingsolver",
+    "jqlang/jq",
+    "lark-parser/lark",
+    "libarchive/libarchive",
+    "microsoft/restler-fuzzer",
+    "modflow-org/modflow6-examples",
+    "nghttp2/nghttp2",
+    "ninja-build/ninja",
+    "openapi-generators/openapi-python-client",
+    "pytest-dev/pytest",
+    "remydegenne/brownian-motion",
+    "roaringbitmap/croaring",
+    "santiontanon/microrts",
+    "scrapy/scrapy",
+    "toml-rs/toml",
+    "tree-sitter/tree-sitter",
+    "valkey-io/valkey",
+    "webassembly/spec"
+  ],
+  "new_repositories": [
+    "sqlalchemy/alembic",
+    "sphinx-doc/sphinx",
+    "mitmproxy/mitmproxy",
+    "eclipse-mosquitto/mosquitto",
+    "p4lang/behavioral-model",
+    "apache/avro",
+    "duckdb/duckdb",
+    "simdjson/simdjson",
+    "libvips/libvips",
+    "tokio-rs/tokio",
+    "quickwit-oss/tantivy",
+    "rustls/rustls",
+    "rsyncproject/rsync",
+    "curl/curl",
+    "github/cmark-gfm",
+    "tox-dev/tox",
+    "pypa/hatch",
+    "celery/celery",
+    "fastify/fastify",
+    "go-task/task",
+    "apache/apisix",
+    "dbt-labs/dbt",
+    "apache/thrift",
+    "capnproto/capnproto",
+    "sandermertens/flecs",
+    "nats-io/nats-server",
+    "graphql/graphql-js",
+    "cel-expr/cel-go",
+    "google/flatbuffers",
+    "lz4/lz4",
+    "apache/lucene",
+    "google/re2",
+    "fastfloat/fast_float",
+    "libjxl/libjxl",
+    "lmdb/lmdb",
+    "uxlfoundation/onetbb",
+    "nushell/nushell",
+    "astral-sh/ruff",
+    "dtolnay/syn",
+    "petgraph/petgraph",
+    "pallets/jinja",
+    "helix-editor/helix",
+    "pydantic/pydantic",
+    "sharkdp/fd",
+    "mikefarah/yq",
+    "restic/restic",
+    "sqlfluff/sqlfluff",
+    "jgm/pandoc",
+    "johnkerl/miller",
+    "wireshark/wireshark"
+  ],
+  "overlap": []
+}

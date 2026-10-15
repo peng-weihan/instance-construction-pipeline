@@ -1,0 +1,63 @@
+{
+  "repo": "sat-group/open-wbo",
+  "revision": "80f3073e41028b219b0b0ad7c61fba28351f88e6",
+  "resolved_utc": "2026-10-15T14:59:57.727559+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:02:12.064752+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "f934e1fe7c19067291e40200e8509165246d4f83c29e3a22022890665d22d3a7",
+    "truncated": false,
+    "blob_count": 194
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 1225,
+      "sha256": "ae4d2cbb98845af91d2f80b161fd60dde7ef0403f6c51d3ad09a042d3dfacfef",
+      "url": "https://github.com/sat-group/open-wbo/blob/80f3073e41028b219b0b0ad7c61fba28351f88e6/LICENSE"
+    },
+    {
+      "path": "MaxSAT.cc",
+      "bytes": 17827,
+      "sha256": "b7af9361c766f8031643b4050d5be7d6e0b2e5ef4822f859e1a4a9d7a69d0bc8",
+      "url": "https://github.com/sat-group/open-wbo/blob/80f3073e41028b219b0b0ad7c61fba28351f88e6/MaxSAT.cc"
+    },
+    {
+      "path": "ParserMaxSAT.h",
+      "bytes": 4687,
+      "sha256": "125879c79e3f1273f3e7e4683c9728c17a7cee7525ebeb69e9e796175208d2b8",
+      "url": "https://github.com/sat-group/open-wbo/blob/80f3073e41028b219b0b0ad7c61fba28351f88e6/ParserMaxSAT.h"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3183,
+      "sha256": "3a4b3a401fd92be7b986bf5f77268d3078fe12d120f3d520a2d6e55a43c9e685",
+      "url": "https://github.com/sat-group/open-wbo/blob/80f3073e41028b219b0b0ad7c61fba28351f88e6/README.md"
+    },
+    {
+      "path": "algorithms/Alg_OLL.cc",
+      "bytes": 31228,
+      "sha256": "4eff6ffff9f826e584a0d39f18b4f4b4b3a18c0405fe2a75a3163f92aa369123",
+      "url": "https://github.com/sat-group/open-wbo/blob/80f3073e41028b219b0b0ad7c61fba28351f88e6/algorithms/Alg_OLL.cc"
+    },
+    {
+      "path": "test/valgrind/run.sh",
+      "bytes": 991,
+      "sha256": "82e2dbc741c909264e4dffc5b2840782eef4c3684dd68d3b76dcca7ee761f4ba",
+      "url": "https://github.com/sat-group/open-wbo/blob/80f3073e41028b219b0b0ad7c61fba28351f88e6/test/valgrind/run.sh"
+    },
+    {
+      "path": "test/valgrind/sat.cnf",
+      "bytes": 63,
+      "sha256": "1e9959fea96b6b25b5809186c472899223212c527e25286c00ffc008476fd982",
+      "url": "https://github.com/sat-group/open-wbo/blob/80f3073e41028b219b0b0ad7c61fba28351f88e6/test/valgrind/sat.cnf"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

@@ -1,0 +1,1179 @@
+{
+  "mode": "trusted_author_host_components",
+  "docker_executed": false,
+  "model_runs": 0,
+  "records": [
+    {
+      "control": "truth",
+      "suite": "public",
+      "seconds": 0.13124766695545986,
+      "feedback": {
+        "status": "scored",
+        "score": 0.9987838172893196,
+        "valid": true,
+        "checks": [
+          {
+            "name": "physical_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "experiments": {
+            "calibration": {
+              "relative_rmse": 0.026196751267049373,
+              "log_rmse": 0.033131541293098685,
+              "observations": 147,
+              "score": 0.99910881052441
+            },
+            "contaminant": {
+              "relative_rmse": 0.04393325952697086,
+              "log_rmse": 0.03401438486940333,
+              "observations": 153,
+              "score": 0.9984588240542293
+            }
+          },
+          "aggregation": "equal mean of original prediction-quality formula"
+        },
+        "summary": "7/7 named checks passed"
+      }
+    },
+    {
+      "control": "truth",
+      "suite": "feedback",
+      "seconds": 0.12421504099620506,
+      "feedback": {
+        "status": "scored",
+        "score": 1.0,
+        "valid": true,
+        "checks": [
+          {
+            "name": "physical_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "experiments": {
+            "calibration": {
+              "relative_rmse": 2.475288338630287e-16,
+              "log_rmse": 1.237610888411812e-15,
+              "observations": 128,
+              "score": 1.0
+            },
+            "contaminant": {
+              "relative_rmse": 7.48739496709207e-16,
+              "log_rmse": 7.734160584504667e-16,
+              "observations": 141,
+              "score": 1.0
+            }
+          },
+          "aggregation": "equal mean of original prediction-quality formula"
+        },
+        "summary": "7/7 named checks passed"
+      }
+    },
+    {
+      "control": "truth",
+      "suite": "audit",
+      "seconds": 0.16635412501636893,
+      "feedback": {
+        "status": "scored",
+        "score": 1.0,
+        "valid": true,
+        "checks": [
+          {
+            "name": "physical_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "experiments": {
+            "calibration": {
+              "relative_rmse": 5.1899477593896645e-16,
+              "log_rmse": 1.3934731384081108e-15,
+              "observations": 159,
+              "score": 1.0
+            },
+            "contaminant": {
+              "relative_rmse": 8.871130077495409e-16,
+              "log_rmse": 9.665735939622612e-16,
+              "observations": 176,
+              "score": 1.0
+            }
+          },
+          "aggregation": "equal mean of original prediction-quality formula"
+        },
+        "summary": "7/7 named checks passed"
+      }
+    },
+    {
+      "control": "starter",
+      "suite": "public",
+      "seconds": 0.1255058329552412,
+      "feedback": {
+        "status": "scored",
+        "score": 0.43386292913406904,
+        "valid": true,
+        "checks": [
+          {
+            "name": "physical_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/relative_rmse_below_one",
+            "pass": false,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/log_rmse_below_one",
+            "pass": false,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "experiments": {
+            "calibration": {
+              "relative_rmse": 0.46311056468557427,
+              "log_rmse": 0.8458753227445728,
+              "observations": 147,
+              "score": 0.6825993415036985
+            },
+            "contaminant": {
+              "relative_rmse": 2.6446732174882026,
+              "log_rmse": 1.3450376200385679,
+              "observations": 153,
+              "score": 0.18512651676443956
+            }
+          },
+          "aggregation": "equal mean of original prediction-quality formula"
+        },
+        "summary": "5/7 named checks passed"
+      }
+    },
+    {
+      "control": "starter",
+      "suite": "feedback",
+      "seconds": 0.1232418330037035,
+      "feedback": {
+        "status": "scored",
+        "score": 0.41717992644533386,
+        "valid": true,
+        "checks": [
+          {
+            "name": "physical_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/relative_rmse_below_one",
+            "pass": false,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/log_rmse_below_one",
+            "pass": false,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "experiments": {
+            "calibration": {
+              "relative_rmse": 0.1708580068680991,
+              "log_rmse": 0.8956375804478283,
+              "observations": 128,
+              "score": 0.7063745379270908
+            },
+            "contaminant": {
+              "relative_rmse": 3.437551182816539,
+              "log_rmse": 1.345375292691821,
+              "observations": 141,
+              "score": 0.12798531496357687
+            }
+          },
+          "aggregation": "equal mean of original prediction-quality formula"
+        },
+        "summary": "5/7 named checks passed"
+      }
+    },
+    {
+      "control": "starter",
+      "suite": "audit",
+      "seconds": 0.16977154096821323,
+      "feedback": {
+        "status": "scored",
+        "score": 0.38897743815859664,
+        "valid": true,
+        "checks": [
+          {
+            "name": "physical_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/relative_rmse_below_one",
+            "pass": false,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/log_rmse_below_one",
+            "pass": false,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "experiments": {
+            "calibration": {
+              "relative_rmse": 0.31392526139988053,
+              "log_rmse": 0.9868221822284408,
+              "observations": 159,
+              "score": 0.6509638796439778
+            },
+            "contaminant": {
+              "relative_rmse": 3.484939120229921,
+              "log_rmse": 1.2666283268027232,
+              "observations": 176,
+              "score": 0.1269909966732155
+            }
+          },
+          "aggregation": "equal mean of original prediction-quality formula"
+        },
+        "summary": "5/7 named checks passed"
+      }
+    },
+    {
+      "control": "low_release",
+      "suite": "public",
+      "seconds": 0.12535820895573124,
+      "feedback": {
+        "status": "scored",
+        "score": 0.47594017766262864,
+        "valid": true,
+        "checks": [
+          {
+            "name": "physical_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/log_rmse_below_one",
+            "pass": false,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "experiments": {
+            "calibration": {
+              "relative_rmse": 0.46311056468557427,
+              "log_rmse": 0.8458753227445728,
+              "observations": 147,
+              "score": 0.6825993415036985
+            },
+            "contaminant": {
+              "relative_rmse": 0.9698540175586828,
+              "log_rmse": 2.1181521501830973,
+              "observations": 153,
+              "score": 0.2692810138215587
+            }
+          },
+          "aggregation": "equal mean of original prediction-quality formula"
+        },
+        "summary": "6/7 named checks passed"
+      }
+    },
+    {
+      "control": "low_release",
+      "suite": "feedback",
+      "seconds": 0.12494908302323893,
+      "feedback": {
+        "status": "scored",
+        "score": 0.4865606517069164,
+        "valid": true,
+        "checks": [
+          {
+            "name": "physical_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/log_rmse_below_one",
+            "pass": false,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "experiments": {
+            "calibration": {
+              "relative_rmse": 0.1708580068680991,
+              "log_rmse": 0.8956375804478283,
+              "observations": 128,
+              "score": 0.7063745379270908
+            },
+            "contaminant": {
+              "relative_rmse": 0.9422937995822132,
+              "log_rmse": 2.1470515346445986,
+              "observations": 141,
+              "score": 0.266746765486742
+            }
+          },
+          "aggregation": "equal mean of original prediction-quality formula"
+        },
+        "summary": "6/7 named checks passed"
+      }
+    },
+    {
+      "control": "low_release",
+      "suite": "audit",
+      "seconds": 0.16754925000714138,
+      "feedback": {
+        "status": "scored",
+        "score": 0.4516170063872061,
+        "valid": true,
+        "checks": [
+          {
+            "name": "physical_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/log_rmse_below_one",
+            "pass": false,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "experiments": {
+            "calibration": {
+              "relative_rmse": 0.31392526139988053,
+              "log_rmse": 0.9868221822284408,
+              "observations": 159,
+              "score": 0.6509638796439778
+            },
+            "contaminant": {
+              "relative_rmse": 0.9615556524400813,
+              "log_rmse": 2.23683262216822,
+              "observations": 176,
+              "score": 0.25227013313043434
+            }
+          },
+          "aggregation": "equal mean of original prediction-quality formula"
+        },
+        "summary": "6/7 named checks passed"
+      }
+    },
+    {
+      "control": "medium_misspecified",
+      "suite": "public",
+      "seconds": 0.12475541600724682,
+      "feedback": {
+        "status": "scored",
+        "score": 0.7333295609375832,
+        "valid": true,
+        "checks": [
+          {
+            "name": "physical_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "experiments": {
+            "calibration": {
+              "relative_rmse": 0.2334643069312278,
+              "log_rmse": 0.7587958014420848,
+              "observations": 147,
+              "score": 0.7603762894362962
+            },
+            "contaminant": {
+              "relative_rmse": 0.4236114307987378,
+              "log_rmse": 0.8076386074874248,
+              "observations": 153,
+              "score": 0.7062828324388702
+            }
+          },
+          "aggregation": "equal mean of original prediction-quality formula"
+        },
+        "summary": "7/7 named checks passed"
+      }
+    },
+    {
+      "control": "medium_misspecified",
+      "suite": "feedback",
+      "seconds": 0.1522505409666337,
+      "feedback": {
+        "status": "scored",
+        "score": 0.7255358472824285,
+        "valid": true,
+        "checks": [
+          {
+            "name": "physical_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "experiments": {
+            "calibration": {
+              "relative_rmse": 0.10952936735560709,
+              "log_rmse": 0.808172382835202,
+              "observations": 128,
+              "score": 0.7504298229324464
+            },
+            "contaminant": {
+              "relative_rmse": 0.4051505293979205,
+              "log_rmse": 0.8308901380954976,
+              "observations": 141,
+              "score": 0.7006418716324107
+            }
+          },
+          "aggregation": "equal mean of original prediction-quality formula"
+        },
+        "summary": "7/7 named checks passed"
+      }
+    },
+    {
+      "control": "medium_misspecified",
+      "suite": "audit",
+      "seconds": 0.17394262499874458,
+      "feedback": {
+        "status": "scored",
+        "score": 0.7134290429295801,
+        "valid": true,
+        "checks": [
+          {
+            "name": "physical_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "experiments": {
+            "calibration": {
+              "relative_rmse": 0.15598605581687253,
+              "log_rmse": 0.8403679139610045,
+              "observations": 159,
+              "score": 0.7324532008509187
+            },
+            "contaminant": {
+              "relative_rmse": 0.39732677365440344,
+              "log_rmse": 0.8498797004150418,
+              "observations": 176,
+              "score": 0.6944048850082415
+            }
+          },
+          "aggregation": "equal mean of original prediction-quality formula"
+        },
+        "summary": "7/7 named checks passed"
+      }
+    },
+    {
+      "control": "inverse_200",
+      "suite": "public",
+      "seconds": 0.1262257500202395,
+      "feedback": {
+        "status": "scored",
+        "score": 0.526917948676219,
+        "valid": true,
+        "checks": [
+          {
+            "name": "physical_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/relative_rmse_below_one",
+            "pass": false,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/log_rmse_below_one",
+            "pass": false,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "experiments": {
+            "calibration": {
+              "relative_rmse": 0.18973614364306632,
+              "log_rmse": 0.05239772670358594,
+              "observations": 147,
+              "score": 0.9809955046985355
+            },
+            "contaminant": {
+              "relative_rmse": 4.922446837089987,
+              "log_rmse": 1.1076145946410216,
+              "observations": 153,
+              "score": 0.07284039265390248
+            }
+          },
+          "aggregation": "equal mean of original prediction-quality formula"
+        },
+        "summary": "5/7 named checks passed"
+      }
+    },
+    {
+      "control": "inverse_200",
+      "suite": "feedback",
+      "seconds": 0.12518824997823685,
+      "feedback": {
+        "status": "scored",
+        "score": 0.5690064813110735,
+        "valid": true,
+        "checks": [
+          {
+            "name": "physical_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/relative_rmse_below_one",
+            "pass": false,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/log_rmse_below_one",
+            "pass": false,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "experiments": {
+            "calibration": {
+              "relative_rmse": 0.07896287607368857,
+              "log_rmse": 0.059039761488029856,
+              "observations": 128,
+              "score": 0.9951630947477939
+            },
+            "contaminant": {
+              "relative_rmse": 3.254336530971001,
+              "log_rmse": 1.1874370416193394,
+              "observations": 141,
+              "score": 0.14284986787435305
+            }
+          },
+          "aggregation": "equal mean of original prediction-quality formula"
+        },
+        "summary": "5/7 named checks passed"
+      }
+    },
+    {
+      "control": "inverse_200",
+      "suite": "audit",
+      "seconds": 0.1696825419785455,
+      "feedback": {
+        "status": "scored",
+        "score": 0.5487110751573151,
+        "valid": true,
+        "checks": [
+          {
+            "name": "physical_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/relative_rmse_below_one",
+            "pass": false,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/log_rmse_below_one",
+            "pass": false,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "experiments": {
+            "calibration": {
+              "relative_rmse": 0.12284329369573782,
+              "log_rmse": 0.04967231026349491,
+              "observations": 159,
+              "score": 0.9912974918993921
+            },
+            "contaminant": {
+              "relative_rmse": 3.971226466492524,
+              "log_rmse": 1.0368808201625985,
+              "observations": 176,
+              "score": 0.10612465841523804
+            }
+          },
+          "aggregation": "equal mean of original prediction-quality formula"
+        },
+        "summary": "5/7 named checks passed"
+      }
+    },
+    {
+      "control": "inverse_1200",
+      "suite": "public",
+      "seconds": 0.12351670901989564,
+      "feedback": {
+        "status": "scored",
+        "score": 0.9028227024315014,
+        "valid": true,
+        "checks": [
+          {
+            "name": "physical_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "experiments": {
+            "calibration": {
+              "relative_rmse": 0.08620723800772061,
+              "log_rmse": 0.048874226056874075,
+              "observations": 147,
+              "score": 0.9951138032205413
+            },
+            "contaminant": {
+              "relative_rmse": 0.5872540188674654,
+              "log_rmse": 0.3502129251345913,
+              "observations": 153,
+              "score": 0.8105316016424616
+            }
+          },
+          "aggregation": "equal mean of original prediction-quality formula"
+        },
+        "summary": "7/7 named checks passed"
+      }
+    },
+    {
+      "control": "inverse_1200",
+      "suite": "feedback",
+      "seconds": 0.12400579103268683,
+      "feedback": {
+        "status": "scored",
+        "score": 0.907045462887959,
+        "valid": true,
+        "checks": [
+          {
+            "name": "physical_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "experiments": {
+            "calibration": {
+              "relative_rmse": 0.024749417187925116,
+              "log_rmse": 0.03616167832560318,
+              "observations": 128,
+              "score": 0.9990408205932177
+            },
+            "contaminant": {
+              "relative_rmse": 0.5392237905348366,
+              "log_rmse": 0.4038249310712239,
+              "observations": 141,
+              "score": 0.8150501051827
+            }
+          },
+          "aggregation": "equal mean of original prediction-quality formula"
+        },
+        "summary": "7/7 named checks passed"
+      }
+    },
+    {
+      "control": "inverse_1200",
+      "suite": "audit",
+      "seconds": 0.1956016250187531,
+      "feedback": {
+        "status": "scored",
+        "score": 0.8759481521703201,
+        "valid": true,
+        "checks": [
+          {
+            "name": "physical_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "calibration/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/finite_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "contaminant/log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "experiments": {
+            "calibration": {
+              "relative_rmse": 0.04922842519570422,
+              "log_rmse": 0.03524775694276258,
+              "observations": 159,
+              "score": 0.9981704323448019
+            },
+            "contaminant": {
+              "relative_rmse": 0.6639239042249382,
+              "log_rmse": 0.4611828893279592,
+              "observations": 176,
+              "score": 0.7537258719958382
+            }
+          },
+          "aggregation": "equal mean of original prediction-quality formula"
+        },
+        "summary": "7/7 named checks passed"
+      }
+    }
+  ],
+  "missing_answer_rejected": true,
+  "truth_matches_hidden": true
+}

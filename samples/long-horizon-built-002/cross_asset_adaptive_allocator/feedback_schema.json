@@ -1,0 +1,18 @@
+{
+  "status": "scored | verifier_error",
+  "scored": {
+    "score": "finite [0,1]",
+    "valid": "boolean",
+    "checks": [
+      {
+        "name": "string",
+        "pass": "boolean",
+        "summary": "string"
+      }
+    ],
+    "raw_metrics": "object",
+    "summary": "string"
+  },
+  "invalid_submission": "status=scored, score=0, valid=false",
+  "infrastructure_failure": "status=verifier_error, no numeric reward, process exits 2"
+}

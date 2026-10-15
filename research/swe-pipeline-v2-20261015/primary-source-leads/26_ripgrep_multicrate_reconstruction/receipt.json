@@ -1,0 +1,22 @@
+{
+  "id": "26_ripgrep_multicrate_reconstruction",
+  "repo": "BurntSushi/ripgrep",
+  "revision": "3fce3b5bb0236da2df6d99672afb8a719642eca7",
+  "observed_utc": "2026-10-15T12:43:12.793589+00:00",
+  "status": "source_leads_only",
+  "files": [
+    {
+      "path": "tree.json",
+      "url": "https://api.github.com/repos/BurntSushi/ripgrep/git/trees/3fce3b5bb0236da2df6d99672afb8a719642eca7?recursive=1",
+      "sha256": "f99442e56baeac46504c1c308844cd3b057cf5b497e7cd51f75e08076a25c9c4"
+    },
+    {
+      "path": "recent-issues-and-prs.json",
+      "url": "https://api.github.com/repos/BurntSushi/ripgrep/issues?state=all&per_page=20",
+      "sha256": "7bda385d202e486394902af5053893984cd3391d21ac0a75bd9440deca3a8902"
+    }
+  ],
+  "errors": [],
+  "warning": "Issue state is current, not proof of a missing feature at the fixed revision. Build/reproduce before selecting a contract.",
+  "tree_truncated": false
+}

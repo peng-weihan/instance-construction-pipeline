@@ -1,0 +1,238 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+package org.apache.polaris.service.events.listeners.inmemory;
+
+import static org.apache.polaris.persistence.relational.jdbc.models.ModelEvent.CONVERTER;
+import static org.apache.polaris.service.events.PolarisEventMetadata.OPEN_TELEMETRY_SAMPLED_KEY;
+import static org.apache.polaris.service.events.PolarisEventMetadata.OPEN_TELEMETRY_SPAN_ID_KEY;
+import static org.apache.polaris.service.events.PolarisEventMetadata.OPEN_TELEMETRY_TRACE_FLAGS_KEY;
+import static org.apache.polaris.service.events.PolarisEventMetadata.OPEN_TELEMETRY_TRACE_ID_KEY;
+import static org.apache.polaris.service.it.env.PolarisClient.polarisClient;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.awaitility.Awaitility.await;
+
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import io.quarkus.test.junit.QuarkusTest;
+import io.quarkus.test.junit.TestProfile;
+import jakarta.enterprise.inject.Instance;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.core.Response;
+import java.io.IOException;
+import java.net.URI;
+import java.nio.file.Path;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.time.Duration;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+import javax.sql.DataSource;
+import org.apache.iceberg.PartitionSpec;
+import org.apache.iceberg.Schema;
+import org.apache.iceberg.SortOrder;
+import org.apache.iceberg.catalog.Namespace;
+import org.apache.iceberg.catalog.SessionCatalog;
+import org.apache.iceberg.catalog.TableIdentifier;
+import org.apache.iceberg.rest.RESTSessionCatalog;
+import org.apache.iceberg.rest.auth.OAuth2Properties;
+import org.apache.iceberg.types.Types;
+import org.apache.polaris.core.admin.model.Catalog;
+import org.apache.polaris.core.admin.model.CatalogProperties;
+import org.apache.polaris.core.admin.model.FileStorageConfigInfo;
+import org.apache.polaris.core.admin.model.PolarisCatalog;
+import org.apache.polaris.core.admin.model.StorageConfigInfo;
+import org.apache.polaris.core.entity.EventEntity;
+import org.apache.polaris.service.Profiles;
+import org.apache.polaris.service.it.env.ClientPrincipal;
+import org.apache.polaris.service.it.env.IntegrationTestsHelper;
+import org.apache.polaris.service.it.env.PolarisApiEndpoints;
+import org.apache.polaris.service.it.env.PolarisClient;
+import org.apache.polaris.service.it.env.RestApi;
+import org.apache.polaris.service.it.ext.PolarisIntegrationTestExtension;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.io.TempDir;
+
+@QuarkusTest
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@TestProfile(Profiles.InMemoryBufferEventListenerIntegrationProfile.class)
+@ExtendWith(PolarisIntegrationTestExtension.class)
+class InMemoryBufferEventListenerIntegrationTest {
+
+  private RestApi managementApi;
+  private PolarisApiEndpoints endpoints;
+  private PolarisClient client;
+  private String realm;
+  private String authToken;
+  private URI baseLocation;
+
+  @Inject Instance<DataSource> dataSource;
+
+  @BeforeAll
+  public void setup(
+      PolarisApiEndpoints apiEndpoints, ClientPrincipal adminCredentials, @TempDir Path tempDir) {
+    endpoints = apiEndpoints;
+    client = polarisClient(endpoints);
+    realm = endpoints.realmId();
+    authToken = client.obtainToken(adminCredentials.credentials());
+    managementApi = client.managementApi(authToken);
+    baseLocation = IntegrationTestsHelper.getTemporaryDirectory(tempDir).resolve(realm + "/");
+  }
+
+  @Test
+  void testCreateCatalogAndTable() throws IOException {
+
+    String catalogName = client.newEntityName("testCreateCatalogAndTable");
+
+    Catalog catalog =
+        PolarisCatalog.builder()
+            .setName(catalogName)
+            .setType(Catalog.TypeEnum.INTERNAL)
+            .setProperties(CatalogProperties.builder(baseLocation.toString()).build())
+            .setStorageConfigInfo(
+                FileStorageConfigInfo.builder()
+                    .setStorageType(StorageConfigInfo.StorageTypeEnum.FILE)
+                    .setAllowedLocations(List.of(baseLocation.toString()))
+                    .build())
+            .build();
+
+    try (Response response =
+        managementApi
+            .request("v1/catalogs")
+            .header("X-Request-ID", "12345")
+            .post(Entity.json(catalog))) {
+      assertThat(response).returns(Response.Status.CREATED.getStatusCode(), Response::getStatus);
+    }
+
+    try (RESTSessionCatalog sessionCatalog = new RESTSessionCatalog()) {
+
+      sessionCatalog.initialize(
+          "polaris_catalog_test",
+          ImmutableMap.<String, String>builder()
+              .put("uri", endpoints.catalogApiEndpoint().toString())
+              .put(OAuth2Properties.TOKEN, authToken)
+              .put("warehouse", catalogName)
+              .putAll(endpoints.extraHeaders("header."))
+              .put("header.X-Request-ID", "456789")
+              .build());
+
+      SessionCatalog.SessionContext sessionContext = SessionCatalog.SessionContext.createEmpty();
+      Namespace ns = Namespace.of("db1");
+      sessionCatalog.createNamespace(sessionContext, ns);
+
+      sessionCatalog
+          .buildTable(
+              sessionContext,
+              TableIdentifier.of(ns, "t1"),
+              new Schema(
+                  List.of(Types.NestedField.required(1, "theField", Types.StringType.get()))))
+          .withSortOrder(SortOrder.unsorted())
+          .withPartitionSpec(PartitionSpec.unpartitioned())
+          .create();
+    }
+
+    try (Response response = managementApi.request("v1/principals").get()) {
+      assertThat(response).returns(Response.Status.OK.getStatusCode(), Response::getStatus);
+    }
+
+    String query = "SELECT * FROM events WHERE realm_id = '" + realm + "' ORDER BY timestamp_ms";
+
+    List<EventEntity> events =
+        await()
+            .atMost(Duration.ofSeconds(10))
+            .until(
+                () -> {
+                  ImmutableList.Builder<EventEntity> e = ImmutableList.builder();
+                  try (Connection connection = dataSource.get().getConnection();
+                      Statement statement = connection.createStatement();
+                      ResultSet rs = statement.executeQuery(query)) {
+                    while (rs.next()) {
+                      EventEntity event = CONVERTER.fromResultSet(rs);
+                      e.add(event);
+                    }
+                  }
+                  return e.build();
+                },
+                e ->
+                    e.stream()
+                        .map(EventEntity::getEventType)
+                        .collect(Collectors.toSet())
+                        .containsAll(
+                            Set.of(
+                                "AFTER_CREATE_CATALOG",
+                                "AFTER_CREATE_TABLE",
+                                "AFTER_LIST_PRINCIPALS")));
+
+    EventEntity e1 =
+        events.stream()
+            .filter(e -> e.getEventType().equals("AFTER_CREATE_CATALOG"))
+            .findFirst()
+            .orElseThrow();
+    assertThat(e1.getCatalogId()).isEqualTo(catalogName);
+    assertThat(e1.getResourceType()).isEqualTo(EventEntity.ResourceType.CATALOG);
+    assertThat(e1.getResourceIdentifier()).isEqualTo(catalogName);
+    assertThat(e1.getEventType()).isEqualTo("AFTER_CREATE_CATALOG");
+    assertThat(e1.getPrincipalName()).isEqualTo("root");
+    assertThat(e1.getRequestId()).isEqualTo("12345");
+    assertThat(e1.getAdditionalPropertiesAsMap())
+        .containsEntry(OPEN_TELEMETRY_TRACE_FLAGS_KEY, "03") // trace-was-sampled + random-trace-id
+        .containsEntry(OPEN_TELEMETRY_SAMPLED_KEY, "true")
+        .hasEntrySatisfying(
+            OPEN_TELEMETRY_TRACE_ID_KEY, value -> assertThat(value).matches("[0-9a-f]{32}"))
+        .hasEntrySatisfying(
+            OPEN_TELEMETRY_SPAN_ID_KEY, value -> assertThat(value).matches("[0-9a-f]{16}"));
+
+    EventEntity e2 =
+        events.stream()
+            .filter(e -> e.getEventType().equals("AFTER_CREATE_TABLE"))
+            .findFirst()
+            .orElseThrow();
+    assertThat(e2.getCatalogId()).isEqualTo(catalogName);
+    assertThat(e2.getResourceType()).isEqualTo(EventEntity.ResourceType.TABLE);
+    assertThat(e2.getResourceIdentifier()).isEqualTo("db1.t1");
+    assertThat(e2.getEventType()).isEqualTo("AFTER_CREATE_TABLE");
+    assertThat(e2.getPrincipalName()).isEqualTo("root");
+    assertThat(e2.getRequestId()).isEqualTo("456789");
+    assertThat(e2.getAdditionalPropertiesAsMap())
+        .containsEntry("catalog_name", catalogName)
+        .containsEntry("table_name", "t1")
+        .containsKey("namespace")
+        .containsEntry(OPEN_TELEMETRY_TRACE_FLAGS_KEY, "03") // trace-was-sampled + random-trace-id
+        .containsEntry(OPEN_TELEMETRY_SAMPLED_KEY, "true")
+        .hasEntrySatisfying(
+            OPEN_TELEMETRY_TRACE_ID_KEY, value -> assertThat(value).matches("[0-9a-f]{32}"))
+        .hasEntrySatisfying(
+            OPEN_TELEMETRY_SPAN_ID_KEY, value -> assertThat(value).matches("[0-9a-f]{16}"));
+
+    EventEntity e3 =
+        events.stream()
+            .filter(e -> e.getEventType().equals("AFTER_LIST_PRINCIPALS"))
+            .findFirst()
+            .orElseThrow();
+    assertThat(e3.getCatalogId()).isNull();
+    assertThat(e3.getResourceType()).isEqualTo(EventEntity.ResourceType.REALM);
+    assertThat(e3.getResourceIdentifier()).isEqualTo("AFTER_LIST_PRINCIPALS");
+  }
+}

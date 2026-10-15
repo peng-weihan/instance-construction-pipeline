@@ -1,0 +1,114 @@
+{
+  "observed_utc": "2026-10-15T08:07:06.557406+00:00",
+  "tasks": {
+    "game": {
+      "pilot_root": "/ws/users/raymone/edgebench/remaining-three-001/game-pilot",
+      "admission": {
+        "status": "actual_official_smoke_passed",
+        "passed": true,
+        "actual_host_exit_code": 0,
+        "successful_terminal_tool_completions": 2,
+        "actual_file_contents_verified": true,
+        "actual_native_session_files": 1,
+        "own_container_and_disk_cleanup_confirmed": true
+      },
+      "controls": {
+        "status": "completed",
+        "passed": true
+      },
+      "isolation": {
+        "passed": true
+      },
+      "run-6h-001": {
+        "status": "host_finished",
+        "pid": 3607445,
+        "account": "raymone/1",
+        "model": "gpt-6.1-sol",
+        "learning_budget_seconds": 21600,
+        "evaluation_interval_seconds": 600,
+        "started_utc": "2026-10-14T22:25:51.650175+00:00",
+        "exit_code": 0,
+        "host_alive": false,
+        "learning_started_utc": "2026-10-14T22:27:24.047681+00:00",
+        "completed_grades": 198,
+        "best_score": 0.8662878787878788,
+        "native_records": 4977,
+        "native_tool_calls": 582,
+        "native_tool_outputs": 581,
+        "last_native_timestamp": "2026-10-15T04:26:42.928Z"
+      }
+    },
+    "finance": {
+      "pilot_root": "/ws/users/raymone/edgebench/remaining-three-001/finance-pilot-r3",
+      "admission": {
+        "status": "actual_official_smoke_passed",
+        "passed": true,
+        "actual_host_exit_code": 0,
+        "successful_terminal_tool_completions": 2,
+        "actual_file_contents_verified": true,
+        "actual_native_session_files": 1,
+        "own_container_and_disk_cleanup_confirmed": true
+      },
+      "controls": {
+        "status": "completed",
+        "passed": true
+      },
+      "isolation": {
+        "passed": true
+      },
+      "run-6h-001": {
+        "status": "host_harbor_started",
+        "pid": 3683329,
+        "account": "raymone/1",
+        "model": "gpt-6.1-sol",
+        "learning_budget_seconds": 21600,
+        "evaluation_interval_seconds": 600,
+        "started_utc": "2026-10-15T08:04:28.684647+00:00",
+        "exit_code": null,
+        "host_alive": true,
+        "learning_started_utc": "2026-10-15T08:05:42.015515+00:00",
+        "native_records": 47,
+        "native_tool_calls": 5,
+        "native_tool_outputs": 5,
+        "last_native_timestamp": "2026-10-15T08:06:37.575Z"
+      }
+    },
+    "science": {
+      "pilot_root": "/ws/users/raymone/edgebench/remaining-three-001/science-pilot",
+      "admission": {
+        "status": "actual_official_smoke_passed",
+        "passed": true,
+        "actual_host_exit_code": 0,
+        "successful_terminal_tool_completions": 2,
+        "actual_file_contents_verified": true,
+        "actual_native_session_files": 1,
+        "own_container_and_disk_cleanup_confirmed": true
+      },
+      "controls": {
+        "status": "completed",
+        "passed": true
+      },
+      "isolation": {
+        "passed": true
+      },
+      "run-6h-001": {
+        "status": "host_harbor_started",
+        "pid": 3418236,
+        "account": "raymone/1",
+        "model": "gpt-6.1-sol",
+        "learning_budget_seconds": 21600,
+        "evaluation_interval_seconds": 600,
+        "started_utc": "2026-10-15T07:47:20.536274+00:00",
+        "exit_code": null,
+        "host_alive": true,
+        "learning_started_utc": "2026-10-15T07:49:25.642440+00:00",
+        "completed_grades": 7,
+        "best_score": 0.5493856898256925,
+        "native_records": 387,
+        "native_tool_calls": 46,
+        "native_tool_outputs": 46,
+        "last_native_timestamp": "2026-10-15T08:06:49.412Z"
+      }
+    }
+  }
+}

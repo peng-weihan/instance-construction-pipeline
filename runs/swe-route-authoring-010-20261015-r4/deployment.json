@@ -1,0 +1,29 @@
+{
+  "copied_inputs": [
+    {
+      "job": "28_scrapy_complete_r2",
+      "files": 13842,
+      "bytes": 297252704,
+      "links": 286
+    },
+    {
+      "job": "29_lark_verifier_repair_r2",
+      "files": 511,
+      "bytes": 9632664,
+      "links": 0
+    },
+    {
+      "job": "30_ripgrep_complete_r2",
+      "files": 19567,
+      "bytes": 643107835,
+      "links": 48
+    },
+    {
+      "job": "31_ninja_full_rust_reference_r2",
+      "files": 17220,
+      "bytes": 779479504,
+      "links": 5
+    }
+  ],
+  "old_jobs_unchanged": true
+}

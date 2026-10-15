@@ -1,0 +1,33 @@
+{
+  "schema_source": "../guidance/harbor-0.23.0-task-config.py",
+  "schema_version": "1.4",
+  "schema_status": "field inspection and TOML parse completed; parent external model validation pending",
+  "source_self_contained": true,
+  "registry_packages_in_locked_workspace": 627,
+  "registry_checksums_present": true,
+  "dependency_archive_self_contained": false,
+  "dependency_preparation": "Docker build cargo fetch --locked; runtime --offline; preparation not run",
+  "work": {
+    "context": "environment",
+    "command": "docker build -f environment/Dockerfile -t edgebench/datafusion-sort-topk-work:pilot environment",
+    "built": false
+  },
+  "judge": {
+    "context": "verifier",
+    "command": "docker build -f verifier/Dockerfile -t edgebench/datafusion-sort-topk-judge:pilot verifier",
+    "built": false
+  },
+  "base_image_indexes": "base-images.json",
+  "prepare_command": "python3 authoring/prepare.py",
+  "compile_command": "cargo build --offline --release --locked -p datafusion-physical-plan --bin edgebench-sort --jobs 2",
+  "toolchain": {
+    "main_msrv": "1.95.0",
+    "upstream_requested": "1.99.0",
+    "official_1_99_available": true,
+    "locally_installed": "1.90.0",
+    "main_build_executed": false
+  },
+  "tests_byte_identical": true,
+  "isolation": "compile/execute uid1000 proposed; Docker permission/resource probes not run",
+  "oci_manifest_list": "base image indexes pinned; work/judge images not built"
+}

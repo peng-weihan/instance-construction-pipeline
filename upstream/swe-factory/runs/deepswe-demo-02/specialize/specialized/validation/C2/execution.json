@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "/Users/raymone/Desktop/01_Research/swe-factory/.venv/bin/python",
+    "-m",
+    "pytest",
+    "tests/test_specialized.py",
+    "-q",
+    "--junitxml=.factory-report.xml",
+    "--rootdir=.",
+    "-o",
+    "junit_family=xunit1",
+    "-p",
+    "no:cacheprovider"
+  ],
+  "returncode": 1,
+  "stdout": "FFF                                                                      [100%]\n=================================== FAILURES ===================================\n________________________________ test_one_layer ________________________________\n\n    def test_one_layer():\n>       assert merge_many({\"a\": 1}) == {\"a\": 1}\nE       AssertionError: assert {} == {'a': 1}\nE         \nE         Right contains 1 more item:\nE         {'a': 1}\nE         Use -v to get more diff\n\ntests/test_specialized.py:3: AssertionError\n______________________________ test_three_layers _______________________________\n\n    def test_three_layers():\n>       assert merge_many({\"a\": 1}, {\"b\": 2}, {\"a\": 3}) == {\"a\": 3, \"b\": 2}\nE       AssertionError: assert {} == {'a': 3, 'b': 2}\nE         \nE         Right contains 2 more items:\nE         {'a': 3, 'b': 2}\nE         Use -v to get more diff\n\ntests/test_specialized.py:5: AssertionError\n_______________________________ test_empty_layer _______________________________\n\n    def test_empty_layer():\n>       assert merge_many({}, {\"b\": 2}, {}) == {\"b\": 2}\nE       AssertionError: assert {} == {'b': 2}\nE         \nE         Right contains 1 more item:\nE         {'b': 2}\nE         Use -v to get more diff\n\ntests/test_specialized.py:7: AssertionError\n- generated xml file: /Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/specialize/specialized/validation/C2/workspace/.factory-report.xml -\n=========================== short test summary info ============================\nFAILED tests/test_specialized.py::test_one_layer - AssertionError: assert {} ...\nFAILED tests/test_specialized.py::test_three_layers - AssertionError: assert ...\nFAILED tests/test_specialized.py::test_empty_layer - AssertionError: assert {...\n3 failed in 0.04s\n",
+  "stderr": "",
+  "timed_out": false,
+  "elapsed_sec": 0.576,
+  "runtime": {
+    "backend": "host",
+    "isolated": false,
+    "image": null
+  }
+}

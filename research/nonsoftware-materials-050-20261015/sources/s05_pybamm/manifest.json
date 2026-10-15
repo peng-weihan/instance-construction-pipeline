@@ -1,0 +1,57 @@
+{
+  "repo": "pybamm-team/PyBaMM",
+  "revision": "8996ec6479b9e2a79686e17956f6dfce8eaa301b",
+  "resolved_utc": "2026-10-15T14:58:25.526050+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:38.254969+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "f490d4c20a4aca86ae539562c8ee94c20c129c84685c56f143a7dde2f443102e",
+    "truncated": false,
+    "blob_count": 1323
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE.txt",
+      "bytes": 1494,
+      "sha256": "e32e218b9184b0c498c1e13a8e66c1e67df9ef48ba9071bd2a5ebe04efdb303a",
+      "url": "https://github.com/pybamm-team/PyBaMM/blob/8996ec6479b9e2a79686e17956f6dfce8eaa301b/LICENSE.txt"
+    },
+    {
+      "path": "README.md",
+      "bytes": 10306,
+      "sha256": "113526795bf33f287bca228261feeb0f0d9645096e4db2b30572cba86a51e4b8",
+      "url": "https://github.com/pybamm-team/PyBaMM/blob/8996ec6479b9e2a79686e17956f6dfce8eaa301b/README.md"
+    },
+    {
+      "path": "examples/scripts/SPMe.py",
+      "bytes": 1186,
+      "sha256": "dba3ae3a7ff160eebfd2f7b2ca91c6cf792dc5a0f8383ce3afe4c34bf8b61c95",
+      "url": "https://github.com/pybamm-team/PyBaMM/blob/8996ec6479b9e2a79686e17956f6dfce8eaa301b/examples/scripts/SPMe.py"
+    },
+    {
+      "path": "packages/pybamm/src/pybamm/simulation/simulation.py",
+      "bytes": 55474,
+      "sha256": "624d452b43367862202a7d3ee81df37b369b9962a65e1f00d923b86f577aa5da",
+      "url": "https://github.com/pybamm-team/PyBaMM/blob/8996ec6479b9e2a79686e17956f6dfce8eaa301b/packages/pybamm/src/pybamm/simulation/simulation.py"
+    },
+    {
+      "path": "packages/pybamm/tests/integration/test_models/test_full_battery_models/test_lithium_ion/test_spme.py",
+      "bytes": 423,
+      "sha256": "6d4852637272963c71b462a78f3f5582a1848301ec37ce1620d5fa62aedb2b47",
+      "url": "https://github.com/pybamm-team/PyBaMM/blob/8996ec6479b9e2a79686e17956f6dfce8eaa301b/packages/pybamm/tests/integration/test_models/test_full_battery_models/test_lithium_ion/test_spme.py"
+    },
+    {
+      "path": "packages/pybamm/tests/unit/test_simulation.py",
+      "bytes": 61009,
+      "sha256": "5a599d3d457f8d5fceaa87978c891a835d9419edfac7120e6f522a01e147a6ea",
+      "url": "https://github.com/pybamm-team/PyBaMM/blob/8996ec6479b9e2a79686e17956f6dfce8eaa301b/packages/pybamm/tests/unit/test_simulation.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "errors": [],
+  "missing_symbols": [],
+  "missing_symbol_sources": [],
+  "node_count": 2,
+  "implementation_python_file_count": 5,
+  "test_asset_paths": [],
+  "unsafe_paths": [],
+  "required_api_count": 2,
+  "required_core_group_count": 2,
+  "core_api_count": 2,
+  "api_budget_conflict": false,
+  "core_api_budget_exceeded": false
+}

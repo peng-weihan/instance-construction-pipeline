@@ -1,0 +1,1 @@
+{"base_images":{"python312":{"extra_packages":["bash","git","curl","ca-certificates"],"official_image":"python:3.12-slim-bookworm","pip_packages":[]}},"name":"edgefactory_feedback"}

@@ -1,0 +1,51 @@
+{
+  "repo": "abTEM/abTEM",
+  "revision": "45ef0f5712016a44394962d87ac3c4d6176bc4fa",
+  "resolved_utc": "2026-10-15T14:58:34.761238+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:11.539490+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "a71217d36c0de06213ca946a382d0a949935a3e4cd2235cc7fa647a106600cc3",
+    "truncated": false,
+    "blob_count": 240
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "url": "https://github.com/abTEM/abTEM/blob/45ef0f5712016a44394962d87ac3c4d6176bc4fa/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3181,
+      "sha256": "f0ab9406515b24dda2c26eaf0faeba9fb7da77556c83572feba0712e1f891489",
+      "url": "https://github.com/abTEM/abTEM/blob/45ef0f5712016a44394962d87ac3c4d6176bc4fa/README.md"
+    },
+    {
+      "path": "abtem/multislice.py",
+      "bytes": 64807,
+      "sha256": "51ee3424a1db5b2895a5e581cdee11101650358428264bb74079a7a53244a67d",
+      "url": "https://github.com/abTEM/abTEM/blob/45ef0f5712016a44394962d87ac3c4d6176bc4fa/abtem/multislice.py"
+    },
+    {
+      "path": "test/test_potential_physics.py",
+      "bytes": 31048,
+      "sha256": "a7b03add0e3e30fc834d780b2904ff437885f2212c12a27d89eb5427ce38564e",
+      "url": "https://github.com/abTEM/abTEM/blob/45ef0f5712016a44394962d87ac3c4d6176bc4fa/test/test_potential_physics.py"
+    },
+    {
+      "path": "test/test_transmission_function_multislice.py",
+      "bytes": 3424,
+      "sha256": "a62a21a0db47d152801b15d28368a6c4ff0e98c25f6f11ab365ad24233eb2840",
+      "url": "https://github.com/abTEM/abTEM/blob/45ef0f5712016a44394962d87ac3c4d6176bc4fa/test/test_transmission_function_multislice.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

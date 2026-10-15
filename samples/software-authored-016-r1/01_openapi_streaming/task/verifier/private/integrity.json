@@ -1,0 +1,10 @@
+{
+  "config.json": "2ac5c317e78031bbfda42ed139829d907dc952d4dddd9731719e4eaafda20eab",
+  "native/tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "native/tests/conftest.py": "3e42f009e23a99eb6ee4d3ac2dd2b5929011fb5653a4f3d522d478871d6803f0",
+  "native/tests/test_parser/test_openapi.py": "618e66a9b9525832abba2feb770b890ede6e673561c9eb42373135901d14547f",
+  "native/tests/test_parser/test_responses.py": "211957e66d33cef1af07ad88dcf7de16fef83ab7f837e24527f1dc40174cb949",
+  "reference.patch": "75f9d373337e5fb2d3ba39e3e3fcce313a034000533522cf81a33502347cec2c",
+  "score-spec.json": "488615cb6d745a238a21d06542c1b90c8c4725d512a2cc81c2cf6e6d1276f125",
+  "stream-contract.json": "5e6d57a7211d0d1aef839a47d2d2e7e799b114acc7cdc3bbe23c304cbd584dda"
+}

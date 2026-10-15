@@ -1,0 +1,7 @@
+{
+  "previous_revision": "game-task-r3",
+  "change": "seed Lua math RNG and string hashing in addition to engine generators",
+  "source_commit": "8ba2b3ebd33f6850c2dc4fe7c6478c7e4f9fc3fd",
+  "score_constants_unchanged": true,
+  "six_hour_difficulty": "not_measured"
+}

@@ -1,0 +1,137 @@
+{
+  "started_utc": "2026-10-15T13:46:53.579970+00:00",
+  "target_concurrent_authors": 10,
+  "new_author_workers_dispatched": 10,
+  "existing_author_count": 0,
+  "existing_author": {
+    "id": "25_datafusion_execution_optimization",
+    "account": "raymone/6",
+    "native_pid": 2268145,
+    "native_start_ticks": "85221672"
+  },
+  "dispatched": [
+    {
+      "id": "28_scrapy_complete_r2",
+      "route": "M1",
+      "kind": "repair_and_complete_new_copy",
+      "account": "raymone/4",
+      "worker_pid": 3896513
+    },
+    {
+      "id": "29_lark_verifier_repair_r2",
+      "route": "M2",
+      "kind": "repair_and_complete_new_copy",
+      "account": "raymone/5",
+      "worker_pid": 3896514
+    },
+    {
+      "id": "30_ripgrep_complete_r2",
+      "route": "M4",
+      "kind": "repair_and_complete_new_copy",
+      "account": "raymone/4",
+      "worker_pid": 3896515
+    },
+    {
+      "id": "31_ninja_full_rust_reference_r2",
+      "route": "M5",
+      "kind": "repair_and_complete_new_copy",
+      "account": "raymone/5",
+      "worker_pid": 3896516
+    },
+    {
+      "id": "32_mkdocs_product_roadmap",
+      "route": "M1",
+      "kind": "new_material_candidate",
+      "account": "raymone/4",
+      "worker_pid": 3896517
+    },
+    {
+      "id": "33_sqlglot_system_reconstruction",
+      "route": "M2",
+      "kind": "new_material_candidate",
+      "account": "raymone/5",
+      "worker_pid": 3896518
+    },
+    {
+      "id": "34_lz4_codec_optimization",
+      "route": "M3",
+      "kind": "new_material_candidate",
+      "account": "raymone/6",
+      "worker_pid": 3896519
+    },
+    {
+      "id": "35_click_multimodule_reconstruction",
+      "route": "M4",
+      "kind": "new_material_candidate",
+      "account": "raymone/6",
+      "worker_pid": 3896520
+    },
+    {
+      "id": "36_yq_rust_behavioral_port",
+      "route": "M5",
+      "kind": "new_material_candidate",
+      "account": "raymone/5",
+      "worker_pid": 3896521
+    },
+    {
+      "id": "37_jinja_template_engine",
+      "route": "M2",
+      "kind": "new_material_candidate",
+      "account": "raymone/4",
+      "worker_pid": 3896522
+    }
+  ],
+  "standby_not_dispatched": [],
+  "account_observations": {
+    "raymone/4": [
+      {
+        "pid": 2481546,
+        "start_ticks": "85287368",
+        "comm": "codex",
+        "host_harbor": false
+      },
+      {
+        "pid": 3805835,
+        "start_ticks": "85568304",
+        "comm": "codex",
+        "host_harbor": false
+      },
+      {
+        "pid": 3823844,
+        "start_ticks": "85577707",
+        "comm": "codex",
+        "host_harbor": false
+      }
+    ],
+    "raymone/5": [
+      {
+        "pid": 3805453,
+        "start_ticks": "85568224",
+        "comm": "codex",
+        "host_harbor": false
+      }
+    ],
+    "raymone/6": [
+      {
+        "pid": 3796543,
+        "start_ticks": "85564280",
+        "comm": "codex",
+        "host_harbor": false
+      },
+      {
+        "pid": 3808751,
+        "start_ticks": "85569564",
+        "comm": "codex",
+        "host_harbor": false
+      },
+      {
+        "pid": 3815873,
+        "start_ticks": "85573566",
+        "comm": "codex",
+        "host_harbor": false
+      }
+    ]
+  },
+  "teacher_rollouts_started": 0,
+  "shared_registry_modified": false
+}

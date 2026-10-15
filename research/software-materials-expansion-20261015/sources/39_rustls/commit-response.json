@@ -1,0 +1,101 @@
+{
+  "sha": "d37c3c338fe30c3fdc70f0696997909ffd15f5b8",
+  "node_id": "C_kwDOA3PM4NoAKGQzN2MzYzMzOGZlMzBjM2ZkYzcwZjA2OTY5OTc5MDlmZmQxNWY1Yjg",
+  "commit": {
+    "author": {
+      "name": "Paul",
+      "email": "paulxicao7@gmail.com",
+      "date": "2026-10-12T21:45:20Z"
+    },
+    "committer": {
+      "name": "Joe Birr-Pixton",
+      "email": "jpixton@gmail.com",
+      "date": "2026-10-15T11:38:36Z"
+    },
+    "message": "ci: do not persist credentials in the audit job\n\nThis was the only checkout in the workflow still keeping them.\nOtherwise the repository token stays in `.git/config` as an\nhttp.extraheader, where the third-party action in the following\nstep inherits it.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+    "tree": {
+      "sha": "61331fa590fd39671e8df3c67adcaffcb2e0a308",
+      "url": "https://api.github.com/repos/rustls/rustls/git/trees/61331fa590fd39671e8df3c67adcaffcb2e0a308"
+    },
+    "url": "https://api.github.com/repos/rustls/rustls/git/commits/d37c3c338fe30c3fdc70f0696997909ffd15f5b8",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/rustls/rustls/commits/d37c3c338fe30c3fdc70f0696997909ffd15f5b8",
+  "html_url": "https://github.com/rustls/rustls/commit/d37c3c338fe30c3fdc70f0696997909ffd15f5b8",
+  "comments_url": "https://api.github.com/repos/rustls/rustls/commits/d37c3c338fe30c3fdc70f0696997909ffd15f5b8/comments",
+  "author": {
+    "login": "PaulXiCao",
+    "id": 25491255,
+    "node_id": "MDQ6VXNlcjI1NDkxMjU1",
+    "avatar_url": "https://avatars.githubusercontent.com/u/25491255?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/PaulXiCao",
+    "html_url": "https://github.com/PaulXiCao",
+    "followers_url": "https://api.github.com/users/PaulXiCao/followers",
+    "following_url": "https://api.github.com/users/PaulXiCao/following{/other_user}",
+    "gists_url": "https://api.github.com/users/PaulXiCao/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/PaulXiCao/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/PaulXiCao/subscriptions",
+    "organizations_url": "https://api.github.com/users/PaulXiCao/orgs",
+    "repos_url": "https://api.github.com/users/PaulXiCao/repos",
+    "events_url": "https://api.github.com/users/PaulXiCao/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/PaulXiCao/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "ctz",
+    "id": 579363,
+    "node_id": "MDQ6VXNlcjU3OTM2Mw==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/579363?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/ctz",
+    "html_url": "https://github.com/ctz",
+    "followers_url": "https://api.github.com/users/ctz/followers",
+    "following_url": "https://api.github.com/users/ctz/following{/other_user}",
+    "gists_url": "https://api.github.com/users/ctz/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/ctz/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/ctz/subscriptions",
+    "organizations_url": "https://api.github.com/users/ctz/orgs",
+    "repos_url": "https://api.github.com/users/ctz/repos",
+    "events_url": "https://api.github.com/users/ctz/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/ctz/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "b2a3a72a7ce0e90e7eeaac9a1432868b8dd7ec05",
+      "url": "https://api.github.com/repos/rustls/rustls/commits/b2a3a72a7ce0e90e7eeaac9a1432868b8dd7ec05",
+      "html_url": "https://github.com/rustls/rustls/commit/b2a3a72a7ce0e90e7eeaac9a1432868b8dd7ec05"
+    }
+  ],
+  "stats": {
+    "total": 2,
+    "additions": 2,
+    "deletions": 0
+  },
+  "files": [
+    {
+      "sha": "4f494b8e2e21b8a5a19a2e0fa19a91b0ce6fb9a9",
+      "filename": ".github/workflows/build.yml",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "blob_url": "https://github.com/rustls/rustls/blob/d37c3c338fe30c3fdc70f0696997909ffd15f5b8/.github%2Fworkflows%2Fbuild.yml",
+      "raw_url": "https://github.com/rustls/rustls/raw/d37c3c338fe30c3fdc70f0696997909ffd15f5b8/.github%2Fworkflows%2Fbuild.yml",
+      "contents_url": "https://api.github.com/repos/rustls/rustls/contents/.github%2Fworkflows%2Fbuild.yml?ref=d37c3c338fe30c3fdc70f0696997909ffd15f5b8",
+      "patch": "@@ -510,4 +510,6 @@ jobs:\n     runs-on: ubuntu-latest\n     steps:\n     - uses: actions/checkout@v7\n+      with:\n+        persist-credentials: false\n     - uses: EmbarkStudios/cargo-deny-action@v2"
+    }
+  ]
+}

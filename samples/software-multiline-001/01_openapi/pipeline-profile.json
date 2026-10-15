@@ -1,0 +1,1 @@
+{"agent_image":"edgebench-openapi-work:pilot","verifier_image":"edgebench-openapi-judge:pilot","artifacts":["/home/workspace/openapi_composition/submission"],"selection":"valid_then_score","score_direction":"maximize"}

@@ -1,0 +1,11 @@
+diff --git a/calc.py b/calc.py
+index f20ff6f..a111f69 100644
+--- a/calc.py
++++ b/calc.py
+@@ -1,5 +1,5 @@
+ def combine(parent, child):
+-    return {}
++    return {**parent, **child}
+ 
+ def plain(value):
+     return dict(value)

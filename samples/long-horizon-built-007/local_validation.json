@@ -1,0 +1,55 @@
+{
+  "summary": "../../runs/local-validation-003/summary.json",
+  "scope": "trusted component validation, not container or six-hour acceptance",
+  "component_results": [
+    {
+      "category": "software",
+      "report": "runs/local-validation-002/software/report.json",
+      "status": "passed",
+      "checks": 50,
+      "passed": 50,
+      "tested_component_files_match_latest": true,
+      "files_compared": 12
+    },
+    {
+      "category": "science",
+      "report": "runs/local-validation-001/science/report.json",
+      "status": "passed",
+      "checks": 4,
+      "passed": 4,
+      "tested_component_files_match_latest": true,
+      "files_compared": 4
+    },
+    {
+      "category": "finance",
+      "report": "runs/local-validation-003/finance/report.json",
+      "status": "passed",
+      "checks": 9,
+      "passed": 9,
+      "tested_component_files_match_latest": true,
+      "files_compared": 6
+    },
+    {
+      "category": "packing",
+      "report": "runs/local-validation-001/packing/report.json",
+      "status": "passed",
+      "checks": 4,
+      "passed": 4,
+      "tested_component_files_match_latest": true,
+      "files_compared": 7
+    },
+    {
+      "category": "game",
+      "report": "runs/local-validation-001/game/report.json",
+      "status": "passed",
+      "checks": 5,
+      "passed": 5,
+      "tested_component_files_match_latest": true,
+      "files_compared": 5
+    }
+  ],
+  "formal_lean_executed": false,
+  "docker_executed": false,
+  "model_runs": 0,
+  "accepted": false
+}

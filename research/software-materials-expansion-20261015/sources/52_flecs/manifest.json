@@ -1,0 +1,75 @@
+{
+  "repo": "SanderMertens/flecs",
+  "revision": "cc2924199858433cbf9fdaca25b291883ebd09de",
+  "resolved_utc": "2026-10-15T13:30:26.621500+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:31:11.758057+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "b4b550d9d79bd0a5d17351220cf05f1448af76126ecc39091f53bf35b8b00bf1",
+    "truncated": false,
+    "blob_count": 2189
+  },
+  "files_acquired": [
+    {
+      "path": "CMakeLists.txt",
+      "bytes": 3174,
+      "sha256": "47ec82ee29e1894b623df1c692b0d1a7f769ce9f4bbbf79afad02ca1e2683d6c",
+      "url": "https://github.com/SanderMertens/flecs/blob/cc2924199858433cbf9fdaca25b291883ebd09de/CMakeLists.txt"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1131,
+      "sha256": "5f89f3edd5d1e458cd48509818e23b57d85869f7d57d0ebe31bcfd3a73e5dd60",
+      "url": "https://github.com/SanderMertens/flecs/blob/cc2924199858433cbf9fdaca25b291883ebd09de/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9618,
+      "sha256": "dc8fd3b9fbecba271b8be31aaf64b5e590dbdcf3ab4983f911e45d2c71b37e1e",
+      "url": "https://github.com/SanderMertens/flecs/blob/cc2924199858433cbf9fdaca25b291883ebd09de/README.md"
+    },
+    {
+      "path": "docs/ObserversManual.md",
+      "bytes": 63047,
+      "sha256": "4c214d22605ff4c4e1968c1ac57c22fdbd5e004855a81ec3ddb3a02438611e01",
+      "url": "https://github.com/SanderMertens/flecs/blob/cc2924199858433cbf9fdaca25b291883ebd09de/docs/ObserversManual.md"
+    },
+    {
+      "path": "src/commands.c",
+      "bytes": 48066,
+      "sha256": "343ed3d8b1562df76d27efbe6bd3d4992e7aa3eb27f6f64176d9276633485488",
+      "url": "https://github.com/SanderMertens/flecs/blob/cc2924199858433cbf9fdaca25b291883ebd09de/src/commands.c"
+    },
+    {
+      "path": "src/observer.c",
+      "bytes": 48152,
+      "sha256": "83e0a8ac172af4b1b52e65b4759016343957d153ce3cd14097625157a9eeb563",
+      "url": "https://github.com/SanderMertens/flecs/blob/cc2924199858433cbf9fdaca25b291883ebd09de/src/observer.c"
+    },
+    {
+      "path": "src/query/cache/change_detection.c",
+      "bytes": 22184,
+      "sha256": "2e99c54f417361c0fbab07ebee99a16bea973472f0192772842cc79f68273cd4",
+      "url": "https://github.com/SanderMertens/flecs/blob/cc2924199858433cbf9fdaca25b291883ebd09de/src/query/cache/change_detection.c"
+    },
+    {
+      "path": "test/core/src/Commands.c",
+      "bytes": 151339,
+      "sha256": "196ad83b8ee8dff660b158036cd5e202e159bf397bd427aaa9d63c4e91834698",
+      "url": "https://github.com/SanderMertens/flecs/blob/cc2924199858433cbf9fdaca25b291883ebd09de/test/core/src/Commands.c"
+    },
+    {
+      "path": "test/query/src/Cached.c",
+      "bytes": 273221,
+      "sha256": "5dd096c70164aa7db1129b7186e72cef62cb2f73468092d2dfcdfd1adbd42fa4",
+      "url": "https://github.com/SanderMertens/flecs/blob/cc2924199858433cbf9fdaca25b291883ebd09de/test/query/src/Cached.c"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

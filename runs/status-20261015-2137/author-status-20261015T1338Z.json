@@ -1,0 +1,210 @@
+{
+  "observed_utc": "2026-10-15T13:37:26.968521+00:00",
+  "rows": [
+    {
+      "id": "23_scrapy_product_roadmap",
+      "route": "M1",
+      "account": "raymone/4",
+      "state": "author_returned",
+      "native_started_utc": "2026-10-15T12:43:12.321841+00:00",
+      "native_finished_utc": "2026-10-15T13:22:34.970365+00:00",
+      "native_exit_code": 0,
+      "capacity_released": true,
+      "pid_alive": false,
+      "final": "已完成三个候选范围审阅、六组产品能力合同及题包构造，状态为 **held**。\n\n同一冻结评分器，共 253 个用例：\n\n- Starter：**0.24261**\n- 独立基线：**0.39065**\n- 参考实现：**1.00000**\n\n补丁往返、离线依赖重建和双入口重放通过。隔离镜像、原生 Harbor 实跑及独立审查尚未完成，未宣称长程难度通过。\n\n[作者结果](AUTHOR_RESULT.json) · [范围卡](SCOPE_CARD.json) · [题面](task/instruction.md) · [哈希索引](ARTIFACT_MANIFEST.json)",
+      "result_keys": [
+        "schema_version",
+        "job_id",
+        "route",
+        "status",
+        "disposition",
+        "training_task_complete",
+        "native_harbor_verified",
+        "six_hour_difficulty_verified",
+        "source",
+        "scope",
+        "controls",
+        "score",
+        "actual_validation",
+        "late_work_paths",
+        "remaining_blockers",
+        "bias_and_limits",
+        "authorization",
+        "evidence",
+        "task_path",
+        "artifact_manifest",
+        "process_completion"
+      ],
+      "result": {
+        "status": "held"
+      }
+    },
+    {
+      "id": "24_lark_system_reconstruction",
+      "route": "M2",
+      "account": "raymone/5",
+      "state": "author_returned",
+      "native_started_utc": "2026-10-15T12:43:12.461229+00:00",
+      "native_finished_utc": "2026-10-15T13:21:11.402819+00:00",
+      "native_exit_code": 0,
+      "capacity_released": true,
+      "pid_alive": false,
+      "final": "已按要求完成五阶段产物，并冻结 307 个文件，哈希复核无差异。结论为 **held，不可进入训练**。\n\n- 原生测试：1181 通过、148 跳过。\n- 完整评分：starter 0、参考 1.0、普通库包装 0.72。\n- 关键阻断：零实现提交可伪造 worker 成功报告，取得 1.0；原始记录已保留。\n- Docker/Harbor 验收及独立审查未完成；静态 gate 仅确认材料一致性。\n\n详见 [作者结果](/ws/users/raymone/edgebench/swe-route-authoring-005-20261015-r3/jobs/24_lark_system_reconstruction/AUTHOR_RESULT.json) 和 [范围卡](/ws/users/raymone/edgebench/swe-route-authoring-005-20261015-r3/jobs/24_lark_system_reconstruction/SCOPE_CARD.json)。",
+      "result_keys": [
+        "schema_version",
+        "job_id",
+        "route",
+        "status",
+        "training_ready",
+        "trainable_tasks_delivered",
+        "constructed_candidate_packages",
+        "summary_zh",
+        "hold_reasons",
+        "material",
+        "scope",
+        "honest_controls",
+        "adversarial_control",
+        "author_audit",
+        "runtime_controls",
+        "static_gate",
+        "artifacts",
+        "author",
+        "preserved_failures",
+        "deviations",
+        "not_claimed",
+        "completed_at_utc"
+      ],
+      "result": {
+        "status": "held",
+        "summary_zh": "已完成三个真实范围调查、固定参考与原生测试、十组完整工作链合同、starter/私有参考/评分器/保留集与本地主机控制。合法成熟库包装达到72/100；对抗协议控制用零实现伪造成功帧拿到100/100，评分准入失败，题包不得进入训练。",
+        "hold_reasons": [
+          {
+            "id": "verifier_protocol_forgery",
+            "severity": "release_blocker",
+            "finding": "Zero-behavior module prints worker success frame and exits; parent awards 1.0 for all 100 declared cases. Private tests also share candidate interpreter memory. This violates delivery-backed reward authority.",
+            "evidence": {
+              "path": "evidence/scoring-admission.json",
+              "sha256": "9593483b3080cebcbf012def6e96629b36d66d6a96717ed46519635e1498e9a5"
+            },
+            "required_next_artifact": "A versioned trusted-parent behavior-observation verifier with no private assertions/expected values in the candidate interpreter, plus full replay including the retained exploit. Do not obscure markers, reduce baseline capability, ban normal libraries or edit old rewards."
+          },
+          {
+            "id": "long_horizon_not_established",
+            "finding": "Strongest measured ordinary wrapper is 0.72; library-based sessions reached 10/10. Remaining grammar/composition and lexer/diagnostic integration work is concrete but not proven to support hours of growth.",
+            "evidence": {
+              "path": "evidence/final-controls/independent_baseline/native_shell/score.json",
+              "sha256": "a1c9ee9458af31836a9cf5419b24bdeb4b04629fd24e4e693b483e534cf645ac"
+            },
+            "required_next_artifact": "Independent specification/reference review and a stronger ordinary adapter investigation after verifier repair. No teacher/learner calibration was authorized in this round."
+          },
+          {
+            "id": "container_runtime_unverified",
+            "finding": "Separate Dockerfiles and hashed dependency closure exist; only local Python 3.12.3 controls ran. No pinned 3.12.8 image build, actual Harbor TaskConfig/lifecycle/artifact transfer, network boundary or ARM execution has been verified.",
+            "evidence": {
+              "path": "task/authoring/build-manifest.json",
+              "sha256": "db17e3d0607720b5893627c772ebffbeac2dd7ee652a94f0c2ba1a4f55440a2b"
+            },
+            "required_next_artifact": "A later authorized job-contained container build and native Harbor lifecycle/permission/artifact tests; no shared daemon changes were made here."
+          }
+        ]
+      }
+    },
+    {
+      "id": "25_datafusion_execution_optimization",
+      "route": "M3",
+      "account": "raymone/6",
+      "state": "native_started",
+      "native_started_utc": "2026-10-15T12:43:12.461425+00:00",
+      "native_finished_utc": null,
+      "native_exit_code": null,
+      "capacity_released": null,
+      "pid_alive": true
+    },
+    {
+      "id": "26_ripgrep_multicrate_reconstruction",
+      "route": "M4",
+      "account": "raymone/4",
+      "state": "author_returned",
+      "native_started_utc": "2026-10-15T12:43:12.338184+00:00",
+      "native_finished_utc": "2026-10-15T13:28:34.727430+00:00",
+      "native_exit_code": 0,
+      "capacity_released": true,
+      "pid_alive": false,
+      "final": "已完成候选题包及证据链，状态为 **held，未计为可训练完整题**。\n\n- starter：**0.15533**\n- 独立基线：**0.60429**\n- 参考解：**1.0**，五次重评一致\n- 真实 F2P：**428**；P2P：**789**\n\n静态 gate 无问题；仍待 Docker/原生 Harbor 运行验收和独立范围审查。未启动模型、教师、子代理或云实例。\n\n详见 [AUTHOR_RESULT.json](AUTHOR_RESULT.json) 和 [复现记录](REPLAY.md)。",
+      "result_keys": [
+        "schema_version",
+        "job_id",
+        "route",
+        "status",
+        "trainable_complete_task",
+        "task_package_constructed",
+        "source_revision",
+        "source_license",
+        "author_model",
+        "model_or_teacher_or_subagent_or_cloud_launched",
+        "candidate_scopes_reviewed",
+        "chosen_scope",
+        "engineering_volume_note",
+        "native_full_gold",
+        "controls",
+        "strict_behavior_matrix",
+        "reference_stability",
+        "independent_baseline",
+        "partial_controls_provenance",
+        "late_paths",
+        "executed_checks",
+        "pending_release_checks",
+        "known_bias_and_limits",
+        "failed_attempts_retained",
+        "artifacts",
+        "static_admission"
+      ],
+      "result": {
+        "status": "held_for_independent_scope_and_runtime_review"
+      }
+    },
+    {
+      "id": "27_ninja_behavioral_port",
+      "route": "M5",
+      "account": "raymone/5",
+      "state": "author_returned",
+      "native_started_utc": "2026-10-15T12:43:12.414589+00:00",
+      "native_finished_utc": "2026-10-15T13:16:46.148358+00:00",
+      "native_exit_code": 0,
+      "capacity_released": true,
+      "pid_alive": false,
+      "final": "已按顺序产出五阶段材料及题包草案，最终状态为 **held**。\n\n- 官方参考：135/135，五次重评均为 1.0。\n- 合法 Rust 强基线：44/135，得分 0.30735。\n- starter：0/135。\n- 静态 gate 无问题；仅证明本地一致性。\n\n尚缺完整合法 Rust solution，以及隔离镜像和 Harbor 实跑验收，因此未标为可训练完整题。\n\n详见 [AUTHOR_RESULT.json](/ws/users/raymone/edgebench/swe-route-authoring-005-20261015-r3/jobs/27_ninja_behavioral_port/AUTHOR_RESULT.json) 与[题面](/ws/users/raymone/edgebench/swe-route-authoring-005-20261015-r3/jobs/27_ninja_behavioral_port/task/instruction.md)。",
+      "result_keys": [
+        "schema_version",
+        "job_id",
+        "route",
+        "status",
+        "trainable_complete_task",
+        "author_model",
+        "author_identity",
+        "completed_utc",
+        "selected_scope",
+        "source_revision",
+        "ordered_outputs",
+        "task",
+        "executed_controls",
+        "reference_repeat",
+        "native_tests",
+        "fresh_reference_rebuild",
+        "control_report",
+        "static_admission",
+        "held_reasons",
+        "remaining_growth_paths",
+        "author_bias",
+        "performance_score",
+        "six_hour_difficulty_claim",
+        "authorization_compliance",
+        "preservation",
+        "source_and_dependencies"
+      ],
+      "result": {
+        "status": "held"
+      }
+    }
+  ]
+}

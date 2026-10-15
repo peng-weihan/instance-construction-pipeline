@@ -1,0 +1,51 @@
+{
+  "repo": "MultiAgentLearning/playground",
+  "revision": "5315f6da378f495737dfe34a4ba7f50c84423ce7",
+  "resolved_utc": "2026-10-15T14:58:55.024739+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:40.477989+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "afd3366f3a6706c3903731c1db0753ec3551bc3bccb33476f562f9f6155be397",
+    "truncated": false,
+    "blob_count": 121
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 11343,
+      "sha256": "730039694eae049843d01217c98400517a965d5daf901c82da3183bca3674911",
+      "url": "https://github.com/MultiAgentLearning/playground/blob/5315f6da378f495737dfe34a4ba7f50c84423ce7/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4310,
+      "sha256": "864afe3ec0ae3fdf1c43ad5c0d0ad7aee25ded9bbd53a02cc1f47f3a76b1ce7c",
+      "url": "https://github.com/MultiAgentLearning/playground/blob/5315f6da378f495737dfe34a4ba7f50c84423ce7/README.md"
+    },
+    {
+      "path": "examples/simple_ffa_run.py",
+      "bytes": 1111,
+      "sha256": "67f2569b4528dbaff4e535cc192068d1631c77ec135e5e33741952a19736e308",
+      "url": "https://github.com/MultiAgentLearning/playground/blob/5315f6da378f495737dfe34a4ba7f50c84423ce7/examples/simple_ffa_run.py"
+    },
+    {
+      "path": "pommerman/envs/v0.py",
+      "bytes": 13693,
+      "sha256": "da8756da5bf663561d367ed455b846ed28d7cad2fe4d2e41f994fad3e1c01478",
+      "url": "https://github.com/MultiAgentLearning/playground/blob/5315f6da378f495737dfe34a4ba7f50c84423ce7/pommerman/envs/v0.py"
+    },
+    {
+      "path": "pommerman/forward_model.py",
+      "bytes": 30158,
+      "sha256": "60fe71de0d5775e5d94f4ffecac4082641f46f681303bc0d829324da9f5dc80d",
+      "url": "https://github.com/MultiAgentLearning/playground/blob/5315f6da378f495737dfe34a4ba7f50c84423ce7/pommerman/forward_model.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

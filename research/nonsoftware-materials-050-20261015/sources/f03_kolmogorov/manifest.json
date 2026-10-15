@@ -1,0 +1,69 @@
+{
+  "repo": "RemyDegenne/kolmogorov_extension4",
+  "revision": "7d76e184c3d2138a2741baf923b57e9a01b9cf25",
+  "resolved_utc": "2026-10-15T14:58:51.389129+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:52.640366+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "6d31d6de463288408c9d38f828d7dffb7bb33dd146fff8176d4347ab5f8c3738",
+    "truncated": false,
+    "blob_count": 16
+  },
+  "files_acquired": [
+    {
+      "path": "KolmogorovExtension4/CompactSystem.lean",
+      "bytes": 12820,
+      "sha256": "e7356efc8317663f1c2edd7bed857faa424e898ee04c35ed6510c3d06444195b",
+      "url": "https://github.com/RemyDegenne/kolmogorov_extension4/blob/7d76e184c3d2138a2741baf923b57e9a01b9cf25/KolmogorovExtension4/CompactSystem.lean"
+    },
+    {
+      "path": "KolmogorovExtension4/KolmogorovExtension.lean",
+      "bytes": 8630,
+      "sha256": "dc357744898a33480b9605d4f7c4cfe9a23282329f982c902bf0e3a1a9872e14",
+      "url": "https://github.com/RemyDegenne/kolmogorov_extension4/blob/7d76e184c3d2138a2741baf923b57e9a01b9cf25/KolmogorovExtension4/KolmogorovExtension.lean"
+    },
+    {
+      "path": "KolmogorovExtension4/RegularContent.lean",
+      "bytes": 4067,
+      "sha256": "fbd5badca4a85ef33655e8a9051183b3158ad38dbae5e24b49f6699be20c1a6b",
+      "url": "https://github.com/RemyDegenne/kolmogorov_extension4/blob/7d76e184c3d2138a2741baf923b57e9a01b9cf25/KolmogorovExtension4/RegularContent.lean"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "url": "https://github.com/RemyDegenne/kolmogorov_extension4/blob/7d76e184c3d2138a2741baf923b57e9a01b9cf25/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 56,
+      "sha256": "93f9699f8575d1e74cf87499c604df5b49d3e75a632ede91195c7f76ed3e8e76",
+      "url": "https://github.com/RemyDegenne/kolmogorov_extension4/blob/7d76e184c3d2138a2741baf923b57e9a01b9cf25/README.md"
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3138,
+      "sha256": "79f03c5c023e65484addc3d0b2c84bf4cb0d8f0536c16c59e3d2786c2e28f65d",
+      "url": "https://github.com/RemyDegenne/kolmogorov_extension4/blob/7d76e184c3d2138a2741baf923b57e9a01b9cf25/lake-manifest.json"
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 208,
+      "sha256": "5ba7ea7fc074c6b1d4266c4039f9c0fe141f5e6f1ebf17259022a10453a381fc",
+      "url": "https://github.com/RemyDegenne/kolmogorov_extension4/blob/7d76e184c3d2138a2741baf923b57e9a01b9cf25/lakefile.toml"
+    },
+    {
+      "path": "lean-toolchain",
+      "bytes": 28,
+      "sha256": "02f25adee7c1d6bf2e95b7b5b13f45b9892c7dd53ef470d5372ac60bda3df023",
+      "url": "https://github.com/RemyDegenne/kolmogorov_extension4/blob/7d76e184c3d2138a2741baf923b57e9a01b9cf25/lean-toolchain"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

@@ -1,0 +1,11 @@
+{
+  "checked_date": "2026-10-15",
+  "checked_via": "web.run official repositories and official documentation",
+  "urls": [
+    "https://github.com/pypa/hatch",
+    "https://hatch.pypa.io/latest/how-to/environment/lockfiles/",
+    "https://hatch.pypa.io/latest/plugins/locker/"
+  ],
+  "canonical_repo": "pypa/hatch",
+  "note": "Rolling docs establish current product context; immutable SHA source excerpts are task design evidence. No build/runtime verification."
+}

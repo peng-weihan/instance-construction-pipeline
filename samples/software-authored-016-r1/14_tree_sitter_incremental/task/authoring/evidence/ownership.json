@@ -1,0 +1,12 @@
+{
+  "only_modified_files": [
+    "lib/src/tree.c",
+    "lib/src/get_changed_ranges.c",
+    "lib/src/parser.c",
+    "lib/src/subtree.c"
+  ],
+  "missing_files": [],
+  "native_tests_unchanged": true,
+  "API_headers_unchanged": true,
+  "git_or_core_binaries_in_work": []
+}

@@ -1,0 +1,208 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Stream Contract",
+    "version": "1.0"
+  },
+  "security": [
+    {
+      "bearer": []
+    }
+  ],
+  "paths": {
+    "/secured": {
+      "get": {
+        "operationId": "secured",
+        "tags": [
+          "feed"
+        ],
+        "responses": {
+          "200": {
+            "description": "Incremental records",
+            "content": {
+              "application/x-ndjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/Event"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        }
+      }
+    },
+    "/anonymous": {
+      "post": {
+        "operationId": "anonymous",
+        "tags": [
+          "feed"
+        ],
+        "responses": {
+          "200": {
+            "description": "Incremental records",
+            "content": {
+              "application/x-ndjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/Event"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Filter"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Upload"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/optional": {
+      "get": {
+        "operationId": "optional",
+        "tags": [
+          "feed"
+        ],
+        "responses": {
+          "200": {
+            "description": "Incremental records",
+            "content": {
+              "application/x-ndjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/Event"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "security": [
+          {},
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/plain": {
+      "get": {
+        "operationId": "plain",
+        "tags": [
+          "feed"
+        ],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "ordinary",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Event"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/numbers": {
+      "get": {
+        "operationId": "numbers",
+        "tags": [
+          "feed"
+        ],
+        "responses": {
+          "201": {
+            "description": "primitive records",
+            "content": {
+              "application/x-ndjson": {
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "schemas": {
+      "Event": {
+        "type": "object",
+        "required": [
+          "seq",
+          "label"
+        ],
+        "properties": {
+          "seq": {
+            "type": "integer"
+          },
+          "label": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "ready",
+              "done"
+            ]
+          }
+        }
+      },
+      "Filter": {
+        "type": "object",
+        "required": [
+          "query"
+        ],
+        "properties": {
+          "query": {
+            "type": "string"
+          }
+        }
+      },
+      "Upload": {
+        "type": "object",
+        "required": [
+          "label",
+          "files"
+        ],
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "binary"
+            }
+          }
+        }
+      }
+    }
+  }
+}

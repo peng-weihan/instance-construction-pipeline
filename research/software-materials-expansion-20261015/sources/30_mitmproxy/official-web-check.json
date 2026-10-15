@@ -1,0 +1,7 @@
+{
+  "checked_via": "web.run search and open",
+  "checked_date": "2026-10-15",
+  "url": "https://docs.mitmproxy.org/stable/overview/features/",
+  "observation": "官方已有 client/server replay 与 addons；研究范围是拟新增的完整会话工作流。",
+  "version_note": "rolling official documentation; immutable source SHA is authoritative for task construction"
+}

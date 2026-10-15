@@ -1,0 +1,30 @@
+{
+  "direction": "higher_is_better",
+  "range": [
+    0,
+    1
+  ],
+  "formula": "valid/(1+0.5*relative_rmse**2+0.5*log_rmse**2)",
+  "constants": {
+    "floor": 1e-06,
+    "log_scale": 0.0003,
+    "relative_mse_weight": 0.5,
+    "log_mse_weight": 0.5,
+    "relative_rmse_floor": 1e-06,
+    "negative_prediction_tolerance": 1e-12
+  },
+  "endpoint_mechanism": "declared_algorithmic_reference_plus_theoretical_upper_bound",
+  "baseline": {
+    "implementation": "solution/ and verifier; see endpoint_notes.md",
+    "measured_score": null
+  },
+  "upper": {
+    "value": 1,
+    "meaning": "formula bound, not a demonstrated attainable score"
+  },
+  "oracle_score": null,
+  "nop_score": null,
+  "model_three_run_mean": null,
+  "experiment_aggregation": "equal arithmetic mean",
+  "parameter_count": 29
+}

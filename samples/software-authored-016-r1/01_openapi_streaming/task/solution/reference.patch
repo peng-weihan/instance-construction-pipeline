@@ -1,0 +1,246 @@
+diff --git a/openapi_python_client/parser/openapi.py b/openapi_python_client/parser/openapi.py
+index c16f03f..39edf0c 100644
+--- a/openapi_python_client/parser/openapi.py
++++ b/openapi_python_client/parser/openapi.py
+@@ -26,7 +26,7 @@ from .properties import (
+     property_from_data,
+ )
+ from .properties.schemas import parameter_from_reference
+-from .responses import HTTPStatusPattern, Responses, response_from_data
++from .responses import NDJSON_SOURCE, HTTPStatusPattern, Response, Responses, response_from_data
+ 
+ _PATH_PARAM_REGEX = re.compile("{([a-zA-Z_-][a-zA-Z0-9_-]*)}")
+ 
+@@ -156,6 +156,20 @@ class Endpoint:
+     bodies: list[Body] = field(default_factory=list)
+     errors: list[ParseError] = field(default_factory=list)
+ 
++    # Explicit security: [] disables auth, whereas omitted security inherits the document.
++    anonymous: bool = False
++
++    @property
++    def stream_response(self) -> Response | None:
++        for response in self.responses:
++            if (
++                response.source == NDJSON_SOURCE
++                and response.status_code.range is not None
++                and 200 <= response.status_code.range[0] < 300
++            ):
++                return response
++        return None
++
+     @staticmethod
+     def _add_responses(
+         *,
+@@ -430,7 +444,8 @@ class Endpoint:
+             summary=data.summary if data.summary else UntrustedString(""),
+             description=data.description if data.description else UntrustedString(""),
+             name=name,
+-            requires_security=bool(data.security),
++            requires_security=bool(data.security) and {} not in (data.security or []),
++            anonymous=data.security == [],
+             tags=tags,
+         )
+ 
+@@ -540,6 +555,12 @@ class GeneratorData:
+             )
+         request_bodies = (openapi.components and openapi.components.requestBodies) or {}
+         responses = (openapi.components and openapi.components.responses) or {}
++        # Resolve inheritance once before the normal parser pipeline. Do not overwrite [] or [{}].
++        for path_item in openapi.paths.values():
++            for method in ("get", "put", "post", "delete", "options", "head", "patch", "trace"):
++                operation = getattr(path_item, method)
++                if operation is not None and operation.security is None:
++                    operation.security = openapi.security
+         endpoint_collections_by_tag, schemas, parameters = EndpointCollection.from_data(
+             data=openapi.paths,
+             schemas=schemas,
+diff --git a/openapi_python_client/parser/responses.py b/openapi_python_client/parser/responses.py
+index ef1c212..5ee91b1 100644
+--- a/openapi_python_client/parser/responses.py
++++ b/openapi_python_client/parser/responses.py
+@@ -37,6 +37,7 @@ class _ResponseSource(TypedDict):
+     return_type: str
+ 
+ 
++NDJSON_SOURCE = _ResponseSource(attribute="json.loads(line)", return_type="Any")
+ JSON_SOURCE = _ResponseSource(attribute="response.json()", return_type="Any")
+ BYTES_SOURCE = _ResponseSource(attribute="response.content", return_type="bytes")
+ TEXT_SOURCE = _ResponseSource(attribute="response.text", return_type="str")
+@@ -140,6 +141,7 @@ def _source_by_content_type(content_type: str, config: Config) -> _ResponseSourc
+ 
+     known_content_types = {
+         "application/json": JSON_SOURCE,
++        "application/x-ndjson": NDJSON_SOURCE,
+         "application/octet-stream": BYTES_SOURCE,
+     }
+     source = known_content_types.get(parsed_content_type)
+diff --git a/openapi_python_client/templates/endpoint_macros.py.jinja b/openapi_python_client/templates/endpoint_macros.py.jinja
+index 493c355..ed7bb9f 100644
+--- a/openapi_python_client/templates/endpoint_macros.py.jinja
++++ b/openapi_python_client/templates/endpoint_macros.py.jinja
+@@ -122,8 +122,9 @@ client: AuthenticatedClient | Client,
+ {% if endpoint.bodies | length == 1 %}
+ body: {{ endpoint.bodies[0].prop.get_type_string() | as_unembedded_code }}{% if not endpoint.bodies[0].prop.required %} = UNSET{% endif %},
+ {% elif endpoint.bodies | length > 1 %}
++{% set body_required = endpoint.bodies | map(attribute="prop.required") | min %}
+ body:
+-    {%- for body in endpoint.bodies -%}{% set body_required = body_required and body.prop.required %}
++    {%- for body in endpoint.bodies -%}
+     {{ body.prop.get_type_string(no_optional=True) | as_unembedded_code }} {% if not loop.last %} | {% endif %}
+     {%- endfor -%}{% if not body_required %} | Unset = UNSET{% endif %}
+ ,
+diff --git a/openapi_python_client/templates/endpoint_module.py.jinja b/openapi_python_client/templates/endpoint_module.py.jinja
+index 97f30a2..8aec79d 100644
+--- a/openapi_python_client/templates/endpoint_module.py.jinja
++++ b/openapi_python_client/templates/endpoint_module.py.jinja
+@@ -3,9 +3,15 @@ from typing import Any, cast
+ from urllib.parse import quote
+ 
+ import httpx
++{% if endpoint.stream_response %}
++import json
++import anyio
++from contextlib import contextmanager, asynccontextmanager
++from collections.abc import Iterator, AsyncIterator
++{% endif %}
+ 
+ from ...client import AuthenticatedClient, Client
+-from ...types import Response, UNSET
++from ...types import Response, UNSET, Unset
+ from ... import errors
+ 
+ {% for relative in endpoint.relative_imports | sort %}
+@@ -71,6 +77,18 @@ def _get_kwargs(
+ {% endif %}
+     return _kwargs
+ 
++{% if endpoint.anonymous %}
++def _anonymous_request(transport: httpx.Client | httpx.AsyncClient, client: AuthenticatedClient | Client, kwargs: dict[str, Any]) -> httpx.Request:
++    request = transport.build_request(**kwargs)
++    # Remove merged defaults from this request alone; injected httpx clients remain shared.
++    request.headers.pop(getattr(client, "auth_header_name", "Authorization"), None)
++    request.headers.pop("Authorization", None)
++    return request
++{% endif %}
++
++{% if endpoint.stream_response %}
++{% include "streaming_endpoint.py.jinja" %}
++{% else %}
+ {% if endpoint.responses.default %}
+     {% set return_type = return_string | as_unembedded_code %}
+ {% else %}
+@@ -116,9 +134,12 @@ def sync_detailed(
+         {{ kwargs(endpoint, include_client=False) }}
+     )
+ 
+-    response = client.get_httpx_client().request(
+-        **kwargs,
+-    )
++    {% if endpoint.anonymous %}
++    transport = client.get_httpx_client()
++    response = transport.send(_anonymous_request(transport, client, kwargs), auth=None)
++    {% else %}
++    response = client.get_httpx_client().request(**kwargs)
++    {% endif %}
+ 
+     return _build_response(client=client, response=response)
+ 
+@@ -142,9 +163,12 @@ async def asyncio_detailed(
+         {{ kwargs(endpoint, include_client=False) }}
+     )
+ 
+-    response = await client.get_async_httpx_client().request(
+-        **kwargs
+-    )
++    {% if endpoint.anonymous %}
++    transport = client.get_async_httpx_client()
++    response = await transport.send(_anonymous_request(transport, client, kwargs), auth=None)
++    {% else %}
++    response = await client.get_async_httpx_client().request(**kwargs)
++    {% endif %}
+ 
+     return _build_response(client=client, response=response)
+ 
+@@ -158,3 +182,5 @@ async def asyncio(
+         {{ kwargs(endpoint) }}
+     )).parsed
+ {% endif %}
++
++{% endif %}
+diff --git a/openapi_python_client/templates/streaming_endpoint.py.jinja b/openapi_python_client/templates/streaming_endpoint.py.jinja
+new file mode 100644
+index 0000000..e34c6be
+--- /dev/null
++++ b/openapi_python_client/templates/streaming_endpoint.py.jinja
+@@ -0,0 +1,70 @@
++{% set record = endpoint.stream_response %}
++{% set record_type = record.prop.get_type_string() | as_unembedded_code %}
++
++def _parse_record(line: str) -> {{ record_type }}:
++    {{ parse_response(true, record) | indent(4) }}
++
++
++def _validate_stream(response: httpx.Response) -> None:
++    if response.status_code != {{ record.status_code.range[0] }}:
++        raise errors.UnexpectedStatus(response.status_code, response.content)
++    media_type = response.headers.get("content-type", "").split(";", 1)[0].strip().lower()
++    if media_type != "application/x-ndjson":
++        raise ValueError("Expected application/x-ndjson")
++    # NDJSON uses UTF-8 regardless of optional charset parameters.
++    response.encoding = "utf-8"
++
++
++@contextmanager
++def stream(
++    {{ arguments(endpoint) | indent(4) }}
++) -> Iterator[Iterator[{{ record_type }}]]:
++    """Open one response. The supplied client stays owned by the caller."""
++    kwargs = _get_kwargs({{ kwargs(endpoint, include_client=False) }})
++    transport = client.get_httpx_client()
++    {% if endpoint.anonymous %}
++    request = _anonymous_request(transport, client, kwargs)
++    response = transport.send(request, stream=True, auth=None)
++    {% else %}
++    request = transport.build_request(**kwargs)
++    response = transport.send(request, stream=True)
++    {% endif %}
++    try:
++        if response.status_code != {{ record.status_code.range[0] }}:
++            response.read()
++        _validate_stream(response)
++        def records() -> Iterator[{{ record_type }}]:
++            for line in response.iter_lines():
++                if line.strip():
++                    yield _parse_record(line)
++        yield records()
++    finally:
++        response.close()
++
++
++@asynccontextmanager
++async def asyncio_stream(
++    {{ arguments(endpoint) | indent(4) }}
++) -> AsyncIterator[AsyncIterator[{{ record_type }}]]:
++    """Open one async response and close it even on cancellation."""
++    kwargs = _get_kwargs({{ kwargs(endpoint, include_client=False) }})
++    transport = client.get_async_httpx_client()
++    {% if endpoint.anonymous %}
++    request = _anonymous_request(transport, client, kwargs)
++    response = await transport.send(request, stream=True, auth=None)
++    {% else %}
++    request = transport.build_request(**kwargs)
++    response = await transport.send(request, stream=True)
++    {% endif %}
++    try:
++        if response.status_code != {{ record.status_code.range[0] }}:
++            await response.aread()
++        _validate_stream(response)
++        async def records() -> AsyncIterator[{{ record_type }}]:
++            async for line in response.aiter_lines():
++                if line.strip():
++                    yield _parse_record(line)
++        yield records()
++    finally:
++        with anyio.CancelScope(shield=True):
++            await response.aclose()

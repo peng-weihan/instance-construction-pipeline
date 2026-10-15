@@ -1,0 +1,218 @@
+{
+  "valid": true,
+  "score": 0.0,
+  "pass_rate": 0.0,
+  "checks": [
+    {
+      "name": "types_sync",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "types_async",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "security_signatures",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "required_media_body",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "native_regressions",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "records_sync",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "records_async",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "numbers_sync",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "numbers_async",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "network_sync",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "network_async",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "early_sync",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "early_async",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "empty_sync",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "empty_async",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "malformed_sync",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "malformed_async",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "consumer_sync",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "consumer_async",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "network_early_sync",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "network_early_async",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "cancel_async",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "status_sync",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "status_async",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "media_sync",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "media_async",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "anonymous_sync",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "anonymous_async",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "json_body_sync",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "json_body_async",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "multipart_body_sync",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "multipart_body_async",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "optional_sync",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "optional_async",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "shared_sync",
+      "passed": false,
+      "detail": "generation unavailable"
+    },
+    {
+      "name": "shared_async",
+      "passed": false,
+      "detail": "generation unavailable"
+    }
+  ],
+  "metrics": {
+    "groups": {
+      "generation": {
+        "passed": 0,
+        "total": 5
+      },
+      "delivery": {
+        "passed": 0,
+        "total": 6
+      },
+      "ownership": {
+        "passed": 0,
+        "total": 11
+      },
+      "protocol": {
+        "passed": 0,
+        "total": 4
+      },
+      "requests": {
+        "passed": 0,
+        "total": 10
+      }
+    },
+    "passed": 0,
+    "total": 36
+  },
+  "diagnostics": {
+    "snapshot_error": "missing submission directory"
+  },
+  "spec_sha256": "488615cb6d745a238a21d06542c1b90c8c4725d512a2cc81c2cf6e6d1276f125",
+  "summary": "0/36 named checks passed"
+}

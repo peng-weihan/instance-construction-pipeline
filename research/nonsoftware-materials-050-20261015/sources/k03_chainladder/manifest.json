@@ -1,0 +1,57 @@
+{
+  "repo": "casact/chainladder-python",
+  "revision": "90c7b3532499b662e57b5be2275a848ce90d5a70",
+  "resolved_utc": "2026-10-15T15:00:00.621180+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:02:19.919095+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "5822468fac5ffb2b018b042af730a7ff8770422d07c6cedc74e335f4205bee53",
+    "truncated": false,
+    "blob_count": 328
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 16725,
+      "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5",
+      "url": "https://github.com/casact/chainladder-python/blob/90c7b3532499b662e57b5be2275a848ce90d5a70/LICENSE"
+    },
+    {
+      "path": "README.rst",
+      "bytes": 4485,
+      "sha256": "51a74d4812244a91015ff3291e36ede9e07620eaa772c5e4da9ebc77d7445260",
+      "url": "https://github.com/casact/chainladder-python/blob/90c7b3532499b662e57b5be2275a848ce90d5a70/README.rst"
+    },
+    {
+      "path": "chainladder/methods/mack.py",
+      "bytes": 18369,
+      "sha256": "5b44f5a600d3527a4bda541d14167311a5e972c06cc9c18e0bb2bbd592c3535f",
+      "url": "https://github.com/casact/chainladder-python/blob/90c7b3532499b662e57b5be2275a848ce90d5a70/chainladder/methods/mack.py"
+    },
+    {
+      "path": "chainladder/methods/tests/test_mack.py",
+      "bytes": 3095,
+      "sha256": "5215b1dc74d8754c5226a6615e84258b0088c0b9771b8b0f1eb852675632df52",
+      "url": "https://github.com/casact/chainladder-python/blob/90c7b3532499b662e57b5be2275a848ce90d5a70/chainladder/methods/tests/test_mack.py"
+    },
+    {
+      "path": "chainladder/utils/data/genins.csv",
+      "bytes": 1116,
+      "sha256": "b4e0de67c11ed27d2e29286193ffc707e5dae285525526828a27aecfbf7507da",
+      "url": "https://github.com/casact/chainladder-python/blob/90c7b3532499b662e57b5be2275a848ce90d5a70/chainladder/utils/data/genins.csv"
+    },
+    {
+      "path": "chainladder/utils/data/raa.csv",
+      "bytes": 995,
+      "sha256": "36c1c35c2fded8ba82a653b5e92e77d1e04638f327519be9e94eb5501813588d",
+      "url": "https://github.com/casact/chainladder-python/blob/90c7b3532499b662e57b5be2275a848ce90d5a70/chainladder/utils/data/raa.csv"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

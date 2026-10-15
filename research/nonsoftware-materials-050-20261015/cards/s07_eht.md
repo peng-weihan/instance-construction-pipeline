@@ -1,0 +1,31 @@
+# S07_EHT · eht-imaging 干涉成像
+
+- 主来源：[achael/eht-imaging](https://github.com/achael/eht-imaging/tree/7acf089bfe57f1463219a8e9400c7a18f106d9f1)。
+- 固定版本：`7acf089bfe57f1463219a8e9400c7a18f106d9f1`。
+- 来源单元：closure phase数据项/梯度、闭合量成像流程和梯度比较测试。
+- 评估：`high`；优先级 `scope_probe`。
+
+**拟题：稀疏干涉观测与校准误差下的形态重建**
+给定不同uv覆盖、站点增益/相位误差下的合成可见度与闭合量，重建扩展源亮度图及可辨识形态指标，在留出基线/频率上预测。
+交付：重建入口、非负亮度图、形态参数/不确定度与留出观测预测。
+
+**困难的因果来源**
+- 不完整Fourier采样使许多图像同样解释训练观测，先验/正则化选择直接影响恢复形态和新基线预测。
+- 闭合相位消除部分站点相位误差，同时失去整体位置等信息；评分须尊重不可辨识等价类，避免错误像素真值惩罚。
+
+基线：源码已有amp/cphase数据项、Gaussian初值、多阶段模糊与TV正则化；完整现成流程必须作为强RML基线，另比较dirty/CLEAN。
+首轮探针：用公开成像流程跑多形态和站点故障，比较独立DFT/NUFFT参考与已有RML；确认稳健性提升不是超参未调造成。
+淘汰/降档：若只照抄公开环形样例，或在合理噪声/覆盖下现成RML已过全部目标，降档；不可辨识位置/镜像等不得强行设唯一答案。
+
+独立评分：留出可见度/闭合量似然、分辨率匹配并对齐允许平移后的图像误差、形态参数和覆盖；独立直接DFT做小网格核对。
+生成与划分：新建ring/crescent/multi-component/extended族组合，按形态族、阵列缺站/频率留出；不将公开黑洞图或已知真值用作hidden。
+独立性与谱系：新射电干涉来源；天体图像反演与科学逆问题同属大类，但测量/不变性独立。原EdgeBench若用EHT底层阵列/图像必须另查谱系。
+离线/计算：已取5文件，无大FITS/阵列观测包或模型运行。小图直接DFT可CPU探针，NUFFT/C扩展与高分辨率成本未测；优先自建源图和虚拟阵列。
+许可观察：根LICENSE.txt为GPL-3.0文本；外部FITS、EHT观测/阵列文件的权限不由代码GPL自动覆盖，自建数据需记录生成器版本。
+
+**实际选读证据**
+- [闭合相位用三可见度乘积相位及周期性chi-square，并提供解析梯度](https://github.com/achael/eht-imaging/blob/7acf089bfe57f1463219a8e9400c7a18f106d9f1/ehtim/imaging/imager_utils.py#L513-L543)；本地 [选读 513–543 行](../sources/s07_eht/files/ehtim/imaging/imager_utils.py)。
+- [现成闭合量成像已提供多阶段RML与TV正则化基线](https://github.com/achael/eht-imaging/blob/7acf089bfe57f1463219a8e9400c7a18f106d9f1/examples/example_im_closure.py#L58-L80)；本地 [选读 58–80 行](../sources/s07_eht/files/examples/example_im_closure.py)。
+- [原测试脚本比较直接DFT与NFFT数据项/梯度；它是诊断脚本，未在本次运行](https://github.com/achael/eht-imaging/blob/7acf089bfe57f1463219a8e9400c7a18f106d9f1/tests/test_gradients.py#L44-L71)；本地 [选读 44–71 行](../sources/s07_eht/files/tests/test_gradients.py)。
+
+状态：仅来源、定向选读和设计假设；未构题、未运行候选、未校准长程难度。

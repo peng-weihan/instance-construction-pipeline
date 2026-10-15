@@ -1,0 +1,1085 @@
+{
+  "manifest_created_at_utc": "2026-10-13T17:15:10.789912+00:00",
+  "repositories": [
+    {
+      "path": "upstream/EdgeBench",
+      "source_url": "https://github.com/ByteDance-Seed/EdgeBench",
+      "commit": "6e4e5f4aa087a9121aa09a6059e5484e5102c6ff",
+      "files": [
+        {
+          "path": "upstream/EdgeBench/.github/workflows/docs.yml",
+          "bytes": 954,
+          "sha256": "40d2c66f286d35a97907e8f0d806eab4274e4558d901111e1109ebb266c70a7b"
+        },
+        {
+          "path": "upstream/EdgeBench/.gitignore",
+          "bytes": 321,
+          "sha256": "42847d95f95cbb8fa5ea43f4a1825da959a0f5a9c3e4545f5b7019ac473982e7"
+        },
+        {
+          "path": "upstream/EdgeBench/CONTRIBUTING.md",
+          "bytes": 5292,
+          "sha256": "ea14529f1b2546508d234a3fd98ab85107662f7938de403056545160c74186d0"
+        },
+        {
+          "path": "upstream/EdgeBench/LICENSE",
+          "bytes": 11357,
+          "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+        },
+        {
+          "path": "upstream/EdgeBench/README.md",
+          "bytes": 20255,
+          "sha256": "d28bd2367be1b2d2570333e24159fac225f184437e07d16120cd84890ee03caa"
+        },
+        {
+          "path": "upstream/EdgeBench/SECURITY.md",
+          "bytes": 1647,
+          "sha256": "c84d3d6f3dd568cef99f92b814fad172bf24032dfbc74e5b2e8dce34eeff08aa"
+        },
+        {
+          "path": "upstream/EdgeBench/assets/edgebench_taxonomy.png",
+          "bytes": 3101019,
+          "sha256": "410389a02424d8ead0c6e3726fe32c136b1b0fedc6d46f4d443ecad57460b4a3"
+        },
+        {
+          "path": "upstream/EdgeBench/assets/fig_dual_loop.png",
+          "bytes": 202592,
+          "sha256": "029020dc8b878483e07e3404f30cff729fa046ca50ccae68de6e6dbafd39e7c2"
+        },
+        {
+          "path": "upstream/EdgeBench/assets/fig_full_136_curve_fit_side_by_side.png",
+          "bytes": 601349,
+          "sha256": "8783935cb9eb8f2ddb80e1e3c7c9d739bd096b7e3d10f01615112e547a6a108b"
+        },
+        {
+          "path": "upstream/EdgeBench/assets/fig_rank_paper_panel.png",
+          "bytes": 160538,
+          "sha256": "f4ce03d135874d4348357e7da31466a448a3cd9735013e45fdd121d3be640f63"
+        },
+        {
+          "path": "upstream/EdgeBench/assets/logo-dark.png",
+          "bytes": 91817,
+          "sha256": "0f0d676c606d28ab80eca859042a4279b7299f79e3a6113533e899d8e05388c8"
+        },
+        {
+          "path": "upstream/EdgeBench/assets/logo.jpg",
+          "bytes": 233589,
+          "sha256": "4350601f82da6e581fdd45f7f2c4744d2c5127b12f27cb952a99987b3e72142a"
+        },
+        {
+          "path": "upstream/EdgeBench/assets/time_area_log2_curve.png",
+          "bytes": 455076,
+          "sha256": "02488f90337ff13acd8f243ad27bcf0184633147103dacc90cfb7a6eb04ba781"
+        },
+        {
+          "path": "upstream/EdgeBench/assets/title-dark.svg",
+          "bytes": 331,
+          "sha256": "e75fc1439c610d7b7afe3ed0b4c3eac76c5c33c1c0b45142f5d8d438f3be4d8e"
+        },
+        {
+          "path": "upstream/EdgeBench/assets/title.svg",
+          "bytes": 331,
+          "sha256": "6c22b80c4c28daf6c851e22b4be6f984d9b67986e92b92c38c27d109f8ed856e"
+        },
+        {
+          "path": "upstream/EdgeBench/assets/wechat_qr.jpg",
+          "bytes": 207108,
+          "sha256": "97aba86919f880f8f7e07ea443a2d2e297f0d58a0f8ccfe18ee6324e0f552aa5"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/.gitignore",
+          "bytes": 49,
+          "sha256": "f09cd75374eb5bc157c641a15f08fe7591304a8abf2d9a1f079fcd910d1d8b82"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/.vitepress/config.mts",
+          "bytes": 6243,
+          "sha256": "249b56d5f5aea04e0ad0a192dd83eb3be3bdee6f66cafaf1b8504b99ce8799f1"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/configuration/container-backends.md",
+          "bytes": 14028,
+          "sha256": "e37411452a7f781bb4222b1d1e3c15eadc50a5e449a8b2d2358a635392abd6d2"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/configuration/environment-variables.md",
+          "bytes": 8428,
+          "sha256": "138287865c20e83e63fbc26c3653dbb009b878b1c09a0a8d73f83c376e93367c"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/configuration/experiments.md",
+          "bytes": 6032,
+          "sha256": "1236ae586095d7c50241d657b94ff575c591ae42c24c6f8ef87c2420683f3406"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/configuration/network-setup.md",
+          "bytes": 5059,
+          "sha256": "bf8f3d4f40867e9601f8ecf3c6bba0baf54dd8dbc21e5521230ebb100d788f8c"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/examples/all-tasks-k8s.md",
+          "bytes": 8018,
+          "sha256": "0b4a778aeed95475c827d6bf340c5156daef7e2492270da793888f68f72b80d6"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/examples/single-task-docker.md",
+          "bytes": 9769,
+          "sha256": "8965e98d1718cadd0970381787d7bf61680bdc5f0e7f795cb7ef56e8597fdd8d"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/examples/single-task-e2b.md",
+          "bytes": 6195,
+          "sha256": "057b3f2052514a959b79e12cabdf2f9c885de6d7c6efaf2ca9805f3a4d901724"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/features/docker-registry.md",
+          "bytes": 908,
+          "sha256": "287f220e8cfc70b5c01c9a166fb7ff081d50401f79133b2076add8654946e151"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/features/game-mode.md",
+          "bytes": 1363,
+          "sha256": "c4c1fbf1a48578351680919892fda80219be9fe09b898e636f9cc974764400b6"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/features/iterative-evaluation.md",
+          "bytes": 5451,
+          "sha256": "ec4fbc3ea9658d2d63388146fc4537e8da5d1fe79a4c29b03c6499077e4db735"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/features/network-isolation.md",
+          "bytes": 6403,
+          "sha256": "4f1451159b8c1899aed5b72ea7db3e5aa575ae29c484462f5c2ea04323c85722"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/features/visualizer.md",
+          "bytes": 700,
+          "sha256": "b989ff8b532dcbc469cf4d6f667aa68aef13fd6abe7f4801afa89c04e7f5154b"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/guide/agents.md",
+          "bytes": 9367,
+          "sha256": "5d563a2906d526c83578bd79cbe8fd1281e4650eb61fa32a2551496a2a88aa63"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/guide/getting-started.md",
+          "bytes": 3886,
+          "sha256": "f92996001495ac0e8cefdfc1efa753d433b79acabc6791d3ecfb67a297701844"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/guide/introduction.md",
+          "bytes": 5020,
+          "sha256": "8fd68695f0b2be379bc4af3c29eaee49e80ac9d34e45d889a9e98f8a4bb18ec3"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/index.md",
+          "bytes": 225,
+          "sha256": "0f1214443089a852fbfca0e887b23d2aa82f372304257d61b329da45ebb8cea1"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/reference/cli.md",
+          "bytes": 10609,
+          "sha256": "d2f00b4d8fc54abc9a278c907ef246df0ea43188205cb693163366563610c486"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/reference/judge-api.md",
+          "bytes": 7017,
+          "sha256": "93d35d6a9c6e2b4d99e878ab389598feef496e3df5f12baba75a03f0a1db6d25"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/reference/task-schema.md",
+          "bytes": 148,
+          "sha256": "97570f692393f606ed943ba1598047c56ec8a9a2f2e00066cab6aa62e2e325ff"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/reference/troubleshooting.md",
+          "bytes": 9924,
+          "sha256": "aeaeb6556c81a320098d8d084112610d74be0d3e0b67caa37038f5a33110ee1d"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/tasks/integration-guide.md",
+          "bytes": 17520,
+          "sha256": "99f9b43fdd6378b921ca035bffbd55be3c7236c53c4e70938617edff0951ba75"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/tasks/parsers.md",
+          "bytes": 5178,
+          "sha256": "7fe8c19b82daa8ff1e158b98114b6ced4cb2b8377da1717cb21cbfd929e0a0ed"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/en/tasks/task-examples.md",
+          "bytes": 136,
+          "sha256": "7a5ca6ed53a3f63158e1200f62ec488fd7b02691f20a333c577ef8c73266bdc7"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/index.md",
+          "bytes": 145,
+          "sha256": "124451a184ec9e3c46d597bc6fd8c3a5e60cd740b435eb021cc044eb2290ad6a"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/package-lock.json",
+          "bytes": 63093,
+          "sha256": "687b4658f342ea52e55aef17a8ee1136c890ef0985594496ebf3ca6b814c4d51"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/package.json",
+          "bytes": 236,
+          "sha256": "5946c6bf0565cfdf36245cd27f90b2ab8226ce10d2a50fd2e70b565e4dfea242"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/configuration/container-backends.md",
+          "bytes": 13323,
+          "sha256": "a5398d941ca155294b0bfe811b4de99d3e82807793fc4e74c5c577b31a2b67db"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/configuration/environment-variables.md",
+          "bytes": 7966,
+          "sha256": "c9e6f7806a217aef72978d3a2eb1fef06daac3fc40c676730e1cad14bb8a2149"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/configuration/experiments.md",
+          "bytes": 5770,
+          "sha256": "b646ad3b32b385c4b4f7f6b51d3cedb238501560907b274b414316bf5ab1710b"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/configuration/network-setup.md",
+          "bytes": 4730,
+          "sha256": "7137694eedad4677944bf8aea7342dbba104a6ddcc99898e1bc996b0ef3b3a88"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/examples/all-tasks-k8s.md",
+          "bytes": 7654,
+          "sha256": "50ea8dc8d94f1d2e8b04bcd995485369c76dd3468ce578564185b7f2a14c2e29"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/examples/single-task-docker.md",
+          "bytes": 9036,
+          "sha256": "9174aff1578fad3e12e9f5fde9969a0c4f6c130608e764206a03fb72e04f5003"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/examples/single-task-e2b.md",
+          "bytes": 5997,
+          "sha256": "b9b5f18ddb92ee32114b962ec2218b8803ae8b66f8a7a9e42d083b369c50189f"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/features/docker-registry.md",
+          "bytes": 897,
+          "sha256": "7f6f89da022c5df6dd1be78aba23953b04078dd78fd0370150c6357dfe4b7b0b"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/features/game-mode.md",
+          "bytes": 1308,
+          "sha256": "b992552755e6ef7c387f9ae6e6868b5ebd2c620ee1d8a251f11b74abd7f80e55"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/features/iterative-evaluation.md",
+          "bytes": 4839,
+          "sha256": "21e75f7bf8e556b75200070419d4f321888d18ceac287696184194b536e75182"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/features/network-isolation.md",
+          "bytes": 6035,
+          "sha256": "027b2be7fe1518972d997de2931b3c0e0331f3a5590f70b763839773e374e3cb"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/features/visualizer.md",
+          "bytes": 739,
+          "sha256": "b1d82f7479d95457d6cdf7854c77a8a9d9d4faab00c3e1b07bdfade364429f05"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/guide/agents.md",
+          "bytes": 8886,
+          "sha256": "56144fc4e0a6bbdcd67388ced0e1054acd2da0703f009ae409a0b09527078e39"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/guide/getting-started.md",
+          "bytes": 3774,
+          "sha256": "aad53b383da05380348ad4dc500266a9bc235f5094d1473d07299434fc57b99e"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/guide/introduction.md",
+          "bytes": 4539,
+          "sha256": "d5bb6232d14b185b3074c7176cbb02f225fe83a010f845b2222c3c6d4b8b966f"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/index.md",
+          "bytes": 225,
+          "sha256": "3f944446ae47e4eb2fbc05eab65f31fae7f31aac45f960d5a0aa4b387d184eb5"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/reference/cli.md",
+          "bytes": 10244,
+          "sha256": "ce99d0f49f4d9723d0dd296552cfb45acac9cbd13f1ef005ef07a61efffe2113"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/reference/judge-api.md",
+          "bytes": 6837,
+          "sha256": "79420a67c66c3b92c1b6d5e04798881ff23fc7f084f0f781d59da88f675720d2"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/reference/task-schema.md",
+          "bytes": 142,
+          "sha256": "df2540a1a1c2b708c935c9a18115c3bb72c1deabcdf4cedb2c00fae084218b4c"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/reference/troubleshooting.md",
+          "bytes": 9479,
+          "sha256": "1838f392c4901dc46dd5b3947bd167306cd70bf6c4df064b9223dfa318ad74df"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/tasks/integration-guide.md",
+          "bytes": 16929,
+          "sha256": "edd818c64fcb6f77c28b06e7df1a38b030eb2a0931ea147eda1d00043056416e"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/tasks/parsers.md",
+          "bytes": 4989,
+          "sha256": "3d6969862e8a498c78f8c443dc24dfcd17267fd6ccfbc35272937184598036f6"
+        },
+        {
+          "path": "upstream/EdgeBench/docs/zh/tasks/task-examples.md",
+          "bytes": 140,
+          "sha256": "b77559a11165acd9f2b812b3825a5a4e92d9635fcd3ca99292b505cd762f49ff"
+        },
+        {
+          "path": "upstream/EdgeBench/examples/all-tasks-k8s/README.md",
+          "bytes": 7834,
+          "sha256": "7c564d364e316d2ae704c48bbfe2ae1aa2d80379dad9f9b37055040fe37a0243"
+        },
+        {
+          "path": "upstream/EdgeBench/examples/all-tasks-k8s/experiment-codex.yaml",
+          "bytes": 5807,
+          "sha256": "6cf7d41bc67f765adbd458409209e6af02bbb9a53020cf366511707b3fc45b33"
+        },
+        {
+          "path": "upstream/EdgeBench/examples/all-tasks-k8s/experiment-deepseek.yaml",
+          "bytes": 6570,
+          "sha256": "35f09b33bc36d74f57be1e88920b3bf1a48f9950c15ac91784d25d76f7df47e5"
+        },
+        {
+          "path": "upstream/EdgeBench/examples/all-tasks-k8s/experiment-glm.yaml",
+          "bytes": 6636,
+          "sha256": "b7b7c2de7575689c2e9c4287d50b5d7ce0da43e52b05477152ec6c45d141f694"
+        },
+        {
+          "path": "upstream/EdgeBench/examples/all-tasks-k8s/experiment.yaml",
+          "bytes": 6224,
+          "sha256": "d9d299794ba946cae8d2b7f68a7879a35bb8565d95e78107edf79802993643be"
+        },
+        {
+          "path": "upstream/EdgeBench/examples/single-task-docker/README.md",
+          "bytes": 10228,
+          "sha256": "85c93c414d860687acfee534d3c225e4a0f8592ec41d16eb24aa346e62c2260c"
+        },
+        {
+          "path": "upstream/EdgeBench/pyproject.toml",
+          "bytes": 1208,
+          "sha256": "26e4ad2388e6b958165d3c6b3a90135f05f3d7067d359a2c5b05d0212509375c"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/__init__.py",
+          "bytes": 627,
+          "sha256": "b5f5b937c326b27385b8152a20dda0f92dcadacaac69cf083cff08f50085adc8"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/__main__.py",
+          "bytes": 672,
+          "sha256": "39c0569a22dcb6ee15ca14387650048d1374e2c2f4e499befbfd9f881a71d7d3"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/cli.py",
+          "bytes": 44704,
+          "sha256": "b53a54eff9a8957d834c37cfa11c4fe3078b3d6a1db68ee1de1d16615ab846e6"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/__init__.py",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/agent/__init__.py",
+          "bytes": 1051,
+          "sha256": "7272a5a1a8908aacf0c96a60841b45c25ff1357272c502b16494574e449062b7"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/agent/base.py",
+          "bytes": 3281,
+          "sha256": "c1d43f1477e73388ffd5a402a4855a6d6a98784b8de0e847c1832a11acca5e32"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/agent/claude_code.py",
+          "bytes": 5650,
+          "sha256": "6750735554638b4363da848b9b5eea949e10be304fc43fd6c1ae473b8950b47a"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/agent/codex.py",
+          "bytes": 6597,
+          "sha256": "e30ff41a2f191c04c8a6df3ecea9a54e02d179557cfb601af0508d5f157cbc2a"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/agent/factory.py",
+          "bytes": 2372,
+          "sha256": "bba70873a898398cac236a9119627e95accb29273b79ed540549b10c1b00ea34"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/agent/opencode.py",
+          "bytes": 5901,
+          "sha256": "72105a99867b833320a6d03e5fa7373d770afe144a9fff32e4443ef5ad44d5d5"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/api_proxy.py",
+          "bytes": 6439,
+          "sha256": "5a00db4fd13fd44cac717b27647629f3d3d0161a2e086f11f2a9ed4be51ef3dc"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/backend/__init__.py",
+          "bytes": 1211,
+          "sha256": "63ed67bfcc0e3058bb416e23812426187f0ae8a050421b8434c07159f3d3e064"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/backend/base.py",
+          "bytes": 5738,
+          "sha256": "e5266f4410db13a833aa56c4578f9c96be29a1329fa0e826e6ddc9066ebfc412"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/backend/docker_backend.py",
+          "bytes": 14609,
+          "sha256": "e56e6a71db8c9709b06edde162ec11e9a39f369b213a20844d49037ab4324aaf"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/backend/e2b_backend.py",
+          "bytes": 40861,
+          "sha256": "716b6474c7b5782ad9bfdda0a1b5b8f0956bf5ebdc7c37db63a554672ccb7edc"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/backend/factory.py",
+          "bytes": 1953,
+          "sha256": "360daf55f53847575487aa6a3fdf77bf4d834b2d21fa41a859c995483c16b2a0"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/backend/k8s_backend.py",
+          "bytes": 24984,
+          "sha256": "30eceb514e92639d7032f7bffbdcebb82f90d7496403f201f7c573beda83f27e"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/benchmark.py",
+          "bytes": 1492,
+          "sha256": "bf3ec60ad08265f375138e8dd943b687df7eac41640692dea61606bcab6079ca"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/config.py",
+          "bytes": 13846,
+          "sha256": "d90ff0e49cfa7a08c6bb1c31fbba5d527881771312447dcf9d52ddf9c2227213"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/constants.py",
+          "bytes": 3604,
+          "sha256": "bfed596cf1a3001d2cd05cd5a157a0322e87da66ec388eb389a0150db03e2d24"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/docker_build.py",
+          "bytes": 18721,
+          "sha256": "0f302616c042656482e26d37d3ec6fea59ff0d5ba3f264d00cda3a707a3d0158"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/docker_utils.py",
+          "bytes": 8306,
+          "sha256": "ff7fe974ccb7058bcdb7e1045399e1be6afc6c115869127056d611cc83182675"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/dockerfiles.py",
+          "bytes": 5637,
+          "sha256": "2c0ab2349df55a8399978dac808d249fead5d539758a8d012bc09432e4be75bd"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/evolve_scripts.py",
+          "bytes": 19332,
+          "sha256": "e2ae42009611b434c803e47a1f24d729c22848ff259b346754d8226bf543c2b8"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/experiment.py",
+          "bytes": 9173,
+          "sha256": "e82b6666d70ce4a1fd5f07e6ff0ed156419fd9a7ef8be92319c34077015f8d25"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/game_server_app.py",
+          "bytes": 5716,
+          "sha256": "379572e99bbff5f89dbad92b81b88093a79a5fcee34ddefe809e821b01d8b983"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/grading.py",
+          "bytes": 7340,
+          "sha256": "ba15c46d073889858bd9005f598a782b3b0c9de8b00c72eea9c98502ca0eac56"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/judge_server.py",
+          "bytes": 42206,
+          "sha256": "77410d7e4705df03418d0676ddbb74241da7746190807cb073fbcdae3edf4e04"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/log_parsers/__init__.py",
+          "bytes": 1233,
+          "sha256": "9735a6b2e483ebc29c23ed334aa4daad16c7bfcd3fce066882004040234b4844"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/log_parsers/pytest_v.py",
+          "bytes": 4960,
+          "sha256": "b099daca030481efce96f9e8386512892844d2959b0ba63d1d2ec91a270d9ad5"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/log_parsers/score_sum.py",
+          "bytes": 2249,
+          "sha256": "49b19e223e8b5ceb6c667506cf18852d00f24c7c7c91c94c7a2623ff56a8c7fb"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/log_parsers/structured_json.py",
+          "bytes": 3379,
+          "sha256": "0162a54fe823c4de104753df8e8903b7e1547523b35de6018bfbcf686e146a4c"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/network_isolation.py",
+          "bytes": 13072,
+          "sha256": "6bfe007675bfda79a18cb15e2e95eeeee4d06b0ebc048f1e32aad31efd0193eb"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/run_agent.py",
+          "bytes": 39039,
+          "sha256": "0177a656a51250c42e77b99b96cb08cd7f73a1ddc2bf35b7b5bfe7ad8fcdd149"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/run_evaluation.py",
+          "bytes": 11154,
+          "sha256": "cbc6cd92cd9ff42adcb7a19adc7acfce94c8f727f9869fed96978a2657b2bb52"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/score_rescale.py",
+          "bytes": 7865,
+          "sha256": "98feb630390f217cb67e21315b5ca8a4f2eb6d1bb28cc9822152b3ed58be4b19"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/selection.py",
+          "bytes": 4038,
+          "sha256": "abb55b7b0466f73e4fab248dfed31ad89b1caec19b1a8117edcbf2429571cf0a"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/harness/task_spec.py",
+          "bytes": 9283,
+          "sha256": "6be45aeae6a061c0097a34b6740461a673d40e76a631975946572bdd78f8ad55"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/AGENTS.MD",
+          "bytes": 12247,
+          "sha256": "cae66b30174ae8c798c067d9c0a4a849d5027bf7ddf4dea521773645a9ce49b5"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/__init__.py",
+          "bytes": 665,
+          "sha256": "94444588096e4946f379c4ad1a911176f4d28e5691920d5d5be6ebc6eae7acbd"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/__main__.py",
+          "bytes": 1986,
+          "sha256": "c400fcfc681fc3c406bf66cf716744b70d58d72e0cd767837256f456f4334000"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/markdown.py",
+          "bytes": 10066,
+          "sha256": "6f3f258d64329d745fbfd0148305cd51965f3b867181ddad3d5ecf664487ccc5"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/models.py",
+          "bytes": 5317,
+          "sha256": "bda0291275d72152d6415c2788563ce241a5a264885ec8e9e220402cdae2160d"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/parsers/__init__.py",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/parsers/agent_output.py",
+          "bytes": 15257,
+          "sha256": "e3f015de310d57aa0461a49112eddeefd8a726e437a7aabf5ae1724e591186ad"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/parsers/codex_output.py",
+          "bytes": 6268,
+          "sha256": "803fcab0dfc210827059befab2a8461149c9fb437449459c0d6c53bdb3221090"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/parsers/opencode_output.py",
+          "bytes": 7397,
+          "sha256": "3a9b76089a4e71b1dc39c18ae8af5f9357987813e772fcd26200216bb3bb2149"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/parsers/test_output.py",
+          "bytes": 4466,
+          "sha256": "86f25b619c01c6cf026d15a9eeaae12198807cf8d2472308dbbd92981b999950"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/scanner.py",
+          "bytes": 30169,
+          "sha256": "f124d3402dc036ba05195d92f0c281c76cf45977829dfdf24704b4edaafca866"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/server.py",
+          "bytes": 39263,
+          "sha256": "807f1134b99a570c532cbe6729f757fb3f2624ed3d5fb88a9709ee32251ded90"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/templates/_judger_block.html",
+          "bytes": 356,
+          "sha256": "4b530d16068902599e2b0cf15afb15b84b61e86a6cab0b63a4c5128ee7324908"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/templates/_macros.html",
+          "bytes": 6656,
+          "sha256": "e2477e70a8f32b553caeaf2e95681895587df71de0f990cbc2d8160f4f33ff15"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/templates/_turn.html",
+          "bytes": 3484,
+          "sha256": "39f37b6271eb6b193cc68996a0a425813a0c3788fbfa5a93f9743a88adc4bd12"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/templates/base.html",
+          "bytes": 7490,
+          "sha256": "403d23b60e827a1d6edafca01c33ffae07619437885e84ec3c9d1a29189ddcd0"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/templates/compare.html",
+          "bytes": 19212,
+          "sha256": "6e9feeb6018da2e2c4d7dc9d1ac7e5e19d700dbca5a8262feca63a00adee5b8c"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/templates/compare_runs.html",
+          "bytes": 34450,
+          "sha256": "cf485b229ee45e01268b5729f132feb9299483ced7fb2421e977e6e920d33c96"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/templates/index.html",
+          "bytes": 9478,
+          "sha256": "d331ee6371d3d401b91904948cbcbbff0dd6193dc22b2d786ba754364f2e2bbd"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/templates/run_detail.html",
+          "bytes": 32983,
+          "sha256": "fadcef1cb13f5fb9e3e1dd766ab3269751aa61cda04863b8badb92c61099c751"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/templates/run_overview.html",
+          "bytes": 20415,
+          "sha256": "1558a5a280182424c2471b47ef4e4a2d649313409833b1c42a2795576e0a6a20"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/templates/submission_detail.html",
+          "bytes": 7858,
+          "sha256": "3e21686e35676691d5d0ce6b2514ec68174b1bfff6aa247f10dab4f864320053"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/templates/task.html",
+          "bytes": 2320,
+          "sha256": "90bd3668355a29205c8d88b2818710f78aa5cd2857fb656d5fa3aa9a6babd445"
+        },
+        {
+          "path": "upstream/EdgeBench/sforge/visualizer/templates/trajectory.html",
+          "bytes": 12664,
+          "sha256": "41cadc0ff3e57892ff7e4fa389332baadf164d8423deb88160662b460efd3cda"
+        }
+      ]
+    },
+    {
+      "path": "data/EdgeBench",
+      "source_url": "https://huggingface.co/datasets/ByteDance-Seed/EdgeBench",
+      "commit": "6cc5a7f1b3288ce52484ad828177b8cc86b05b75",
+      "files": [
+        {
+          "path": "data/EdgeBench/.gitattributes",
+          "bytes": 455,
+          "sha256": "75c4ce41121b6808fd8dc8c90e67e5dacef7c09e9057008ea2de2f9a2a8301cc"
+        },
+        {
+          "path": "data/EdgeBench/BENCHMARK.yaml",
+          "bytes": 2395,
+          "sha256": "143838b7d233fe8576ecc4015e2d6f009c3c8519b00c2dd7bf47ce2f1f34e918"
+        },
+        {
+          "path": "data/EdgeBench/LICENSE",
+          "bytes": 17810,
+          "sha256": "9e6a684f154ca8347e15cb054c71e98908f55660e4f91c6c0a30cc256c6781c3"
+        },
+        {
+          "path": "data/EdgeBench/README.md",
+          "bytes": 17091,
+          "sha256": "ac42b7068779da4d281780914b233b55fa39df63d792c3ef034bedaaadc1776c"
+        },
+        {
+          "path": "data/EdgeBench/ad_placement_optimization.json",
+          "bytes": 2501,
+          "sha256": "972a31a5fa45545f6fcd8d8cada27f4148fb290bf83477df2745a56a7e5b7531"
+        },
+        {
+          "path": "data/EdgeBench/anchorhead_text_adventure.json",
+          "bytes": 869,
+          "sha256": "4b92b45a34d83e21d60fa1529ec078f44f8593b0a2457345c92e82c343031cb2"
+        },
+        {
+          "path": "data/EdgeBench/ann_vector_search_qps.json",
+          "bytes": 3802,
+          "sha256": "1ba7ddb5c135b6aea5a160613d756d733feef12343ccb030535c5a365b8835cf"
+        },
+        {
+          "path": "data/EdgeBench/apple_incremental_game.json",
+          "bytes": 2245,
+          "sha256": "19021ddcbcaf966d7d43300b439862290a5c6c283aa6e6641f96efa07b34a25c"
+        },
+        {
+          "path": "data/EdgeBench/arc_compiler_runtime.json",
+          "bytes": 4018,
+          "sha256": "b79ca27d72c70b75ba4ce2fc9927ce851e0279717d50e2b06117ec0508de9052"
+        },
+        {
+          "path": "data/EdgeBench/assets/edgebench_taxonomy.png",
+          "bytes": 3101019,
+          "sha256": "410389a02424d8ead0c6e3726fe32c136b1b0fedc6d46f4d443ecad57460b4a3"
+        },
+        {
+          "path": "data/EdgeBench/assets/fig_dual_loop.png",
+          "bytes": 202592,
+          "sha256": "029020dc8b878483e07e3404f30cff729fa046ca50ccae68de6e6dbafd39e7c2"
+        },
+        {
+          "path": "data/EdgeBench/assets/fig_full_136_curve_fit_side_by_side.png",
+          "bytes": 601349,
+          "sha256": "8783935cb9eb8f2ddb80e1e3c7c9d739bd096b7e3d10f01615112e547a6a108b"
+        },
+        {
+          "path": "data/EdgeBench/assets/fig_rank_paper_panel.png",
+          "bytes": 160538,
+          "sha256": "f4ce03d135874d4348357e7da31466a448a3cd9735013e45fdd121d3be640f63"
+        },
+        {
+          "path": "data/EdgeBench/assets/logo-dark.png",
+          "bytes": 91817,
+          "sha256": "0f0d676c606d28ab80eca859042a4279b7299f79e3a6113533e899d8e05388c8"
+        },
+        {
+          "path": "data/EdgeBench/assets/logo.jpg",
+          "bytes": 233589,
+          "sha256": "4350601f82da6e581fdd45f7f2c4744d2c5127b12f27cb952a99987b3e72142a"
+        },
+        {
+          "path": "data/EdgeBench/assets/time_area_log2_curve.png",
+          "bytes": 455076,
+          "sha256": "02488f90337ff13acd8f243ad27bcf0184633147103dacc90cfb7a6eb04ba781"
+        },
+        {
+          "path": "data/EdgeBench/assets/title-dark.svg",
+          "bytes": 331,
+          "sha256": "e75fc1439c610d7b7afe3ed0b4c3eac76c5c33c1c0b45142f5d8d438f3be4d8e"
+        },
+        {
+          "path": "data/EdgeBench/assets/title.svg",
+          "bytes": 331,
+          "sha256": "6c22b80c4c28daf6c851e22b4be6f984d9b67986e92b92c38c27d109f8ed856e"
+        },
+        {
+          "path": "data/EdgeBench/bipedalwalker_locomotion_rl.json",
+          "bytes": 3099,
+          "sha256": "48c3ebf72861e30c116494df5258c278454fd503caba16de9adf971c1bc03ecb"
+        },
+        {
+          "path": "data/EdgeBench/borden_source_inversion.json",
+          "bytes": 6711,
+          "sha256": "9218658263fb2217768ff8c75d06410e9811e5022aa387f88e3c62c3e1457195"
+        },
+        {
+          "path": "data/EdgeBench/carleson_formalization.json",
+          "bytes": 1738,
+          "sha256": "361cef52c1cf5168e48b4be094c95d72a8d02d398a8bff90dad74ee1cf4d8526"
+        },
+        {
+          "path": "data/EdgeBench/college_english_exam_bank.json",
+          "bytes": 1672,
+          "sha256": "93e112ed9d4b899cff8c7f41552e0a35ce6ae2bb0bc45d109706cf39eaf0406f"
+        },
+        {
+          "path": "data/EdgeBench/combinatorial_games_formalization.json",
+          "bytes": 1681,
+          "sha256": "fca494f2aa4fd9d6efda689b846f0df908d7093c89970ea98864eca98894f531"
+        },
+        {
+          "path": "data/EdgeBench/cta_risk_budget_optimization.json",
+          "bytes": 2276,
+          "sha256": "4681d022290b1809e48481dab632a67e333b099e89cca031b41a57fd385a805c"
+        },
+        {
+          "path": "data/EdgeBench/dabic_gravity_inversion.json",
+          "bytes": 3484,
+          "sha256": "d40941617e380d97ea7e623a1e2acaa343974f1eb33ba8d86da338d04777eb34"
+        },
+        {
+          "path": "data/EdgeBench/dcss_dungeon_ai.json",
+          "bytes": 10854,
+          "sha256": "7d89425a7b6e072e3ff3b4faf4cd171b60946584c4dd33cabdad298af20a42a4"
+        },
+        {
+          "path": "data/EdgeBench/equivalence_class_divide_and_conquer.json",
+          "bytes": 1696,
+          "sha256": "df4775dfc899bb408dab3b5da808a1afecbfd86adbae9cf0d3508185c686db8e"
+        },
+        {
+          "path": "data/EdgeBench/exchange_core_throughput.json",
+          "bytes": 3319,
+          "sha256": "fc64c74d1aadd48547407dd4ed66d7473dc8d49e05b66fe460d2513361c18e2f"
+        },
+        {
+          "path": "data/EdgeBench/ffmpeg_swscale_reimplementation.json",
+          "bytes": 22153,
+          "sha256": "671c78a14cd9144d4b9e14ca6cf1b61230bb88d29e1565849f509353a9b27b3b"
+        },
+        {
+          "path": "data/EdgeBench/flt_regular_formalization.json",
+          "bytes": 1811,
+          "sha256": "57950a57b88ad09203554da4d1b5b917958a1078024764780bced8afcd428a61"
+        },
+        {
+          "path": "data/EdgeBench/git_rewrite_in_zig.json",
+          "bytes": 1865,
+          "sha256": "6ae15eab2468ec372b36ae6101310d21c34803d147fa79752c3fe55f154a7332"
+        },
+        {
+          "path": "data/EdgeBench/graph_node_classification.json",
+          "bytes": 1033,
+          "sha256": "330c5d616fcdaca2504751e841fb170fad18131d4e6a43dad31e3912fa2b0f84"
+        },
+        {
+          "path": "data/EdgeBench/grid_turing_robot.json",
+          "bytes": 2190,
+          "sha256": "b88eff2092c1cd10f2356746f0e486f094d09c0c3966497ad1a798f7e7b83948"
+        },
+        {
+          "path": "data/EdgeBench/integer_compression_codec.json",
+          "bytes": 2270,
+          "sha256": "50f4e9ef6f84164b65d66d3e2c368837b928de1729ce8bfcf8a34c1e5b4d84ee"
+        },
+        {
+          "path": "data/EdgeBench/jagua_nesting_optimization.json",
+          "bytes": 1770,
+          "sha256": "5d8f64ebd76218d8636c21aef8bb63b70348e037fad666e9f711450e58a747e7"
+        },
+        {
+          "path": "data/EdgeBench/juliet_vulnerability_analyzer.json",
+          "bytes": 2333,
+          "sha256": "4432f442d75c2663a94da0bf33381df5b43300a05d438d3d8459b473461516fa"
+        },
+        {
+          "path": "data/EdgeBench/k12_math_recommendation.json",
+          "bytes": 1038,
+          "sha256": "550851358d3cab943dc0cf8ccfd7047afe11c923666855aecf434d3a0d2760ea"
+        },
+        {
+          "path": "data/EdgeBench/lean_analysis_proofs.json",
+          "bytes": 1589,
+          "sha256": "393385a2974bca00a43f988697c5cd63cc0b0267891d3a1859fe7c5866f5b18d"
+        },
+        {
+          "path": "data/EdgeBench/molecular_self_assembly.json",
+          "bytes": 2192,
+          "sha256": "e8569e3a42da7c685fc93367701d844aefe2d4d9e541919fca298501efa41717"
+        },
+        {
+          "path": "data/EdgeBench/nethack_dungeon_agent.json",
+          "bytes": 7277,
+          "sha256": "90a9ba87c5f50d17f8a369c34477818035b3d8e2f792076e8cb06d672f958fcb"
+        },
+        {
+          "path": "data/EdgeBench/new_foundations_consistency.json",
+          "bytes": 1732,
+          "sha256": "37ea0a38e797f0172f335348f02a09e3886c01fa81bcb915025d6bafd081f55a"
+        },
+        {
+          "path": "data/EdgeBench/openrct2_theme_park_ai.json",
+          "bytes": 7181,
+          "sha256": "09e2a4d83cb14b735a04f43a40764806d05cadc4206d293c5bd3f211cc051449"
+        },
+        {
+          "path": "data/EdgeBench/openttd_transport_ai.json",
+          "bytes": 2741,
+          "sha256": "7ec35c5f0065dd4b2e621077cc38491382899611a4c5fee9398dc62148bb0bd5"
+        },
+        {
+          "path": "data/EdgeBench/order_addition_permutation_optimization.json",
+          "bytes": 7367,
+          "sha256": "d27df71e7e05146b3c8ac49932ea789e5c3d30f53bb538d8d79a8f2ef7d8b84f"
+        },
+        {
+          "path": "data/EdgeBench/ordinal_notation_well_foundedness.json",
+          "bytes": 1233,
+          "sha256": "8656fb3da6d93d263be514baffaf85577770e22b69424f8bcd16f6991d45ddb8"
+        },
+        {
+          "path": "data/EdgeBench/pfr_formalization.json",
+          "bytes": 1688,
+          "sha256": "d26b45a9d189eca28d49570bf7d9e292240840f619d7cdb5087758ca1ae677d0"
+        },
+        {
+          "path": "data/EdgeBench/portfolio_risk_calibration.json",
+          "bytes": 1017,
+          "sha256": "0343ac03f42042ff9053cb1809d106dac9311e5fe7d9bab353eab4ad1b078cb1"
+        },
+        {
+          "path": "data/EdgeBench/rust_multicrate_reconstruction.json",
+          "bytes": 7746,
+          "sha256": "9c6823f5874adf3b0a8d810b6801eda901f799cd0f5c964616010e61d8505173"
+        },
+        {
+          "path": "data/EdgeBench/schemathesis_config_modernization.json",
+          "bytes": 8292,
+          "sha256": "04ef947e4a7ed2ff86122ef7cd6fedc2c246c56f5ccecd8cdceea3b063539ab5"
+        },
+        {
+          "path": "data/EdgeBench/schemathesis_datagen_pipeline.json",
+          "bytes": 8282,
+          "sha256": "446b568d02621af5b9edd567fb806f32ed009bbc5308b7e7cb547bf1b851a4e5"
+        },
+        {
+          "path": "data/EdgeBench/schemathesis_reporting_observability.json",
+          "bytes": 8298,
+          "sha256": "4c199f9286f7def2c9d3f3f1b0a35a85f547f2794d4ed81abaf6c74083731e69"
+        },
+        {
+          "path": "data/EdgeBench/smt_solver.json",
+          "bytes": 4685,
+          "sha256": "3dd31c12948fae9aa6e8d8b599ddc6c4d93348fb1c89301698c9a0dc6043c11f"
+        },
+        {
+          "path": "data/EdgeBench/sphere_eversion_formalization.json",
+          "bytes": 1649,
+          "sha256": "089f12486481efd49688c1eda67823dd9b3b4026c4cfecf047484f1132b217c4"
+        },
+        {
+          "path": "data/EdgeBench/tasks.jsonl",
+          "bytes": 20489,
+          "sha256": "7e7b9b4d591162dbdbea341f5464e4cf7944a496c9f8ffa629dada822170bfd6"
+        },
+        {
+          "path": "data/EdgeBench/treant_forest.json",
+          "bytes": 2175,
+          "sha256": "2fdb98ce1166a1fea4743c2ae1613479bdf9eaf755cab190bfd931bc547a615e"
+        },
+        {
+          "path": "data/EdgeBench/tree_block_partitioning.json",
+          "bytes": 1670,
+          "sha256": "44b08d0d5f7bd4660a3d2a073496a820798762724491d6f0bc1fdc7994b51be4"
+        },
+        {
+          "path": "data/EdgeBench/triangulation_coloring_optimization.json",
+          "bytes": 2697,
+          "sha256": "4def4778920ad41c00f14a01c17ccbe2d749431fe835917806c6f5274b8621b7"
+        },
+        {
+          "path": "data/EdgeBench/trinity_text_adventure.json",
+          "bytes": 858,
+          "sha256": "7364a0121b674177006567c7dc4e7365268c3547d647d956c835db04fd2fc0ee"
+        },
+        {
+          "path": "data/EdgeBench/tryst_text_adventure.json",
+          "bytes": 867,
+          "sha256": "a6e4815a7f300f53ac430c2962da256ed8bc5f6552d6e188cd6dfafa78c51b5f"
+        },
+        {
+          "path": "data/EdgeBench/vehicle_routing_time_windows.json",
+          "bytes": 11809,
+          "sha256": "5dc47728618f81deda92fbca50f7dcdff2e72589bc197cfab3a1e95edb0ff427"
+        },
+        {
+          "path": "data/EdgeBench/vibrating_path_graph_coloring.json",
+          "bytes": 2115,
+          "sha256": "d3bba05490f7a44245ed836c4efc6e2723399a40ffecaee39c47cdf9d29dc9a8"
+        },
+        {
+          "path": "data/EdgeBench/vliw_kernel_optimization.json",
+          "bytes": 4090,
+          "sha256": "b6861e44630e1815b25e79f84b95bbd2a9e0941d218e5934a0a7e659c4b657d3"
+        },
+        {
+          "path": "data/EdgeBench/warehouse_forklift_routing.json",
+          "bytes": 3370,
+          "sha256": "780025706c0b3201025f240e25b742f179c32c25be487d4802f074264b8cbd1c"
+        },
+        {
+          "path": "data/EdgeBench/wesnoth_tactical_ai.json",
+          "bytes": 5138,
+          "sha256": "b03e7eaafb4bddc146b82d80c38eb7222d4b2d3d7130253a2fc5b4903324cf63"
+        },
+        {
+          "path": "data/EdgeBench/wireless_electricity_layout.json",
+          "bytes": 3546,
+          "sha256": "050ab35f99431e94ee6279fcd23dc06c9a795ee7b9f26b7d9ec4eadb3e060809"
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "path": "papers/edgebench-2607.05155.pdf",
+      "text_path": "papers/edgebench-2607.05155.txt",
+      "source_url": "https://arxiv.org/abs/2607.05155",
+      "download_url": "https://arxiv.org/pdf/2607.05155",
+      "arxiv_version": "v1",
+      "immutable_url": "https://arxiv.org/pdf/2607.05155v1",
+      "sha256": "cd210b1d5409b77b397e1866146a9acafc6b505acabcee1fb4c034ffdbf5db54",
+      "bytes": 7513067
+    },
+    {
+      "path": "papers/reasoning-gym-2505.24760.pdf",
+      "text_path": "papers/reasoning-gym-2505.24760.txt",
+      "source_url": "https://arxiv.org/abs/2505.24760",
+      "download_url": "https://arxiv.org/pdf/2505.24760",
+      "arxiv_version": "v2",
+      "immutable_url": "https://arxiv.org/pdf/2505.24760v2",
+      "sha256": "3a7942a9565df9744008b1f3110da24f5a2f30efc11ed0c4e611560e7664efac",
+      "bytes": 2858388
+    },
+    {
+      "path": "papers/ale-bench-2506.09050.pdf",
+      "text_path": "papers/ale-bench-2506.09050.txt",
+      "source_url": "https://arxiv.org/abs/2506.09050",
+      "download_url": "https://arxiv.org/pdf/2506.09050",
+      "arxiv_version": "v2",
+      "immutable_url": "https://arxiv.org/pdf/2506.09050v2",
+      "sha256": "afb8481e20f07228260b5d1da38da663b3991363dae07cbe9a8ae1e7896e94c9",
+      "bytes": 4021944
+    },
+    {
+      "path": "papers/re-bench-2411.15114.pdf",
+      "text_path": "papers/re-bench-2411.15114.txt",
+      "source_url": "https://arxiv.org/abs/2411.15114",
+      "download_url": "https://arxiv.org/pdf/2411.15114",
+      "arxiv_version": "v2",
+      "immutable_url": "https://arxiv.org/pdf/2411.15114v2",
+      "sha256": "9d25c5ea6abfeeb40b5c8fa7a8e637cd8785d2a0f022f2798c33769af8d66992",
+      "bytes": 15256217
+    },
+    {
+      "path": "papers/mle-bench-2410.07095.pdf",
+      "text_path": "papers/mle-bench-2410.07095.txt",
+      "source_url": "https://arxiv.org/abs/2410.07095",
+      "download_url": "https://arxiv.org/pdf/2410.07095",
+      "arxiv_version": "v6",
+      "immutable_url": "https://arxiv.org/pdf/2410.07095v6",
+      "sha256": "1dab9a33edeab25ea359c4d6857d03512ccd47ed5782631031cfe8dcbebe7988",
+      "bytes": 817725
+    }
+  ],
+  "acquisition_scope": {
+    "public_task_definitions": 51,
+    "full_task_metadata_from_paper": 134,
+    "hf_lfs_assets_resolved_and_verified": true,
+    "docker_images_pulled": false,
+    "hidden_data_and_evaluators_inspected_inside_images": false,
+    "model_evaluations_run": false,
+    "notes": "Task definitions and paper metadata are distinct from image-contained runtime data and graders."
+  }
+}

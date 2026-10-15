@@ -1,0 +1,41 @@
+{
+  "observed_utc": "2026-10-15T12:46:01.790293+00:00",
+  "taxonomy": {
+    "M1": {
+      "name": "产品级多目标演进",
+      "count": 13,
+      "public_count": 3
+    },
+    "M2": {
+      "name": "按规格构建完整系统能力",
+      "count": 12,
+      "public_count": 2
+    },
+    "M3": {
+      "name": "正确性约束下的系统性能优化",
+      "count": 6,
+      "public_count": 5
+    },
+    "M4": {
+      "name": "跨模块或跨crate实现恢复",
+      "count": 3,
+      "public_count": 1
+    },
+    "M5": {
+      "name": "行为兼容重实现与语言移植",
+      "count": 2,
+      "public_count": 1
+    }
+  },
+  "tests": {
+    "command": ".venv/bin/python -m unittest discover -s tests -p test_swe_pipeline.py -v",
+    "log": "verification.log",
+    "passed": 8
+  },
+  "source_harvest": "primary-source-leads/summary.json",
+  "native_author_status": "../../runs/swe-route-authoring-005-20261015-r3/STATUS.md",
+  "constructing": 5,
+  "teacher_runs_started": 0,
+  "qualified_new_tasks": 0,
+  "controller_sha256": "4c8460623aa0268fb1585c8566667d932557c54f7047eea7c36f8bdebed3c057"
+}

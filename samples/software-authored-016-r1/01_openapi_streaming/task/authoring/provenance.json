@@ -1,0 +1,79 @@
+{
+  "id": "openapi-streaming-contexts",
+  "authoring_method": "original engineering evolution on fixed upstream; new contract and independent observable probes",
+  "source": {
+    "url": "https://github.com/openapi-generators/openapi-python-client.git",
+    "revision": "0a283fe21eeaa23046faf622d4ff4b2c826d2edb",
+    "license": "MIT",
+    "license_sha256": "e1da71418a98d030776936ae46ba9846ebba05536c3d225d61e513dec1faa506",
+    "tracked_files": 488,
+    "full_checkout": "../../material-src/openapi-python-client",
+    "sha256_inventory": "source-manifest.json"
+  },
+  "reference": {
+    "base_revision": "0a283fe21eeaa23046faf622d4ff4b2c826d2edb",
+    "reference_commit": "1e114ab2d00e83f07faef3398f5a1e2e51465b95",
+    "tree": "59cb9a82d13483b96d80ca63e3d488ec821d8159",
+    "branch": "author/streaming-reference",
+    "changed_files": [
+      "openapi_python_client/parser/openapi.py",
+      "openapi_python_client/parser/responses.py",
+      "openapi_python_client/templates/endpoint_macros.py.jinja",
+      "openapi_python_client/templates/endpoint_module.py.jinja",
+      "openapi_python_client/templates/streaming_endpoint.py.jinja"
+    ],
+    "baseline_HEAD_unchanged": true
+  },
+  "inputs": {
+    "card": "01_openapi_streaming.md from supplied batch inputs",
+    "source_manifest": "01_openapi_streaming/manifest.json from supplied batch inputs",
+    "batch_report": "inputs/REPORT.md",
+    "guidance": [
+      "factory-methods.md",
+      "package-contract.md",
+      "source-selection.md",
+      "material-and-scoring.md",
+      "reference-anchors.md",
+      "harbor-0.23.0-task-config.py"
+    ]
+  },
+  "model": {
+    "requested": "gpt-6.1-sol",
+    "parent_status_recorded": "gpt-6.1-sol",
+    "evidence": "../../status.json",
+    "additional_model_sessions_started": 0,
+    "subagents_started": 0
+  },
+  "transformation": {
+    "public_starter": "full upstream tracked tree unchanged",
+    "reference_changed_files": [
+      "openapi_python_client/parser/openapi.py",
+      "openapi_python_client/parser/responses.py",
+      "openapi_python_client/templates/endpoint_macros.py.jinja",
+      "openapi_python_client/templates/endpoint_module.py.jinja",
+      "openapi_python_client/templates/streaming_endpoint.py.jinja"
+    ],
+    "new_assets": [
+      "original OpenAPI fixture",
+      "root HTTP observer",
+      "unprivileged SDK exerciser",
+      "semantic grouped grader",
+      "packaging and controls"
+    ],
+    "existing_upstream_features_reused": [
+      "httpx.iter_lines/aiter_lines",
+      "model conversion",
+      "client injection",
+      "multipart file arrays"
+    ]
+  },
+  "leakage_split": {
+    "work_context": "environment only: public upstream, public schema and smoke, baseline wheel",
+    "judge_context": "verifier only: root expectations/native regressions/reference patch, immutable test harness",
+    "oracle_injection": "solution/reference, separate from work image",
+    "author_audit": "authoring/control-evidence plus job evidence; absent work image"
+  },
+  "trajectory": "../../trajectory.jsonl retained by parent, contents not rewritten",
+  "teacher_rollouts_started": 0,
+  "edgebench_original_hidden_tests_used": false
+}

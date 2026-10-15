@@ -1,0 +1,10 @@
+{
+  "previous_revision": "game-task-r2",
+  "change": [
+    "honor all engine entropy sources with trusted per-game seed",
+    "invalid submission zero gate retains raw match mean"
+  ],
+  "source_commit": "8ba2b3ebd33f6850c2dc4fe7c6478c7e4f9fc3fd",
+  "score_constants_unchanged": true,
+  "six_hour_difficulty": "not_measured"
+}

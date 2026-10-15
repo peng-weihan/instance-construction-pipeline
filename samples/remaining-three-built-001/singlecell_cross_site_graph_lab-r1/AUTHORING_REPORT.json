@@ -1,0 +1,14 @@
+{
+  "state": "constructed_unverified",
+  "synthetic_measurements": false,
+  "model_runs": 0,
+  "docker_verified": false,
+  "native_harbor_verified": false,
+  "open_gaps": [
+    "strong baseline runtime and cheap shortcut screening",
+    "Harbor schema/environment mapping",
+    "six-hour difficulty and growth",
+    "offline Torch toolchain availability and optional graph baseline"
+  ],
+  "construction": "real source data -> training-only feature and class selection -> fixed cross-site splits -> frozen prediction verifier"
+}

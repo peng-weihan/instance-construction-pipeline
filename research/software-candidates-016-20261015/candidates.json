@@ -1,0 +1,1022 @@
+{
+  "batch": "software-candidates-016-20261015",
+  "created_utc": "2026-10-15T09:32:35.222028+00:00",
+  "candidates": [
+    {
+      "id": "01_openapi_streaming",
+      "priority": "P1",
+      "license_observation": "MIT；保留 LICENSE 和贡献者声明。",
+      "edgebench_analogue": "schemathesis_datagen_pipeline / reporting_observability：改造框架生产代码。",
+      "proposed_task": "为真实 Python SDK 生成器增加一个完整的流式端点合同：同步/异步 NDJSON 迭代、取消与关闭、端点认证覆盖；再验证它与 multipart 模型编码及共享 client 的交互。",
+      "existing_capability": "已有 sync/async API、认证 client、multipart 与 client 生命周期；CHANGELOG 已记载多次 multipart 修复。这里的新需求是联合合同，不能把上述现有能力统称为缺失。",
+      "artifact_scope": [
+        "生成器解析/模型层、Jinja 模板、生成包的公开签名",
+        "在离线本地服务上执行生成后的 SDK；只改内部 schema helper 不算完成"
+      ],
+      "reference_plan": "先写独立 HTTP 观测器记录请求、迭代时序与关闭事件；参考分支需真正生成并运行包，不能用与 candidate 相同 helper 自证。旧参考只覆盖旧 profile。",
+      "score_dimensions": [
+        "逐记录流式交付且不预读完整响应",
+        "正常/异常/取消的资源关闭",
+        "sync/async 与类型签名一致",
+        "匿名/认证覆盖且无凭据串用",
+        "multipart 与历史生成回归"
+      ],
+      "post_two_hour_hypotheses": [
+        "已有流式 happy path 后，处理分块 UTF-8、半条记录、取消与复用连接的交互",
+        "完善 auth 覆盖、文件数组及多媒体类型与生成导入的联合兼容"
+      ],
+      "cheap_strong_baseline": "给作者一个直接改模板、复用 httpx.iter_lines 的强基线；若几处模板修改即可过完整联合合同，缩小优先级，不能靠加同类样例保住难度。",
+      "first_falsification_probe": "先在固定 commit 复现 ROADMAP 中的具体案例，再用最小 stream 模板补丁跑完整端到端行为矩阵。",
+      "construction_risks": [
+        "issue 状态不能代替固定版本复现；multipart 部分已实现",
+        "NDJSON 是本批拟定合同，尚无该合同的完整参考分支",
+        "完整离线依赖与隐藏集尚未冻结"
+      ],
+      "evidence": [
+        {
+          "path": "sources/01_openapi_streaming/files/openapi_python_client/templates/endpoint_module.py.jinja",
+          "line": 81,
+          "claim": "真实端点模板和解析入口",
+          "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/openapi_python_client/templates/endpoint_module.py.jinja#L81"
+        },
+        {
+          "path": "sources/01_openapi_streaming/files/CHANGELOG.md",
+          "line": 287,
+          "claim": "已有 multipart 改动历史",
+          "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/CHANGELOG.md#L287"
+        }
+      ],
+      "previous_profile": "samples/software-multiline-001/01_openapi；旧 schema profile 本地满分但已拒作长程题；r2/ROADMAP.md 只有新设计。",
+      "family": "engineering_evolution",
+      "title": "流式SDK、取消与资源生命周期",
+      "new_source": false,
+      "repo": "openapi-generators/openapi-python-client",
+      "revision": "0a283fe21eeaa23046faf622d4ff4b2c826d2edb",
+      "readiness": "source_evidence_acquired_design_proposed",
+      "task_package_complete": false,
+      "six_hour_difficulty_verified": false,
+      "teacher_rollouts_started_for_this_profile": 0,
+      "constructor_model_run_for_this_batch": false,
+      "source_manifest": "sources/01_openapi_streaming/manifest.json",
+      "grading_status": "dimensions_proposed_not_frozen_no_scores_or_endpoints_measured"
+    },
+    {
+      "id": "02_restler_recovery",
+      "priority": "P1",
+      "license_observation": "MIT；另行固定实际被测服务及其许可。",
+      "edgebench_analogue": "Schemathesis 工程演进类；相似的是框架状态与执行链改造，不复用原题需求。",
+      "proposed_task": "让 RESTler 的真实 BFS campaign 支持可恢复执行：持久化 generation、请求/资源 journal，在外部服务重启、响应丢失及进程崩溃后恢复一致状态。",
+      "existing_capability": "driver 已调用 saver，但固定版本 saver.save 直接 return，load 也提前返回默认状态。旧代码中的 pickle 路径不是已启用的生产恢复机制。",
+      "artifact_scope": [
+        "CLI→driver→checkpoint/journal 的真实入口",
+        "真实服务、资源创建/清理与重放边界；通过落盘代码文件提交，由 judge 每次新启动 campaign"
+      ],
+      "reference_plan": "控制器在确定的请求序号注入故障，保存服务端审计记录，与不停机对照及独立资源状态检查比对。不能仅测 save/load 函数。",
+      "score_dimensions": [
+        "checkpoint 原子性与损坏回退",
+        "恢复后的 BFS generation/覆盖语义",
+        "资源与依赖状态一致",
+        "重试/重放的重复副作用控制",
+        "CLI 配置、并发和回归"
+      ],
+      "post_two_hour_hypotheses": [
+        "持久化跑通后，解决响应丢失时请求是否执行的歧义及服务端资源复用",
+        "进一步解决多个请求序列、并发 worker、清理失败与 checkpoint 的交互"
+      ],
+      "cheap_strong_baseline": "先试只移除 early return、修 pickle、加原子 rename 的基线；它若已覆盖所有评分，说明新题仍退化为小修复。",
+      "first_falsification_probe": "用实际 RESTler CLI 对真实 Polaris 服务完成一次按序号注入的 kill/restart；确认旧 component 高分不能通过这个完整场景。",
+      "construction_risks": [
+        "旧小样只有组件闭环，正式 score 仍无效",
+        "Polaris 本地曾缺 Java；需要实际 .NET/Java 服务构建链，不能换成 toy 服务冒充",
+        "exactly-once 只有协议允许时才可要求，必须明确允许的幂等键与服务能力"
+      ],
+      "evidence": [
+        {
+          "path": "sources/02_restler_recovery/files/restler/utils/saver.py",
+          "line": 12,
+          "claim": "真实 saver 入口；下方有 early return",
+          "url": "https://github.com/microsoft/restler-fuzzer/blob/6d984deedbc54aad957fa3da0c7e9e5df23a2aee/restler/utils/saver.py#L12"
+        },
+        {
+          "path": "sources/02_restler_recovery/files/restler/engine/core/driver.py",
+          "line": 695,
+          "claim": "driver 加载 checkpoint 的调用",
+          "url": "https://github.com/microsoft/restler-fuzzer/blob/6d984deedbc54aad957fa3da0c7e9e5df23a2aee/restler/engine/core/driver.py#L695"
+        }
+      ],
+      "previous_profile": "samples/software-multiline-001/02_restler；组件参考 6/6 不能迁移为完整题 Oracle。",
+      "family": "engineering_evolution",
+      "title": "真实campaign的崩溃恢复与状态一致性",
+      "new_source": false,
+      "repo": "microsoft/restler-fuzzer",
+      "revision": "6d984deedbc54aad957fa3da0c7e9e5df23a2aee",
+      "readiness": "source_evidence_acquired_design_proposed",
+      "task_package_complete": false,
+      "six_hour_difficulty_verified": false,
+      "teacher_rollouts_started_for_this_profile": 0,
+      "constructor_model_run_for_this_batch": false,
+      "source_manifest": "sources/02_restler_recovery/manifest.json",
+      "grading_status": "dimensions_proposed_not_frozen_no_scores_or_endpoints_measured"
+    },
+    {
+      "id": "03_httpx_transport",
+      "priority": "P2",
+      "license_observation": "BSD-3-Clause，依据 LICENSE.md；依赖另查。",
+      "edgebench_analogue": "vault_sdk_resilience / litestar_infra_refactor：跨层资源与执行策略。",
+      "proposed_task": "给 HTTPX 增加明确的请求执行策略合同：重试预算、可重放 body、认证/重定向边界与结构化执行事件，同时覆盖同步和异步。这是新需求提案，不是已确认上游 bug。",
+      "existing_capability": "固定源码已有 auth flow、redirect chain、sync/async transport 关闭，以及取消时关闭连接的测试。不能把已有取消清理再包装成新任务。",
+      "artifact_scope": [
+        "修改 Client/AsyncClient 的执行链及公开配置",
+        "输出机器可读但不泄漏敏感头的事件；候选实现作为库被真实调用"
+      ],
+      "reference_plan": "独立 scripted transport/loopback server 按事件序号返回响应；外部观测实际请求与 close 次数，冻结 clock 与 backoff。",
+      "score_dimensions": [
+        "重试和 redirect 共享预算",
+        "流式 body 的可重放性",
+        "跨 origin 认证边界",
+        "取消/异常时的关闭",
+        "事件语义与原 API 兼容"
+      ],
+      "post_two_hour_hypotheses": [
+        "基础重试之后处理 auth challenge、redirect 和不能 rewind 的 body",
+        "处理异步取消、部分响应消费与连接释放的交互"
+      ],
+      "cheap_strong_baseline": "tenacity 风格 wrapper 加 MockTransport 可能很快覆盖需求；允许正常依赖，先验证 wrapper，不能靠禁库制造难度。",
+      "first_falsification_probe": "把当前已有能力和拟增需求逐项对照，再构造一个最薄 wrapper；若不改执行链即满足合同则暂停此候选。",
+      "construction_risks": [
+        "需求组合若缺乏共同原因，容易成为人为拼接",
+        "尚无固定的新需求参考实现或已复现缺陷",
+        "已有功能完备，早满风险高"
+      ],
+      "evidence": [
+        {
+          "path": "sources/03_httpx_transport/files/httpx/_client.py",
+          "line": 930,
+          "claim": "现有认证执行链",
+          "url": "https://github.com/encode/httpx/blob/b5addb64f0161ff6bfe94c124ef76f6a1fba5254/httpx/_client.py#L930"
+        },
+        {
+          "path": "sources/03_httpx_transport/files/tests/client/test_async_client.py",
+          "line": 330,
+          "claim": "已有取消场景测试",
+          "url": "https://github.com/encode/httpx/blob/b5addb64f0161ff6bfe94c124ef76f6a1fba5254/tests/client/test_async_client.py#L330"
+        }
+      ],
+      "previous_profile": null,
+      "family": "engineering_evolution",
+      "title": "传输、重定向、认证与流式关闭的联合演进",
+      "new_source": true,
+      "repo": "encode/httpx",
+      "revision": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+      "readiness": "source_evidence_acquired_design_proposed",
+      "task_package_complete": false,
+      "six_hour_difficulty_verified": false,
+      "teacher_rollouts_started_for_this_profile": 0,
+      "constructor_model_run_for_this_batch": false,
+      "source_manifest": "sources/03_httpx_transport/manifest.json",
+      "grading_status": "dimensions_proposed_not_frozen_no_scores_or_endpoints_measured"
+    },
+    {
+      "id": "04_pytest_fixtures",
+      "priority": "P2",
+      "license_observation": "MIT；第三方插件许可和版本需独立固定。",
+      "edgebench_analogue": "copier_modular_refactor / schemathesis_config_modernization：开发工具跨层演进。",
+      "proposed_task": "实现 fixture 执行图与失效原因诊断：在参数切换、动态 getfixturevalue、setup/teardown 失败和插件 hook 下，输出可复现的依赖及清理事件。",
+      "existing_capability": "pytest 已有 fixture 缓存、依赖 finalizer 注册、缓存失效与多个 finalizer 异常处理；本候选增量是一个公开、稳定且不扰动行为的诊断合同。",
+      "artifact_scope": [
+        "fixture 执行器、收集/报告与 plugin hooks",
+        "提交可安装源码，judge 在多个子进程收集行为和诊断，不能只分析静态测试文本"
+      ],
+      "reference_plan": "独立 fixture 体写事件日志，对照实际 setup/teardown 次序；正常 pytest 运行是行为基线，新增诊断需要独立期望生成器。",
+      "score_dimensions": [
+        "依赖关系含动态请求",
+        "缓存命中/失效原因",
+        "异常后的 finalizer 顺序",
+        "plugin hook 与报告一致",
+        "开启/关闭诊断时行为不变"
+      ],
+      "post_two_hour_hypotheses": [
+        "简单 DAG 后处理动态 fixture 和参数缓存失效",
+        "处理多个 teardown 异常、跨 scope 依赖及 plugin 重入"
+      ],
+      "cheap_strong_baseline": "纯 pytest plugin 可以直接观察很多 hooks；先实现常规 plugin 基线，若已近满则无需改 core，也应降低此路线优先级。",
+      "first_falsification_probe": "用现成 hooks 编写最小诊断 plugin，并验证它是否能区分实际缓存失效和重复 finalization；先证实 core 改造必要性。",
+      "construction_risks": [
+        "目前是新诊断需求，不是复现完成的真实 bug",
+        "容易把测试条数误当工作量",
+        "插件版本组合多，必须冻结实际支持边界"
+      ],
+      "evidence": [
+        {
+          "path": "sources/04_pytest_fixtures/files/src/_pytest/fixtures.py",
+          "line": 1206,
+          "claim": "已有 finalization",
+          "url": "https://github.com/pytest-dev/pytest/blob/c9c19f8e62c12834ad83193a1869cc82fe9c700e/src/_pytest/fixtures.py#L1206"
+        },
+        {
+          "path": "sources/04_pytest_fixtures/files/src/_pytest/fixtures.py",
+          "line": 1231,
+          "claim": "已有缓存和依赖执行",
+          "url": "https://github.com/pytest-dev/pytest/blob/c9c19f8e62c12834ad83193a1869cc82fe9c700e/src/_pytest/fixtures.py#L1231"
+        },
+        {
+          "path": "sources/04_pytest_fixtures/files/doc/en/explanation/fixtures.rst",
+          "line": 79,
+          "claim": "fixture scope 文档",
+          "url": "https://github.com/pytest-dev/pytest/blob/c9c19f8e62c12834ad83193a1869cc82fe9c700e/doc/en/explanation/fixtures.rst#L79"
+        }
+      ],
+      "previous_profile": null,
+      "family": "engineering_evolution",
+      "title": "fixture生命周期、动态收集与插件交互",
+      "new_source": true,
+      "repo": "pytest-dev/pytest",
+      "revision": "c9c19f8e62c12834ad83193a1869cc82fe9c700e",
+      "readiness": "source_evidence_acquired_design_proposed",
+      "task_package_complete": false,
+      "six_hour_difficulty_verified": false,
+      "teacher_rollouts_started_for_this_profile": 0,
+      "constructor_model_run_for_this_batch": false,
+      "source_manifest": "sources/04_pytest_fixtures/manifest.json",
+      "grading_status": "dimensions_proposed_not_frozen_no_scores_or_endpoints_measured"
+    },
+    {
+      "id": "05_uv_resolution",
+      "priority": "P1",
+      "license_observation": "Apache-2.0 OR MIT；实际离线包索引中的包逐项另查。",
+      "edgebench_analogue": "Packer 插件/配置演进、依赖类型检查器：约束传播与兼容性。",
+      "proposed_task": "在 uv 中实现跨环境 lock 更新计划与机器可读解释：输入旧 lock 和变更，保持未受影响解稳定，解释 marker 分叉、受影响依赖及冲突；不是从零重新实现已有 universal resolver。",
+      "existing_capability": "universal lock、marker 分叉、workspace、lock 更新和冲突处理均已存在。新增合同必须明确超出 uv lock / --upgrade-package 的哪些输出和稳定性保证。",
+      "artifact_scope": [
+        "resolver、lock serialization 和新的 update-plan CLI/API",
+        "固定的本地 wheel/metadata 索引；不同 Python/platform marker 的离线目标矩阵"
+      ],
+      "reference_plan": "用小图穷举所有合法解验证计划/解释；大图对照固定 uv 参考结果和声明的稳定性目标。新计划的完整参考分支待写。",
+      "score_dimensions": [
+        "各环境依赖解合法",
+        "不必要变更受控",
+        "marker 分叉与合并",
+        "解释可追溯到输入约束",
+        "冲突诊断及 lock 可往返"
+      ],
+      "post_two_hour_hypotheses": [
+        "单环境解之后处理 extras、workspace 和跨平台分叉",
+        "在正确性保持下减少锁文件扰动并保证解释与最终解一致"
+      ],
+      "cheap_strong_baseline": "先调用现有 uv lock 再做 lock diff 和约束回溯；若这已满足合同，则是短脚本题，不应升级为长程。",
+      "first_falsification_probe": "用本地微型索引给出现有 uv + diff 的一个明确反例，并为小图计划写独立穷举检查器。",
+      "construction_risks": [
+        "计划目标和最小变更的偏序需先定义，不能把所有无关升级都判错",
+        "包数据与 Rust 依赖尚未完整 vendor",
+        "索引规模本身不是推理难度证据"
+      ],
+      "evidence": [
+        {
+          "path": "sources/05_uv_resolution/files/docs/concepts/resolution.md",
+          "line": 407,
+          "claim": "已有 universal resolution 文档",
+          "url": "https://github.com/astral-sh/uv/blob/9385290f1bf895cb3f587118ce92cce9a0585f77/docs/concepts/resolution.md#L407"
+        },
+        {
+          "path": "sources/05_uv_resolution/files/crates/uv-resolver/src/resolver/mod.rs",
+          "line": 53,
+          "claim": "实际 resolver 实现",
+          "url": "https://github.com/astral-sh/uv/blob/9385290f1bf895cb3f587118ce92cce9a0585f77/crates/uv-resolver/src/resolver/mod.rs#L53"
+        },
+        {
+          "path": "sources/05_uv_resolution/files/crates/uv/tests/lock/lock.rs",
+          "line": 45,
+          "claim": "真实 lock 回归入口",
+          "url": "https://github.com/astral-sh/uv/blob/9385290f1bf895cb3f587118ce92cce9a0585f77/crates/uv/tests/lock/lock.rs#L45"
+        }
+      ],
+      "previous_profile": null,
+      "family": "engineering_evolution",
+      "title": "跨环境依赖解析与增量锁定",
+      "new_source": true,
+      "repo": "astral-sh/uv",
+      "revision": "9385290f1bf895cb3f587118ce92cce9a0585f77",
+      "readiness": "source_evidence_acquired_design_proposed",
+      "task_package_complete": false,
+      "six_hour_difficulty_verified": false,
+      "teacher_rollouts_started_for_this_profile": 0,
+      "constructor_model_run_for_this_batch": false,
+      "source_manifest": "sources/05_uv_resolution/manifest.json",
+      "grading_status": "dimensions_proposed_not_frozen_no_scores_or_endpoints_measured"
+    },
+    {
+      "id": "06_wasm_validation",
+      "priority": "P1",
+      "license_observation": "document/core 为 W3C 文档许可；interpreter 和 test 为 Apache-2.0。根 LICENSE 不是单一 Apache 许可。",
+      "edgebench_analogue": "arc_compiler_runtime / dependent_type_checker：从规格构建带验证的执行系统。",
+      "proposed_task": "从明确冻结的 WebAssembly 子集合同构造类型验证、模块实例化与执行器，覆盖 structured control、stack-polymorphism、tables/call_indirect、imports 和内存边界。",
+      "existing_capability": "规格仓库已有参考解释器、valid 模块与大量 assert_invalid/assert_trap 测试。当前源码 SHA 不在本报告中等同于 v1.0.0 tag；旧小样只实现 i32 的窄 VM。",
+      "artifact_scope": [
+        "模块验证、链接、实例化、解释执行的实际源码",
+        "显式列出支持 opcode 和导入 ABI；未支持特性必须稳定拒绝"
+      ],
+      "reference_plan": "隔离的官方解释器与固定 V8/其他实现交叉对照；生成合法/非法的结构化模块并缩减差异。两个参考不一致先剔除争议输入。",
+      "score_dimensions": [
+        "类型验证含不可达代码",
+        "控制栈与函数调用",
+        "table 和间接调用",
+        "链接/实例化阶段",
+        "内存/数值边界及 trap 分类"
+      ],
+      "post_two_hour_hypotheses": [
+        "i32/control 跑通后处理类型多态、分支合流和非法模块",
+        "加入多模块导入、间接调用及实例化时失败的阶段一致性"
+      ],
+      "cheap_strong_baseline": "测已有 VM 绑定或 wasm 执行库 wrapper 能覆盖多少；若交付 API/正常依赖允许其完整通过，应放弃此 profile，不能临时禁止工具。",
+      "first_falsification_probe": "先冻结指令/ABI 子集，拿旧 i32 实现跑新增 validation + linking 用例，确认新增分数来自真实能力而非多造同类算术题。",
+      "construction_risks": [
+        "完整 WASM 规范远超小样范围；必须先收敛可实现子集",
+        "旧负数除法缺陷只伤很少样例，需按语义维度重审权重",
+        "源码 SHA 与所谓 v1 标签需要分别记录"
+      ],
+      "evidence": [
+        {
+          "path": "sources/06_wasm_validation/files/interpreter/valid/valid.ml",
+          "line": 89,
+          "claim": "独立类型验证实现",
+          "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/interpreter/valid/valid.ml#L89"
+        },
+        {
+          "path": "sources/06_wasm_validation/files/test/core/call_indirect.wast",
+          "line": 790,
+          "claim": "间接调用的非法模块用例",
+          "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/test/core/call_indirect.wast#L790"
+        },
+        {
+          "path": "sources/06_wasm_validation/files/test/core/unwind.wast",
+          "line": 212,
+          "claim": "控制栈测试",
+          "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/test/core/unwind.wast#L212"
+        }
+      ],
+      "previous_profile": "samples/software-multiline-001/03_wasm；223 case 的旧分数仅适用于旧 i32 profile。",
+      "family": "system_implementation",
+      "title": "类型验证、间接调用与模块链接的VM",
+      "new_source": false,
+      "repo": "WebAssembly/spec",
+      "revision": "d910f03bd6d6477656fc5070b5098e8f909305d3",
+      "readiness": "source_evidence_acquired_design_proposed",
+      "task_package_complete": false,
+      "six_hour_difficulty_verified": false,
+      "teacher_rollouts_started_for_this_profile": 0,
+      "constructor_model_run_for_this_batch": false,
+      "source_manifest": "sources/06_wasm_validation/manifest.json",
+      "grading_status": "dimensions_proposed_not_frozen_no_scores_or_endpoints_measured"
+    },
+    {
+      "id": "07_arrow_ipc",
+      "priority": "P2",
+      "license_observation": "Apache-2.0，保留 NOTICE；独立互通数据仓库另固定许可。",
+      "edgebench_analogue": "stream_processing_engine / 自建数据系统：格式与状态交互。",
+      "proposed_task": "实现可被嵌入的增量 Arrow IPC 读写器，处理分段输入、嵌套 nullable 类型、dictionary delta/replacement、多 record batch 与损坏流，输出明确消费进度和诊断。",
+      "existing_capability": "Arrow 本身已有这些格式能力与跨语言 integration runner。必须选择合适的轻量 starter 或新增 API，不能在完整 Arrow 上要求再实现原样 reader。",
+      "artifact_scope": [
+        "进程内增量 API 加独立 CLI",
+        "公开明确 stream/file 的不同字典规则、支持类型和内存合同"
+      ],
+      "reference_plan": "固定独立语言的 Arrow producer/consumer 做互通，辅以手工最小消息和变形测试；不能 candidate 写什么再用自己读回就算正确。",
+      "score_dimensions": [
+        "Schema/RecordBatch 及 nested/null 布局",
+        "dictionary 生命周期",
+        "分块/截断输入",
+        "stream/file 互通",
+        "内存与诊断合同"
+      ],
+      "post_two_hour_hypotheses": [
+        "标量 reader 之后解决嵌套 offsets、validity 与共享字典",
+        "完善 delta/replacement、截断恢复及真正增量消费"
+      ],
+      "cheap_strong_baseline": "直接用 pyarrow/Arrow Rust 的正常 wrapper 是必须先测的强基线；若 API 与资源合同没有实际差异，这条路线应淘汰。",
+      "first_falsification_probe": "冻结公开 API 后，用一个现成 Arrow binding 实现最薄版本；只有出现合理合同下的真实缺口才构造。",
+      "construction_risks": [
+        "成熟库包装即满分的风险非常高",
+        "尚未取得 arrow-testing 的完整固定数据包，只取得格式/runner 依据",
+        "增加类型数量不能替代长程证据"
+      ],
+      "evidence": [
+        {
+          "path": "sources/07_arrow_ipc/files/format/Message.fbs",
+          "line": 129,
+          "claim": "字典消息与 delta 字段",
+          "url": "https://github.com/apache/arrow/blob/ca5564e007a209e251b9d4648af4bc6a53c68c4f/format/Message.fbs#L129"
+        },
+        {
+          "path": "sources/07_arrow_ipc/files/docs/source/format/Columnar.rst",
+          "line": 1215,
+          "claim": "正式格式依据",
+          "url": "https://github.com/apache/arrow/blob/ca5564e007a209e251b9d4648af4bc6a53c68c4f/docs/source/format/Columnar.rst#L1215"
+        },
+        {
+          "path": "sources/07_arrow_ipc/files/dev/archery/archery/integration/runner.py",
+          "line": 84,
+          "claim": "跨语言互通 runner",
+          "url": "https://github.com/apache/arrow/blob/ca5564e007a209e251b9d4648af4bc6a53c68c4f/dev/archery/archery/integration/runner.py#L84"
+        }
+      ],
+      "previous_profile": null,
+      "family": "system_implementation",
+      "title": "嵌套类型和字典演化的IPC读写器",
+      "new_source": true,
+      "repo": "apache/arrow",
+      "revision": "ca5564e007a209e251b9d4648af4bc6a53c68c4f",
+      "readiness": "source_evidence_acquired_design_proposed",
+      "task_package_complete": false,
+      "six_hour_difficulty_verified": false,
+      "teacher_rollouts_started_for_this_profile": 0,
+      "constructor_model_run_for_this_batch": false,
+      "source_manifest": "sources/07_arrow_ipc/manifest.json",
+      "grading_status": "dimensions_proposed_not_frozen_no_scores_or_endpoints_measured"
+    },
+    {
+      "id": "08_http2_session",
+      "priority": "P2",
+      "license_observation": "MIT，LICENSE 指向 COPYING；测试依赖另查。",
+      "edgebench_analogue": "postgres_wire_on_sqlite / quic_transport_stack：有状态协议实现。",
+      "proposed_task": "构造不依赖真实互联网的 HTTP/2 会话核心：分片收包、HPACK 上下文、stream 生命周期、flow control、GOAWAY/RST/CONTINUATION 等交互，暴露进程内事件 API。",
+      "existing_capability": "nghttp2 已完整实现协议并有 HPACK/session 测试。素材用于参考和构造状态轨迹，不是提出 nghttp2 当前缺这些功能。",
+      "artifact_scope": [
+        "字节输入→帧→连接/stream 状态→事件输出",
+        "固定 RFC 子集、错误优先级和应用侧消费/窗口更新 API"
+      ],
+      "reference_plan": "固定 nghttp2 的事件适配参考，另用协议不变量检查器验证窗口、stream 状态及错误范围；网络端点只在 judge 的本地进程中运行。",
+      "score_dimensions": [
+        "帧增量解析",
+        "HPACK 上下文一致",
+        "stream/connection 错误范围",
+        "flow control",
+        "多 stream 与关停交互"
+      ],
+      "post_two_hour_hypotheses": [
+        "单 stream 后处理多 stream、窗口耗尽和部分消费",
+        "进一步处理 header continuation、动态表与关停竞态"
+      ],
+      "cheap_strong_baseline": "hyper-h2 或 nghttp2 binding 常规 wrapper 可能立即解决全部合同；需要先做，不能通过禁止正常依赖掩盖这一点。",
+      "first_falsification_probe": "先建立两段互相影响的 HPACK/flow-control 状态轨迹，同时实现现成 binding 基线；比较完整能力范围。",
+      "construction_risks": [
+        "若只是 trace decoder，工程量会很小",
+        "若加入真实网络时序，会损伤确定性，应按事件驱动调度",
+        "完整 RFC 范围不明确则无法判断完成度"
+      ],
+      "evidence": [
+        {
+          "path": "sources/08_http2_session/files/tests/nghttp2_session_test.c",
+          "line": 48,
+          "claim": "跨帧 header 状态测试",
+          "url": "https://github.com/nghttp2/nghttp2/blob/7e10fcf3c58e692902939bab8f898bdd9ec9cff7/tests/nghttp2_session_test.c#L48"
+        },
+        {
+          "path": "sources/08_http2_session/files/tests/nghttp2_session_test.c",
+          "line": 47,
+          "claim": "显式流控测试",
+          "url": "https://github.com/nghttp2/nghttp2/blob/7e10fcf3c58e692902939bab8f898bdd9ec9cff7/tests/nghttp2_session_test.c#L47"
+        },
+        {
+          "path": "sources/08_http2_session/files/tests/nghttp2_hd_test.c",
+          "line": 68,
+          "claim": "独立 HPACK 测试",
+          "url": "https://github.com/nghttp2/nghttp2/blob/7e10fcf3c58e692902939bab8f898bdd9ec9cff7/tests/nghttp2_hd_test.c#L68"
+        }
+      ],
+      "previous_profile": null,
+      "family": "system_implementation",
+      "title": "HTTP2帧、HPACK与会话状态机",
+      "new_source": true,
+      "repo": "nghttp2/nghttp2",
+      "revision": "7e10fcf3c58e692902939bab8f898bdd9ec9cff7",
+      "readiness": "source_evidence_acquired_design_proposed",
+      "task_package_complete": false,
+      "six_hour_difficulty_verified": false,
+      "teacher_rollouts_started_for_this_profile": 0,
+      "constructor_model_run_for_this_batch": false,
+      "source_manifest": "sources/08_http2_session/manifest.json",
+      "grading_status": "dimensions_proposed_not_frozen_no_scores_or_endpoints_measured"
+    },
+    {
+      "id": "09_valkey_transactions",
+      "priority": "P1",
+      "license_observation": "主源码 BSD-3-Clause，依据 COPYING；deps/LICENSES 需在离线打包时逐文件核对。",
+      "edgebench_analogue": "postgres_wire_on_sqlite / stream_processing_engine：协议与持久状态系统。",
+      "proposed_task": "构造带 RESP3 API 的事务型 KV 服务，明确 MULTI/EXEC/WATCH、多个客户端、错误与断连语义，再增加 crash-safe journal 与恢复；参考 Valkey 语义但使用独立新任务合同。",
+      "existing_capability": "Valkey 已有 multi.c、AOF 和真实 multi/protocol 测试；不是在完整可运行 Valkey 上要求补一个已存在命令。",
+      "artifact_scope": [
+        "协议层、数据状态、事务队列、watch 失效、日志重放",
+        "提交源码和静态配置；judge 每次从固定数据集新建服务并执行确定的客户端事件序列"
+      ],
+      "reference_plan": "用固定 Valkey 生成命令级参考，独立小状态机验证事务；任务自定义 journal 必须有独立恢复不变量，不用参考自身序列化结果充当 oracle。",
+      "score_dimensions": [
+        "RESP3 编码/错误",
+        "事务排队与执行",
+        "多客户端 WATCH 失效",
+        "断连及错误隔离",
+        "journal 截断与崩溃恢复"
+      ],
+      "post_two_hour_hypotheses": [
+        "单客户端命令后处理排队错误、watch 变化与跨客户端交互",
+        "完成基础持久化后处理部分 journal、崩溃点和恢复重放"
+      ],
+      "cheap_strong_baseline": "测系统 redis/valkey 直接代理或嵌入现成服务器能否满足新合同；正常服务依赖若足以解题则此版本不合格。",
+      "first_falsification_probe": "先写不依赖 socket 时序的事件调度器，给出事务/崩溃恢复的最小跨模块链；确保不是字符串字典 toy。",
+      "construction_risks": [
+        "不得把不可控墙钟 TTL、并发调度当隐藏难点；需要可注入逻辑时间",
+        "旧服务器的命令集合很大，必须明确子集",
+        "正常可用完整服务带来的 shortcut 需先筛"
+      ],
+      "evidence": [
+        {
+          "path": "sources/09_valkey_transactions/files/src/multi.c",
+          "line": 183,
+          "claim": "事务执行真实入口",
+          "url": "https://github.com/valkey-io/valkey/blob/cf5efa70192faedacb6741ee2a8f800d0482862f/src/multi.c#L183"
+        },
+        {
+          "path": "sources/09_valkey_transactions/files/src/aof.c",
+          "line": 610,
+          "claim": "持久化加载入口",
+          "url": "https://github.com/valkey-io/valkey/blob/cf5efa70192faedacb6741ee2a8f800d0482862f/src/aof.c#L610"
+        },
+        {
+          "path": "sources/09_valkey_transactions/files/tests/unit/multi.tcl",
+          "line": 12,
+          "claim": "真实事务回归素材",
+          "url": "https://github.com/valkey-io/valkey/blob/cf5efa70192faedacb6741ee2a8f800d0482862f/tests/unit/multi.tcl#L12"
+        }
+      ],
+      "previous_profile": null,
+      "family": "system_implementation",
+      "title": "RESP3事务与持久化恢复服务",
+      "new_source": true,
+      "repo": "valkey-io/valkey",
+      "revision": "cf5efa70192faedacb6741ee2a8f800d0482862f",
+      "readiness": "source_evidence_acquired_design_proposed",
+      "task_package_complete": false,
+      "six_hour_difficulty_verified": false,
+      "teacher_rollouts_started_for_this_profile": 0,
+      "constructor_model_run_for_this_batch": false,
+      "source_manifest": "sources/09_valkey_transactions/manifest.json",
+      "grading_status": "dimensions_proposed_not_frozen_no_scores_or_endpoints_measured"
+    },
+    {
+      "id": "10_datafusion_sort",
+      "priority": "P1",
+      "license_observation": "Apache-2.0，保留 NOTICE；crate 各许可随 vendor 汇总。",
+      "edgebench_analogue": "ann_vector_search_qps / exchange_core_throughput：正确性下的真实引擎性能优化。",
+      "proposed_task": "在固定 DataFusion 50.0.0 源码中优化 SortExec/TopK/多分区 merge，在内存上限和 spill 条件下保留 SQL 排序语义；交付可编译真实引擎补丁。",
+      "existing_capability": "源码已有 external sort、TopK、memory reservation 和 spill；目标是性能改善，不能把现有功能称为待实现。固定 Cargo.toml 的 MSRV 为 1.86.0。",
+      "artifact_scope": [
+        "生产算子及必要 planner/runtime 改动",
+        "真实 RecordBatch 执行路径；不允许把实际引擎换成一个独立 Python 排序脚本再冒称优化"
+      ],
+      "reference_plan": "正确性使用独立 SQL/Arrow 结果合同，计时运行真实编译后的引擎；tie 顺序、NaN、NULL 与字符串 collation 先明确。baseline/reference 时间必须实测，当前均未填。",
+      "score_dimensions": [
+        "SQL 排序正确性门槛",
+        "TopK 与全排序时延",
+        "spill 工作负载时延",
+        "峰值内存和 I/O",
+        "跨 partition 结果"
+      ],
+      "post_two_hour_hypotheses": [
+        "普通数值排序之后处理 string/NULL、高重复、offset/limit",
+        "改善低内存、多 partition 与 spill 的协调，保持正确性"
+      ],
+      "cheap_strong_baseline": "先扫现有 sort 配置、batch size 和算法开关；已有优化配置若已接近上限，不能发明一个更慢 baseline 来造 headroom。",
+      "first_falsification_probe": "先在固定 50.0.0 编译真实 probe，完成真实 baseline；旧较新版本补丁要重新适配，dry-run 成功不是性能证据。",
+      "construction_risks": [
+        "上一轮没有真实 DataFusion 编译/性能分，不能沿用模拟或 Python proxy 分值",
+        "耗时和确定性依赖 CPU/磁盘；跨架构计时端点不能共用假常数",
+        "Rust 依赖构建需先 vendor"
+      ],
+      "evidence": [
+        {
+          "path": "sources/10_datafusion_sort/files/Cargo.toml",
+          "line": 79,
+          "claim": "固定工具链下限",
+          "url": "https://github.com/apache/datafusion/blob/10343c18292fc3a9ca62b59c8bb530169fe79b82/Cargo.toml#L79"
+        },
+        {
+          "path": "sources/10_datafusion_sort/files/datafusion/physical-plan/src/sorts/sort.rs",
+          "line": 881,
+          "claim": "真实执行算子",
+          "url": "https://github.com/apache/datafusion/blob/10343c18292fc3a9ca62b59c8bb530169fe79b82/datafusion/physical-plan/src/sorts/sort.rs#L881"
+        },
+        {
+          "path": "sources/10_datafusion_sort/files/datafusion/physical-plan/src/sorts/sort.rs",
+          "line": 379,
+          "claim": "已有 spill 路径",
+          "url": "https://github.com/apache/datafusion/blob/10343c18292fc3a9ca62b59c8bb530169fe79b82/datafusion/physical-plan/src/sorts/sort.rs#L379"
+        }
+      ],
+      "previous_profile": "samples/software-multiline-001/04_datafusion；原较新 revision 与本候选 50.0.0 不同，当前正式奖励仍无效。",
+      "family": "correctness_constrained_performance",
+      "title": "有界内存排序、TopK与多分区合并",
+      "new_source": false,
+      "repo": "apache/datafusion",
+      "revision": "10343c18292fc3a9ca62b59c8bb530169fe79b82",
+      "readiness": "source_evidence_acquired_design_proposed",
+      "task_package_complete": false,
+      "six_hour_difficulty_verified": false,
+      "teacher_rollouts_started_for_this_profile": 0,
+      "constructor_model_run_for_this_batch": false,
+      "source_manifest": "sources/10_datafusion_sort/manifest.json",
+      "grading_status": "dimensions_proposed_not_frozen_no_scores_or_endpoints_measured"
+    },
+    {
+      "id": "11_rocksdb_compaction",
+      "priority": "P2",
+      "license_observation": "GPL-2.0 OR Apache-2.0；COPYING 和 LICENSE.Apache 已下载。选择许可并保留逐文件声明。",
+      "edgebench_analogue": "exchange_core_throughput / notebook_lossless_compression：正确性与多个资源指标下的性能优化。",
+      "proposed_task": "在固定资源与固定混合读写/恢复负载上改进 RocksDB compaction 调度或数据路径，优化吞吐/尾延迟，同时约束持久性、空间及写放大。",
+      "existing_capability": "引擎已有多种 compaction 与大量可调参数。db_bench 有配置和计时；db_compaction_test 是正确性素材，不能拿 db_bench 单独证明无数据丢失。",
+      "artifact_scope": [
+        "引擎源码及明示允许的配置",
+        "judge 新建数据目录、重放固定操作日志、执行确定崩溃点；提交不依赖 agent 的活 DB"
+      ],
+      "reference_plan": "独立 key/value 操作日志模型检查结果和恢复；实测 untouched baseline 与最强合理配置基线。性能端点暂空，不按指标理论边界假定可达上限。",
+      "score_dimensions": [
+        "读写/恢复正确性门槛",
+        "混合负载吞吐",
+        "固定窗口尾延迟",
+        "空间和写放大",
+        "资源预算"
+      ],
+      "post_two_hour_hypotheses": [
+        "单一吞吐优化后解决读写互相影响和 compaction stall",
+        "协调恢复、后台 compaction 与空间上限的性能取舍"
+      ],
+      "cheap_strong_baseline": "先试 pipelined write、buffer/compaction 参数和批处理；成熟引擎普通调参可能消耗全部 headroom，应先否证。",
+      "first_falsification_probe": "同机重复运行 untouched 与强配置 baseline，随后用 db_stress/日志模型检查；若剩余稳定增益不足则不出题。",
+      "construction_risks": [
+        "严格尾延迟容易受宿主噪声影响",
+        "禁 WAL 可虚增吞吐，必须由耐久性合同和行为检查约束",
+        "持续后台状态要在每次 verifier 内重建，不能依赖 agent DB"
+      ],
+      "evidence": [
+        {
+          "path": "sources/11_rocksdb_compaction/files/README.md",
+          "line": 29,
+          "claim": "许可及引擎说明",
+          "url": "https://github.com/facebook/rocksdb/blob/a215c38a8ed34848edc152f7435eabc128208111/README.md#L29"
+        },
+        {
+          "path": "sources/11_rocksdb_compaction/files/tools/db_bench_tool.cc",
+          "line": 567,
+          "claim": "已有调参基线",
+          "url": "https://github.com/facebook/rocksdb/blob/a215c38a8ed34848edc152f7435eabc128208111/tools/db_bench_tool.cc#L567"
+        },
+        {
+          "path": "sources/11_rocksdb_compaction/files/db/db_compaction_test.cc",
+          "line": 157,
+          "claim": "真实 compaction 测试",
+          "url": "https://github.com/facebook/rocksdb/blob/a215c38a8ed34848edc152f7435eabc128208111/db/db_compaction_test.cc#L157"
+        }
+      ],
+      "previous_profile": null,
+      "family": "correctness_constrained_performance",
+      "title": "读写放大约束下的存储引擎优化",
+      "new_source": true,
+      "repo": "facebook/rocksdb",
+      "revision": "a215c38a8ed34848edc152f7435eabc128208111",
+      "readiness": "source_evidence_acquired_design_proposed",
+      "task_package_complete": false,
+      "six_hour_difficulty_verified": false,
+      "teacher_rollouts_started_for_this_profile": 0,
+      "constructor_model_run_for_this_batch": false,
+      "source_manifest": "sources/11_rocksdb_compaction/manifest.json",
+      "grading_status": "dimensions_proposed_not_frozen_no_scores_or_endpoints_measured"
+    },
+    {
+      "id": "12_croaring_kernels",
+      "priority": "P2",
+      "license_observation": "Apache-2.0 OR MIT，依据完整 LICENSE；测试 realdata 的来源另固定。",
+      "edgebench_analogue": "integer_compression_codec / vliw_kernel_optimization：组合表示和机器内核优化。",
+      "proposed_task": "针对混合 array/bitset/run 容器的批量 bitmap 查询，优化交并差、cardinality 聚合或避免中间物化的数据路径，保持标准序列化和边界行为。",
+      "existing_capability": "CRoaring 已有 SIMD、运行时 dispatch 和多类容器运算。任务不能仅要求写一个 AND 内核，也不能把打开既有 SIMD 开关叫新算法。",
+      "artifact_scope": [
+        "真实库内核与批量接口，稳定 C ABI",
+        "固定合成/许可确认的真实分布；测处理时间、内存和构建成本"
+      ],
+      "reference_plan": "小规模使用独立整数集合 oracle，大规模校验固定摘要及逐样例结果；原始性能 baseline 必须在指定 CPU 实测。",
+      "score_dimensions": [
+        "集合语义正确性门槛",
+        "不同容器/密度分布的查询时间",
+        "避免中间物化的批量路径",
+        "序列化互通",
+        "内存与构建成本"
+      ],
+      "post_two_hour_hypotheses": [
+        "单容器快速路径之后做混合表示与 skew 的算法选择",
+        "优化聚合与序列化协调，并解决 scalar/SIMD 两条路径一致性"
+      ],
+      "cheap_strong_baseline": "调用库已有 and_cardinality、聚合接口、run_optimize 和 CPU dispatch；若现成 API 组合已近最优，不应继续堆数据规模。",
+      "first_falsification_probe": "先把最强现成 API 组合跑在声明负载上，检查是否存在剩余可稳定改善的热点。",
+      "construction_risks": [
+        "x86 AVX 与 ARM NEON 的 headroom 不同；不能承诺一组跨机器性能端点",
+        "成熟库早满风险高",
+        "新任务批量 API 与内存预算尚未冻结"
+      ],
+      "evidence": [
+        {
+          "path": "sources/12_croaring_kernels/files/README.md",
+          "line": 611,
+          "claim": "已有微基准入口",
+          "url": "https://github.com/RoaringBitmap/CRoaring/blob/f2d9c6d3affaed28c8a899e96d85334ce4ae35af/README.md#L611"
+        },
+        {
+          "path": "sources/12_croaring_kernels/files/src/roaring.c",
+          "line": 3053,
+          "claim": "现成 cardinality 快路",
+          "url": "https://github.com/RoaringBitmap/CRoaring/blob/f2d9c6d3affaed28c8a899e96d85334ce4ae35af/src/roaring.c#L3053"
+        },
+        {
+          "path": "sources/12_croaring_kernels/files/tests/mixed_container_unit.c",
+          "line": 1402,
+          "claim": "混合容器边界素材",
+          "url": "https://github.com/RoaringBitmap/CRoaring/blob/f2d9c6d3affaed28c8a899e96d85334ce4ae35af/tests/mixed_container_unit.c#L1402"
+        }
+      ],
+      "previous_profile": null,
+      "family": "correctness_constrained_performance",
+      "title": "混合容器的bitmap操作与压缩优化",
+      "new_source": true,
+      "repo": "RoaringBitmap/CRoaring",
+      "revision": "f2d9c6d3affaed28c8a899e96d85334ce4ae35af",
+      "readiness": "source_evidence_acquired_design_proposed",
+      "task_package_complete": false,
+      "six_hour_difficulty_verified": false,
+      "teacher_rollouts_started_for_this_profile": 0,
+      "constructor_model_run_for_this_batch": false,
+      "source_manifest": "sources/12_croaring_kernels/manifest.json",
+      "grading_status": "dimensions_proposed_not_frozen_no_scores_or_endpoints_measured"
+    },
+    {
+      "id": "13_toml_lossless",
+      "priority": "P1",
+      "license_observation": "Apache-2.0 OR MIT；保留所有 crate 的许可及测试数据声明。",
+      "edgebench_analogue": "rust_multicrate_reconstruction / regex_automata_repair：跨 crate 语义恢复。",
+      "proposed_task": "构造跨 tokenizer/parser、span/decor 与 toml_edit 结构修改链的受控缺失实现，恢复注释/空白/原始字符串保真、错误位置和连续编辑兼容。",
+      "existing_capability": "toml-rs 已提供无损编辑和 span 数据；旧小样只去掉四个 helper，恢复范围太窄。新 profile 不能继续只按那四个函数的覆盖计分。",
+      "artifact_scope": [
+        "多个实际 crate 的生产代码缺口及保留公开 API",
+        "改动要跨原始文本→span→结构→输出；不做任意删除文件导致无法起步的题"
+      ],
+      "reference_plan": "固定完整参考版本在私有 verifier 编译；独立编辑操作脚本检查语义与不变片段，生成新组合/错误边界，避免仅逐字复用上游 tests。",
+      "score_dimensions": [
+        "合法/非法 TOML 语义",
+        "span 和错误位置",
+        "注释/空白/字符串保真",
+        "dotted key/implicit table/array-of-tables 编辑",
+        "连续编辑及 serde 回归"
+      ],
+      "post_two_hour_hypotheses": [
+        "解析单文档后修补 implicit/dotted table 的编辑交互",
+        "处理多轮编辑、despan/ownership 与错误位置的一致性"
+      ],
+      "cheap_strong_baseline": "检查 starter、vendor、文档和已安装 crate 中是否仍有可直接复制的原实现；再试薄封装现有 toml_edit。若正常可用依赖即可满分，重做缺口合同。",
+      "first_falsification_probe": "先做跨层依赖图与受控缺口清单，证明只恢复旧 helper 不足；用真实多轮编辑观察文本而非只查 AST。",
+      "construction_risks": [
+        "原实现公开且可能被记忆，不能把源码恢复自动当成新训练能力",
+        "新缺口及 reference/starter 差分尚未实施",
+        "原本狭窄的 35 case 满分不等于新合同可达"
+      ],
+      "evidence": [
+        {
+          "path": "sources/13_toml_lossless/files/crates/toml_edit/src/document.rs",
+          "line": 45,
+          "claim": "文本所有权与 span 的联系",
+          "url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates/toml_edit/src/document.rs#L45"
+        },
+        {
+          "path": "sources/13_toml_lossless/files/crates/toml_edit/src/table.rs",
+          "line": 17,
+          "claim": "隐式 table 行为",
+          "url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates/toml_edit/src/table.rs#L17"
+        },
+        {
+          "path": "sources/13_toml_lossless/files/crates/toml_edit/tests/testsuite/edit.rs",
+          "line": 62,
+          "claim": "真实文本与连续编辑素材",
+          "url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates/toml_edit/tests/testsuite/edit.rs#L62"
+        }
+      ],
+      "previous_profile": "samples/software-multiline-001/05_toml；旧本地参考 1 分，尚无新跨层任务实现。",
+      "family": "implementation_recovery",
+      "title": "无损解析、span与结构化编辑的跨层恢复",
+      "new_source": false,
+      "repo": "toml-rs/toml",
+      "revision": "ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+      "readiness": "source_evidence_acquired_design_proposed",
+      "task_package_complete": false,
+      "six_hour_difficulty_verified": false,
+      "teacher_rollouts_started_for_this_profile": 0,
+      "constructor_model_run_for_this_batch": false,
+      "source_manifest": "sources/13_toml_lossless/manifest.json",
+      "grading_status": "dimensions_proposed_not_frozen_no_scores_or_endpoints_measured"
+    },
+    {
+      "id": "14_tree_sitter_incremental",
+      "priority": "P1",
+      "license_observation": "MIT；使用的各语言 grammar 是独立仓库，必须另固定 commit/许可。",
+      "edgebench_analogue": "regex_automata_repair / rust_multicrate_reconstruction：核心状态与跨层恢复。",
+      "proposed_task": "恢复 Tree-sitter 在编辑后重用旧树、修正节点范围及错误恢复的关联实现，保留 API 和确定的 grammar，验证连续多次编辑后的解析一致性。",
+      "existing_capability": "Tree-sitter 已有完整增量 parser、tree_edit、changed_ranges 与 Rust binding；受控缺口尚待构造，不声称发现上游缺陷。",
+      "artifact_scope": [
+        "lib/src/parser.c、tree.c 和必要 stack/绑定路径",
+        "提供能初始完整 parse 的 starter，再逐步恢复增量路径，避免完全无法解析的死起点"
+      ],
+      "reference_plan": "固定未改动版本作差分参考；每次编辑额外从头完整 parse，独立核对语法树、byte/point 与不变量。语法树一致不代表 changed_ranges 已正确，需单独检查。",
+      "score_dimensions": [
+        "初始 parse 保留",
+        "单次/多轮 edit",
+        "UTF-8/UTF-16 与 byte/point",
+        "changed_ranges 合同",
+        "错误恢复与节点生命周期"
+      ],
+      "post_two_hour_hypotheses": [
+        "普通插删之后处理多字节位置、跨节点 edit 与旧树复用",
+        "处理错误节点、连续编辑及 external scanner 状态恢复"
+      ],
+      "cheap_strong_baseline": "每次从头 parse 可以轻易通过只查最终 AST 的 grader；先实现此基线，检查 changed-range/API 与合理工作量指标是否仍有真实缺口。",
+      "first_falsification_probe": "用整树重解析 baseline 对照多轮 edit 与 changed_ranges；先冻结 grammar 及其真实生成文件，不靠代码行数推断难度。",
+      "construction_risks": [
+        "性能计分若需要时间端点必须另实测，不能用树大小伪造速度",
+        "grammar 尚未完整冻结下载",
+        "公开 core 源码可能被直接复原，需跨状态组合而非单补函数"
+      ],
+      "evidence": [
+        {
+          "path": "sources/14_tree_sitter_incremental/files/lib/src/tree.c",
+          "line": 97,
+          "claim": "公开编辑入口",
+          "url": "https://github.com/tree-sitter/tree-sitter/blob/8ca548849fc8dbefd699edcec26546bb14112820/lib/src/tree.c#L97"
+        },
+        {
+          "path": "sources/14_tree_sitter_incremental/files/lib/src/tree.c",
+          "line": 114,
+          "claim": "changed range 计算",
+          "url": "https://github.com/tree-sitter/tree-sitter/blob/8ca548849fc8dbefd699edcec26546bb14112820/lib/src/tree.c#L114"
+        },
+        {
+          "path": "sources/14_tree_sitter_incremental/files/crates/cli/src/tests/parser_test.rs",
+          "line": 461,
+          "claim": "实际编辑回归素材",
+          "url": "https://github.com/tree-sitter/tree-sitter/blob/8ca548849fc8dbefd699edcec26546bb14112820/crates/cli/src/tests/parser_test.rs#L461"
+        }
+      ],
+      "previous_profile": null,
+      "family": "implementation_recovery",
+      "title": "增量解析、错误恢复和节点位置一致性",
+      "new_source": true,
+      "repo": "tree-sitter/tree-sitter",
+      "revision": "8ca548849fc8dbefd699edcec26546bb14112820",
+      "readiness": "source_evidence_acquired_design_proposed",
+      "task_package_complete": false,
+      "six_hour_difficulty_verified": false,
+      "teacher_rollouts_started_for_this_profile": 0,
+      "constructor_model_run_for_this_batch": false,
+      "source_manifest": "sources/14_tree_sitter_incremental/manifest.json",
+      "grading_status": "dimensions_proposed_not_frozen_no_scores_or_endpoints_measured"
+    },
+    {
+      "id": "15_jq_composition",
+      "priority": "P2",
+      "license_observation": "源码 MIT 风格许可；COPYING 声明 docs 为 CC BY 3.0，不能把手册按 MIT 再分发。",
+      "edgebench_analogue": "git_rewrite_in_zig / libexpat_x86_assembly：行为兼容的重实现。",
+      "proposed_task": "在明确语言/进程内 API 合同下实现 JSON filter 引擎和 CLI，覆盖流式组合、词法作用域、递归、reduce/foreach、更新路径及错误前缀；按固定 jq 1.7.1 行为裁剪范围。",
+      "existing_capability": "jq 已有完整解释器和测试；旧 Python 小样的 84 个例子不足以覆盖组合语义。新增 profile 要重建语法/语义范围，不是随机重复旧例子。",
+      "artifact_scope": [
+        "parser→作用域/求值器→流/错误→CLI",
+        "可嵌入 API 必须为真实需求；不得临时设置语言限制仅用于阻止正常解法"
+      ],
+      "reference_plan": "隔离官方 jq 1.7.1，生成有类型/范围限制的 AST 组合，固定输入；结合变形关系与错误产生前的输出序列核对。非确定操作不纳入。",
+      "score_dimensions": [
+        "stream cardinality 与顺序",
+        "作用域/closure/递归",
+        "reduce/foreach",
+        "path update 与缺失/null",
+        "错误前缀、退出码及进程内 API"
+      ],
+      "post_two_hour_hypotheses": [
+        "简单 filter 后处理 binding 与 generator 多输出的乘积语义",
+        "处理递归/异常/更新路径在嵌套组合中的交互"
+      ],
+      "cheap_strong_baseline": "直接调用现成 jq 或 libjq wrapper；若目标只是 CLI 兼容且环境/依赖允许，包装本来就是有效解，路线要换合同或淘汰，不能事后禁用。",
+      "first_falsification_probe": "拿旧实现对新生成的有界 AST 组合做语义差分，同时测正常 libjq wrapper；先确认新增合同有实际缺口。",
+      "construction_risks": [
+        "恢复上游可复制实现的记忆风险",
+        "完整 jq 范围过大，裁剪得太小又会早满",
+        "性能和语言约束必须有实际可嵌入场景依据"
+      ],
+      "evidence": [
+        {
+          "path": "sources/15_jq_composition/files/tests/jq.test",
+          "line": 177,
+          "claim": "多输出与错误组合",
+          "url": "https://github.com/jqlang/jq/blob/71c2ab509a8628dbbad4bc7b3f98a64aa90d3297/tests/jq.test#L177"
+        },
+        {
+          "path": "sources/15_jq_composition/files/src/execute.c",
+          "line": 515,
+          "claim": "真实回溯执行语义",
+          "url": "https://github.com/jqlang/jq/blob/71c2ab509a8628dbbad4bc7b3f98a64aa90d3297/src/execute.c#L515"
+        },
+        {
+          "path": "sources/15_jq_composition/files/COPYING",
+          "line": 25,
+          "claim": "文档与源码许可区分",
+          "url": "https://github.com/jqlang/jq/blob/71c2ab509a8628dbbad4bc7b3f98a64aa90d3297/COPYING#L25"
+        }
+      ],
+      "previous_profile": "samples/software-multiline-001/06_jq；旧参考 1 分是 host 行为小样，不是完整 jq 难度证据。",
+      "family": "behavioral_reimplementation",
+      "title": "流、作用域、递归与错误前缀的CLI兼容",
+      "new_source": false,
+      "repo": "jqlang/jq",
+      "revision": "71c2ab509a8628dbbad4bc7b3f98a64aa90d3297",
+      "readiness": "source_evidence_acquired_design_proposed",
+      "task_package_complete": false,
+      "six_hour_difficulty_verified": false,
+      "teacher_rollouts_started_for_this_profile": 0,
+      "constructor_model_run_for_this_batch": false,
+      "source_manifest": "sources/15_jq_composition/manifest.json",
+      "grading_status": "dimensions_proposed_not_frozen_no_scores_or_endpoints_measured"
+    },
+    {
+      "id": "16_libarchive_cli",
+      "priority": "P2",
+      "license_observation": "主体 BSD-2-Clause 风格；COPYING 明示个别文件和构建脚本多许可，不能只给一个总许可证。",
+      "edgebench_analogue": "git_rewrite_in_zig / cfzip_compression_engine：持久文件状态与 CLI/格式兼容。",
+      "proposed_task": "构造归档读写及 bsdtar 风格 CLI 的行为兼容任务：tar/pax、长路径/Unicode、链接/元数据、重复 -C 和分段流，按明确文件系统合同验证真实解包状态。",
+      "existing_capability": "libarchive 已能读写多格式流式归档，并带 tar/cpio/zcat；现有实现是参考，不应把给一个已可调用 libarchive 的 wrapper 当成新大工程。",
+      "artifact_scope": [
+        "可嵌入 reader/writer 与 CLI",
+        "明确支持格式、平台元数据、符号链接和路径策略，隔离临时目录；不以一次往返自证格式正确"
+      ],
+      "reference_plan": "固定 libarchive/bsdtar 作跨读写参考，同时独立检查成员内容、元数据和退出状态；只在格式规定范围比较字节，压缩时间戳/UID/locale 固定。",
+      "score_dimensions": [
+        "格式解析与写出互通",
+        "分段/截断流",
+        "长路径/PAX 元数据",
+        "链接及多 -C 的文件状态",
+        "错误与确定性"
+      ],
+      "post_two_hour_hypotheses": [
+        "普通文件之后实现 PAX/长路径和 hardlink/symlink 语义",
+        "解决前向流输入、截断、文件位置和部分成功的错误行为"
+      ],
+      "cheap_strong_baseline": "系统 tar、libarchive 或现成 archive binding 可能充分解题；必须先按正常工具合同试包装。若已有库全覆盖，应淘汰这条实现题。",
+      "first_falsification_probe": "先取固定格式的跨工具读写最小场景，并测现成 binding；再决定是兼容实现题还是已有能力包装题。",
+      "construction_risks": [
+        "平台权限、mtime、顺序与路径行为需明示，不能跨平台盲目字节比较",
+        "压缩库和 fixture 的来源许可需单独收齐",
+        "成员数量/文件体积变大本身不构成长程"
+      ],
+      "evidence": [
+        {
+          "path": "sources/16_libarchive_cli/files/README.md",
+          "line": 4,
+          "claim": "实际流式格式/CLI 范围",
+          "url": "https://github.com/libarchive/libarchive/blob/b10312a52e5e4d1baf047b563e501b4fb184adde/README.md#L4"
+        },
+        {
+          "path": "sources/16_libarchive_cli/files/libarchive/archive_read_support_format_tar.c",
+          "line": 128,
+          "claim": "真实 PAX 支持实现",
+          "url": "https://github.com/libarchive/libarchive/blob/b10312a52e5e4d1baf047b563e501b4fb184adde/libarchive/archive_read_support_format_tar.c#L128"
+        },
+        {
+          "path": "sources/16_libarchive_cli/files/tar/test/test_option_C_upper.c",
+          "line": 9,
+          "claim": "真实多 -C 文件系统行为测试",
+          "url": "https://github.com/libarchive/libarchive/blob/b10312a52e5e4d1baf047b563e501b4fb184adde/tar/test/test_option_C_upper.c#L9"
+        }
+      ],
+      "previous_profile": null,
+      "family": "behavioral_reimplementation",
+      "title": "归档读写、链接与流式格式的CLI兼容",
+      "new_source": true,
+      "repo": "libarchive/libarchive",
+      "revision": "b10312a52e5e4d1baf047b563e501b4fb184adde",
+      "readiness": "source_evidence_acquired_design_proposed",
+      "task_package_complete": false,
+      "six_hour_difficulty_verified": false,
+      "teacher_rollouts_started_for_this_profile": 0,
+      "constructor_model_run_for_this_batch": false,
+      "source_manifest": "sources/16_libarchive_cli/manifest.json",
+      "grading_status": "dimensions_proposed_not_frozen_no_scores_or_endpoints_measured"
+    }
+  ],
+  "unresolved_evidence_anchors": [],
+  "counts": {
+    "total": 16,
+    "new_projects": 10,
+    "revised_existing_sources": 6,
+    "P1": 8,
+    "P2": 8,
+    "new_profiles_task_complete": 0,
+    "new_profile_6h_rollouts": 0
+  }
+}

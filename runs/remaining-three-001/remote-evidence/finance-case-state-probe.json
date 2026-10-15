@@ -1,0 +1,27 @@
+{
+  "image": "sha256:815aed09181b85f09cfab18e6a8e5391db5c65bfa21882f807f6f974712b24e6",
+  "exit_code": 0,
+  "stdout": "[{\"episode\": 0, \"initialize\": {\"initialized\": true}, \"answer\": {\"previous_episode_file_visible\": false}}, {\"episode\": 1, \"initialize\": {\"initialized\": true}, \"answer\": {\"previous_episode_file_visible\": true}}]\n",
+  "stderr": "",
+  "records": [
+    {
+      "episode": 0,
+      "initialize": {
+        "initialized": true
+      },
+      "answer": {
+        "previous_episode_file_visible": false
+      }
+    },
+    {
+      "episode": 1,
+      "initialize": {
+        "initialized": true
+      },
+      "answer": {
+        "previous_episode_file_visible": true
+      }
+    }
+  ],
+  "cross_episode_file_leak": true
+}

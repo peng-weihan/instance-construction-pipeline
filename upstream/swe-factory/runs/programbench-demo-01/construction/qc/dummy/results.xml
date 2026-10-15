@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="11" skipped="0" tests="12" time="0.377" timestamp="2026-09-26T16:32:19.062658+00:00" hostname="raymonedeMacBook-Air.local"><testcase classname="runs.programbench-demo-01.construction.qc.dummy.workspace.tests.test_28b382_core" name="test_bytes_0" time="0.212"><failure message="AssertionError: assert b'' == b'hello'&#10;  &#10;  Use -v to get more diff">def test_bytes_0():
+        p = subprocess.run([EXE], input=b'hello', capture_output=True, timeout=5)
+        assert p.returncode == 0
+&gt;       assert p.stdout == b'hello'
+E       AssertionError: assert b'' == b'hello'
+E         
+E         Use -v to get more diff
+
+tests/test_28b382_core.py:8: AssertionError</failure></testcase><testcase classname="runs.programbench-demo-01.construction.qc.dummy.workspace.tests.test_28b382_core" name="test_bytes_1" time="0.005"><failure message="AssertionError: assert b'' == b'a\n'&#10;  &#10;  Use -v to get more diff">def test_bytes_1():
+        p = subprocess.run([EXE], input=b'a\n', capture_output=True, timeout=5)
+        assert p.returncode == 0
+&gt;       assert p.stdout == b'a\n'
+E       AssertionError: assert b'' == b'a\n'
+E         
+E         Use -v to get more diff
+
+tests/test_28b382_core.py:14: AssertionError</failure></testcase><testcase classname="runs.programbench-demo-01.construction.qc.dummy.workspace.tests.test_28b382_core" name="test_bytes_2" time="0.005"><failure message="AssertionError: assert b'' == b'\x00\xff'&#10;  &#10;  Use -v to get more diff">def test_bytes_2():
+        p = subprocess.run([EXE], input=b'\x00\xff', capture_output=True, timeout=5)
+        assert p.returncode == 0
+&gt;       assert p.stdout == b'\x00\xff'
+E       AssertionError: assert b'' == b'\x00\xff'
+E         
+E         Use -v to get more diff
+
+tests/test_28b382_core.py:20: AssertionError</failure></testcase><testcase classname="runs.programbench-demo-01.construction.qc.dummy.workspace.tests.test_28b382_core" name="test_bytes_3" time="0.005"><failure message="AssertionError: assert b'' == b'\xe4\xb8\xad\xe6\x96\x87'&#10;  &#10;  Use -v to get more diff">def test_bytes_3():
+        p = subprocess.run([EXE], input=b'\xe4\xb8\xad\xe6\x96\x87', capture_output=True, timeout=5)
+        assert p.returncode == 0
+&gt;       assert p.stdout == b'\xe4\xb8\xad\xe6\x96\x87'
+E       AssertionError: assert b'' == b'\xe4\xb8\xad\xe6\x96\x87'
+E         
+E         Use -v to get more diff
+
+tests/test_28b382_core.py:26: AssertionError</failure></testcase><testcase classname="runs.programbench-demo-01.construction.qc.dummy.workspace.tests.test_28b382_core" name="test_bytes_4" time="0.004"><failure message="AssertionError: assert b'' == b' '&#10;  &#10;  Use -v to get more diff">def test_bytes_4():
+        p = subprocess.run([EXE], input=b' ', capture_output=True, timeout=5)
+        assert p.returncode == 0
+&gt;       assert p.stdout == b' '
+E       AssertionError: assert b'' == b' '
+E         
+E         Use -v to get more diff
+
+tests/test_28b382_core.py:32: AssertionError</failure></testcase><testcase classname="runs.programbench-demo-01.construction.qc.dummy.workspace.tests.test_28b382_core" name="test_bytes_5" time="0.005"><failure message="AssertionError: assert b'' == b'123'&#10;  &#10;  Use -v to get more diff">def test_bytes_5():
+        p = subprocess.run([EXE], input=b'123', capture_output=True, timeout=5)
+        assert p.returncode == 0
+&gt;       assert p.stdout == b'123'
+E       AssertionError: assert b'' == b'123'
+E         
+E         Use -v to get more diff
+
+tests/test_28b382_core.py:38: AssertionError</failure></testcase><testcase classname="runs.programbench-demo-01.construction.qc.dummy.workspace.tests.test_28b382_core" name="test_bytes_6" time="0.005"><failure message="AssertionError: assert b'' == b'xxxxxxxxxxx...xxxxxxxxxxxxx'&#10;  &#10;  Use -v to get more diff">def test_bytes_6():
+        p = subprocess.run([EXE], input=b'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', capture_output=True, timeout=5)
+        assert p.returncode == 0
+&gt;       assert p.stdout == b'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+E       AssertionError: assert b'' == b'xxxxxxxxxxx...xxxxxxxxxxxxx'
+E         
+E         Use -v to get more diff
+
+tests/test_28b382_core.py:44: AssertionError</failure></testcase><testcase classname="runs.programbench-demo-01.construction.qc.dummy.workspace.tests.test_28b382_core" name="test_bytes_7" time="0.005"><failure message="AssertionError: assert b'' == b'a\r\nb'&#10;  &#10;  Use -v to get more diff">def test_bytes_7():
+        p = subprocess.run([EXE], input=b'a\r\nb', capture_output=True, timeout=5)
+        assert p.returncode == 0
+&gt;       assert p.stdout == b'a\r\nb'
+E       AssertionError: assert b'' == b'a\r\nb'
+E         
+E         Use -v to get more diff
+
+tests/test_28b382_core.py:50: AssertionError</failure></testcase><testcase classname="runs.programbench-demo-01.construction.qc.dummy.workspace.tests.test_28b382_core" name="test_bytes_8" time="0.004"><failure message="AssertionError: assert b'' == b'Z'&#10;  &#10;  Use -v to get more diff">def test_bytes_8():
+        p = subprocess.run([EXE], input=b'Z', capture_output=True, timeout=5)
+        assert p.returncode == 0
+&gt;       assert p.stdout == b'Z'
+E       AssertionError: assert b'' == b'Z'
+E         
+E         Use -v to get more diff
+
+tests/test_28b382_core.py:56: AssertionError</failure></testcase><testcase classname="runs.programbench-demo-01.construction.qc.dummy.workspace.tests.test_28b382_core" name="test_bytes_9" time="0.004"><failure message="AssertionError: assert b'' == b'!@#'&#10;  &#10;  Use -v to get more diff">def test_bytes_9():
+        p = subprocess.run([EXE], input=b'!@#', capture_output=True, timeout=5)
+        assert p.returncode == 0
+&gt;       assert p.stdout == b'!@#'
+E       AssertionError: assert b'' == b'!@#'
+E         
+E         Use -v to get more diff
+
+tests/test_28b382_core.py:62: AssertionError</failure></testcase><testcase classname="runs.programbench-demo-01.construction.qc.dummy.workspace.tests.test_28b382_core" name="test_weak_exit" time="0.004" /><testcase classname="runs.programbench-demo-01.construction.qc.dummy.workspace.tests.test_28b382_core" name="test_error" time="0.004"><failure message="AssertionError: assert 0 == 2&#10; +  where 0 = CompletedProcess(args=['/Users/raymone/Desktop/01_Research/swe-factory/runs/programbench-demo-01/construction/qc/dummy/workspace/executable', '--invalid'], returncode=0, stdout=b'', stderr=b'').returncode">def test_error():
+        p = subprocess.run([EXE,"--invalid"], capture_output=True, timeout=5)
+&gt;       assert p.returncode == 2
+E       AssertionError: assert 0 == 2
+E        +  where 0 = CompletedProcess(args=['/Users/raymone/Desktop/01_Research/swe-factory/runs/programbench-demo-01/construction/qc/dummy/workspace/executable', '--invalid'], returncode=0, stdout=b'', stderr=b'').returncode
+
+tests/test_28b382_core.py:70: AssertionError</failure></testcase></testsuite></testsuites>

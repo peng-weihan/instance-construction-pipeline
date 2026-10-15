@@ -1,0 +1,125 @@
+{
+  "sha": "06564b0a4c3f473d0e0cb9f9977ab647888aa43d",
+  "node_id": "C_kwDOABO0ktoAKDA2NTY0YjBhNGMzZjQ3M2QwZTBjYjlmOTk3N2FiNjQ3ODg4YWE0M2Q",
+  "commit": {
+    "author": {
+      "name": "John Cupitt",
+      "email": "jcupitt@gmail.com",
+      "date": "2026-10-13T12:48:16Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-10-13T12:48:16Z"
+    },
+    "message": "pngsave: write text chunks as iTXt (#5249)\n\n* pngsave: write text chunks as iTXt\n\niTXt chunks are for international data and contain utf-8 rather than\nlatin1. Things like XMP are supposed to be in uncompressed iTXt.\n\nThanks tonymarklove\n\nCloses https://github.com/libvips/libvips/issues/5248",
+    "tree": {
+      "sha": "21ea1fb65bef339492715c366f6152bb12b4097a",
+      "url": "https://api.github.com/repos/libvips/libvips/git/trees/21ea1fb65bef339492715c366f6152bb12b4097a"
+    },
+    "url": "https://api.github.com/repos/libvips/libvips/git/commits/06564b0a4c3f473d0e0cb9f9977ab647888aa43d",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqziiQCRC1aQ7uu5UhlAAASeQQAJr1R8w0EwsKQgy3w1JJ8dMX\nLpSRAQ4cU+0rjOZqJhw5HvAccaZ778kzMjpAo0n9biuu3K/+4hVH3D5TNFZy4ATD\nQVNxuwahaayQA0zdSdpa6gvpEu66zt3Jwh1okgDXHEYYXVDT0O9Pm+DchJzi88I7\n/SJuz0bZu6esUFubmJux8MC4bPjPqAM7403lELjmlUijZrLhUQ7c3+eUJtSuVhgW\nWerRGvoKDo/lXh3C8saXMfVsxbedvdiJ0oxs/xrI0j25vZz4ZqsispjH1x3mU/Dg\n+uBWVWn9U2nsv3Al7jmhlfGz8c5U3NMGB58egtZ7bR8xFFigHLWLCFX8ZT5OnXbS\nHWrwrQ9ESYbCCw/jR6T6VbP+6vvhX87A8ISQHgY4185cx+I0iWxXv1VrbAxxqaYX\nSSxBnrdWES7ZbhTggOrdFTdjfCwr+Xf48gsKAM9dDXTWZHRJrCVc4F+Yxo0t4HJE\nlX4jWkOd1dW6ezriwiUE7RVTULPcK67xz6yOgUjjWRMrN/WXVrKfYQB6zrK4CpJI\n4O9sjEi57vzmrAEzmP4m5pT9tWeDg+djMHs8JIWh7EWazN9aQDgbNoLiTTIHG7Rl\nLPx0m+POMwhShSObQp6Gge7Hrr8wkWlC+cjfyVXvN8bbwJlxxb65rgF+XnbxHED6\nVr0gNeZZTnFP7IPHFCyg\n=E4dK\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 21ea1fb65bef339492715c366f6152bb12b4097a\nparent 6b5dcce25fbf2642647bc180eb19c35de864eb4a\nauthor John Cupitt <jcupitt@gmail.com> 1791895696 +0100\ncommitter GitHub <noreply@github.com> 1791895696 +0100\n\npngsave: write text chunks as iTXt (#5249)\n\n* pngsave: write text chunks as iTXt\n\niTXt chunks are for international data and contain utf-8 rather than\nlatin1. Things like XMP are supposed to be in uncompressed iTXt.\n\nThanks tonymarklove\n\nCloses https://github.com/libvips/libvips/issues/5248",
+      "verified_at": "2026-10-13T12:48:16Z"
+    }
+  },
+  "url": "https://api.github.com/repos/libvips/libvips/commits/06564b0a4c3f473d0e0cb9f9977ab647888aa43d",
+  "html_url": "https://github.com/libvips/libvips/commit/06564b0a4c3f473d0e0cb9f9977ab647888aa43d",
+  "comments_url": "https://api.github.com/repos/libvips/libvips/commits/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/comments",
+  "author": {
+    "login": "jcupitt",
+    "id": 580843,
+    "node_id": "MDQ6VXNlcjU4MDg0Mw==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/580843?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/jcupitt",
+    "html_url": "https://github.com/jcupitt",
+    "followers_url": "https://api.github.com/users/jcupitt/followers",
+    "following_url": "https://api.github.com/users/jcupitt/following{/other_user}",
+    "gists_url": "https://api.github.com/users/jcupitt/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/jcupitt/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/jcupitt/subscriptions",
+    "organizations_url": "https://api.github.com/users/jcupitt/orgs",
+    "repos_url": "https://api.github.com/users/jcupitt/repos",
+    "events_url": "https://api.github.com/users/jcupitt/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/jcupitt/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "6b5dcce25fbf2642647bc180eb19c35de864eb4a",
+      "url": "https://api.github.com/repos/libvips/libvips/commits/6b5dcce25fbf2642647bc180eb19c35de864eb4a",
+      "html_url": "https://github.com/libvips/libvips/commit/6b5dcce25fbf2642647bc180eb19c35de864eb4a"
+    }
+  ],
+  "stats": {
+    "total": 37,
+    "additions": 12,
+    "deletions": 25
+  },
+  "files": [
+    {
+      "sha": "423a616223a0558df0526e8b22d8cce67e307aa6",
+      "filename": "ChangeLog",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "blob_url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/ChangeLog",
+      "raw_url": "https://github.com/libvips/libvips/raw/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/ChangeLog",
+      "contents_url": "https://api.github.com/repos/libvips/libvips/contents/ChangeLog?ref=06564b0a4c3f473d0e0cb9f9977ab647888aa43d",
+      "patch": "@@ -55,6 +55,7 @@ date-tbd 8.19.0\n - qoiload: ensure a custom source retains existing flags [Tan-JunWei]\n - magickload: scale and round Quantum values on unpack [kleisauke]\n - thumbnail: pass missing `fail_on` arg to loaders [kleisauke]\n+- pngsave: write iTXt chunks for text data (utf-8) [tonymarklove]\n \n 20/9/26 8.18.7\n "
+    },
+    {
+      "sha": "072833b68efd472244957c76be2569ddd7f8346f",
+      "filename": "libvips/foreign/vipspng.c",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 24,
+      "changes": 34,
+      "blob_url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/libvips%2Fforeign%2Fvipspng.c",
+      "raw_url": "https://github.com/libvips/libvips/raw/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/libvips%2Fforeign%2Fvipspng.c",
+      "contents_url": "https://api.github.com/repos/libvips/libvips/contents/libvips%2Fforeign%2Fvipspng.c?ref=06564b0a4c3f473d0e0cb9f9977ab647888aa43d",
+      "patch": "@@ -151,10 +151,6 @@ const char *vips__png_suffs[] = { \".png\", NULL };\n \n #include <png.h>\n \n-#if PNG_LIBPNG_VER < 10003\n-#error \"PNG library too old.\"\n-#endif\n-\n /* Compat defines for APNG constants.\n  * libpng 1.8+ uses PNG_fcTL_DISPOSE_OP_NONE etc.\n  * libpng 1.6 + APNG patch uses PNG_DISPOSE_OP_NONE etc.\n@@ -541,8 +537,7 @@ vips__set_text(VipsImage *out, int i, const char *key, const char *text)\n \t\t * Note that this will remove the null-termination from the\n \t\t * string. We must carefully reattach this.\n \t\t */\n-\t\tvips_image_set_blob_copy(out,\n-\t\t\tVIPS_META_XMP_NAME, text, strlen(text));\n+\t\tvips_image_set_blob_copy(out, VIPS_META_XMP_NAME, text, strlen(text));\n \t}\n \telse if (strcmp(key, \"Raw profile type exif\") == 0 ||\n \t\tstrcmp(key, \"Raw profile type APP1\") == 0) {\n@@ -554,8 +549,7 @@ vips__set_text(VipsImage *out, int i, const char *key, const char *text)\n \t\t\tuint8_t *exif_data = vips__parse_raw_profile(text, &exif_length);\n \t\t\tif (exif_data) {\n \t\t\t\tvips_image_set_blob(out, VIPS_META_EXIF_NAME,\n-\t\t\t\t\t(VipsCallbackFn) g_free,\n-\t\t\t\t\texif_data, exif_length);\n+\t\t\t\t\t(VipsCallbackFn) g_free, exif_data, exif_length);\n \t\t\t}\n \t\t}\n \t}\n@@ -672,14 +666,7 @@ png2vips_header(Read *read, VipsImage *out, gboolean header_only)\n \tpng_textp text_ptr;\n \tint num_text;\n \n-\t/* Well thank you, libpng.\n-\t */\n-#if PNG_LIBPNG_VER < 10400\n-\tpng_charp profile;\n-#else\n \tpng_bytep profile;\n-#endif\n-\n \tpng_uint_32 proflen;\n \n \tint bands;\n@@ -1664,17 +1651,16 @@ vips__png_set_text(png_structp pPng, png_infop pInfo,\n {\n \tpng_text text;\n \n-\ttext.compression = 0;\n+\t/* We write iTXt (utf-8), as required by eg. the XMP spec. This should\n+\t * always be uncompressed.\n+\t */\n+\ttext.compression = PNG_ITXT_COMPRESSION_NONE;\n \ttext.key = (char *) key;\n \ttext.text = (char *) value;\n-\ttext.text_length = strlen(value);\n-\n-\t/* Before 1.4, these fields were only there if explicitly enabled.\n-\t */\n-#if PNG_LIBPNG_VER > 10400\n-\ttext.itxt_length = 0;\n-\ttext.lang = NULL;\n-#endif\n+\ttext.text_length = 0;\n+\ttext.itxt_length = strlen(value);\n+\ttext.lang = \"\";\n+\ttext.lang_key = \"\";\n \n \tpng_set_text(pPng, pInfo, &text, 1);\n }"
+    },
+    {
+      "sha": "c1d2c69e218c52cd70ac56080cdee9d8d448a050",
+      "filename": "meson.build",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/meson.build",
+      "raw_url": "https://github.com/libvips/libvips/raw/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/meson.build",
+      "contents_url": "https://api.github.com/repos/libvips/libvips/contents/meson.build?ref=06564b0a4c3f473d0e0cb9f9977ab647888aa43d",
+      "patch": "@@ -343,7 +343,7 @@ endif\n png_package = disabler()\n \n # look for libpng first\n-png_dep = dependency('libpng', version: '>=1.2.9', required: get_option('png'))\n+png_dep = dependency('libpng', version: '>=1.4.0', required: get_option('png'))\n if png_dep.found()\n     external_deps += png_dep\n     cfg_var.set('HAVE_PNG', true)"
+    }
+  ]
+}

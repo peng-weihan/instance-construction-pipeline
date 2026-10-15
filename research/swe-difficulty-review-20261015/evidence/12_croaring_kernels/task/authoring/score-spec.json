@@ -1,0 +1,71 @@
+{
+  "version": "venn3-draft-1",
+  "reference_mode": "open-solution",
+  "score_range": [
+    0,
+    1
+  ],
+  "groups": {
+    "universe": 0.1,
+    "range": 0.1,
+    "batch": 0.1,
+    "interop": 0.1
+  },
+  "semantic_formula": "native_regressions_pass ? sum(group_weight * passed_cases/group_cases) : 0",
+  "performance": {
+    "enabled": false,
+    "reserved_weight": 0.6,
+    "baseline_anchor": null,
+    "reference_anchor": null,
+    "formula": null,
+    "reason": "Target-platform anchors, noise calibration and reference performance envelope pending; local host measurements are evidence only."
+  },
+  "active_score_ceiling": 0.4,
+  "seeds": {
+    "public": 1217,
+    "feedback": 71129,
+    "author_audit": 930817
+  },
+  "random_cases": 4,
+  "native_regressions": [
+    "mixed_container_unit",
+    "array_container_unit",
+    "bitset_container_unit",
+    "run_container_unit",
+    "robust_deserialization_unit"
+  ],
+  "limits": {
+    "compile_seconds": 180,
+    "native_seconds": 120,
+    "case_seconds": 12,
+    "cpu_seconds": 170,
+    "memory_bytes": 2147483648,
+    "file_bytes": 16777216,
+    "output_bytes": 8388608,
+    "snapshot_bytes": 67108864,
+    "source_files": 512,
+    "candidate_uid": 65534
+  },
+  "input_end": 4294967296,
+  "bin_count": 8,
+  "invalid_status": -1,
+  "sentinel_byte": 165,
+  "benchmark": {
+    "groups": [
+      "dense",
+      "sparse",
+      "run",
+      "mixed",
+      "window"
+    ],
+    "keys": 96,
+    "bitmaps": 12,
+    "batch_size": 48,
+    "warmups": 3,
+    "repeats": 24,
+    "query_count": 1152,
+    "rng_initial": 5001794,
+    "units": "ns/query",
+    "grade_enabled": false
+  }
+}

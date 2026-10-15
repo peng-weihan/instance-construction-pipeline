@@ -1,0 +1,63 @@
+{
+  "repo": "math-comp/odd-order",
+  "revision": "ba734c020d9f7dce5758fa822904dea29e2624ba",
+  "resolved_utc": "2026-10-15T14:58:51.413427+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:01:50.534651+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "8d815e68a80652e8f0b8dbf589b0c008eb2531df8c6cecda9bf5b68664f1c8ee",
+    "truncated": false,
+    "blob_count": 53
+  },
+  "files_acquired": [
+    {
+      "path": "README.md",
+      "bytes": 825,
+      "sha256": "79a3682a3f950b7172496674363ef15e2b12ddef50d5d55e18a7771f9a3d98ec",
+      "url": "https://github.com/math-comp/odd-order/blob/ba734c020d9f7dce5758fa822904dea29e2624ba/README.md"
+    },
+    {
+      "path": "_CoqProject",
+      "bytes": 1036,
+      "sha256": "8d2b7216aef61ea6942c86c71c7ee5957b43b1b26bfbcb8af0da42334fa5faca",
+      "url": "https://github.com/math-comp/odd-order/blob/ba734c020d9f7dce5758fa822904dea29e2624ba/_CoqProject"
+    },
+    {
+      "path": "coq-mathcomp-odd-order.opam",
+      "bytes": 416,
+      "sha256": "c53ae4ec536c49ee462e3783f92e8d1459a4439432dfd300963ed09cbbbe115a",
+      "url": "https://github.com/math-comp/odd-order/blob/ba734c020d9f7dce5758fa822904dea29e2624ba/coq-mathcomp-odd-order.opam"
+    },
+    {
+      "path": "rocq-mathcomp-odd-order.opam",
+      "bytes": 1640,
+      "sha256": "066adfd6f81327678191012219e6b963139465a1d85145abee22ad6a0074df14",
+      "url": "https://github.com/math-comp/odd-order/blob/ba734c020d9f7dce5758fa822904dea29e2624ba/rocq-mathcomp-odd-order.opam"
+    },
+    {
+      "path": "theories/BGsection1.v",
+      "bytes": 63867,
+      "sha256": "d624fbfea7986d88608de113777eb4ce176857ecef841b52260714b98becb6b1",
+      "url": "https://github.com/math-comp/odd-order/blob/ba734c020d9f7dce5758fa822904dea29e2624ba/theories/BGsection1.v"
+    },
+    {
+      "path": "theories/stripped_odd_order_theorem.v",
+      "bytes": 9446,
+      "sha256": "d2573c26a9306f05548ae0faf6e555a83e6689786581bf05add9c81b481d4663",
+      "url": "https://github.com/math-comp/odd-order/blob/ba734c020d9f7dce5758fa822904dea29e2624ba/theories/stripped_odd_order_theorem.v"
+    },
+    {
+      "path": "theories/wielandt_fixpoint.v",
+      "bytes": 38070,
+      "sha256": "2b4b79f928cc65c9c2898310c016474954bc49b2a9960934b220e90b7db0b651",
+      "url": "https://github.com/math-comp/odd-order/blob/ba734c020d9f7dce5758fa822904dea29e2624ba/theories/wielandt_fixpoint.v"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

@@ -1,0 +1,546 @@
+[
+  {
+    "name": "int-False-False",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 22548331,
+    "engine": [
+      {
+        "elapsed_ns": [
+          965923
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "int-False-True",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 20726994,
+    "engine": [
+      {
+        "elapsed_ns": [
+          797706
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "int-True-False",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 18145420,
+    "engine": [
+      {
+        "elapsed_ns": [
+          937810
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "int-True-True",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 20166445,
+    "engine": [
+      {
+        "elapsed_ns": [
+          1482478
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "str-False-False",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 19568066,
+    "engine": [
+      {
+        "elapsed_ns": [
+          769262
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "str-False-True",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 21534347,
+    "engine": [
+      {
+        "elapsed_ns": [
+          735438
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "str-True-False",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 19215210,
+    "engine": [
+      {
+        "elapsed_ns": [
+          1033281
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "str-True-True",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 23684535,
+    "engine": [
+      {
+        "elapsed_ns": [
+          998274
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "float-False-False",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 33822181,
+    "engine": [
+      {
+        "elapsed_ns": [
+          3971316
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "float-False-True",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 38795058,
+    "engine": [
+      {
+        "elapsed_ns": [
+          872256
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "float-True-False",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 28384497,
+    "engine": [
+      {
+        "elapsed_ns": [
+          899988
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "float-True-True",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 29355450,
+    "engine": [
+      {
+        "elapsed_ns": [
+          822562
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "order-sorted",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 26713483,
+    "engine": [
+      {
+        "elapsed_ns": [
+          513238
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "order-reverse",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 23681610,
+    "engine": [
+      {
+        "elapsed_ns": [
+          663122
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "order-duplicates",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 30572658,
+    "engine": [
+      {
+        "elapsed_ns": [
+          910699
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "topk-0-0",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 17129974,
+    "engine": [
+      {
+        "elapsed_ns": [
+          5310
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "topk-1-0",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 14030513,
+    "engine": [
+      {
+        "elapsed_ns": [
+          500054
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "topk-7-13",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 15380823,
+    "engine": [
+      {
+        "elapsed_ns": [
+          607547
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "topk-101-71",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 20413080,
+    "engine": [
+      {
+        "elapsed_ns": [
+          842981
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "topk-4096-0",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 21299254,
+    "engine": [
+      {
+        "elapsed_ns": [
+          1207890
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "topk-10-10000",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 23521638,
+    "engine": [
+      {
+        "elapsed_ns": [
+          1458392
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "merge-2-int",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 27724030,
+    "engine": [
+      {
+        "elapsed_ns": [
+          636501
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "merge-2-str",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 22026296,
+    "engine": [
+      {
+        "elapsed_ns": [
+          1034493
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "merge-2-float",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 34863496,
+    "engine": [
+      {
+        "elapsed_ns": [
+          726772
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "merge-2-multi",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 14127015,
+    "engine": [
+      {
+        "elapsed_ns": [
+          841949
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "merge-7-int",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 24897957,
+    "engine": [
+      {
+        "elapsed_ns": [
+          1007181
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "merge-7-str",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 34934941,
+    "engine": [
+      {
+        "elapsed_ns": [
+          1067625
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "merge-7-float",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 26324569,
+    "engine": [
+      {
+        "elapsed_ns": [
+          1231585
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "merge-7-multi",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 17452693,
+    "engine": [
+      {
+        "elapsed_ns": [
+          1148487
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "spill-int",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 424496139,
+    "engine": [
+      {
+        "elapsed_ns": [
+          47667845
+        ],
+        "spill_count": 12,
+        "spilled_bytes": 15581520
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "spill-str",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 474014698,
+    "engine": [
+      {
+        "elapsed_ns": [
+          54331122
+        ],
+        "spill_count": 12,
+        "spilled_bytes": 15581368
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "spill-multi",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 454753481,
+    "engine": [
+      {
+        "elapsed_ns": [
+          120771282
+        ],
+        "spill_count": 12,
+        "spilled_bytes": 15581504
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "empty",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 21408279,
+    "engine": [
+      {
+        "elapsed_ns": [
+          31510
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  },
+  {
+    "name": "singleton",
+    "passed": true,
+    "returncode": 0,
+    "wall_ns": 7597842,
+    "engine": [
+      {
+        "elapsed_ns": [
+          71084
+        ],
+        "spill_count": 0,
+        "spilled_bytes": 0
+      }
+    ],
+    "stderr": null
+  }
+]

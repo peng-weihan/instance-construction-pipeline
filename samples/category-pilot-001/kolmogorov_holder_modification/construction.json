@@ -1,0 +1,40 @@
+{
+  "task_id": "kolmogorov_holder_modification",
+  "category": "Formal Math & Theorem Proving",
+  "title": "形式化随机过程的 Hölder 连续修正",
+  "status": "constructed_unverified",
+  "original_anchor": "lean_analysis_proofs",
+  "sources": [
+    {
+      "repository": "https://github.com/RemyDegenne/brownian-motion.git",
+      "commit": "a7ad7af662044313bc80a7c0756360fb3745f931",
+      "files": [
+        {
+          "path": "BrownianMotion/Continuity/KolmogorovChentsov.lean",
+          "sha256": "0814a0012d92a1c80ac8681247c106ef6604bffd747b26bb54010d4144283c5b"
+        },
+        {
+          "path": "lake-manifest.json",
+          "sha256": "11242be2ee0701a8d9e2a0374ade0342c1d1e355472aad65200bca2b6c38944c"
+        },
+        {
+          "path": "lean-toolchain",
+          "sha256": "02f25adee7c1d6bf2e95b7b5b13f45b9892c7dd53ef470d5372ac60bda3df023"
+        }
+      ],
+      "acquired": true,
+      "runtime_verified": false
+    }
+  ],
+  "construction_method": "dependency-linked proof ablation with exact original signatures and private proof reference",
+  "authoring": {
+    "mode": "interactive_agent_source_inspection_and_scripted_transformation",
+    "independent_cli_model_called": false
+  },
+  "similarity_claim": "mechanism-level design hypothesis, not empirically same-distribution",
+  "known_gap": "Public upstream proofs may be in pretraining. Novel task packaging is not novel mathematics. Dependency closure and kernel acceptance deferred.",
+  "runtime_validation": "deferred_by_user",
+  "difficulty_calibrated": false,
+  "accepted": false,
+  "redistribution_review": "See SOURCE_TO_TASK.md; repository license does not automatically license all third-party data."
+}

@@ -1,0 +1,7 @@
+{
+  "reference": 1.0,
+  "starter": 0.0,
+  "near-miss-lost-required": 0.8333333333333334,
+  "near-miss-untyped-arrays": 0.8333333333333334,
+  "empty": 0.0
+}

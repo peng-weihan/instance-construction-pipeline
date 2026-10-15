@@ -1,0 +1,66 @@
+[
+  {
+    "name": "syntax_error",
+    "command": [
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/controls/syntax_error",
+      "--private",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/verifier/private",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/evidence/audit/syntax_error",
+      "--scratch",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/grade",
+      "--python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python"
+    ],
+    "exit_code": 0,
+    "valid": true,
+    "score": 0.0,
+    "native_reward": "0"
+  },
+  {
+    "name": "missing",
+    "command": [
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/controls/absent",
+      "--private",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/verifier/private",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/evidence/audit/missing",
+      "--scratch",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/grade",
+      "--python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python"
+    ],
+    "exit_code": 0,
+    "valid": true,
+    "score": 0.0,
+    "native_reward": "0"
+  },
+  {
+    "name": "infrastructure",
+    "command": [
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/controls/absent",
+      "--private",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/verifier/private",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/evidence/audit/infrastructure",
+      "--scratch",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/grade",
+      "--python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv/bin/python",
+      "--inject-infrastructure-failure"
+    ],
+    "exit_code": 2,
+    "valid": false,
+    "score": null,
+    "native_reward": null
+  }
+]

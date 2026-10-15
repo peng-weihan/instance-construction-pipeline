@@ -1,0 +1,262 @@
+{
+  "category": "science",
+  "task": "samples/long-horizon-built-005/layered_aquifer_source_lab",
+  "mode": "trusted_component_host_validation",
+  "docker_executed": false,
+  "model_runs": 0,
+  "six_hour_runs": 0,
+  "started_unix": 1791983857.143834,
+  "task_manifest_sha256": "bfaf5061b3a062cdf9f7bc968c076c3d6a62656a3e8cf6a1e54d2ffd651c1f48",
+  "checks": [
+    {
+      "name": "independent_forward_agreement",
+      "pass": true,
+      "max_abs_error": 5.273559366969494e-16
+    },
+    {
+      "name": "truth_matches_hidden_labels",
+      "pass": true
+    },
+    {
+      "name": "source_perturbation_reduces_score",
+      "pass": true
+    },
+    {
+      "name": "missing_parameters_rejected",
+      "pass": true
+    }
+  ],
+  "records": [
+    {
+      "control": "privileged_truth_control",
+      "suite": "public",
+      "seconds": 0.03137512499233708,
+      "feedback": {
+        "status": "scored",
+        "score": 0.9964481551144968,
+        "valid": true,
+        "checks": [
+          {
+            "name": "source_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "finite_forward_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "relative_rmse": 0.06767288073777002,
+          "log_rmse": 0.05049150546977387,
+          "observations": 96
+        },
+        "summary": "4/4 named checks passed"
+      }
+    },
+    {
+      "control": "privileged_truth_control",
+      "suite": "feedback",
+      "seconds": 0.03098749998025596,
+      "feedback": {
+        "status": "scored",
+        "score": 1.0,
+        "valid": true,
+        "checks": [
+          {
+            "name": "source_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "finite_forward_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "relative_rmse": 1.0375356718807445e-15,
+          "log_rmse": 6.446774454967848e-16,
+          "observations": 96
+        },
+        "summary": "4/4 named checks passed"
+      }
+    },
+    {
+      "control": "privileged_truth_control",
+      "suite": "audit",
+      "seconds": 0.040147166000679135,
+      "feedback": {
+        "status": "scored",
+        "score": 1.0,
+        "valid": true,
+        "checks": [
+          {
+            "name": "source_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "finite_forward_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "relative_rmse": 9.815924326701019e-16,
+          "log_rmse": 9.613728830576037e-16,
+          "observations": 180
+        },
+        "summary": "4/4 named checks passed"
+      }
+    },
+    {
+      "control": "rate_perturbed_control",
+      "suite": "public",
+      "seconds": 0.030433040985371917,
+      "feedback": {
+        "status": "scored",
+        "score": 0.9664526977855828,
+        "valid": true,
+        "checks": [
+          {
+            "name": "source_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "finite_forward_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "relative_rmse": 0.23209775001508712,
+          "log_rmse": 0.12471652907701201,
+          "observations": 96
+        },
+        "summary": "4/4 named checks passed"
+      }
+    },
+    {
+      "control": "rate_perturbed_control",
+      "suite": "feedback",
+      "seconds": 0.030645041959360242,
+      "feedback": {
+        "status": "scored",
+        "score": 0.9729070565775972,
+        "valid": true,
+        "checks": [
+          {
+            "name": "source_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "finite_forward_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "relative_rmse": 0.19999999999999996,
+          "log_rmse": 0.12527898286670194,
+          "observations": 96
+        },
+        "summary": "4/4 named checks passed"
+      }
+    },
+    {
+      "control": "rate_perturbed_control",
+      "suite": "audit",
+      "seconds": 0.03901229199254885,
+      "feedback": {
+        "status": "scored",
+        "score": 0.9713041498512167,
+        "valid": true,
+        "checks": [
+          {
+            "name": "source_parameters",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "finite_forward_prediction",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "relative_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          },
+          {
+            "name": "log_rmse_below_one",
+            "pass": true,
+            "summary": ""
+          }
+        ],
+        "raw_metrics": {
+          "relative_rmse": 0.2000000000000001,
+          "log_rmse": 0.13815664819386664,
+          "observations": 180
+        },
+        "summary": "4/4 named checks passed"
+      }
+    }
+  ],
+  "truth_control_is_not_solver_performance": true,
+  "status": "passed",
+  "finished_unix": 1791983872.038333
+}

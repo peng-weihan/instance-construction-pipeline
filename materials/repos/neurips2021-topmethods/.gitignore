@@ -1,0 +1,8 @@
+output
+*.pyc
+target
+work
+.nextflow*
+log.txt
+README.html
+bin/build_for_release.sh

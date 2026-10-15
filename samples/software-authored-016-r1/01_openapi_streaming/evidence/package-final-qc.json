@@ -1,0 +1,32 @@
+{
+  "valid": true,
+  "checks": {
+    "environment_manifest": true,
+    "verifier_manifest": true,
+    "root_and_image_tests_identical": true,
+    "syntax": true,
+    "score_formula_native_and_structured_agree": true,
+    "preserved_controls_reconstruct_actual_inputs": [
+      {
+        "name": "cheap",
+        "patch_reconstructs_actual_control": true,
+        "files": 488
+      },
+      {
+        "name": "no_auth_override",
+        "patch_reconstructs_actual_control": true,
+        "files": 489
+      },
+      {
+        "name": "eager",
+        "patch_reconstructs_actual_control": true,
+        "files": 489
+      }
+    ]
+  },
+  "file_count_without_self_index": 1139,
+  "docker_built": false,
+  "harbor_trial_run": false,
+  "arm_run": false,
+  "teacher_run": false
+}

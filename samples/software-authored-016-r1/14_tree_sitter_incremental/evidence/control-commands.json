@@ -1,0 +1,98 @@
+[
+  {
+    "name": "full_reparse_complete_apis",
+    "command": [
+      "python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/controls/full_reparse_complete_apis",
+      "--base",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/verifier",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/full_reparse_complete_apis",
+      "--build-parent",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/candidate-builds"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "reference",
+    "command": [
+      "python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/material-src/tree-sitter",
+      "--base",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/verifier",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/reference",
+      "--build-parent",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/candidate-builds"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "full_reparse_starter",
+    "command": [
+      "python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/controls/full_reparse_starter",
+      "--base",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/verifier",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/full_reparse_starter",
+      "--build-parent",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/candidate-builds"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "edit_only",
+    "command": [
+      "python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/controls/edit_only",
+      "--base",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/verifier",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/edit_only",
+      "--build-parent",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/candidate-builds"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "range_only",
+    "command": [
+      "python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/controls/range_only",
+      "--base",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/verifier",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/range_only",
+      "--build-parent",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/candidate-builds"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "scanner_gate_missing",
+    "command": [
+      "python",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/tests/grader.py",
+      "--submission",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/controls/scanner_gate_missing",
+      "--base",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/verifier",
+      "--output",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/evidence/scanner_gate_missing",
+      "--build-parent",
+      "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/candidate-builds"
+    ],
+    "exit_code": 0
+  }
+]

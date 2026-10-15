@@ -1,0 +1,17 @@
+[package]
+versioned_files = ["pyproject.toml"]
+changelog = "CHANGELOG.md"
+extra_changelog_sections = [
+    { types = ["security"], name = "🚨Security" },
+    { types = ["major"], name = "❗️Breaking ❗" },
+    { types = ["minor"], name = "🚀 Features" },
+    { types = ["patch"], name = "🐛 Fixes" },
+    { types = ["note"], name = "📝Notes" }
+]
+
+[github]
+owner = "openapi-generators"
+repo = "openapi-python-client"
+
+[bot.releases]
+enabled = true

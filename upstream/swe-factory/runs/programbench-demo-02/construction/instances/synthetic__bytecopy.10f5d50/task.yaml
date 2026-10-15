@@ -1,0 +1,11 @@
+{
+  "repository": "synthetic/bytecopy",
+  "commit": "10f5d5017e1076e86945f289da3d3b364bea0726",
+  "language": "c",
+  "source_globs": [
+    "*.c"
+  ],
+  "eval_clean_hashes": [
+    "0905f7580dd9de2982c1c5a1a4c15bfa1f5093f8686597f30f78e36f43924836"
+  ]
+}

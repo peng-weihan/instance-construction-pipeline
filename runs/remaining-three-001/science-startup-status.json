@@ -1,0 +1,26 @@
+{
+  "task": "singlecell_cross_site_graph_lab-r2",
+  "status": "learning_started",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "account": "raymone/1",
+  "backend": "Aliyun learner + offline host Docker verifier",
+  "learning_started_utc": "2026-10-15T07:49:25.642440+00:00",
+  "learning_started_cst": "2026-10-15 15:49:25",
+  "expected_learning_end_cst": "2026-10-15 21:49:25",
+  "learning_budget_seconds": 21600,
+  "evaluation_interval_seconds": 600,
+  "difficulty_early_stop": false,
+  "formal_acceptance": false,
+  "remote_run": "/ws/users/raymone/edgebench/remaining-three-001/science-pilot/run-6h-001",
+  "framework": "framework-r2",
+  "runtime_tree_sha256": "27d3fabec1c933731f21c127d5b36dacf94dbd8f31e2ff0514d5fd32dca05363",
+  "last_verified_utc": "2026-10-15T07:51:22.993304+00:00",
+  "live_evidence": {
+    "native_tool_calls": 8,
+    "native_tool_outputs": 8,
+    "completed_grades": 1,
+    "best_score": 0.3926459008379822,
+    "last_native_timestamp": "2026-10-15T07:50:53.936Z"
+  }
+}

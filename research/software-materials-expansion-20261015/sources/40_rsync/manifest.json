@@ -1,0 +1,74 @@
+{
+  "repo": "RsyncProject/rsync",
+  "revision": "b70a61f394d0d4c71ee349a9260b4ed8babbb6be",
+  "resolved_utc": "2026-10-15T13:08:41.388072+00:00",
+  "retrieved_utc": "2026-10-15T13:09:41.994312+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "c042e96e47a2fb65077b37a5a4db6d79f979f00c5b97e4639281c02688eb8e01",
+    "truncated": false,
+    "blob_count": 714
+  },
+  "files_acquired": [
+    {
+      "path": "COPYING",
+      "bytes": 35566,
+      "sha256": "85c19ea50a224c2d0067a69c083584e5717b40b76610ec1218f91385775067dd",
+      "url": "https://github.com/RsyncProject/rsync/blob/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/COPYING"
+    },
+    {
+      "path": "INSTALL.md",
+      "bytes": 11581,
+      "sha256": "a180bcc286da904837aeb2c37baa4571cdbd936955ff4092841d354bc510df5e",
+      "url": "https://github.com/RsyncProject/rsync/blob/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/INSTALL.md"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4840,
+      "sha256": "8eb0157c57b86a434375706552d3a158ec2197aa7ee837b7284a1cd6f341d374",
+      "url": "https://github.com/RsyncProject/rsync/blob/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/README.md"
+    },
+    {
+      "path": "generator.c",
+      "bytes": 92299,
+      "sha256": "a085d0ebb2f33e391058a5d553327b1b4cdcedf19e06dd75b58b656208626013",
+      "url": "https://github.com/RsyncProject/rsync/blob/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/generator.c"
+    },
+    {
+      "path": "receiver.c",
+      "bytes": 44647,
+      "sha256": "ab4ab371bbad5381279246cea50c0b731bf676d5c657523344a8de91001ab85a",
+      "url": "https://github.com/RsyncProject/rsync/blob/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/receiver.c"
+    },
+    {
+      "path": "rsync.1.md",
+      "bytes": 256060,
+      "sha256": "f08e829b2cdeb531cba8a23a1b7aff131b1f0d4afb2d2478ae284c2057193f25",
+      "url": "https://github.com/RsyncProject/rsync/blob/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/rsync.1.md"
+    },
+    {
+      "path": "testsuite/delete_test.py",
+      "bytes": 3810,
+      "sha256": "67878af5beb7d5b1425c2156ed303fd8ade23ec4da051f294b9cf1a1841e80fe",
+      "url": "https://github.com/RsyncProject/rsync/blob/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/testsuite/delete_test.py"
+    },
+    {
+      "path": "testsuite/filter-depth_test.py",
+      "bytes": 2663,
+      "sha256": "c10918d0c77c6def4dca71bfa82ec4a1cf892c403f92961ece5de725cc0da38e",
+      "url": "https://github.com/RsyncProject/rsync/blob/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/testsuite/filter-depth_test.py"
+    },
+    {
+      "path": "testsuite/hardlinks_test.py",
+      "bytes": 3971,
+      "sha256": "4479d90763fdc1cd82d865087dddd5713756cede1b10db60564440ec307b4a77",
+      "url": "https://github.com/RsyncProject/rsync/blob/b70a61f394d0d4c71ee349a9260b4ed8babbb6be/testsuite/hardlinks_test.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

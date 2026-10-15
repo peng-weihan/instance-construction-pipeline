@@ -1,0 +1,15 @@
+{
+  "construction": "source_complete_runtime_unverified",
+  "runtime_runs": 0,
+  "model_runs": 0,
+  "six_hour_curve": null,
+  "oracle_score": null,
+  "nop_score": null,
+  "source_review": "static syntax, references, package boundaries only",
+  "delivery_gates": [
+    "runtime correctness and isolation verification",
+    "dependency/image reproducibility and both architectures",
+    "difficulty calibration",
+    "official Harbor contract mapping"
+  ]
+}

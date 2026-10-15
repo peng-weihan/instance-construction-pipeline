@@ -1,0 +1,44 @@
+[
+  {
+    "task_id": "restler_resilient_execution",
+    "category": "software",
+    "status": "source_complete_runtime_unverified",
+    "task_toml": "restler_resilient_execution/task.toml",
+    "instruction": "restler_resilient_execution/instruction.md"
+  },
+  {
+    "task_id": "layered_aquifer_source_lab",
+    "category": "science",
+    "status": "source_complete_runtime_unverified",
+    "task_toml": "layered_aquifer_source_lab/task.toml",
+    "instruction": "layered_aquifer_source_lab/instruction.md"
+  },
+  {
+    "task_id": "industrial_nesting_improvement",
+    "category": "packing",
+    "status": "source_complete_runtime_unverified",
+    "task_toml": "industrial_nesting_improvement/task.toml",
+    "instruction": "industrial_nesting_improvement/instruction.md"
+  },
+  {
+    "task_id": "brownian_multibranch_proofs",
+    "category": "formal",
+    "status": "source_complete_runtime_unverified",
+    "task_toml": "brownian_multibranch_proofs/task.toml",
+    "instruction": "brownian_multibranch_proofs/instruction.md"
+  },
+  {
+    "task_id": "cross_asset_adaptive_allocator",
+    "category": "finance",
+    "status": "source_complete_runtime_unverified",
+    "task_toml": "cross_asset_adaptive_allocator/task.toml",
+    "instruction": "cross_asset_adaptive_allocator/instruction.md"
+  },
+  {
+    "task_id": "wesnoth_frontier_campaign_ai",
+    "category": "game",
+    "status": "source_complete_runtime_unverified",
+    "task_toml": "wesnoth_frontier_campaign_ai/task.toml",
+    "instruction": "wesnoth_frontier_campaign_ai/instruction.md"
+  }
+]

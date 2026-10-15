@@ -1,0 +1,11 @@
+{
+  "status": "ok",
+  "surface_gap": "Arbitrary numbers of layers",
+  "transferred_mechanisms": [
+    "precedence"
+  ],
+  "requirements": [
+    "R1: left-to-right arbitrary-layer merging"
+  ],
+  "instruction": "Implement merge_many(*layers)."
+}

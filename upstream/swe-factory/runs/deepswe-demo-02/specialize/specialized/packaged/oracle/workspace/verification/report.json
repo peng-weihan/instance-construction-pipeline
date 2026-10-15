@@ -1,0 +1,41 @@
+{
+  "healthy": true,
+  "errors": [],
+  "tests": {
+    "tests/test_specialized.py::test_one_layer": "passed",
+    "tests/test_specialized.py::test_three_layers": "passed",
+    "tests/test_specialized.py::test_empty_layer": "passed",
+    "tests/test_regression.py::test_plain": "passed",
+    "tests/test_target.py::test_parent": "passed",
+    "tests/test_target.py::test_child": "passed",
+    "tests/test_target.py::test_override": "passed",
+    "tests/test_target.py::test_unicode": "passed"
+  },
+  "reward": 1.0,
+  "executions": {
+    "apply_solution": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "timed_out": false
+    },
+    "apply_tests": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "timed_out": false
+    },
+    "target": {
+      "returncode": 0,
+      "stdout": "...                                                                      [100%]\n- generated xml file: /Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/specialize/specialized/packaged/oracle/workspace/verification/workspace/.factory-target.xml -\n3 passed in 0.01s\n",
+      "stderr": "",
+      "timed_out": false
+    },
+    "regression": {
+      "returncode": 0,
+      "stdout": ".....                                                                    [100%]\n- generated xml file: /Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/specialize/specialized/packaged/oracle/workspace/verification/workspace/.factory-regression.xml -\n5 passed in 0.01s\n",
+      "stderr": "",
+      "timed_out": false
+    }
+  }
+}

@@ -1,0 +1,528 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.polaris.core.storage.azure;
+
+import static org.apache.polaris.core.config.FeatureConfiguration.AZURE_RETRY_COUNT;
+import static org.apache.polaris.core.config.FeatureConfiguration.AZURE_RETRY_DELAY_MILLIS;
+import static org.apache.polaris.core.config.FeatureConfiguration.AZURE_RETRY_JITTER_FACTOR;
+import static org.apache.polaris.core.config.FeatureConfiguration.AZURE_TIMEOUT_MILLIS;
+import static org.apache.polaris.core.config.FeatureConfiguration.STORAGE_CREDENTIAL_DURATION_SECONDS;
+
+import com.azure.core.credential.AccessToken;
+import com.azure.core.credential.TokenRequestContext;
+import com.azure.identity.DefaultAzureCredential;
+import com.azure.identity.DefaultAzureCredentialBuilder;
+import com.azure.storage.blob.BlobContainerClientBuilder;
+import com.azure.storage.blob.BlobServiceClient;
+import com.azure.storage.blob.BlobServiceClientBuilder;
+import com.azure.storage.blob.models.BlobStorageException;
+import com.azure.storage.blob.models.UserDelegationKey;
+import com.azure.storage.blob.sas.BlobSasPermission;
+import com.azure.storage.blob.sas.BlobServiceSasSignatureValues;
+import com.azure.storage.file.datalake.DataLakeFileSystemClientBuilder;
+import com.azure.storage.file.datalake.DataLakePathClientBuilder;
+import com.azure.storage.file.datalake.DataLakeServiceClient;
+import com.azure.storage.file.datalake.DataLakeServiceClientBuilder;
+import com.azure.storage.file.datalake.models.DataLakeStorageException;
+import com.azure.storage.file.datalake.sas.DataLakeServiceSasSignatureValues;
+import com.azure.storage.file.datalake.sas.PathSasPermission;
+import com.google.common.annotations.VisibleForTesting;
+import com.google.common.base.Preconditions;
+import java.time.Duration;
+import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.time.Period;
+import java.time.ZoneOffset;
+import java.time.temporal.ChronoUnit;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
+import org.apache.polaris.core.StructuredLogKeys;
+import org.apache.polaris.core.config.RealmConfig;
+import org.apache.polaris.core.storage.CachingStorageIntegration;
+import org.apache.polaris.core.storage.CredentialVendingContext;
+import org.apache.polaris.core.storage.LocationGrant;
+import org.apache.polaris.core.storage.PolarisStorageActions;
+import org.apache.polaris.core.storage.StorageAccessConfig;
+import org.apache.polaris.core.storage.StorageAccessProperty;
+import org.apache.polaris.core.storage.cache.StorageCredentialCacheKey;
+import org.jspecify.annotations.NonNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import reactor.core.publisher.Mono;
+import reactor.util.retry.Retry;
+
+/** Azure credential vendor that supports generating SAS token */
+public class AzureCredentialsStorageIntegration
+    extends CachingStorageIntegration<AzureStorageConfigurationInfo> {
+
+  private static final Logger LOGGER =
+      LoggerFactory.getLogger(AzureCredentialsStorageIntegration.class);
+
+  // Microsoft's Java user-delegation SAS example backdates the key start time to account for
+  // clock skew. See
+  // https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-user-delegation-sas-create-java.
+  private static final long SAS_CLOCK_SKEW_BUFFER_SECONDS = Duration.ofMinutes(5).toSeconds();
+
+  final DefaultAzureCredential defaultAzureCredential;
+
+  public AzureCredentialsStorageIntegration(
+      AzureStorageConfigurationInfo storageConfig, RealmConfig realmConfig) {
+    this(null, storageConfig, realmConfig);
+  }
+
+  public AzureCredentialsStorageIntegration(
+      org.apache.polaris.core.storage.cache.StorageCredentialCache cache,
+      AzureStorageConfigurationInfo storageConfig,
+      RealmConfig realmConfig) {
+    super(cache, realmConfig, storageConfig);
+    // The DefaultAzureCredential will by default load the environment variables for client id,
+    // client secret, tenant id
+    defaultAzureCredential = new DefaultAzureCredentialBuilder().build();
+  }
+
+  @Override
+  protected StorageCredentialCacheKey buildCacheKey(
+      @NonNull List<LocationGrant> grants, @NonNull CredentialVendingContext context) {
+    return buildCacheKey(allowList(grants), readLocations(grants), writeLocations(grants), context);
+  }
+
+  @Override
+  protected StorageAccessConfig addExtraProperties(
+      @NonNull StorageAccessConfig accessConfig, @NonNull Optional<String> refreshEndpoint) {
+    return refreshEndpoint
+        .map(
+            endpoint ->
+                withExtraProperty(
+                    accessConfig,
+                    StorageAccessProperty.AZURE_REFRESH_CREDENTIALS_ENDPOINT,
+                    endpoint))
+        .orElse(accessConfig);
+  }
+
+  private static boolean allowList(List<LocationGrant> grants) {
+    return grants.stream()
+        .flatMap(g -> g.actions().stream())
+        .anyMatch(a -> a == PolarisStorageActions.LIST || a == PolarisStorageActions.ALL);
+  }
+
+  private static Set<String> readLocations(List<LocationGrant> grants) {
+    return grants.stream().flatMap(g -> g.locations().stream()).collect(Collectors.toSet());
+  }
+
+  private static Set<String> writeLocations(List<LocationGrant> grants) {
+    return grants.stream()
+        .filter(
+            g ->
+                g.actions().contains(PolarisStorageActions.WRITE)
+                    || g.actions().contains(PolarisStorageActions.DELETE)
+                    || g.actions().contains(PolarisStorageActions.ALL))
+        .flatMap(g -> g.locations().stream())
+        .collect(Collectors.toSet());
+  }
+
+  private AzureStorageCredentialCacheKey buildCacheKey(
+      boolean allowList,
+      @NonNull Set<String> locations,
+      @NonNull Set<String> writeLocations,
+      @NonNull CredentialVendingContext context) {
+    return AzureStorageCredentialCacheKey.of(
+        context.realm().orElse(""),
+        storageConfig(),
+        allowList,
+        locations,
+        writeLocations,
+        defaultAzureCredential,
+        realmConfig());
+  }
+
+  /** Mint a fresh {@link StorageAccessConfig} for the given Azure cache key. */
+  static StorageAccessConfig compute(AzureStorageCredentialCacheKey key) {
+    RealmConfig realmConfig = key.realmConfig();
+    AzureStorageConfigurationInfo azureStorageConfig = key.storageConfig();
+    DefaultAzureCredential defaultAzureCredential = key.defaultAzureCredential();
+    boolean allowList = key.allowedListAction();
+    Set<String> locations = key.allowedReadLocations();
+    Set<String> writeLocations = key.allowedWriteLocations();
+    String loc =
+        !writeLocations.isEmpty()
+            ? writeLocations.stream().findAny().orElse(null)
+            : locations.stream().findAny().orElse(null);
+    if (loc == null) {
+      throw new IllegalArgumentException("Expect valid location");
+    }
+    // schema://<container_name>@<account_name>.<endpoint>/<file_path>
+    AzureLocation location = new AzureLocation(loc);
+    validateAccountAndContainer(location, locations, writeLocations);
+
+    String storageDnsName = location.getStorageDnsName();
+    String filePath = location.getFilePath();
+
+    BlobSasPermission blobSasPermission = new BlobSasPermission();
+    // pathSasPermission is for Data lake storage
+    PathSasPermission pathSasPermission = new PathSasPermission();
+
+    if (allowList) {
+      // container level
+      blobSasPermission.setListPermission(true);
+      pathSasPermission.setListPermission(true);
+    }
+    if (!locations.isEmpty()) {
+      blobSasPermission.setReadPermission(true);
+      pathSasPermission.setReadPermission(true);
+    }
+    if (!writeLocations.isEmpty()) {
+      blobSasPermission.setAddPermission(true);
+      blobSasPermission.setWritePermission(true);
+      blobSasPermission.setDeletePermission(true);
+      pathSasPermission.setAddPermission(true);
+      pathSasPermission.setWritePermission(true);
+      pathSasPermission.setDeletePermission(true);
+    }
+
+    Instant start = Instant.now();
+
+    AccessToken accessToken =
+        getAccessToken(defaultAzureCredential, realmConfig, azureStorageConfig.getTenantId());
+    // Backdate the user delegation key start time by five minutes, following Microsoft's Java
+    // user-delegation SAS example, to prevent authorization failures caused by clock skew.
+    // Microsoft's general SAS guidance recommends a 15-minute backdate for an explicit SAS start
+    // time; Polaris does not set a SAS start time, and this buffer applies only to the key. The
+    // key is limited to Azure's seven-day validity window, with a one-minute end-time margin.
+    Instant clockSkewAdjustedStart = getClockSkewAdjustedStart(start);
+    OffsetDateTime startTime =
+        clockSkewAdjustedStart.truncatedTo(ChronoUnit.SECONDS).atOffset(ZoneOffset.UTC);
+    int intendedDurationSeconds = realmConfig.getConfig(STORAGE_CREDENTIAL_DURATION_SECONDS);
+    OffsetDateTime intendedEndTime =
+        start.plusSeconds(intendedDurationSeconds).atOffset(ZoneOffset.UTC);
+    OffsetDateTime maxAllowedEndTime =
+        clockSkewAdjustedStart.plus(Period.ofDays(7)).minusSeconds(60).atOffset(ZoneOffset.UTC);
+    OffsetDateTime sanitizedEndTime =
+        intendedEndTime.isBefore(maxAllowedEndTime) ? intendedEndTime : maxAllowedEndTime;
+
+    LOGGER
+        .atDebug()
+        .addKeyValue(StructuredLogKeys.ALLOWED_LIST_ACTION, allowList)
+        .addKeyValue(StructuredLogKeys.LOCATIONS, locations)
+        .addKeyValue(StructuredLogKeys.WRITE_LOCATIONS, writeLocations)
+        .addKeyValue(StructuredLogKeys.LOCATION, loc)
+        .addKeyValue(StructuredLogKeys.STORAGE_ACCOUNT, location.getStorageAccount())
+        .addKeyValue(StructuredLogKeys.ENDPOINT, location.getEndpoint())
+        .addKeyValue(StructuredLogKeys.CONTAINER, location.getContainer())
+        .addKeyValue(StructuredLogKeys.FILE_PATH, filePath)
+        .log("Subscope Azure SAS");
+    String sasToken;
+    if (location.getEndpoint().equalsIgnoreCase(AzureLocation.BLOB_ENDPOINT)) {
+      sasToken =
+          getBlobUserDelegationSas(
+              startTime,
+              sanitizedEndTime,
+              sanitizedEndTime,
+              storageDnsName,
+              location.getContainer(),
+              blobSasPermission,
+              Mono.just(accessToken));
+    } else if (location.getEndpoint().equalsIgnoreCase(AzureLocation.ADLS_ENDPOINT)) {
+      String path = null;
+      if (Boolean.TRUE.equals(azureStorageConfig.isHierarchical())) {
+        Preconditions.checkArgument(
+            locations.size() <= 1, "Allowed read locations must not have more that one entry");
+        Preconditions.checkArgument(
+            writeLocations.size() <= 1,
+            "Allowed write locations must not have more that one entry");
+        path = location.getFilePath();
+      }
+
+      sasToken =
+          getAdlsUserDelegationSas(
+              startTime,
+              sanitizedEndTime,
+              sanitizedEndTime,
+              storageDnsName,
+              location.getContainer(),
+              pathSasPermission,
+              path,
+              Mono.just(accessToken));
+    } else {
+      throw new RuntimeException(
+          String.format("Endpoint %s not supported", location.getEndpoint()));
+    }
+
+    return toAccessConfig(sasToken, location, sanitizedEndTime.toInstant());
+  }
+
+  @VisibleForTesting
+  static Instant getClockSkewAdjustedStart(Instant start) {
+    return start.minusSeconds(SAS_CLOCK_SKEW_BUFFER_SECONDS);
+  }
+
+  @VisibleForTesting
+  static StorageAccessConfig toAccessConfig(
+      String sasToken, AzureLocation location, Instant expiresAt) {
+    StorageAccessConfig.Builder accessConfig = StorageAccessConfig.builder();
+    handleAzureCredential(accessConfig, sasToken, location, expiresAt);
+    accessConfig.expiresAt(expiresAt);
+    return accessConfig.build();
+  }
+
+  private static void handleAzureCredential(
+      StorageAccessConfig.Builder config,
+      String sasToken,
+      AzureLocation location,
+      Instant expiresAt) {
+    String storageDnsName = location.getStorageDnsName();
+    String accountName = location.getStorageAccount();
+
+    config.putCredential(
+        StorageAccessProperty.AZURE_SAS_TOKEN_ACCOUNT_HOST.getPropertyName() + "." + storageDnsName,
+        sasToken);
+    config.putCredential(
+        StorageAccessProperty.AZURE_SAS_TOKEN_EXPIRES_AT_MS.getPropertyName()
+            + "."
+            + storageDnsName,
+        String.valueOf(expiresAt.toEpochMilli()));
+
+    // Iceberg 1.7.x may expect the credential key to _not_ be suffixed with endpoint.
+    // Use accountName (from location) for the stripped variant.
+    if (location.isAdls()) {
+      config.putCredential(
+          StorageAccessProperty.AZURE_SAS_TOKEN_ACCOUNT_NAME.getPropertyName() + "." + accountName,
+          sasToken);
+    }
+
+    if (location.isBlob()) {
+      config.putCredential(
+          StorageAccessProperty.AZURE_SAS_TOKEN_ACCOUNT_NAME.getPropertyName() + "." + accountName,
+          sasToken);
+    }
+
+    // PyIceberg and other clients need bare adls.sas-token and adls.account-name for compatibility
+    // with adlfs/fsspec (and similar libraries). The bare keys are emitted in addition to the
+    // suffixed variants used by Spark.
+    // See https://github.com/apache/polaris/issues/418
+    config.putCredential(StorageAccessProperty.AZURE_SAS_TOKEN_BARE.getPropertyName(), sasToken);
+    config.putCredential(StorageAccessProperty.AZURE_ACCOUNT_NAME.getPropertyName(), accountName);
+  }
+
+  private static String getBlobUserDelegationSas(
+      OffsetDateTime startTime,
+      OffsetDateTime keyEndtime,
+      OffsetDateTime sasExpiry,
+      String storageDnsName,
+      String container,
+      BlobSasPermission blobSasPermission,
+      Mono<AccessToken> accessTokenMono) {
+    String endpoint = "https://" + storageDnsName;
+    try {
+      BlobServiceClient serviceClient =
+          new BlobServiceClientBuilder()
+              .endpoint(endpoint)
+              .credential(c -> accessTokenMono)
+              .buildClient();
+      UserDelegationKey userDelegationKey =
+          serviceClient.getUserDelegationKey(startTime, keyEndtime);
+      BlobServiceSasSignatureValues sigValues =
+          new BlobServiceSasSignatureValues(sasExpiry, blobSasPermission);
+      // scoped to the container
+      return new BlobContainerClientBuilder()
+          .endpoint(endpoint)
+          .containerName(container)
+          .buildClient()
+          .generateUserDelegationSas(sigValues, userDelegationKey);
+    } catch (BlobStorageException ex) {
+      LOGGER.debug(
+          "Azure DataLakeStorageException for getBlobUserDelegationSas. keyStart={} keyEnd={}, storageDns={}, container={}",
+          startTime,
+          keyEndtime,
+          storageDnsName,
+          container,
+          ex);
+      throw ex;
+    }
+  }
+
+  private static String getAdlsUserDelegationSas(
+      OffsetDateTime startTime,
+      OffsetDateTime endTime,
+      OffsetDateTime sasExpiry,
+      String storageDnsName,
+      String fileSystemNameOrContainer,
+      PathSasPermission pathSasPermission,
+      String path,
+      Mono<AccessToken> accessTokenMono) {
+    String endpoint = "https://" + storageDnsName;
+    try {
+      DataLakeServiceClient dataLakeServiceClient =
+          new DataLakeServiceClientBuilder()
+              .endpoint(endpoint)
+              .credential(c -> accessTokenMono)
+              .buildClient();
+      com.azure.storage.file.datalake.models.UserDelegationKey userDelegationKey =
+          dataLakeServiceClient.getUserDelegationKey(startTime, endTime);
+
+      DataLakeServiceSasSignatureValues signatureValues =
+          new DataLakeServiceSasSignatureValues(sasExpiry, pathSasPermission);
+
+      if (path != null) {
+        return new DataLakePathClientBuilder()
+            .endpoint(endpoint)
+            .fileSystemName(fileSystemNameOrContainer)
+            .pathName(path)
+            .buildDirectoryClient()
+            .generateUserDelegationSas(signatureValues, userDelegationKey);
+
+      } else {
+        return new DataLakeFileSystemClientBuilder()
+            .endpoint(endpoint)
+            .fileSystemName(fileSystemNameOrContainer)
+            .buildClient()
+            .generateUserDelegationSas(signatureValues, userDelegationKey);
+      }
+    } catch (DataLakeStorageException ex) {
+      LOGGER.debug(
+          "Azure DataLakeStorageException for getAdlsUserDelegationSas. keyStart={} keyEnd={}, storageDns={}, fileSystemName={}",
+          startTime,
+          endTime,
+          storageDnsName,
+          fileSystemNameOrContainer,
+          ex);
+      throw ex;
+    }
+  }
+
+  /** Verify that storage accounts, containers and endpoint are the same */
+  private static void validateAccountAndContainer(
+      AzureLocation target, Set<String> readLocations, Set<String> writeLocations) {
+    Set<String> allLocations = new HashSet<>();
+    allLocations.addAll(readLocations);
+    allLocations.addAll(writeLocations);
+    allLocations.forEach(
+        loc -> {
+          AzureLocation location = new AzureLocation(loc);
+          if (!Objects.equals(location.getStorageAccount(), target.getStorageAccount())
+              || !Objects.equals(location.getContainer(), target.getContainer())
+              || !Objects.equals(location.getEndpoint(), target.getEndpoint())) {
+            throw new RuntimeException(
+                "Expect allowed read write locations belong to the same storage account and container");
+          }
+        });
+  }
+
+  /**
+   * Fetches an Azure AD access token with timeout and retry logic to handle transient failures.
+   *
+   * <p>This access token is used internally to obtain a user delegation key from Azure Storage,
+   * which is then used to generate SAS tokens for client credential vending.
+   *
+   * <p>This method implements a defensive strategy against slow or failing cloud provider requests:
+   *
+   * <ul>
+   *   <li>Per-attempt timeout (configurable via AZURE_TIMEOUT_MILLIS, default 15000ms)
+   *   <li>Exponential backoff retry (configurable count and initial delay via AZURE_RETRY_COUNT and
+   *       AZURE_RETRY_DELAY_MILLIS, defaults: 3 attempts starting at 2000ms)
+   *   <li>Jitter to prevent thundering herd (configurable via AZURE_RETRY_JITTER_FACTOR, default
+   *       0.5 = 50%%)
+   * </ul>
+   *
+   * @param realmConfig the realm configuration to get timeout and retry settings
+   * @param tenantId the Azure tenant ID
+   * @return the access token
+   * @throws RuntimeException if token fetch fails after all retries or times out
+   */
+  private static AccessToken getAccessToken(
+      DefaultAzureCredential defaultAzureCredential, RealmConfig realmConfig, String tenantId) {
+    int timeoutMillis = realmConfig.getConfig(AZURE_TIMEOUT_MILLIS);
+    int retryCount = realmConfig.getConfig(AZURE_RETRY_COUNT);
+    int initialDelayMillis = realmConfig.getConfig(AZURE_RETRY_DELAY_MILLIS);
+    double jitter = realmConfig.getConfig(AZURE_RETRY_JITTER_FACTOR);
+    int maxAttempts = retryCount + 1;
+
+    String scope = "https://storage.azure.com/.default";
+    AccessToken accessToken =
+        defaultAzureCredential
+            .getToken(new TokenRequestContext().addScopes(scope).setTenantId(tenantId))
+            .timeout(Duration.ofMillis(timeoutMillis))
+            .doOnError(
+                error ->
+                    LOGGER.warn("Error fetching Azure access token for tenant {}", tenantId, error))
+            .retryWhen(
+                Retry.backoff(retryCount, Duration.ofMillis(initialDelayMillis))
+                    .jitter(jitter) // Apply jitter factor to computed delay
+                    .filter(AzureCredentialsStorageIntegration::isRetriableAzureException)
+                    .doBeforeRetry(
+                        retrySignal ->
+                            LOGGER.info(
+                                "Retrying Azure token fetch for tenant {} (attempt {}/{})",
+                                tenantId,
+                                retrySignal.totalRetries() + 1,
+                                maxAttempts))
+                    .onRetryExhaustedThrow(
+                        (retryBackoffSpec, retrySignal) ->
+                            new RuntimeException(
+                                String.format(
+                                    "Azure token fetch exhausted after %d attempts for tenant %s",
+                                    retrySignal.totalRetries(), tenantId),
+                                retrySignal.failure())))
+            .blockOptional()
+            .orElse(null);
+
+    if (accessToken == null) {
+      throw new RuntimeException(
+          String.format("Failed to fetch Azure access token for tenant %s", tenantId));
+    }
+    return accessToken;
+  }
+
+  /**
+   * Determines if an exception is retriable for Azure token requests.
+   *
+   * <p>Retries are attempted for:
+   *
+   * <ul>
+   *   <li>TimeoutException - per-attempt timeout exceeded
+   *   <li>AADSTS50058 - Token endpoint timeout
+   *   <li>AADSTS50078 - Service temporarily unavailable
+   *   <li>AADSTS700084 - Token refresh required
+   *   <li>503 - Service unavailable
+   *   <li>429 - Too many requests (rate limited)
+   * </ul>
+   *
+   * @param throwable the exception to check
+   * @return true if the exception should trigger a retry
+   */
+  private static boolean isRetriableAzureException(Throwable throwable) {
+    // Retry on timeout exceptions
+    if (throwable instanceof java.util.concurrent.TimeoutException) {
+      return true;
+    }
+    // Retry on common transient Azure credential exceptions
+    String message = throwable.getMessage();
+    if (message != null) {
+      return message.contains("AADSTS50058") // Token endpoint timeout
+          || message.contains("AADSTS50078") // Service temporarily unavailable
+          || message.contains("AADSTS700084") // Token refresh required
+          || message.contains("503") // Service unavailable
+          || message.contains("429"); // Too many requests
+    }
+    return false;
+  }
+}

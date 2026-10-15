@@ -1,0 +1,8 @@
+{
+  "status": "ok",
+  "build_command": [],
+  "captured_patch": "diff --git a/calc.py b/calc.py\nindex f20ff6f..a111f69 100644\n--- a/calc.py\n+++ b/calc.py\n@@ -1,5 +1,5 @@\n def combine(parent, child):\n-    return {}\n+    return {**parent, **child}\n \n def plain(value):\n     return dict(value)\n",
+  "changed_paths": [
+    "calc.py"
+  ]
+}

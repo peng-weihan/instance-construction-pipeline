@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/02_restler/solution/reference-draft/restler/restler.py", line 649, in <module>
+    logger.print_gc_summary(garbage_collector)
+  File "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/02_restler/solution/reference-draft/restler/utils/logger.py", line 1041, in print_gc_summary
+    gc_summary['delete_stats'] = garbage_collector.gc_stats
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'gc_stats'

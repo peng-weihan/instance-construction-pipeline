@@ -1,0 +1,75 @@
+{
+  "repo": "PyPSA/PyPSA",
+  "revision": "6c45594596cbc5612511ee9202a9e269e5001d88",
+  "resolved_utc": "2026-10-15T14:58:55.199081+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:00:16.878468+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "d0e31c557ff8bbfcc35208c94c24152002eb60f55de00e3bae9bf14aad048c77",
+    "truncated": false,
+    "blob_count": 750
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 1080,
+      "sha256": "25c9ed965716d722c95d976059590e1d800ec2e92398767114aa5a5a381f4df6",
+      "url": "https://github.com/PyPSA/PyPSA/blob/6c45594596cbc5612511ee9202a9e269e5001d88/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 10141,
+      "sha256": "bd866355c52f1bad195601c1eb33c995effcd78335bd77d7b984dd907e4fcfa4",
+      "url": "https://github.com/PyPSA/PyPSA/blob/6c45594596cbc5612511ee9202a9e269e5001d88/README.md"
+    },
+    {
+      "path": "examples/networks/storage-hvdc/storage-hvdc/buses.csv",
+      "bytes": 182,
+      "sha256": "f84ec94ebfa45ea5875808d07b6e4edeae75c200910f0887be3fe469fbe23aae",
+      "url": "https://github.com/PyPSA/PyPSA/blob/6c45594596cbc5612511ee9202a9e269e5001d88/examples/networks/storage-hvdc/storage-hvdc/buses.csv"
+    },
+    {
+      "path": "examples/networks/storage-hvdc/storage-hvdc/generators.csv",
+      "bytes": 1078,
+      "sha256": "50744632a61036f9654a4a338882e62350b695faf4c815b03c9d34ff1851f757",
+      "url": "https://github.com/PyPSA/PyPSA/blob/6c45594596cbc5612511ee9202a9e269e5001d88/examples/networks/storage-hvdc/storage-hvdc/generators.csv"
+    },
+    {
+      "path": "examples/networks/storage-hvdc/storage-hvdc/loads-p_set.csv",
+      "bytes": 1039,
+      "sha256": "8f63a999843e01ab45f7a0975041e28b36552ddf640466336fdd6871047eab01",
+      "url": "https://github.com/PyPSA/PyPSA/blob/6c45594596cbc5612511ee9202a9e269e5001d88/examples/networks/storage-hvdc/storage-hvdc/loads-p_set.csv"
+    },
+    {
+      "path": "pypsa/optimization/optimize.py",
+      "bytes": 58786,
+      "sha256": "4ce48461b991db13bf94fc0f90c5f14030a76c0129e18ead92cae9ed297e5b40",
+      "url": "https://github.com/PyPSA/PyPSA/blob/6c45594596cbc5612511ee9202a9e269e5001d88/pypsa/optimization/optimize.py"
+    },
+    {
+      "path": "test/test_lopf_storage.py",
+      "bytes": 4086,
+      "sha256": "d70c26f08705b5b4b331d63b9744ae380dec3c11517c1cc05225baadfd57c4cf",
+      "url": "https://github.com/PyPSA/PyPSA/blob/6c45594596cbc5612511ee9202a9e269e5001d88/test/test_lopf_storage.py"
+    },
+    {
+      "path": "test/test_lopf_unit_commitment.py",
+      "bytes": 43767,
+      "sha256": "c723d80fe76b99120295b4567526367c47cc522aa0370f1cb3d2926b23e4fa67",
+      "url": "https://github.com/PyPSA/PyPSA/blob/6c45594596cbc5612511ee9202a9e269e5001d88/test/test_lopf_unit_commitment.py"
+    },
+    {
+      "path": "test/test_optimization_common.py",
+      "bytes": 796,
+      "sha256": "55bd43f1805a7b394520df6a8cd1fdb005ea60a6200fbc881ec0914af71f091e",
+      "url": "https://github.com/PyPSA/PyPSA/blob/6c45594596cbc5612511ee9202a9e269e5001d88/test/test_optimization_common.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

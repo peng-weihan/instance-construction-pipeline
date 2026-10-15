@@ -1,0 +1,75 @@
+{
+  "anchor": {
+    "round": "agent-25",
+    "hours": 0.9891246403791593,
+    "score": 0.6077547405161176
+  },
+  "n": 102,
+  "latest_hours": 4.238962503243852,
+  "variants": {
+    "original": {
+      "retained_terms": 33,
+      "removed_terms": 0,
+      "best_score": 0.608053476315216,
+      "checkpoints": {
+        "0.5": 0.5545539746011926,
+        "1": 0.6077547405161176,
+        "2": 0.6077547405161176,
+        "3": 0.608053476315216,
+        "4": 0.608053476315216
+      },
+      "absolute_gain_after_2h": 0.0002987357990984485,
+      "relative_gain_after_2h": 0.00049154005585339,
+      "last_improvement_hours": 2.4739591411452664,
+      "new_highs_after_2h": 1
+    },
+    "drop_easy_0.80": {
+      "retained_terms": 25,
+      "removed_terms": 8,
+      "best_score": 0.5038731984111755,
+      "checkpoints": {
+        "0.5": 0.4376337097389982,
+        "1": 0.5038731984111755,
+        "2": 0.5038731984111755,
+        "3": 0.5038731984111755,
+        "4": 0.5038731984111755
+      },
+      "absolute_gain_after_2h": 0.0,
+      "relative_gain_after_2h": 0.0,
+      "last_improvement_hours": 0.9891246403791593,
+      "new_highs_after_2h": 0
+    },
+    "drop_easy_0.90": {
+      "retained_terms": 27,
+      "removed_terms": 6,
+      "best_score": 0.529349436836989,
+      "checkpoints": {
+        "0.5": 0.46371054728023614,
+        "1": 0.529349436836989,
+        "2": 0.529349436836989,
+        "3": 0.529349436836989,
+        "4": 0.529349436836989
+      },
+      "absolute_gain_after_2h": 0.0,
+      "relative_gain_after_2h": 0.0,
+      "last_improvement_hours": 0.9891246403791593,
+      "new_highs_after_2h": 0
+    },
+    "drop_easy_0.95": {
+      "retained_terms": 29,
+      "removed_terms": 4,
+      "best_score": 0.5573262498493325,
+      "checkpoints": {
+        "0.5": 0.49633988782996424,
+        "1": 0.5572847559288194,
+        "2": 0.5572847559288194,
+        "3": 0.5573262498493325,
+        "4": 0.5573262498493325
+      },
+      "absolute_gain_after_2h": 4.1493920513113736e-05,
+      "relative_gain_after_2h": 7.445730404720408e-05,
+      "last_improvement_hours": 2.4739591411452664,
+      "new_highs_after_2h": 1
+    }
+  }
+}

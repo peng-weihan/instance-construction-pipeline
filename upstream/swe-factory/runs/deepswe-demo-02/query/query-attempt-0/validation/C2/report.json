@@ -1,0 +1,13 @@
+{
+  "healthy": true,
+  "tests": {
+    "tests/test_target.py::test_parent": "failed",
+    "tests/test_target.py::test_child": "failed",
+    "tests/test_target.py::test_override": "failed",
+    "tests/test_target.py::test_unicode": "failed"
+  },
+  "errors": [],
+  "returncode": 1,
+  "timed_out": false,
+  "evidence": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/query/query-attempt-0/validation/C2"
+}

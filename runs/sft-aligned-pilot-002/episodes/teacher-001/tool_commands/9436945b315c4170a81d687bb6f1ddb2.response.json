@@ -1,0 +1,1 @@
+{"argv":["/bin/bash","--noprofile","--norc","-c","date '+%H:%M:%S'"],"request_id":"9436945b315c4170a81d687bb6f1ddb2","returncode":0,"stderr":"","stdout":"02:44:37\n","timed_out":false}

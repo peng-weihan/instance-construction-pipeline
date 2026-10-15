@@ -1,0 +1,71 @@
+{
+  "repo": "leanprover-community/physlib",
+  "revision": "059336966f1c21765a9249ed19dac0f35435f1fd",
+  "resolved_utc": "2026-10-15T14:58:51.655362+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "source_repo_alias": "HEPLean/PhysLean",
+  "canonical_observation": "Official GitHub page redirects alias to canonical, 2026-10-15",
+  "retrieved_utc": "2026-10-15T15:00:07.934506+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "97158932099bc2c3b343516f7c70ee6cdb8233da821036d902914c016f9caac0",
+    "truncated": false,
+    "blob_count": 1271
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "url": "https://github.com/leanprover-community/physlib/blob/059336966f1c21765a9249ed19dac0f35435f1fd/LICENSE"
+    },
+    {
+      "path": "Physlib/ClassicalMechanics/HamiltonianMechanics/HamiltonsEquations.lean",
+      "bytes": 4278,
+      "sha256": "6b83b26867ec35ab95c6a1e1c57323e442cd7808154aa01f48d6cdb3fe9215e4",
+      "url": "https://github.com/leanprover-community/physlib/blob/059336966f1c21765a9249ed19dac0f35435f1fd/Physlib/ClassicalMechanics/HamiltonianMechanics/HamiltonsEquations.lean"
+    },
+    {
+      "path": "Physlib/ClassicalMechanics/HamiltonianMechanics/PoissonBracket.lean",
+      "bytes": 10499,
+      "sha256": "38dfb8806dd8f3466072343863ca19ac61171cc5f1c97ffeda81cc5c5edb6a7a",
+      "url": "https://github.com/leanprover-community/physlib/blob/059336966f1c21765a9249ed19dac0f35435f1fd/Physlib/ClassicalMechanics/HamiltonianMechanics/PoissonBracket.lean"
+    },
+    {
+      "path": "Physlib/ClassicalMechanics/OrbitalMechanics/VisViva.lean",
+      "bytes": 1423,
+      "sha256": "ec37a3766a98f2fa1107f588768d14e3df55d8518d143509a95520020c673859",
+      "url": "https://github.com/leanprover-community/physlib/blob/059336966f1c21765a9249ed19dac0f35435f1fd/Physlib/ClassicalMechanics/OrbitalMechanics/VisViva.lean"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9297,
+      "sha256": "d50075a51ec2a8e11fc2a3a5edab9b184b096ee925a640d86179f6ca461385b5",
+      "url": "https://github.com/leanprover-community/physlib/blob/059336966f1c21765a9249ed19dac0f35435f1fd/README.md"
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3125,
+      "sha256": "b446f065c29a1f67f1cce6721cd6317bfa23b3c7aad516af5472cc21bb3c45a0",
+      "url": "https://github.com/leanprover-community/physlib/blob/059336966f1c21765a9249ed19dac0f35435f1fd/lake-manifest.json"
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 3391,
+      "sha256": "05dbe30e4026c75b901a2a89db955fe4214608a49830d0e141337b8925be42b4",
+      "url": "https://github.com/leanprover-community/physlib/blob/059336966f1c21765a9249ed19dac0f35435f1fd/lakefile.toml"
+    },
+    {
+      "path": "lean-toolchain",
+      "bytes": 24,
+      "sha256": "ead308ab4fc749eb2389819903fd7baa11bf06e490827f6896a8cbfe622fa703",
+      "url": "https://github.com/leanprover-community/physlib/blob/059336966f1c21765a9249ed19dac0f35435f1fd/lean-toolchain"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

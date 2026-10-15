@@ -1,0 +1,74 @@
+{
+  "observed_utc": "2026-10-14T18:40:37.359595+00:00",
+  "runs": {
+    "restler": {
+      "status": "host_harbor_started",
+      "pid": 3711483,
+      "model": "gpt-6.1-sol",
+      "account": "raymone/1",
+      "learning_budget_seconds": 21600,
+      "evaluation_interval_seconds": 600,
+      "host_alive": true,
+      "learning_started_utc": "2026-10-14T15:00:45.048006+00:00",
+      "completed_grades": 45,
+      "best_score": 1.0,
+      "latest_grade": {
+        "round": "agent-21",
+        "status": "completed",
+        "snapshot_time_seconds": 12784.708358270931,
+        "score": 1.0,
+        "valid": true,
+        "failed_checks": []
+      },
+      "native_records": 1959,
+      "native_tool_calls": 150,
+      "native_tool_outputs": 150,
+      "native_last_timestamp": "2026-10-14T18:40:28.690Z"
+    },
+    "lean": {
+      "status": "host_harbor_started",
+      "pid": 3038765,
+      "model": "gpt-6.1-sol",
+      "account": "raymone/3",
+      "learning_budget_seconds": 21600,
+      "evaluation_interval_seconds": 600,
+      "host_alive": true,
+      "learning_started_utc": "2026-10-14T18:22:46.973108+00:00",
+      "completed_grades": 2,
+      "best_score": 0.8,
+      "latest_grade": {
+        "round": "agent-1",
+        "status": "completed",
+        "snapshot_time_seconds": 861.9557385509834,
+        "score": 0.8,
+        "valid": true,
+        "failed_checks": [
+          "coveringNumber_Icc_zero_one_le_one_div",
+          "centralMoment_two_mul_gaussianReal",
+          "IsPreBrownianReal.isAEKolmogorovProcess",
+          "IsBrownianReal.inv",
+          "ContinuousMap.borel_eq_iSup_comap_eval"
+        ]
+      },
+      "native_records": 417,
+      "native_tool_calls": 51,
+      "native_tool_outputs": 51,
+      "native_last_timestamp": "2026-10-14T18:40:30.272Z"
+    },
+    "packing": {
+      "status": "host_harbor_started",
+      "pid": 3535018,
+      "model": "gpt-6.1-sol",
+      "account": "raymone/2",
+      "learning_budget_seconds": 21600,
+      "evaluation_interval_seconds": 600,
+      "host_alive": true,
+      "learning_started_utc": "2026-10-14T18:39:17.415088+00:00",
+      "completed_grades": 0,
+      "native_records": 81,
+      "native_tool_calls": 12,
+      "native_tool_outputs": 11,
+      "native_last_timestamp": "2026-10-14T18:40:12.680Z"
+    }
+  }
+}

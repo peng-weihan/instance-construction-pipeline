@@ -1,0 +1,63 @@
+{
+  "repo": "sqlfluff/sqlfluff",
+  "revision": "1fdd794c925efa62f93ad78ff0d35ea41c60bea7",
+  "resolved_utc": "2026-10-15T13:31:17.677147+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:32:51.084792+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "ccfaeb98aedafbcc05560dfe8a03e119bb37e3660d0c85e6f5b5e13a748ef03f",
+    "truncated": false,
+    "blob_count": 6114
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE.md",
+      "bytes": 1078,
+      "sha256": "22dce2dc3663d299ccc2606289647982d757e6157393081e59736a9db335c77f",
+      "url": "https://github.com/sqlfluff/sqlfluff/blob/1fdd794c925efa62f93ad78ff0d35ea41c60bea7/LICENSE.md"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9840,
+      "sha256": "af62fab8d67834d17d4a3eea3a6f18bf1e2af38bd7d06357d009679e031cf83f",
+      "url": "https://github.com/sqlfluff/sqlfluff/blob/1fdd794c925efa62f93ad78ff0d35ea41c60bea7/README.md"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 9991,
+      "sha256": "ceef19da022992c444245689f38fa4764e2edb9f5b62cad15a6a447db84f9dee",
+      "url": "https://github.com/sqlfluff/sqlfluff/blob/1fdd794c925efa62f93ad78ff0d35ea41c60bea7/pyproject.toml"
+    },
+    {
+      "path": "src/sqlfluff/core/linter/linter.py",
+      "bytes": 54353,
+      "sha256": "541b38aa6b4c71f087a6faa3bb3f190f1fc8658afbd7d999c3b264cc0bb23bce",
+      "url": "https://github.com/sqlfluff/sqlfluff/blob/1fdd794c925efa62f93ad78ff0d35ea41c60bea7/src/sqlfluff/core/linter/linter.py"
+    },
+    {
+      "path": "src/sqlfluff/core/parser/parser.py",
+      "bytes": 3351,
+      "sha256": "7aee879ec2a38c3cf16942c02e3a2ca03452c648e7bbc842aa8b11291ccccca4",
+      "url": "https://github.com/sqlfluff/sqlfluff/blob/1fdd794c925efa62f93ad78ff0d35ea41c60bea7/src/sqlfluff/core/parser/parser.py"
+    },
+    {
+      "path": "src/sqlfluff/core/templaters/jinja.py",
+      "bytes": 56235,
+      "sha256": "e316ab98cafa99e66520aca3e6ecdebb5c749525c0ee34ef82487e41f4f025b0",
+      "url": "https://github.com/sqlfluff/sqlfluff/blob/1fdd794c925efa62f93ad78ff0d35ea41c60bea7/src/sqlfluff/core/templaters/jinja.py"
+    },
+    {
+      "path": "test/core/linter/fix_test.py",
+      "bytes": 14539,
+      "sha256": "9786a130f0a3256d140df7b7d76dc15c36a6849db7a38ddab3bbd3dca2b6d063",
+      "url": "https://github.com/sqlfluff/sqlfluff/blob/1fdd794c925efa62f93ad78ff0d35ea41c60bea7/test/core/linter/fix_test.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

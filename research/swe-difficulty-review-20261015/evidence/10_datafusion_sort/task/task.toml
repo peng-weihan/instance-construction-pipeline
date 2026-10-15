@@ -1,0 +1,50 @@
+schema_version = "1.4"
+source = "https://github.com/apache/datafusion/tree/10343c18292fc3a9ca62b59c8bb530169fe79b82"
+
+[[artifacts]]
+source = "/home/workspace/datafusion/submission"
+exclude = ["target", ".git", "*.log"]
+
+[task]
+name = "edgebench-author/datafusion-sort-v1"
+version = "0.1.0"
+description = "Real DataFusion sorting optimization; performance calibration pending"
+
+[metadata]
+reward_type = "bounded_continuous"
+reference_mode = "open-solution"
+construction_status = "constructed_unverified"
+acceptance_status = "held_for_evidence"
+release_ready = false
+score_spec = "authoring/score-spec.json"
+intended_model = "gpt-6.1-sol"
+agent_build_context = "environment"
+verifier_build_context = "verifier"
+
+[agent]
+timeout_sec = 21600
+user = "solver"
+network_mode = "no-network"
+
+[environment]
+build_timeout_sec = 3600
+cpus = 4
+memory_mb = 16384
+storage_mb = 32768
+workdir = "/home/workspace/datafusion"
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 9000
+user = "root"
+environment_mode = "separate"
+network_mode = "no-network"
+
+[verifier.environment]
+docker_image = "edgebench-datafusion-sort-verifier:constructed-v1"
+build_timeout_sec = 3600
+cpus = 4
+memory_mb = 16384
+storage_mb = 32768
+workdir = "/home/workspace/datafusion"
+network_mode = "no-network"

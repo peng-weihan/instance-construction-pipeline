@@ -1,0 +1,654 @@
+[
+  {
+    "id": "g01_open_spiel",
+    "name": "OpenSpiel / Goofspiel",
+    "source_unit": "Goofspiel同步竞价规则与测试；整个OpenSpiel集合只计一个来源",
+    "title": "不完全信息同步竞价策略",
+    "proposed_task": "给定合法观察接口，交付能在未见牌序和对手混合池中持续分配手牌、估计对手并控制风险的竞价策略；固定有限牌组范围。",
+    "deliverable": "策略入口、配置、离线对局记录和策略/消融说明；不要求实现游戏引擎。",
+    "difficulty_sources": [
+      "每次竞价永久消耗手牌，使当前得分与未来高价值轮次竞争。",
+      "同步出价且可隐藏对方历史，必须维护信念并应对平局与对手变化。"
+    ],
+    "baseline": "随机合法、按点牌同值竞价、手牌贪心，加原生CFR/搜索算法的正常适配。",
+    "first_probe": "先用现成CFR和简单混合策略在小牌组闭合；比较隐藏对手族上的增益及过拟合。",
+    "stop_condition": "若标准CFR适配或固定同值规则在全部合同分布已达到目标，则降为短任务；不能靠禁用算法制造难度。",
+    "grader_plan": "判题器私有化运行原规则，检验动作合法和终局收益；交换座位、配对种子，对混合对手汇总均值及尾部收益。",
+    "generation_and_split": "牌序、牌数与对手策略族分层，留出对手混合方式而非仅新seed；隐藏judge不向策略暴露全state或牌堆。",
+    "novelty_and_overlap": "不同于已有RPG/RTS引擎；OpenSpiel多游戏不重复计数。公开竞价算法/解需检索，公平纳入基线。",
+    "offline_and_compute": "C++/Python绑定需预构建，表格观察无图像资产；小牌组CPU可先测，较大状态的训练预算未验证。",
+    "license_observation": "根LICENSE为Apache-2.0；第三方依赖另查。",
+    "potential": "medium",
+    "priority": "hold_baseline",
+    "category": "games",
+    "repo": "google-deepmind/open_spiel",
+    "revision": "48401890ee9857e611678302371378175a8e4c6b",
+    "source_manifest": "sources/g01_open_spiel/manifest.json",
+    "card": "cards/g01_open_spiel.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/g01_open_spiel/files/open_spiel/games/goofspiel/goofspiel.cc",
+        "start": 418,
+        "end": 465,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/g01_open_spiel/files/open_spiel/games/goofspiel/goofspiel_test.cc",
+        "start": 30,
+        "end": 59,
+        "kind": "test"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/g01_open_spiel/files/open_spiel/games/goofspiel/goofspiel.cc",
+        "line": 418,
+        "claim": "同步出价检查合法手牌，唯一最高者得点，平局弃点，随后消耗牌。",
+        "url": "https://github.com/google-deepmind/open_spiel/blob/48401890ee9857e611678302371378175a8e4c6b/open_spiel/games/goofspiel/goofspiel.cc#L418"
+      },
+      {
+        "path": "sources/g01_open_spiel/files/open_spiel/games/goofspiel/goofspiel_test.cc",
+        "line": 30,
+        "claim": "原生测试覆盖多人、收益口径、不完全信息和有限轮数。",
+        "url": "https://github.com/google-deepmind/open_spiel/blob/48401890ee9857e611678302371378175a8e4c6b/open_spiel/games/goofspiel/goofspiel_test.cc#L30"
+      }
+    ]
+  },
+  {
+    "id": "g02_minigrid",
+    "name": "MiniGrid / BabyAI",
+    "source_unit": "BabyAI组合指令生成、任务验证器与环境复现测试",
+    "title": "带记忆的组合指令执行",
+    "proposed_task": "从局部观察和自然语言指令执行寻物、开锁、搬运及先后顺序任务；交付可跨未见房间结构与指令组合泛化的agent。",
+    "deliverable": "决策策略、可持久化的局内记忆、开发集轨迹和错误分类。",
+    "difficulty_sources": [
+      "局部视野要求探索并记住物体、门和钥匙位置。",
+      "指令组合与搬运/开锁前提相互作用，单步导航成功不代表整条任务完成。"
+    ],
+    "baseline": "官方可用专家/符号导航方案、BFS地图记忆及简单指令解析；先查能否完整覆盖。",
+    "first_probe": "用符号地图+BFS+原生验证器跑组合留出，比较解析和探索失误；主动测试reset跨局状态。",
+    "stop_condition": "若固定语法的解析+BFS已覆盖全部自然任务则下调，不把扩大格子数视为长程难度证据。",
+    "grader_plan": "独立任务验证器评完成率、合法动作、步数与超时；不让agent读内部网格/任务谓词。",
+    "generation_and_split": "留出房间连通模式、指令组合、干扰物和锁钥匙依赖；seed与生成结构双重分离。",
+    "novelty_and_overlap": "非旧RTS/RPG；与大量BabyAI公开基准有污染风险，必须重新定义组合分布和验收，而非换seed。",
+    "offline_and_compute": "Python离线生成、符号/低分辨率观察；无需下载图像语料；训练和泛化强度未测。",
+    "license_observation": "根Apache-2.0；环境和发行依赖另核对。",
+    "potential": "medium",
+    "priority": "hold_baseline",
+    "category": "games",
+    "repo": "Farama-Foundation/Minigrid",
+    "revision": "b34a5755dbef71e3f1662552259a94b255c1a8bb",
+    "source_manifest": "sources/g02_minigrid/manifest.json",
+    "card": "cards/g02_minigrid.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/g02_minigrid/files/minigrid/envs/babyai/core/levelgen.py",
+        "start": 59,
+        "end": 90,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/g02_minigrid/files/tests/test_envs.py",
+        "start": 54,
+        "end": 94,
+        "kind": "test"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/g02_minigrid/files/minigrid/envs/babyai/core/levelgen.py",
+        "line": 59,
+        "claim": "任务生成控制锁门、干扰物、可达性和随机指令；gen_mission显式清除跨局locked_room。",
+        "url": "https://github.com/Farama-Foundation/Minigrid/blob/b34a5755dbef71e3f1662552259a94b255c1a8bb/minigrid/envs/babyai/core/levelgen.py#L59"
+      },
+      {
+        "path": "sources/g02_minigrid/files/tests/test_envs.py",
+        "line": 54,
+        "claim": "同seed双环境相同动作的测试逐步比较观察、奖励和终止标记。",
+        "url": "https://github.com/Farama-Foundation/Minigrid/blob/b34a5755dbef71e3f1662552259a94b255c1a8bb/tests/test_envs.py#L54"
+      }
+    ]
+  },
+  {
+    "id": "g03_magent2",
+    "name": "MAgent2 / Battle",
+    "source_unit": "Battle原生环境、C++GridWorld绑定、并行观察定义及渲染测试",
+    "title": "局部视野下的小队协同对抗",
+    "proposed_task": "交付局部观察小队策略，在障碍、出生分布和对手战术变化下实现集火、撤退、包围与生存；限定可计算的小队规模。",
+    "deliverable": "共享或多角色策略入口、局内通信/记忆方案、对局回放和战术分析。",
+    "difficulty_sources": [
+      "局部观察下，集火和撤退需要跨单位协调，单体贪心会相互阻塞。",
+      "步进/攻击/死亡的不同奖励可能诱发刷分，必须以完整对局胜负校验。"
+    ],
+    "baseline": "随机、最近敌人追击、编队集火及现成多智能体训练代码的合法适配。",
+    "first_probe": "先固定小队做不渲染step/reset/seed重放探针；比较集火启发式能否已饱和。",
+    "stop_condition": "若仅增加单位数量或依赖长训练才能拉开差距则暂缓；简单集中式策略全面达标则重设范围。",
+    "grader_plan": "私有进程运行环境，限制所见观察；胜负/存活与资源预算分项，并用多对手池和对称出生配对。",
+    "generation_and_split": "留出地图瓶颈拓扑、兵力比例和对手角色组合；团队大小变化不能成为唯一新分布。",
+    "novelty_and_overlap": "独立MAgent底层，不是microRTS包装；仍属网格战斗，需与旧RTS谱系及共享PettingZoo接口区分。",
+    "offline_and_compute": "需要本地C++扩展，战斗可用数组观察；所读渲染测试仅证明headless测试设计，不能替代引擎无显示运行证据。",
+    "license_observation": "根MIT；C++后端与依赖随完整发行再审。",
+    "potential": "medium",
+    "priority": "hold_baseline",
+    "category": "games",
+    "repo": "Farama-Foundation/MAgent2",
+    "revision": "f3fca5a78504615986dfba37d85137c9e15d1db6",
+    "source_manifest": "sources/g03_magent2/manifest.json",
+    "card": "cards/g03_magent2.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/g03_magent2/files/magent2/environments/battle/battle.py",
+        "start": 129,
+        "end": 155,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/g03_magent2/files/magent2/environments/magent_env.py",
+        "start": 38,
+        "end": 85,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/g03_magent2/files/tests/test_render.py",
+        "start": 25,
+        "end": 47,
+        "kind": "test"
+      },
+      {
+        "path": "sources/g03_magent2/files/magent2/environments/battle/battle.py",
+        "start": 181,
+        "end": 205,
+        "kind": "implementation"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/g03_magent2/files/magent2/environments/battle/battle.py",
+        "line": 129,
+        "claim": "Battle设定max_cycles、seed以及步进/攻击/死亡和击杀奖励。",
+        "url": "https://github.com/Farama-Foundation/MAgent2/blob/f3fca5a78504615986dfba37d85137c9e15d1db6/magent2/environments/battle/battle.py#L129"
+      },
+      {
+        "path": "sources/g03_magent2/files/magent2/environments/magent_env.py",
+        "line": 38,
+        "claim": "并行环境分别提供各agent观察和全局state，必须阻止评分时全局state泄露。",
+        "url": "https://github.com/Farama-Foundation/MAgent2/blob/f3fca5a78504615986dfba37d85137c9e15d1db6/magent2/environments/magent_env.py#L38"
+      },
+      {
+        "path": "sources/g03_magent2/files/tests/test_render.py",
+        "line": 25,
+        "claim": "渲染测试用dummy SDL并检查只初始化display/font；不是对游戏难度的测试。",
+        "url": "https://github.com/Farama-Foundation/MAgent2/blob/f3fca5a78504615986dfba37d85137c9e15d1db6/tests/test_render.py#L25"
+      },
+      {
+        "path": "sources/g03_magent2/files/magent2/environments/battle/battle.py",
+        "line": 181,
+        "claim": "底层GridWorld配置写入seed并定义局部CircleRange视野与攻击距离。",
+        "url": "https://github.com/Farama-Foundation/MAgent2/blob/f3fca5a78504615986dfba37d85137c9e15d1db6/magent2/environments/battle/battle.py#L181"
+      }
+    ]
+  },
+  {
+    "id": "g04_lux",
+    "name": "Lux AI Season 2",
+    "source_unit": "官方S2环境、配置、Python agent与移动冲突示例",
+    "title": "资源供应链与对抗工厂经营",
+    "proposed_task": "交付从工厂选址到采冰、供水、供电、运输和地衣竞争的完整策略，针对未见地图与对手持续改进。",
+    "deliverable": "可运行agent、预算内规划器、开发回放、资源损失和策略消融报告。",
+    "difficulty_sources": [
+      "工厂选址和早期投资会约束后续水/能量供应链，短期采集最优可能长期破产。",
+      "多机器人移动冲突、动作队列与对手争夺同时影响行动可执行性和终局收益。"
+    ],
+    "baseline": "官方Python示例、启发式采集+运输+工厂生存，允许公开路径规划和竞争方案正常适配。",
+    "first_probe": "先修订并验证固定版本API健康脚本：所读collision例子使用4元组step而当前env注解为5元组；再做工厂生存基线。",
+    "stop_condition": "若参考环境/样例协议不能一致闭合则先hold；若公开策略薄适配达标则重设地图/对手合同。",
+    "grader_plan": "不信agent自报资源；隔离运行官方step并保存动作和重放，以终局地衣/胜负及非法动作率分层反馈。",
+    "generation_and_split": "除seed外留出地形/资源空间结构、工厂数和对手策略组合；禁止把隐藏对手代码映射给agent。",
+    "novelty_and_overlap": "与microRTS同为资源对抗但不同引擎、动作和经济链；公开Kaggle方案污染需查。",
+    "offline_and_compute": "Python/numpy数组环境，无需大视觉资源；API兼容、CPU每步预算与离线依赖未实测。",
+    "license_observation": "根Apache-2.0；公开参赛策略不能默认同许可。",
+    "potential": "high",
+    "priority": "hold_reference",
+    "category": "games",
+    "repo": "Lux-AI-Challenge/Lux-Design-S2",
+    "revision": "5bcb3c775d536cecda32a3c041a9814279b79c5b",
+    "source_manifest": "sources/g04_lux/manifest.json",
+    "card": "cards/g04_lux.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/g04_lux/files/luxai_s2/luxai_s2/env.py",
+        "start": 760,
+        "end": 808,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/g04_lux/files/luxai_s2/tests/collision.py",
+        "start": 12,
+        "end": 48,
+        "kind": "test"
+      },
+      {
+        "path": "sources/g04_lux/files/luxai_s2/luxai_s2/env.py",
+        "start": 995,
+        "end": 1015,
+        "kind": "implementation"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/g04_lux/files/luxai_s2/luxai_s2/env.py",
+        "line": 760,
+        "claim": "step区分早期工厂阶段并检查动作空间，类型注解含5个返回量。",
+        "url": "https://github.com/Lux-AI-Challenge/Lux-Design-S2/blob/5bcb3c775d536cecda32a3c041a9814279b79c5b/luxai_s2/luxai_s2/env.py#L760"
+      },
+      {
+        "path": "sources/g04_lux/files/luxai_s2/tests/collision.py",
+        "line": 12,
+        "claim": "固定seed移动冲突示例构造不同power的重型机器人并检查淘汰结果，调用协议需健康复核。",
+        "url": "https://github.com/Lux-AI-Challenge/Lux-Design-S2/blob/5bcb3c775d536cecda32a3c041a9814279b79c5b/luxai_s2/tests/collision.py#L12"
+      },
+      {
+        "path": "sources/g04_lux/files/luxai_s2/luxai_s2/env.py",
+        "line": 995,
+        "claim": "实际step返回observations、rewards、terminations、truncations、infos五项；原例四项调用需修订核验。",
+        "url": "https://github.com/Lux-AI-Challenge/Lux-Design-S2/blob/5bcb3c775d536cecda32a3c041a9814279b79c5b/luxai_s2/luxai_s2/env.py#L995"
+      }
+    ]
+  },
+  {
+    "id": "g05_hanabi",
+    "name": "Hanabi Learning Environment",
+    "source_unit": "Hanabi规则状态、Python观察/奖励接口与示例",
+    "title": "有限提示预算下的协作纸牌策略",
+    "proposed_task": "交付只看合法玩家观察的合作策略，在换座位、未知伙伴策略及未见牌序下建立可靠的提示与出牌行为。",
+    "deliverable": "agent入口、跨回合信念状态、伙伴适应实验与回放。",
+    "difficulty_sources": [
+      "看见别人的牌却看不见自己的牌，提示消耗公共资源且必须兼容伙伴解释。",
+      "错误出牌耗生命，弃牌不可逆，安全保守与取得高分存在冲突。"
+    ],
+    "baseline": "官方SimpleAgent、可用规则约定与信念采样/搜索算法；正常纳入已有强Hanabi策略。",
+    "first_probe": "先比较SimpleAgent和公开约定策略的跨伙伴表现，确认观察中不会泄露自己的牌；检查独立种子重放。",
+    "stop_condition": "若目标仅自对弈且公开约定直接达标则降级；不能把不说明伙伴协议的任意失败当难度。",
+    "grader_plan": "私有环境累计真实score差，记录终止和合法动作；区分自合作、同族伙伴与跨族伙伴得分。",
+    "generation_and_split": "留出伙伴族和约定混合，不仅换牌序；只在规则允许范围内变人数/牌组，明确训练可见信息。",
+    "novelty_and_overlap": "独立协作隐藏信息纸牌，无旧RPG/RTS引擎复用；公开Hanabi策略和解码约定污染风险较高。",
+    "offline_and_compute": "C++绑定与Python接口需要预构建；无图片资产；搜索/训练预算和复现尚未测。",
+    "license_observation": "根Apache-2.0；任何外部伙伴实现另查许可。",
+    "potential": "high",
+    "priority": "hold_baseline",
+    "category": "games",
+    "repo": "google-deepmind/hanabi-learning-environment",
+    "revision": "54e79594f4b6fb40ebb3004289c6db0e34a8b5fb",
+    "source_manifest": "sources/g05_hanabi/manifest.json",
+    "card": "cards/g05_hanabi.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/g05_hanabi/files/hanabi_learning_environment/hanabi_lib/hanabi_state.cc",
+        "start": 250,
+        "end": 286,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/g05_hanabi/files/hanabi_learning_environment/rl_env.py",
+        "start": 343,
+        "end": 366,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/g05_hanabi/files/examples/rl_env_example.py",
+        "start": 34,
+        "end": 64,
+        "kind": "example_spec"
+      },
+      {
+        "path": "sources/g05_hanabi/files/hanabi_learning_environment/hanabi_lib/hanabi_game.cc",
+        "start": 42,
+        "end": 66,
+        "kind": "implementation"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/g05_hanabi/files/hanabi_learning_environment/hanabi_lib/hanabi_state.cc",
+        "line": 250,
+        "claim": "提示扣information tokens并更新他人手牌知识，机会事件按剩余牌概率抽取。",
+        "url": "https://github.com/google-deepmind/hanabi-learning-environment/blob/54e79594f4b6fb40ebb3004289c6db0e34a8b5fb/hanabi_learning_environment/hanabi_lib/hanabi_state.cc#L250"
+      },
+      {
+        "path": "sources/g05_hanabi/files/hanabi_learning_environment/rl_env.py",
+        "line": 343,
+        "claim": "奖励是state.score的前后差且终局可能负，不可错误累计仅正分。",
+        "url": "https://github.com/google-deepmind/hanabi-learning-environment/blob/54e79594f4b6fb40ebb3004289c6db0e34a8b5fb/hanabi_learning_environment/rl_env.py#L343"
+      },
+      {
+        "path": "sources/g05_hanabi/files/examples/rl_env_example.py",
+        "line": 34,
+        "claim": "示例按player_observations逐人决策，只有current_player动作传给step。",
+        "url": "https://github.com/google-deepmind/hanabi-learning-environment/blob/54e79594f4b6fb40ebb3004289c6db0e34a8b5fb/examples/rl_env_example.py#L34"
+      },
+      {
+        "path": "sources/g05_hanabi/files/hanabi_learning_environment/hanabi_lib/hanabi_game.cc",
+        "line": 42,
+        "claim": "游戏seed=-1时采random_device，显式seed后初始化rng；评测必须冻结该参数。",
+        "url": "https://github.com/google-deepmind/hanabi-learning-environment/blob/54e79594f4b6fb40ebb3004289c6db0e34a8b5fb/hanabi_learning_environment/hanabi_lib/hanabi_game.cc#L42"
+      }
+    ]
+  },
+  {
+    "id": "g06_flatland",
+    "name": "Flatland",
+    "source_unit": "铁路轨道环境、终局更新、ShortestPathPolicy原生测试",
+    "title": "扰动下的多列车在线调度",
+    "proposed_task": "交付在线调度策略，在列车陆续发车、共享单线与会车限制及故障下提高到达率和准点性；任务对象是策略而非实现仿真器。",
+    "deliverable": "调度策略入口、事件/延误诊断、可重放轨迹及方案分析。",
+    "difficulty_sources": [
+      "单列车最短路可能造成多车死锁，局部最优需让路和等待。",
+      "故障与中途目标改变后续占线，调度必须跨时段修订而不能只算一次静态路线。"
+    ],
+    "baseline": "原生ShortestPathPolicy、优先级预约表、集中式路径规划或MAPF求解器正常适配。",
+    "first_probe": "复核原生固定seed测试中到达率1/7和2/7的现象，但不当作新题成绩；试预约表基线是否解决剩余死锁。",
+    "stop_condition": "若全部地图可由简单优先级预约闭合则重设自然事件分布；若仅靠增加列车数量拖慢则不计高难。",
+    "grader_plan": "私有simulator重放动作，输出到达率、总延误、死锁和非法动作；设可比时限，预先验证实例可解。",
+    "generation_and_split": "留出路网瓶颈、目标组合和故障过程；地图拓扑族与seed分别划分，平衡无解实例。",
+    "novelty_and_overlap": "与组合优化MAPF有能力交叉，但这里交付在线策略，评分用交互轨迹；同Flatland不同赛季不重复计素材。",
+    "offline_and_compute": "数组观察及CPU模拟，无大图像；当前环境版本与轨迹工具健康、故障可复现性未运行。",
+    "license_observation": "根MIT；引入外部铁路数据需另查，拟题优先程序生成。",
+    "potential": "high",
+    "priority": "scope_probe",
+    "category": "games",
+    "repo": "flatland-association/flatland-rl",
+    "revision": "e355074d0f7afe0df8de92caed2274330369dbcf",
+    "source_manifest": "sources/g06_flatland/manifest.json",
+    "card": "cards/g06_flatland.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/g06_flatland/files/flatland/envs/rail_env.py",
+        "start": 451,
+        "end": 490,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/g06_flatland/files/tests/test_flatland_envs_rail_env_policies.py",
+        "start": 13,
+        "end": 35,
+        "kind": "test"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/g06_flatland/files/flatland/envs/rail_env.py",
+        "line": 451,
+        "claim": "环境在全员结束或步数上限时累计终局奖励，并记录真实arrival_time。",
+        "url": "https://github.com/flatland-association/flatland-rl/blob/e355074d0f7afe0df8de92caed2274330369dbcf/flatland/envs/rail_env.py#L451"
+      },
+      {
+        "path": "sources/g06_flatland/files/tests/test_flatland_envs_rail_env_policies.py",
+        "line": 13,
+        "claim": "原生测试给ShortestPathPolicy在固定种子两种场景断言1/7、2/7到达率；仅是源码测试预期。",
+        "url": "https://github.com/flatland-association/flatland-rl/blob/e355074d0f7afe0df8de92caed2274330369dbcf/tests/test_flatland_envs_rail_env_policies.py#L13"
+      }
+    ]
+  },
+  {
+    "id": "g07_textworld",
+    "name": "TextWorld / Cooking",
+    "source_unit": "Cooking生成器、知识逻辑、原生生成/完成测试；不计手写IF目录",
+    "title": "可生成世界中的文本探索与料理计划",
+    "proposed_task": "在仅文本观察环境中完成探索、原料获取、切制、加热和上菜的组合目标；生成未见房间图与食材加工依赖。",
+    "deliverable": "文本交互agent、局内世界模型与计划、命令轨迹和失败分析。",
+    "difficulty_sources": [
+      "物品位置与容器状态需探索，有限背包和往返路线影响整体计划。",
+      "错误切制/烹饪可能不可逆，任务前提与顺序必须从文字规则中正确推断。"
+    ],
+    "baseline": "地图记忆、命令语法解析、符号计划器，以及公开TextWorld料理agent的合法适配。",
+    "first_probe": "用程序生成walkthrough先验证可解性，然后用符号agent在结构留出任务上测是否已接近满分。",
+    "stop_condition": "若walkthrough或内部facts/recipe元数据泄露给agent则无效；公开固定料理脚本饱和则重设生成规则而非换seed。",
+    "grader_plan": "环境私有维护任务谓词和fail条件，以完成、进度与动作数反馈；不按文本叙事质量主观打分。",
+    "generation_and_split": "房间拓扑、材料/加工配方组合、干扰对象与背包约束分层留出；保留独立生成seed和grammar seed。",
+    "novelty_and_overlap": "不是IF Archive取一款现成手写游戏；与旧Anchorhead等共享文本冒险/解释器谱系，必须新生成依赖结构和验收，公开Cooking split不能当新题。",
+    "offline_and_compute": "需冻结文本编译器/解释器及字典资源；已取生成源码和小测试，未构建解释器、未生成游戏文件。",
+    "license_observation": "TextWorld根MIT；Inform/Z-machine等随附工具和文本资源另核对，不能从根许可推断全部资源。",
+    "potential": "medium",
+    "priority": "hold_baseline",
+    "category": "games",
+    "repo": "microsoft/TextWorld",
+    "revision": "6d88a0845bc904751d3b7f128d61f21cabdf6f70",
+    "source_manifest": "sources/g07_textworld/manifest.json",
+    "card": "cards/g07_textworld.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/g07_textworld/files/textworld/challenges/tw_cooking/cooking.py",
+        "start": 799,
+        "end": 843,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/g07_textworld/files/textworld/challenges/tests/test_cooking.py",
+        "start": 15,
+        "end": 56,
+        "kind": "test"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/g07_textworld/files/textworld/challenges/tw_cooking/cooking.py",
+        "line": 799,
+        "claim": "料理生成控制食材数、开门、加热、切制、背包及地图，并分离map/objects/grammar/quest/recipe RNG。",
+        "url": "https://github.com/microsoft/TextWorld/blob/6d88a0845bc904751d3b7f128d61f21cabdf6f70/textworld/challenges/tw_cooking/cooking.py#L799"
+      },
+      {
+        "path": "sources/g07_textworld/files/textworld/challenges/tests/test_cooking.py",
+        "line": 15,
+        "claim": "测试固定世界只改recipe_seed，检查原料变化和空间事实不变，再验证walkthrough可完成。",
+        "url": "https://github.com/microsoft/TextWorld/blob/6d88a0845bc904751d3b7f128d61f21cabdf6f70/textworld/challenges/tests/test_cooking.py#L15"
+      }
+    ]
+  },
+  {
+    "id": "g08_halite",
+    "name": "Halite III",
+    "source_unit": "官方headless比赛引擎、地图模型、积分/崩溃排名集成测试",
+    "title": "舰队采集与回港投资对抗",
+    "proposed_task": "交付舰队策略，联合优化采集、返航、产船和建立投递点，在有限回合和对手碰撞风险下最大化入库资源。",
+    "deliverable": "标准IO bot、资源/投资回放、对手池对局与决策分析。",
+    "difficulty_sources": [
+      "船在外携带资源不等于终局入库收益，需要返航时点和交通协调。",
+      "造船/投递点消耗当前财富但扩大后期收益，同时对手碰撞和枯竭改变回报。"
+    ],
+    "baseline": "贪心采集+最短返航、投资回收期规则、公开强bot正常适配。",
+    "first_probe": "先编译固定引擎并跑官方崩溃/排名测试，再比较无碰撞贪心与公开方案；不以旧竞赛冠军水平直接作新题门槛。",
+    "stop_condition": "若强公开bot薄适配已满足全部新分布则降低优先级；若headless构建无法稳定重置则先修环境。",
+    "grader_plan": "引擎隔离运行bot并给真实资源、排名、崩溃和超时；配对地图种子与交换玩家号，回放独立复核。",
+    "generation_and_split": "留出资源场空间结构、地图尺寸和对手混合族；不从现有公开比赛回放抽取隐藏答案。",
+    "novelty_and_overlap": "不同底层于旧OpenTTD/RTS；经济对抗相似但动作/终局目标独立。旧赛季/同引擎不再计来源。",
+    "offline_and_compute": "C++17引擎和脚本bot，无需网站/排行榜/在线账户；这里只取引擎片段，构建和依赖健康尚未证实。",
+    "license_observation": "根MIT；官网vendor资产不纳入离线环境，公开bot另查许可。",
+    "potential": "high",
+    "priority": "hold_reference",
+    "category": "games",
+    "repo": "HaliteChallenge/Halite-III",
+    "revision": "e1050ee924292997b3a446b4be4c821848944fd8",
+    "source_manifest": "sources/g08_halite/manifest.json",
+    "card": "cards/g08_halite.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/g08_halite/files/game_engine/core/HaliteImpl.cpp",
+        "start": 450,
+        "end": 477,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/g08_halite/files/game_engine/test/integration_test.py",
+        "start": 15,
+        "end": 60,
+        "kind": "test"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/g08_halite/files/game_engine/core/HaliteImpl.cpp",
+        "line": 450,
+        "claim": "终止检查考虑剩余地图资源和玩家船/造船能力。",
+        "url": "https://github.com/HaliteChallenge/Halite-III/blob/e1050ee924292997b3a446b4be4c821848944fd8/game_engine/core/HaliteImpl.cpp#L450"
+      },
+      {
+        "path": "sources/g08_halite/files/game_engine/test/integration_test.py",
+        "line": 15,
+        "claim": "官方集成测试用--results-as-json运行独立bot进程，读取回放和排名并检查崩溃场景。",
+        "url": "https://github.com/HaliteChallenge/Halite-III/blob/e1050ee924292997b3a446b4be4c821848944fd8/game_engine/test/integration_test.py#L15"
+      }
+    ]
+  },
+  {
+    "id": "g09_pommerman",
+    "name": "Pommerman",
+    "source_unit": "炸弹棋盘环境、前向模型和官方FFA运行示例",
+    "title": "延迟爆炸下的生存与战术规划",
+    "proposed_task": "交付能在局部观察、定时炸弹和不同对手下躲避、开路和攻击的策略；限定无图像的棋盘观察与已说明规则。",
+    "deliverable": "agent入口、危险时间图/记忆状态、交互回放和战术诊断。",
+    "difficulty_sources": [
+      "放弹后效果延迟，连锁反应使当前位置安全不等于下几步可逃。",
+      "拆障碍、取强化和攻击对手竞争移动时机，短视避险也可能锁死自己。"
+    ],
+    "baseline": "官方SimpleAgent/RandomAgent，危险区时间展开BFS与现成MCTS正常适配。",
+    "first_probe": "先验证无render运行、所有随机源可设种子、reset清理；再测安全BFS是否已覆盖任务。",
+    "stop_condition": "若必须依赖过时Gym或未封装全局随机态且无法可靠重置则hold；不能把渲染和旧依赖修复算agent难度。",
+    "grader_plan": "私有forward model推进，评分胜率、合法动作和生存；跨座位配对，平局/互毁单列，防只苟活刷分。",
+    "generation_and_split": "留出障碍拓扑、初始道具和对手行为族；维持各出生点可行逃生，不仅随机新棋盘。",
+    "novelty_and_overlap": "独立定时爆炸底层；与旧RPG/RTS不同，公开Pommerman agent高度可复用，需基线核验。",
+    "offline_and_compute": "Python旧Gym生态；示例调用render但拟题可关闭，未运行证明全部依赖支持headless和可复现。",
+    "license_observation": "根Apache-2.0；游戏美术和可选Docker agent不纳入，若发行资源再查。",
+    "potential": "medium",
+    "priority": "hold_reference",
+    "category": "games",
+    "repo": "MultiAgentLearning/playground",
+    "revision": "5315f6da378f495737dfe34a4ba7f50c84423ce7",
+    "source_manifest": "sources/g09_pommerman/manifest.json",
+    "card": "cards/g09_pommerman.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/g09_pommerman/files/pommerman/envs/v0.py",
+        "start": 148,
+        "end": 202,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/g09_pommerman/files/examples/simple_ffa_run.py",
+        "start": 14,
+        "end": 34,
+        "kind": "example_spec"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/g09_pommerman/files/pommerman/envs/v0.py",
+        "line": 148,
+        "claim": "reset重建棋盘/炸弹/火焰并重置agent，seed接口存在但需追踪所有随机源。",
+        "url": "https://github.com/MultiAgentLearning/playground/blob/5315f6da378f495737dfe34a4ba7f50c84423ce7/pommerman/envs/v0.py#L148"
+      },
+      {
+        "path": "sources/g09_pommerman/files/examples/simple_ffa_run.py",
+        "line": 14,
+        "claim": "官方示例支持SimpleAgent和RandomAgent混合，以act/step推进和输出终局。",
+        "url": "https://github.com/MultiAgentLearning/playground/blob/5315f6da378f495737dfe34a4ba7f50c84423ce7/examples/simple_ffa_run.py#L14"
+      }
+    ]
+  },
+  {
+    "id": "g10_screeps",
+    "name": "Screeps Engine",
+    "source_unit": "移动/采集/生命周期处理器和mock房间测试；不含完整服务器服务栈",
+    "title": "有限时域殖民地资源与维护策略",
+    "proposed_task": "在预置离线小房间中交付殖民地策略，协调采集、运输、建造、维修与单位更替；以有限tick窗口验收，不接在线永久世界。",
+    "deliverable": "策略脚本、产能与维护计划、tick轨迹和资源账本。",
+    "difficulty_sources": [
+      "单位生命周期、疲劳与身体构成改变运输产能，扩张会增加持续维护负担。",
+      "同步意图竞争道路/资源，生产计划与空间拥堵形成反馈，单个采集脚本不能闭合。"
+    ],
+    "baseline": "官方可用采集/搬运/生成脚本，静态角色配比和路径缓存，允许成熟社区方案正常适配。",
+    "first_probe": "先证明driver/存储/常量依赖可离线冻结，完整房间快照重置且无跨局写入；mock单元测试不足以证明任务环境可用。",
+    "stop_condition": "若仍需线上服务器、不可控tick等待或不可重置持久世界则淘汰当前范围；若普通角色模板饱和则下调。",
+    "grader_plan": "外置只读快照judge重新计算入库、建筑/单位状态、存活和维护债务，拒绝策略自报日志；硬性tick预算。",
+    "generation_and_split": "留出房间连通与资源分布、单位寿命组合和扰动时间；固定服务版本，每局独立存储/命名空间。",
+    "novelty_and_overlap": "独立Screeps意图式世界，不是OpenTTD/RTS换皮；不能把搭建服务器工程计为策略长程难。",
+    "offline_and_compute": "根engine依赖外部driver/持久化服务；仅有mock与片段，完整离线环境未取，优先hold_reference。",
+    "license_observation": "根LICENSE.txt为ISC式许可；完整服务器、驱动和社区代码另核对。",
+    "potential": "high",
+    "priority": "hold_reference",
+    "category": "games",
+    "repo": "screeps/engine",
+    "revision": "a90d26fc9eb943147799e65d0bf9d4d0d79a2722",
+    "source_manifest": "sources/g10_screeps/manifest.json",
+    "card": "cards/g10_screeps.md",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "difficulty_verified": false,
+    "read_scope": [
+      {
+        "path": "sources/g10_screeps/files/src/processor/intents/movement.js",
+        "start": 110,
+        "end": 149,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/g10_screeps/files/spec/engine/processor/intents/movement.test.js",
+        "start": 13,
+        "end": 51,
+        "kind": "test"
+      },
+      {
+        "path": "sources/g10_screeps/files/spec/helpers/mocks/intents.js",
+        "start": 1,
+        "end": 17,
+        "kind": "test_fixture"
+      }
+    ],
+    "evidence": [
+      {
+        "path": "sources/g10_screeps/files/src/processor/intents/movement.js",
+        "line": 110,
+        "claim": "同格移动竞争按拉拽状态和MOVE能力/载重等排序，策略必须考虑交通与疲劳。",
+        "url": "https://github.com/screeps/engine/blob/a90d26fc9eb943147799e65d0bf9d4d0d79a2722/src/processor/intents/movement.js#L110"
+      },
+      {
+        "path": "sources/g10_screeps/files/spec/engine/processor/intents/movement.test.js",
+        "line": 13,
+        "claim": "测试构造损坏MOVE身体部件并检查不能移动/占格，使用mock intents推进。",
+        "url": "https://github.com/screeps/engine/blob/a90d26fc9eb943147799e65d0bf9d4d0d79a2722/spec/engine/processor/intents/movement.test.js#L13"
+      },
+      {
+        "path": "sources/g10_screeps/files/spec/helpers/mocks/intents.js",
+        "line": 1,
+        "claim": "测试scope自定义房间对象和gameTime，reset只清mock对象，不能等同完整服务器reset。",
+        "url": "https://github.com/screeps/engine/blob/a90d26fc9eb943147799e65d0bf9d4d0d79a2722/spec/helpers/mocks/intents.js#L1"
+      }
+    ]
+  }
+]

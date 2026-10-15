@@ -1,0 +1,106 @@
+{
+  "status": "constructed_unverified",
+  "material_status": "material_acquired",
+  "local_status": "local_checks_completed",
+  "difficulty_status": "held_for_evidence",
+  "accepted_for_six_hour_training": false,
+  "task_path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task",
+  "source_revision": "8ca548849fc8dbefd699edcec26546bb14112820",
+  "grammar_revision": "bffb65a8cfe4e46290331dfef0dbf0ef3679de11",
+  "stages": [
+    {
+      "stage": "material_acquired",
+      "completed": true,
+      "evidence": "authoring/source-manifest.json"
+    },
+    {
+      "stage": "constructed_unverified",
+      "completed": true,
+      "evidence": [
+        "environment/",
+        "verifier/",
+        "tests/",
+        "solution/"
+      ]
+    },
+    {
+      "stage": "local_checks_completed",
+      "completed": true,
+      "evidence": "authoring/evidence/"
+    },
+    {
+      "stage": "held_for_evidence",
+      "completed": true,
+      "reason": "strong full-reparse baseline with correct other APIs attains 1.0; six-hour difficulty not established"
+    },
+    {
+      "stage": "rejected",
+      "completed": false
+    }
+  ],
+  "score_spec": {
+    "path": "authoring/score-spec.json",
+    "sha256": "f2f194207c8895ce85b7cf8c2e0c220f9bc4ad2c56321de125899547542119ea",
+    "cases": 45,
+    "checks": 198,
+    "native_cases": 12,
+    "dimensions": 7,
+    "performance_enabled": false
+  },
+  "actual_scores_host_native": {
+    "nop": 0.14090909090909093,
+    "nop-repeat": 0.14090909090909093,
+    "reference": 1.0,
+    "reference-repeat": 1.0,
+    "injected-reference": 1.0,
+    "full_reparse_starter": 0.46861471861471865,
+    "online-baseline-repeat": 0.46861471861471865,
+    "full_reparse_complete_apis": 1.0,
+    "edit_only": 0.38484848484848483,
+    "range_only": 0.14090909090909093,
+    "scanner_gate_missing": 0.9405844155844156,
+    "candidate-failure": 0.0,
+    "infrastructure-failure": null
+  },
+  "completed_checks": [
+    "fixed source and grammar checkout/hash/notice preservation",
+    "only four core files modified; ordinary native tests/headers retained",
+    "45 reference inputs: all incremental-vs-independent-full snapshots agree",
+    "12 upstream corpus expected named structures agree",
+    "inverse patch via real solve.sh matches full original checkout",
+    "distinct-UID private read/reward write/.incbin isolation probes",
+    "repeat same reference/NOP/online full-reparse snapshots: identical reports",
+    "ordinary candidate compile failure => valid score0/reward0",
+    "corrupt oracle with stale rewards => invalid score=null, exit2, no reward files",
+    "actual Harbor0.23.0 TaskConfig matches supplied source and validates all declared fields",
+    "three unscored manual/byte-point author audits pass",
+    "actual public smoke.sh builds and executes three disclosed inputs",
+    "Debian snapshot InRelease signatures verify and bind amd64/arm64 Packages.xz hashes"
+  ],
+  "evidence_commands": [
+    "authoring/evidence/control-commands.json",
+    "authoring/evidence/checks-commands.json",
+    "../author-tools/construct.py",
+    "../author-tools/freeze.py",
+    "../author-tools/security.py",
+    "../author-tools/audit.py",
+    "../author-tools/schema_check.py"
+  ],
+  "not_run": [
+    "teacher or other model sessions",
+    "Docker builds or native/periodic container entries",
+    "ARM execution",
+    "complete Rust suite",
+    "six-hour difficulty calibration"
+  ],
+  "unresolved": [
+    "full-reparse saturation/near-trivial upstream restoration invalidates any claim of six-hour potential",
+    "native/periodic entrypoint equivalence and resource enforcement await actual container execution",
+    "apt image build/closure installation and ARM runtime pending",
+    "independent third-party oracle/contract review pending",
+    "initial pip cache location was not explicitly constrained; see construction-issues.json"
+  ],
+  "trajectory": "../trajectory.jsonl (parent-owned, retained; no fabricated trajectory)",
+  "notes": "No timings, performance endpoints or cloud/ARM grades invented. Local scalar rewards match the same structured scorer.",
+  "static_integrity_evidence": "authoring/evidence/integrity.json"
+}

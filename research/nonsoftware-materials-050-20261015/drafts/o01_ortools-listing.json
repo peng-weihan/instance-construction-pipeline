@@ -1,0 +1,13 @@
+{
+  "repo": "google/or-tools",
+  "revision": "100f66e6242ab8bf8d32feb8f3bf086db66ae2b5",
+  "matching_paths": [
+    "LICENSE",
+    "examples/python/jobshop_ft06_distance_sat.py",
+    "examples/python/jobshop_ft06_sat.py",
+    "examples/python/jobshop_with_maintenance_sat.py",
+    "ortools/sat/samples/minimal_jobshop_sat.py"
+  ],
+  "match_count": 5,
+  "tree_truncated": false
+}

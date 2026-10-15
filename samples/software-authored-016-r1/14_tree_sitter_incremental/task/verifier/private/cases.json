@@ -1,0 +1,764 @@
+[
+  {
+    "id": "rename_same_shape",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges"
+    ],
+    "split": "public",
+    "input": "rename_same_shape.bin",
+    "expected": "rename_same_shape.out",
+    "description": "rename same shape"
+  },
+  {
+    "id": "replace_type",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges"
+    ],
+    "split": "public",
+    "input": "replace_type.bin",
+    "expected": "replace_type.out",
+    "description": "replace type"
+  },
+  {
+    "id": "prefix_multiline",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges"
+    ],
+    "split": "public",
+    "input": "prefix_multiline.bin",
+    "expected": "prefix_multiline.out",
+    "description": "prefix multiline"
+  },
+  {
+    "id": "delete_cross_children",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges"
+    ],
+    "split": "feedback",
+    "input": "delete_cross_children.bin",
+    "expected": "delete_cross_children.out",
+    "description": "delete cross children"
+  },
+  {
+    "id": "batch_before_parse",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges"
+    ],
+    "split": "feedback",
+    "input": "batch_before_parse.bin",
+    "expected": "batch_before_parse.out",
+    "description": "batch before parse"
+  },
+  {
+    "id": "insert_empty",
+    "encoding": 0,
+    "scanner": true,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "scanner"
+    ],
+    "split": "feedback",
+    "input": "insert_empty.bin",
+    "expected": "insert_empty.out",
+    "description": "insert empty"
+  },
+  {
+    "id": "delete_all",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges"
+    ],
+    "split": "feedback",
+    "input": "delete_all.bin",
+    "expected": "delete_all.out",
+    "description": "delete all"
+  },
+  {
+    "id": "append_eof",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges"
+    ],
+    "split": "feedback",
+    "input": "append_eof.bin",
+    "expected": "append_eof.out",
+    "description": "append eof"
+  },
+  {
+    "id": "noop_then_change",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges"
+    ],
+    "split": "feedback",
+    "input": "noop_then_change.bin",
+    "expected": "noop_then_change.out",
+    "description": "noop then change"
+  },
+  {
+    "id": "boundary_insert",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges"
+    ],
+    "split": "feedback",
+    "input": "boundary_insert.bin",
+    "expected": "boundary_insert.out",
+    "description": "boundary insert"
+  },
+  {
+    "id": "error_bracket",
+    "encoding": 0,
+    "scanner": true,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "scanner"
+    ],
+    "split": "feedback",
+    "input": "error_bracket.bin",
+    "expected": "error_bracket.out",
+    "description": "error bracket"
+  },
+  {
+    "id": "error_suite",
+    "encoding": 0,
+    "scanner": true,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "scanner"
+    ],
+    "split": "feedback",
+    "input": "error_suite.bin",
+    "expected": "error_suite.out",
+    "description": "error suite"
+  },
+  {
+    "id": "error_delete_colon",
+    "encoding": 0,
+    "scanner": true,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "scanner"
+    ],
+    "split": "feedback",
+    "input": "error_delete_colon.bin",
+    "expected": "error_delete_colon.out",
+    "description": "error delete colon"
+  },
+  {
+    "id": "multiedit_recovery",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges"
+    ],
+    "split": "feedback",
+    "input": "multiedit_recovery.bin",
+    "expected": "multiedit_recovery.out",
+    "description": "multiedit recovery"
+  },
+  {
+    "id": "unicode_0",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "unicode"
+    ],
+    "split": "feedback",
+    "input": "unicode_0.bin",
+    "expected": "unicode_0.out",
+    "description": "unicode 0"
+  },
+  {
+    "id": "unicode_prefix_0",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "unicode"
+    ],
+    "split": "feedback",
+    "input": "unicode_prefix_0.bin",
+    "expected": "unicode_prefix_0.out",
+    "description": "unicode prefix 0"
+  },
+  {
+    "id": "unicode_1",
+    "encoding": 1,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "unicode"
+    ],
+    "split": "feedback",
+    "input": "unicode_1.bin",
+    "expected": "unicode_1.out",
+    "description": "unicode 1"
+  },
+  {
+    "id": "unicode_prefix_1",
+    "encoding": 1,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "unicode"
+    ],
+    "split": "feedback",
+    "input": "unicode_prefix_1.bin",
+    "expected": "unicode_prefix_1.out",
+    "description": "unicode prefix 1"
+  },
+  {
+    "id": "unicode_2",
+    "encoding": 2,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "unicode"
+    ],
+    "split": "feedback",
+    "input": "unicode_2.bin",
+    "expected": "unicode_2.out",
+    "description": "unicode 2"
+  },
+  {
+    "id": "unicode_prefix_2",
+    "encoding": 2,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "unicode"
+    ],
+    "split": "feedback",
+    "input": "unicode_prefix_2.bin",
+    "expected": "unicode_prefix_2.out",
+    "description": "unicode prefix 2"
+  },
+  {
+    "id": "crlf",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges"
+    ],
+    "split": "feedback",
+    "input": "crlf.bin",
+    "expected": "crlf.out",
+    "description": "crlf"
+  },
+  {
+    "id": "indent_shift",
+    "encoding": 0,
+    "scanner": true,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "scanner"
+    ],
+    "split": "feedback",
+    "input": "indent_shift.bin",
+    "expected": "indent_shift.out",
+    "description": "indent shift"
+  },
+  {
+    "id": "nested_indent",
+    "encoding": 0,
+    "scanner": true,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "scanner"
+    ],
+    "split": "feedback",
+    "input": "nested_indent.bin",
+    "expected": "nested_indent.out",
+    "description": "nested indent"
+  },
+  {
+    "id": "triple_string",
+    "encoding": 0,
+    "scanner": true,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "scanner"
+    ],
+    "split": "feedback",
+    "input": "triple_string.bin",
+    "expected": "triple_string.out",
+    "description": "triple string"
+  },
+  {
+    "id": "f_string",
+    "encoding": 0,
+    "scanner": true,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "scanner"
+    ],
+    "split": "feedback",
+    "input": "f_string.bin",
+    "expected": "f_string.out",
+    "description": "f string"
+  },
+  {
+    "id": "tabs",
+    "encoding": 0,
+    "scanner": true,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "scanner"
+    ],
+    "split": "feedback",
+    "input": "tabs.bin",
+    "expected": "tabs.out",
+    "description": "tabs"
+  },
+  {
+    "id": "comment_indent",
+    "encoding": 0,
+    "scanner": true,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "scanner"
+    ],
+    "split": "feedback",
+    "input": "comment_indent.bin",
+    "expected": "comment_indent.out",
+    "description": "comment indent"
+  },
+  {
+    "id": "included_prefix",
+    "encoding": 0,
+    "scanner": false,
+    "included": true,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges"
+    ],
+    "split": "feedback",
+    "input": "included_prefix.bin",
+    "expected": "included_prefix.out",
+    "description": "included prefix"
+  },
+  {
+    "id": "included_inside",
+    "encoding": 0,
+    "scanner": true,
+    "included": true,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "scanner"
+    ],
+    "split": "feedback",
+    "input": "included_inside.bin",
+    "expected": "included_inside.out",
+    "description": "included inside"
+  },
+  {
+    "id": "included_unicode",
+    "encoding": 1,
+    "scanner": false,
+    "included": true,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "unicode"
+    ],
+    "split": "feedback",
+    "input": "included_unicode.bin",
+    "expected": "included_unicode.out",
+    "description": "included unicode"
+  },
+  {
+    "id": "scanner_state_0",
+    "encoding": 0,
+    "scanner": true,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "scanner"
+    ],
+    "split": "feedback",
+    "input": "scanner_state_0.bin",
+    "expected": "scanner_state_0.out",
+    "description": "scanner state 0"
+  },
+  {
+    "id": "scanner_state_1",
+    "encoding": 0,
+    "scanner": true,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "scanner"
+    ],
+    "split": "feedback",
+    "input": "scanner_state_1.bin",
+    "expected": "scanner_state_1.out",
+    "description": "scanner state 1"
+  },
+  {
+    "id": "scanner_state_2",
+    "encoding": 0,
+    "scanner": true,
+    "included": false,
+    "groups": [
+      "initial",
+      "edit",
+      "lifecycle",
+      "parser",
+      "ranges",
+      "scanner"
+    ],
+    "split": "feedback",
+    "input": "scanner_state_2.bin",
+    "expected": "scanner_state_2.out",
+    "description": "scanner state 2"
+  },
+  {
+    "id": "native_expressions_0",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial"
+    ],
+    "split": "feedback",
+    "input": "native_expressions_0.bin",
+    "expected": "native_expressions_0.out",
+    "description": "native expressions 0",
+    "native_expected": "(module (expression_statement (assignment (identifier) (binary_operator (identifier) (identifier)))))",
+    "native_origin": "test/corpus/expressions.txt: Identifiers with Greek letters"
+  },
+  {
+    "id": "native_expressions_1",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial"
+    ],
+    "split": "feedback",
+    "input": "native_expressions_1.bin",
+    "expected": "native_expressions_1.out",
+    "description": "native expressions 1",
+    "native_expected": "(module (expression_statement (subscript (identifier) (integer))) (expression_statement (subscript (identifier) (integer) (integer))) (expression_statement (subscript (identifier) (integer) (integer))))",
+    "native_origin": "test/corpus/expressions.txt: Subscript expressions"
+  },
+  {
+    "id": "native_expressions_2",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial"
+    ],
+    "split": "feedback",
+    "input": "native_expressions_2.bin",
+    "expected": "native_expressions_2.out",
+    "description": "native expressions 2",
+    "native_expected": "(module (expression_statement (subscript (identifier) (slice))) (expression_statement (subscript (identifier) (slice (integer)))) (expression_statement (subscript (identifier) (slice (integer) (integer)) (ellipsis))) (expression_statement (subscript (identifier) (slice))))",
+    "native_origin": "test/corpus/expressions.txt: Subscript slice expressions"
+  },
+  {
+    "id": "native_literals_0",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial"
+    ],
+    "split": "feedback",
+    "input": "native_literals_0.bin",
+    "expected": "native_literals_0.out",
+    "description": "native literals 0",
+    "native_expected": "(module (expression_statement (unary_operator (integer))) (expression_statement (integer)) (expression_statement (integer)) (expression_statement (integer)) (expression_statement (unary_operator (integer))) (expression_statement (integer)) (expression_statement (integer)) (expression_statement (integer)) (expression_statement (integer)) (expression_statement (integer)) (expression_statement (integer)) (expression_statement (integer)) (expression_statement (integer)))",
+    "native_origin": "test/corpus/literals.txt: Integers"
+  },
+  {
+    "id": "native_literals_1",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial"
+    ],
+    "split": "feedback",
+    "input": "native_literals_1.bin",
+    "expected": "native_literals_1.out",
+    "description": "native literals 1",
+    "native_expected": "(module (expression_statement (unary_operator (float))) (expression_statement (unary_operator (float))) (expression_statement (float)) (expression_statement (float)) (expression_statement (float)) (expression_statement (float)) (expression_statement (float)) (expression_statement (float)))",
+    "native_origin": "test/corpus/literals.txt: Floats"
+  },
+  {
+    "id": "native_literals_2",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial"
+    ],
+    "split": "feedback",
+    "input": "native_literals_2.bin",
+    "expected": "native_literals_2.out",
+    "description": "native literals 2",
+    "native_expected": "(module (expression_statement (float)) (expression_statement (float)) (expression_statement (float)) (expression_statement (float)) (expression_statement (float)) (expression_statement (unary_operator (float))))",
+    "native_origin": "test/corpus/literals.txt: Scientific Notation Floats"
+  },
+  {
+    "id": "native_pattern_matching_0",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial"
+    ],
+    "split": "feedback",
+    "input": "native_pattern_matching_0.bin",
+    "expected": "native_pattern_matching_0.out",
+    "description": "native pattern matching 0",
+    "native_expected": "(module (match_statement (call (attribute (identifier) (identifier)) (argument_list)) (block (case_clause (case_pattern (list_pattern (case_pattern (string (string_start) (string_content) (string_end))))) (block (expression_statement (call (identifier) (argument_list (string (string_start) (string_content) (string_end))))) (expression_statement (call (identifier) (argument_list))))) (case_clause (case_pattern (list_pattern (case_pattern (string (string_start) (string_content) (string_end))))) (block (expression_statement (call (attribute (identifier) (identifier)) (argument_list))))) (case_clause (case_pattern (list_pattern (case_pattern (string (string_start) (string_content) (string_end))) (case_pattern (dotted_name (identifier))))) (block (expression_statement (call (attribute (identifier) (identifier)) (argument_list (identifier) (identifier)))))) (case_clause (case_pattern (list_pattern (case_pattern (string (string_start) (string_content) (string_end))) (case_pattern (dotted_name (identifier))))) (block (expression_statement (assignment (identifier) (call (attribute (identifier) (identifier)) (argument_list (identifier))))))) (comment))))",
+    "native_origin": "test/corpus/pattern_matching.txt: Matching specific values"
+  },
+  {
+    "id": "native_pattern_matching_1",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial"
+    ],
+    "split": "feedback",
+    "input": "native_pattern_matching_1.bin",
+    "expected": "native_pattern_matching_1.out",
+    "description": "native pattern matching 1",
+    "native_expected": "(module (match_statement (call (attribute (identifier) (identifier)) (argument_list)) (block (case_clause (case_pattern (list_pattern (case_pattern (string (string_start) (string_content) (string_end))) (case_pattern (splat_pattern (identifier))))) (block (for_statement (identifier) (identifier) (block (expression_statement (call (attribute (identifier) (identifier)) (argument_list (identifier) (identifier)))))))))))",
+    "native_origin": "test/corpus/pattern_matching.txt: Matching multiple values"
+  },
+  {
+    "id": "native_pattern_matching_2",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial"
+    ],
+    "split": "feedback",
+    "input": "native_pattern_matching_2.bin",
+    "expected": "native_pattern_matching_2.out",
+    "description": "native pattern matching 2",
+    "native_expected": "(module (match_statement (call (attribute (identifier) (identifier)) (argument_list)) (block (comment) (case_clause (case_pattern (list_pattern (case_pattern (string (string_start) (string_content) (string_end))))) (block (expression_statement (ellipsis)) (comment))) (case_clause (case_pattern (list_pattern (case_pattern (string (string_start) (string_content) (string_end))) (case_pattern (dotted_name (identifier))))) (block (pass_statement))) (case_clause (case_pattern (list_pattern (case_pattern (string (string_start) (string_content) (string_end))) (case_pattern (splat_pattern (identifier))))) (block (pass_statement))) (case_clause (case_pattern) (block (expression_statement (call (identifier) (argument_list (string (string_start) (string_content) (interpolation (identifier) (type_conversion)) (string_end))))))))))",
+    "native_origin": "test/corpus/pattern_matching.txt: Adding a wild card"
+  },
+  {
+    "id": "native_statements_0",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial"
+    ],
+    "split": "feedback",
+    "input": "native_statements_0.bin",
+    "expected": "native_statements_0.out",
+    "description": "native statements 0",
+    "native_expected": "(module (import_statement (dotted_name (identifier)) (dotted_name (identifier))) (import_statement (aliased_import (dotted_name (identifier) (identifier)) (identifier))) (import_statement (dotted_name (identifier) (identifier) (identifier))))",
+    "native_origin": "test/corpus/statements.txt: Import statements"
+  },
+  {
+    "id": "native_statements_1",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial"
+    ],
+    "split": "feedback",
+    "input": "native_statements_1.bin",
+    "expected": "native_statements_1.out",
+    "description": "native statements 1",
+    "native_expected": "(module (import_from_statement (dotted_name (identifier)) (dotted_name (identifier))) (import_from_statement (dotted_name (identifier)) (wildcard_import)) (import_from_statement (dotted_name (identifier)) (dotted_name (identifier)) (dotted_name (identifier))) (import_from_statement (dotted_name (identifier) (identifier)) (dotted_name (identifier))) (import_from_statement (relative_import (import_prefix)) (dotted_name (identifier))) (import_from_statement (relative_import (import_prefix)) (dotted_name (identifier))) (import_from_statement (relative_import (import_prefix) (dotted_name (identifier))) (dotted_name (identifier))) (import_from_statement (relative_import (import_prefix) (dotted_name (identifier))) (dotted_name (identifier))))",
+    "native_origin": "test/corpus/statements.txt: Import-from statements"
+  },
+  {
+    "id": "native_statements_2",
+    "encoding": 0,
+    "scanner": false,
+    "included": false,
+    "groups": [
+      "initial"
+    ],
+    "split": "feedback",
+    "input": "native_statements_2.bin",
+    "expected": "native_statements_2.out",
+    "description": "native statements 2",
+    "native_expected": "(module (future_import_statement (dotted_name (identifier))) (future_import_statement (dotted_name (identifier))) (future_import_statement (dotted_name (identifier)) (dotted_name (identifier)) (dotted_name (identifier)) (dotted_name (identifier))))",
+    "native_origin": "test/corpus/statements.txt: Future import statements"
+  }
+]

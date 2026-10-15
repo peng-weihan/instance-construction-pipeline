@@ -1,0 +1,1 @@
+{"arguments":{"command":"for f in instances/public/*.txt; do ./cvrptw_solver \"$f\" /tmp/cvrptw_check.txt 1 && ./tools/verify \"$f\" /tmp/cvrptw_check.txt; done","timeout_seconds":30},"request_id":"10fe965a00974aa981f3a03c3f17bee9"}

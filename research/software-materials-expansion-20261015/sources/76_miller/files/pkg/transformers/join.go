@@ -1,0 +1,770 @@
+package transformers
+
+import (
+	"fmt"
+	"os"
+	"strings"
+
+	"github.com/johnkerl/miller/v6/pkg/cli"
+	"github.com/johnkerl/miller/v6/pkg/input"
+	"github.com/johnkerl/miller/v6/pkg/lib"
+	"github.com/johnkerl/miller/v6/pkg/mlrval"
+	"github.com/johnkerl/miller/v6/pkg/transformers/utils"
+	"github.com/johnkerl/miller/v6/pkg/types"
+)
+
+const verbNameJoin = "join"
+
+var joinOptions = []OptionSpec{
+	{Flag: "-f", Arg: "{left file name}", Type: "filename", Desc: "Left file name for join."},
+	{Flag: "-j", Arg: "{a,b,c}", Type: "csv-list", Desc: "Comma-separated join-field names for output."},
+	{Flag: "-l", Arg: "{a,b,c}", Type: "csv-list", Desc: "Comma-separated join-field names for left input file; defaults to -j values if omitted."},
+	{Flag: "-r", Arg: "{a,b,c}", Type: "csv-list", Desc: "Comma-separated join-field names for right input file(s); defaults to -j values if omitted."},
+	{Flag: "--lk", Aliases: []string{"--left-keep-field-names"}, Arg: "{a,b,c}", Type: "csv-list", Desc: "If supplied, this means keep only the specified field names from the left file. Automatically includes the join-field name(s). Helpful for when you only want a limited subset of information from the left file. Tip: you can use --lk \"\": this means the left file becomes solely a row-selector for the input files."},
+	{Flag: "--lp", Arg: "{text}", Type: "string", Desc: "Additional prefix for non-join output field names from the left file. Applies to paired and unpaired output records."},
+	{Flag: "--rp", Arg: "{text}", Type: "string", Desc: "Additional prefix for non-join output field names from the right file(s). Applies to paired and unpaired output records."},
+	{Flag: "--np", Type: "bool", Desc: "Do not emit paired records."},
+	{Flag: "--ul", Type: "bool", Desc: "Emit unpaired records from the left file."},
+	{Flag: "--ur", Type: "bool", Desc: "Emit unpaired records from the right file(s)."},
+	{Flag: "--ignore-empty", Type: "bool", Desc: "Treat records with empty-string values in any join-field as if that join-field were absent, on both the left and right files. Such records are never paired -- not even with one another -- and are treated as unpaired, subject to --np/--ul/--ur as usual."},
+	{Flag: "-s", Aliases: []string{"--sorted-input"}, Type: "bool", Desc: "Require sorted input: records must be sorted lexically by their join-field names, else not all records will be paired. The only likely use case for this is with a left file which is too big to fit into system memory otherwise."},
+	{Flag: "-u", Type: "bool", Desc: "Enable unsorted input. (This is the default even without -u.) In this case, the entire left file will be loaded into memory."},
+	{Flag: "--prepipe", Arg: "{command}", Type: "string", Desc: "Shell command to prepipe the left-file input through. As in main input options; see mlr --help for details. If you wish to use a prepipe command for the main input as well as here, it must be specified there as well as here."},
+	{Flag: "--prepipex", Arg: "{command}", Type: "string", Desc: "Shell command to prepipe the left-file input through (no shell quoting). As in main input options; see mlr --help for details."},
+}
+
+var JoinSetup = TransformerSetup{
+	Verb:         verbNameJoin,
+	UsageFunc:    transformerJoinUsage,
+	ParseCLIFunc: transformerJoinParseCLI,
+	IgnoresInput: false,
+	Options:      joinOptions,
+}
+
+// Most transformers have option-variables as individual locals within the
+// transformerXYZParseCLI function, which are passed as individual arguments to
+// the NewTransformerXYZ function. For join, things are a bit more complex
+// and we bag up the option-variables into this data structure.
+
+type tJoinOptions struct {
+	leftPrefix  string
+	rightPrefix string
+
+	outputJoinFieldNames []string
+	leftKeepFieldNames   []string
+	leftJoinFieldNames   []string
+	rightJoinFieldNames  []string
+
+	allowUnsortedInput    bool
+	emitPairables         bool
+	emitLeftUnpairables   bool
+	emitRightUnpairables  bool
+	ignoreEmptyJoinFields bool
+
+	leftFileName string
+	prepipe      string
+	prepipeIsRaw bool
+
+	// These allow the joiner to have its own different format/delimiter for the left-file:
+	joinFlagOptions cli.TOptions
+}
+
+func newJoinOptions() *tJoinOptions {
+	return &tJoinOptions{
+		leftPrefix:  "",
+		rightPrefix: "",
+
+		outputJoinFieldNames: nil,
+		leftKeepFieldNames:   nil,
+		leftJoinFieldNames:   nil,
+		rightJoinFieldNames:  nil,
+
+		allowUnsortedInput:    true,
+		emitPairables:         true,
+		emitLeftUnpairables:   false,
+		emitRightUnpairables:  false,
+		ignoreEmptyJoinFields: false,
+
+		leftFileName: "",
+		prepipe:      "",
+		prepipeIsRaw: false,
+	}
+}
+
+func transformerJoinUsage(
+	o *os.File,
+) {
+	fmt.Fprintf(o, "Usage: %s %s [options]\n", "mlr", verbNameJoin)
+	fmt.Fprintf(o, "Joins records from specified left file name with records from all file names\n")
+	fmt.Fprintf(o, "at the end of the Miller argument list.\n")
+	fmt.Fprintf(o, "Functionality is essentially the same as the system \"join\" command, but for\n")
+	fmt.Fprintf(o, "record streams.\n")
+	WriteVerbOptions(o, joinOptions)
+	fmt.Fprintf(o, "File-format options default to those for the right file names on the Miller\n")
+	fmt.Fprintf(o, "argument list, but may be overridden for the left file as follows. Please see\n")
+	fmt.Fprintf(o, "the main \"%s --help\" for more information on syntax for these arguments:\n", "mlr")
+	fmt.Fprintf(o, "  -i {format name} for the left-file format, e.g. 'csv' or 'json'. Or, flags\n")
+	fmt.Fprintf(o, "     like --icsv, --ijson, etc.: '--icsv' is the same as '-i csv', and so on.\n")
+	fmt.Fprintf(o, "  --irs {record-separator character}\n")
+	fmt.Fprintf(o, "  --ifs {field-separator character}\n")
+	fmt.Fprintf(o, "  --ips {pair-separator character}\n")
+	fmt.Fprintf(o, "  --repifs\n")
+	fmt.Fprintf(o, "  --implicit-csv-header\n")
+	fmt.Fprintf(o, "  --implicit-tsv-header\n")
+	fmt.Fprintf(o, "  --no-implicit-csv-header\n")
+	fmt.Fprintf(o, "  --no-implicit-tsv-header\n")
+	fmt.Fprintf(o, "For example, if you have 'mlr --csv ... join -l foo ... ' then the left-file format will\n")
+	fmt.Fprintf(o, "be specified CSV as well unless you override with 'mlr --csv ... join --ijson -l foo' etc.\n")
+	fmt.Fprintf(o, "Likewise, if you have 'mlr --csv --implicit-csv-header ...' then the join-in file will be\n")
+	fmt.Fprintf(o, "expected to be headerless as well unless you put '--no-implicit-csv-header' after 'join'.\n")
+	fmt.Fprintf(o, "Please use \"%s --usage-separator-options\" for information on specifying separators.\n",
+		"mlr")
+	fmt.Fprintf(o, "Please see https://miller.readthedocs.io/en/latest/reference-verbs#join for more information\n")
+	fmt.Fprintf(o, "including examples.\n")
+}
+
+func transformerJoinParseCLI(
+	pargi *int,
+	argc int,
+	args []string,
+	mainOptions *cli.TOptions, // Options for the right-files
+	doConstruct bool, // false for first pass of CLI-parse, true for second pass
+) (RecordTransformer, error) {
+
+	// Skip the verb name from the current spot in the mlr command line
+	argi := *pargi
+	verb := args[argi]
+	argi++
+
+	// Parse local flags
+	opts := newJoinOptions()
+
+	if mainOptions != nil { // for 'mlr --usage-all-verbs', it's nil
+		// TODO: make sure this is a full nested-struct copy.
+		opts.joinFlagOptions = *mainOptions // struct copy
+	}
+
+	var err error
+	for argi < argc /* variable increment: 1 or 2 depending on flag */ {
+		opt := args[argi]
+		if !strings.HasPrefix(opt, "-") {
+			break // No more flag options to process
+		}
+		if args[argi] == "--" {
+			break // All transformers must do this so main-flags can follow verb-flags
+		}
+		argi++
+
+		switch opt {
+		case "-h", "--help":
+			transformerJoinUsage(os.Stdout)
+			return nil, cli.ErrHelpRequested
+
+		case "--prepipe":
+			opts.prepipe, err = cli.VerbGetStringArg(verb, opt, args, &argi, argc)
+			if err != nil {
+				return nil, err
+			}
+			opts.prepipeIsRaw = false
+
+		case "--prepipex":
+			opts.prepipe, err = cli.VerbGetStringArg(verb, opt, args, &argi, argc)
+			if err != nil {
+				return nil, err
+			}
+			opts.prepipeIsRaw = true
+
+		case "-f":
+			opts.leftFileName, err = cli.VerbGetStringArg(verb, opt, args, &argi, argc)
+			if err != nil {
+				return nil, err
+			}
+
+		case "-j":
+			opts.outputJoinFieldNames, err = cli.VerbGetStringArrayArg(verb, opt, args, &argi, argc)
+			if err != nil {
+				return nil, err
+			}
+
+		case "-l":
+			opts.leftJoinFieldNames, err = cli.VerbGetStringArrayArg(verb, opt, args, &argi, argc)
+			if err != nil {
+				return nil, err
+			}
+
+		case "--lk", "--left-keep-field-names":
+			opts.leftKeepFieldNames, err = cli.VerbGetStringArrayArg(verb, opt, args, &argi, argc)
+			if err != nil {
+				return nil, err
+			}
+
+		case "-r":
+			opts.rightJoinFieldNames, err = cli.VerbGetStringArrayArg(verb, opt, args, &argi, argc)
+			if err != nil {
+				return nil, err
+			}
+
+		case "--lp":
+			opts.leftPrefix, err = cli.VerbGetStringArg(verb, opt, args, &argi, argc)
+			if err != nil {
+				return nil, err
+			}
+
+		case "--rp":
+			opts.rightPrefix, err = cli.VerbGetStringArg(verb, opt, args, &argi, argc)
+			if err != nil {
+				return nil, err
+			}
+
+		case "--np":
+			opts.emitPairables = false
+
+		case "--ul":
+			opts.emitLeftUnpairables = true
+
+		case "--ur":
+			opts.emitRightUnpairables = true
+
+		case "--ignore-empty":
+			opts.ignoreEmptyJoinFields = true
+
+		case "-u":
+			opts.allowUnsortedInput = true
+
+		case "--sorted-input", "-s":
+			opts.allowUnsortedInput = false
+
+		default:
+			// This is inelegant. For error-proofing we advance argi already in our
+			// loop (so individual if-statements don't need to). However,
+			// cli.Parse expects it unadvanced.
+			largi := argi - 1
+			handled, err := cli.FLAG_TABLE.Parse(args, argc, &largi, &opts.joinFlagOptions)
+			if err != nil {
+				return nil, err
+			}
+			if handled {
+				// This lets mlr main and mlr join have different input formats.
+				// Nothing else to handle here.
+				argi = largi
+			} else {
+				return nil, cli.VerbErrorf(verb, "input format option not recognized")
+			}
+		}
+	}
+
+	if err := cli.FinalizeReaderOptions(&opts.joinFlagOptions.ReaderOptions); err != nil {
+		return nil, cli.VerbErrorf(verb, "%v", err)
+	}
+
+	if opts.leftFileName == "" {
+		return nil, cli.VerbErrorf(verb, "need left file name")
+	}
+
+	if !opts.emitPairables && !opts.emitLeftUnpairables && !opts.emitRightUnpairables {
+		return nil, cli.VerbErrorf(verb, "all emit flags are unset; no output is possible")
+	}
+
+	if opts.outputJoinFieldNames == nil {
+		return nil, cli.VerbErrorf(verb, "need output field names")
+	}
+
+	if opts.leftJoinFieldNames == nil {
+		opts.leftJoinFieldNames = opts.outputJoinFieldNames // array copy
+	}
+	if opts.rightJoinFieldNames == nil {
+		opts.rightJoinFieldNames = opts.outputJoinFieldNames // array copy
+	}
+
+	llen := len(opts.leftJoinFieldNames)
+	rlen := len(opts.rightJoinFieldNames)
+	olen := len(opts.outputJoinFieldNames)
+	if llen != rlen || llen != olen {
+		return nil, cli.VerbErrorf(verb, "left, right, and output field lists must have same length")
+	}
+
+	*pargi = argi
+	if !doConstruct { // All transformers must do this for main command-line parsing
+		return nil, nil
+	}
+
+	transformer, err := NewTransformerJoin(opts)
+	if err != nil {
+		return nil, err
+	}
+
+	return transformer, nil
+}
+
+// anyValueIsEmpty returns true if any of the given values is present but
+// empty-string (mlrval "void"). Used for --ignore-empty, which treats such
+// join-field values as though the field were absent altogether.
+func anyValueIsEmpty(values []*mlrval.Mlrval) bool {
+	for _, value := range values {
+		if value != nil && value.IsVoid() {
+			return true
+		}
+	}
+	return false
+}
+
+type TransformerJoin struct {
+	opts *tJoinOptions
+
+	leftFieldNameSet     map[string]bool
+	rightFieldNameSet    map[string]bool
+	leftKeepFieldNameSet map[string]bool
+
+	// For unsorted/half-streaming input
+	ingested                         bool
+	leftBucketsByJoinFieldValues     *lib.OrderedMap[*utils.JoinBucket]
+	leftUnpairableRecordsAndContexts []*types.RecordAndContext
+
+	// For sorted/doubly-streaming input
+	joinBucketKeeper *utils.JoinBucketKeeper
+
+	recordTransformerFunc RecordTransformerFunc
+}
+
+func NewTransformerJoin(
+	opts *tJoinOptions,
+) (*TransformerJoin, error) {
+
+	tr := &TransformerJoin{
+		opts: opts,
+
+		leftFieldNameSet:     lib.StringListToSet(opts.leftJoinFieldNames),
+		rightFieldNameSet:    lib.StringListToSet(opts.rightJoinFieldNames),
+		leftKeepFieldNameSet: lib.StringListToSet(opts.leftKeepFieldNames),
+
+		ingested:                         false,
+		leftBucketsByJoinFieldValues:     nil,
+		leftUnpairableRecordsAndContexts: nil,
+		joinBucketKeeper:                 nil,
+	}
+	// Suppose left file has "id,foo,bar" and right has "id,baz,quux" and the join field name is
+	// "id".  If they ask for --lk id,foo we should keep only id,foo from the left file. But if
+	// they ask for --lk foo we should keep id *and* foo fromn the left file.
+	if tr.leftKeepFieldNameSet != nil {
+		for _, name := range opts.leftJoinFieldNames {
+			tr.leftKeepFieldNameSet[name] = true
+		}
+	}
+
+	if opts.allowUnsortedInput {
+		// Half-streaming (default) case: ingest entire left file first.
+
+		tr.leftUnpairableRecordsAndContexts = []*types.RecordAndContext{}
+		tr.leftBucketsByJoinFieldValues = lib.NewOrderedMap[*utils.JoinBucket]()
+		tr.recordTransformerFunc = tr.transformHalfStreaming
+
+	} else {
+		// Doubly-streaming (non-default) case: step left/right files forward.
+		// Requires both files be sorted on their join keys in order to not
+		// miss anything. This lets people do joins that would otherwise take
+		// too much RAM.
+
+		joinBucketKeeper, err := utils.NewJoinBucketKeeper(
+			// opts.prepipe,
+			opts.leftFileName,
+			&opts.joinFlagOptions.ReaderOptions,
+			opts.leftJoinFieldNames,
+			tr.leftKeepFieldNameSet,
+			opts.ignoreEmptyJoinFields,
+		)
+		if err != nil {
+			return nil, err
+		}
+		tr.joinBucketKeeper = joinBucketKeeper
+
+		tr.recordTransformerFunc = tr.transformDoublyStreaming
+	}
+
+	return tr, nil
+}
+
+func (tr *TransformerJoin) Transform(
+	inrecAndContext *types.RecordAndContext,
+	outputRecordsAndContexts *[]*types.RecordAndContext, // list of *types.RecordAndContext
+	inputDownstreamDoneChannel <-chan bool,
+	outputDownstreamDoneChannel chan<- bool,
+) error {
+	HandleDefaultDownstreamDone(inputDownstreamDoneChannel, outputDownstreamDoneChannel)
+	return tr.recordTransformerFunc(inrecAndContext, outputRecordsAndContexts,
+		inputDownstreamDoneChannel, outputDownstreamDoneChannel)
+}
+
+// This is for the half-streaming case. We ingest the entire left file,
+// matching each right record against those.
+func (tr *TransformerJoin) transformHalfStreaming(
+	inrecAndContext *types.RecordAndContext,
+	outputRecordsAndContexts *[]*types.RecordAndContext, // list of *types.RecordAndContext
+	inputDownstreamDoneChannel <-chan bool,
+	outputDownstreamDoneChannel chan<- bool,
+) error {
+	// This can't be done in the CLI-parser since it requires information which
+	// isn't known until after the CLI-parser is called.
+	//
+	// TODO: check if this is still true for the Go port, once everything else
+	// is done.
+	if !tr.ingested { // First call
+		if err := tr.ingestLeftFile(); err != nil {
+			return err
+		}
+		tr.ingested = true
+	}
+
+	if !inrecAndContext.EndOfStream {
+		inrec := inrecAndContext.Record
+		groupingKey, hasAllJoinKeys := inrec.GetSelectedValuesJoined(
+			tr.opts.rightJoinFieldNames,
+		)
+		if hasAllJoinKeys && tr.opts.ignoreEmptyJoinFields {
+			rightFieldValues, _ := inrec.GetSelectedValues(tr.opts.rightJoinFieldNames)
+			if anyValueIsEmpty(rightFieldValues) {
+				hasAllJoinKeys = false
+			}
+		}
+		if hasAllJoinKeys {
+			leftBucket := tr.leftBucketsByJoinFieldValues.Get(groupingKey)
+			if leftBucket == nil {
+				if tr.opts.emitRightUnpairables {
+					*outputRecordsAndContexts = append(*outputRecordsAndContexts,
+						tr.transformRightUnpairedRecord(inrecAndContext))
+				}
+			} else {
+				leftBucket.WasPaired = true
+				if tr.opts.emitPairables {
+					tr.formAndEmitPairs(
+						leftBucket.RecordsAndContexts,
+						inrecAndContext,
+						outputRecordsAndContexts,
+					)
+				}
+			}
+		} else if tr.opts.emitRightUnpairables {
+			*outputRecordsAndContexts = append(*outputRecordsAndContexts,
+				tr.transformRightUnpairedRecord(inrecAndContext))
+		}
+
+	} else { // end of record stream
+		if tr.opts.emitLeftUnpairables {
+			tr.emitLeftUnpairedBuckets(outputRecordsAndContexts)
+			tr.emitLeftUnpairables(outputRecordsAndContexts)
+		}
+		*outputRecordsAndContexts = append(*outputRecordsAndContexts, inrecAndContext) // emit end-of-stream marker
+	}
+	return nil
+}
+
+func (tr *TransformerJoin) transformDoublyStreaming(
+	rightRecAndContext *types.RecordAndContext,
+	outputRecordsAndContexts *[]*types.RecordAndContext, // list of *types.RecordAndContext
+	inputDownstreamDoneChannel <-chan bool,
+	outputDownstreamDoneChannel chan<- bool,
+) error {
+	keeper := tr.joinBucketKeeper // keystroke-saver
+
+	if !rightRecAndContext.EndOfStream {
+		rightRec := rightRecAndContext.Record
+		isPaired := false
+
+		rightFieldValues, hasAllJoinKeys := rightRec.ReferenceSelectedValues(
+			tr.opts.rightJoinFieldNames,
+		)
+		if hasAllJoinKeys && tr.opts.ignoreEmptyJoinFields && anyValueIsEmpty(rightFieldValues) {
+			hasAllJoinKeys = false
+		}
+		if hasAllJoinKeys {
+			var err error
+			isPaired, err = keeper.FindJoinBucket(rightFieldValues)
+			if err != nil {
+				return err
+			}
+		}
+		if tr.opts.emitLeftUnpairables {
+			tr.outputLeftUnpaireds(keeper, outputRecordsAndContexts)
+		} else {
+			keeper.ReleaseLeftUnpaireds(outputRecordsAndContexts)
+		}
+
+		lefts := keeper.JoinBucket.RecordsAndContexts // keystroke-saver
+
+		if !isPaired && tr.opts.emitRightUnpairables {
+			*outputRecordsAndContexts = append(*outputRecordsAndContexts,
+				tr.transformRightUnpairedRecord(rightRecAndContext))
+		}
+
+		if isPaired && tr.opts.emitPairables && lefts != nil {
+			tr.formAndEmitPairs(lefts, rightRecAndContext, outputRecordsAndContexts)
+		}
+
+	} else { // end of record stream
+		if _, err := keeper.FindJoinBucket(nil); err != nil {
+			return err
+		}
+
+		if tr.opts.emitLeftUnpairables {
+			tr.outputLeftUnpaireds(keeper, outputRecordsAndContexts)
+		}
+
+		*outputRecordsAndContexts = append(*outputRecordsAndContexts, rightRecAndContext) // emit end-of-stream marker
+	}
+	return nil
+}
+
+func (tr *TransformerJoin) outputLeftUnpaireds(
+	keeper *utils.JoinBucketKeeper,
+	outputRecordsAndContexts *[]*types.RecordAndContext, // list of *types.RecordAndContext
+) {
+	startIdx := len(*outputRecordsAndContexts)
+	keeper.OutputAndReleaseLeftUnpaireds(outputRecordsAndContexts)
+	for i := startIdx; i < len(*outputRecordsAndContexts); i++ {
+		(*outputRecordsAndContexts)[i] = tr.transformLeftUnpairedRecord((*outputRecordsAndContexts)[i])
+	}
+}
+
+// This is for the half-streaming case. We ingest the entire left file,
+// matching each right record against those.
+//
+// Note: this logic is very similar to that in stream.go, which is what
+// processes the main/right files.
+
+func (tr *TransformerJoin) ingestLeftFile() error {
+	readerOpts := &tr.opts.joinFlagOptions.ReaderOptions
+
+	// Instantiate the record-reader
+	// TODO: perhaps increase recordsPerBatch, and/or refactor
+	recordReader, err := input.Create(readerOpts, 1)
+	if err != nil {
+		return err
+	}
+
+	// Set the initial context for the left-file.
+	//
+	// Since Go is concurrent, the context struct needs to be duplicated and
+	// passed through the channels along with each record.
+	initialContext := types.NewNilContext()
+	initialContext.UpdateForStartOfFile(tr.opts.leftFileName)
+
+	// Set up channels for the record-reader.
+	readerChannel := make(chan []*types.RecordAndContext, 2) // list of *types.RecordAndContext
+	errorChannel := make(chan error, 1)
+	downstreamDoneChannel := make(chan bool, 1)
+
+	// Start the record reader.
+	// TODO: prepipe
+	leftFileNameArray := [1]string{tr.opts.leftFileName}
+	go recordReader.Read(leftFileNameArray[:], *initialContext, readerChannel, errorChannel, downstreamDoneChannel)
+
+	// Ingest parsed records and bucket them by their join-field values.  E.g.
+	// if the join-field is "id" then put all records with id=1 in one bucket,
+	// all those with id=2 in another bucket, etc. And any records lacking an
+	// "id" field go into the unpairable list.
+	done := false
+	for !done {
+		select {
+
+		case err := <-errorChannel:
+			return err
+
+		case leftrecsAndContexts := <-readerChannel:
+			// TODO: temp for batch-reader refactor
+			lib.InternalCodingErrorIf(len(leftrecsAndContexts) != 1)
+			leftrecAndContext := leftrecsAndContexts[0]
+			leftrecAndContext.Record = utils.KeepLeftFieldNames(leftrecAndContext.Record, tr.leftKeepFieldNameSet)
+
+			if leftrecAndContext.EndOfStream {
+				// The record-reader may have sent an error (e.g. the left file
+				// is missing or unreadable) immediately before its end-of-stream
+				// marker. Since those are separate channels, the select can see
+				// the end-of-stream marker first -- so, check the error channel
+				// before declaring the ingest complete.
+				select {
+				case err := <-errorChannel:
+					return err
+				default:
+				}
+				done = true
+				break // breaks the switch, not the for, in Golang
+			}
+			leftrec := leftrecAndContext.Record
+			if leftrec == nil {
+				// E.g. the only payload is OutputString or EndOfStream
+				continue
+			}
+
+			groupingKey, leftFieldValues, ok := leftrec.GetSelectedValuesAndJoined(
+				tr.opts.leftJoinFieldNames,
+			)
+			if ok && tr.opts.ignoreEmptyJoinFields && anyValueIsEmpty(leftFieldValues) {
+				ok = false
+			}
+			if ok {
+				bucket := tr.leftBucketsByJoinFieldValues.Get(groupingKey)
+				if bucket == nil { // New key-field-value: new bucket and hash-map entry
+					bucket := utils.NewJoinBucket(leftFieldValues)
+					bucket.RecordsAndContexts = append(bucket.RecordsAndContexts, leftrecAndContext)
+					tr.leftBucketsByJoinFieldValues.Put(groupingKey, bucket)
+				} else { // Previously seen key-field-value: append record to bucket
+					bucket.RecordsAndContexts = append(bucket.RecordsAndContexts, leftrecAndContext)
+				}
+			} else {
+				tr.leftUnpairableRecordsAndContexts = append(tr.leftUnpairableRecordsAndContexts, leftrecAndContext)
+			}
+		}
+	}
+	return nil
+}
+
+// This helper method is used by the half-streaming/unsorted join, as well as
+// the doubly-streaming/sorted join.
+
+func (tr *TransformerJoin) formAndEmitPairs(
+	leftRecordsAndContexts []*types.RecordAndContext,
+	rightRecordAndContext *types.RecordAndContext,
+	outputRecordsAndContexts *[]*types.RecordAndContext, // list of *types.RecordAndContext
+) {
+	////fmt.Println("-- pairs start") // VERBOSE
+	// Loop over each to-be-paired-with record from the left file.
+	for _, leftRecordAndContext := range leftRecordsAndContexts {
+		////fmt.Println("-- pairs pe") // VERBOSE
+		leftrec := leftRecordAndContext.Record
+		rightrec := rightRecordAndContext.Record
+
+		// Allocate a new output record which is the join of the left and right records.
+		outrec := mlrval.NewMlrmapAsRecord()
+
+		// Add the joined-on fields to the new output record
+		n := len(tr.opts.leftJoinFieldNames)
+		for i := range n {
+			// These arrays are already guaranteed same-length by CLI parser
+			leftJoinFieldName := tr.opts.leftJoinFieldNames[i]
+			outputJoinFieldName := tr.opts.outputJoinFieldNames[i]
+			value := leftrec.Get(leftJoinFieldName)
+			if value != nil {
+				outrec.PutCopy(outputJoinFieldName, value)
+			}
+		}
+
+		// Add the left-record fields not already added
+		for pl := leftrec.Head; pl != nil; pl = pl.Next {
+			_, ok := tr.leftFieldNameSet[pl.Key]
+			if !ok {
+				key := tr.opts.leftPrefix + pl.Key
+				outrec.PutCopy(key, pl.Value)
+			}
+		}
+
+		// Add the right-record fields not already added
+		for pr := rightrec.Head; pr != nil; pr = pr.Next {
+			_, ok := tr.rightFieldNameSet[pr.Key]
+			if !ok {
+				key := tr.opts.rightPrefix + pr.Key
+				outrec.PutCopy(key, pr.Value)
+			}
+		}
+		////fmt.Println("-- pairs outrec") // VERBOSE
+		////outrec.Print() // VERBOSE
+
+		// Clone the right record's context (NR, FILENAME, etc) to use for the new output record
+		context := rightRecordAndContext.Context // struct copy
+		outrecAndContext := types.NewRecordAndContext(outrec, &context)
+
+		// Emit the new joined record on the downstream channel
+		*outputRecordsAndContexts = append(*outputRecordsAndContexts, outrecAndContext)
+	}
+	////fmt.Println("-- pairs end") // VERBOSE
+}
+
+// There are two kinds of left non-pair records: (a) those lacking the
+// specified join-keys -- can't possibly pair with anything on the right; (b)
+// those having the join-keys but not matching with a record on the right.
+//
+// Example: join on "id" field. Records lacking an "id" field are in the first
+// category.  Now suppose there's a left record with id=0, but there were three
+// right-file records with id-field values 1,2,3. Then the id=0 left records is
+// in the second category.
+
+func (tr *TransformerJoin) emitLeftUnpairables(
+	outputRecordsAndContexts *[]*types.RecordAndContext, // list of *types.RecordAndContext
+) {
+	for _, recordAndContext := range tr.leftUnpairableRecordsAndContexts {
+		*outputRecordsAndContexts = append(*outputRecordsAndContexts,
+			tr.transformLeftUnpairedRecord(recordAndContext))
+	}
+}
+
+func (tr *TransformerJoin) emitLeftUnpairedBuckets(
+	outputRecordsAndContexts *[]*types.RecordAndContext, // list of *types.RecordAndContext
+) {
+	for pe := tr.leftBucketsByJoinFieldValues.Head; pe != nil; pe = pe.Next {
+		bucket := pe.Value
+		if !bucket.WasPaired {
+			for _, recordAndContext := range bucket.RecordsAndContexts {
+				*outputRecordsAndContexts = append(*outputRecordsAndContexts,
+					tr.transformLeftUnpairedRecord(recordAndContext))
+			}
+		}
+	}
+}
+
+// transformLeftUnpairedRecord and transformRightUnpairedRecord rename the
+// join-field names to the output-join-field names and apply the side's prefix
+// to all non-join field names. This keeps unpaired-record column names
+// consistent with those produced by paired joins, so downstream operations
+// like `unsparsify` align columns across paired and unpaired output.
+func (tr *TransformerJoin) transformLeftUnpairedRecord(
+	inrecAndContext *types.RecordAndContext,
+) *types.RecordAndContext {
+	return tr.transformUnpairedRecord(
+		inrecAndContext, tr.opts.leftJoinFieldNames, tr.opts.leftPrefix,
+	)
+}
+
+func (tr *TransformerJoin) transformRightUnpairedRecord(
+	inrecAndContext *types.RecordAndContext,
+) *types.RecordAndContext {
+	return tr.transformUnpairedRecord(
+		inrecAndContext, tr.opts.rightJoinFieldNames, tr.opts.rightPrefix,
+	)
+}
+
+func (tr *TransformerJoin) transformUnpairedRecord(
+	inrecAndContext *types.RecordAndContext,
+	joinFieldNames []string,
+	prefix string,
+) *types.RecordAndContext {
+	inrec := inrecAndContext.Record
+	if inrec == nil {
+		return inrecAndContext
+	}
+
+	needsRename := false
+	for i, name := range joinFieldNames {
+		if name != tr.opts.outputJoinFieldNames[i] {
+			needsRename = true
+			break
+		}
+	}
+	if !needsRename && prefix == "" {
+		return inrecAndContext
+	}
+
+	renameMap := make(map[string]string, len(joinFieldNames))
+	for i, name := range joinFieldNames {
+		renameMap[name] = tr.opts.outputJoinFieldNames[i]
+	}
+
+	outrec := mlrval.NewMlrmapAsRecord()
+	for pe := inrec.Head; pe != nil; pe = pe.Next {
+		if outName, ok := renameMap[pe.Key]; ok {
+			outrec.PutCopy(outName, pe.Value)
+		} else {
+			outrec.PutCopy(prefix+pe.Key, pe.Value)
+		}
+	}
+
+	context := inrecAndContext.Context // struct copy
+	return types.NewRecordAndContext(outrec, &context)
+}

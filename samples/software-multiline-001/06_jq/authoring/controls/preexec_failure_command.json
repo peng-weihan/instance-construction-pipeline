@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/Users/raymone/Desktop/edgebench/.venv/bin/python",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/06_jq/tests/grader.py",
+    "--submission",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/06_jq/authoring/controls/reference_submission",
+    "--cases",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/06_jq/verifier/private/cases.json",
+    "--logs",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/06_jq/authoring/controls/reference"
+  ],
+  "cwd": "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/06_jq",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/06_jq/tests/grader.py\", line 64, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/06_jq/tests/grader.py\", line 55, in main\n    actual=execute(entry,c) if entry.is_file() else {'stdout':'','stderr':'runner.py missing','exit':127,'timeout':False}\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/06_jq/tests/grader.py\", line 17, in execute\n    p=subprocess.Popen([sys.executable,'-I',str(entry),*argv],cwd=entry.parent,stdin=subprocess.PIPE,stdout=stdout,stderr=stderr,env={'PATH':'/usr/local/bin:/usr/bin:/bin','LANG':'C.UTF-8','HOME':'/tmp'},preexec_fn=limit_candidate)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.13_2/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 1026, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.13_2/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py\", line 1958, in _execute_child\n    raise child_exception_type(err_msg)\nsubprocess.SubprocessError: Exception occurred in preexec_fn.\n",
+  "exit": 1,
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "host_only": true
+}

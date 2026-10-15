@@ -1,0 +1,197 @@
+{
+  "jobs": [
+    {
+      "id": "01_openapi_streaming",
+      "account": "raymone/3",
+      "codex_home": "/ws/users/wcgu/new-codex-group/raymone/3",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "cwd": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming",
+      "prompt_sha256": "f470dc0c00f772a08b058f9073db677d45a4e262447d594cccadf7c30e0f2541",
+      "source_revision": "0a283fe21eeaa23046faf622d4ff4b2c826d2edb"
+    },
+    {
+      "id": "09_valkey_transactions",
+      "account": "raymone/3",
+      "codex_home": "/ws/users/wcgu/new-codex-group/raymone/3",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "cwd": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions",
+      "prompt_sha256": "1f3a0de225321464dc8dafbba302055f1786648e032ef058258f9c0ece868ba6",
+      "source_revision": "cf5efa70192faedacb6741ee2a8f800d0482862f"
+    },
+    {
+      "id": "14_tree_sitter_incremental",
+      "account": "raymone/3",
+      "codex_home": "/ws/users/wcgu/new-codex-group/raymone/3",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "cwd": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental",
+      "prompt_sha256": "54db38b004c4fb1c5211b969e8b1365cd77e67cd9589b9b118c8525c83bdf04c",
+      "source_revision": "8ca548849fc8dbefd699edcec26546bb14112820"
+    },
+    {
+      "id": "02_restler_recovery",
+      "account": "raymone/1",
+      "codex_home": "/ws/users/wcgu/new-codex-group/raymone/1",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "cwd": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/02_restler_recovery",
+      "prompt_sha256": "4f9b348b87964c102f5a5e972b3cc548582f5662f7039434dca307566e94462e",
+      "source_revision": "6d984deedbc54aad957fa3da0c7e9e5df23a2aee",
+      "priority": "P1",
+      "dispatch_policy": "all_authorized_launch_on_fresh_actual_capacity"
+    },
+    {
+      "id": "05_uv_resolution",
+      "account": "raymone/1",
+      "codex_home": "/ws/users/wcgu/new-codex-group/raymone/1",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "cwd": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/05_uv_resolution",
+      "prompt_sha256": "bc389efa39bf99dce89b3ea6af94678ecf93c026462e05739949875ea43c36cd",
+      "source_revision": "9385290f1bf895cb3f587118ce92cce9a0585f77",
+      "priority": "P1",
+      "dispatch_policy": "all_authorized_launch_on_fresh_actual_capacity"
+    },
+    {
+      "id": "06_wasm_validation",
+      "account": "raymone/3",
+      "codex_home": "/ws/users/wcgu/new-codex-group/raymone/3",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "cwd": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/06_wasm_validation",
+      "prompt_sha256": "5259c93d1e5a2ec5136e5ef8afaedc625349ef9aa4338a6b48b814c351fa03d8",
+      "source_revision": "d910f03bd6d6477656fc5070b5098e8f909305d3",
+      "priority": "P1",
+      "dispatch_policy": "all_authorized_launch_on_fresh_actual_capacity"
+    },
+    {
+      "id": "10_datafusion_sort",
+      "account": null,
+      "codex_home": null,
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "cwd": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/10_datafusion_sort",
+      "prompt_sha256": "caafd3838653005793a2356878da20132df012d8d45ce4d3d82c68ebfadd0d62",
+      "source_revision": "10343c18292fc3a9ca62b59c8bb530169fe79b82",
+      "priority": "P1",
+      "dispatch_policy": "all_authorized_launch_on_fresh_actual_capacity"
+    },
+    {
+      "id": "13_toml_lossless",
+      "account": null,
+      "codex_home": null,
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "cwd": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/13_toml_lossless",
+      "prompt_sha256": "491596e8509db52ba1ac344359af131d4874421fec7fc9ae00a3845446b16c6a",
+      "source_revision": "ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+      "priority": "P1",
+      "dispatch_policy": "all_authorized_launch_on_fresh_actual_capacity"
+    },
+    {
+      "id": "03_httpx_transport",
+      "account": null,
+      "codex_home": null,
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "cwd": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport",
+      "prompt_sha256": "6c028a7ea03021e80636234bf796e16e38e8193e323443654a34ceb67bc05db0",
+      "source_revision": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+      "priority": "P2",
+      "dispatch_policy": "all_authorized_launch_on_fresh_actual_capacity"
+    },
+    {
+      "id": "04_pytest_fixtures",
+      "account": null,
+      "codex_home": null,
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "cwd": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures",
+      "prompt_sha256": "3589fb81eed8473c0da03739faa932293df11f02e0a61df2deb154e5760efb2a",
+      "source_revision": "c9c19f8e62c12834ad83193a1869cc82fe9c700e",
+      "priority": "P2",
+      "dispatch_policy": "all_authorized_launch_on_fresh_actual_capacity"
+    },
+    {
+      "id": "07_arrow_ipc",
+      "account": null,
+      "codex_home": null,
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "cwd": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/07_arrow_ipc",
+      "prompt_sha256": "98bae3b221470b92b2824c4e1e03475ea911949b70296b781c50b0d22eefcb15",
+      "source_revision": "ca5564e007a209e251b9d4648af4bc6a53c68c4f",
+      "priority": "P2",
+      "dispatch_policy": "all_authorized_launch_on_fresh_actual_capacity"
+    },
+    {
+      "id": "08_http2_session",
+      "account": null,
+      "codex_home": null,
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "cwd": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/08_http2_session",
+      "prompt_sha256": "242866ad69323ceee6d48e1e9647a720685cf9988159465dc9713f63007d81ff",
+      "source_revision": "7e10fcf3c58e692902939bab8f898bdd9ec9cff7",
+      "priority": "P2",
+      "dispatch_policy": "all_authorized_launch_on_fresh_actual_capacity"
+    },
+    {
+      "id": "11_rocksdb_compaction",
+      "account": null,
+      "codex_home": null,
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "cwd": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/11_rocksdb_compaction",
+      "prompt_sha256": "32a62e77debaf2856f7f89b98fc957166057c9da3445b73f23699e9671db80cd",
+      "source_revision": "a215c38a8ed34848edc152f7435eabc128208111",
+      "priority": "P2",
+      "dispatch_policy": "all_authorized_launch_on_fresh_actual_capacity"
+    },
+    {
+      "id": "12_croaring_kernels",
+      "account": null,
+      "codex_home": null,
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "cwd": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/12_croaring_kernels",
+      "prompt_sha256": "0770eb51e79a2fe8d3706a3df5205b61a39eb70ec8e8556748a7d6e75d4f303b",
+      "source_revision": "f2d9c6d3affaed28c8a899e96d85334ce4ae35af",
+      "priority": "P2",
+      "dispatch_policy": "all_authorized_launch_on_fresh_actual_capacity"
+    },
+    {
+      "id": "15_jq_composition",
+      "account": null,
+      "codex_home": null,
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "cwd": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/15_jq_composition",
+      "prompt_sha256": "98ed1c1f2fb0cddcb58ab8fa464607211225abcfd4c79a20ea8f02f237579e31",
+      "source_revision": "71c2ab509a8628dbbad4bc7b3f98a64aa90d3297",
+      "priority": "P2",
+      "dispatch_policy": "all_authorized_launch_on_fresh_actual_capacity"
+    },
+    {
+      "id": "16_libarchive_cli",
+      "account": null,
+      "codex_home": null,
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "cwd": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/16_libarchive_cli",
+      "prompt_sha256": "a05bb109882dd6cef17de21ae42789df11b2b25563e6ffa4a75875c87c435673",
+      "source_revision": "b10312a52e5e4d1baf047b563e501b4fb184adde",
+      "priority": "P2",
+      "dispatch_policy": "all_authorized_launch_on_fresh_actual_capacity"
+    }
+  ],
+  "phase": "authoring_only_no_teacher",
+  "initial_parallelism": 2,
+  "queued_after_release": [
+    "09_valkey_transactions"
+  ],
+  "all_candidates_authorized": true,
+  "target_candidates": 16
+}

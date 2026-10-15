@@ -1,0 +1,45 @@
+{
+  "id": "s03_wilds",
+  "name": "WILDS iWildCam",
+  "source_unit": "iWildCam 2.0元数据合同、相机位置/序列切分器和评分实现；图像未下载。",
+  "title": "新相机位置上的长尾物种识别与校准",
+  "proposed_task": "在允许的图像和标签上训练模型，预测未见相机地点的物种，输出类别概率和按地点分析；可选使用无标签适应但须与纯监督合同分开。",
+  "deliverable": "冻结推理入口、训练配置、类别概率、分组误差与校准结果。",
+  "difficulty_sources": [
+    "背景、光照和设备与物种相关，普通ERM容易学习地点捷径，到了新地点失效。",
+    "稀有类和同一触发序列的近重复帧共同作用，随机图像切分会虚高得分且掩盖宏平均性能。"
+  ],
+  "baseline": "预先离线打包且许可明确的常用视觉预训练模型＋ERM/重采样＋温度校准；不通过禁止预训练虚造难度。",
+  "first_probe": "先取得合法完整数据与地点/序列元数据，再跑固定强ERM及背景裁剪基线，量化留出地点宏F1和稳定方差。",
+  "stop_condition": "数据链接、再分发许可或离线权重无法闭合时暂停；若轻量线性探针已过目标，下调范围，不凭图像量判断难度。",
+  "grader_plan": "按官方宏F1和准确率复现基础评分，另固定地点分组汇总与概率校准指标；标签仅在独立grader读取，提供开发反馈。",
+  "generation_and_split": "从真实数据按地点、序列和时间留出，近重复帧整组隔离；这是固定数据的评测任务，新训练/测试分布仍需合法数据支持，不声称合成图像已等价。",
+  "novelty_and_overlap": "新主来源，区别旧单细胞跨站点预测；都属于分布泛化，不应把WILDS不同站点当多个独立来源。公开benchmark/模型污染需要审计。",
+  "offline_and_compute": "已取5源码/许可文件，无图像和模型；源码标示压缩包11,957,420,032字节。完整训练可能需GPU，成本未测，不计下载时间为难度。",
+  "license_observation": "代码MIT；数据类明确声明CDLA-Permissive-1.0，仍须跟实际下载版本和来源条款核对，不能用MIT覆盖图像。",
+  "potential": "high",
+  "priority": "hold_data",
+  "segments": [
+    [
+      "wilds/datasets/iwildcam_dataset.py",
+      16,
+      45,
+      "specification",
+      "186类物种、相机位置域、数据许可和2.0下载体量均在类合同中"
+    ],
+    [
+      "wilds/datasets/iwildcam_dataset.py",
+      103,
+      145,
+      "implementation",
+      "位置grouper与官方宏Recall/F1、准确率评测实现"
+    ],
+    [
+      "dataset_preprocessing/iwildcam/create_split.py",
+      100,
+      138,
+      "split_specification",
+      "按序列跨日一致性检查并写ID/OOD分割，不能随机打散图片"
+    ]
+  ]
+}

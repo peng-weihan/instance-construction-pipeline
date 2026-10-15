@@ -1,0 +1,1 @@
+{"command":".venv/bin/python -m unittest discover -s tests -v","failures":0,"passed":26,"scope":"unit/integration tests including independent original C++ checker and negative trace gates","tests":26}

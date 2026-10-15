@@ -1,0 +1,13 @@
+{
+  "command": [
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/authoring/venv/bin/python",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/tests/grader.py",
+    "--candidate",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/authoring/sources/openapi-python-client-0a283fe21eeaa23046faf622d4ff4b2c826d2edb",
+    "--output",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/01_openapi/authoring/evidence/starter"
+  ],
+  "exit": 0,
+  "stdout": "{\n  \"valid\": true,\n  \"score\": 0.0,\n  \"pass_rate\": 0.0,\n  \"checks\": [\n    {\n      \"name\": \"nested\",\n      \"passed\": false\n    },\n    {\n      \"name\": \"union\",\n      \"passed\": false\n    },\n    {\n      \"name\": \"arrays\",\n      \"passed\": false\n    },\n    {\n      \"name\": \"siblings\",\n      \"passed\": false\n    },\n    {\n      \"name\": \"wire\",\n      \"passed\": false\n    },\n    {\n      \"name\": \"conflict\",\n      \"passed\": false\n    }\n  ],\n  \"metrics\": {\n    \"passed_semantic_groups\": 0,\n    \"fixed_denominator\": 6\n  },\n  \"summary\": \"Generated SDK semantic groups; host execution is not Harbor acceptance\"\n}\n",
+  "stderr": ""
+}

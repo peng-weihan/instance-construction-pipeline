@@ -1,0 +1,30 @@
+{
+  "status": "completed",
+  "passed": true,
+  "kind": "actual_finance_retry_controls",
+  "image_id": "sha256:290c3156b7acc5dec4db5eb0fa95066ff4cedcc276cfd3d1965343cf5f6587e0",
+  "model_calls": 0,
+  "formula_and_hidden_data_unchanged": true,
+  "results": {
+    "starter": {
+      "score": 0.39329753265088446,
+      "valid": true,
+      "seconds": 146.5151073099114
+    },
+    "private_read": {
+      "score": 0,
+      "valid": false,
+      "seconds": 29.022810082999058
+    },
+    "empty": {
+      "score": 0,
+      "valid": false,
+      "seconds": 35.28027017402928
+    },
+    "previous_startup_fault_snapshot": {
+      "score": 0.6792186948705236,
+      "valid": true,
+      "seconds": 78.68836085696239
+    }
+  }
+}

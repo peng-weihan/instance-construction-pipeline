@@ -1,0 +1,102 @@
+{
+  "reference_mode": "oracle",
+  "reward_type": "bounded_continuous",
+  "direction": "maximize",
+  "formula": "sum_g (1/7)*(passed_g/denominator_g)",
+  "groups": {
+    "decode": {
+      "weight": 0.14285714285714285,
+      "denominator": 5
+    },
+    "multiline": {
+      "weight": 0.14285714285714285,
+      "denominator": 5
+    },
+    "format": {
+      "weight": 0.14285714285714285,
+      "denominator": 5
+    },
+    "edit": {
+      "weight": 0.14285714285714285,
+      "denominator": 5
+    },
+    "serialize": {
+      "weight": 0.14285714285714285,
+      "denominator": 5
+    },
+    "diagnostic": {
+      "weight": 0.14285714285714285,
+      "denominator": 7
+    },
+    "integration": {
+      "weight": 0.14285714285714285,
+      "denominator": 3
+    }
+  },
+  "denominator_total": 35,
+  "raw_metrics": [
+    "passed cases",
+    "per-group passed and total"
+  ],
+  "bounds": [
+    0,
+    1
+  ],
+  "correctness_gate": "each case independently requires exact expected operation output; failed builds score zero",
+  "baseline": {
+    "valid": true,
+    "score": 0.02040816326530612,
+    "pass_rate": 0.02857142857142857,
+    "summary": "1/35 behavioral cases passed"
+  },
+  "reference": {
+    "valid": true,
+    "score": 1.0,
+    "pass_rate": 1.0,
+    "summary": "35/35 behavioral cases passed"
+  },
+  "upper_endpoint": {
+    "value": 1,
+    "evidence": "pinned upstream host assistance passed 35/35; not container acceptance"
+  },
+  "controls": {
+    "reference": {
+      "valid": true,
+      "score": 1.0,
+      "pass_rate": 1.0,
+      "summary": "35/35 behavioral cases passed"
+    },
+    "starter": {
+      "valid": true,
+      "score": 0.02040816326530612,
+      "pass_rate": 0.02857142857142857,
+      "summary": "1/35 behavioral cases passed"
+    },
+    "unicode-ascii-only": {
+      "valid": true,
+      "score": 0.8666666666666666,
+      "pass_rate": 0.8857142857142857,
+      "summary": "31/35 behavioral cases passed"
+    },
+    "discard-formatting": {
+      "valid": true,
+      "score": 0.6,
+      "pass_rate": 0.6571428571428571,
+      "summary": "23/35 behavioral cases passed"
+    },
+    "missing": {
+      "valid": true,
+      "score": 0.0,
+      "pass_rate": 0.0,
+      "summary": "submission workspace missing"
+    },
+    "missing-infrastructure": {
+      "valid": false,
+      "score": null,
+      "pass_rate": null,
+      "summary": "infrastructure failure: RuntimeError('promised cargo missing')"
+    }
+  },
+  "runtime": "host-only controls; no Docker/Harbor proof",
+  "performance_anchors": null
+}

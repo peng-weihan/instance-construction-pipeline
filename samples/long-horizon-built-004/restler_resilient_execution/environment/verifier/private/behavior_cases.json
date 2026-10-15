@@ -1,0 +1,1267 @@
+{
+  "public": [
+    {
+      "name": "global_override",
+      "group": "policy",
+      "input": {
+        "op": "policy",
+        "policy": {
+          "global": {
+            "max_attempts": 7
+          }
+        }
+      },
+      "expect": {
+        "policy.max_attempts": 7
+      }
+    },
+    {
+      "name": "retry_503",
+      "group": "retry",
+      "input": {
+        "op": "send",
+        "responses": [
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          },
+          {
+            "status": 200
+          }
+        ]
+      },
+      "expect": {
+        "calls.length": 3,
+        "waits": [
+          1.0,
+          2.0
+        ],
+        "terminal": "succeeded"
+      }
+    },
+    {
+      "name": "idempotency_GET",
+      "group": "idempotency",
+      "input": {
+        "op": "send",
+        "responses": [
+          {
+            "status": 503
+          },
+          {
+            "status": 200
+          }
+        ],
+        "request": "GET /items HTTP/1.1\r\n\r\n"
+      },
+      "expect": {
+        "calls.length": 2,
+        "terminal": "succeeded"
+      }
+    },
+    {
+      "name": "async_completion_final_get",
+      "group": "async",
+      "input": {
+        "op": "async",
+        "request": "PUT /items/1 HTTP/1.1\r\n\r\n",
+        "responses": [
+          {
+            "raw": "HTTP/1.1 202 Accepted\r\nLocation: https://api.test/jobs/1\r\n\r\n"
+          },
+          {
+            "status": 202
+          },
+          {
+            "status": 200
+          },
+          {
+            "status": 200
+          }
+        ]
+      },
+      "expect": {
+        "statuses": [
+          "200",
+          "200"
+        ],
+        "error": false,
+        "waited": true,
+        "calls.length": 4
+      }
+    },
+    {
+      "name": "reverse_dependency",
+      "group": "leases",
+      "input": {
+        "op": "lease",
+        "resources": [
+          {
+            "id": "parent"
+          },
+          {
+            "id": "child",
+            "parents": [
+              "parent"
+            ]
+          },
+          {
+            "id": "leaf",
+            "parents": [
+              "child"
+            ]
+          }
+        ],
+        "created": [
+          [
+            "parent",
+            0
+          ],
+          [
+            "child",
+            0
+          ],
+          [
+            "leaf",
+            0
+          ]
+        ]
+      },
+      "expect": {
+        "deleted": [
+          "leaf",
+          "child",
+          "parent"
+        ],
+        "retained": []
+      }
+    },
+    {
+      "name": "redacted_trace",
+      "group": "trace",
+      "input": {
+        "op": "send",
+        "responses": [
+          {
+            "status": 503
+          },
+          {
+            "status": 200
+          }
+        ],
+        "request": "GET /items HTTP/1.1\r\nAuthorization: SECRET_AUTH\r\nIdempotency-Key: SECRET_KEY\r\n\r\n"
+      },
+      "expect": {
+        "secret_free": true,
+        "trace_schema": true,
+        "calls.length": 2
+      }
+    },
+    {
+      "name": "replay_deterministic",
+      "group": "replay",
+      "input": {
+        "op": "replay",
+        "records": [
+          {
+            "request": "GET /items HTTP/1.1\r\n\r\n",
+            "responses": [
+              {
+                "raw": "HTTP/1.1 503 Busy\r\n\r\n"
+              },
+              {
+                "raw": "HTTP/1.1 200 OK\r\n\r\n"
+              }
+            ]
+          }
+        ],
+        "policy": {
+          "global": {
+            "jitter_fraction": 0.2
+          }
+        }
+      },
+      "expect": {
+        "same": true,
+        "trace_schema": true
+      }
+    }
+  ],
+  "feedback": [
+    {
+      "name": "global_override",
+      "group": "policy",
+      "input": {
+        "op": "policy",
+        "policy": {
+          "global": {
+            "max_attempts": 7
+          }
+        }
+      },
+      "expect": {
+        "policy.max_attempts": 7
+      }
+    },
+    {
+      "name": "method_override",
+      "group": "policy",
+      "input": {
+        "op": "policy",
+        "request": "POST /jobs?q=1 HTTP/1.1\r\n\r\n",
+        "policy": {
+          "global": {
+            "max_attempts": 7
+          },
+          "endpoints": {
+            "/jobs": {
+              "defaults": {
+                "max_attempts": 5
+              },
+              "POST": {
+                "max_attempts": 2
+              }
+            }
+          }
+        }
+      },
+      "expect": {
+        "policy.max_attempts": 2
+      }
+    },
+    {
+      "name": "reject_max_attempts",
+      "group": "policy",
+      "input": {
+        "op": "policy",
+        "policy": {
+          "global": {
+            "max_attempts": true
+          }
+        }
+      },
+      "expect": {
+        "exception_present": true
+      }
+    },
+    {
+      "name": "reject_deadline_seconds",
+      "group": "policy",
+      "input": {
+        "op": "policy",
+        "policy": {
+          "global": {
+            "deadline_seconds": -1
+          }
+        }
+      },
+      "expect": {
+        "exception_present": true
+      }
+    },
+    {
+      "name": "reject_retry_statuses",
+      "group": "policy",
+      "input": {
+        "op": "policy",
+        "policy": {
+          "global": {
+            "retry_statuses": [
+              "503"
+            ]
+          }
+        }
+      },
+      "expect": {
+        "exception_present": true
+      }
+    },
+    {
+      "name": "reject_jitter_fraction",
+      "group": "policy",
+      "input": {
+        "op": "policy",
+        "policy": {
+          "global": {
+            "jitter_fraction": 2
+          }
+        }
+      },
+      "expect": {
+        "exception_present": true
+      }
+    },
+    {
+      "name": "reject_extra",
+      "group": "policy",
+      "input": {
+        "op": "policy",
+        "policy": {
+          "global": {
+            "extra": 1
+          }
+        }
+      },
+      "expect": {
+        "exception_present": true
+      }
+    },
+    {
+      "name": "retry_503",
+      "group": "retry",
+      "input": {
+        "op": "send",
+        "responses": [
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          },
+          {
+            "status": 200
+          }
+        ]
+      },
+      "expect": {
+        "calls.length": 3,
+        "waits": [
+          1.0,
+          2.0
+        ],
+        "terminal": "succeeded"
+      }
+    },
+    {
+      "name": "max_attempts",
+      "group": "retry",
+      "input": {
+        "op": "send",
+        "responses": [
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          }
+        ],
+        "policy": {
+          "global": {
+            "max_attempts": 2
+          }
+        }
+      },
+      "expect": {
+        "calls.length": 2,
+        "terminal": "failed"
+      }
+    },
+    {
+      "name": "retry_after_seconds",
+      "group": "retry",
+      "input": {
+        "op": "send",
+        "responses": [
+          {
+            "raw": "HTTP/1.1 429 Busy\r\nRetry-After: 4\r\n\r\n"
+          },
+          {
+            "status": 200
+          }
+        ]
+      },
+      "expect": {
+        "waits": [
+          4.0
+        ],
+        "calls.length": 2
+      }
+    },
+    {
+      "name": "retry_after_date",
+      "group": "retry",
+      "input": {
+        "op": "send",
+        "wall": 1700000000,
+        "responses": [
+          {
+            "raw": "HTTP/1.1 503 Busy\r\nRetry-After: Tue, 14 Nov 2023 22:13:25 GMT\r\n\r\n"
+          },
+          {
+            "status": 200
+          }
+        ]
+      },
+      "expect": {
+        "waits": [
+          5.0
+        ]
+      }
+    },
+    {
+      "name": "malformed_retry_after",
+      "group": "retry",
+      "input": {
+        "op": "send",
+        "responses": [
+          {
+            "raw": "HTTP/1.1 503 Busy\r\nRetry-After: nonsense\r\n\r\n"
+          },
+          {
+            "status": 200
+          }
+        ]
+      },
+      "expect": {
+        "waits": [
+          1.0
+        ]
+      }
+    },
+    {
+      "name": "deadline_blocks_sleep",
+      "group": "retry",
+      "input": {
+        "op": "send",
+        "responses": [
+          {
+            "status": 503
+          },
+          {
+            "status": 200
+          }
+        ],
+        "policy": {
+          "global": {
+            "deadline_seconds": 1
+          }
+        }
+      },
+      "expect": {
+        "calls.length": 1,
+        "waits": [],
+        "terminal": "timed_out"
+      }
+    },
+    {
+      "name": "idempotency_GET",
+      "group": "idempotency",
+      "input": {
+        "op": "send",
+        "responses": [
+          {
+            "status": 503
+          },
+          {
+            "status": 200
+          }
+        ],
+        "request": "GET /items HTTP/1.1\r\n\r\n"
+      },
+      "expect": {
+        "calls.length": 2,
+        "terminal": "succeeded"
+      }
+    },
+    {
+      "name": "idempotency_HEAD",
+      "group": "idempotency",
+      "input": {
+        "op": "send",
+        "responses": [
+          {
+            "status": 503
+          },
+          {
+            "status": 200
+          }
+        ],
+        "request": "HEAD /items HTTP/1.1\r\n\r\n"
+      },
+      "expect": {
+        "calls.length": 2,
+        "terminal": "succeeded"
+      }
+    },
+    {
+      "name": "idempotency_PUT",
+      "group": "idempotency",
+      "input": {
+        "op": "send",
+        "responses": [
+          {
+            "status": 503
+          },
+          {
+            "status": 200
+          }
+        ],
+        "request": "PUT /items HTTP/1.1\r\n\r\n"
+      },
+      "expect": {
+        "calls.length": 2,
+        "terminal": "succeeded"
+      }
+    },
+    {
+      "name": "idempotency_DELETE",
+      "group": "idempotency",
+      "input": {
+        "op": "send",
+        "responses": [
+          {
+            "status": 503
+          },
+          {
+            "status": 200
+          }
+        ],
+        "request": "DELETE /items HTTP/1.1\r\n\r\n"
+      },
+      "expect": {
+        "calls.length": 2,
+        "terminal": "succeeded"
+      }
+    },
+    {
+      "name": "idempotency_POST",
+      "group": "idempotency",
+      "input": {
+        "op": "send",
+        "responses": [
+          {
+            "status": 503
+          },
+          {
+            "status": 200
+          }
+        ],
+        "request": "POST /items HTTP/1.1\r\n\r\n"
+      },
+      "expect": {
+        "calls.length": 1,
+        "terminal": "failed"
+      }
+    },
+    {
+      "name": "idempotency_PATCH",
+      "group": "idempotency",
+      "input": {
+        "op": "send",
+        "responses": [
+          {
+            "status": 503
+          },
+          {
+            "status": 200
+          }
+        ],
+        "request": "PATCH /items HTTP/1.1\r\n\r\n"
+      },
+      "expect": {
+        "calls.length": 1,
+        "terminal": "failed"
+      }
+    },
+    {
+      "name": "idempotency_explicit",
+      "group": "idempotency",
+      "input": {
+        "op": "send",
+        "responses": [
+          {
+            "status": 503
+          },
+          {
+            "status": 200
+          }
+        ],
+        "request": "POST /jobs HTTP/1.1\r\nIdempotency-Key: SECRET_KEY\r\n\r\n",
+        "policy": {
+          "global": {
+            "idempotency_header": "Idempotency-Key"
+          }
+        }
+      },
+      "expect": {
+        "calls.length": 2,
+        "terminal": "succeeded",
+        "secret_free": true
+      }
+    },
+    {
+      "name": "unsafe_network_reset",
+      "group": "idempotency",
+      "input": {
+        "op": "send",
+        "request": "POST /items HTTP/1.1\r\n\r\n",
+        "responses": [
+          {
+            "network_error": true
+          },
+          {
+            "status": 200
+          }
+        ]
+      },
+      "expect": {
+        "calls.length": 1,
+        "terminal": "failed"
+      }
+    },
+    {
+      "name": "async_completion_final_get",
+      "group": "async",
+      "input": {
+        "op": "async",
+        "request": "PUT /items/1 HTTP/1.1\r\n\r\n",
+        "responses": [
+          {
+            "raw": "HTTP/1.1 202 Accepted\r\nLocation: https://api.test/jobs/1\r\n\r\n"
+          },
+          {
+            "status": 202
+          },
+          {
+            "status": 200
+          },
+          {
+            "status": 200
+          }
+        ]
+      },
+      "expect": {
+        "statuses": [
+          "200",
+          "200"
+        ],
+        "error": false,
+        "waited": true,
+        "calls.length": 4
+      }
+    },
+    {
+      "name": "shared_deadline",
+      "group": "async",
+      "input": {
+        "op": "async",
+        "request": "PUT /items/1 HTTP/1.1\r\n\r\n",
+        "policy": {
+          "global": {
+            "deadline_seconds": 2
+          }
+        },
+        "responses": [
+          {
+            "raw": "HTTP/1.1 202 Accepted\r\nLocation: https://api.test/jobs/1\r\n\r\n",
+            "elapsed": 1
+          },
+          {
+            "status": 202
+          }
+        ]
+      },
+      "expect": {
+        "error": true,
+        "terminal": "timed_out",
+        "calls.length": 2
+      }
+    },
+    {
+      "name": "cancellation",
+      "group": "async",
+      "input": {
+        "op": "send",
+        "cancel_at": 0,
+        "responses": [
+          {
+            "status": 200
+          }
+        ]
+      },
+      "expect": {
+        "calls.length": 0,
+        "terminal": "cancelled"
+      }
+    },
+    {
+      "name": "reverse_dependency",
+      "group": "leases",
+      "input": {
+        "op": "lease",
+        "resources": [
+          {
+            "id": "parent"
+          },
+          {
+            "id": "child",
+            "parents": [
+              "parent"
+            ]
+          },
+          {
+            "id": "leaf",
+            "parents": [
+              "child"
+            ]
+          }
+        ],
+        "created": [
+          [
+            "parent",
+            0
+          ],
+          [
+            "child",
+            0
+          ],
+          [
+            "leaf",
+            0
+          ]
+        ]
+      },
+      "expect": {
+        "deleted": [
+          "leaf",
+          "child",
+          "parent"
+        ],
+        "retained": []
+      }
+    },
+    {
+      "name": "shared_parent_retained",
+      "group": "leases",
+      "input": {
+        "op": "lease",
+        "resources": [
+          {
+            "id": "parent"
+          },
+          {
+            "id": "child",
+            "parents": [
+              "parent"
+            ]
+          },
+          {
+            "id": "leaf",
+            "parents": [
+              "child"
+            ]
+          }
+        ],
+        "created": [
+          [
+            "parent",
+            2
+          ],
+          [
+            "child",
+            0
+          ]
+        ],
+        "release": [
+          "parent"
+        ]
+      },
+      "expect": {
+        "deleted": [
+          "child"
+        ],
+        "retained": [
+          "parent"
+        ]
+      }
+    },
+    {
+      "name": "leased_child_blocks_parent",
+      "group": "leases",
+      "input": {
+        "op": "lease",
+        "resources": [
+          {
+            "id": "parent"
+          },
+          {
+            "id": "child",
+            "parents": [
+              "parent"
+            ]
+          },
+          {
+            "id": "leaf",
+            "parents": [
+              "child"
+            ]
+          }
+        ],
+        "created": [
+          [
+            "parent",
+            0
+          ],
+          [
+            "child",
+            1
+          ]
+        ]
+      },
+      "expect": {
+        "deleted": [],
+        "retained": [
+          "parent",
+          "child"
+        ]
+      }
+    },
+    {
+      "name": "cycle_rejected",
+      "group": "leases",
+      "input": {
+        "op": "lease",
+        "resources": [
+          {
+            "id": "a",
+            "parents": [
+              "b"
+            ]
+          },
+          {
+            "id": "b",
+            "parents": [
+              "a"
+            ]
+          }
+        ]
+      },
+      "expect": {
+        "exception_present": true
+      }
+    },
+    {
+      "name": "rollback_via_restler",
+      "group": "leases",
+      "input": {
+        "op": "workflow",
+        "spec": {
+          "resources": [
+            {
+              "id": "parent",
+              "request": "PUT /p HTTP/1.1\r\n\r\n",
+              "delete_request": "DELETE /p HTTP/1.1\r\n\r\n"
+            },
+            {
+              "id": "child",
+              "parents": [
+                "parent"
+              ],
+              "request": "PUT /p/c HTTP/1.1\r\n\r\n",
+              "delete_request": "DELETE /p/c HTTP/1.1\r\n\r\n"
+            }
+          ]
+        },
+        "responses": [
+          {
+            "status": 201
+          },
+          {
+            "status": 400
+          },
+          {
+            "status": 204
+          }
+        ]
+      },
+      "expect": {
+        "completed": [
+          "parent"
+        ],
+        "failed": "child",
+        "deleted": [
+          "parent"
+        ],
+        "calls.length": 3
+      }
+    },
+    {
+      "name": "full_workflow_cleanup",
+      "group": "leases",
+      "input": {
+        "op": "workflow",
+        "spec": {
+          "resources": [
+            {
+              "id": "parent",
+              "request": "PUT /p HTTP/1.1\r\n\r\n",
+              "delete_request": "DELETE /p HTTP/1.1\r\n\r\n"
+            },
+            {
+              "id": "child",
+              "parents": [
+                "parent"
+              ],
+              "request": "PUT /p/c HTTP/1.1\r\n\r\n",
+              "delete_request": "DELETE /p/c HTTP/1.1\r\n\r\n"
+            }
+          ]
+        },
+        "responses": [
+          {
+            "status": 201
+          },
+          {
+            "status": 201
+          },
+          {
+            "status": 204
+          },
+          {
+            "status": 204
+          }
+        ]
+      },
+      "expect": {
+        "completed": [
+          "parent",
+          "child"
+        ],
+        "deleted": [
+          "child",
+          "parent"
+        ],
+        "calls.length": 4
+      }
+    },
+    {
+      "name": "redacted_trace",
+      "group": "trace",
+      "input": {
+        "op": "send",
+        "responses": [
+          {
+            "status": 503
+          },
+          {
+            "status": 200
+          }
+        ],
+        "request": "GET /items HTTP/1.1\r\nAuthorization: SECRET_AUTH\r\nIdempotency-Key: SECRET_KEY\r\n\r\n"
+      },
+      "expect": {
+        "secret_free": true,
+        "trace_schema": true,
+        "calls.length": 2
+      }
+    },
+    {
+      "name": "trace_failure",
+      "group": "trace",
+      "input": {
+        "op": "send",
+        "responses": [
+          {
+            "status": 400
+          }
+        ]
+      },
+      "expect": {
+        "trace_schema": true,
+        "terminal": "failed"
+      }
+    },
+    {
+      "name": "replay_deterministic",
+      "group": "replay",
+      "input": {
+        "op": "replay",
+        "records": [
+          {
+            "request": "GET /items HTTP/1.1\r\n\r\n",
+            "responses": [
+              {
+                "raw": "HTTP/1.1 503 Busy\r\n\r\n"
+              },
+              {
+                "raw": "HTTP/1.1 200 OK\r\n\r\n"
+              }
+            ]
+          }
+        ],
+        "policy": {
+          "global": {
+            "jitter_fraction": 0.2
+          }
+        }
+      },
+      "expect": {
+        "same": true,
+        "trace_schema": true
+      }
+    },
+    {
+      "name": "ordinary_success",
+      "group": "replay",
+      "input": {
+        "op": "send",
+        "responses": [
+          {
+            "status": 200
+          }
+        ]
+      },
+      "expect": {
+        "status": "200",
+        "calls.length": 1,
+        "waits": []
+      }
+    },
+    {
+      "name": "legacy_policy_disabled",
+      "group": "replay",
+      "input": {
+        "op": "legacy",
+        "enabled": false,
+        "responses": [
+          {
+            "status": 200
+          }
+        ]
+      },
+      "expect": {
+        "status": "200",
+        "calls.length": 1,
+        "waits": []
+      }
+    },
+    {
+      "name": "legacy_retry_compatibility",
+      "group": "replay",
+      "input": {
+        "op": "legacy",
+        "enabled": false,
+        "responses": [
+          {
+            "status": 429
+          },
+          {
+            "status": 200
+          }
+        ]
+      },
+      "expect": {
+        "status": "200",
+        "calls.length": 2,
+        "waits": [
+          5
+        ]
+      }
+    }
+  ],
+  "audit": [
+    {
+      "name": "audit_path_default",
+      "group": "policy",
+      "input": {
+        "op": "policy",
+        "request": "PUT /audit HTTP/1.1\r\n\r\n",
+        "policy": {
+          "global": {
+            "deadline_seconds": 3
+          },
+          "endpoints": {
+            "/audit": {
+              "defaults": {
+                "deadline_seconds": 4
+              }
+            }
+          }
+        }
+      },
+      "expect": {
+        "policy.deadline_seconds": 4
+      }
+    },
+    {
+      "name": "audit_capped_backoff",
+      "group": "retry",
+      "input": {
+        "op": "send",
+        "policy": {
+          "global": {
+            "max_attempts": 5,
+            "base_delay_seconds": 0.5,
+            "delay_cap_seconds": 1
+          }
+        },
+        "responses": [
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          },
+          {
+            "status": 200
+          }
+        ]
+      },
+      "expect": {
+        "waits": [
+          0.5,
+          1,
+          1,
+          1
+        ],
+        "calls.length": 5
+      }
+    },
+    {
+      "name": "audit_patch_key",
+      "group": "idempotency",
+      "input": {
+        "op": "send",
+        "request": "PATCH /audit HTTP/1.1\r\nX-Request-Key: key\r\n\r\n",
+        "policy": {
+          "global": {
+            "idempotency_header": "X-Request-Key"
+          }
+        },
+        "responses": [
+          {
+            "status": 503
+          },
+          {
+            "status": 200
+          }
+        ]
+      },
+      "expect": {
+        "calls.length": 2,
+        "terminal": "succeeded"
+      }
+    },
+    {
+      "name": "audit_late_response",
+      "group": "async",
+      "input": {
+        "op": "send",
+        "policy": {
+          "global": {
+            "deadline_seconds": 2
+          }
+        },
+        "responses": [
+          {
+            "status": 200,
+            "elapsed": 2
+          }
+        ]
+      },
+      "expect": {
+        "calls.length": 1,
+        "terminal": "timed_out"
+      }
+    },
+    {
+      "name": "audit_cleanup_budget",
+      "group": "leases",
+      "input": {
+        "op": "lease",
+        "policy": {
+          "global": {
+            "cleanup_deadline_seconds": 0
+          }
+        },
+        "resources": [
+          {
+            "id": "a"
+          },
+          {
+            "id": "b",
+            "parents": [
+              "a"
+            ]
+          }
+        ],
+        "created": [
+          [
+            "a",
+            0
+          ],
+          [
+            "b",
+            0
+          ]
+        ]
+      },
+      "expect": {
+        "deleted": [],
+        "retained": [
+          "a",
+          "b"
+        ]
+      }
+    },
+    {
+      "name": "audit_unauthorized_trace",
+      "group": "trace",
+      "input": {
+        "op": "send",
+        "request": "GET /audit HTTP/1.1\r\nAuthorization: SECRET_AUTH\r\n\r\n",
+        "responses": [
+          {
+            "status": 401
+          }
+        ]
+      },
+      "expect": {
+        "secret_free": true,
+        "trace_schema": true,
+        "terminal": "failed"
+      }
+    },
+    {
+      "name": "audit_replay_retry_after",
+      "group": "replay",
+      "input": {
+        "op": "replay",
+        "records": [
+          {
+            "request": "GET /audit HTTP/1.1\r\n\r\n",
+            "responses": [
+              {
+                "raw": "HTTP/1.1 429 Busy\r\nRetry-After: 2\r\n\r\n"
+              },
+              {
+                "raw": "HTTP/1.1 200 OK\r\n\r\n"
+              }
+            ]
+          }
+        ]
+      },
+      "expect": {
+        "same": true,
+        "trace_schema": true
+      }
+    }
+  ]
+}

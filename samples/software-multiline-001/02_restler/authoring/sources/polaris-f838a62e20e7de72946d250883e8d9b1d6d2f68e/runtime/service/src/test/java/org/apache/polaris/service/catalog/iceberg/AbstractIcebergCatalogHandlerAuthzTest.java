@@ -1,0 +1,2311 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.polaris.service.catalog.iceberg;
+
+import static org.apache.polaris.service.catalog.AccessDelegationMode.VENDED_CREDENTIALS;
+
+import com.google.common.collect.ImmutableMap;
+import jakarta.inject.Inject;
+import java.time.Duration;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.UUID;
+import java.util.stream.Stream;
+import org.apache.iceberg.CatalogProperties;
+import org.apache.iceberg.CatalogUtil;
+import org.apache.iceberg.MetadataUpdate;
+import org.apache.iceberg.PartitionSpec;
+import org.apache.iceberg.SortOrder;
+import org.apache.iceberg.TableMetadata;
+import org.apache.iceberg.TableMetadataParser;
+import org.apache.iceberg.catalog.Catalog;
+import org.apache.iceberg.catalog.Namespace;
+import org.apache.iceberg.catalog.TableIdentifier;
+import org.apache.iceberg.exceptions.ForbiddenException;
+import org.apache.iceberg.expressions.Expressions;
+import org.apache.iceberg.io.FileIO;
+import org.apache.iceberg.metrics.CommitMetrics;
+import org.apache.iceberg.metrics.CommitMetricsResult;
+import org.apache.iceberg.metrics.CommitReport;
+import org.apache.iceberg.metrics.ImmutableCommitReport;
+import org.apache.iceberg.metrics.ImmutableScanReport;
+import org.apache.iceberg.metrics.ScanMetrics;
+import org.apache.iceberg.metrics.ScanMetricsResult;
+import org.apache.iceberg.rest.requests.CommitTransactionRequest;
+import org.apache.iceberg.rest.requests.CreateNamespaceRequest;
+import org.apache.iceberg.rest.requests.CreateTableRequest;
+import org.apache.iceberg.rest.requests.CreateViewRequest;
+import org.apache.iceberg.rest.requests.ImmutableCreateViewRequest;
+import org.apache.iceberg.rest.requests.ImmutableRegisterTableRequest;
+import org.apache.iceberg.rest.requests.RegisterTableRequest;
+import org.apache.iceberg.rest.requests.RenameTableRequest;
+import org.apache.iceberg.rest.requests.ReportMetricsRequest;
+import org.apache.iceberg.rest.requests.UpdateNamespacePropertiesRequest;
+import org.apache.iceberg.rest.requests.UpdateTableRequest;
+import org.apache.iceberg.view.ImmutableSQLViewRepresentation;
+import org.apache.iceberg.view.ImmutableViewVersion;
+import org.apache.polaris.core.admin.model.CreateCatalogRequest;
+import org.apache.polaris.core.admin.model.FileStorageConfigInfo;
+import org.apache.polaris.core.admin.model.StorageConfigInfo;
+import org.apache.polaris.core.auth.PolarisPrincipal;
+import org.apache.polaris.core.auth.PolarisPrincipalAttributes;
+import org.apache.polaris.core.catalog.LocalCatalogFactory;
+import org.apache.polaris.core.collection.ImmutableAttributeMap;
+import org.apache.polaris.core.config.FeatureConfiguration;
+import org.apache.polaris.core.config.PolarisConfiguration;
+import org.apache.polaris.core.config.RealmConfig;
+import org.apache.polaris.core.context.CallContext;
+import org.apache.polaris.core.entity.CatalogEntity;
+import org.apache.polaris.core.entity.CatalogRoleEntity;
+import org.apache.polaris.core.entity.PolarisPrivilege;
+import org.apache.polaris.core.persistence.resolver.PolarisResolutionManifest;
+import org.apache.polaris.service.admin.PolarisAuthzTestBase;
+import org.apache.polaris.service.admin.PolarisAuthzTestsFactory;
+import org.apache.polaris.service.catalog.AccessDelegationMode;
+import org.apache.polaris.service.context.catalog.PolarisLocalCatalogFactory;
+import org.apache.polaris.service.http.IfNoneMatch;
+import org.apache.polaris.service.idempotency.IdempotencyConfiguration;
+import org.apache.polaris.service.idempotency.IdempotencyRequestContext;
+import org.apache.polaris.service.types.NotificationRequest;
+import org.apache.polaris.service.types.NotificationType;
+import org.apache.polaris.service.types.TableUpdateNotification;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DynamicNode;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestFactory;
+import org.mockito.Mockito;
+
+/**
+ * Authorization test class for IcebergCatalogHandler. Runs with the default value for
+ * ENABLE_FINE_GRAINED_UPDATE_TABLE_PRIVILEGES (currently true).
+ *
+ * <p>This class tests:
+ *
+ * <ul>
+ *   <li>Standard authorization behavior for all catalog operations
+ *   <li>Fine-grained authorization for table metadata update operations
+ *   <li>Coarse-grained fallback behavior
+ *   <li>Super-privilege behavior (e.g., TABLE_MANAGE_STRUCTURE)
+ * </ul>
+ */
+@SuppressWarnings("resource")
+public abstract class AbstractIcebergCatalogHandlerAuthzTest extends PolarisAuthzTestBase {
+
+  @Override
+  protected PolarisAuthzTestsFactory.Builder authzTestsBuilder(String operationName) {
+    return super.authzTestsBuilder(operationName).useFreshRequestContext(true);
+  }
+
+  @Inject LocalCatalogFactory localCatalogFactory;
+  @Inject IcebergCatalogHandlerFactory icebergCatalogHandlerFactory;
+
+  protected IcebergCatalogHandler newHandler() {
+    PolarisPrincipal authenticatedPrincipal =
+        PolarisPrincipal.of(
+            principalEntity.getName(),
+            ImmutableAttributeMap.builder()
+                .put(PolarisPrincipalAttributes.PRINCIPAL_ENTITY_ATTRIBUTE_KEY, principalEntity)
+                .put(PolarisPrincipalAttributes.PRINCIPAL_ROLE_ALL_ATTRIBUTE_KEY, true)
+                .build(),
+            Set.of());
+    return icebergCatalogHandlerFactory.createHandler(CATALOG_NAME, authenticatedPrincipal);
+  }
+
+  private IcebergCatalogHandler newHandler(Set<String> activatedPrincipalRoles) {
+    return newHandler(activatedPrincipalRoles, CATALOG_NAME, localCatalogFactory);
+  }
+
+  private IcebergCatalogHandler newHandler(
+      Set<String> activatedPrincipalRoles, String catalogName, LocalCatalogFactory factory) {
+    PolarisPrincipal authenticatedPrincipal =
+        PolarisPrincipal.of(
+            principalEntity.getName(),
+            ImmutableAttributeMap.builder()
+                .put(PolarisPrincipalAttributes.PRINCIPAL_ENTITY_ATTRIBUTE_KEY, principalEntity)
+                .build(),
+            activatedPrincipalRoles);
+    IcebergCatalogHandler handler =
+        icebergCatalogHandlerFactory.createHandler(catalogName, authenticatedPrincipal);
+    ImmutableIcebergCatalogHandler.Builder builder =
+        ImmutableIcebergCatalogHandler.builder().from(handler);
+    if (factory != localCatalogFactory) {
+      builder.localCatalogFactory(factory);
+    }
+    return builder.build();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testListNamespacesPrivileges() {
+    return authzTestsBuilder("listNamespaces")
+        .action(() -> newHandler().listNamespaces(Namespace.of(), null, null))
+        .shouldPassWith(PolarisPrivilege.NAMESPACE_LIST)
+        .shouldPassWith(PolarisPrivilege.NAMESPACE_READ_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.NAMESPACE_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.NAMESPACE_CREATE)
+        .shouldPassWith(PolarisPrivilege.NAMESPACE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @Test
+  public void testListNamespacesCatalogLevelWithPrincipalRoleActivation() {
+    // Grant catalog-level privilege to CATALOG_ROLE1
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE1, PolarisPrivilege.NAMESPACE_LIST));
+    Assertions.assertThat(newHandler().listNamespaces(Namespace.of(), null, null).namespaces())
+        .containsAll(List.of(NS1, NS2));
+
+    // Just activating PRINCIPAL_ROLE1 should also work.
+    Assertions.assertThat(
+            newHandler(Set.of(PRINCIPAL_ROLE1))
+                .listNamespaces(Namespace.of(), null, null)
+                .namespaces())
+        .containsAll(List.of(NS1, NS2));
+
+    // If we only activate PRINCIPAL_ROLE2 it won't have the privilege.
+    Assertions.assertThatThrownBy(
+            () -> newHandler(Set.of(PRINCIPAL_ROLE2)).listNamespaces(Namespace.of(), null, null))
+        .isInstanceOf(ForbiddenException.class)
+        .hasMessageContaining("is not authorized");
+
+    // If we revoke, then it should fail again even with all principal roles activated.
+    assertSuccess(
+        newRootAdminService()
+            .revokePrivilegeOnCatalogFromRole(
+                CATALOG_NAME, CATALOG_ROLE1, PolarisPrivilege.NAMESPACE_LIST));
+    Assertions.assertThatThrownBy(() -> newHandler().listNamespaces(Namespace.of(), null, null))
+        .isInstanceOf(ForbiddenException.class);
+  }
+
+  @Test
+  public void testListNamespacesChildOnly() {
+    // Grant only NS1-level privilege to CATALOG_ROLE1
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnNamespaceToRole(
+                CATALOG_NAME, CATALOG_ROLE1, NS1, PolarisPrivilege.NAMESPACE_LIST));
+
+    // Listing directly on NS1 succeeds
+    Assertions.assertThat(newHandler().listNamespaces(NS1, null, null).namespaces())
+        .containsAll(List.of(NS1A, NS1B));
+
+    // Root listing fails
+    Assertions.assertThatThrownBy(() -> newHandler().listNamespaces(Namespace.of(), null, null))
+        .isInstanceOf(ForbiddenException.class);
+
+    // NS2 listing fails
+    Assertions.assertThatThrownBy(() -> newHandler().listNamespaces(Namespace.of(), null, null))
+        .isInstanceOf(ForbiddenException.class);
+
+    // Listing on a child of NS1 succeeds
+    Assertions.assertThat(newHandler().listNamespaces(NS1A, null, null).namespaces())
+        .containsAll(List.of(NS1AA));
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testCreateNamespacePrivileges() {
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.NAMESPACE_DROP));
+
+    // Use PRINCIPAL_ROLE1 for privilege-testing, PRINCIPAL_ROLE2 for cleanup.
+    return authzTestsBuilder("createNamespace")
+        .action(
+            () -> {
+              newHandler(Set.of(PRINCIPAL_ROLE1))
+                  .createNamespace(
+                      CreateNamespaceRequest.builder()
+                          .withNamespace(Namespace.of("newns"))
+                          .build());
+              newHandler(Set.of(PRINCIPAL_ROLE1))
+                  .createNamespace(
+                      CreateNamespaceRequest.builder()
+                          .withNamespace(Namespace.of("ns1", "ns1a", "newns"))
+                          .build());
+            })
+        .cleanupAction(
+            () -> {
+              newHandler(Set.of(PRINCIPAL_ROLE2)).dropNamespace(Namespace.of("newns"));
+              newHandler(Set.of(PRINCIPAL_ROLE2))
+                  .dropNamespace(Namespace.of("ns1", "ns1a", "newns"));
+            })
+        .shouldPassWith(PolarisPrivilege.NAMESPACE_CREATE)
+        .shouldPassWith(PolarisPrivilege.NAMESPACE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testLoadNamespaceMetadataPrivileges() {
+    return authzTestsBuilder("loadNamespaceMetadata")
+        .action(() -> newHandler().loadNamespaceMetadata(NS1A))
+        .shouldPassWith(PolarisPrivilege.NAMESPACE_READ_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.NAMESPACE_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.NAMESPACE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testNamespaceExistsPrivileges() {
+    // TODO: If we change the behavior of existence-check to return 404 on unauthorized,
+    // the overall test structure will need to change (other tests catching ForbiddenException
+    // need to still have catalog-level "REFERENCE" equivalent privileges, and the exists()
+    // tests need to expect 404 instead).
+    return authzTestsBuilder("namespaceExists")
+        .action(() -> newHandler().namespaceExists(NS1A))
+        .shouldPassWith(PolarisPrivilege.NAMESPACE_LIST)
+        .shouldPassWith(PolarisPrivilege.NAMESPACE_READ_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.NAMESPACE_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.NAMESPACE_CREATE)
+        .shouldPassWith(PolarisPrivilege.NAMESPACE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testDropNamespacePrivileges() {
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.NAMESPACE_CREATE));
+
+    return authzTestsBuilder("dropNamespace")
+        .action(() -> newHandler(Set.of(PRINCIPAL_ROLE1)).dropNamespace(NS1AA))
+        .cleanupAction(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE2))
+                    .createNamespace(CreateNamespaceRequest.builder().withNamespace(NS1AA).build()))
+        .shouldPassWith(PolarisPrivilege.NAMESPACE_DROP)
+        .shouldPassWith(PolarisPrivilege.NAMESPACE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testUpdateNamespacePropertiesPrivileges() {
+    return authzTestsBuilder("updateNamespaceProperties")
+        .action(
+            () -> {
+              newHandler()
+                  .updateNamespaceProperties(
+                      NS1A,
+                      UpdateNamespacePropertiesRequest.builder().update("foo", "bar").build());
+              newHandler()
+                  .updateNamespaceProperties(
+                      NS1A, UpdateNamespacePropertiesRequest.builder().remove("foo").build());
+            })
+        .shouldPassWith(PolarisPrivilege.NAMESPACE_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.NAMESPACE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testListTablesPrivileges() {
+    return authzTestsBuilder("listTables")
+        .action(() -> newHandler().listTables(NS1A, null, null))
+        .shouldPassWith(PolarisPrivilege.TABLE_LIST)
+        .shouldPassWith(PolarisPrivilege.TABLE_READ_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_CREATE)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testCreateTableDirectPrivileges() {
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_DROP));
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_WRITE_DATA));
+
+    final TableIdentifier newtable = TableIdentifier.of(NS2, "newtable");
+    final CreateTableRequest createRequest =
+        CreateTableRequest.builder().withName("newtable").withSchema(SCHEMA).build();
+
+    // Use PRINCIPAL_ROLE1 for privilege-testing, PRINCIPAL_ROLE2 for cleanup.
+    return authzTestsBuilder("createTableDirect")
+        .action(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE1))
+                    .createTableDirect(
+                        NS2,
+                        createRequest,
+                        EnumSet.noneOf(AccessDelegationMode.class),
+                        Optional.empty()))
+        .cleanupAction(() -> newHandler(Set.of(PRINCIPAL_ROLE2)).dropTableWithPurge(newtable))
+        .shouldPassWith(PolarisPrivilege.TABLE_CREATE)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testCreateTableDirectWithWriteDelegationPrivileges() {
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_DROP));
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_WRITE_DATA));
+
+    final TableIdentifier newtable = TableIdentifier.of(NS2, "newtable");
+    final CreateTableRequest createDirectWithWriteDelegationRequest =
+        CreateTableRequest.builder().withName("newtable").withSchema(SCHEMA).stageCreate().build();
+
+    return authzTestsBuilder("createTableDirectWithWriteDelegation")
+        .action(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE1))
+                    .createTableDirect(
+                        NS2,
+                        createDirectWithWriteDelegationRequest,
+                        EnumSet.of(VENDED_CREDENTIALS),
+                        Optional.empty()))
+        .cleanupAction(() -> newHandler(Set.of(PRINCIPAL_ROLE2)).dropTableWithPurge(newtable))
+        .shouldPassWith(PolarisPrivilege.TABLE_CREATE, PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldFailWith(
+            PolarisPrivilege.TABLE_CREATE) // TABLE_CREATE itself is insufficient for delegation
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testCreateTableStagedPrivileges() {
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_DROP));
+
+    final CreateTableRequest createStagedRequest =
+        CreateTableRequest.builder()
+            .withName("stagetable")
+            .withSchema(SCHEMA)
+            .stageCreate()
+            .build();
+
+    // Use PRINCIPAL_ROLE1 for privilege-testing, PRINCIPAL_ROLE2 for cleanup.
+    return authzTestsBuilder("createTableStaged")
+        .action(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE1))
+                    .createTableStaged(
+                        NS2,
+                        createStagedRequest,
+                        EnumSet.noneOf(AccessDelegationMode.class),
+                        Optional.empty()))
+        .shouldPassWith(PolarisPrivilege.TABLE_CREATE)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testCreateTableStagedWithWriteDelegationPrivileges() {
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_DROP));
+
+    final CreateTableRequest createStagedWithWriteDelegationRequest =
+        CreateTableRequest.builder()
+            .withName("stagetable")
+            .withSchema(SCHEMA)
+            .stageCreate()
+            .build();
+
+    return authzTestsBuilder("createTableStagedWithWriteDelegation")
+        .action(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE1))
+                    .createTableStaged(
+                        NS2,
+                        createStagedWithWriteDelegationRequest,
+                        EnumSet.of(VENDED_CREDENTIALS),
+                        Optional.empty()))
+        .shouldPassWith(PolarisPrivilege.TABLE_CREATE, PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testRegisterTablePrivileges() {
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_DROP));
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_READ_PROPERTIES));
+
+    // To get a handy metadata file we can use one from another table.
+    // to avoid overlapping directories, drop the original table and recreate it via registerTable
+    String metadataLocation =
+        newHandler()
+            .loadTable(
+                TABLE_NS1_1,
+                "all",
+                null,
+                EnumSet.noneOf(AccessDelegationMode.class),
+                Optional.empty())
+            .get()
+            .metadataLocation();
+    newHandler(Set.of(PRINCIPAL_ROLE2)).dropTableWithoutPurge(TABLE_NS1_1);
+
+    RegisterTableRequest registerRequest =
+        ImmutableRegisterTableRequest.builder()
+            .name(TABLE_NS1_1.name())
+            .metadataLocation(metadataLocation)
+            .build();
+
+    // Use PRINCIPAL_ROLE1 for privilege-testing, PRINCIPAL_ROLE2 for cleanup.
+    return authzTestsBuilder("registerTable")
+        .action(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE1))
+                    .registerTable(
+                        NS1,
+                        registerRequest,
+                        EnumSet.noneOf(AccessDelegationMode.class),
+                        Optional.empty()))
+        .cleanupAction(() -> newHandler(Set.of(PRINCIPAL_ROLE2)).dropTableWithoutPurge(TABLE_NS1_1))
+        .shouldPassWith(PolarisPrivilege.TABLE_CREATE)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testRegisterTableInsufficientPermissions() {
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_READ_PROPERTIES));
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_CREATE));
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_DROP));
+
+    final TableIdentifier sourceTable =
+        TableIdentifier.of(NS2, "register_table_insufficient_source");
+    final TableIdentifier targetTable =
+        TableIdentifier.of(NS2, "register_table_insufficient_target");
+
+    // Prepare a source metadata file under NS2, then drop the source table to avoid location
+    // overlap.
+    try {
+      newHandler(Set.of(PRINCIPAL_ROLE2)).dropTableWithoutPurge(sourceTable);
+    } catch (RuntimeException ignored) {
+      // Table may not exist yet; cleanup pre-step is best-effort.
+    }
+    CreateTableRequest createSourceRequest =
+        CreateTableRequest.builder().withName(sourceTable.name()).withSchema(SCHEMA).build();
+    newHandler(Set.of(PRINCIPAL_ROLE2))
+        .createTableDirect(
+            NS2, createSourceRequest, EnumSet.noneOf(AccessDelegationMode.class), Optional.empty());
+
+    final String metadataLocation =
+        newHandler(Set.of(PRINCIPAL_ROLE2))
+            .loadTable(
+                sourceTable,
+                "all",
+                null,
+                EnumSet.noneOf(AccessDelegationMode.class),
+                Optional.empty())
+            .get()
+            .metadataLocation();
+    newHandler(Set.of(PRINCIPAL_ROLE2)).dropTableWithoutPurge(sourceTable);
+
+    final RegisterTableRequest registerRequest =
+        new RegisterTableRequest() {
+          @Override
+          public String name() {
+            return targetTable.name();
+          }
+
+          @Override
+          public String metadataLocation() {
+            return metadataLocation;
+          }
+        };
+
+    // Registering a new table requires TABLE_CREATE (or broader privileges).
+    return authzTestsBuilder("registerTable (insufficient)")
+        .action(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE1))
+                    .registerTable(
+                        NS2,
+                        registerRequest,
+                        EnumSet.noneOf(AccessDelegationMode.class),
+                        Optional.empty()))
+        .cleanupAction(
+            () -> {
+              IcebergCatalogHandler cleanup = newHandler(Set.of(PRINCIPAL_ROLE2));
+              try {
+                cleanup.dropTableWithoutPurge(targetTable);
+              } catch (RuntimeException ignored) {
+                // Target table may not have been created; cleanup is best-effort.
+              }
+            })
+        .shouldPassWith(PolarisPrivilege.TABLE_CREATE)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .shouldFailWith(PolarisPrivilege.NAMESPACE_FULL_METADATA)
+        .shouldFailWith(PolarisPrivilege.VIEW_FULL_METADATA)
+        .shouldFailWith(PolarisPrivilege.TABLE_DROP)
+        .shouldFailWith(PolarisPrivilege.TABLE_READ_PROPERTIES)
+        .shouldFailWith(PolarisPrivilege.TABLE_WRITE_PROPERTIES)
+        .shouldFailWith(PolarisPrivilege.TABLE_READ_DATA)
+        .shouldFailWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldFailWith(PolarisPrivilege.TABLE_LIST)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testRegisterTableOverwritePrivileges() {
+    // For overwrite, the caller needs TABLE_FULL_METADATA or higher privileges on the target
+    // table. This is stricter than UPDATE_TABLE, which only requires TABLE_WRITE_PROPERTIES,
+    // because overwriting involves both dropping the old table pointer and creating a new one.
+    // In Polaris's privilege model, TABLE_FULL_METADATA or a catalog-wide CATALOG_MANAGE_CONTENT
+    // are sufficient. This test verifies that each of those privileges, granted at the catalog
+    // level to the test role, is sufficient to perform a registerTable with overwrite=true.
+
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_READ_PROPERTIES));
+    final String metadataLocation =
+        newHandler(Set.of(PRINCIPAL_ROLE2))
+            .loadTable(
+                TABLE_NS1_1,
+                "all",
+                null,
+                EnumSet.noneOf(AccessDelegationMode.class),
+                Optional.empty())
+            .get()
+            .metadataLocation();
+
+    // Mock RegisterTableRequest with overwrite=true
+    final RegisterTableRequest registerRequest = Mockito.mock(RegisterTableRequest.class);
+    Mockito.when(registerRequest.name()).thenReturn(TABLE_NS1_1.name());
+    Mockito.when(registerRequest.metadataLocation()).thenReturn(metadataLocation);
+    Mockito.when(registerRequest.overwrite()).thenReturn(true);
+
+    return authzTestsBuilder("registerTableOverwrite")
+        .action(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE1))
+                    .registerTable(
+                        NS1,
+                        registerRequest,
+                        EnumSet.noneOf(AccessDelegationMode.class),
+                        Optional.empty()))
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .shouldFailWith(PolarisPrivilege.TABLE_WRITE_PROPERTIES)
+        .shouldFailWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldFailWith(PolarisPrivilege.NAMESPACE_FULL_METADATA)
+        .shouldFailWith(PolarisPrivilege.VIEW_FULL_METADATA)
+        .shouldFailWith(PolarisPrivilege.TABLE_CREATE)
+        .shouldFailWith(PolarisPrivilege.TABLE_DROP)
+        .shouldFailWith(PolarisPrivilege.TABLE_READ_PROPERTIES)
+        .shouldFailWith(PolarisPrivilege.TABLE_READ_DATA)
+        .shouldFailWith(PolarisPrivilege.TABLE_LIST)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testRegisterTableOverwriteNonExistentTable() {
+    // When overwrite is specified and the table does not exist, the authorization should
+    // fall back to a non-overwrite authorization level instead.
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_DROP));
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_READ_PROPERTIES));
+
+    String metadataLocation =
+        newHandler()
+            .loadTable(
+                TABLE_NS1_1,
+                "all",
+                null,
+                EnumSet.noneOf(AccessDelegationMode.class),
+                Optional.empty())
+            .get()
+            .metadataLocation();
+    newHandler(Set.of(PRINCIPAL_ROLE2)).dropTableWithoutPurge(TABLE_NS1_1);
+
+    RegisterTableRequest registerRequest =
+        ImmutableRegisterTableRequest.builder()
+            .name(TABLE_NS1_1.name())
+            .metadataLocation(metadataLocation)
+            .overwrite(true)
+            .build();
+
+    return authzTestsBuilder("registerTableOverwriteNonExistentTable")
+        .action(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE1))
+                    .registerTable(
+                        NS1,
+                        registerRequest,
+                        EnumSet.noneOf(AccessDelegationMode.class),
+                        Optional.empty()))
+        .cleanupAction(
+            () -> {
+              IcebergCatalogHandler cleanup = newHandler(Set.of(PRINCIPAL_ROLE2));
+              try {
+                cleanup.dropTableWithoutPurge(TABLE_NS1_1);
+              } catch (RuntimeException ignored) {
+                // Target table may not have been created; cleanup is best-effort.
+              }
+            })
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_CREATE) // Must pass since the table does not exist
+        .shouldFailWith(PolarisPrivilege.NAMESPACE_FULL_METADATA)
+        .shouldFailWith(PolarisPrivilege.VIEW_FULL_METADATA)
+        .shouldFailWith(PolarisPrivilege.TABLE_DROP)
+        .shouldFailWith(PolarisPrivilege.TABLE_READ_PROPERTIES)
+        .shouldFailWith(PolarisPrivilege.TABLE_WRITE_PROPERTIES)
+        .shouldFailWith(PolarisPrivilege.TABLE_READ_DATA)
+        .shouldFailWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldFailWith(PolarisPrivilege.TABLE_LIST)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testRegisterTableOverwriteTableLevel() {
+    // REGISTER_TABLE_OVERWRITE authorizes against the table entity, so TABLE_FULL_METADATA
+    // granted directly on the target table (not at catalog/namespace level) must suffice.
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_READ_PROPERTIES));
+    String metadataLocation =
+        newHandler(Set.of(PRINCIPAL_ROLE2))
+            .loadTable(
+                TABLE_NS1_1,
+                "all",
+                null,
+                EnumSet.noneOf(AccessDelegationMode.class),
+                Optional.empty())
+            .get()
+            .metadataLocation();
+
+    RegisterTableRequest registerRequest = Mockito.mock(RegisterTableRequest.class);
+    Mockito.when(registerRequest.name()).thenReturn(TABLE_NS1_1.name());
+    Mockito.when(registerRequest.metadataLocation()).thenReturn(metadataLocation);
+    Mockito.when(registerRequest.overwrite()).thenReturn(true);
+
+    return authzTestsBuilder("registerTableOverwriteTableLevel")
+        .grantAction(
+            privilege ->
+                newRootAdminService()
+                    .grantPrivilegeOnTableToRole(
+                        CATALOG_NAME, CATALOG_ROLE1, TABLE_NS1_1, privilege))
+        .revokeAction(
+            privilege ->
+                newRootAdminService()
+                    .revokePrivilegeOnTableFromRole(
+                        CATALOG_NAME, CATALOG_ROLE1, TABLE_NS1_1, privilege))
+        .action(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE1))
+                    .registerTable(
+                        NS1,
+                        registerRequest,
+                        EnumSet.noneOf(AccessDelegationMode.class),
+                        Optional.empty()))
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .shouldFailWith(PolarisPrivilege.TABLE_WRITE_PROPERTIES)
+        .shouldFailWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldFailWith(PolarisPrivilege.NAMESPACE_FULL_METADATA)
+        .shouldFailWith(PolarisPrivilege.VIEW_FULL_METADATA)
+        .shouldFailWith(PolarisPrivilege.TABLE_CREATE)
+        .shouldFailWith(PolarisPrivilege.TABLE_DROP)
+        .shouldFailWith(PolarisPrivilege.TABLE_READ_PROPERTIES)
+        .shouldFailWith(PolarisPrivilege.TABLE_READ_DATA)
+        .shouldFailWith(PolarisPrivilege.TABLE_LIST)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testRegisterTableWithWriteDelegation() {
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_DROP));
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_READ_PROPERTIES));
+
+    String metadataLocation =
+        newHandler()
+            .loadTable(
+                TABLE_NS1_1,
+                "all",
+                null,
+                EnumSet.noneOf(AccessDelegationMode.class),
+                Optional.empty())
+            .get()
+            .metadataLocation();
+    newHandler(Set.of(PRINCIPAL_ROLE2)).dropTableWithoutPurge(TABLE_NS1_1);
+
+    RegisterTableRequest registerRequest =
+        ImmutableRegisterTableRequest.builder()
+            .name(TABLE_NS1_1.name())
+            .metadataLocation(metadataLocation)
+            .build();
+
+    return authzTestsBuilder("registerTableWithWriteDelegation")
+        .action(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE1))
+                    .registerTable(
+                        NS1,
+                        registerRequest,
+                        EnumSet.of(AccessDelegationMode.VENDED_CREDENTIALS),
+                        Optional.empty()))
+        .cleanupAction(() -> newHandler(Set.of(PRINCIPAL_ROLE2)).dropTableWithoutPurge(TABLE_NS1_1))
+        .shouldPassWith(PolarisPrivilege.TABLE_CREATE, PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_CREATE, PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA, PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA, PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA, PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA, PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testRegisterTableOverwriteWithWriteDelegation() {
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_DROP));
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_READ_PROPERTIES));
+
+    String metadataLocation =
+        newHandler()
+            .loadTable(
+                TABLE_NS1_1,
+                "all",
+                null,
+                EnumSet.noneOf(AccessDelegationMode.class),
+                Optional.empty())
+            .get()
+            .metadataLocation();
+
+    RegisterTableRequest registerRequest =
+        ImmutableRegisterTableRequest.builder()
+            .name(TABLE_NS1_1.name())
+            .metadataLocation(metadataLocation)
+            .overwrite(true)
+            .build();
+
+    return authzTestsBuilder("registerTableOverwriteWithWriteDelegation")
+        .action(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE1))
+                    .registerTable(
+                        NS1,
+                        registerRequest,
+                        EnumSet.of(AccessDelegationMode.VENDED_CREDENTIALS),
+                        Optional.empty()))
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA, PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA, PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA, PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA, PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        // should not pass with these since the table exists
+        .shouldFailWith(PolarisPrivilege.TABLE_CREATE, PolarisPrivilege.TABLE_READ_DATA)
+        .shouldFailWith(PolarisPrivilege.TABLE_CREATE, PolarisPrivilege.TABLE_WRITE_DATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testRegisterTableOverwriteWithWriteDelegationNonExistentTable() {
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_DROP));
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_READ_PROPERTIES));
+
+    String metadataLocation =
+        newHandler()
+            .loadTable(
+                TABLE_NS1_1,
+                "all",
+                null,
+                EnumSet.noneOf(AccessDelegationMode.class),
+                Optional.empty())
+            .get()
+            .metadataLocation();
+    newHandler(Set.of(PRINCIPAL_ROLE2)).dropTableWithoutPurge(TABLE_NS1_1);
+
+    RegisterTableRequest registerRequest =
+        ImmutableRegisterTableRequest.builder()
+            .name(TABLE_NS1_1.name())
+            .metadataLocation(metadataLocation)
+            .overwrite(true)
+            .build();
+
+    return authzTestsBuilder("registerTableOverwriteWithWriteDelegationNonExistentTable")
+        .action(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE1))
+                    .registerTable(
+                        NS1,
+                        registerRequest,
+                        EnumSet.of(AccessDelegationMode.VENDED_CREDENTIALS),
+                        Optional.empty()))
+        .cleanupAction(() -> newHandler(Set.of(PRINCIPAL_ROLE2)).dropTableWithoutPurge(TABLE_NS1_1))
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA, PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA, PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA, PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA, PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        // should pass with these since the table does not exist
+        .shouldPassWith(PolarisPrivilege.TABLE_CREATE, PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_CREATE, PolarisPrivilege.TABLE_WRITE_DATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testRegisterTableOverwriteWithWriteDelegationTableLevel() {
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_DROP));
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_READ_PROPERTIES));
+
+    String metadataLocation =
+        newHandler()
+            .loadTable(
+                TABLE_NS1_1,
+                "all",
+                null,
+                EnumSet.noneOf(AccessDelegationMode.class),
+                Optional.empty())
+            .get()
+            .metadataLocation();
+
+    RegisterTableRequest registerRequest =
+        ImmutableRegisterTableRequest.builder()
+            .name(TABLE_NS1_1.name())
+            .metadataLocation(metadataLocation)
+            .overwrite(true)
+            .build();
+
+    return authzTestsBuilder("registerTableOverwriteWithWriteDelegationTableLevel")
+        .grantAction(
+            privilege ->
+                newRootAdminService()
+                    .grantPrivilegeOnTableToRole(
+                        CATALOG_NAME, CATALOG_ROLE1, TABLE_NS1_1, privilege))
+        .revokeAction(
+            privilege ->
+                newRootAdminService()
+                    .revokePrivilegeOnTableFromRole(
+                        CATALOG_NAME, CATALOG_ROLE1, TABLE_NS1_1, privilege))
+        .action(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE1))
+                    .registerTable(
+                        NS1,
+                        registerRequest,
+                        EnumSet.of(AccessDelegationMode.VENDED_CREDENTIALS),
+                        Optional.empty()))
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA, PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA, PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA, PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA, PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldFailWith(PolarisPrivilege.TABLE_CREATE, PolarisPrivilege.TABLE_READ_DATA)
+        .shouldFailWith(PolarisPrivilege.TABLE_CREATE, PolarisPrivilege.TABLE_WRITE_DATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testLoadTablePrivileges() {
+    return authzTestsBuilder("loadTable")
+        .action(
+            () ->
+                newHandler()
+                    .loadTable(
+                        TABLE_NS1A_2,
+                        "all",
+                        null,
+                        EnumSet.noneOf(AccessDelegationMode.class),
+                        Optional.empty()))
+        .shouldPassWith(PolarisPrivilege.TABLE_READ_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testLoadTableIfStalePrivileges() {
+    return authzTestsBuilder("loadTableIfStale")
+        .action(
+            () ->
+                newHandler()
+                    .loadTable(
+                        TABLE_NS1A_2,
+                        "all",
+                        IfNoneMatch.fromHeader("W/\"0:0\""),
+                        EnumSet.noneOf(AccessDelegationMode.class),
+                        Optional.empty()))
+        .shouldPassWith(PolarisPrivilege.TABLE_READ_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testLoadTableWithReadAccessDelegationPrivileges() {
+    return authzTestsBuilder("loadTableWithAccessDelegation")
+        .action(
+            () ->
+                newHandler()
+                    .loadTable(
+                        TABLE_NS1A_2,
+                        "all",
+                        null,
+                        EnumSet.of(VENDED_CREDENTIALS),
+                        Optional.empty()))
+        .shouldPassWith(PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testLoadCredentialsFromEntityPropertiesPrivileges() {
+    return authzTestsBuilder("loadCredentials")
+        .action(() -> newHandler().loadCredentials(TABLE_NS1A_2, Optional.empty()))
+        .shouldPassWith(PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldFailWith(PolarisPrivilege.TABLE_READ_PROPERTIES)
+        .shouldFailWith(PolarisPrivilege.TABLE_WRITE_PROPERTIES)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testLoadTableWithWriteAccessDelegationPrivileges() {
+    // TODO: Once we give different creds for read/write privilege, move this
+    // TABLE_READ_DATA into a special-case test; with only TABLE_READ_DATA we'd expect
+    // to receive a read-only credential.
+    return authzTestsBuilder("loadTableWithAccessDelegation (write)")
+        .action(
+            () ->
+                newHandler()
+                    .loadTable(
+                        TABLE_NS1A_2,
+                        "all",
+                        null,
+                        EnumSet.of(VENDED_CREDENTIALS),
+                        Optional.empty()))
+        .shouldPassWith(PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testLoadTableWithReadAccessDelegationIfStalePrivileges() {
+    return authzTestsBuilder("loadTableWithAccessDelegationIfStale")
+        .action(
+            () ->
+                newHandler()
+                    .loadTable(
+                        TABLE_NS1A_2,
+                        "all",
+                        IfNoneMatch.fromHeader("W/\"0:0\""),
+                        EnumSet.of(VENDED_CREDENTIALS),
+                        Optional.empty()))
+        .shouldPassWith(PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testLoadTableWithWriteAccessDelegationIfStalePrivileges() {
+    // TODO: Once we give different creds for read/write privilege, move this
+    // TABLE_READ_DATA into a special-case test; with only TABLE_READ_DATA we'd expect
+    // to receive a read-only credential.
+    return authzTestsBuilder("loadTableWithAccessDelegationIfStale (write)")
+        .action(
+            () ->
+                newHandler()
+                    .loadTable(
+                        TABLE_NS1A_2,
+                        "all",
+                        IfNoneMatch.fromHeader("W/\"0:0\""),
+                        EnumSet.of(VENDED_CREDENTIALS),
+                        Optional.empty()))
+        .shouldPassWith(PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testUpdateTablePrivileges() {
+    return authzTestsBuilder("updateTable")
+        .action(() -> newHandler().updateTable(TABLE_NS1A_2, new UpdateTableRequest()))
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testUpdateTableForStagedCreatePrivileges() {
+    // Note: This is kind of cheating by only leaning on the PolarisCatalogHandlerWrapper level
+    // of differentiation between updateForStageCreate vs regular update so that we don't need
+    // to actually set up the staged create but still test the privileges. If the underlying
+    // behavior diverges, we need to change this test to actually start with a stageCreate.
+    return authzTestsBuilder("updateTableForStagedCreate")
+        .action(
+            () -> newHandler().updateTableForStagedCreate(TABLE_NS1A_2, new UpdateTableRequest()))
+        .shouldPassWith(PolarisPrivilege.TABLE_CREATE)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testUpdateTableFallbackToCoarseGrainedWhenFeatureDisabled() {
+    // Test that when fine-grained authorization is disabled, it falls back to
+    // TABLE_WRITE_PROPERTIES
+    // This test validates that the feature flag works correctly by testing the negative case
+    UpdateTableRequest request =
+        UpdateTableRequest.create(
+            TABLE_NS1A_2,
+            List.of(), // no requirements
+            List.of(new MetadataUpdate.AssignUUID(UUID.randomUUID().toString())));
+
+    // With fine-grained authorization disabled, TABLE_WRITE_PROPERTIES should work
+    // even for operations that would require specific privileges when enabled
+    return authzTestsBuilder("updateTable (coarse-grained fallback)")
+        .action(() -> newHandlerWithFineGrainedAuthzDisabled().updateTable(TABLE_NS1A_2, request))
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  /**
+   * Creates a wrapper with fine-grained authorization explicitly disabled for testing the fallback
+   * behavior to coarse-grained authorization.
+   */
+  private IcebergCatalogHandler newHandlerWithFineGrainedAuthzDisabled() {
+    PolarisPrincipal authenticatedPrincipal =
+        PolarisPrincipal.of(
+            principalEntity.getName(),
+            ImmutableAttributeMap.builder()
+                .put(PolarisPrincipalAttributes.PRINCIPAL_ENTITY_ATTRIBUTE_KEY, principalEntity)
+                .put(PolarisPrincipalAttributes.PRINCIPAL_ROLE_ALL_ATTRIBUTE_KEY, true)
+                .build(),
+            Set.of());
+
+    // Create a custom CallContext that returns a custom RealmConfig
+    CallContext mockCallContext = Mockito.mock(CallContext.class);
+
+    // Create a simple RealmConfig implementation that overrides just what we need
+    RealmConfig customRealmConfig =
+        new RealmConfig() {
+          @SuppressWarnings("removal")
+          @Override
+          public <T> T getConfig(String configName) {
+            throw new UnsupportedOperationException();
+          }
+
+          @SuppressWarnings("removal")
+          @Override
+          public <T> T getConfig(String configName, T defaultValue) {
+            throw new UnsupportedOperationException();
+          }
+
+          @Override
+          public <T> T getConfig(PolarisConfiguration<T> config) {
+            return realmConfig.getConfig(config);
+          }
+
+          @Override
+          @SuppressWarnings("unchecked")
+          public <T> T getConfig(PolarisConfiguration<T> config, CatalogEntity catalogEntity) {
+            // Override the specific configuration we want to test
+            if (config.equals(FeatureConfiguration.ENABLE_FINE_GRAINED_UPDATE_TABLE_PRIVILEGES)) {
+              return (T) Boolean.FALSE;
+            }
+            return realmConfig.getConfig(config, catalogEntity);
+          }
+
+          @Override
+          @SuppressWarnings("unchecked")
+          public <T> T getConfig(
+              PolarisConfiguration<T> config, Map<String, String> catalogProperties) {
+            // Override the specific configuration we want to test
+            if (config.equals(FeatureConfiguration.ENABLE_FINE_GRAINED_UPDATE_TABLE_PRIVILEGES)) {
+              return (T) Boolean.FALSE;
+            }
+            return realmConfig.getConfig(config, catalogProperties);
+          }
+        };
+
+    // Mock the regular CallContext calls
+    Mockito.when(mockCallContext.getRealmContext()).thenReturn(() -> "test");
+    Mockito.when(mockCallContext.getRealmConfig()).thenReturn(customRealmConfig);
+    Mockito.when(mockCallContext.getPolarisCallContext())
+        .thenReturn(callContext.getPolarisCallContext());
+
+    IcebergCatalogHandler handler =
+        icebergCatalogHandlerFactory.createHandler(
+            PolarisAuthzTestBase.CATALOG_NAME, authenticatedPrincipal);
+
+    return ImmutableIcebergCatalogHandler.builder()
+        .from(handler)
+        .callContext(mockCallContext)
+        .build();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testDropTableWithoutPurgePrivileges() {
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_CREATE));
+
+    final CreateTableRequest createRequest =
+        CreateTableRequest.builder().withName(TABLE_NS1_1.name()).withSchema(SCHEMA).build();
+
+    // Use PRINCIPAL_ROLE1 for privilege-testing, PRINCIPAL_ROLE2 for cleanup.
+    return authzTestsBuilder("dropTableWithoutPurge")
+        .action(() -> newHandler(Set.of(PRINCIPAL_ROLE1)).dropTableWithoutPurge(TABLE_NS1_1))
+        .cleanupAction(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE2))
+                    .createTableDirect(
+                        TABLE_NS1_1.namespace(),
+                        createRequest,
+                        EnumSet.noneOf(AccessDelegationMode.class),
+                        Optional.empty()))
+        .shouldPassWith(PolarisPrivilege.TABLE_DROP)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testDropTableWithPurgePrivileges() {
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.TABLE_CREATE));
+
+    final CreateTableRequest createRequest =
+        CreateTableRequest.builder().withName(TABLE_NS1_1.name()).withSchema(SCHEMA).build();
+
+    // Use PRINCIPAL_ROLE1 for privilege-testing, PRINCIPAL_ROLE2 for cleanup.
+    return authzTestsBuilder("dropTableWithPurge")
+        .action(() -> newHandler(Set.of(PRINCIPAL_ROLE1)).dropTableWithPurge(TABLE_NS1_1))
+        .cleanupAction(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE2))
+                    .createTableDirect(
+                        TABLE_NS1_1.namespace(),
+                        createRequest,
+                        EnumSet.noneOf(AccessDelegationMode.class),
+                        Optional.empty()))
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA, PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA, PolarisPrivilege.TABLE_DROP)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testTableExistsPrivileges() {
+    return authzTestsBuilder("tableExists")
+        .action(() -> newHandler().tableExists(TABLE_NS1A_2))
+        .shouldPassWith(PolarisPrivilege.TABLE_LIST)
+        .shouldPassWith(PolarisPrivilege.TABLE_READ_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_CREATE)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testRenameTablePrivileges() {
+    final TableIdentifier srcTable = TABLE_NS1_1;
+    final TableIdentifier dstTable = TableIdentifier.of(NS1AA, "newtable");
+    final RenameTableRequest rename1 =
+        RenameTableRequest.builder().withSource(srcTable).withDestination(dstTable).build();
+    final RenameTableRequest rename2 =
+        RenameTableRequest.builder().withSource(dstTable).withDestination(srcTable).build();
+
+    return authzTestsBuilder("renameTable")
+        .action(() -> newHandler(Set.of(PRINCIPAL_ROLE1)).renameTable(rename1))
+        .cleanupAction(() -> newHandler(Set.of(PRINCIPAL_ROLE1)).renameTable(rename2))
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_CREATE, PolarisPrivilege.TABLE_DROP)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @Test
+  public void testRenameTablePrivilegesOnWrongSourceOrDestination() {
+    final TableIdentifier srcTable = TABLE_NS2_1;
+    final TableIdentifier dstTable = TableIdentifier.of(NS1AA, "newtable");
+    final RenameTableRequest rename1 =
+        RenameTableRequest.builder().withSource(srcTable).withDestination(dstTable).build();
+    final RenameTableRequest rename2 =
+        RenameTableRequest.builder().withSource(dstTable).withDestination(srcTable).build();
+
+    // Minimum privileges should succeed -- drop on src, create on dst parent.
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnTableToRole(
+                CATALOG_NAME, CATALOG_ROLE1, srcTable, PolarisPrivilege.TABLE_DROP));
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnNamespaceToRole(
+                CATALOG_NAME, CATALOG_ROLE1, dstTable.namespace(), PolarisPrivilege.TABLE_CREATE));
+
+    // Initial rename should succeed
+    newHandler().renameTable(rename1);
+
+    // Inverse operation should fail
+    Assertions.assertThatThrownBy(() -> newHandler().renameTable(rename2))
+        .isInstanceOf(ForbiddenException.class);
+
+    // Now grant TABLE_DROP on dst
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnTableToRole(
+                CATALOG_NAME, CATALOG_ROLE1, dstTable, PolarisPrivilege.TABLE_DROP));
+
+    // Still not enough without TABLE_CREATE at source
+    Assertions.assertThatThrownBy(() -> newHandler().renameTable(rename2))
+        .isInstanceOf(ForbiddenException.class);
+
+    // Even grant CATALOG_MANAGE_CONTENT under all of NS1
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnNamespaceToRole(
+                CATALOG_NAME, CATALOG_ROLE1, NS1, PolarisPrivilege.CATALOG_MANAGE_CONTENT));
+
+    // Still not enough to rename back to src since src was NS2.
+    Assertions.assertThatThrownBy(() -> newHandler().renameTable(rename2))
+        .isInstanceOf(ForbiddenException.class);
+
+    // Finally, grant TABLE_CREATE on NS2 and it should succeed to rename back to src.
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnNamespaceToRole(
+                CATALOG_NAME, CATALOG_ROLE1, NS2, PolarisPrivilege.TABLE_CREATE));
+    newHandler().renameTable(rename2);
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testCommitTransactionPrivileges() {
+    CommitTransactionRequest req =
+        new CommitTransactionRequest(
+            List.of(
+                UpdateTableRequest.create(TABLE_NS1_1, List.of(), List.of()),
+                UpdateTableRequest.create(TABLE_NS1A_1, List.of(), List.of()),
+                UpdateTableRequest.create(TABLE_NS1B_1, List.of(), List.of()),
+                UpdateTableRequest.create(TABLE_NS2_1, List.of(), List.of())));
+
+    return authzTestsBuilder("commitTransaction")
+        .action(() -> newHandler().commitTransaction(req))
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_CREATE, PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_CREATE, PolarisPrivilege.TABLE_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @Test
+  public void testCommitTransactionMixedPermissions() {
+    CommitTransactionRequest req =
+        new CommitTransactionRequest(
+            List.of(
+                UpdateTableRequest.create(TABLE_NS1_1, List.of(), List.of()),
+                UpdateTableRequest.create(TABLE_NS1A_1, List.of(), List.of()),
+                UpdateTableRequest.create(TABLE_NS1B_1, List.of(), List.of()),
+                UpdateTableRequest.create(TABLE_NS2_1, List.of(), List.of())));
+
+    // Grant TABLE_CREATE for all of NS1
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnNamespaceToRole(
+                CATALOG_NAME, CATALOG_ROLE1, NS1, PolarisPrivilege.TABLE_CREATE));
+    Assertions.assertThatThrownBy(() -> newHandler().commitTransaction(req))
+        .isInstanceOf(ForbiddenException.class);
+
+    // Grant TABLE_FULL_METADATA directly on TABLE_NS1_1
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnTableToRole(
+                CATALOG_NAME, CATALOG_ROLE1, TABLE_NS1_1, PolarisPrivilege.TABLE_FULL_METADATA));
+    Assertions.assertThatThrownBy(() -> newHandler().commitTransaction(req))
+        .isInstanceOf(ForbiddenException.class);
+
+    // Grant TABLE_WRITE_PROPERTIES on NS1A namespace
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnNamespaceToRole(
+                CATALOG_NAME, CATALOG_ROLE1, NS1A, PolarisPrivilege.TABLE_WRITE_PROPERTIES));
+    Assertions.assertThatThrownBy(() -> newHandler().commitTransaction(req))
+        .isInstanceOf(ForbiddenException.class);
+
+    // Grant TABLE_WRITE_DATA directly on TABLE_NS1B_1
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnTableToRole(
+                CATALOG_NAME, CATALOG_ROLE1, TABLE_NS1B_1, PolarisPrivilege.TABLE_WRITE_DATA));
+    Assertions.assertThatThrownBy(() -> newHandler().commitTransaction(req))
+        .isInstanceOf(ForbiddenException.class);
+
+    // Grant TABLE_WRITE_PROPERTIES directly on TABLE_NS2_1
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnTableToRole(
+                CATALOG_NAME, CATALOG_ROLE1, TABLE_NS2_1, PolarisPrivilege.TABLE_WRITE_PROPERTIES));
+    Assertions.assertThatThrownBy(() -> newHandler().commitTransaction(req))
+        .isInstanceOf(ForbiddenException.class);
+
+    // Also grant TABLE_CREATE directly on TABLE_NS2_1
+    // TODO: If we end up having fine-grained differentiation between updateForStagedCreate
+    // and update, then this one should only be TABLE_CREATE on the *parent* of this last table
+    // and the table shouldn't exist.
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnTableToRole(
+                CATALOG_NAME, CATALOG_ROLE1, TABLE_NS2_1, PolarisPrivilege.TABLE_CREATE));
+    newHandler().commitTransaction(req);
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testListViewsPrivileges() {
+    return authzTestsBuilder("listViews")
+        .action(() -> newHandler().listViews(NS1A, null, null))
+        .shouldPassWith(PolarisPrivilege.VIEW_LIST)
+        .shouldPassWith(PolarisPrivilege.VIEW_READ_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.VIEW_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.VIEW_CREATE)
+        .shouldPassWith(PolarisPrivilege.VIEW_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testCreateViewPrivileges() {
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.VIEW_DROP));
+
+    final TableIdentifier newview = TableIdentifier.of(NS2, "newview");
+    final CreateViewRequest createRequest =
+        ImmutableCreateViewRequest.builder()
+            .name("newview")
+            .schema(SCHEMA)
+            .viewVersion(
+                ImmutableViewVersion.builder()
+                    .versionId(1)
+                    .timestampMillis(System.currentTimeMillis())
+                    .schemaId(1)
+                    .defaultNamespace(NS1)
+                    .addRepresentations(
+                        ImmutableSQLViewRepresentation.builder()
+                            .sql(VIEW_QUERY)
+                            .dialect("spark")
+                            .build())
+                    .build())
+            .build();
+
+    return authzTestsBuilder("createView")
+        .action(() -> newHandler(Set.of(PRINCIPAL_ROLE1)).createView(NS2, createRequest))
+        .cleanupAction(() -> newHandler(Set.of(PRINCIPAL_ROLE2)).dropView(newview))
+        .shouldPassWith(PolarisPrivilege.VIEW_CREATE)
+        .shouldPassWith(PolarisPrivilege.VIEW_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testLoadViewPrivileges() {
+    return authzTestsBuilder("loadView")
+        .action(() -> newHandler().loadView(VIEW_NS1A_2))
+        .shouldPassWith(PolarisPrivilege.VIEW_READ_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.VIEW_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.VIEW_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testUpdateViewPrivileges() {
+    return authzTestsBuilder("replaceView")
+        .action(() -> newHandler().replaceView(VIEW_NS1A_2, new UpdateTableRequest()))
+        .shouldPassWith(PolarisPrivilege.VIEW_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.VIEW_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testDropViewPrivileges() {
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                CATALOG_NAME, CATALOG_ROLE2, PolarisPrivilege.VIEW_CREATE));
+
+    final CreateViewRequest createRequest =
+        ImmutableCreateViewRequest.builder()
+            .name(VIEW_NS1_1.name())
+            .schema(SCHEMA)
+            .viewVersion(
+                ImmutableViewVersion.builder()
+                    .versionId(1)
+                    .timestampMillis(System.currentTimeMillis())
+                    .schemaId(1)
+                    .defaultNamespace(NS1)
+                    .addRepresentations(
+                        ImmutableSQLViewRepresentation.builder()
+                            .sql(VIEW_QUERY)
+                            .dialect("spark")
+                            .build())
+                    .build())
+            .build();
+
+    // Use PRINCIPAL_ROLE1 for privilege-testing, PRINCIPAL_ROLE2 for cleanup.
+    return authzTestsBuilder("dropView")
+        .action(() -> newHandler(Set.of(PRINCIPAL_ROLE1)).dropView(VIEW_NS1_1))
+        .cleanupAction(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE2))
+                    .createView(VIEW_NS1_1.namespace(), createRequest))
+        .shouldPassWith(PolarisPrivilege.VIEW_DROP)
+        .shouldPassWith(PolarisPrivilege.VIEW_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testViewExistsPrivileges() {
+    return authzTestsBuilder("viewExists")
+        .action(() -> newHandler().viewExists(VIEW_NS1A_2))
+        .shouldPassWith(PolarisPrivilege.VIEW_LIST)
+        .shouldPassWith(PolarisPrivilege.VIEW_READ_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.VIEW_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.VIEW_CREATE)
+        .shouldPassWith(PolarisPrivilege.VIEW_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testRenameViewPrivileges() {
+    final TableIdentifier srcView = VIEW_NS1_1;
+    final TableIdentifier dstView = TableIdentifier.of(NS1AA, "newview");
+    final RenameTableRequest rename1 =
+        RenameTableRequest.builder().withSource(srcView).withDestination(dstView).build();
+    final RenameTableRequest rename2 =
+        RenameTableRequest.builder().withSource(dstView).withDestination(srcView).build();
+
+    return authzTestsBuilder("renameView")
+        .action(() -> newHandler(Set.of(PRINCIPAL_ROLE1)).renameView(rename1))
+        .cleanupAction(() -> newHandler(Set.of(PRINCIPAL_ROLE1)).renameView(rename2))
+        .shouldPassWith(PolarisPrivilege.VIEW_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.VIEW_DROP, PolarisPrivilege.VIEW_CREATE)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @Test
+  public void testRenameViewPrivilegesOnWrongSourceOrDestination() {
+    final TableIdentifier srcView = VIEW_NS2_1;
+    final TableIdentifier dstView = TableIdentifier.of(NS1AA, "newview");
+    final RenameTableRequest rename1 =
+        RenameTableRequest.builder().withSource(srcView).withDestination(dstView).build();
+    final RenameTableRequest rename2 =
+        RenameTableRequest.builder().withSource(dstView).withDestination(srcView).build();
+
+    // Minimum privileges should succeed -- drop on src, create on dst parent.
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnViewToRole(
+                CATALOG_NAME, CATALOG_ROLE1, srcView, PolarisPrivilege.VIEW_DROP));
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnNamespaceToRole(
+                CATALOG_NAME, CATALOG_ROLE1, dstView.namespace(), PolarisPrivilege.VIEW_CREATE));
+
+    // Initial rename should succeed
+    newHandler().renameView(rename1);
+
+    // Inverse operation should fail
+    Assertions.assertThatThrownBy(() -> newHandler().renameView(rename2))
+        .isInstanceOf(ForbiddenException.class);
+
+    // Now grant VIEW_DROP on dst
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnViewToRole(
+                CATALOG_NAME, CATALOG_ROLE1, dstView, PolarisPrivilege.VIEW_DROP));
+
+    // Still not enough without VIEW_CREATE at source
+    Assertions.assertThatThrownBy(() -> newHandler().renameView(rename2))
+        .isInstanceOf(ForbiddenException.class);
+
+    // Even grant CATALOG_MANAGE_CONTENT under all of NS1
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnNamespaceToRole(
+                CATALOG_NAME, CATALOG_ROLE1, NS1, PolarisPrivilege.CATALOG_MANAGE_CONTENT));
+
+    // Still not enough to rename back to src since src was NS2.
+    Assertions.assertThatThrownBy(() -> newHandler().renameView(rename2))
+        .isInstanceOf(ForbiddenException.class);
+
+    // Finally, grant VIEW_CREATE on NS2 and it should succeed to rename back to src.
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnNamespaceToRole(
+                CATALOG_NAME, CATALOG_ROLE1, NS2, PolarisPrivilege.VIEW_CREATE));
+    newHandler().renameView(rename2);
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testSendNotificationAllTypes() {
+    String externalCatalog = "testSendNotificationAllTypes";
+    String storageLocation =
+        "file:///tmp/send_notification_sufficient_privileges_" + System.nanoTime();
+
+    createExternalCatalog(externalCatalog, storageLocation);
+    PolarisLocalCatalogFactory factory = createExternalCatalogFactory(externalCatalog);
+
+    Namespace namespace = Namespace.of("extns1", "extns2");
+    TableIdentifier table = TableIdentifier.of(namespace, "tbl1");
+    String tableUuid = UUID.randomUUID().toString();
+
+    NotificationRequest createRequest =
+        createNotificationRequest(table, tableUuid, storageLocation);
+    NotificationRequest updateRequest =
+        updateNotificationRequest(table, tableUuid, storageLocation);
+    NotificationRequest dropRequest = dropNotificationRequest(table, tableUuid);
+    NotificationRequest validateRequest =
+        validateNotificationRequest(table, tableUuid, storageLocation);
+
+    return authzTestsBuilder("sendNotification (ALL)")
+        .catalogName(externalCatalog)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_FULL_METADATA, PolarisPrivilege.NAMESPACE_FULL_METADATA)
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_FULL_METADATA,
+            PolarisPrivilege.NAMESPACE_CREATE,
+            PolarisPrivilege.NAMESPACE_DROP)
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_CREATE,
+            PolarisPrivilege.TABLE_DROP,
+            PolarisPrivilege.TABLE_WRITE_PROPERTIES,
+            PolarisPrivilege.NAMESPACE_FULL_METADATA)
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_CREATE,
+            PolarisPrivilege.TABLE_DROP,
+            PolarisPrivilege.TABLE_WRITE_PROPERTIES,
+            PolarisPrivilege.NAMESPACE_CREATE,
+            PolarisPrivilege.NAMESPACE_DROP)
+        .action(
+            () -> {
+              newHandler(Set.of(PRINCIPAL_ROLE1), externalCatalog, factory)
+                  .sendNotification(table, createRequest);
+              newHandler(Set.of(PRINCIPAL_ROLE1), externalCatalog, factory)
+                  .sendNotification(table, updateRequest);
+              newHandler(Set.of(PRINCIPAL_ROLE1), externalCatalog, factory)
+                  .sendNotification(table, dropRequest);
+              newHandler(Set.of(PRINCIPAL_ROLE1), externalCatalog, factory)
+                  .sendNotification(table, validateRequest);
+            })
+        .cleanupAction(
+            () -> {
+              newHandler(Set.of(PRINCIPAL_ROLE2), externalCatalog, factory)
+                  .dropNamespace(Namespace.of("extns1", "extns2"));
+              newHandler(Set.of(PRINCIPAL_ROLE2), externalCatalog, factory)
+                  .dropNamespace(Namespace.of("extns1"));
+            })
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testSendNotificationCreate() {
+    String externalCatalog = "testSendNotificationCreate";
+    String storageLocation =
+        "file:///tmp/send_notification_sufficient_privileges_" + System.nanoTime();
+
+    createExternalCatalog(externalCatalog, storageLocation);
+    PolarisLocalCatalogFactory factory = createExternalCatalogFactory(externalCatalog);
+
+    Namespace namespace = Namespace.of("extns1", "extns2");
+    TableIdentifier table = TableIdentifier.of(namespace, "tbl1");
+    String tableUuid = UUID.randomUUID().toString();
+
+    NotificationRequest createRequest =
+        createNotificationRequest(table, tableUuid, storageLocation);
+    NotificationRequest dropRequest = dropNotificationRequest(table, tableUuid);
+
+    return authzTestsBuilder("sendNotification (CREATE)")
+        .catalogName(externalCatalog)
+        .action(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE1), externalCatalog, factory)
+                    .sendNotification(table, createRequest))
+        .cleanupAction(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE2), externalCatalog, factory)
+                    .sendNotification(table, dropRequest))
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_FULL_METADATA, PolarisPrivilege.NAMESPACE_FULL_METADATA)
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_FULL_METADATA,
+            PolarisPrivilege.NAMESPACE_CREATE,
+            PolarisPrivilege.NAMESPACE_DROP)
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_CREATE,
+            PolarisPrivilege.TABLE_DROP,
+            PolarisPrivilege.TABLE_WRITE_PROPERTIES,
+            PolarisPrivilege.NAMESPACE_FULL_METADATA)
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_CREATE,
+            PolarisPrivilege.TABLE_DROP,
+            PolarisPrivilege.TABLE_WRITE_PROPERTIES,
+            PolarisPrivilege.NAMESPACE_CREATE,
+            PolarisPrivilege.NAMESPACE_DROP)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testSendNotificationUpdate() {
+    String externalCatalog = "testSendNotificationUpdate";
+    String storageLocation =
+        "file:///tmp/send_notification_sufficient_privileges_" + System.nanoTime();
+
+    createExternalCatalog(externalCatalog, storageLocation);
+    PolarisLocalCatalogFactory factory = createExternalCatalogFactory(externalCatalog);
+
+    Namespace namespace = Namespace.of("extns1", "extns2");
+    TableIdentifier table = TableIdentifier.of(namespace, "tbl1");
+    String tableUuid = UUID.randomUUID().toString();
+
+    NotificationRequest updateRequest =
+        updateNotificationRequest(table, tableUuid, storageLocation);
+    NotificationRequest dropRequest = dropNotificationRequest(table, tableUuid);
+
+    return authzTestsBuilder("sendNotification (UPDATE)")
+        .catalogName(externalCatalog)
+        .action(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE1), externalCatalog, factory)
+                    .sendNotification(table, updateRequest))
+        .cleanupAction(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE2), externalCatalog, factory)
+                    .sendNotification(table, dropRequest))
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_FULL_METADATA, PolarisPrivilege.NAMESPACE_FULL_METADATA)
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_FULL_METADATA,
+            PolarisPrivilege.NAMESPACE_CREATE,
+            PolarisPrivilege.NAMESPACE_DROP)
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_CREATE,
+            PolarisPrivilege.TABLE_DROP,
+            PolarisPrivilege.TABLE_WRITE_PROPERTIES,
+            PolarisPrivilege.NAMESPACE_FULL_METADATA)
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_CREATE,
+            PolarisPrivilege.TABLE_DROP,
+            PolarisPrivilege.TABLE_WRITE_PROPERTIES,
+            PolarisPrivilege.NAMESPACE_CREATE,
+            PolarisPrivilege.NAMESPACE_DROP)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testSendNotificationDrop() {
+    String externalCatalog = "testSendNotificationDrop";
+    String storageLocation =
+        "file:///tmp/send_notification_sufficient_privileges_" + System.nanoTime();
+
+    createExternalCatalog(externalCatalog, storageLocation);
+    PolarisLocalCatalogFactory factory = createExternalCatalogFactory(externalCatalog);
+
+    Namespace namespace = Namespace.of("extns1", "extns2");
+    TableIdentifier table = TableIdentifier.of(namespace, "tbl1");
+    String tableUuid = UUID.randomUUID().toString();
+
+    NotificationRequest createRequest =
+        createNotificationRequest(table, tableUuid, storageLocation);
+    NotificationRequest dropRequest = dropNotificationRequest(table, tableUuid);
+
+    newHandler(Set.of(PRINCIPAL_ROLE2), externalCatalog, factory)
+        .sendNotification(table, createRequest);
+
+    return authzTestsBuilder("sendNotification (DROP)")
+        .catalogName(externalCatalog)
+        .action(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE1), externalCatalog, factory)
+                    .sendNotification(table, dropRequest))
+        .cleanupAction(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE2), externalCatalog, factory)
+                    .sendNotification(table, createRequest))
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_FULL_METADATA, PolarisPrivilege.NAMESPACE_FULL_METADATA)
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_FULL_METADATA,
+            PolarisPrivilege.NAMESPACE_CREATE,
+            PolarisPrivilege.NAMESPACE_DROP)
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_CREATE,
+            PolarisPrivilege.TABLE_DROP,
+            PolarisPrivilege.TABLE_WRITE_PROPERTIES,
+            PolarisPrivilege.NAMESPACE_FULL_METADATA)
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_CREATE,
+            PolarisPrivilege.TABLE_DROP,
+            PolarisPrivilege.TABLE_WRITE_PROPERTIES,
+            PolarisPrivilege.NAMESPACE_CREATE,
+            PolarisPrivilege.NAMESPACE_DROP)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testSendNotificationValidation() {
+    String externalCatalog = "testSendNotificationValidation";
+    String storageLocation =
+        "file:///tmp/send_notification_sufficient_privileges_" + System.nanoTime();
+
+    createExternalCatalog(externalCatalog, storageLocation);
+    PolarisLocalCatalogFactory factory = createExternalCatalogFactory(externalCatalog);
+
+    Namespace namespace = Namespace.of("extns1", "extns2");
+    TableIdentifier table = TableIdentifier.of(namespace, "tbl1");
+    String tableUuid = UUID.randomUUID().toString();
+
+    NotificationRequest createRequest =
+        createNotificationRequest(table, tableUuid, storageLocation);
+    NotificationRequest validateRequest =
+        validateNotificationRequest(table, tableUuid, storageLocation);
+
+    newHandler(Set.of(PRINCIPAL_ROLE2), externalCatalog, factory)
+        .sendNotification(table, createRequest);
+
+    return authzTestsBuilder("sendNotification (VALIDATE)")
+        .catalogName(externalCatalog)
+        .action(
+            () ->
+                newHandler(Set.of(PRINCIPAL_ROLE1), externalCatalog, factory)
+                    .sendNotification(table, validateRequest))
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_FULL_METADATA, PolarisPrivilege.NAMESPACE_FULL_METADATA)
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_FULL_METADATA,
+            PolarisPrivilege.NAMESPACE_CREATE,
+            PolarisPrivilege.NAMESPACE_DROP)
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_CREATE,
+            PolarisPrivilege.TABLE_DROP,
+            PolarisPrivilege.TABLE_WRITE_PROPERTIES,
+            PolarisPrivilege.NAMESPACE_FULL_METADATA)
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_CREATE,
+            PolarisPrivilege.TABLE_DROP,
+            PolarisPrivilege.TABLE_WRITE_PROPERTIES,
+            PolarisPrivilege.NAMESPACE_CREATE,
+            PolarisPrivilege.NAMESPACE_DROP)
+        .createTests();
+  }
+
+  private void createExternalCatalog(String externalCatalog, String storageLocation) {
+    FileStorageConfigInfo storageConfigModel =
+        FileStorageConfigInfo.builder()
+            .setStorageType(StorageConfigInfo.StorageTypeEnum.FILE)
+            .build();
+    newRootAdminService()
+        .createCatalog(
+            new CreateCatalogRequest(
+                new CatalogEntity.Builder()
+                    .setName(externalCatalog)
+                    .setDefaultBaseLocation(storageLocation)
+                    .setStorageConfigurationInfo(realmConfig, storageConfigModel)
+                    .setCatalogType("EXTERNAL")
+                    .build()
+                    .asCatalog(serviceIdentityProvider)));
+    newRootAdminService()
+        .createCatalogRole(
+            externalCatalog, new CatalogRoleEntity.Builder().setName(CATALOG_ROLE1).build());
+    newRootAdminService()
+        .createCatalogRole(
+            externalCatalog, new CatalogRoleEntity.Builder().setName(CATALOG_ROLE2).build());
+
+    newRootAdminService().assignPrincipalRole(PRINCIPAL_NAME, PRINCIPAL_ROLE1);
+    newRootAdminService()
+        .assignCatalogRoleToPrincipalRole(PRINCIPAL_ROLE1, externalCatalog, CATALOG_ROLE1);
+    newRootAdminService()
+        .assignCatalogRoleToPrincipalRole(PRINCIPAL_ROLE2, externalCatalog, CATALOG_ROLE2);
+    assertSuccess(
+        newRootAdminService()
+            .grantPrivilegeOnCatalogToRole(
+                externalCatalog, CATALOG_ROLE2, PolarisPrivilege.CATALOG_MANAGE_CONTENT));
+  }
+
+  private PolarisLocalCatalogFactory createExternalCatalogFactory(String externalCatalog) {
+    return new PolarisLocalCatalogFactory(
+        diagServices,
+        resolverFactory,
+        Mockito.mock(),
+        storageAccessConfigProvider,
+        fileIOFactory,
+        polarisEventDispatcher,
+        eventMetadataFactory,
+        metaStoreManager,
+        callContext,
+        authenticatedRoot,
+        new IdempotencyRequestContext(
+            new IdempotencyConfiguration() {
+              @Override
+              public boolean enabled() {
+                return false;
+              }
+
+              @Override
+              public Duration ttl() {
+                return Duration.ofMinutes(5);
+              }
+            })) {
+      @Override
+      public Catalog createCatalog(PolarisResolutionManifest resolvedManifest) {
+        Catalog catalog = super.createCatalog(resolvedManifest);
+        String fileIoImpl = "org.apache.iceberg.inmemory.InMemoryFileIO";
+        catalog.initialize(
+            externalCatalog, ImmutableMap.of(CatalogProperties.FILE_IO_IMPL, fileIoImpl));
+        return catalog;
+      }
+    };
+  }
+
+  private static NotificationRequest createNotificationRequest(
+      TableIdentifier table, String tableUuid, String storageLocation) {
+    NotificationRequest createRequest = new NotificationRequest();
+    createRequest.setNotificationType(NotificationType.CREATE);
+    TableUpdateNotification createPayload = new TableUpdateNotification();
+    String metadataLocation =
+        String.format("%s/bucket/table/metadata/v1.metadata.json", storageLocation);
+    createPayload.setMetadataLocation(metadataLocation);
+    createPayload.setTableName(table.name());
+    createPayload.setTableUuid(tableUuid);
+    createPayload.setTimestamp(230950845L);
+    createRequest.setPayload(createPayload);
+    writeTableMetadata(metadataLocation);
+    return createRequest;
+  }
+
+  private static NotificationRequest updateNotificationRequest(
+      TableIdentifier table, String tableUuid, String storageLocation) {
+    NotificationRequest updateRequest = new NotificationRequest();
+    updateRequest.setNotificationType(NotificationType.UPDATE);
+    TableUpdateNotification updatePayload = new TableUpdateNotification();
+    String metadataLocation =
+        String.format("%s/bucket/table/metadata/v2.metadata.json", storageLocation);
+    updatePayload.setMetadataLocation(metadataLocation);
+    updatePayload.setTableName(table.name());
+    updatePayload.setTableUuid(tableUuid);
+    updatePayload.setTimestamp(330950845L);
+    updateRequest.setPayload(updatePayload);
+    writeTableMetadata(metadataLocation);
+    return updateRequest;
+  }
+
+  private static NotificationRequest dropNotificationRequest(
+      TableIdentifier table, String tableUuid) {
+    NotificationRequest dropRequest = new NotificationRequest();
+    dropRequest.setNotificationType(NotificationType.DROP);
+    TableUpdateNotification dropPayload = new TableUpdateNotification();
+    dropPayload.setTableName(table.name());
+    dropPayload.setTableUuid(tableUuid);
+    dropPayload.setTimestamp(430950845L);
+    dropRequest.setPayload(dropPayload);
+    return dropRequest;
+  }
+
+  private static NotificationRequest validateNotificationRequest(
+      TableIdentifier table, String tableUuid, String storageLocation) {
+    NotificationRequest validateRequest = new NotificationRequest();
+    validateRequest.setNotificationType(NotificationType.VALIDATE);
+    TableUpdateNotification validatePayload = new TableUpdateNotification();
+    validatePayload.setMetadataLocation(
+        String.format("%s/bucket/table/metadata/v1.metadata.json", storageLocation));
+    validatePayload.setTableName(table.name());
+    validatePayload.setTableUuid(tableUuid);
+    validatePayload.setTimestamp(530950845L);
+    validateRequest.setPayload(validatePayload);
+    return validateRequest;
+  }
+
+  private static void writeTableMetadata(String metadataLocation) {
+    String fileIoImpl = "org.apache.iceberg.inmemory.InMemoryFileIO";
+    FileIO fileIO = CatalogUtil.loadFileIO(fileIoImpl, Map.of(), null);
+    TableMetadata tableMetadata =
+        TableMetadata.buildFromEmpty()
+            .addSchema(SCHEMA)
+            .setLocation(metadataLocation)
+            .addPartitionSpec(PartitionSpec.unpartitioned())
+            .addSortOrder(SortOrder.unsorted())
+            .assignUUID()
+            .build();
+    TableMetadataParser.overwrite(tableMetadata, fileIO.newOutputFile(metadataLocation));
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testUpdateTableWith_AssignUuid_Privileges() {
+    // Test that TABLE_ASSIGN_UUID privilege is required for AssignUUID MetadataUpdate
+    UpdateTableRequest request =
+        UpdateTableRequest.create(
+            TABLE_NS1A_2,
+            List.of(), // no requirements
+            List.of(new MetadataUpdate.AssignUUID(UUID.randomUUID().toString())));
+
+    return authzTestsBuilder("updateTable (AssignUUID)")
+        .action(() -> newHandler().updateTable(TABLE_NS1A_2, request))
+        .shouldPassWith(PolarisPrivilege.TABLE_ASSIGN_UUID)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_MANAGE_STRUCTURE)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testUpdateTableWith_UpgradeFormatVersionPrivilege() {
+    // Test that TABLE_UPGRADE_FORMAT_VERSION privilege is required for UpgradeFormatVersion
+    // MetadataUpdate
+    UpdateTableRequest request =
+        UpdateTableRequest.create(
+            TABLE_NS1A_2,
+            List.of(), // no requirements
+            List.of(new MetadataUpdate.UpgradeFormatVersion(2)));
+
+    return authzTestsBuilder("updateTable (UpgradeFormatVersion)")
+        .action(() -> newHandler().updateTable(TABLE_NS1A_2, request))
+        .shouldPassWith(PolarisPrivilege.TABLE_UPGRADE_FORMAT_VERSION)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_MANAGE_STRUCTURE)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testUpdateTableWith_SetPropertiesPrivilege() {
+    // Test that TABLE_SET_PROPERTIES privilege is required for SetProperties MetadataUpdate
+    UpdateTableRequest request =
+        UpdateTableRequest.create(
+            TABLE_NS1A_2,
+            List.of(), // no requirements
+            List.of(new MetadataUpdate.SetProperties(Map.of("test.property", "test.value"))));
+
+    return authzTestsBuilder("updateTable (SetProperties)")
+        .action(() -> newHandler().updateTable(TABLE_NS1A_2, request))
+        .shouldPassWith(PolarisPrivilege.TABLE_SET_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_MANAGE_STRUCTURE)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testUpdateTableWith_RemoveProperties_Privilege() {
+    // Test that TABLE_REMOVE_PROPERTIES privilege is required for RemoveProperties MetadataUpdate
+    UpdateTableRequest request =
+        UpdateTableRequest.create(
+            TABLE_NS1A_2,
+            List.of(), // no requirements
+            List.of(new MetadataUpdate.RemoveProperties(Set.of("property.to.remove"))));
+
+    return authzTestsBuilder("updateTable (RemoveProperties)")
+        .action(() -> newHandler().updateTable(TABLE_NS1A_2, request))
+        .shouldPassWith(PolarisPrivilege.TABLE_REMOVE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_MANAGE_STRUCTURE)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testUpdateTableWith_MultipleUpdates_Privileges() {
+    // Test that multiple MetadataUpdate types require multiple specific privileges
+    UpdateTableRequest request =
+        UpdateTableRequest.create(
+            TABLE_NS1A_2,
+            List.of(), // no requirements
+            List.of(
+                new MetadataUpdate.UpgradeFormatVersion(2),
+                new MetadataUpdate.SetProperties(Map.of("test.prop", "test.val"))));
+
+    return authzTestsBuilder("updateTable (multiple updates)")
+        .action(() -> newHandler().updateTable(TABLE_NS1A_2, request))
+        .shouldPassWith(
+            PolarisPrivilege.TABLE_UPGRADE_FORMAT_VERSION, PolarisPrivilege.TABLE_SET_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_MANAGE_STRUCTURE)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        // Test that having only one specific privilege fails (need both)
+        .shouldFailWith(PolarisPrivilege.TABLE_UPGRADE_FORMAT_VERSION) // Only one of the two needed
+        .shouldFailWith(PolarisPrivilege.TABLE_SET_PROPERTIES) // Only one of the two needed
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testUpdateTableWith_TableManageStructureSuperPrivilege() {
+    // Test that TABLE_MANAGE_STRUCTURE works as a super privilege for structural operations
+    // (but NOT for snapshot operations like TABLE_ADD_SNAPSHOT)
+
+    // Test structural operations that should work with TABLE_MANAGE_STRUCTURE
+    UpdateTableRequest structuralRequest =
+        UpdateTableRequest.create(
+            TABLE_NS1A_2,
+            List.of(), // no requirements
+            List.of(
+                new MetadataUpdate.AssignUUID(UUID.randomUUID().toString()),
+                new MetadataUpdate.UpgradeFormatVersion(2),
+                new MetadataUpdate.SetProperties(Map.of("test.property", "test.value")),
+                new MetadataUpdate.RemoveProperties(Set.of("property.to.remove"))));
+
+    return authzTestsBuilder("updateTable (TABLE_MANAGE_STRUCTURE super privilege)")
+        .action(() -> newHandler().updateTable(TABLE_NS1A_2, structuralRequest))
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_MANAGE_STRUCTURE)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testUpdateTableWith_TableManageStructureDoesNotIncludeSnapshots() {
+    // Verify that TABLE_MANAGE_STRUCTURE does NOT grant access to snapshot operations
+    // This test verifies that TABLE_ADD_SNAPSHOT and TABLE_SET_SNAPSHOT_REF were correctly
+    // excluded from the TABLE_MANAGE_STRUCTURE super privilege mapping
+
+    // Test that TABLE_MANAGE_STRUCTURE works for non-snapshot structural operations
+    UpdateTableRequest nonSnapshotRequest =
+        UpdateTableRequest.create(
+            TABLE_NS1A_2,
+            List.of(), // no requirements
+            List.of(
+                new MetadataUpdate.AssignUUID(UUID.randomUUID().toString()),
+                new MetadataUpdate.SetProperties(Map.of("structure.test", "value"))));
+
+    return authzTestsBuilder("updateTable (TABLE_MANAGE_STRUCTURE sufficient for non-snapshot ops)")
+        .action(() -> newHandler().updateTable(TABLE_NS1A_2, nonSnapshotRequest))
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_MANAGE_STRUCTURE)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testLoadTableWith_TableManageStructureInsufficient() {
+    // Test that TABLE_MANAGE_STRUCTURE is insufficient for operations that require
+    // different privilege categories (like read operations)
+    return authzTestsBuilder("loadTable (TABLE_MANAGE_STRUCTURE insufficient)")
+        .action(
+            () ->
+                newHandler()
+                    .loadTable(
+                        TABLE_NS1A_2,
+                        "all",
+                        null,
+                        EnumSet.noneOf(AccessDelegationMode.class),
+                        Optional.empty()))
+        .shouldPassWith(PolarisPrivilege.TABLE_READ_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_PROPERTIES)
+        .shouldPassWith(PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_FULL_METADATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_METADATA)
+        .shouldFailWith(PolarisPrivilege.TABLE_MANAGE_STRUCTURE)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testReportReadMetricsPrivileges() {
+    ImmutableScanReport report =
+        ImmutableScanReport.builder()
+            .tableName(TABLE_NS1A_1.name())
+            .snapshotId(123L)
+            .schemaId(456)
+            .projectedFieldIds(List.of(1, 2, 3))
+            .projectedFieldNames(List.of("f1", "f2", "f3"))
+            .filter(Expressions.alwaysTrue())
+            .scanMetrics(ScanMetricsResult.fromScanMetrics(ScanMetrics.noop()))
+            .build();
+    ReportMetricsRequest request = ReportMetricsRequest.of(report);
+    return authzTestsBuilder("reportMetrics (read)")
+        .action(() -> newHandler().reportMetrics(TABLE_NS1A_1, request))
+        .shouldPassWith(PolarisPrivilege.TABLE_READ_DATA)
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA) // super-privilege of TABLE_READ_DATA
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .createTests();
+  }
+
+  @TestFactory
+  Stream<DynamicNode> testReportWriteMetricsPrivileges() {
+    CommitReport commitReport =
+        ImmutableCommitReport.builder()
+            .tableName(TABLE_NS1A_1.name())
+            .snapshotId(23L)
+            .operation("DELETE")
+            .sequenceNumber(4L)
+            .commitMetrics(CommitMetricsResult.from(CommitMetrics.noop(), Map.of()))
+            .build();
+    ReportMetricsRequest request = ReportMetricsRequest.of(commitReport);
+    return authzTestsBuilder("reportMetrics (write)")
+        .action(() -> newHandler().reportMetrics(TABLE_NS1A_1, request))
+        .shouldPassWith(PolarisPrivilege.TABLE_WRITE_DATA)
+        .shouldPassWith(PolarisPrivilege.CATALOG_MANAGE_CONTENT)
+        .createTests();
+  }
+}

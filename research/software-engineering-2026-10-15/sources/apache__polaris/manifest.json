@@ -1,0 +1,61 @@
+{
+  "repo": "apache/polaris",
+  "default_branch": "main",
+  "commit": "f838a62e20e7de72946d250883e8d9b1d6d2f68e",
+  "commit_date": "2026-10-15T03:38:41Z",
+  "retrieved_at_utc": "2026-10-15T08:17:55.019499+00:00",
+  "license_metadata": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0",
+    "node_id": "MDc6TGljZW5zZTI="
+  },
+  "tree_truncated": false,
+  "blob_count": 2585,
+  "selected_files": [
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "7eab4e82e1c078c1a1765f25cf8cc4c5491c96b17cf0ad1f20981e05e7414846",
+      "bytes": 76854,
+      "url": "https://github.com/apache/polaris/blob/f838a62e20e7de72946d250883e8d9b1d6d2f68e/CHANGELOG.md"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "c28c936d6445b9a760d8bc081b55c54ef2d1819f02ed3c65f09582f774646be0",
+      "bytes": 19455,
+      "url": "https://github.com/apache/polaris/blob/f838a62e20e7de72946d250883e8d9b1d6d2f68e/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "sha256": "2dbf9da5efc7f4ec0d9e95097051d4038cf526c4d6f51137a40e1a248085f2ad",
+      "bytes": 9493,
+      "url": "https://github.com/apache/polaris/blob/f838a62e20e7de72946d250883e8d9b1d6d2f68e/README.md"
+    },
+    {
+      "path": "spec/README.md",
+      "sha256": "0866fec0b5bff251f3011f31d1c6c652c6691865f5a3f00d909449ac7a96d54c",
+      "bytes": 3561,
+      "url": "https://github.com/apache/polaris/blob/f838a62e20e7de72946d250883e8d9b1d6d2f68e/spec/README.md"
+    },
+    {
+      "path": "spec/polaris-management-service.yml",
+      "sha256": "1b56276697f1974e80f17bf18900e3ec2a2efacd7d745f33683e5ce40490f377",
+      "bytes": 62580,
+      "url": "https://github.com/apache/polaris/blob/f838a62e20e7de72946d250883e8d9b1d6d2f68e/spec/polaris-management-service.yml"
+    },
+    {
+      "path": "client/python/integration_tests/test_catalog_apis.py",
+      "sha256": "e055969ea3462ea5893779e4e1140af1119957b2432c146f9f87d0cb4eda7485",
+      "bytes": 15673,
+      "url": "https://github.com/apache/polaris/blob/f838a62e20e7de72946d250883e8d9b1d6d2f68e/client/python/integration_tests/test_catalog_apis.py"
+    },
+    {
+      "path": "client/python/integration_tests/test_management_apis.py",
+      "sha256": "01d9644ba1612278d93d49f65d004390d7e690175840e10fa257c6c57122b405",
+      "bytes": 9115,
+      "url": "https://github.com/apache/polaris/blob/f838a62e20e7de72946d250883e8d9b1d6d2f68e/client/python/integration_tests/test_management_apis.py"
+    }
+  ],
+  "status": "source_reconnaissance_only_not_constructed_or_calibrated"
+}

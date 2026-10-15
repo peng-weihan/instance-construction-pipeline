@@ -1,0 +1,771 @@
+{
+  "scope": "public-only author inverse solver; hidden feedback evaluated retrospectively, never used by solver",
+  "model_runs": 0,
+  "docker_executed": false,
+  "six_hour_runs": 0,
+  "checkpoints": [
+    {
+      "calls": 1,
+      "public_loss": 10.684849920774846,
+      "elapsed_seconds": 0.042929917050059885,
+      "checkpoint": "checkpoints/000001",
+      "scores": {
+        "public": 0.17307994337037597,
+        "feedback": 0.060927947496003367,
+        "audit": 0.26727726184308837
+      },
+      "best_so_far": {
+        "public": 0.17307994337037597,
+        "feedback": 0.060927947496003367,
+        "audit": 0.26727726184308837
+      }
+    },
+    {
+      "calls": 3,
+      "public_loss": 10.516513102844039,
+      "elapsed_seconds": 0.12147112505044788,
+      "checkpoint": "checkpoints/000003",
+      "scores": {
+        "public": 0.4170646450235377,
+        "feedback": 0.10777805245256011,
+        "audit": 0.29232496879489295
+      },
+      "best_so_far": {
+        "public": 0.4170646450235377,
+        "feedback": 0.10777805245256011,
+        "audit": 0.29232496879489295
+      }
+    },
+    {
+      "calls": 4,
+      "public_loss": 3.676970601896562,
+      "elapsed_seconds": 0.1567026250413619,
+      "checkpoint": "checkpoints/000004",
+      "scores": {
+        "public": 0.7756961466616569,
+        "feedback": 0.6455557982734487,
+        "audit": 0.5201218804954435
+      },
+      "best_so_far": {
+        "public": 0.7756961466616569,
+        "feedback": 0.6455557982734487,
+        "audit": 0.5201218804954435
+      }
+    },
+    {
+      "calls": 13,
+      "public_loss": 2.8028518800477453,
+      "elapsed_seconds": 0.43324158404720947,
+      "checkpoint": "checkpoints/000013",
+      "scores": {
+        "public": 0.8629382578032034,
+        "feedback": 0.7489637933626264,
+        "audit": 0.6101332534350062
+      },
+      "best_so_far": {
+        "public": 0.8629382578032034,
+        "feedback": 0.7489637933626264,
+        "audit": 0.6101332534350062
+      }
+    },
+    {
+      "calls": 37,
+      "public_loss": 2.2979786172187393,
+      "elapsed_seconds": 1.1842220420367084,
+      "checkpoint": "checkpoints/000037",
+      "scores": {
+        "public": 0.9344479460183177,
+        "feedback": 0.8745792221861859,
+        "audit": 0.8906781442310061
+      },
+      "best_so_far": {
+        "public": 0.9344479460183177,
+        "feedback": 0.8745792221861859,
+        "audit": 0.8906781442310061
+      }
+    },
+    {
+      "calls": 78,
+      "public_loss": 1.811359846382451,
+      "elapsed_seconds": 2.4311581670190208,
+      "checkpoint": "checkpoints/000078",
+      "scores": {
+        "public": 0.937234171156366,
+        "feedback": 0.7057929274825512,
+        "audit": 0.8634977922795606
+      },
+      "best_so_far": {
+        "public": 0.937234171156366,
+        "feedback": 0.8745792221861859,
+        "audit": 0.8906781442310061
+      }
+    },
+    {
+      "calls": 105,
+      "public_loss": 1.8074053264606977,
+      "elapsed_seconds": 3.2463807919993997,
+      "checkpoint": "checkpoints/000105",
+      "scores": {
+        "public": 0.9309891013669663,
+        "feedback": 0.7003649280783096,
+        "audit": 0.8641766416186343
+      },
+      "best_so_far": {
+        "public": 0.937234171156366,
+        "feedback": 0.8745792221861859,
+        "audit": 0.8906781442310061
+      }
+    },
+    {
+      "calls": 108,
+      "public_loss": 1.8052261731015478,
+      "elapsed_seconds": 3.3824735000380315,
+      "checkpoint": "checkpoints/000108",
+      "scores": {
+        "public": 0.9337717018630394,
+        "feedback": 0.7027534208557725,
+        "audit": 0.864044252614963
+      },
+      "best_so_far": {
+        "public": 0.937234171156366,
+        "feedback": 0.8745792221861859,
+        "audit": 0.8906781442310061
+      }
+    },
+    {
+      "calls": 110,
+      "public_loss": 1.8052230080620142,
+      "elapsed_seconds": 3.443369625019841,
+      "checkpoint": "checkpoints/000110",
+      "scores": {
+        "public": 0.9338110303094855,
+        "feedback": 0.7027874753256491,
+        "audit": 0.8640407136244783
+      },
+      "best_so_far": {
+        "public": 0.937234171156366,
+        "feedback": 0.8745792221861859,
+        "audit": 0.8906781442310061
+      }
+    },
+    {
+      "calls": 111,
+      "public_loss": 1.805220075816643,
+      "elapsed_seconds": 3.4737327090115286,
+      "checkpoint": "checkpoints/000111",
+      "scores": {
+        "public": 0.9338932048671241,
+        "feedback": 0.7028586599964182,
+        "audit": 0.8640331509549483
+      },
+      "best_so_far": {
+        "public": 0.937234171156366,
+        "feedback": 0.8745792221861859,
+        "audit": 0.8906781442310061
+      }
+    },
+    {
+      "calls": 115,
+      "public_loss": 1.33659900801195,
+      "elapsed_seconds": 3.6310077920206822,
+      "checkpoint": "checkpoints/000115",
+      "scores": {
+        "public": 0.9630250517624784,
+        "feedback": 0.9269625120764515,
+        "audit": 0.9441597435714231
+      },
+      "best_so_far": {
+        "public": 0.9630250517624784,
+        "feedback": 0.9269625120764515,
+        "audit": 0.9441597435714231
+      }
+    },
+    {
+      "calls": 117,
+      "public_loss": 1.2618762841143818,
+      "elapsed_seconds": 3.692585875047371,
+      "checkpoint": "checkpoints/000117",
+      "scores": {
+        "public": 0.9557580809087882,
+        "feedback": 0.8900721492481176,
+        "audit": 0.9356888290162039
+      },
+      "best_so_far": {
+        "public": 0.9630250517624784,
+        "feedback": 0.9269625120764515,
+        "audit": 0.9441597435714231
+      }
+    },
+    {
+      "calls": 118,
+      "public_loss": 1.2564872659141526,
+      "elapsed_seconds": 3.72323966701515,
+      "checkpoint": "checkpoints/000118",
+      "scores": {
+        "public": 0.9571243689281745,
+        "feedback": 0.8956932357186517,
+        "audit": 0.9379091951891299
+      },
+      "best_so_far": {
+        "public": 0.9630250517624784,
+        "feedback": 0.9269625120764515,
+        "audit": 0.9441597435714231
+      }
+    },
+    {
+      "calls": 119,
+      "public_loss": 1.2551391404788466,
+      "elapsed_seconds": 3.753405042050872,
+      "checkpoint": "checkpoints/000119",
+      "scores": {
+        "public": 0.9582469350909412,
+        "feedback": 0.9005062311065573,
+        "audit": 0.9396312186144588
+      },
+      "best_so_far": {
+        "public": 0.9630250517624784,
+        "feedback": 0.9269625120764515,
+        "audit": 0.9441597435714231
+      }
+    },
+    {
+      "calls": 120,
+      "public_loss": 1.2551369199156026,
+      "elapsed_seconds": 3.7841238750261255,
+      "checkpoint": "checkpoints/000120",
+      "scores": {
+        "public": 0.9581415370582006,
+        "feedback": 0.9000453427000656,
+        "audit": 0.9394741526755407
+      },
+      "best_so_far": {
+        "public": 0.9630250517624784,
+        "feedback": 0.9269625120764515,
+        "audit": 0.9441597435714231
+      }
+    },
+    {
+      "calls": 121,
+      "public_loss": 1.2551344159031526,
+      "elapsed_seconds": 3.816528959025163,
+      "checkpoint": "checkpoints/000121",
+      "scores": {
+        "public": 0.9581863828991826,
+        "feedback": 0.9002411962754915,
+        "audit": 0.9395411096016063
+      },
+      "best_so_far": {
+        "public": 0.9630250517624784,
+        "feedback": 0.9269625120764515,
+        "audit": 0.9441597435714231
+      }
+    },
+    {
+      "calls": 124,
+      "public_loss": 1.2311059527023807,
+      "elapsed_seconds": 3.910400959022809,
+      "checkpoint": "checkpoints/000124",
+      "scores": {
+        "public": 0.9774815634154478,
+        "feedback": 0.9502903122568165,
+        "audit": 0.9311884891023778
+      },
+      "best_so_far": {
+        "public": 0.9774815634154478,
+        "feedback": 0.9502903122568165,
+        "audit": 0.9441597435714231
+      }
+    },
+    {
+      "calls": 127,
+      "public_loss": 1.0604396438141677,
+      "elapsed_seconds": 4.018038709007669,
+      "checkpoint": "checkpoints/000127",
+      "scores": {
+        "public": 0.9747491768521395,
+        "feedback": 0.9297776402372768,
+        "audit": 0.941095860515628
+      },
+      "best_so_far": {
+        "public": 0.9774815634154478,
+        "feedback": 0.9502903122568165,
+        "audit": 0.9441597435714231
+      }
+    },
+    {
+      "calls": 128,
+      "public_loss": 1.0598799852596372,
+      "elapsed_seconds": 4.049406083999202,
+      "checkpoint": "checkpoints/000128",
+      "scores": {
+        "public": 0.9749420585822621,
+        "feedback": 0.9302075471968875,
+        "audit": 0.9410586476271378
+      },
+      "best_so_far": {
+        "public": 0.9774815634154478,
+        "feedback": 0.9502903122568165,
+        "audit": 0.9441597435714231
+      }
+    },
+    {
+      "calls": 129,
+      "public_loss": 1.0579380589516443,
+      "elapsed_seconds": 4.086046709038783,
+      "checkpoint": "checkpoints/000129",
+      "scores": {
+        "public": 0.9763723302606061,
+        "feedback": 0.9335652809938558,
+        "audit": 0.9406741562580818
+      },
+      "best_so_far": {
+        "public": 0.9774815634154478,
+        "feedback": 0.9502903122568165,
+        "audit": 0.9441597435714231
+      }
+    },
+    {
+      "calls": 131,
+      "public_loss": 1.057927750856422,
+      "elapsed_seconds": 4.15836737502832,
+      "checkpoint": "checkpoints/000131",
+      "scores": {
+        "public": 0.9762602270862286,
+        "feedback": 0.9332891517757296,
+        "audit": 0.9407125763480073
+      },
+      "best_so_far": {
+        "public": 0.9774815634154478,
+        "feedback": 0.9502903122568165,
+        "audit": 0.9441597435714231
+      }
+    },
+    {
+      "calls": 134,
+      "public_loss": 1.0371653214249903,
+      "elapsed_seconds": 4.28049270901829,
+      "checkpoint": "checkpoints/000134",
+      "scores": {
+        "public": 0.9762943939368827,
+        "feedback": 0.9350729214775618,
+        "audit": 0.9419828982832236
+      },
+      "best_so_far": {
+        "public": 0.9774815634154478,
+        "feedback": 0.9502903122568165,
+        "audit": 0.9441597435714231
+      }
+    },
+    {
+      "calls": 135,
+      "public_loss": 1.0072507047735737,
+      "elapsed_seconds": 4.311967834015377,
+      "checkpoint": "checkpoints/000135",
+      "scores": {
+        "public": 0.9768921318953513,
+        "feedback": 0.9389609374087672,
+        "audit": 0.9426827771238568
+      },
+      "best_so_far": {
+        "public": 0.9774815634154478,
+        "feedback": 0.9502903122568165,
+        "audit": 0.9441597435714231
+      }
+    },
+    {
+      "calls": 136,
+      "public_loss": 0.9969111080186477,
+      "elapsed_seconds": 4.3434227500110865,
+      "checkpoint": "checkpoints/000136",
+      "scores": {
+        "public": 0.9767769683658499,
+        "feedback": 0.9426341938605277,
+        "audit": 0.9441253437229231
+      },
+      "best_so_far": {
+        "public": 0.9774815634154478,
+        "feedback": 0.9502903122568165,
+        "audit": 0.9441597435714231
+      }
+    },
+    {
+      "calls": 138,
+      "public_loss": 0.9968137723138962,
+      "elapsed_seconds": 4.405453917046543,
+      "checkpoint": "checkpoints/000138",
+      "scores": {
+        "public": 0.9766396757079063,
+        "feedback": 0.9438276073307733,
+        "audit": 0.9445469670422996
+      },
+      "best_so_far": {
+        "public": 0.9774815634154478,
+        "feedback": 0.9502903122568165,
+        "audit": 0.9445469670422996
+      }
+    },
+    {
+      "calls": 139,
+      "public_loss": 0.9967749322051404,
+      "elapsed_seconds": 4.435848666995298,
+      "checkpoint": "checkpoints/000139",
+      "scores": {
+        "public": 0.9766808647838188,
+        "feedback": 0.9435168066847824,
+        "audit": 0.9444397138430433
+      },
+      "best_so_far": {
+        "public": 0.9774815634154478,
+        "feedback": 0.9502903122568165,
+        "audit": 0.9445469670422996
+      }
+    },
+    {
+      "calls": 140,
+      "public_loss": 0.9967715826154219,
+      "elapsed_seconds": 4.4675240000360645,
+      "checkpoint": "checkpoints/000140",
+      "scores": {
+        "public": 0.9766915301528096,
+        "feedback": 0.9434311093022442,
+        "audit": 0.9444098164800977
+      },
+      "best_so_far": {
+        "public": 0.9774815634154478,
+        "feedback": 0.9502903122568165,
+        "audit": 0.9445469670422996
+      }
+    },
+    {
+      "calls": 141,
+      "public_loss": 0.9967711669021518,
+      "elapsed_seconds": 4.499084792041685,
+      "checkpoint": "checkpoints/000141",
+      "scores": {
+        "public": 0.976698125141869,
+        "feedback": 0.9433768967017481,
+        "audit": 0.944390831959571
+      },
+      "best_so_far": {
+        "public": 0.9774815634154478,
+        "feedback": 0.9502903122568165,
+        "audit": 0.9445469670422996
+      }
+    },
+    {
+      "calls": 142,
+      "public_loss": 0.9967711432017557,
+      "elapsed_seconds": 4.5294271250022575,
+      "checkpoint": "checkpoints/000142",
+      "scores": {
+        "public": 0.9766969499028268,
+        "feedback": 0.9433866284612029,
+        "audit": 0.9443942439414651
+      },
+      "best_so_far": {
+        "public": 0.9774815634154478,
+        "feedback": 0.9502903122568165,
+        "audit": 0.9445469670422996
+      }
+    },
+    {
+      "calls": 145,
+      "public_loss": 0.9679768175832192,
+      "elapsed_seconds": 4.624570375017356,
+      "checkpoint": "checkpoints/000145",
+      "scores": {
+        "public": 0.9780513076488915,
+        "feedback": 0.9530848026378225,
+        "audit": 0.9480808066880019
+      },
+      "best_so_far": {
+        "public": 0.9780513076488915,
+        "feedback": 0.9530848026378225,
+        "audit": 0.9480808066880019
+      }
+    },
+    {
+      "calls": 148,
+      "public_loss": 0.9677722874832327,
+      "elapsed_seconds": 4.732472917006817,
+      "checkpoint": "checkpoints/000148",
+      "scores": {
+        "public": 0.9783170245755867,
+        "feedback": 0.9565415273419974,
+        "audit": 0.9489497341443008
+      },
+      "best_so_far": {
+        "public": 0.9783170245755867,
+        "feedback": 0.9565415273419974,
+        "audit": 0.9489497341443008
+      }
+    },
+    {
+      "calls": 149,
+      "public_loss": 0.966877436637649,
+      "elapsed_seconds": 4.76801699999487,
+      "checkpoint": "checkpoints/000149",
+      "scores": {
+        "public": 0.9782252289826718,
+        "feedback": 0.9550858454538901,
+        "audit": 0.9486237865856564
+      },
+      "best_so_far": {
+        "public": 0.9783170245755867,
+        "feedback": 0.9565415273419974,
+        "audit": 0.9489497341443008
+      }
+    },
+    {
+      "calls": 150,
+      "public_loss": 0.9668751618616582,
+      "elapsed_seconds": 4.803686375031248,
+      "checkpoint": "checkpoints/000150",
+      "scores": {
+        "public": 0.9782230139929552,
+        "feedback": 0.9550559745558626,
+        "audit": 0.9486164429450702
+      },
+      "best_so_far": {
+        "public": 0.9783170245755867,
+        "feedback": 0.9565415273419974,
+        "audit": 0.9489497341443008
+      }
+    },
+    {
+      "calls": 151,
+      "public_loss": 0.9668720331160578,
+      "elapsed_seconds": 4.84160308400169,
+      "checkpoint": "checkpoints/000151",
+      "scores": {
+        "public": 0.9782146663636107,
+        "feedback": 0.9549448712295056,
+        "audit": 0.9485889118634034
+      },
+      "best_so_far": {
+        "public": 0.9783170245755867,
+        "feedback": 0.9565415273419974,
+        "audit": 0.9489497341443008
+      }
+    },
+    {
+      "calls": 152,
+      "public_loss": 0.966871967611919,
+      "elapsed_seconds": 4.8762479170109145,
+      "checkpoint": "checkpoints/000152",
+      "scores": {
+        "public": 0.9782158447220347,
+        "feedback": 0.9549604176779805,
+        "audit": 0.9485927846897285
+      },
+      "best_so_far": {
+        "public": 0.9783170245755867,
+        "feedback": 0.9565415273419974,
+        "audit": 0.9489497341443008
+      }
+    },
+    {
+      "calls": 163,
+      "public_loss": 0.7197770329792577,
+      "elapsed_seconds": 5.246965709025972,
+      "checkpoint": "checkpoints/000163",
+      "scores": {
+        "public": 0.9415577919022359,
+        "feedback": 0.9402723673974603,
+        "audit": 0.972561407506314
+      },
+      "best_so_far": {
+        "public": 0.9783170245755867,
+        "feedback": 0.9565415273419974,
+        "audit": 0.972561407506314
+      }
+    },
+    {
+      "calls": 167,
+      "public_loss": 0.6092713143682454,
+      "elapsed_seconds": 5.372484625026118,
+      "checkpoint": "checkpoints/000167",
+      "scores": {
+        "public": 0.9656961805667909,
+        "feedback": 0.960429551622949,
+        "audit": 0.9774617347756307
+      },
+      "best_so_far": {
+        "public": 0.9783170245755867,
+        "feedback": 0.960429551622949,
+        "audit": 0.9774617347756307
+      }
+    },
+    {
+      "calls": 169,
+      "public_loss": 0.6091775173679351,
+      "elapsed_seconds": 5.433243625040632,
+      "checkpoint": "checkpoints/000169",
+      "scores": {
+        "public": 0.9676245366726497,
+        "feedback": 0.9619266291443952,
+        "audit": 0.9773469185236562
+      },
+      "best_so_far": {
+        "public": 0.9783170245755867,
+        "feedback": 0.9619266291443952,
+        "audit": 0.9774617347756307
+      }
+    },
+    {
+      "calls": 176,
+      "public_loss": 0.6069401143818897,
+      "elapsed_seconds": 5.703962208994199,
+      "checkpoint": "checkpoints/000176",
+      "scores": {
+        "public": 0.9677576856080159,
+        "feedback": 0.9617493416607578,
+        "audit": 0.9768908051556258
+      },
+      "best_so_far": {
+        "public": 0.9783170245755867,
+        "feedback": 0.9619266291443952,
+        "audit": 0.9774617347756307
+      }
+    },
+    {
+      "calls": 178,
+      "public_loss": 0.606423055230521,
+      "elapsed_seconds": 5.7769930420327,
+      "checkpoint": "checkpoints/000178",
+      "scores": {
+        "public": 0.9678093489532319,
+        "feedback": 0.9616378168173376,
+        "audit": 0.9766437807012333
+      },
+      "best_so_far": {
+        "public": 0.9783170245755867,
+        "feedback": 0.9619266291443952,
+        "audit": 0.9774617347756307
+      }
+    },
+    {
+      "calls": 192,
+      "public_loss": 0.6061331624685583,
+      "elapsed_seconds": 6.234080541995354,
+      "checkpoint": "checkpoints/000192",
+      "scores": {
+        "public": 0.9687281030990195,
+        "feedback": 0.9624014432162908,
+        "audit": 0.9766415760816273
+      },
+      "best_so_far": {
+        "public": 0.9783170245755867,
+        "feedback": 0.9624014432162908,
+        "audit": 0.9774617347756307
+      }
+    }
+  ],
+  "final": {
+    "public": {
+      "status": "scored",
+      "score": 0.9687281030990195,
+      "valid": true,
+      "checks": [
+        {
+          "name": "source_parameters",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "finite_forward_prediction",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "relative_rmse_below_one",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "log_rmse_below_one",
+          "pass": true,
+          "summary": ""
+        }
+      ],
+      "raw_metrics": {
+        "relative_rmse": 0.2323283347305923,
+        "log_rmse": 0.10288993997461855,
+        "observations": 96
+      },
+      "summary": "4/4 named checks passed"
+    },
+    "feedback": {
+      "status": "scored",
+      "score": 0.9624014432162908,
+      "valid": true,
+      "checks": [
+        {
+          "name": "source_parameters",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "finite_forward_prediction",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "relative_rmse_below_one",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "log_rmse_below_one",
+          "pass": true,
+          "summary": ""
+        }
+      ],
+      "raw_metrics": {
+        "relative_rmse": 0.2544003595808233,
+        "log_rmse": 0.11582456144453931,
+        "observations": 96
+      },
+      "summary": "4/4 named checks passed"
+    },
+    "audit": {
+      "status": "scored",
+      "score": 0.9766415760816273,
+      "valid": true,
+      "checks": [
+        {
+          "name": "source_parameters",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "finite_forward_prediction",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "relative_rmse_below_one",
+          "pass": true,
+          "summary": ""
+        },
+        {
+          "name": "log_rmse_below_one",
+          "pass": true,
+          "summary": ""
+        }
+      ],
+      "raw_metrics": {
+        "relative_rmse": 0.16092497290501487,
+        "log_rmse": 0.14811256516571641,
+        "observations": 180
+      },
+      "summary": "4/4 named checks passed"
+    }
+  },
+  "repeat_score_absolute_difference": {
+    "public": 0.0,
+    "feedback": 0.0,
+    "audit": 0.0
+  },
+  "not_a_six_hour_agent_curve": true
+}

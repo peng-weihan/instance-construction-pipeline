@@ -1,0 +1,93 @@
+{
+  "task_id": "datafusion-sort-topk",
+  "route": "04_datafusion",
+  "status": "hold_for_evidence; source_workload_grader_draft",
+  "source_revision": "91cd7ffb927b5a4f9fee1907db50a9610759de5b",
+  "requested_author_model": "gpt-6.1-sol",
+  "provider_receipt_verified": false,
+  "actual_materials": {
+    "full_upstream_source": true,
+    "real_subsystem": [
+      "SortExec",
+      "TopK",
+      "SortPreservingMergeExec"
+    ],
+    "custom_sorter_substitution": false,
+    "correctness_scenarios": 12,
+    "performance_scenarios": 6,
+    "source_near_misses": 2,
+    "strong_starting_point": "unchanged upstream"
+  },
+  "local_controls": {
+    "oracle_crosscheck": "12/12 match SQLite; not DataFusion correctness evidence",
+    "source_near_miss_patch_dry_runs": [
+      {
+        "patch": "invert-null-policy.patch",
+        "dry_run_exit": 0,
+        "stdout": "patching file 'datafusion/physical-plan/src/topk/mod.rs'\n",
+        "stderr": "",
+        "compiled": false,
+        "behavior_verified_on_datafusion": false
+      },
+      {
+        "patch": "short-fetch.patch",
+        "dry_run_exit": 0,
+        "stdout": "patching file 'datafusion/physical-plan/src/sorts/sort.rs'\n",
+        "stderr": "",
+        "compiled": false,
+        "behavior_verified_on_datafusion": false
+      }
+    ],
+    "uncalibrated_grader": {
+      "valid": false,
+      "score": null,
+      "pass_rate": null,
+      "summary": "infrastructure failure: RuntimeError('hold_for_evidence: measured baseline and strong-reference anchors are missing; calibration is disabled')",
+      "checks": [],
+      "metrics": {}
+    },
+    "grader_protocol_component": "correct driver accepted; short-output and inverted-null drivers rejected; macOS protocol-only check with Linux resource preexec skipped; not DataFusion evidence"
+  },
+  "evidence": [
+    "authoring/evidence/oracle-crosscheck.json",
+    "authoring/evidence/near-miss-patch-controls.json",
+    "authoring/evidence/uncalibrated-entry/score.json",
+    "authoring/toolchain-availability.json",
+    "authoring/alternative-version-screening.json",
+    "authoring/evidence/grader-protocol-component.json"
+  ],
+  "unverified": [
+    "Rust probe API/build compatibility",
+    "cargo fetch dependency closure",
+    "actual DataFusion correctness",
+    "candidate/reference/partial binary runtime",
+    "all timings/noise",
+    "strong optimized reference/upper anchor",
+    "Docker permission/resource isolation",
+    "Harbor oracle/NOP and adapter entry",
+    "dual architecture task images",
+    "six-hour trajectory/growth"
+  ],
+  "blockers": [
+    "timing anchors remain null",
+    "crate+probe not built/run; fixed route present but unverified",
+    "dependency archives absent; locked build-time fetch untested"
+  ],
+  "source_screening": {
+    "alternative_50_0_0": {
+      "commit": "10343c18292fc3a9ca62b59c8bb530169fe79b82",
+      "rust_version_lines": [
+        "rust-version = \"1.86.0\""
+      ],
+      "source": "official annotated tag resolved to commit; fixed raw Cargo.toml"
+    },
+    "decision": "preserve pinned main; alternative saved for lower-cost next iteration"
+  },
+  "acceptance": false,
+  "six_hour_calibrated": false,
+  "scores": {
+    "baseline": null,
+    "reference": null,
+    "near_misses": null
+  }
+}

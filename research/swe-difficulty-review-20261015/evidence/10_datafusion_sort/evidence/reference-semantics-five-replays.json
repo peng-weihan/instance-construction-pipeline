@@ -1,0 +1,2121 @@
+{
+  "label": "reference-semantic-replay",
+  "method": "host engine audit, not native Harbor trial",
+  "reports": [
+    {
+      "checks": [
+        {
+          "name": "int-False-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              2793292
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "int-False-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1104305
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "int-True-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1193974
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "int-True-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1018161
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "str-False-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              985280
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "str-False-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1697554
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "str-True-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1038681
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "str-True-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1016469
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "float-False-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1220955
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "float-False-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1184536
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "float-True-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1290195
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "float-True-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              984979
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "order-sorted",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              78237
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "order-reverse",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              525532
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "order-duplicates",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              919305
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-0-0",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              13556
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-1-0",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              2925322
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-7-13",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              521474
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-101-71",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              708287
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-4096-0",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1180569
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-10-10000",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1288071
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-2-int",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              853080
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-2-str",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              719959
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-2-float",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              904076
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-2-multi",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              773420
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-7-int",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1078235
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-7-str",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1059770
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-7-float",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              837711
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-7-multi",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1197540
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "spill-int",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              50175338
+            ],
+            "spill_count": 12,
+            "spilled_bytes": 15581520
+          }
+        },
+        {
+          "name": "spill-str",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              74373844
+            ],
+            "spill_count": 12,
+            "spilled_bytes": 15581368
+          }
+        },
+        {
+          "name": "spill-multi",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              56053683
+            ],
+            "spill_count": 12,
+            "spilled_bytes": 15581504
+          }
+        },
+        {
+          "name": "empty",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              33834
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "singleton",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              34044
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        }
+      ],
+      "groups_passed": {
+        "numeric": 9,
+        "utf8": 4,
+        "floating": 4,
+        "topk": 6,
+        "partition": 8,
+        "spill": 3
+      },
+      "native_passed": null,
+      "semantic_score": 0.2,
+      "score_with_native": null
+    },
+    {
+      "checks": [
+        {
+          "name": "int-False-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              973668
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "int-False-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              816251
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "int-True-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              961896
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "int-True-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1291678
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "str-False-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              946006
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "str-False-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1069498
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "str-True-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              980491
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "str-True-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1072524
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "float-False-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              570437
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "float-False-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              890340
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "float-True-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1036937
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "float-True-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1025004
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "order-sorted",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              54713
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "order-reverse",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              508019
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "order-duplicates",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              965643
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-0-0",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              4839
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-1-0",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              354008
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-7-13",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              599311
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-101-71",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              702566
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-4096-0",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1173024
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-10-10000",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              2036214
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-2-int",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              673682
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-2-str",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1099175
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-2-float",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              719027
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-2-multi",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              735899
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-7-int",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              815810
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-7-str",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1016809
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-7-float",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              879430
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-7-multi",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1099305
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "spill-int",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              39571653
+            ],
+            "spill_count": 12,
+            "spilled_bytes": 15581520
+          }
+        },
+        {
+          "name": "spill-str",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              52803729
+            ],
+            "spill_count": 12,
+            "spilled_bytes": 15581368
+          }
+        },
+        {
+          "name": "spill-multi",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              53815409
+            ],
+            "spill_count": 12,
+            "spilled_bytes": 15581504
+          }
+        },
+        {
+          "name": "empty",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              47720
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "singleton",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              30367
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        }
+      ],
+      "groups_passed": {
+        "numeric": 9,
+        "utf8": 4,
+        "floating": 4,
+        "topk": 6,
+        "partition": 8,
+        "spill": 3
+      },
+      "native_passed": null,
+      "semantic_score": 0.2,
+      "score_with_native": null
+    },
+    {
+      "checks": [
+        {
+          "name": "int-False-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1213380
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "int-False-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              815249
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "int-True-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1515511
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "int-True-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1278463
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "str-False-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              769151
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "str-False-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1039271
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "str-True-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1148758
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "str-True-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              728626
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "float-False-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1067856
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "float-False-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              772458
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "float-True-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1052377
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "float-True-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1075410
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "order-sorted",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              71806
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "order-reverse",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              435632
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "order-duplicates",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              735769
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-0-0",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              4849
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-1-0",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              363095
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-7-13",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              502959
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-101-71",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              723155
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-4096-0",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1415191
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-10-10000",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1253897
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-2-int",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              518629
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-2-str",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              839144
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-2-float",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              711603
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-2-multi",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1512125
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-7-int",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1033832
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-7-str",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              904948
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-7-float",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              952548
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-7-multi",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1399922
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "spill-int",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              61171133
+            ],
+            "spill_count": 12,
+            "spilled_bytes": 15581520
+          }
+        },
+        {
+          "name": "spill-str",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              48657653
+            ],
+            "spill_count": 12,
+            "spilled_bytes": 15581368
+          }
+        },
+        {
+          "name": "spill-multi",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              48293997
+            ],
+            "spill_count": 12,
+            "spilled_bytes": 15581504
+          }
+        },
+        {
+          "name": "empty",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              32451
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "singleton",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              32801
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        }
+      ],
+      "groups_passed": {
+        "numeric": 9,
+        "utf8": 4,
+        "floating": 4,
+        "topk": 6,
+        "partition": 8,
+        "spill": 3
+      },
+      "native_passed": null,
+      "semantic_score": 0.2,
+      "score_with_native": null
+    },
+    {
+      "checks": [
+        {
+          "name": "int-False-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              781686
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "int-False-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              966084
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "int-True-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              991411
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "int-True-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              671938
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "str-False-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              735338
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "str-False-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              949221
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "str-True-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              741139
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "str-True-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1038571
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "float-False-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              690514
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "float-False-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              911140
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "float-True-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              840867
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "float-True-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1103423
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "order-sorted",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              99798
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "order-reverse",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              499713
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "order-duplicates",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              909877
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-0-0",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              4709
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-1-0",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              478683
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-7-13",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              568013
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-101-71",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              803917
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-4096-0",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1183635
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-10-10000",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1003173
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-2-int",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              522887
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-2-str",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              542284
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-2-float",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              642332
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-2-multi",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              643415
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-7-int",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              798767
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-7-str",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1254649
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-7-float",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              861235
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-7-multi",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1157175
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "spill-int",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              45465077
+            ],
+            "spill_count": 12,
+            "spilled_bytes": 15581520
+          }
+        },
+        {
+          "name": "spill-str",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              49624819
+            ],
+            "spill_count": 12,
+            "spilled_bytes": 15581368
+          }
+        },
+        {
+          "name": "spill-multi",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              43443642
+            ],
+            "spill_count": 12,
+            "spilled_bytes": 15581504
+          }
+        },
+        {
+          "name": "empty",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              32150
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "singleton",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              27222
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        }
+      ],
+      "groups_passed": {
+        "numeric": 9,
+        "utf8": 4,
+        "floating": 4,
+        "topk": 6,
+        "partition": 8,
+        "spill": 3
+      },
+      "native_passed": null,
+      "semantic_score": 0.2,
+      "score_with_native": null
+    },
+    {
+      "checks": [
+        {
+          "name": "int-False-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              656589
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "int-False-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1068978
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "int-True-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              997292
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "int-True-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              776566
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "str-False-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1246593
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "str-False-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              920127
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "str-True-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1147877
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "str-True-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              995579
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "float-False-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              853612
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "float-False-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              895130
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "float-True-False",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              994507
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "float-True-True",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              735688
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "order-sorted",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              47159
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "order-reverse",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              393673
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "order-duplicates",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              938481
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-0-0",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              5380
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-1-0",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              401147
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-7-13",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              611524
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-101-71",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              551291
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-4096-0",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1188844
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "topk-10-10000",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1148097
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-2-int",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              711273
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-2-str",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              649456
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-2-float",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              435773
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-2-multi",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              679923
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-7-int",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              936868
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-7-str",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1590903
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-7-float",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              863259
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "merge-7-multi",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              1172954
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "spill-int",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              38069628
+            ],
+            "spill_count": 12,
+            "spilled_bytes": 15581520
+          }
+        },
+        {
+          "name": "spill-str",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              43811325
+            ],
+            "spill_count": 12,
+            "spilled_bytes": 15581368
+          }
+        },
+        {
+          "name": "spill-multi",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              42251822
+            ],
+            "spill_count": 12,
+            "spilled_bytes": 15581504
+          }
+        },
+        {
+          "name": "empty",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              44214
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        },
+        {
+          "name": "singleton",
+          "passed": true,
+          "detail": "ok",
+          "metrics": {
+            "elapsed_ns": [
+              22543
+            ],
+            "spill_count": 0,
+            "spilled_bytes": 0
+          }
+        }
+      ],
+      "groups_passed": {
+        "numeric": 9,
+        "utf8": 4,
+        "floating": 4,
+        "topk": 6,
+        "partition": 8,
+        "spill": 3
+      },
+      "native_passed": null,
+      "semantic_score": 0.2,
+      "score_with_native": null
+    }
+  ]
+}

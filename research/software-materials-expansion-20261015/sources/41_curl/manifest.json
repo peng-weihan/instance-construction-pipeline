@@ -1,0 +1,86 @@
+{
+  "repo": "curl/curl",
+  "revision": "03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c",
+  "resolved_utc": "2026-10-15T13:08:40.761008+00:00",
+  "retrieved_utc": "2026-10-15T13:09:42.053831+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "5dd49817c166961b2ef2d4a0a88221299ec1a45245c9681ab0b91e3a301bef76",
+    "truncated": false,
+    "blob_count": 4581
+  },
+  "files_acquired": [
+    {
+      "path": "COPYING",
+      "bytes": 1088,
+      "sha256": "82f2f4427d6545ee5aaac4f0b80428da6cc8ba41c2cf5da3a03680ec327b9681",
+      "url": "https://github.com/curl/curl/blob/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c/COPYING"
+    },
+    {
+      "path": "README",
+      "bytes": 1461,
+      "sha256": "4e3177f14f86cac279e34a80001da61fdf0476f68cf647c9b52f5422d7a132a0",
+      "url": "https://github.com/curl/curl/blob/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c/README"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2068,
+      "sha256": "bd7147c572f2ec9a32aa2e9ec46031ea637d2ea3edb059c31659e573507a61b4",
+      "url": "https://github.com/curl/curl/blob/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c/README.md"
+    },
+    {
+      "path": "docs/cmdline-opts/continue-at.md",
+      "bytes": 1055,
+      "sha256": "a97239d69b9f017c8b5f82ae3cff20f82424755fa9efe0a8856a432c5c739f32",
+      "url": "https://github.com/curl/curl/blob/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c/docs/cmdline-opts/continue-at.md"
+    },
+    {
+      "path": "docs/cmdline-opts/location.md",
+      "bytes": 1714,
+      "sha256": "7c4d395b257df8fba49ba13024aef568409ba102e0157976242e2aff30c22eb8",
+      "url": "https://github.com/curl/curl/blob/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c/docs/cmdline-opts/location.md"
+    },
+    {
+      "path": "docs/cmdline-opts/parallel.md",
+      "bytes": 916,
+      "sha256": "8c69854349e8882f6047136c74c53bf0e6555b72349164bf90f37f179bc3b6ba",
+      "url": "https://github.com/curl/curl/blob/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c/docs/cmdline-opts/parallel.md"
+    },
+    {
+      "path": "docs/cmdline-opts/retry.md",
+      "bytes": 1332,
+      "sha256": "b96669c671c49b930aa5d32c776147b2e7014881db5429921a33c6eb3eff4cb9",
+      "url": "https://github.com/curl/curl/blob/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c/docs/cmdline-opts/retry.md"
+    },
+    {
+      "path": "src/tool_operate.c",
+      "bytes": 75872,
+      "sha256": "1ab2eb5d38fdc31eebaccbbb70f151de14e3559c17bc0f76be70258e68a24cc1",
+      "url": "https://github.com/curl/curl/blob/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c/src/tool_operate.c"
+    },
+    {
+      "path": "tests/data/test1",
+      "bytes": 863,
+      "sha256": "78eb2f0da31296fb9772645fbae4320526795dcf7ddcd8268635462fee9979a8",
+      "url": "https://github.com/curl/curl/blob/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c/tests/data/test1"
+    },
+    {
+      "path": "tests/data/test1059",
+      "bytes": 906,
+      "sha256": "8ad72d3737fd4d5a6d3a31e8b26ada9e4880708690d56f04574029c8d56f428a",
+      "url": "https://github.com/curl/curl/blob/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c/tests/data/test1059"
+    },
+    {
+      "path": "tests/data/test207",
+      "bytes": 1105,
+      "sha256": "1203f7efd7a55cd324d5b6b6d441384a42fe79cda914a928f005983463b613ce",
+      "url": "https://github.com/curl/curl/blob/03f3f4c6d97be3c2c9ad42010f65e61bf0a2c05c/tests/data/test207"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

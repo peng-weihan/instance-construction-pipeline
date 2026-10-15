@@ -1,0 +1,57 @@
+{
+  "repo": "sebp/scikit-survival",
+  "revision": "ca0c2bd6ed19334d9cb357e309c38d730cac8cdc",
+  "resolved_utc": "2026-10-15T14:58:34.677492+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:12.166800+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "c5aa220aa2ded410e145cdccc0785c602bf02791d6d169df497b55efcfabb5a6",
+    "truncated": false,
+    "blob_count": 239
+  },
+  "files_acquired": [
+    {
+      "path": "COPYING",
+      "bytes": 35147,
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "url": "https://github.com/sebp/scikit-survival/blob/ca0c2bd6ed19334d9cb357e309c38d730cac8cdc/COPYING"
+    },
+    {
+      "path": "README.rst",
+      "bytes": 5356,
+      "sha256": "79e7fe07ae5991c4b48406b9ab40ed68043dee05804b10b2022b9f501a76b11e",
+      "url": "https://github.com/sebp/scikit-survival/blob/ca0c2bd6ed19334d9cb357e309c38d730cac8cdc/README.rst"
+    },
+    {
+      "path": "sksurv/datasets/base.py",
+      "bytes": 33037,
+      "sha256": "daa91702213b76b0e1629b8555bf30b82d273a9209d7982b3d0f15df969330d5",
+      "url": "https://github.com/sebp/scikit-survival/blob/ca0c2bd6ed19334d9cb357e309c38d730cac8cdc/sksurv/datasets/base.py"
+    },
+    {
+      "path": "sksurv/datasets/data/bmt.arff",
+      "bytes": 509,
+      "sha256": "c910a1f3bb4096c050028725883aaec8fdbc96c9d08424cd534bc96ad807ea7b",
+      "url": "https://github.com/sebp/scikit-survival/blob/ca0c2bd6ed19334d9cb357e309c38d730cac8cdc/sksurv/datasets/data/bmt.arff"
+    },
+    {
+      "path": "sksurv/metrics.py",
+      "bytes": 41743,
+      "sha256": "8e6d3d67d6e8bc619de192e55bb2523a622b19301b1ab31b70dfa607c6527842",
+      "url": "https://github.com/sebp/scikit-survival/blob/ca0c2bd6ed19334d9cb357e309c38d730cac8cdc/sksurv/metrics.py"
+    },
+    {
+      "path": "tests/test_metrics.py",
+      "bytes": 40135,
+      "sha256": "a3e57af5067b014b0706003e45d0268ae340ab0dd2bbd8c48b212dc2f56f09ac",
+      "url": "https://github.com/sebp/scikit-survival/blob/ca0c2bd6ed19334d9cb357e309c38d730cac8cdc/tests/test_metrics.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

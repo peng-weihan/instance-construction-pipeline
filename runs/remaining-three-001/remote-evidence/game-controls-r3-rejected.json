@@ -1,0 +1,954 @@
+{
+  "kind": "direct_offline_docker_runtime_reuse",
+  "runtime_image_id": "sha256:196c328b2fe18970b07a30df5c11283d6a652cf0c5899d76d6af5b4fd2269f9f",
+  "source_task": "/ws/users/raymone/edgebench/remaining-three-001/game-task-r3",
+  "source_dockerfile_rebuilt": false,
+  "native_harbor_verified": false,
+  "model_runs": 0,
+  "results": {
+    "reference": {
+      "seconds": 50.21189143299125,
+      "status": "scored",
+      "score": 0.31742424242424244,
+      "valid": true,
+      "checks": [
+        {
+          "name": "frontier_river_crossings_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        }
+      ],
+      "raw_metrics": {
+        "games": 12,
+        "wins": 4,
+        "win_rate": 0.3333333333333333,
+        "finished_game_turns": [
+          16,
+          8,
+          13,
+          10,
+          9,
+          10,
+          10,
+          18,
+          13,
+          7,
+          13,
+          5
+        ],
+        "match_scores": [
+          0,
+          0,
+          0,
+          0.9590909090909091,
+          0,
+          0.9590909090909091,
+          0,
+          0,
+          0.9454545454545455,
+          0,
+          0.9454545454545455,
+          0
+        ],
+        "original_mean_before_validity_gate": 0.31742424242424244
+      },
+      "summary": "12/12 named checks passed",
+      "pass_rate": 1.0
+    },
+    "starter": {
+      "seconds": 76.4689418959897,
+      "status": "scored",
+      "score": 0.23750000000000002,
+      "valid": true,
+      "checks": [
+        {
+          "name": "frontier_river_crossings_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        }
+      ],
+      "raw_metrics": {
+        "games": 12,
+        "wins": 3,
+        "win_rate": 0.25,
+        "finished_game_turns": [
+          11,
+          15,
+          11,
+          22,
+          9,
+          25,
+          16,
+          21,
+          5,
+          13,
+          7,
+          13
+        ],
+        "match_scores": [
+          0,
+          0.9363636363636364,
+          0,
+          0,
+          0,
+          0,
+          0.9318181818181819,
+          0,
+          0.9818181818181819,
+          0,
+          0,
+          0
+        ],
+        "original_mean_before_validity_gate": 0.23750000000000002
+      },
+      "summary": "12/12 named checks passed",
+      "pass_rate": 1.0
+    },
+    "economy_only": {
+      "seconds": 63.720425707055256,
+      "status": "scored",
+      "score": 0.30530303030303035,
+      "valid": true,
+      "checks": [
+        {
+          "name": "frontier_river_crossings_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        }
+      ],
+      "raw_metrics": {
+        "games": 12,
+        "wins": 4,
+        "win_rate": 0.3333333333333333,
+        "finished_game_turns": [
+          20,
+          17,
+          11,
+          18,
+          9,
+          15,
+          24,
+          17,
+          19,
+          5,
+          7,
+          16
+        ],
+        "match_scores": [
+          0.9136363636363637,
+          0,
+          0,
+          0,
+          0,
+          0.9363636363636364,
+          0.8954545454545455,
+          0,
+          0.9181818181818182,
+          0,
+          0,
+          0
+        ],
+        "original_mean_before_validity_gate": 0.30530303030303035
+      },
+      "summary": "12/12 named checks passed",
+      "pass_rate": 1.0
+    },
+    "attack_only": {
+      "seconds": 36.126857032999396,
+      "status": "scored",
+      "score": 0.31363636363636366,
+      "valid": true,
+      "checks": [
+        {
+          "name": "frontier_river_crossings_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "win"
+        }
+      ],
+      "raw_metrics": {
+        "games": 12,
+        "wins": 4,
+        "win_rate": 0.3333333333333333,
+        "finished_game_turns": [
+          13,
+          10,
+          21,
+          15,
+          10,
+          13,
+          19,
+          10,
+          8,
+          20,
+          8,
+          9
+        ],
+        "match_scores": [
+          0,
+          0,
+          0,
+          0.9363636363636364,
+          0,
+          0.9454545454545455,
+          0.9181818181818182,
+          0,
+          0,
+          0,
+          0,
+          0.9636363636363637
+        ],
+        "original_mean_before_validity_gate": 0.31363636363636366
+      },
+      "summary": "12/12 named checks passed",
+      "pass_rate": 1.0
+    },
+    "invalid_policy": {
+      "seconds": 49.84951909200754,
+      "status": "scored",
+      "score": 0,
+      "valid": false,
+      "checks": [
+        {
+          "name": "frontier_river_crossings_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": false,
+          "summary": "policy or scenario execution failed"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": false,
+          "summary": "policy or scenario execution failed"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": false,
+          "summary": "policy or scenario execution failed"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": false,
+          "summary": "policy or scenario execution failed"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": false,
+          "summary": "policy or scenario execution failed"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": false,
+          "summary": "policy or scenario execution failed"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": false,
+          "summary": "policy or scenario execution failed"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": false,
+          "summary": "policy or scenario execution failed"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": false,
+          "summary": "policy or scenario execution failed"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": false,
+          "summary": "policy or scenario execution failed"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": false,
+          "summary": "policy or scenario execution failed"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": false,
+          "summary": "policy or scenario execution failed"
+        }
+      ],
+      "raw_metrics": {
+        "games": 12,
+        "wins": 0,
+        "win_rate": 0.0,
+        "finished_game_turns": [],
+        "match_scores": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "original_mean_before_validity_gate": 0.0
+      },
+      "summary": "0/12 named checks passed",
+      "pass_rate": 0.0
+    },
+    "empty": {
+      "seconds": 13.036030684947036,
+      "status": "scored",
+      "score": 0,
+      "valid": false,
+      "checks": [
+        {
+          "name": "submission_contract",
+          "pass": false,
+          "summary": "policy.lua missing or too large"
+        }
+      ],
+      "raw_metrics": {},
+      "summary": "0/1 named checks passed",
+      "pass_rate": 0
+    },
+    "reference_repeat_2": {
+      "seconds": 35.67616488307249,
+      "status": "scored",
+      "score": 0.4772727272727273,
+      "valid": true,
+      "checks": [
+        {
+          "name": "frontier_river_crossings_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        }
+      ],
+      "raw_metrics": {
+        "games": 12,
+        "wins": 6,
+        "win_rate": 0.5,
+        "finished_game_turns": [
+          10,
+          11,
+          14,
+          11,
+          10,
+          8,
+          11,
+          9,
+          6,
+          16,
+          4,
+          6
+        ],
+        "match_scores": [
+          0,
+          0.9545454545454546,
+          0.9409090909090909,
+          0.9545454545454546,
+          0,
+          0.9681818181818183,
+          0,
+          0,
+          0.9772727272727273,
+          0.9318181818181819,
+          0,
+          0
+        ],
+        "original_mean_before_validity_gate": 0.4772727272727273
+      },
+      "summary": "12/12 named checks passed",
+      "pass_rate": 1.0
+    },
+    "reference_repeat_3": {
+      "seconds": 43.645551252993755,
+      "status": "scored",
+      "score": 0.3912878787878788,
+      "valid": true,
+      "checks": [
+        {
+          "name": "frontier_river_crossings_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "win"
+        }
+      ],
+      "raw_metrics": {
+        "games": 12,
+        "wins": 5,
+        "win_rate": 0.4166666666666667,
+        "finished_game_turns": [
+          6,
+          9,
+          15,
+          10,
+          26,
+          21,
+          7,
+          15,
+          13,
+          6,
+          17,
+          12
+        ],
+        "match_scores": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.9090909090909092,
+          0.9727272727272728,
+          0.9363636363636364,
+          0,
+          0,
+          0.9272727272727274,
+          0.9500000000000001
+        ],
+        "original_mean_before_validity_gate": 0.3912878787878788
+      },
+      "summary": "12/12 named checks passed",
+      "pass_rate": 1.0
+    },
+    "reference_repeat_4": {
+      "seconds": 45.351907399017364,
+      "status": "scored",
+      "score": 0.3140151515151515,
+      "valid": true,
+      "checks": [
+        {
+          "name": "frontier_river_crossings_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "win"
+        }
+      ],
+      "raw_metrics": {
+        "games": 12,
+        "wins": 4,
+        "win_rate": 0.3333333333333333,
+        "finished_game_turns": [
+          9,
+          9,
+          13,
+          20,
+          16,
+          20,
+          15,
+          10,
+          13,
+          8,
+          9,
+          17
+        ],
+        "match_scores": [
+          0,
+          0.9636363636363637,
+          0.9454545454545455,
+          0,
+          0.9318181818181819,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.9272727272727274
+        ],
+        "original_mean_before_validity_gate": 0.3140151515151515
+      },
+      "summary": "12/12 named checks passed",
+      "pass_rate": 1.0
+    },
+    "reference_repeat_5": {
+      "seconds": 55.11904625594616,
+      "status": "scored",
+      "score": 0.46553030303030307,
+      "valid": true,
+      "checks": [
+        {
+          "name": "frontier_river_crossings_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_river_crossings_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_forest_flanks_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Loyalists-Rebels/seat1/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Loyalists-Rebels/seat2/seed17",
+          "pass": true,
+          "summary": "loss/draw"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Rebels-Northerners/seat1/seed17",
+          "pass": true,
+          "summary": "win"
+        },
+        {
+          "name": "frontier_open_economy_feedback/Rebels-Northerners/seat2/seed17",
+          "pass": true,
+          "summary": "win"
+        }
+      ],
+      "raw_metrics": {
+        "games": 12,
+        "wins": 6,
+        "win_rate": 0.5,
+        "finished_game_turns": [
+          14,
+          34,
+          16,
+          15,
+          9,
+          18,
+          45,
+          10,
+          13,
+          13,
+          14,
+          24
+        ],
+        "match_scores": [
+          0,
+          0,
+          0.9318181818181819,
+          0.9363636363636364,
+          0,
+          0.9227272727272728,
+          0,
+          0.9590909090909091,
+          0,
+          0,
+          0.9409090909090909,
+          0.8954545454545455
+        ],
+        "original_mean_before_validity_gate": 0.46553030303030307
+      },
+      "summary": "12/12 named checks passed",
+      "pass_rate": 1.0
+    }
+  },
+  "status": "completed",
+  "patched_binary_sha256": "f94c499fe600fe79d6f1fdd4e81c7818e87de8c3ef0369bf5141bca99c75e240",
+  "reference_deterministic": false,
+  "passed": true,
+  "finished_utc": "2026-10-14T20:11:29.827892+00:00"
+}

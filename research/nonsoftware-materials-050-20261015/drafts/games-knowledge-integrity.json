@@ -1,0 +1,10 @@
+{
+  "candidates": 15,
+  "files": 104,
+  "anchors": 40,
+  "read_ranges": 40,
+  "source_bytes": 1460302,
+  "errors": [],
+  "cards": 15,
+  "source_integrity_ok": true
+}

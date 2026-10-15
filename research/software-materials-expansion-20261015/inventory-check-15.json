@@ -1,0 +1,23 @@
+{
+  "inventory_integrity_ok": true,
+  "candidate_count": 15,
+  "unique_primary_repositories": 15,
+  "route_counts": {
+    "M1": 3,
+    "M2": 3,
+    "M3": 3,
+    "M4": 3,
+    "M5": 3
+  },
+  "source_files_checked": 140,
+  "source_excerpt_bytes": 3168344,
+  "source_anchors_checked": 76,
+  "local_links_checked": 46,
+  "previous_repository_overlaps": [],
+  "errors": [],
+  "proof_scope": "source inventory and excerpt integrity only",
+  "new_task_packages": 0,
+  "new_runtime_experiments": 0,
+  "new_model_runs": 0,
+  "six_hour_difficulty_verified": false
+}

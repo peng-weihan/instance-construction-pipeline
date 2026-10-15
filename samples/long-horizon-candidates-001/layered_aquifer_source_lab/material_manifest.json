@@ -1,0 +1,82 @@
+[
+  {
+    "path": "DESIGN.md",
+    "sha256": "a41cdf47dcf448e881d123b2102c8f71d9ca085721292e1d3c6798555d7491c4",
+    "bytes": 718
+  },
+  {
+    "path": "candidate.json",
+    "sha256": "00fafd1249aedeee655149a51020ef2f1c2a073788cabe2ca1dcda88176c4957",
+    "bytes": 1531
+  },
+  {
+    "path": "private/audit_observations.csv",
+    "sha256": "37b01c23334942c6b71b40d00941bc1b4fe61b2423a6e697c055085577fa53c9",
+    "bytes": 10787
+  },
+  {
+    "path": "private/feedback_observations.csv",
+    "sha256": "fd1012c402bbb0c2f049ea3c056dcfe50378f243641f86e0dad211da5cf07523",
+    "bytes": 6056
+  },
+  {
+    "path": "private/generate_scene.py",
+    "sha256": "9ee4b51c13900d71fbd8222420cfb5e09355253b78f8745f40e875880e4b8473",
+    "bytes": 1941
+  },
+  {
+    "path": "private/generation_record.json",
+    "sha256": "b7c2528794f4c6d388234580d02a35b9f26b595be39197deeedf32345a3198bf",
+    "bytes": 228
+  },
+  {
+    "path": "private/truth.json",
+    "sha256": "f5fb3f3f53ae9a270e08bb49273794c05251066445abbf06c16209bdd6f2221a",
+    "bytes": 156
+  },
+  {
+    "path": "public/contract.draft.json",
+    "sha256": "3648cbc5724312e7758121f9037d6b4215af74ec246a31ce39a34525b84d8c68",
+    "bytes": 1090
+  },
+  {
+    "path": "public/instruction.md",
+    "sha256": "1a39e29f09e9dffb3be1d3091eeee02e2c206fdc38ddf683c60daabfb4bbfa16",
+    "bytes": 974
+  },
+  {
+    "path": "public/physics.md",
+    "sha256": "f8950aa6fe401a8a32e7d2eacc7676ebde2395142248385fd8eed7fae4ce2653",
+    "bytes": 1178
+  },
+  {
+    "path": "public/public_observations.csv",
+    "sha256": "2076f86fc7dd25a25875abc82c23356a72a71932f072b9a202c55979b5e97394",
+    "bytes": 4985
+  },
+  {
+    "path": "public/scene.json",
+    "sha256": "85e51c48b90a5997293525e16142f6664e67752c911b7a7668e464259e2fe6e3",
+    "bytes": 930
+  },
+  {
+    "path": "public/score_design.json",
+    "sha256": "c068e1193add4db082753d0a68cd9fa8c82830d44964e19ac048213110393013",
+    "bytes": 649
+  },
+  {
+    "path": "public/source_bounds.json",
+    "sha256": "f46e89a15c0d6e2954e34ceb684af937771e5ecf0c24fcca08b1b91e67f533ec",
+    "bytes": 323
+  },
+  {
+    "path": "public/submission/answer.json",
+    "sha256": "7ad00ebc2be5dc07dc93a863a0c6fc437a9c8231622a657bbcf357dbb5d69d54",
+    "bytes": 171
+  },
+  {
+    "path": "public/submission/solve.py",
+    "sha256": "cde3e9fa8d30a58f9b0fbff6157213477a45b990c08e142f6bb5684782d55310",
+    "bytes": 193
+  }
+]

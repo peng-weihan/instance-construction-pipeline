@@ -1,0 +1,98 @@
+{
+  "environment/Dockerfile": {
+    "bytes": 761,
+    "sha256": "a34eb03baa05e02e1613055fb47a6270ebfbd794bf76e0d946036c88d883f97e"
+  },
+  "environment/cargo-config.toml": {
+    "bytes": 120,
+    "sha256": "bd21e33b10e9383143bea3271f021c4da08f0c183a334b3767d24bab566005fd"
+  },
+  "environment/dev-cases.json": {
+    "bytes": 2763,
+    "sha256": "6c171b00b3cca4e31d679cace5e6520c5fc5f02ee6937668505ea0374f95f807"
+  },
+  "environment/probe/Cargo.lock": {
+    "bytes": 4236,
+    "sha256": "d98f1703ae73b60d129a72b5d13a4b73323af8c5fbf7fbaf1b27de6ab0d62cf0"
+  },
+  "environment/probe/Cargo.toml": {
+    "bytes": 318,
+    "sha256": "90eaa26e3c5b14913bf9113a0a1f525db7761c11c91bac961e757cfe4d5836f1"
+  },
+  "environment/probe/src/main.rs": {
+    "bytes": 2037,
+    "sha256": "0884e53cc0e7e33d9643c7aaff2b9b2f6dfb58f32c4b7cd664b3ad0c8aeef9ad"
+  },
+  "environment/starter.tar.gz": {
+    "bytes": 384108,
+    "sha256": "fce4dc33e244ef90a542cdd40c135715e4c2ea440dbfdd14bbc5a39054c74f01"
+  },
+  "environment/vendor.tar.gz": {
+    "bytes": 1468211,
+    "sha256": "d89a061f767438d9b71bdcd9c385e66f196b43acb4b904c7a3ced4b71fd49326"
+  },
+  "verifier/Dockerfile": {
+    "bytes": 650,
+    "sha256": "0f207356168d58bb08727be7c7a1d628183a99d14d8d394a1f7c51e953c84cdd"
+  },
+  "verifier/private/cases.json": {
+    "bytes": 16612,
+    "sha256": "e5c846731d420de359d717a539d97d3f7b86df625af7806eb2f494348c94cc59"
+  },
+  "verifier/tests/grader.py": {
+    "bytes": 5542,
+    "sha256": "bc93cf1088c7a26d381e8f2a3746e814eb17e25e79ce999dc934b92da509cfeb"
+  },
+  "verifier/tests/probe/Cargo.lock": {
+    "bytes": 4236,
+    "sha256": "d98f1703ae73b60d129a72b5d13a4b73323af8c5fbf7fbaf1b27de6ab0d62cf0"
+  },
+  "verifier/tests/probe/Cargo.toml": {
+    "bytes": 318,
+    "sha256": "90eaa26e3c5b14913bf9113a0a1f525db7761c11c91bac961e757cfe4d5836f1"
+  },
+  "verifier/tests/probe/src/main.rs": {
+    "bytes": 2037,
+    "sha256": "0884e53cc0e7e33d9643c7aaff2b9b2f6dfb58f32c4b7cd664b3ad0c8aeef9ad"
+  },
+  "verifier/tests/test.sh": {
+    "bytes": 122,
+    "sha256": "dc9ba58985bb9a35ffd4ec0b6340564377d7326085f855aa51007bb1936807a0"
+  },
+  "verifier/vendor.tar.gz": {
+    "bytes": 1468211,
+    "sha256": "d89a061f767438d9b71bdcd9c385e66f196b43acb4b904c7a3ced4b71fd49326"
+  },
+  "tests/grader.py": {
+    "bytes": 5542,
+    "sha256": "bc93cf1088c7a26d381e8f2a3746e814eb17e25e79ce999dc934b92da509cfeb"
+  },
+  "tests/probe/Cargo.lock": {
+    "bytes": 4236,
+    "sha256": "d98f1703ae73b60d129a72b5d13a4b73323af8c5fbf7fbaf1b27de6ab0d62cf0"
+  },
+  "tests/probe/Cargo.toml": {
+    "bytes": 318,
+    "sha256": "90eaa26e3c5b14913bf9113a0a1f525db7761c11c91bac961e757cfe4d5836f1"
+  },
+  "tests/probe/src/main.rs": {
+    "bytes": 2037,
+    "sha256": "0884e53cc0e7e33d9643c7aaff2b9b2f6dfb58f32c4b7cd664b3ad0c8aeef9ad"
+  },
+  "tests/test.sh": {
+    "bytes": 122,
+    "sha256": "dc9ba58985bb9a35ffd4ec0b6340564377d7326085f855aa51007bb1936807a0"
+  },
+  "solution/reference.tar.gz": {
+    "bytes": 356353,
+    "sha256": "a84ee96089fda50550c6b65e960e3309d000b5aa896ce5a0d3cdae9c947c7d42"
+  },
+  "solution/restore.patch": {
+    "bytes": 11250,
+    "sha256": "e41dd4b1092c29a9aec7542ee9c76d55ec3960810dd231ec077b20702097328e"
+  },
+  "solution/solve.sh": {
+    "bytes": 218,
+    "sha256": "dcd3e32bedb19eecb0bb2f90958f29894206f898c0d576979063121d23d6b66e"
+  }
+}

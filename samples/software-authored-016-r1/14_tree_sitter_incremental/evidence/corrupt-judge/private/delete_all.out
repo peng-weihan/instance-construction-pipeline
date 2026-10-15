@@ -1,0 +1,133 @@
+@initial
+0 module 1 0 0 0 0 0 11 0 0 1 0
+field -
+1 expression_statement 1 0 0 0 0 0 10 0 0 0 10
+field -
+2 assignment 1 0 0 0 0 0 10 0 0 0 10
+field left
+3 identifier 1 0 0 0 0 0 1 0 0 0 1
+field -
+3 = 0 0 0 0 0 2 3 0 2 0 3
+field right
+3 list 1 0 0 0 0 4 10 0 4 0 10
+field -
+4 [ 0 0 0 0 0 4 5 0 4 0 5
+field -
+4 integer 1 0 0 0 0 5 6 0 5 0 6
+field -
+4 , 0 0 0 0 0 6 7 0 6 0 7
+field -
+4 integer 1 0 0 0 0 8 9 0 8 0 9
+field -
+4 ] 0 0 0 0 0 9 10 0 9 0 10
+@end
+@sexp
+(module (expression_statement (assignment (identifier) (list (integer) (integer)))))
+@end
+@edited
+0 module 1 0 0 0 0 0 0 0 0 0 0 1
+field -
+1 expression_statement 1 0 0 0 0 0 0 0 0 0 0 1
+field -
+2 assignment 1 0 0 0 0 0 0 0 0 0 0 1
+field left
+3 identifier 1 0 0 0 0 0 0 0 0 0 0 1
+field -
+3 = 0 0 0 0 0 0 0 0 0 0 0 1
+field right
+3 list 1 0 0 0 0 0 0 0 0 0 0 1
+field -
+4 [ 0 0 0 0 0 0 0 0 0 0 0 1
+field -
+4 integer 1 0 0 0 0 0 0 0 0 0 0 1
+field -
+4 , 0 0 0 0 0 0 0 0 0 0 0 1
+field -
+4 integer 1 0 0 0 0 0 0 0 0 0 0 1
+field -
+4 ] 0 0 0 0 0 0 0 0 0 0 0 1
+@end
+@copy
+0 module 1 0 0 0 0 0 11 0 0 1 0 0
+field -
+1 expression_statement 1 0 0 0 0 0 10 0 0 0 10 0
+field -
+2 assignment 1 0 0 0 0 0 10 0 0 0 10 0
+field left
+3 identifier 1 0 0 0 0 0 1 0 0 0 1 0
+field -
+3 = 0 0 0 0 0 2 3 0 2 0 3 0
+field right
+3 list 1 0 0 0 0 4 10 0 4 0 10 0
+field -
+4 [ 0 0 0 0 0 4 5 0 4 0 5 0
+field -
+4 integer 1 0 0 0 0 5 6 0 5 0 6 0
+field -
+4 , 0 0 0 0 0 6 7 0 6 0 7 0
+field -
+4 integer 1 0 0 0 0 8 9 0 8 0 9 0
+field -
+4 ] 0 0 0 0 0 9 10 0 9 0 10 0
+@end
+@handle
+0 expression_statement 1 0 0 0 0 0 10 0 0 0 10 0
+field -
+1 assignment 1 0 0 0 0 0 10 0 0 0 10 0
+field left
+2 identifier 1 0 0 0 0 0 1 0 0 0 1 0
+field -
+2 = 0 0 0 0 0 2 3 0 2 0 3 0
+field right
+2 list 1 0 0 0 0 4 10 0 4 0 10 0
+field -
+3 [ 0 0 0 0 0 4 5 0 4 0 5 0
+field -
+3 integer 1 0 0 0 0 5 6 0 5 0 6 0
+field -
+3 , 0 0 0 0 0 6 7 0 6 0 7 0
+field -
+3 integer 1 0 0 0 0 8 9 0 8 0 9 0
+field -
+3 ] 0 0 0 0 0 9 10 0 9 0 10 0
+@end
+@included
+0 4294967295 0 0 4294967295 4294967295
+@end
+@parsed
+0 module 1 0 0 0 0 0 0 0 0 0 0
+@end
+@fresh
+0 module 1 0 0 0 0 0 0 0 0 0 0
+@end
+@changed
+@end
+@edited
+0 module 1 0 0 0 0 5 5 1 0 1 0 1
+@end
+@copy
+0 module 1 0 0 0 0 0 0 0 0 0 0 0
+@end
+@handle
+0 module 1 0 0 0 0 5 5 1 0 1 0 1
+@end
+@included
+5 4294967295 1 0 4294967295 4294967295
+@end
+@parsed
+0 module 1 0 0 0 0 0 5 0 0 1 0
+field -
+1 pass_statement 1 0 0 0 0 0 4 0 0 0 4
+field -
+2 pass 0 0 0 0 0 0 4 0 0 0 4
+@end
+@fresh
+0 module 1 0 0 0 0 0 5 0 0 1 0
+field -
+1 pass_statement 1 0 0 0 0 0 4 0 0 0 4
+field -
+2 pass 0 0 0 0 0 0 4 0 0 0 4
+@end
+@changed
+0 5 0 0 1 0
+@end

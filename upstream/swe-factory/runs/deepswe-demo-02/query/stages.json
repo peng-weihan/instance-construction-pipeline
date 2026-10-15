@@ -1,0 +1,22 @@
+[
+  {
+    "stage": "source_frozen",
+    "source": {
+      "commit": "ccd27da5cd0bdcd8d776c57382119dafb61e11a8",
+      "source": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/query-source",
+      "snapshot_sha256": "a51295e21f1bdff7fb3c74d1d885ae824dec4aabadb34db07e072d14e183e625"
+    }
+  },
+  {
+    "stage": "forward",
+    "attempt": 0,
+    "retry_role": "query"
+  },
+  {
+    "stage": "query-attempt-0_validation"
+  },
+  {
+    "stage": "internally_verified",
+    "task": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/query/query-attempt-0/task"
+  }
+]

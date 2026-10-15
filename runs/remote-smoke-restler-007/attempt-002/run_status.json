@@ -1,0 +1,19 @@
+{
+  "status": "failed",
+  "task": "restler_resilient_execution",
+  "started_unix": 1791986794.5875475,
+  "model_runs": 0,
+  "six_hour_runs": 0,
+  "accepted": false,
+  "architecture": "x86_64",
+  "agent_image": "edge-raymone-agent:12eb4820f698",
+  "judge_image": "edge-raymone-judge:12eb4820f698",
+  "reports": {},
+  "build_network": "host",
+  "runtime_network": "none",
+  "stage": "grading",
+  "agent_image_id": "sha256:5e2557a8060da5d4367a86b02d25ff950e9e7a21d93517d988ab224af7fbd40d",
+  "verifier_image_id": "sha256:1fb57224272baeb99894f8583fe119d880b51d049e088e63951e3334989331c5",
+  "error": "RuntimeError: command failed (2); see reference_public.json",
+  "finished_unix": 1791986908.772373
+}

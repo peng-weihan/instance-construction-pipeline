@@ -1,0 +1,69 @@
+{
+  "repo": "lz4/lz4",
+  "revision": "48bfbfe351c5d6ea87d4af5557705e87755844e0",
+  "resolved_utc": "2026-10-15T13:30:32.966265+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:31:21.686012+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "686e2138e2caf752a8c567fcee5d5981312131595249bbeb5980386fd79e5c98",
+    "truncated": false,
+    "blob_count": 212
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 646,
+      "sha256": "4bc9c403f6b679cc076dee210e0e21c27b4e8f6d3fb43d85364c76657bfaaac5",
+      "url": "https://github.com/lz4/lz4/blob/48bfbfe351c5d6ea87d4af5557705e87755844e0/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4972,
+      "sha256": "8fc22679ebe5166e3d9d1bbaea05fb523a5cb2de31e370dc66fd094a121ff1b6",
+      "url": "https://github.com/lz4/lz4/blob/48bfbfe351c5d6ea87d4af5557705e87755844e0/README.md"
+    },
+    {
+      "path": "doc/lz4_Frame_format.md",
+      "bytes": 15211,
+      "sha256": "382fe98ea6770abc39070cfba1287fe299f4570ddfc75713a1a8aa5483e38b98",
+      "url": "https://github.com/lz4/lz4/blob/48bfbfe351c5d6ea87d4af5557705e87755844e0/doc/lz4_Frame_format.md"
+    },
+    {
+      "path": "lib/LICENSE",
+      "bytes": 1311,
+      "sha256": "8b58c446121a109ccf32edc094bba3010a3d85e4ee3702950db55e4d3e87736c",
+      "url": "https://github.com/lz4/lz4/blob/48bfbfe351c5d6ea87d4af5557705e87755844e0/lib/LICENSE"
+    },
+    {
+      "path": "lib/lz4.c",
+      "bytes": 120232,
+      "sha256": "c0ce65082dd92fa9bdf47190908bceed8fac0596d274bde60284dd6862df070c",
+      "url": "https://github.com/lz4/lz4/blob/48bfbfe351c5d6ea87d4af5557705e87755844e0/lib/lz4.c"
+    },
+    {
+      "path": "lib/lz4hc.c",
+      "bytes": 91927,
+      "sha256": "8b22ec71e1c70eb96e70214e8144919b16509b7f63da4e8836b4b6768e657e2b",
+      "url": "https://github.com/lz4/lz4/blob/48bfbfe351c5d6ea87d4af5557705e87755844e0/lib/lz4hc.c"
+    },
+    {
+      "path": "programs/bench.c",
+      "bytes": 33674,
+      "sha256": "f70e769627bc3d60e82bab44fb993d5631b501f69028d80326f0cf8710f6ad34",
+      "url": "https://github.com/lz4/lz4/blob/48bfbfe351c5d6ea87d4af5557705e87755844e0/programs/bench.c"
+    },
+    {
+      "path": "tests/fuzzer.c",
+      "bytes": 130178,
+      "sha256": "bdd42e52d31e02e2bce734fd94bfec163e5cee87d1d2da2979f457b474047e6b",
+      "url": "https://github.com/lz4/lz4/blob/48bfbfe351c5d6ea87d4af5557705e87755844e0/tests/fuzzer.c"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

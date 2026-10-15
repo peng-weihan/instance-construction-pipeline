@@ -1,0 +1,63 @@
+{
+  "repo": "rocq-community/corn",
+  "revision": "ada7c0b497ff15dd67cf7932c6f20e143a2aee2f",
+  "resolved_utc": "2026-10-15T15:02:46.997533+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:03:44.093173+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "052e5a821c528f13cccf21224bb52da31cda6cb1ad6ce8b4c47e224aa7291d83",
+    "truncated": false,
+    "blob_count": 417
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 17987,
+      "sha256": "ab15fd526bd8dd18a9e77ebc139656bf4d33e97fc7238cd11bf60e2b9b8666c6",
+      "url": "https://github.com/rocq-community/corn/blob/ada7c0b497ff15dd67cf7932c6f20e143a2aee2f/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4779,
+      "sha256": "a738d09e528a30245de18bbc90916dcc1fb2f5fcfc1ff196c4187b1a390e542a",
+      "url": "https://github.com/rocq-community/corn/blob/ada7c0b497ff15dd67cf7932c6f20e143a2aee2f/README.md"
+    },
+    {
+      "path": "_CoqProject",
+      "bytes": 31,
+      "sha256": "6e54eb4c0dd514cc5e181502762f878a360ee9d697a634e5553316f9aec9d686",
+      "url": "https://github.com/rocq-community/corn/blob/ada7c0b497ff15dd67cf7932c6f20e143a2aee2f/_CoqProject"
+    },
+    {
+      "path": "coq-corn.opam",
+      "bytes": 2263,
+      "sha256": "9ef3c8fd308f2f7a50f50f661b9972d124e7a7e71347a216a9ae29f6ba5fe1b9",
+      "url": "https://github.com/rocq-community/corn/blob/ada7c0b497ff15dd67cf7932c6f20e143a2aee2f/coq-corn.opam"
+    },
+    {
+      "path": "examples/IntegrationExamples.v",
+      "bytes": 3223,
+      "sha256": "0aa46c701591bebd4e73833656ae98d83a16c72e2d5f2cc94b3fb33c2b7b2a2c",
+      "url": "https://github.com/rocq-community/corn/blob/ada7c0b497ff15dd67cf7932c6f20e143a2aee2f/examples/IntegrationExamples.v"
+    },
+    {
+      "path": "ftc/IntegrationRules.v",
+      "bytes": 10188,
+      "sha256": "7674c7e005cc24943a2545a749d7a12e15d3ec8e74538412f78f905f73339483",
+      "url": "https://github.com/rocq-community/corn/blob/ada7c0b497ff15dd67cf7932c6f20e143a2aee2f/ftc/IntegrationRules.v"
+    },
+    {
+      "path": "ftc/Taylor.v",
+      "bytes": 14777,
+      "sha256": "6ed3cd66f13a227035ed4f9dc9b02aa5af0bad676148f4f4c267f1d2fa362d24",
+      "url": "https://github.com/rocq-community/corn/blob/ada7c0b497ff15dd67cf7932c6f20e143a2aee2f/ftc/Taylor.v"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

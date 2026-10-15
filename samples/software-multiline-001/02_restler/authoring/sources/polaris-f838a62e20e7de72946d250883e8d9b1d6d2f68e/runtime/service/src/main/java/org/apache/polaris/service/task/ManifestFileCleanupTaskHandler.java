@@ -1,0 +1,143 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.polaris.service.task;
+
+import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.time.Duration;
+import java.util.List;
+import java.util.Spliterator;
+import java.util.Spliterators;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.stream.StreamSupport;
+import org.apache.iceberg.ContentFile;
+import org.apache.iceberg.ManifestFile;
+import org.apache.iceberg.ManifestFiles;
+import org.apache.iceberg.ManifestReader;
+import org.apache.iceberg.catalog.TableIdentifier;
+import org.apache.iceberg.io.FileIO;
+import org.apache.polaris.core.StructuredLogKeys;
+import org.apache.polaris.core.context.CallContext;
+import org.apache.polaris.core.entity.AsyncTaskType;
+import org.apache.polaris.core.entity.TaskEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * {@link ManifestFileCleanupTaskHandler} responsible for deleting all the files in a manifest and
+ * the manifest itself. Since data files may be present in multiple manifests across different
+ * snapshots, we assume a data file that doesn't exist is missing because it was already deleted by
+ * another task.
+ */
+public class ManifestFileCleanupTaskHandler extends FileCleanupTaskHandler {
+  private static final Logger LOGGER =
+      LoggerFactory.getLogger(ManifestFileCleanupTaskHandler.class);
+
+  public ManifestFileCleanupTaskHandler(
+      TaskFileIOSupplier fileIOSupplier,
+      ExecutorService executorService,
+      Duration fileDeletionTimeout) {
+    super(fileIOSupplier, executorService, fileDeletionTimeout);
+  }
+
+  @Override
+  public boolean canHandleTask(TaskEntity task) {
+    return task.getTaskType() == AsyncTaskType.MANIFEST_FILE_CLEANUP;
+  }
+
+  @Override
+  public void handleTask(TaskEntity task, CallContext callContext) {
+    ManifestCleanupTask cleanupTask = task.readData(ManifestCleanupTask.class);
+    TableIdentifier tableId = cleanupTask.tableId();
+    try (FileIO authorizedFileIO = fileIOSupplier.apply(task, tableId)) {
+      ManifestFile manifestFile = TaskUtils.decodeManifestFileData(cleanupTask.manifestFileData());
+      cleanUpManifestFile(manifestFile, authorizedFileIO, tableId);
+    }
+  }
+
+  private void cleanUpManifestFile(
+      ManifestFile manifestFile, FileIO fileIO, TableIdentifier tableId) {
+    // if the file doesn't exist, we assume that another task execution was successful, but
+    // failed to drop the task entity. Log a warning and return success
+    if (!TaskUtils.exists(manifestFile.path(), fileIO)) {
+      LOGGER
+          .atWarn()
+          .addKeyValue(StructuredLogKeys.MANIFEST_FILE, manifestFile.path())
+          .addKeyValue(StructuredLogKeys.TABLE_ID, tableId)
+          .log("Manifest cleanup task scheduled, but manifest file doesn't exist");
+      return;
+    }
+
+    try (ManifestReader<? extends ContentFile<?>> reader =
+        openManifestReader(manifestFile, fileIO)) {
+      List<CompletableFuture<Void>> contentFileDeletes =
+          StreamSupport.stream(
+                  Spliterators.spliteratorUnknownSize(reader.iterator(), Spliterator.IMMUTABLE),
+                  false)
+              .map(
+                  file -> tryDelete(tableId, fileIO, manifestFile.path(), file.location(), null, 1))
+              .toList();
+      LOGGER.debug(
+          "Scheduled {} content files to be deleted from manifest {} (content={})",
+          contentFileDeletes.size(),
+          manifestFile.path(),
+          manifestFile.content());
+      // wait for all content files to be deleted, then wait for the manifest itself to be deleted
+      CompletableFuture<Void> deletion =
+          CompletableFuture.allOf(contentFileDeletes.toArray(CompletableFuture[]::new))
+              .thenCompose(
+                  (v) -> {
+                    LOGGER
+                        .atInfo()
+                        .addKeyValue(StructuredLogKeys.MANIFEST_FILE, manifestFile.path())
+                        .log("All content files in manifest deleted - deleting manifest");
+                    return tryDelete(
+                        tableId, fileIO, manifestFile.path(), manifestFile.path(), null, 1);
+                  });
+      awaitCompletion(deletion, "deletion of files in manifest " + manifestFile.path());
+      return;
+    } catch (IOException e) {
+      // Catches from ManifestFiles.read() (resource creation), from inside the block
+      // (e.g. manifest iteration), or from close(). We throw (wrapping) so the original
+      // failure propagates and the retry path is used.
+      LOGGER.error("Failed to process manifest reader for {}", manifestFile.path(), e);
+      throw new UncheckedIOException(e);
+    }
+  }
+
+  // Iceberg requires distinct readers for data manifests (DataFile) and delete manifests
+  // (DeleteFile); using the wrong one throws IllegalArgumentException at read time.
+  private static ManifestReader<? extends ContentFile<?>> openManifestReader(
+      ManifestFile manifestFile, FileIO fileIO) {
+    return switch (manifestFile.content()) {
+      case DATA -> ManifestFiles.read(manifestFile, fileIO, null);
+      case DELETES -> ManifestFiles.readDeleteManifest(manifestFile, fileIO, null);
+    };
+  }
+
+  /** Serialized Task data sent from the {@link TableCleanupTaskHandler} */
+  public record ManifestCleanupTask(TableIdentifier tableId, String manifestFileData) {
+
+    static ManifestCleanupTask buildFrom(TableIdentifier tableId, ManifestFile manifestFile) {
+      String encodedManifestFileData = TaskUtils.encodeManifestFile(manifestFile);
+      return new ManifestCleanupTask(tableId, encodedManifestFileData);
+    }
+  }
+}

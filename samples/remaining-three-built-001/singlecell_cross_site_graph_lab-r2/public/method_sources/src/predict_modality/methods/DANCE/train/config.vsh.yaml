@@ -1,0 +1,83 @@
+functionality:
+  name: dance_train
+  namespace: predict_modality_methods
+  
+  # metadata for your method
+  
+  description: A description for your method.
+  authors:
+    - name: Hongzhi Wen
+      email: wenhongz@msu.edu
+      roles: [ author, maintainer ]
+    - name: Jiayuan Ding
+      email: dingjia5@msu.edu
+      roles: [ author, maintainer ]
+    - name: Wei Jin
+      email: jinwei2@msu.edu
+      roles: [ author ]
+    - name: Xiaoyan Li
+      email: lixiaoy5@msu.edu
+      roles: [ author ]
+    - name: Zhaoheng Li
+      email: zli1@macalester.edu
+      roles: [ author ]
+    - name: Haoyu Han
+      email: hanhaoy1@msu.edu
+      roles: [ assistant ]
+    - name: Yuying Xie
+      email: xyy@msu.edu
+      roles: [ advisor ]
+    - name: Jiliang Tang
+      email: tangjili@msu.edu
+      roles: [ advisor ]
+      
+  # parameters
+  arguments:
+    # required inputs
+    - name: "--data_dir"
+      type: "file"
+      description: The path to the predict_modality datasets
+      required: true
+
+    # required outputs
+    - name: "--output_pretrain"
+      type: "file"
+      direction: "output"
+      example: "pretrain_model"
+      description: Path to the directory containing the pretrained models.
+      required: true
+      
+  # files your script needs
+  resources:
+    - type: bash_script
+      path: script.sh
+    - path: hetero_arg_version_v5.py
+    - path: generate_extra_files.py
+    - path: h.all.v7.4.entrez.gmt
+    - path: h.all.v7.4.symbols.gmt
+    # suggestion: use same WeightedGCN4 as run component
+    # to use, uncomment the following line
+    # - path: ../resources/graph_util.py
+      
+# target platforms
+platforms:
+  - type: docker
+    image: pytorch/pytorch:1.9.0-cuda11.1-cudnn8-runtime
+    run_args: [ "--gpus all --shm-size=5G" ]
+    setup:
+      - type: docker
+        run: [pip install scikit-learn==0.24.1]
+        
+      - type: python
+        packages:
+          #- scikit-learn
+          - anndata
+          - scanpy
+          - numpy
+          - torch
+          - dgl-cu111
+          - lightgbm
+          - joblib
+
+  - type: nextflow
+    labels: [ midmem, hightime, lowcpu, gpu ]

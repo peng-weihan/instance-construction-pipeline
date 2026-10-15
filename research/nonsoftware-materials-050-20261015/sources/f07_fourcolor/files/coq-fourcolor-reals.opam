@@ -1,0 +1,15 @@
+opam-version: "2.0"
+maintainer: "palmskog@gmail.com"
+version: "dev"
+
+homepage: "https://github.com/coq-community/fourcolor"
+dev-repo: "git+https://github.com/coq-community/fourcolor.git"
+bug-reports: "https://github.com/coq-community/fourcolor/issues"
+license: "CECILL-B"
+
+depends: [
+  "coq-core"
+  "rocq-fourcolor-reals"
+]
+
+synopsis: "Compatibility package for rocq-fourcolor-reals"

@@ -1,0 +1,86 @@
+{
+  "repo": "sphinx-doc/sphinx",
+  "revision": "b04a2101295ac3fb725b16111eda0284b6da4cca",
+  "resolved_utc": "2026-10-15T13:08:11.012134+00:00",
+  "retrieved_utc": "2026-10-15T13:09:20.221970+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "33802d5abbace9cb67d64d0dd66fa2b6ad78eb7264188aa6b123588b1913a2e1",
+    "truncated": false,
+    "blob_count": 2059
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE.rst",
+      "bytes": 1476,
+      "sha256": "802b61d8e268d296d5569de4eb4f5852373e51250100bd5a4087040c4d886de2",
+      "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/LICENSE.rst"
+    },
+    {
+      "path": "README.rst",
+      "bytes": 2322,
+      "sha256": "b30425a9c740c1c240fdadc520743483fad0f6d272879723c77612f3588fae98",
+      "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/README.rst"
+    },
+    {
+      "path": "doc/extdev/event_callbacks.rst",
+      "bytes": 15031,
+      "sha256": "af7aa6dfc7f853fb0568023c3f9339d2992dec09c14e4cea250222412d589182",
+      "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/doc/extdev/event_callbacks.rst"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 9361,
+      "sha256": "8b8597abcdf898d49df84237ee9f495dd757258f6e11a4eda041580192db0e28",
+      "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/pyproject.toml"
+    },
+    {
+      "path": "sphinx/builders/__init__.py",
+      "bytes": 32607,
+      "sha256": "2d85df3f8afc10a3304762aab5b3be64e230198d1d5c6d987c6c351e6136de30",
+      "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/sphinx/builders/__init__.py"
+    },
+    {
+      "path": "sphinx/builders/html/__init__.py",
+      "bytes": 61901,
+      "sha256": "655fd5a1d4e91ae3c4644d7c02f934f3a2c427c466cbcf86bb6cee4bbd61d702",
+      "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/sphinx/builders/html/__init__.py"
+    },
+    {
+      "path": "sphinx/environment/__init__.py",
+      "bytes": 43585,
+      "sha256": "6f544bcb37a2432ad15db0f5a2b45fe61201837e3c6f736002303d0c8d3259df",
+      "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/sphinx/environment/__init__.py"
+    },
+    {
+      "path": "sphinx/environment/collectors/dependencies.py",
+      "bytes": 1876,
+      "sha256": "bfbbaabc8d707f7995fab30616812d2d85232041a55e316d9588ba07d7a74ca4",
+      "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/sphinx/environment/collectors/dependencies.py"
+    },
+    {
+      "path": "tests/test_builders/test_build.py",
+      "bytes": 4249,
+      "sha256": "45bfe3b268c3130f9ddc61a39a45e1b7eb146c881eb8e48583a2126ab3b37959",
+      "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/tests/test_builders/test_build.py"
+    },
+    {
+      "path": "tests/test_builders/test_incremental_reading.py",
+      "bytes": 1615,
+      "sha256": "e4d3ab45a71e11be202c10b911e31c6d631c36485476bd873075d5a23e84b1fd",
+      "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/tests/test_builders/test_incremental_reading.py"
+    },
+    {
+      "path": "tests/test_environment/test_environment_record_dependencies.py",
+      "bytes": 482,
+      "sha256": "d6d783988418f0d25cb2fe937643e18ad21db3d41fb9c7e387ac903b5489b21c",
+      "url": "https://github.com/sphinx-doc/sphinx/blob/b04a2101295ac3fb725b16111eda0284b6da4cca/tests/test_environment/test_environment_record_dependencies.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

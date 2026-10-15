@@ -1,0 +1,74 @@
+[
+  {
+    "id": "frontier_public_24.xml",
+    "split": "public",
+    "size": 24,
+    "new_map": true,
+    "original_map_copied": false,
+    "design": "paired chokepoints, scarce home resources, contested expansion resources; 180-degree symmetry"
+  },
+  {
+    "id": "frontier_public_32.xml",
+    "split": "public",
+    "size": 32,
+    "new_map": true,
+    "original_map_copied": false,
+    "design": "paired chokepoints, scarce home resources, contested expansion resources; 180-degree symmetry"
+  },
+  {
+    "id": "frontier_public_40.xml",
+    "split": "public",
+    "size": 40,
+    "new_map": true,
+    "original_map_copied": false,
+    "design": "paired chokepoints, scarce home resources, contested expansion resources; 180-degree symmetry"
+  },
+  {
+    "id": "frontier_feedback_24.xml",
+    "split": "feedback",
+    "size": 24,
+    "new_map": true,
+    "original_map_copied": false,
+    "design": "paired chokepoints, scarce home resources, contested expansion resources; 180-degree symmetry"
+  },
+  {
+    "id": "frontier_feedback_32.xml",
+    "split": "feedback",
+    "size": 32,
+    "new_map": true,
+    "original_map_copied": false,
+    "design": "paired chokepoints, scarce home resources, contested expansion resources; 180-degree symmetry"
+  },
+  {
+    "id": "frontier_feedback_40.xml",
+    "split": "feedback",
+    "size": 40,
+    "new_map": true,
+    "original_map_copied": false,
+    "design": "paired chokepoints, scarce home resources, contested expansion resources; 180-degree symmetry"
+  },
+  {
+    "id": "frontier_final_24.xml",
+    "split": "final",
+    "size": 24,
+    "new_map": true,
+    "original_map_copied": false,
+    "design": "paired chokepoints, scarce home resources, contested expansion resources; 180-degree symmetry"
+  },
+  {
+    "id": "frontier_final_32.xml",
+    "split": "final",
+    "size": 32,
+    "new_map": true,
+    "original_map_copied": false,
+    "design": "paired chokepoints, scarce home resources, contested expansion resources; 180-degree symmetry"
+  },
+  {
+    "id": "frontier_final_40.xml",
+    "split": "final",
+    "size": 40,
+    "new_map": true,
+    "original_map_copied": false,
+    "design": "paired chokepoints, scarce home resources, contested expansion resources; 180-degree symmetry"
+  }
+]

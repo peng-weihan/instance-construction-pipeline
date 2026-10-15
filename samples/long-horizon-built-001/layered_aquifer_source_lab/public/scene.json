@@ -1,0 +1,57 @@
+{
+  "name": "Layered-62",
+  "grid": {
+    "shape_xyz": [
+      31,
+      17,
+      9
+    ],
+    "spacing_m": [
+      2,
+      2,
+      1
+    ],
+    "origin_m": [
+      0,
+      -17,
+      -4.5
+    ]
+  },
+  "porosity": 0.25,
+  "D_xyz": [
+    0.12,
+    0.025,
+    0.008
+  ],
+  "time_step_days": 0.25,
+  "layers": [
+    {
+      "z_max": -0.5,
+      "vx": 0.07,
+      "R": 1.5
+    },
+    {
+      "z_min": -0.5,
+      "z_max": 1.5,
+      "vx": 0.12,
+      "R": 1.2
+    },
+    {
+      "z_min": 1.5,
+      "vx": 0.17,
+      "R": 1.0
+    }
+  ],
+  "observation_operator": "cell average at named grid index; x/y/z coordinates identify cell centres",
+  "noise": {
+    "multiplicative_log_sd": 0.08,
+    "detection_limit_g_m3": 0.0003
+  },
+  "units": [
+    "m",
+    "day",
+    "g/m3"
+  ],
+  "initial": "zero concentration",
+  "boundary": "zero inlet concentration; zero concentration gradient at outlet; zero normal flux at y/z boundaries"
+}

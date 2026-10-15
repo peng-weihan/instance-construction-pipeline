@@ -1,0 +1,83 @@
+{
+  "id": "14_tree_sitter_incremental",
+  "repo": "tree-sitter/tree-sitter",
+  "family": "implementation_recovery",
+  "new_source": true,
+  "title": "增量解析、错误恢复和节点位置一致性",
+  "files": [
+    "README.md",
+    "lib/src/parser.c",
+    "lib/src/tree.c",
+    "lib/src/stack.c",
+    "lib/binding_rust/lib.rs"
+  ],
+  "revision": "8ca548849fc8dbefd699edcec26546bb14112820",
+  "retrieved_utc": "2026-10-15T09:20:49.255030+00:00",
+  "files_acquired": [
+    {
+      "path": "README.md",
+      "bytes": 1153,
+      "sha256": "7984c7c2f775cd08f470431af058b5523886888daa8ef6443c0dbd8c2afe3bcc",
+      "url": "https://github.com/tree-sitter/tree-sitter/blob/8ca548849fc8dbefd699edcec26546bb14112820/README.md"
+    },
+    {
+      "path": "lib/src/parser.c",
+      "bytes": 80095,
+      "sha256": "450cb5196ffb74ffd8ba16fcb770b995f000348ac054542afb9f547bd86ab611",
+      "url": "https://github.com/tree-sitter/tree-sitter/blob/8ca548849fc8dbefd699edcec26546bb14112820/lib/src/parser.c"
+    },
+    {
+      "path": "lib/src/tree.c",
+      "bytes": 5144,
+      "sha256": "a0f63bc46fc4fcb88d35caa6fe89d7fc18edb895bc781db20f11d5c58988fb06",
+      "url": "https://github.com/tree-sitter/tree-sitter/blob/8ca548849fc8dbefd699edcec26546bb14112820/lib/src/tree.c"
+    },
+    {
+      "path": "lib/src/stack.c",
+      "bytes": 28636,
+      "sha256": "f70b7e5823e82901801193562908037db4c1a73721e48da0fe54cdb2a6b5856d",
+      "url": "https://github.com/tree-sitter/tree-sitter/blob/8ca548849fc8dbefd699edcec26546bb14112820/lib/src/stack.c"
+    },
+    {
+      "path": "lib/binding_rust/lib.rs",
+      "bytes": 150199,
+      "sha256": "1837935ea37e0d8bde7c4e6daab9e6020047b7d7af40fbc55eceb6c982403b7a",
+      "url": "https://github.com/tree-sitter/tree-sitter/blob/8ca548849fc8dbefd699edcec26546bb14112820/lib/binding_rust/lib.rs"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1080,
+      "sha256": "c5cfb43042b6b72045f4ba997834d0a7786d2793d91680868b5815b39f14fc78",
+      "url": "https://github.com/tree-sitter/tree-sitter/blob/8ca548849fc8dbefd699edcec26546bb14112820/LICENSE"
+    },
+    {
+      "path": "crates/cli/src/tests/parser_test.rs",
+      "bytes": 73599,
+      "sha256": "75903a53f4390c43d7a456b546f12288ee4c89f5ad11d8f88fa1c3c217f7eaac",
+      "url": "https://github.com/tree-sitter/tree-sitter/blob/8ca548849fc8dbefd699edcec26546bb14112820/crates/cli/src/tests/parser_test.rs"
+    },
+    {
+      "path": "crates/cli/src/tests/helpers/edits.rs",
+      "bytes": 1372,
+      "sha256": "64ef36610a53967dcc7e29f657c3f51c65c6d495c5f68997125c93f743ef5bd6",
+      "url": "https://github.com/tree-sitter/tree-sitter/blob/8ca548849fc8dbefd699edcec26546bb14112820/crates/cli/src/tests/helpers/edits.rs"
+    }
+  ],
+  "missing_paths": [
+    "LICENSE.txt",
+    "LICENSE.md",
+    "COPYING",
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "runtime_validation": false,
+  "six_hour_difficulty_verified": false,
+  "tree_manifest": {
+    "path": "git-tree.json",
+    "sha256": "f233a835146cc837e5500ba5fd3a2aec597270bf008e9bd31b3d6ebecedc16d8",
+    "blob_count": 628,
+    "truncated": false
+  },
+  "resolved_initial_404_paths": {},
+  "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+}

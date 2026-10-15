@@ -1,0 +1,66 @@
+{
+  "schema": "local-authoring-draft-v1-not-Harbor",
+  "task_id": "industrial_irregular_strip",
+  "agent_budget_seconds": 10800,
+  "submit_paths": [
+    "repo/src/irregular",
+    "repo/include/packingsolver/irregular"
+  ],
+  "snapshot_only": true,
+  "verifier_stateless": true,
+  "runtime_network": {
+    "agent": "none",
+    "verifier": "none"
+  },
+  "run_aggregation": "max(valid_submission_scores)",
+  "curve": "elapsed_interaction_seconds,best_score_so_far",
+  "score": {
+    "direction": "higher_is_better",
+    "range": [
+      0,
+      1
+    ],
+    "formula": "mean(feasible[i]*min(1, total_item_area[i]/(strip_height[i]*used_length[i])))",
+    "constants": {
+      "case_seconds": 120,
+      "case_cpu_threads": 1,
+      "geometry_tolerance": 1e-07,
+      "seed": 4187,
+      "final_denominator": 3
+    },
+    "raw_metrics_required": true,
+    "baseline_measured": null,
+    "upper_endpoint_measured": null,
+    "normalization_policy": "fixed_bounded_formula_v1; empirical endpoints pending"
+  },
+  "named_checks": [
+    "all_items_present",
+    "allowed_rotation",
+    "no_overlap",
+    "inside_strip",
+    "budget",
+    "utilization"
+  ],
+  "feedback_schema": {
+    "score": "finite number in [0,1]",
+    "valid": "boolean",
+    "checks": [
+      {
+        "name": "string",
+        "pass": "boolean",
+        "summary": "string"
+      }
+    ],
+    "raw_metrics": "object",
+    "summary": "string"
+  },
+  "invalid_submission": "valid=false, score=0, named diagnostics",
+  "verifier_failure": "separate infrastructure error, never silently score zero",
+  "feedback_policy": "aggregate by named group; never return hidden inputs or target values",
+  "pending_delivery": [
+    "official Harbor schema/network fields",
+    "two Docker build contexts",
+    "offline dependency closure and dual-architecture digests",
+    "oracle/nop scores and repeated-model curves"
+  ]
+}

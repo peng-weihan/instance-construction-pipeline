@@ -1,0 +1,212 @@
+{
+  "schema": "edgebench.acquired_source_candidates.v2",
+  "supersedes_for_acquisition_status": "research/source_candidate_registry.v1.json",
+  "scope": "six constructed local samples; licenses, original-hidden-material overlap, runtime and difficulty not accepted",
+  "records": [
+    {
+      "task_id": "restler_resource_lifecycle",
+      "category": "Systems & Software Engineering",
+      "source_materials": [
+        {
+          "repository": "https://github.com/microsoft/restler-fuzzer.git",
+          "commit": "6d984deedbc54aad957fa3da0c7e9e5df23a2aee",
+          "files": [
+            {
+              "path": "restler/engine/core/async_request_utilities.py",
+              "sha256": "873c20af483cd075930b71a856be0f1a6e4a24c011ac9ec0476056eb41f8577b"
+            },
+            {
+              "path": "restler/engine/core/preprocessing.py",
+              "sha256": "54a8760eca0a33005066dc918179fe0599176694a0d4e35bcbb1a65cead84a2e"
+            },
+            {
+              "path": "restler/engine/dependencies.py",
+              "sha256": "230b60a1467a7e83858f08ce9ae26b696715169f8f7f92f460c22c624fa9118a"
+            }
+          ],
+          "acquired": true,
+          "runtime_verified": false
+        }
+      ],
+      "material_acquired": true,
+      "task_constructed": true,
+      "runtime_verified": false,
+      "accepted": false,
+      "construction_manifest": "samples/category-pilot-004/restler_resource_lifecycle/construction.json"
+    },
+    {
+      "task_id": "kolmogorov_holder_modification",
+      "category": "Formal Math & Theorem Proving",
+      "source_materials": [
+        {
+          "repository": "https://github.com/RemyDegenne/brownian-motion.git",
+          "commit": "a7ad7af662044313bc80a7c0756360fb3745f931",
+          "files": [
+            {
+              "path": "BrownianMotion/Continuity/KolmogorovChentsov.lean",
+              "sha256": "0814a0012d92a1c80ac8681247c106ef6604bffd747b26bb54010d4144283c5b"
+            },
+            {
+              "path": "lake-manifest.json",
+              "sha256": "11242be2ee0701a8d9e2a0374ade0342c1d1e355472aad65200bca2b6c38944c"
+            },
+            {
+              "path": "lean-toolchain",
+              "sha256": "02f25adee7c1d6bf2e95b7b5b13f45b9892c7dd53ef470d5372ac60bda3df023"
+            }
+          ],
+          "acquired": true,
+          "runtime_verified": false
+        }
+      ],
+      "material_acquired": true,
+      "task_constructed": true,
+      "runtime_verified": false,
+      "accepted": false,
+      "construction_manifest": "samples/category-pilot-004/kolmogorov_holder_modification/construction.json"
+    },
+    {
+      "task_id": "finite_release_groundwater_inverse",
+      "category": "Scientific Problems & ML",
+      "source_materials": [
+        {
+          "repository": "https://github.com/MODFLOW-ORG/modflow6-examples.git",
+          "commit": "b6d5d42839349a447579a577f968fe8ac4c1c671",
+          "files": [
+            {
+              "path": "scripts/ex-gwt-moc3d-p02.py",
+              "sha256": "e911ccb39d69a8ff8b359cfef57277c7376e271537eac3c4aedda5a3e35d1d58"
+            },
+            {
+              "path": "doc/sections/ex-gwt-moc3d-p02.tex",
+              "sha256": "7996d8ea8bff0c09056acb80a84410b3ed1b17b65ef95d69837896dcfd9e4ced"
+            }
+          ],
+          "acquired": true,
+          "runtime_verified": false
+        }
+      ],
+      "material_acquired": true,
+      "task_constructed": true,
+      "runtime_verified": false,
+      "accepted": false,
+      "construction_manifest": "samples/category-pilot-004/finite_release_groundwater_inverse/construction.json"
+    },
+    {
+      "task_id": "industrial_irregular_strip",
+      "category": "Combinatorial Optimization",
+      "source_materials": [
+        {
+          "repository": "https://github.com/fontanf/packingsolver.git",
+          "commit": "79b67f8f9924018943daa878613da67bca955355",
+          "files": [
+            {
+              "path": "src/irregular/local_search.cpp",
+              "sha256": "01f392f71f4138a0db1efa46d52496301830dc7ade1d641ff5c4f82f64948b61"
+            },
+            {
+              "path": "src/irregular/optimize.cpp",
+              "sha256": "df75731b011b22b1938e9d5164f6f2bf3c0e7429b3b617329a383ac52c03ff31"
+            },
+            {
+              "path": "data/irregular/opencutlist/chair.json",
+              "sha256": "f88918eda3d315d4925593160e5092be8c31cc092e8e17a4254d728ab614c0b4"
+            },
+            {
+              "path": "data/irregular/opencutlist/stool_x10.json",
+              "sha256": "efdcfb698496af9356b6e312c7d794c95da69a6ce5e46e182c8873b39d62cad8"
+            },
+            {
+              "path": "data/irregular/opencutlist/stepladder.json",
+              "sha256": "20effe8bda10f8e513326d0951b5c12d92bc42637f4d8a1ba34afe4fe2fb0abc"
+            },
+            {
+              "path": "data/irregular/opencutlist/adirondack_chair.json",
+              "sha256": "9e68748a84908a7e74074d2d89426b5ac49d4946be1ebe1e11f21ad983614f24"
+            },
+            {
+              "path": "data/irregular/opencutlist/deer.json",
+              "sha256": "36c3410914d8c03d95610d5f1465ab23f22ed7019b44efad5d7c722d453b09ee"
+            },
+            {
+              "path": "data/irregular/opencutlist/table.json",
+              "sha256": "7ea1ae2a13a55512244bad1368d523b5401d881c24748a8f68211f667e4bbcf8"
+            },
+            {
+              "path": "data/irregular/opencutlist/sofa_structure.json",
+              "sha256": "f77eaf16d8a83569dd5ed95377a12fa3a0745118785aaa8fd78d21bfc7a7577f"
+            },
+            {
+              "path": "data/irregular/opencutlist/knight_armor.json",
+              "sha256": "f7342c2e7562f28a8f10a449fd283569d0334cc53eae3352d58fd2bd616da523"
+            },
+            {
+              "path": "data/irregular/opencutlist/knight_body.json",
+              "sha256": "42a39787af73acd83897b4a5ac84a358d7f215d5694ef28614f5828f4561d74f"
+            }
+          ],
+          "acquired": true,
+          "runtime_verified": false
+        }
+      ],
+      "material_acquired": true,
+      "task_constructed": true,
+      "runtime_verified": false,
+      "accepted": false,
+      "construction_manifest": "samples/category-pilot-004/industrial_irregular_strip/construction.json"
+    },
+    {
+      "task_id": "industry_portfolio_risk_lab",
+      "category": "Professional Knowledge Work",
+      "source_materials": [
+        {
+          "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/49_Industry_Portfolios_daily_CSV.zip",
+          "sha256": "8f394fe34bea54d41b9aafed410425ee8f8e252ede3c71a7c1cd20bab83040de",
+          "acquired": true,
+          "license_status": "not established; local research prototype only"
+        }
+      ],
+      "material_acquired": true,
+      "task_constructed": true,
+      "runtime_verified": false,
+      "accepted": false,
+      "construction_manifest": "samples/category-pilot-004/industry_portfolio_risk_lab/construction.json"
+    },
+    {
+      "task_id": "microrts_resource_frontier",
+      "category": "Interactive Games & Simulators",
+      "source_materials": [
+        {
+          "repository": "https://github.com/santiontanon/microrts.git",
+          "commit": "72f2fd94039adf3323f4591947e98661a572f927",
+          "files": [
+            {
+              "path": "src/ai/abstraction/WorkerRush.java",
+              "sha256": "5154c7e865827bf7098728a1f217386abd75b7631b7df842f2399722a61d5152"
+            },
+            {
+              "path": "src/rts/GameState.java",
+              "sha256": "d720df4b7cf15354d64cddd34ea4cc58982bc1deb4030a03b383cf2cb597243c"
+            },
+            {
+              "path": "maps/16x16/basesWorkers16x16.xml",
+              "sha256": "a4337f80097a4f23187c8806fa07ce107c72a81162597a0fad0f93c25413e246"
+            }
+          ],
+          "acquired": true,
+          "runtime_verified": false
+        }
+      ],
+      "material_acquired": true,
+      "task_constructed": true,
+      "runtime_verified": false,
+      "accepted": false,
+      "construction_manifest": "samples/category-pilot-004/microrts_resource_frontier/construction.json"
+    }
+  ],
+  "reserve_material": {
+    "repo": "materials/repos/libyuv",
+    "role": "downloaded systems reserve, not an additional task",
+    "commit": "58d817ed81e8fe8b06a58576d639cd56b19526d3"
+  }
+}

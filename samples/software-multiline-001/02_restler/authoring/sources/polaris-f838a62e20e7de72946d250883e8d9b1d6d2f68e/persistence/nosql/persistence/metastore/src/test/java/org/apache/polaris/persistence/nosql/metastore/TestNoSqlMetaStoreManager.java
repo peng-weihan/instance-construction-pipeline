@@ -1,0 +1,911 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.polaris.persistence.nosql.metastore;
+
+import static org.apache.polaris.core.entity.PolarisEntityConstants.ENTITY_BASE_LOCATION;
+import static org.apache.polaris.core.entity.PolarisEntitySubType.NULL_SUBTYPE;
+import static org.apache.polaris.core.entity.PolarisEntityType.CATALOG;
+import static org.apache.polaris.persistence.nosql.api.index.IndexKey.key;
+import static org.apache.polaris.persistence.nosql.api.obj.ObjRef.objRef;
+import static org.apache.polaris.persistence.nosql.coretypes.realm.PolicyMapping.POLICY_MAPPING_SERIALIZER;
+import static org.apache.polaris.persistence.nosql.metastore.mutation.PolicyMutation.MAX_POLICY_MAPPING_INDEX_VALUE_SIZE;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+import static org.assertj.core.api.Assertions.tuple;
+import static org.assertj.core.api.InstanceOfAssertFactories.BOOLEAN;
+
+import io.smallrye.common.annotation.Identifier;
+import jakarta.inject.Inject;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Proxy;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.IntStream;
+import org.apache.iceberg.catalog.Namespace;
+import org.apache.polaris.core.PolarisCallContext;
+import org.apache.polaris.core.config.FeatureConfiguration;
+import org.apache.polaris.core.config.RealmConfigurationSource;
+import org.apache.polaris.core.context.RealmContext;
+import org.apache.polaris.core.entity.CatalogEntity;
+import org.apache.polaris.core.entity.NamespaceEntity;
+import org.apache.polaris.core.entity.PolarisBaseEntity;
+import org.apache.polaris.core.entity.PolarisEntity;
+import org.apache.polaris.core.entity.PolarisEntityConstants;
+import org.apache.polaris.core.entity.PolarisEntityCore;
+import org.apache.polaris.core.entity.PolarisEntitySubType;
+import org.apache.polaris.core.entity.PolarisEntityType;
+import org.apache.polaris.core.entity.PolarisPrivilege;
+import org.apache.polaris.core.entity.PrincipalEntity;
+import org.apache.polaris.core.persistence.BasePolarisMetaStoreManagerTest;
+import org.apache.polaris.core.persistence.MetaStoreManagerFactory;
+import org.apache.polaris.core.persistence.PolarisMetaStoreManager;
+import org.apache.polaris.core.persistence.PolarisTestMetaStoreManager;
+import org.apache.polaris.core.persistence.bootstrap.RootCredentialsSet;
+import org.apache.polaris.core.persistence.dao.entity.BaseResult;
+import org.apache.polaris.core.persistence.dao.entity.CreateCatalogResult;
+import org.apache.polaris.core.persistence.dao.entity.CreatePrincipalResult;
+import org.apache.polaris.core.persistence.dao.entity.EntityResult;
+import org.apache.polaris.core.persistence.dao.entity.LoadGrantsResult;
+import org.apache.polaris.core.persistence.dao.entity.LoadPolicyMappingsResult;
+import org.apache.polaris.core.persistence.dao.entity.PolicyAttachmentResult;
+import org.apache.polaris.core.persistence.pagination.Page;
+import org.apache.polaris.core.persistence.pagination.PageToken;
+import org.apache.polaris.core.policy.PolicyEntity;
+import org.apache.polaris.core.policy.PredefinedPolicyTypes;
+import org.apache.polaris.ids.api.MonotonicClock;
+import org.apache.polaris.persistence.nosql.api.Persistence;
+import org.apache.polaris.persistence.nosql.api.RealmPersistenceFactory;
+import org.apache.polaris.persistence.nosql.authz.api.Privileges;
+import org.apache.polaris.persistence.nosql.coretypes.catalog.CatalogsObj;
+import org.apache.polaris.persistence.nosql.coretypes.principals.PrincipalsObj;
+import org.apache.polaris.persistence.nosql.coretypes.realm.PolicyMapping;
+import org.assertj.core.api.SoftAssertions;
+import org.assertj.core.api.junit.jupiter.InjectSoftAssertions;
+import org.assertj.core.api.junit.jupiter.SoftAssertionsExtension;
+import org.jboss.weld.junit5.EnableWeld;
+import org.jboss.weld.junit5.WeldInitiator;
+import org.jboss.weld.junit5.WeldSetup;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+@SuppressWarnings("CdiInjectionPointsInspection")
+@EnableWeld
+@ExtendWith(SoftAssertionsExtension.class)
+public class TestNoSqlMetaStoreManager extends BasePolarisMetaStoreManagerTest {
+  @SuppressWarnings("unused")
+  @WeldSetup
+  WeldInitiator weld = WeldInitiator.performDefaultDiscovery();
+
+  @InjectSoftAssertions SoftAssertions soft;
+
+  @Inject
+  @Identifier("nosql")
+  MetaStoreManagerFactory metaStoreManagerFactory;
+
+  @Inject RealmPersistenceFactory realmPersistenceFactory;
+  @Inject RealmConfigurationSource configurationSource;
+  @Inject Privileges privileges;
+  @Inject MonotonicClock monotonicClock;
+
+  String realmId;
+  RealmContext realmContext;
+
+  PolarisMetaStoreManager metaStore;
+  PolarisCallContext callContext;
+
+  @Override
+  protected PolarisTestMetaStoreManager createPolarisTestMetaStoreManager() {
+    realmId = UUID.randomUUID().toString();
+    realmContext = () -> realmId;
+
+    var startTime = monotonicClock.currentTimeMillis();
+
+    metaStoreManagerFactory.bootstrapRealms(List.of(realmId), RootCredentialsSet.fromEnvironment());
+
+    var manager = metaStoreManagerFactory.getOrCreateMetaStoreManager(realmContext);
+    var session = metaStoreManagerFactory.getOrCreateSession(realmContext);
+
+    var callCtx = new PolarisCallContext(realmContext, session, configurationSource);
+
+    return new PolarisTestMetaStoreManager(manager, callCtx, startTime, false);
+  }
+
+  @Override
+  @Disabled("No entity cache, no need to test it")
+  protected void testEntityCache() {}
+
+  @Override
+  @Disabled(
+      "Nothing in the code base calls 'loadTasks', the contract of that function is not what the test exercises")
+  protected void testLoadTasksInParallel() {}
+
+  @Override
+  @Disabled(
+      "Nothing in the code base calls 'loadTasks', the contract of that function is not what the test exercises")
+  protected void testLoadTasks() {}
+
+  @Override
+  protected void testLoadResolvedEntitiesById() {
+    assertThatCode(super::testLoadResolvedEntitiesById)
+        .isInstanceOf(UnsupportedOperationException.class);
+  }
+
+  @Override
+  @Disabled("loadResolvedEntities is unsupported in the NoSQL metastore implementation")
+  protected void testLoadResolvedEntitiesGranteeVsSecurableRecords() {}
+
+  @BeforeEach
+  void setup() {
+    this.metaStore = polarisTestMetaStoreManager.polarisMetaStoreManager();
+    this.callContext = polarisTestMetaStoreManager.polarisCallContext();
+  }
+
+  @Test
+  public void rejectsPaginationTokenWhenReferencedSnapshotDoesNotExist() {
+    var noSqlToken =
+        NoSqlPaginationToken.paginationToken(
+            objRef(CatalogsObj.TYPE, Long.MAX_VALUE), key("catalog"));
+    var responsePage = Page.page(PageToken.fromLimit(1), List.of("catalog"), noSqlToken);
+    var pageToken = PageToken.build(responsePage.encodedResponseToken(), null, -1, () -> true);
+
+    assertThatIllegalArgumentException()
+        .isThrownBy(
+            () ->
+                metaStore.listFullEntities(
+                    callContext, List.of(), CATALOG, NULL_SUBTYPE, pageToken))
+        .withMessage("Invalid or expired NoSQL pagination token");
+  }
+
+  @Test
+  public void rotatePrincipalSecretsWhenClientIdIndexIsStriped() {
+    Persistence persistence = realmPersistenceFactory.newBuilder().realmId(realmId).build();
+
+    // Create principals until the by-client-id index spills out of the embedded region, so that
+    // client-id keys of existing principals live in stripes rather than in the embedded index.
+    CreatePrincipalResult first = null;
+    int created = 0;
+    while (created < 4000) {
+      PrincipalEntity entity =
+          new PrincipalEntity.Builder()
+              .setId(metaStore.generateNewEntityId(callContext).getId())
+              .setName("rotate_principal_" + created)
+              .setCreateTimestamp(System.currentTimeMillis())
+              .build();
+      CreatePrincipalResult result = metaStore.createPrincipal(callContext, entity);
+      assertThat(result.isSuccess()).isTrue();
+      if (first == null) {
+        first = result;
+      }
+      created++;
+      if (created % 50 == 0 && clientIdIndexIsStriped(persistence)) {
+        break;
+      }
+    }
+
+    assertThat(clientIdIndexIsStriped(persistence))
+        .describedAs(
+            "by-client-id index should have spilled to stripes after %d principals", created)
+        .isTrue();
+
+    // Rotating keeps the same client ID, so the mutation removes and re-adds the same index key.
+    var secrets = first.getPrincipalSecrets();
+    var rotated =
+        metaStore.rotatePrincipalSecrets(
+            callContext,
+            secrets.getPrincipalClientId(),
+            first.getPrincipal().getId(),
+            false,
+            secrets.getMainSecretHash());
+
+    assertThat(rotated.isSuccess()).isTrue();
+    assertThat(rotated.getPrincipalSecrets().getPrincipalClientId())
+        .isEqualTo(secrets.getPrincipalClientId());
+  }
+
+  private static boolean clientIdIndexIsStriped(Persistence persistence) {
+    return persistence
+        .fetchReferenceHead(PrincipalsObj.PRINCIPALS_REF_NAME, PrincipalsObj.class)
+        .map(principals -> !principals.byClientId().stripes().isEmpty())
+        .orElse(false);
+  }
+
+  @Test
+  public void overlappingLocations() {
+    PolarisBaseEntity catalog =
+        new PolarisBaseEntity(
+            PolarisEntityConstants.getNullId(),
+            metaStore.generateNewEntityId(callContext).getId(),
+            PolarisEntityType.CATALOG,
+            PolarisEntitySubType.NULL_SUBTYPE,
+            PolarisEntityConstants.getRootEntityId(),
+            "overlappingLocations");
+    CreateCatalogResult catalogCreated = metaStore.createCatalog(callContext, catalog, List.of());
+    assertThat(catalogCreated).isNotNull();
+    catalog = catalogCreated.getCatalog();
+
+    var nsFoo =
+        createEntity(
+            List.of(catalog),
+            PolarisEntityType.NAMESPACE,
+            PolarisEntitySubType.NULL_SUBTYPE,
+            "ns2",
+            Map.of(ENTITY_BASE_LOCATION, "s3://bucket/foo/"));
+    assertThat(nsFoo).extracting(EntityResult::isSuccess, BOOLEAN).isTrue();
+
+    // Test parent namespace overlap detection for a new child location.
+    // This case was not detected by the original NoSQL implementation.
+    soft.assertThat(
+            metaStore.hasOverlappingSiblings(
+                callContext,
+                List.of(PolarisEntity.toCore(catalog)),
+                new NamespaceEntity.Builder(Namespace.of("x"))
+                    .setCatalogId(catalog.getId())
+                    .setBaseLocation("s3://bucket/foo/newchild/")
+                    .build()))
+        .isPresent()
+        .contains(Optional.of("s3://bucket/foo/"));
+
+    var nsBar =
+        createEntity(
+            List.of(catalog),
+            PolarisEntityType.NAMESPACE,
+            PolarisEntitySubType.NULL_SUBTYPE,
+            "ns3",
+            Map.of(ENTITY_BASE_LOCATION, "s3://bucket/bar/"));
+    assertThat(nsBar).extracting(EntityResult::isSuccess, BOOLEAN).isTrue();
+    var nsFoobar =
+        createEntity(
+            List.of(catalog),
+            PolarisEntityType.NAMESPACE,
+            PolarisEntitySubType.NULL_SUBTYPE,
+            "foobar",
+            Map.of(ENTITY_BASE_LOCATION, "s3://bucket/foo/bar/"));
+    assertThat(nsFoobar).extracting(EntityResult::isSuccess, BOOLEAN).isTrue();
+    var nsFoobar2 =
+        createEntity(
+            List.of(catalog),
+            PolarisEntityType.NAMESPACE,
+            PolarisEntitySubType.NULL_SUBTYPE,
+            "foobar2",
+            // Same location again
+            Map.of(ENTITY_BASE_LOCATION, "s3://bucket/foo/bar/"));
+    assertThat(nsFoobar2).extracting(EntityResult::isSuccess, BOOLEAN).isTrue();
+
+    soft.assertThat(
+            metaStore.hasOverlappingSiblings(
+                callContext,
+                List.of(PolarisEntity.toCore(catalog)),
+                new NamespaceEntity.Builder(Namespace.of("x"))
+                    .setCatalogId(catalog.getId())
+                    .setBaseLocation("s3://bucket/foo/")
+                    .build()))
+        .isPresent()
+        .contains(Optional.of("s3://bucket/foo/"));
+
+    for (var check :
+        List.of(
+            "s3://bucket/foo/bar",
+            "s3://bucket/foo/bar/",
+            "s3a://bucket/foo/bar/",
+            "gs://bucket/foo/bar/")) {
+      soft.assertThat(
+              metaStore.hasOverlappingSiblings(
+                  callContext,
+                  List.of(PolarisEntity.toCore(catalog)),
+                  new NamespaceEntity.Builder(Namespace.of("x"))
+                      .setCatalogId(catalog.getId())
+                      .setBaseLocation(check)
+                      .build()))
+          .isPresent()
+          .contains(Optional.of("s3://bucket/foo/bar/"));
+    }
+
+    soft.assertThat(
+            metaStore.hasOverlappingSiblings(
+                callContext,
+                List.of(PolarisEntity.toCore(catalog)),
+                new NamespaceEntity.Builder(Namespace.of("x"))
+                    .setCatalogId(catalog.getId())
+                    .setBaseLocation("s3://other/data/stuff/")
+                    .build()))
+        .isPresent()
+        .contains(Optional.empty());
+
+    // Drop one of the entities with the duplicate base location
+    metaStore.dropEntityIfExists(callContext, List.of(catalog), nsFoobar.getEntity(), null, false);
+    // Must still report an overlap
+    soft.assertThat(
+            metaStore.hasOverlappingSiblings(
+                callContext,
+                List.of(PolarisEntity.toCore(catalog)),
+                new NamespaceEntity.Builder(Namespace.of("x"))
+                    .setCatalogId(catalog.getId())
+                    .setBaseLocation("s3://bucket/foo/bar")
+                    .build()))
+        .isPresent()
+        .contains(Optional.of("s3://bucket/foo/bar/"));
+
+    // Drop one of the entities with the duplicate base location
+    metaStore.dropEntityIfExists(callContext, List.of(catalog), nsFoobar2.getEntity(), null, false);
+
+    // Drop the parent too so the final "no overlap" check for a bar location is clean.
+    metaStore.dropEntityIfExists(callContext, List.of(catalog), nsFoo.getEntity(), null, false);
+
+    // No more overlaps
+    soft.assertThat(
+            metaStore.hasOverlappingSiblings(
+                callContext,
+                List.of(PolarisEntity.toCore(catalog)),
+                new NamespaceEntity.Builder(Namespace.of("x"))
+                    .setCatalogId(catalog.getId())
+                    .setBaseLocation("s3://bucket/foo/bar")
+                    .build()))
+        .isPresent()
+        .contains(Optional.empty());
+  }
+
+  @Test
+  void attachPolicyAcceptsParametersWithinSerializedSizeLimit() {
+    var catalog =
+        new PolarisBaseEntity(
+            PolarisEntityConstants.getNullId(),
+            metaStore.generateNewEntityId(callContext).getId(),
+            PolarisEntityType.CATALOG,
+            PolarisEntitySubType.NULL_SUBTYPE,
+            PolarisEntityConstants.getRootEntityId(),
+            "policyMappingLimitCatalog");
+    var catalogCreated = metaStore.createCatalog(callContext, catalog, List.of());
+    assertThat(catalogCreated).isNotNull();
+    catalog = catalogCreated.getCatalog();
+
+    var namespaceResult =
+        createEntity(
+            List.of(catalog),
+            PolarisEntityType.NAMESPACE,
+            PolarisEntitySubType.NULL_SUBTYPE,
+            "ns",
+            Map.of());
+    assertThat(namespaceResult.isSuccess()).isTrue();
+    var namespace = namespaceResult.getEntity();
+
+    var tableResult =
+        createEntity(
+            List.of(catalog, namespace),
+            PolarisEntityType.TABLE_LIKE,
+            PolarisEntitySubType.ICEBERG_TABLE,
+            "tbl",
+            Map.of());
+    assertThat(tableResult.isSuccess()).isTrue();
+    var table = tableResult.getEntity();
+
+    var policyResult =
+        createEntity(
+            List.of(catalog, namespace),
+            PolarisEntityType.POLICY,
+            PolarisEntitySubType.NULL_SUBTYPE,
+            "policy",
+            Map.of(
+                "policy-type-code",
+                Integer.toString(PredefinedPolicyTypes.DATA_COMPACTION.getCode())));
+    assertThat(policyResult.isSuccess()).isTrue();
+    var policy = PolicyEntity.of(policyResult.getEntity());
+
+    var parameters = policyMappingParameters(50);
+    assertThat(serializedPolicyMappingSize(parameters))
+        .isLessThanOrEqualTo(MAX_POLICY_MAPPING_INDEX_VALUE_SIZE);
+
+    var attachResult =
+        metaStore.attachPolicyToEntity(
+            callContext,
+            List.of(catalog, namespace),
+            table,
+            List.of(catalog, namespace),
+            policy,
+            parameters);
+
+    assertThat(attachResult.isSuccess()).isTrue();
+    assertThat(attachResult.getPolicyMappingRecord()).isNotNull();
+    assertThat(attachResult.getPolicyMappingRecord().getParametersAsMap())
+        .containsExactlyEntriesOf(parameters);
+
+    var loadResult =
+        metaStore.loadPoliciesOnEntityByType(
+            callContext, table, PredefinedPolicyTypes.DATA_COMPACTION);
+    assertThat(loadResult.isSuccess()).isTrue();
+    assertThat(loadResult.getEntities()).hasSize(1);
+    assertThat(loadResult.getPolicyMappingRecords())
+        .singleElement()
+        .satisfies(
+            record -> assertThat(record.getParametersAsMap()).containsExactlyEntriesOf(parameters));
+  }
+
+  @Test
+  void attachPolicyRejectsParametersExceedingSerializedSizeLimit() {
+    var catalog =
+        new PolarisBaseEntity(
+            PolarisEntityConstants.getNullId(),
+            metaStore.generateNewEntityId(callContext).getId(),
+            PolarisEntityType.CATALOG,
+            PolarisEntitySubType.NULL_SUBTYPE,
+            PolarisEntityConstants.getRootEntityId(),
+            "policyMappingTooLargeCatalog");
+    var catalogCreated = metaStore.createCatalog(callContext, catalog, List.of());
+    assertThat(catalogCreated).isNotNull();
+    catalog = catalogCreated.getCatalog();
+
+    var namespaceResult =
+        createEntity(
+            List.of(catalog),
+            PolarisEntityType.NAMESPACE,
+            PolarisEntitySubType.NULL_SUBTYPE,
+            "ns",
+            Map.of());
+    assertThat(namespaceResult.isSuccess()).isTrue();
+    var namespace = namespaceResult.getEntity();
+
+    var tableResult =
+        createEntity(
+            List.of(catalog, namespace),
+            PolarisEntityType.TABLE_LIKE,
+            PolarisEntitySubType.ICEBERG_TABLE,
+            "tbl",
+            Map.of());
+    assertThat(tableResult.isSuccess()).isTrue();
+    var table = tableResult.getEntity();
+
+    var policyResult =
+        createEntity(
+            List.of(catalog, namespace),
+            PolarisEntityType.POLICY,
+            PolarisEntitySubType.NULL_SUBTYPE,
+            "policy",
+            Map.of(
+                "policy-type-code",
+                Integer.toString(PredefinedPolicyTypes.DATA_COMPACTION.getCode())));
+    assertThat(policyResult.isSuccess()).isTrue();
+    var policy = PolicyEntity.of(policyResult.getEntity());
+
+    var parameters = policyMappingParameters(51);
+    assertThat(serializedPolicyMappingSize(parameters))
+        .isGreaterThan(MAX_POLICY_MAPPING_INDEX_VALUE_SIZE);
+
+    var attachResult =
+        metaStore.attachPolicyToEntity(
+            callContext,
+            List.of(catalog, namespace),
+            table,
+            List.of(catalog, namespace),
+            policy,
+            parameters);
+
+    assertThat(attachResult)
+        .extracting(PolicyAttachmentResult::isSuccess, PolicyAttachmentResult::getReturnStatus)
+        .containsExactly(false, BaseResult.ReturnStatus.UNEXPECTED_ERROR_SIGNALED);
+    assertThat(attachResult.getExtraInformation())
+        .contains("Serialized policy-mapping index value size")
+        .contains(String.valueOf(MAX_POLICY_MAPPING_INDEX_VALUE_SIZE));
+
+    var loadResult = metaStore.loadPoliciesOnEntity(callContext, table);
+    assertThat(loadResult)
+        .extracting(
+            LoadPolicyMappingsResult::isSuccess,
+            LoadPolicyMappingsResult::getPolicyMappingRecords,
+            LoadPolicyMappingsResult::getEntities)
+        .containsExactly(true, List.of(), List.of());
+  }
+
+  @SuppressWarnings("SameParameterValue")
+  @ParameterizedTest
+  @ValueSource(booleans = {true, false})
+  void dropNonEmptyPassthroughFacadeCatalog(boolean allowDropping) {
+    RealmConfigurationSource config =
+        (rc, name) ->
+            FeatureConfiguration.ALLOW_DROPPING_NON_EMPTY_PASSTHROUGH_FACADE_CATALOG
+                    .key()
+                    .equals(name)
+                ? allowDropping
+                : configurationSource.getConfigValue(rc, name);
+    var ctx = new PolarisCallContext(realmContext, callContext.getMetaStore(), config);
+
+    var catalog =
+        new PolarisBaseEntity.Builder(
+                new PolarisBaseEntity(
+                    PolarisEntityConstants.getNullId(),
+                    metaStore.generateNewEntityId(ctx).getId(),
+                    PolarisEntityType.CATALOG,
+                    PolarisEntitySubType.NULL_SUBTYPE,
+                    PolarisEntityConstants.getRootEntityId(),
+                    "passthroughFacade" + allowDropping))
+            .internalPropertiesAsMap(
+                Map.of(PolarisEntityConstants.getConnectionConfigInfoPropertyName(), "{}"))
+            .build();
+    catalog = metaStore.createCatalog(ctx, catalog, List.of()).getCatalog();
+    assertThat(CatalogEntity.of(catalog).isPassthroughFacade()).isTrue();
+
+    var ns =
+        createEntity(
+            List.of(catalog),
+            PolarisEntityType.NAMESPACE,
+            PolarisEntitySubType.NULL_SUBTYPE,
+            "ns",
+            Map.of());
+    assertThat(ns).extracting(EntityResult::isSuccess, BOOLEAN).isTrue();
+
+    var dropResult = metaStore.dropEntityIfExists(ctx, null, catalog, Map.of(), false);
+    if (allowDropping) {
+      assertThat(dropResult.isSuccess()).isTrue();
+      assertThat(
+              metaStore.readEntityByName(
+                  ctx, null, CATALOG, NULL_SUBTYPE, "passthroughFacade" + allowDropping))
+          .extracting(EntityResult::isSuccess, BOOLEAN)
+          .isFalse();
+
+      // The content of the dropped catalog must not leak into a new catalog with the same name.
+      var newCatalog =
+          new PolarisBaseEntity(
+              PolarisEntityConstants.getNullId(),
+              metaStore.generateNewEntityId(ctx).getId(),
+              PolarisEntityType.CATALOG,
+              PolarisEntitySubType.NULL_SUBTYPE,
+              PolarisEntityConstants.getRootEntityId(),
+              "passthroughFacade" + allowDropping);
+      newCatalog = metaStore.createCatalog(ctx, newCatalog, List.of()).getCatalog();
+      assertThat(
+              metaStore
+                  .listFullEntities(
+                      ctx,
+                      List.<PolarisEntityCore>of(newCatalog),
+                      PolarisEntityType.NAMESPACE,
+                      PolarisEntitySubType.ANY_SUBTYPE,
+                      PageToken.readEverything())
+                  .items())
+          .isEmpty();
+    } else {
+      assertThat(dropResult.getReturnStatus())
+          .isEqualTo(BaseResult.ReturnStatus.NAMESPACE_NOT_EMPTY);
+      assertThat(dropResult.getExtraInformation())
+          .contains(FeatureConfiguration.ALLOW_DROPPING_NON_EMPTY_PASSTHROUGH_FACADE_CATALOG.key());
+    }
+  }
+
+  EntityResult createEntity(
+      List<PolarisBaseEntity> catalogPath,
+      PolarisEntityType entityType,
+      PolarisEntitySubType entitySubType,
+      String name,
+      Map<String, String> properties) {
+    var entityId = metaStore.generateNewEntityId(callContext).getId();
+    PolarisBaseEntity newEntity =
+        new PolarisBaseEntity.Builder()
+            .catalogId(catalogPath.getFirst().getId())
+            .id(entityId)
+            .typeCode(entityType.getCode())
+            .subTypeCode(entitySubType.getCode())
+            .parentId(catalogPath.getLast().getId())
+            .name(name)
+            .propertiesAsMap(properties)
+            .build();
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    var path = (List<PolarisEntityCore>) (List) catalogPath;
+    return metaStore.createEntityIfNotExists(callContext, path, newEntity);
+  }
+
+  private static Map<String, String> policyMappingParameters(int entries) {
+    var parameters = new LinkedHashMap<String, String>();
+    IntStream.range(0, entries).forEach(i -> parameters.put("k" + i, "v" + i));
+    return parameters;
+  }
+
+  private static int serializedPolicyMappingSize(Map<String, String> parameters) {
+    return POLICY_MAPPING_SERIALIZER.serializedSize(
+        PolicyMapping.builder().parameters(parameters).build());
+  }
+
+  @Test
+  public void testNamespaceTableClash() {
+    PolarisBaseEntity catalog =
+        new PolarisBaseEntity(
+            PolarisEntityConstants.getNullId(),
+            metaStore.generateNewEntityId(callContext).getId(),
+            PolarisEntityType.CATALOG,
+            PolarisEntitySubType.NULL_SUBTYPE,
+            PolarisEntityConstants.getRootEntityId(),
+            "collisionCatalog");
+    metaStore.createCatalog(callContext, catalog, List.of());
+
+    // Create a namespace
+    var nsResult =
+        createEntity(
+            List.of(catalog),
+            PolarisEntityType.NAMESPACE,
+            PolarisEntitySubType.NULL_SUBTYPE,
+            "clashName",
+            Map.of());
+    assertThat(nsResult.isSuccess()).isTrue();
+
+    // Try to create a table with the same name
+    // This is expected to fail with the fix, but currently crashes NoSQL
+    var tableResult =
+        createEntity(
+            List.of(catalog),
+            PolarisEntityType.TABLE_LIKE,
+            PolarisEntitySubType.ICEBERG_TABLE,
+            "clashName",
+            Map.of());
+
+    // In NoSQL, this should return ENTITY_ALREADY_EXISTS instead of crashing
+    assertThat(tableResult.getReturnStatus())
+        .isEqualTo(BaseResult.ReturnStatus.ENTITY_ALREADY_EXISTS);
+  }
+
+  @Test
+  public void testGrantAndRevokeUsageRevalidateGranteeExistenceAndType() {
+    PolarisBaseEntity catalog =
+        new PolarisBaseEntity(
+            PolarisEntityConstants.getNullId(),
+            metaStore.generateNewEntityId(callContext).getId(),
+            PolarisEntityType.CATALOG,
+            PolarisEntitySubType.NULL_SUBTYPE,
+            PolarisEntityConstants.getRootEntityId(),
+            "grantRevalidateCatalog");
+    CreateCatalogResult catalogCreated = metaStore.createCatalog(callContext, catalog, List.of());
+    assertThat(catalogCreated).isNotNull();
+    catalog = catalogCreated.getCatalog();
+
+    EntityResult catalogAdminRoleResult =
+        metaStore.readEntityByName(
+            callContext,
+            List.of(catalog),
+            PolarisEntityType.CATALOG_ROLE,
+            PolarisEntitySubType.ANY_SUBTYPE,
+            PolarisEntityConstants.getNameOfCatalogAdminRole());
+    assertThat(catalogAdminRoleResult.isSuccess()).isTrue();
+    PolarisBaseEntity catalogAdminRole = catalogAdminRoleResult.getEntity();
+    assertThat(catalogAdminRole).isNotNull();
+
+    PolarisBaseEntity principalRole =
+        new PolarisBaseEntity(
+            PolarisEntityConstants.getNullId(),
+            metaStore.generateNewEntityId(callContext).getId(),
+            PolarisEntityType.PRINCIPAL_ROLE,
+            PolarisEntitySubType.NULL_SUBTYPE,
+            PolarisEntityConstants.getRootEntityId(),
+            "grantRevalidatePrincipalRole");
+    EntityResult principalRoleCreate =
+        metaStore.createEntityIfNotExists(callContext, null, principalRole);
+    assertThat(principalRoleCreate.isSuccess()).isTrue();
+    PolarisBaseEntity createdPrincipalRole = principalRoleCreate.getEntity();
+    assertThat(createdPrincipalRole).isNotNull();
+    long principalRoleId = createdPrincipalRole.getId();
+
+    PolarisBaseEntity mismatchedTypeGrantee =
+        new PolarisBaseEntity.Builder(createdPrincipalRole)
+            .typeCode(PolarisEntityType.CATALOG_ROLE.getCode())
+            .build();
+
+    assertThat(
+            metaStore
+                .grantUsageOnRoleToGrantee(
+                    callContext, catalog, catalogAdminRole, mismatchedTypeGrantee)
+                .getReturnStatus())
+        .isEqualTo(BaseResult.ReturnStatus.ENTITY_CANNOT_BE_RESOLVED);
+    assertThat(
+            metaStore
+                .revokeUsageOnRoleFromGrantee(
+                    callContext, catalog, catalogAdminRole, mismatchedTypeGrantee)
+                .getReturnStatus())
+        .isEqualTo(BaseResult.ReturnStatus.ENTITY_CANNOT_BE_RESOLVED);
+
+    assertThat(
+            metaStore
+                .dropEntityIfExists(callContext, null, createdPrincipalRole, null, false)
+                .isSuccess())
+        .isTrue();
+
+    assertThat(
+            metaStore
+                .grantUsageOnRoleToGrantee(
+                    callContext, catalog, catalogAdminRole, createdPrincipalRole)
+                .getReturnStatus())
+        .isEqualTo(BaseResult.ReturnStatus.ENTITY_CANNOT_BE_RESOLVED);
+    assertThat(
+            metaStore
+                .revokeUsageOnRoleFromGrantee(
+                    callContext, catalog, catalogAdminRole, createdPrincipalRole)
+                .getReturnStatus())
+        .isEqualTo(BaseResult.ReturnStatus.ENTITY_CANNOT_BE_RESOLVED);
+
+    LoadGrantsResult grantsOnCatalogRole =
+        metaStore.loadGrantsOnSecurable(callContext, catalogAdminRole);
+    assertThat(grantsOnCatalogRole.isSuccess()).isTrue();
+    assertThat(grantsOnCatalogRole.getGrantRecords())
+        .noneSatisfy(
+            grantRecord -> assertThat(grantRecord.getGranteeId()).isEqualTo(principalRoleId));
+  }
+
+  @Test
+  public void testLoadGrantsReturnsEntityNotFoundForMissingAnchor() {
+    long missingId = metaStore.generateNewEntityId(callContext).getId();
+    PolarisBaseEntity missingPrincipalRole =
+        new PolarisBaseEntity(
+            PolarisEntityConstants.getNullId(),
+            missingId,
+            PolarisEntityType.PRINCIPAL_ROLE,
+            PolarisEntitySubType.NULL_SUBTYPE,
+            PolarisEntityConstants.getRootEntityId(),
+            "missingPrincipalRole");
+
+    LoadGrantsResult grantsToMissing =
+        metaStore.loadGrantsToGrantee(callContext, missingPrincipalRole);
+    assertThat(grantsToMissing.getReturnStatus())
+        .isEqualTo(BaseResult.ReturnStatus.ENTITY_NOT_FOUND);
+
+    LoadGrantsResult grantsOnMissing =
+        metaStore.loadGrantsOnSecurable(callContext, missingPrincipalRole);
+    assertThat(grantsOnMissing.getReturnStatus())
+        .isEqualTo(BaseResult.ReturnStatus.ENTITY_NOT_FOUND);
+  }
+
+  @Test
+  public void testLoadGrantsSkipsSelfReferencingEntries() {
+    PolarisBaseEntity principalRole =
+        new PolarisBaseEntity(
+            PolarisEntityConstants.getNullId(),
+            metaStore.generateNewEntityId(callContext).getId(),
+            PolarisEntityType.PRINCIPAL_ROLE,
+            PolarisEntitySubType.NULL_SUBTYPE,
+            PolarisEntityConstants.getRootEntityId(),
+            "selfReferencingPrincipalRole");
+
+    EntityResult createResult = metaStore.createEntityIfNotExists(callContext, null, principalRole);
+    assertThat(createResult.isSuccess()).isTrue();
+    PolarisBaseEntity createdPrincipalRole = createResult.getEntity();
+    assertThat(createdPrincipalRole).isNotNull();
+
+    assertThat(
+            metaStore
+                .grantPrivilegeOnSecurableToRole(
+                    callContext,
+                    createdPrincipalRole,
+                    null,
+                    createdPrincipalRole,
+                    PolarisPrivilege.PRINCIPAL_ROLE_USAGE)
+                .isSuccess())
+        .isTrue();
+
+    assertThat(
+            List.of(
+                metaStore.loadGrantsOnSecurable(callContext, createdPrincipalRole),
+                metaStore.loadGrantsToGrantee(callContext, createdPrincipalRole)))
+        .extracting(
+            LoadGrantsResult::isSuccess,
+            LoadGrantsResult::getGrantRecords,
+            LoadGrantsResult::getEntities)
+        .containsExactly( //
+            tuple(true, List.of(), List.of()), //
+            tuple(true, List.of(), List.of()));
+  }
+
+  @Override
+  @Test
+  @Disabled(
+      "The test is not applicable to the NoSQL metastore implementation, "
+          + "because both the creation and modification timestamps are enforced by the implementation and "
+          + "cannot be tweaked by call sites")
+  protected void testCreatePrincipalReturnedEntitySameAsPersisted() {}
+
+  @Test
+  public void testLoadGrantsToGranteeDoesNotFetchPerGrant() {
+    var few = loadGrantsForGrantee(UUID.randomUUID().toString(), 5);
+    var many = loadGrantsForGrantee(UUID.randomUUID().toString(), 25);
+
+    soft.assertThat(many.bulkFetches()).describedAs("grant targets are bulk-fetched").isPositive();
+    soft.assertThat(many)
+        .describedAs("every kind of backend round-trip is independent of the grant count")
+        .isEqualTo(few);
+  }
+
+  private FetchCounts loadGrantsForGrantee(String grantsRealmId, int grantCount) {
+    metaStoreManagerFactory.bootstrapRealms(List.of(grantsRealmId), RootCredentialsSet.EMPTY);
+
+    var counters = new HashMap<String, AtomicInteger>();
+    var persistence =
+        countingPersistence(
+            realmPersistenceFactory.newBuilder().realmId(grantsRealmId).build(), counters);
+
+    RealmContext grantsRealmContext = () -> grantsRealmId;
+    var callCtx =
+        new PolarisCallContext(
+            grantsRealmContext, new NoSqlMetaStore(persistence, privileges), configurationSource);
+    var manager = metaStoreManagerFactory.getOrCreateMetaStoreManager(grantsRealmContext);
+
+    var principal =
+        manager
+            .createPrincipal(
+                callCtx,
+                new PrincipalEntity.Builder()
+                    .setId(manager.generateNewEntityId(callCtx).getId())
+                    .setName("principal")
+                    .setCreateTimestamp(1L)
+                    .build())
+            .getPrincipal();
+
+    for (int i = 0; i < grantCount; i++) {
+      var principalRole =
+          new PolarisBaseEntity.Builder()
+              .catalogId(PolarisEntityConstants.getNullId())
+              .id(manager.generateNewEntityId(callCtx).getId())
+              .typeCode(PolarisEntityType.PRINCIPAL_ROLE.getCode())
+              .subTypeCode(PolarisEntitySubType.NULL_SUBTYPE.getCode())
+              .parentId(PolarisEntityConstants.getRootEntityId())
+              .name("principalRole_" + i)
+              .createTimestamp(1L)
+              .build();
+      principalRole = manager.createEntityIfNotExists(callCtx, null, principalRole).getEntity();
+      manager.grantUsageOnRoleToGrantee(callCtx, null, principalRole, principal);
+    }
+
+    counters.clear();
+    var grants = manager.loadGrantsToGrantee(callCtx, principal);
+
+    soft.assertThat(grants.getEntities())
+        .describedAs("every granted principal role is resolved")
+        .hasSize(grantCount);
+
+    return new FetchCounts(
+        counterValue(counters, "fetch"),
+        counterValue(counters, "bucketizedBulkFetches"),
+        counterValue(counters, "fetchReference"));
+  }
+
+  private static int counterValue(Map<String, AtomicInteger> counters, String method) {
+    var counter = counters.get(method);
+    return counter == null ? 0 : counter.get();
+  }
+
+  private static Persistence countingPersistence(
+      Persistence delegate, Map<String, AtomicInteger> counters) {
+    return (Persistence)
+        Proxy.newProxyInstance(
+            Persistence.class.getClassLoader(),
+            new Class<?>[] {Persistence.class},
+            (proxy, method, args) -> {
+              counters
+                  .computeIfAbsent(method.getName(), k -> new AtomicInteger())
+                  .incrementAndGet();
+              try {
+                return method.invoke(delegate, args);
+              } catch (InvocationTargetException e) {
+                throw e.getCause();
+              }
+            });
+  }
+
+  private record FetchCounts(int fetch, int bulkFetches, int fetchReference) {}
+}

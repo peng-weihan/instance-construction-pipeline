@@ -1,0 +1,489 @@
+{
+  "batch": "samples/long-horizon-built-006",
+  "scope": "pinned source files and public contract presence; qualitative authoring review",
+  "not_established": [
+    "runtime correctness",
+    "full original-asset deduplication",
+    "statistical distribution match",
+    "training gain",
+    "six-hour difficulty"
+  ],
+  "model_runs": 0,
+  "grader_runs": 0,
+  "rows": [
+    {
+      "task_id": "restler_resilient_execution",
+      "anchor": "schemathesis_datagen_pipeline",
+      "source_repo": "restler-fuzzer",
+      "candidate_pool": "API fuzzing/testing frameworks with complete request, async, configuration and resource-dependency code",
+      "admission": "Pin a real repository with runnable entry points and a coherent missing cross-module feature set; existing functions alone are not a new roadmap",
+      "construction": "Read call chains, define seven consistent feature contracts, implement a private reference branch, then bind each requirement to controlled transport checks",
+      "preserved_work": "Repository navigation, multi-feature implementation, integration and compatibility",
+      "new_work": "RESTler repository and recovery/lifecycle roadmap replace the original Schemathesis features",
+      "progression": [
+        "configuration and basic retry",
+        "async deadlines and cancellation",
+        "dependency cleanup and cross-feature replay"
+      ],
+      "near_miss_candidates": [
+        "helper passes unit tests but actual send path bypasses it",
+        "parent deleted while a dependent child is retained",
+        "retry uses a fresh deadline and extends total work"
+      ],
+      "public_contract_paths": [
+        "instruction.md",
+        "interface.md",
+        "roadmap.json",
+        "practice_cases.json"
+      ],
+      "risk": "Public examples are only a small subset; difficulty depends on integrated faults, not feature count",
+      "source_checks": [
+        {
+          "repository": "https://github.com/microsoft/restler-fuzzer.git",
+          "expected_commit": "6d984deedbc54aad957fa3da0c7e9e5df23a2aee",
+          "actual_commit": "6d984deedbc54aad957fa3da0c7e9e5df23a2aee",
+          "commit_matches": true,
+          "key_files": [
+            {
+              "path": "restler/engine/core/request_utilities.py",
+              "expected_sha256": "ddfc693c9cbfbd575e73c96fb0cbeeeebe7640a865461808e12afdb21dd15037",
+              "actual_sha256": "ddfc693c9cbfbd575e73c96fb0cbeeeebe7640a865461808e12afdb21dd15037",
+              "matches": true
+            },
+            {
+              "path": "restler/engine/core/async_request_utilities.py",
+              "expected_sha256": "873c20af483cd075930b71a856be0f1a6e4a24c011ac9ec0476056eb41f8577b",
+              "actual_sha256": "873c20af483cd075930b71a856be0f1a6e4a24c011ac9ec0476056eb41f8577b",
+              "matches": true
+            },
+            {
+              "path": "restler/engine/dependencies.py",
+              "expected_sha256": "230b60a1467a7e83858f08ce9ae26b696715169f8f7f92f460c22c624fa9118a",
+              "actual_sha256": "230b60a1467a7e83858f08ce9ae26b696715169f8f7f92f460c22c624fa9118a",
+              "matches": true
+            },
+            {
+              "path": "restler/restler_settings.py",
+              "expected_sha256": "710df2936773444f2e55a842b4bfc8f072e16ecc873587951d1a5d1cd8d77d2a",
+              "actual_sha256": "710df2936773444f2e55a842b4bfc8f072e16ecc873587951d1a5d1cd8d77d2a",
+              "matches": true
+            }
+          ]
+        }
+      ],
+      "public_contract_checks": [
+        {
+          "path": "instruction.md",
+          "exists": true
+        },
+        {
+          "path": "interface.md",
+          "exists": true
+        },
+        {
+          "path": "roadmap.json",
+          "exists": true
+        },
+        {
+          "path": "practice_cases.json",
+          "exists": true
+        }
+      ],
+      "anchor_definition_sha256": "446b568d02621af5b9edd567fb806f32ed009bbc5308b7e7cb547bf1b851a4e5",
+      "anchor_definition": "data/EdgeBench/schemathesis_datagen_pipeline.json",
+      "negative_control_status": "designed_not_executed",
+      "six_hour_status": "design_hypothesis_only",
+      "review_pass": true
+    },
+    {
+      "task_id": "layered_aquifer_source_lab",
+      "anchor": "borden_source_inversion",
+      "source_repo": "modflow6-examples",
+      "candidate_pool": "Open transport-model examples with explicit equations, geometry, units, boundary conditions and source terms",
+      "admission": "The author can fully specify the forward physics and distinguish observed measurements from newly generated synthetic data",
+      "construction": "Author a new layered scene and source, generate frozen observations, implement an independent forward reference, then require inverse-model construction from public specifications",
+      "preserved_work": "Build a forward approximation, infer a source, improve withheld spatial and future prediction",
+      "new_work": "Original layered scene and synthetic observations; source code and truth differ from Borden",
+      "progression": [
+        "working conservative transport approximation",
+        "joint source geometry and timing inference",
+        "censored likelihood, multiple starts and extrapolation"
+      ],
+      "near_miss_candidates": [
+        "treat all censored observations as exact zero",
+        "use point source instead of fractional cell overlap",
+        "fit visible wells but extrapolate poorly"
+      ],
+      "public_contract_paths": [
+        "instruction.md",
+        "physics.md",
+        "scene.json",
+        "source_bounds.json",
+        "public_observations.csv"
+      ],
+      "risk": "Identifiability and numerical agreement remain unmeasured; a synthetic scene is not field evidence",
+      "source_checks": [
+        {
+          "repository": "https://github.com/MODFLOW-ORG/modflow6-examples.git",
+          "expected_commit": "b6d5d42839349a447579a577f968fe8ac4c1c671",
+          "actual_commit": "b6d5d42839349a447579a577f968fe8ac4c1c671",
+          "commit_matches": true,
+          "key_files": [
+            {
+              "path": "scripts/ex-gwt-moc3d-p02.py",
+              "expected_sha256": "e911ccb39d69a8ff8b359cfef57277c7376e271537eac3c4aedda5a3e35d1d58",
+              "actual_sha256": "e911ccb39d69a8ff8b359cfef57277c7376e271537eac3c4aedda5a3e35d1d58",
+              "matches": true
+            },
+            {
+              "path": "doc/sections/ex-gwt-moc3d-p02.tex",
+              "expected_sha256": "7996d8ea8bff0c09056acb80a84410b3ed1b17b65ef95d69837896dcfd9e4ced",
+              "actual_sha256": "7996d8ea8bff0c09056acb80a84410b3ed1b17b65ef95d69837896dcfd9e4ced",
+              "matches": true
+            }
+          ]
+        }
+      ],
+      "public_contract_checks": [
+        {
+          "path": "instruction.md",
+          "exists": true
+        },
+        {
+          "path": "physics.md",
+          "exists": true
+        },
+        {
+          "path": "scene.json",
+          "exists": true
+        },
+        {
+          "path": "source_bounds.json",
+          "exists": true
+        },
+        {
+          "path": "public_observations.csv",
+          "exists": true
+        }
+      ],
+      "anchor_definition_sha256": "9218658263fb2217768ff8c75d06410e9811e5022aa387f88e3c62c3e1457195",
+      "anchor_definition": "data/EdgeBench/borden_source_inversion.json",
+      "negative_control_status": "designed_not_executed",
+      "six_hour_status": "design_hypothesis_only",
+      "review_pass": true
+    },
+    {
+      "task_id": "industrial_nesting_improvement",
+      "anchor": "jagua_nesting_optimization",
+      "source_repo": "packingsolver",
+      "candidate_pool": "Real irregular-packing solvers and industrial designs with polygons, holes, rotations and repeated parts",
+      "admission": "Input semantics are supported by an independent geometry checker; source-family identity and redistribution terms can be tracked",
+      "construction": "Select disjoint design families, derive realistic orders, freeze the original solver and compute budget, then grade independently checked improvement over saved layouts",
+      "preserved_work": "Profile and improve a genuine geometry/search solver under fixed per-instance compute",
+      "new_work": "C++ PackingSolver and selected design families replace the original Rust solver and inputs",
+      "progression": [
+        "valid layout and profiling",
+        "ordering and placement neighborhoods",
+        "search restarts and geometric acceleration"
+      ],
+      "near_miss_candidates": [
+        "drop a difficult piece to shrink length",
+        "allow tiny overlaps beyond published tolerance",
+        "return unchanged baseline layouts"
+      ],
+      "public_contract_paths": [
+        "instruction.md",
+        "scoring_metadata.json",
+        "DATA_PROVENANCE.json"
+      ],
+      "risk": "Upstream baseline is the current reference, not a proven high-score oracle; improvement headroom and data rights remain open",
+      "source_checks": [
+        {
+          "repository": "https://github.com/fontanf/packingsolver.git",
+          "expected_commit": "79b67f8f9924018943daa878613da67bca955355",
+          "actual_commit": "79b67f8f9924018943daa878613da67bca955355",
+          "commit_matches": true,
+          "key_files": [
+            {
+              "path": "src/irregular/optimize.cpp",
+              "expected_sha256": "df75731b011b22b1938e9d5164f6f2bf3c0e7429b3b617329a383ac52c03ff31",
+              "actual_sha256": "df75731b011b22b1938e9d5164f6f2bf3c0e7429b3b617329a383ac52c03ff31",
+              "matches": true
+            },
+            {
+              "path": "src/irregular/local_search.cpp",
+              "expected_sha256": "01f392f71f4138a0db1efa46d52496301830dc7ade1d641ff5c4f82f64948b61",
+              "actual_sha256": "01f392f71f4138a0db1efa46d52496301830dc7ade1d641ff5c4f82f64948b61",
+              "matches": true
+            }
+          ]
+        }
+      ],
+      "public_contract_checks": [
+        {
+          "path": "instruction.md",
+          "exists": true
+        },
+        {
+          "path": "scoring_metadata.json",
+          "exists": true
+        },
+        {
+          "path": "DATA_PROVENANCE.json",
+          "exists": true
+        }
+      ],
+      "anchor_definition_sha256": "5d8f64ebd76218d8636c21aef8bb63b70348e037fad666e9f711450e58a747e7",
+      "anchor_definition": "data/EdgeBench/jagua_nesting_optimization.json",
+      "negative_control_status": "designed_not_executed",
+      "six_hour_status": "design_hypothesis_only",
+      "review_pass": true
+    },
+    {
+      "task_id": "brownian_multibranch_proofs",
+      "anchor": "lean_analysis_proofs",
+      "source_repo": "brownian-motion",
+      "candidate_pool": "Lean projects with completed proofs and several connected but separately approachable theorem branches",
+      "admission": "Keep fixed statement signatures, complete reference bodies, pinned library dependencies and enough branch entry points",
+      "construction": "Inspect theorem and import dependencies, select a coherent proof slice, mask only proof bodies, retain private references, grade kernel axiom closures",
+      "preserved_work": "Complete many fixed Lean goals with partial progress and dependency-sensitive proof work",
+      "new_work": "31 BrownianMotion targets across covariance, covering, moments and continuity",
+      "progression": [
+        "entry covariance and covering lemmas",
+        "moment and process properties",
+        "continuous modification proofs"
+      ],
+      "near_miss_candidates": [
+        "replace a target with an axiom",
+        "prove a goal using another unfinished lemma",
+        "modify a statement or frozen import"
+      ],
+      "public_contract_paths": [
+        "instruction.md",
+        "targets.json",
+        "scoring_metadata.json"
+      ],
+      "risk": "Original benchmark theorem inventory is incomplete locally; strict theorem-level novelty and shortcut absence are not established",
+      "source_checks": [
+        {
+          "repository": "https://github.com/RemyDegenne/brownian-motion.git",
+          "expected_commit": "a7ad7af662044313bc80a7c0756360fb3745f931",
+          "actual_commit": "a7ad7af662044313bc80a7c0756360fb3745f931",
+          "commit_matches": true,
+          "key_files": [
+            {
+              "path": "BrownianMotion/Gaussian/CovMatrix.lean",
+              "expected_sha256": "89ec93a4bbf3671bc6eb34803c1000777ec00a600732b878d4623cd0457d7ea8",
+              "actual_sha256": "89ec93a4bbf3671bc6eb34803c1000777ec00a600732b878d4623cd0457d7ea8",
+              "matches": true
+            },
+            {
+              "path": "BrownianMotion/Continuity/CoveringNumber.lean",
+              "expected_sha256": "0a066df0cd9ef5fd55f453578de9866672baea986d65ea86f2fdc4d18e4867ea",
+              "actual_sha256": "0a066df0cd9ef5fd55f453578de9866672baea986d65ea86f2fdc4d18e4867ea",
+              "matches": true
+            },
+            {
+              "path": "BrownianMotion/Gaussian/Moment.lean",
+              "expected_sha256": "1ec420407465231b2bdee35a8923b5786c22336ca4c7efcf07cef05eab9fbb3c",
+              "actual_sha256": "1ec420407465231b2bdee35a8923b5786c22336ca4c7efcf07cef05eab9fbb3c",
+              "matches": true
+            },
+            {
+              "path": "BrownianMotion/Gaussian/BrownianMotion.lean",
+              "expected_sha256": "3dd0eb3d8e550d764a98506b6cd41bc18b376d3a2fbfbe013045463416b0ce58",
+              "actual_sha256": "3dd0eb3d8e550d764a98506b6cd41bc18b376d3a2fbfbe013045463416b0ce58",
+              "matches": true
+            },
+            {
+              "path": "BrownianMotion/Continuity/KolmogorovChentsov.lean",
+              "expected_sha256": "0814a0012d92a1c80ac8681247c106ef6604bffd747b26bb54010d4144283c5b",
+              "actual_sha256": "0814a0012d92a1c80ac8681247c106ef6604bffd747b26bb54010d4144283c5b",
+              "matches": true
+            }
+          ]
+        }
+      ],
+      "public_contract_checks": [
+        {
+          "path": "instruction.md",
+          "exists": true
+        },
+        {
+          "path": "targets.json",
+          "exists": true
+        },
+        {
+          "path": "scoring_metadata.json",
+          "exists": true
+        }
+      ],
+      "anchor_definition_sha256": "393385a2974bca00a43f988697c5cd63cc0b0267891d3a1859fe7c5866f5b18d",
+      "anchor_definition": "data/EdgeBench/lean_analysis_proofs.json",
+      "negative_control_status": "designed_not_executed",
+      "six_hour_status": "design_hypothesis_only",
+      "review_pass": true
+    },
+    {
+      "task_id": "cross_asset_adaptive_allocator",
+      "anchor": "portfolio_risk_calibration",
+      "source_repo": "portfolio-risk-engine",
+      "candidate_pool": "Cross-asset price panels plus reproducible risk, constrained optimization and execution-accounting projects",
+      "admission": "Track data supplier and redistribution permission independently from code license; keep chronological splits and explicit costs",
+      "construction": "Specify a new investment mandate, build a causal policy interface and trusted ledger, implement a feasible reference policy and freeze time partitions",
+      "preserved_work": "Risk estimation, constrained allocation, transaction costs and dynamic rebalancing as a coupled system",
+      "new_work": "Eight-asset panel, mandate, split periods and utility/calibration score",
+      "progression": [
+        "complete legal causal policy",
+        "covariance and tail-risk calibration",
+        "cost-aware allocation and event-driven rebalance"
+      ],
+      "near_miss_candidates": [
+        "use the current close before the decision",
+        "reset drifted holdings without charging turnover",
+        "report a fabricated NAV rather than real policy actions"
+      ],
+      "public_contract_paths": [
+        "instruction.md",
+        "policy_interface.md",
+        "accounting.md",
+        "mandate.json",
+        "DATA_PROVENANCE.json"
+      ],
+      "risk": "Original macro covariates are not reproduced; cached prices need provenance/rights work and repeat-feedback overfitting control",
+      "source_checks": [
+        {
+          "repository": "https://github.com/Seb-L-P/portfolio-risk-engine.git",
+          "expected_commit": "a00e1a48e05b1c561a4b753ee03302fdf57f25b9",
+          "actual_commit": "a00e1a48e05b1c561a4b753ee03302fdf57f25b9",
+          "commit_matches": true,
+          "key_files": [
+            {
+              "path": "results/prices.csv",
+              "expected_sha256": "00213a0f32a454e32cb76ad29b87fc203e1817090386b2375326b01e6186f906",
+              "actual_sha256": "00213a0f32a454e32cb76ad29b87fc203e1817090386b2375326b01e6186f906",
+              "matches": true
+            },
+            {
+              "path": "results/prices_source.txt",
+              "expected_sha256": "4d93dddb39519a936e8cf9291df67394f4f5daa9af4a59a681806adeb1ab5430",
+              "actual_sha256": "4d93dddb39519a936e8cf9291df67394f4f5daa9af4a59a681806adeb1ab5430",
+              "matches": true
+            },
+            {
+              "path": "src/portrisk/backtest.py",
+              "expected_sha256": "755012939a236bbc0a3d3385906fd5e5f9ace7b818bcb0e6e9537007b4ec91d0",
+              "actual_sha256": "755012939a236bbc0a3d3385906fd5e5f9ace7b818bcb0e6e9537007b4ec91d0",
+              "matches": true
+            },
+            {
+              "path": "src/portrisk/optimization.py",
+              "expected_sha256": "3be4e4c44c215de96fb103087249d1eddd87e08fbf9c42aaa6ee76981faca9cd",
+              "actual_sha256": "3be4e4c44c215de96fb103087249d1eddd87e08fbf9c42aaa6ee76981faca9cd",
+              "matches": true
+            }
+          ]
+        }
+      ],
+      "public_contract_checks": [
+        {
+          "path": "instruction.md",
+          "exists": true
+        },
+        {
+          "path": "policy_interface.md",
+          "exists": true
+        },
+        {
+          "path": "accounting.md",
+          "exists": true
+        },
+        {
+          "path": "mandate.json",
+          "exists": true
+        },
+        {
+          "path": "DATA_PROVENANCE.json",
+          "exists": true
+        }
+      ],
+      "anchor_definition_sha256": "0343ac03f42042ff9053cb1809d106dac9311e5fe7d9bab353eab4ad1b078cb1",
+      "anchor_definition": "data/EdgeBench/portfolio_risk_calibration.json",
+      "negative_control_status": "designed_not_executed",
+      "six_hour_status": "design_hypothesis_only",
+      "review_pass": true
+    },
+    {
+      "task_id": "wesnoth_frontier_campaign_ai",
+      "anchor": "wesnoth_tactical_ai",
+      "source_repo": "wesnoth-1.18.0",
+      "candidate_pool": "Official Wesnoth engine and AI interfaces plus independently authored maps with distinct tactical/economic structures",
+      "admission": "Use a pinned engine, fixed legal-action interface, multiple terrain families and paired seats; larger match count alone is insufficient",
+      "construction": "Author maps and scenario configurations, expose observations/actions through a trusted wrapper, write a reference strategy, and freeze opponent/seat/seed combinations",
+      "preserved_work": "Repeated game feedback, Lua strategy development and improvements to economy, tactics and win efficiency",
+      "new_work": "Nine new maps and a restricted pure-policy interface; engine remains Wesnoth",
+      "progression": [
+        "recruitment and village economy",
+        "selective attacks and leader survival",
+        "terrain, time-of-day and faction adaptation"
+      ],
+      "near_miss_candidates": [
+        "submit an action index retained from a previous observation",
+        "confuse defense probability with hit probability",
+        "defer every action and rely entirely on the default AI"
+      ],
+      "public_contract_paths": [
+        "instruction.md",
+        "policy_interface.md",
+        "adapter.lua",
+        "match_contract.json"
+      ],
+      "risk": "The restricted interface differs from original arbitrary Lua/WML extensions; default-policy saturation and runtime are unmeasured",
+      "source_checks": [
+        {
+          "repository": "https://github.com/wesnoth/wesnoth.git",
+          "expected_commit": "8ba2b3ebd33f6850c2dc4fe7c6478c7e4f9fc3fd",
+          "actual_commit": "8ba2b3ebd33f6850c2dc4fe7c6478c7e4f9fc3fd",
+          "commit_matches": true,
+          "key_files": [
+            {
+              "path": "data/ai/ais/ai_default_rca.cfg",
+              "expected_sha256": "1f328b5a086523c278458b711e0e80b6913863aa92e00dcd4a7db6ffabdc0850",
+              "actual_sha256": "1f328b5a086523c278458b711e0e80b6913863aa92e00dcd4a7db6ffabdc0850",
+              "matches": true
+            },
+            {
+              "path": "data/multiplayer/scenarios/2p_The_Freelands.cfg",
+              "expected_sha256": "8c26bf033ab19e9d61ddc0097efe98963b438cc2c15e0504e7dd997b09073fca",
+              "actual_sha256": "8c26bf033ab19e9d61ddc0097efe98963b438cc2c15e0504e7dd997b09073fca",
+              "matches": true
+            }
+          ]
+        }
+      ],
+      "public_contract_checks": [
+        {
+          "path": "instruction.md",
+          "exists": true
+        },
+        {
+          "path": "policy_interface.md",
+          "exists": true
+        },
+        {
+          "path": "adapter.lua",
+          "exists": true
+        },
+        {
+          "path": "match_contract.json",
+          "exists": true
+        }
+      ],
+      "anchor_definition_sha256": "b03e7eaafb4bddc146b82d80c38eb7222d4b2d3d7130253a2fc5b4903324cf63",
+      "anchor_definition": "data/EdgeBench/wesnoth_tactical_ai.json",
+      "negative_control_status": "designed_not_executed",
+      "six_hour_status": "design_hypothesis_only",
+      "review_pass": true
+    }
+  ]
+}

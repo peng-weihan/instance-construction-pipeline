@@ -1,0 +1,40 @@
+{
+  "task_id": "layered_aquifer_source_lab",
+  "category": "Scientific Problems & ML",
+  "title": "分层含水层中的有限时污染源反演",
+  "anchor": "borden_source_inversion",
+  "status": "constructed_unverified",
+  "sources": [
+    {
+      "repository": "https://github.com/MODFLOW-ORG/modflow6-examples.git",
+      "commit": "b6d5d42839349a447579a577f968fe8ac4c1c671",
+      "files": [
+        {
+          "path": "scripts/ex-gwt-moc3d-p02.py",
+          "sha256": "e911ccb39d69a8ff8b359cfef57277c7376e271537eac3c4aedda5a3e35d1d58"
+        },
+        {
+          "path": "doc/sections/ex-gwt-moc3d-p02.tex",
+          "sha256": "7996d8ea8bff0c09056acb80a84410b3ed1b17b65ef95d69837896dcfd9e4ced"
+        }
+      ],
+      "acquired": true,
+      "runtime_verified": false
+    }
+  ],
+  "authoring": "interactive source inspection + deterministic construction scripts; no independent CLI model run",
+  "long_horizon_potential": "design hypothesis, not an observed six-hour curve",
+  "empirical_training_benefit": null,
+  "accepted": false,
+  "progression": [
+    "构造守恒前向模型与可用答案",
+    "联合反演源几何、释放时间和强度",
+    "处理检测限、分层输运与空间/时间外推"
+  ],
+  "construction_gaps": [
+    "Numerical reference fidelity/convergence and inverse identifiability remain unaudited.",
+    "Reference inverse solution and executable scoring still pending."
+  ],
+  "runtime_verification": "deferred_by_user",
+  "construction_stage": "materials_and_spec_constructed"
+}

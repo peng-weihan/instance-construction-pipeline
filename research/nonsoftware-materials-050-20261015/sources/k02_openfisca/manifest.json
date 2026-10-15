@@ -1,0 +1,51 @@
+{
+  "repo": "openfisca/openfisca-france",
+  "revision": "16b2e69633e840fdf5f39b74f96dfd2382898dd5",
+  "resolved_utc": "2026-10-15T15:00:00.539816+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:02:17.123879+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "cdd89c8050b1afb68bc8736d84653465755452ed33d955ee920f5bb9b4823ab5",
+    "truncated": false,
+    "blob_count": 5119
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE.AGPL.txt",
+      "bytes": 34520,
+      "sha256": "76a97c878c9c7a8321bb395c2b44d3fe2f8d81314d219b20138ed0e2dddd5182",
+      "url": "https://github.com/openfisca/openfisca-france/blob/16b2e69633e840fdf5f39b74f96dfd2382898dd5/LICENSE.AGPL.txt"
+    },
+    {
+      "path": "README.md",
+      "bytes": 13854,
+      "sha256": "8b324e0ed321c5a94065f9b4d9acf9a14f78d78d3840e017c1b8075c37ab6949",
+      "url": "https://github.com/openfisca/openfisca-france/blob/16b2e69633e840fdf5f39b74f96dfd2382898dd5/README.md"
+    },
+    {
+      "path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "bytes": 191001,
+      "sha256": "c0dab0c53b047df9d178fc09756ec2559855dc06fc78b3d34b4b3f8ed0c7e148",
+      "url": "https://github.com/openfisca/openfisca-france/blob/16b2e69633e840fdf5f39b74f96dfd2382898dd5/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py"
+    },
+    {
+      "path": "tests/formulas/irpp.yaml",
+      "bytes": 33802,
+      "sha256": "ffaaf7b5ea0405ada28bf6624bcac3f7c5925b9d117c4773227368f7d46a3e26",
+      "url": "https://github.com/openfisca/openfisca-france/blob/16b2e69633e840fdf5f39b74f96dfd2382898dd5/tests/formulas/irpp.yaml"
+    },
+    {
+      "path": "tests/impot_revenu/pfu_bareme.yaml",
+      "bytes": 6029,
+      "sha256": "d900951011dc8796e43cb9a37738c01bc32ba9ac5a14b5049a658b5469be9f6f",
+      "url": "https://github.com/openfisca/openfisca-france/blob/16b2e69633e840fdf5f39b74f96dfd2382898dd5/tests/impot_revenu/pfu_bareme.yaml"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

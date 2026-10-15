@@ -1,0 +1,271 @@
+[
+  {
+    "id": "34_duckdb",
+    "repo": "duckdb/duckdb",
+    "title": "受限内存下分组聚合的吞吐与资源效率",
+    "scope": "分组键→线程本地聚合→radix 分区/状态导出→并行 combine→输出；NULL、字符串、复用语义保持不变",
+    "existing_capability": "盐值过滤、dictionary 地址缓存、perfect aggregation、按线程/行宽/内存分区、动态 reservation、arena-backed 状态导出和并行 combine 已存在。当前源码的 string_agg/first 等 spilling 不得按旧文档当缺失功能。",
+    "proposed_gap": "未知，需测已有强配置之后是否仍有倾斜负载长尾或导出/导入搬运热点；不是已确认缺陷。",
+    "workload_tradeoffs": [
+      "低基数窄整数：哈希/合并开销与缓存命中",
+      "高基数字符串/宽状态：分区页内存与导出/临时 I/O",
+      "倾斜基数+临界内存+并行：负载均衡与 repartition 开销"
+    ],
+    "cheap_baseline": "Release、上游 allocator/优化器及已有 perfect/dictionary/radix/adaptivity；扫正常 threads/memory_limit/合法布局/temp_directory；相同 SQL 与结果合同。",
+    "first_probe": "A/B/C 规模阶梯只跑未改源码强配置；分离装载/查询，交错重复记录延迟/RSS/临时 I/O。调参足够、无结构热点或差异在噪声中则撤销方向。未运行。",
+    "remaining_work_hypotheses": [
+      "强配置后若 profile 仍示倾斜 combine 长尾，结合状态宽度改进调度；先排除已有 adaptivity 和线程设置。",
+      "强配置后若 profile 仍示导出/分区增长/导入重复搬运，改进状态存储与临时分配；需保留 phase/复用语义。"
+    ],
+    "correctness_oracle": "冻结上游+独立小数据整数/字符串参考；无序结果规范化、浮点独立容差合同；原生 spill/parallel/recursive 回归。",
+    "measurement_plan": "固定 CPU/内存/盘、seed、revision；生成/装载/查询/结果读取分计时；交错重复，延迟、RSS、临时字节/I/O 与跨 seed 回归。",
+    "license_observation": "根 LICENSE 为 MIT；依赖/扩展/数据再分发未审计。",
+    "offline_build_observation": "只取得片段；须预置完整源码第三方目录、工具和使用的扩展并验证离线构建。",
+    "architecture_risk": "x86/ARM 缓存、allocator 和临时盘表现不同，分架构校准。",
+    "official_context": [
+      "https://duckdb.org/2024/03/29/external-aggregation",
+      "https://duckdb.org/docs/preview/guides/performance/how_to_tune_workloads"
+    ],
+    "edgebench_anchors": [
+      "exchange_core_throughput",
+      "integer_compression_codec"
+    ],
+    "revision": "dda2e4090494101087e7726581928e6af44dbc34",
+    "evidence": [
+      {
+        "path": "src/execution/aggregate_hashtable.cpp",
+        "line": 470,
+        "claim": "已有 dictionary 去重与地址缓存路径",
+        "url": "https://github.com/duckdb/duckdb/blob/dda2e4090494101087e7726581928e6af44dbc34/src/execution/aggregate_hashtable.cpp#L470"
+      },
+      {
+        "path": "src/execution/radix_partitioned_hashtable.cpp",
+        "line": 246,
+        "claim": "外排分区数受 reservation、线程和 block 大小约束",
+        "url": "https://github.com/duckdb/duckdb/blob/dda2e4090494101087e7726581928e6af44dbc34/src/execution/radix_partitioned_hashtable.cpp#L246"
+      },
+      {
+        "path": "src/execution/radix_partitioned_hashtable.cpp",
+        "line": 267,
+        "claim": "宽行限制分区数，少线程使用不同增长策略",
+        "url": "https://github.com/duckdb/duckdb/blob/dda2e4090494101087e7726581928e6af44dbc34/src/execution/radix_partitioned_hashtable.cpp#L267"
+      },
+      {
+        "path": "src/execution/radix_partitioned_hashtable.cpp",
+        "line": 653,
+        "claim": "sink 调用已有 RadixHTAdaptivity，剩余自适应缺口未知",
+        "url": "https://github.com/duckdb/duckdb/blob/dda2e4090494101087e7726581928e6af44dbc34/src/execution/radix_partitioned_hashtable.cpp#L653"
+      },
+      {
+        "path": "test/sql/aggregate/aggregates/aggregate_state_spilling.test_slow",
+        "line": 1,
+        "claim": "原生测试已覆盖 arena-backed 状态 spilling、低内存并行和重复复用",
+        "url": "https://github.com/duckdb/duckdb/blob/dda2e4090494101087e7726581928e6af44dbc34/test/sql/aggregate/aggregates/aggregate_state_spilling.test_slow#L1"
+      },
+      {
+        "path": "benchmark/benchmark_runner.cpp",
+        "line": 142,
+        "claim": "原生 runner warmup 后计时并另行 Verify",
+        "url": "https://github.com/duckdb/duckdb/blob/dda2e4090494101087e7726581928e6af44dbc34/benchmark/benchmark_runner.cpp#L142"
+      },
+      {
+        "path": "benchmark/tpch/aggregate/lineitem_group_string.benchmark",
+        "line": 12,
+        "claim": "原生字符串聚合 benchmark 含结果表，但低基数覆盖不足",
+        "url": "https://github.com/duckdb/duckdb/blob/dda2e4090494101087e7726581928e6af44dbc34/benchmark/tpch/aggregate/lineitem_group_string.benchmark#L12"
+      }
+    ],
+    "route": "M3",
+    "priority": "hold_until_baseline",
+    "status": "source_grounded_material_candidate_baseline_unmeasured",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "baseline_measured": false,
+    "reward_endpoints_measured": false,
+    "card": "cards/34_duckdb.md"
+  },
+  {
+    "id": "35_simdjson",
+    "repo": "simdjson/simdjson",
+    "title": "严格语义下的混合 JSON 流处理效率",
+    "scope": "CPU dispatch→stage1 扫描→batch 边界→On-Demand 访问→数值/字符串输出/错误；访问合同与完整验证合同分开",
+    "existing_capability": "本机 ISA dispatch、parser/string-buffer 复用、ARM/x64 专门 bit indexing、展开/流水扫描及多格式/threaded/sliced 基准已存在。",
+    "proposed_gap": "未知，需测最佳 dispatch/复用/batch/已有并行之后混合尺寸流和高转义内容是否仍有结构开销。",
+    "workload_tradeoffs": [
+      "海量短文档少字段：batch/并行开销与首条延迟",
+      "转义/多字节 UTF-8/高结构密度：扫描解码吞吐与缓冲占用",
+      "大小交替/数值密集：容量复用和峰值内存与均衡"
+    ],
+    "cheap_baseline": "Release/NDEBUG、本机最佳 ISA、parser/string-buffer 复用预分配；扫 batch、threaded 与 sliced；按相同访问语义比较 DOM/On-Demand。不得强制 fallback 造弱基线。",
+    "first_probe": "A/B/C 扫现成 ISA/复用/batch/并行组合；配置/API 即足够、无结构热点或差异在噪声则撤销。独立检查每条结果，防止漏解析换速度。未运行。",
+    "remaining_work_hypotheses": [
+      "强配置后混合大小流若仍有重复边界扫描/分配，可改进 batch 与调度；先排除原生 sliced/threaded。",
+      "强配置后转义/高结构密度若仍为热点，可研究索引写出与消费局部性；须各 ISA 独立验证。"
+    ],
+    "correctness_oracle": "冻结上游同访问序列+独立标准解析器逐文档字段/数值/错误核验；原生 stream/UTF-8/截断测试。声明按需验证范围，独立严谨 harness 不沿用跳错吞掉错误。",
+    "measurement_plan": "加载/生成与解析分离；相同页状态和固定 CPU/ISA/频率策略；交错重复测 GB/s、docs/s、首条/尾部延迟、RSS 和错误；跨 seed。",
+    "license_observation": "README 声明 Apache-2.0 或 MIT 可选；其他 vendored 代码列有 Boost/Apache-LLVM/BSD 等许可；未完整审计。",
+    "offline_build_observation": "CMake 默认可下载，Google Benchmark/counters/corpus 等需预置并验证禁下载构建；当前未构建。",
+    "architecture_risk": "AVX2/AVX512 与 ARM 分支及降频行为不等价，分架构强基线，不能从 x86 倍率外推。",
+    "official_context": [
+      "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/doc/performance.md",
+      "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/doc/ondemand_design.md"
+    ],
+    "edgebench_anchors": [
+      "integer_compression_codec",
+      "vliw_kernel_optimization"
+    ],
+    "revision": "9c003534b1be3bc4f1322bfa7a770a7ffbf247d9",
+    "evidence": [
+      {
+        "path": "src/implementation.cpp",
+        "line": 286,
+        "claim": "按可用 ISA 优先级自动 dispatch，并支持环境变量强制实现",
+        "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/src/implementation.cpp#L286"
+      },
+      {
+        "path": "include/simdjson/generic/ondemand/parser-inl.h",
+        "line": 24,
+        "claim": "已有容量及 string buffer 复用和扩容",
+        "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/include/simdjson/generic/ondemand/parser-inl.h#L24"
+      },
+      {
+        "path": "src/generic/stage1/json_structural_indexer.h",
+        "line": 30,
+        "claim": "ARM/x64 位索引路径与指令级考虑已存在",
+        "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/src/generic/stage1/json_structural_indexer.h#L30"
+      },
+      {
+        "path": "src/generic/stage1/json_structural_indexer.h",
+        "line": 99,
+        "claim": "已有 bit indexer 展开写出",
+        "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/src/generic/stage1/json_structural_indexer.h#L99"
+      },
+      {
+        "path": "benchmark/bench_stream_formats.cpp",
+        "line": 11,
+        "claim": "原生基准提供多种流格式与大小 payload",
+        "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/benchmark/bench_stream_formats.cpp#L11"
+      },
+      {
+        "path": "benchmark/bench_stream_formats.cpp",
+        "line": 147,
+        "claim": "原生 sliced 并行路径会对某些错误 continue，不能当正确性 oracle",
+        "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/benchmark/bench_stream_formats.cpp#L147"
+      },
+      {
+        "path": "tests/ondemand/ondemand_document_stream_tests.cpp",
+        "line": 18,
+        "claim": "原生测试覆盖截断 UTF-8，且注释说明实现间错误检测时点差异",
+        "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/tests/ondemand/ondemand_document_stream_tests.cpp#L18"
+      },
+      {
+        "path": "dependencies/CMakeLists.txt",
+        "line": 1,
+        "claim": "默认允许下载 benchmark、counters 与 corpus 等依赖",
+        "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/dependencies/CMakeLists.txt#L1"
+      }
+    ],
+    "route": "M3",
+    "priority": "hold_until_baseline",
+    "status": "source_grounded_material_candidate_baseline_unmeasured",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "baseline_measured": false,
+    "reward_endpoints_measured": false,
+    "card": "cards/35_simdjson.md"
+  },
+  {
+    "id": "36_libvips",
+    "repo": "libvips/libvips",
+    "title": "图像缩略处理流水线的资源与吞吐优化",
+    "scope": "解码/缩小加载→region/tile 调度缓存→缩放→alpha/颜色处理→实际 sink 输出；固定 codec/像素质量合同",
+    "existing_capability": "shrink-on-load、linear/颜色/alpha 处理、UCHAR alpha 快路径、LRU/顺序 tilecache、可调 threaded/persistent、动态 threadpool 与 Highway SIMD 已存在。",
+    "proposed_gap": "未知，需强配置后实测多图并发区域/缓存锁竞争或组合路径重复搬运；不能把已有 thumbnail/SIMD 当缺口。",
+    "workload_tradeoffs": [
+      "大幅 JPEG 缩略长过滤链：预缩小/流水线、质量与解码",
+      "RGBA/linear/kernel/奇数尺寸：精度与向量尾部/缓冲成本",
+      "随机 ROI/复用 tile/多图并发：命中/重算/锁等待与峰值 RSS/尾延迟"
+    ],
+    "cheap_baseline": "Release+Highway/本机 ISA+thumbnail/合法 sequential；扫 concurrency/tile/cache/persistent/操作缓存与 Linux allocator；保持 linear/alpha/颜色语义。",
+    "first_probe": "先测已有 thumbnail/SIMD/cache/concurrency/allocator 组合与 A/B/C；强制真实 sink、分离 codec；若仅配置收益/外部 codec 瓶颈/噪声则撤销。未运行。",
+    "remaining_work_hypotheses": [
+      "强配置后若仍有多图并发缓存/region 锁等待，可改进临界区与任务分配；先排除 codec 瓶颈。",
+      "强配置后若组合 alpha/颜色/缩小路径仍有重复区域搬运或转换，可改进融合/缓冲；须满足逐像素/容差合同且排除已有 fast path。"
+    ],
+    "correctness_oracle": "冻结上游+独立小图标量参考，尺寸/像素/舍入/alpha/orientation/颜色逐项核验；精确与浮点路径分别合同，不以原生平均值检查替代完整 oracle。",
+    "measurement_plan": "固定 codec/输入/硬件/线程，强制 sink 求值；decode/处理/encode 分项与端到端；交错重复测延迟/RSS/分配/tile 重算/p95，跨 seed。",
+    "license_observation": "根 LICENSE 为 LGPL-2.1 文本，抽查源码头是 LGPL version 2 or later；需按文件/组件核查分发义务；未完整审计。",
+    "offline_build_observation": "预置 GLib/expat/所需 JPEG PNG TIFF/Highway 或 ORC/测试绑定及图片；限制格式集合，当前未验证完整离线构建。",
+    "architecture_risk": "x86/ARM Highway target、codec、allocator 和数值输出需分架构校准，不关闭 SIMD 造弱基线。",
+    "official_context": [
+      "https://www.libvips.org/API/current/developer-checklist.html"
+    ],
+    "edgebench_anchors": [
+      "ffmpeg_swscale_reimplementation",
+      "exchange_core_throughput"
+    ],
+    "revision": "06564b0a4c3f473d0e0cb9f9977ab647888aa43d",
+    "evidence": [
+      {
+        "path": "libvips/resample/thumbnail.c",
+        "line": 496,
+        "claim": "linear-light 合同限制 JPEG 的 Y 空间 shrink-on-load",
+        "url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/libvips/resample/thumbnail.c#L496"
+      },
+      {
+        "path": "libvips/resample/thumbnail.c",
+        "line": 878,
+        "claim": "已有 alpha 预乘/反预乘及 UCHAR fast path",
+        "url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/libvips/resample/thumbnail.c#L878"
+      },
+      {
+        "path": "libvips/conversion/tilecache.c",
+        "line": 837,
+        "claim": "tilecache 的容量、LRU/顺序淘汰、threaded/persistent 为既有配置",
+        "url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/libvips/conversion/tilecache.c#L837"
+      },
+      {
+        "path": "libvips/iofuncs/threadpool.c",
+        "line": 655,
+        "claim": "threadpool 已按等待工人数扩缩",
+        "url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/libvips/iofuncs/threadpool.c#L655"
+      },
+      {
+        "path": "libvips/resample/shrinkh_hwy.cpp",
+        "line": 50,
+        "claim": "水平缩小已有 Highway 动态 SIMD dispatch",
+        "url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/libvips/resample/shrinkh_hwy.cpp#L50"
+      },
+      {
+        "path": "test/test-suite/test_resample.py",
+        "line": 176,
+        "claim": "thumbnail 原生测试覆盖尺寸/crop/多页/RGBA，但部分为平均值而非逐像素 oracle",
+        "url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/test/test-suite/test_resample.py#L176"
+      },
+      {
+        "path": "libvips/deprecated/im_benchmark.c",
+        "line": 51,
+        "claim": "历史 SMP 处理流水线自己声明未专门优化，不是当前强基线计时器",
+        "url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/libvips/deprecated/im_benchmark.c#L51"
+      },
+      {
+        "path": "meson.build",
+        "line": 475,
+        "claim": "Highway 依赖及未找到时 ORC 回退机制需在构建中固定",
+        "url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/meson.build#L475"
+      }
+    ],
+    "route": "M3",
+    "priority": "hold_until_baseline",
+    "status": "source_grounded_material_candidate_baseline_unmeasured",
+    "task_constructed": false,
+    "runtime_verified": false,
+    "six_hour_difficulty_verified": false,
+    "baseline_measured": false,
+    "reward_endpoints_measured": false,
+    "card": "cards/36_libvips.md"
+  }
+]

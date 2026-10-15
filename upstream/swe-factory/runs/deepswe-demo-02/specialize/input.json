@@ -1,0 +1,13 @@
+{
+  "route": "specialize",
+  "local_path": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/specialize-source",
+  "commit": "66ebb8dc045fd9dce9b329913f8af664c11bbcba",
+  "test_paths": [
+    "tests"
+  ],
+  "production_paths": [
+    "calc.py"
+  ],
+  "reference_dir": "/Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/reference",
+  "reference_task_id": "reference-001"
+}

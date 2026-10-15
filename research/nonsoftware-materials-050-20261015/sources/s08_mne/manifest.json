@@ -1,0 +1,51 @@
+{
+  "repo": "mne-tools/mne-python",
+  "revision": "7ab5922ca55db650e1c2f91315ecf46b623c8132",
+  "resolved_utc": "2026-10-15T14:58:25.939725+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:09.085675+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "6feab07801684c4e7c5509f4db2e2be2ffdaaf31699e5cd32d3c6e874c374fa6",
+    "truncated": false,
+    "blob_count": 9476
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "adf6b228c93126d67e84c40ed7c1b1dbf1ec44f26d9fe224261e1d8592646b52",
+      "url": "https://github.com/mne-tools/mne-python/blob/7ab5922ca55db650e1c2f91315ecf46b623c8132/LICENSE.txt"
+    },
+    {
+      "path": "README.rst",
+      "bytes": 4511,
+      "sha256": "ea9fdd39c8a500db6521854fe58ca33eea60f9c6815123d9d22708ba564a0b2a",
+      "url": "https://github.com/mne-tools/mne-python/blob/7ab5922ca55db650e1c2f91315ecf46b623c8132/README.rst"
+    },
+    {
+      "path": "mne/minimum_norm/inverse.py",
+      "bytes": 86599,
+      "sha256": "eb423fc47a4de0df63d3f0788e21dc79a5e31621ebf93770e15954b8f0877182",
+      "url": "https://github.com/mne-tools/mne-python/blob/7ab5922ca55db650e1c2f91315ecf46b623c8132/mne/minimum_norm/inverse.py"
+    },
+    {
+      "path": "mne/minimum_norm/tests/test_inverse.py",
+      "bytes": 68199,
+      "sha256": "5844cb6dba2f5102956f07cc0aed38bdc111484a072d8afbb058280c616bb3ba",
+      "url": "https://github.com/mne-tools/mne-python/blob/7ab5922ca55db650e1c2f91315ecf46b623c8132/mne/minimum_norm/tests/test_inverse.py"
+    },
+    {
+      "path": "mne/simulation/source.py",
+      "bytes": 23912,
+      "sha256": "76a4bdacc4f7cad3478c276f0443a235452a31138ba680856bfc2c2526449243",
+      "url": "https://github.com/mne-tools/mne-python/blob/7ab5922ca55db650e1c2f91315ecf46b623c8132/mne/simulation/source.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

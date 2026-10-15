@@ -1,0 +1,21 @@
+{
+  "repo": "MAPF-Competition/Start-Kit",
+  "revision": "9bc75d9dd9883de049294ab2981bf325bbe19d49",
+  "matching_paths": [
+    "Input_Output_Format.md",
+    "LICENSE",
+    "example_problems/city.domain/bos-example_600.json",
+    "example_problems/game.domain/orz-example_1800.json",
+    "example_problems/iron_harvest.domain/iron-example_10000.json",
+    "example_problems/maze.domain/maze-example_40.json",
+    "example_problems/random.domain/random-example_400.json",
+    "example_problems/room.domain/room-example_150.json",
+    "example_problems/warehouse.domain/fulfill-example_2500.json",
+    "inc/ActionModel.h",
+    "inc/CompetitionSystem.h",
+    "src/ActionModel.cpp",
+    "src/CompetitionSystem.cpp"
+  ],
+  "match_count": 13,
+  "tree_truncated": false
+}

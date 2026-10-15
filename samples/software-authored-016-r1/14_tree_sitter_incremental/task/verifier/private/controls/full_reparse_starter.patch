@@ -1,0 +1,10 @@
+--- a/lib/src/parser.c
++++ b/lib/src/parser.c
+@@ -2122,6 +2122,7 @@
+   const TSTree *old_tree,
+   TSInput input
+ ) {
++  old_tree = NULL; /* honest full-reparse baseline */
+   TSTree *result = NULL;
+   if (
+     !self->language || !input.read ||

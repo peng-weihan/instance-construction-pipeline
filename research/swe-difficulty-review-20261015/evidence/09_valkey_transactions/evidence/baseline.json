@@ -1,0 +1,55 @@
+{
+  "revision": "cf5efa70192faedacb6741ee2a8f800d0482862f",
+  "argv": [
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/material-src/valkey/src/valkey-server",
+    "--port",
+    "0",
+    "--unixsocket",
+    "v.sock",
+    "--save",
+    "",
+    "--appendonly",
+    "yes",
+    "--appendfsync",
+    "always",
+    "--dir",
+    "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/evidence/valkey-probe",
+    "--enable-debug-command",
+    "yes"
+  ],
+  "checks": [
+    {
+      "name": "resp3",
+      "passed": true
+    },
+    {
+      "name": "runtime_error_continues",
+      "passed": true
+    },
+    {
+      "name": "watch_create_delete",
+      "passed": true
+    },
+    {
+      "name": "nested_multi_dirties",
+      "passed": true
+    },
+    {
+      "name": "direct_server_logical_clock",
+      "passed": false,
+      "observed": [
+        "error",
+        "ERR"
+      ],
+      "reason": "CLOCK is not an upstream command; expiry uses wall clock"
+    },
+    {
+      "name": "direct_server_EKV1_journal",
+      "passed": false,
+      "observed": false,
+      "reason": "upstream AOF is not the specified independently readable effect journal"
+    }
+  ],
+  "decision": "build_pilot",
+  "interpretation": "Valkey already solves ordinary protocol/transactions/WATCH. Direct server does not solve full deterministic clock/journal contract. A substantial wrapper remains a legitimate strategy; six-hour saturation untested."
+}

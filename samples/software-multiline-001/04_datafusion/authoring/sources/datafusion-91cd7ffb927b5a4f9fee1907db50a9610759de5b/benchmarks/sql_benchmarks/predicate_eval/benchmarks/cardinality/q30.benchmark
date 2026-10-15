@@ -1,0 +1,6 @@
+subgroup cardinality
+
+template sql_benchmarks/predicate_eval/predicate_eval.benchmark.template
+QUERY=cardinality/q30
+DATASET=ints
+NAME=cardinality_q30_k2

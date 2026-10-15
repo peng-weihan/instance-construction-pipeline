@@ -1,0 +1,248 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.polaris.core.storage.aws;
+
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkState;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import org.apache.polaris.core.storage.PolarisStorageConfigurationInfo;
+import org.apache.polaris.immutables.PolarisImmutable;
+import org.immutables.value.Value;
+import org.jspecify.annotations.Nullable;
+
+/** Aws Polaris Storage Configuration information */
+@PolarisImmutable
+@JsonSerialize(as = ImmutableAwsStorageConfigurationInfo.class)
+@JsonDeserialize(as = ImmutableAwsStorageConfigurationInfo.class)
+@tools.jackson.databind.annotation.JsonSerialize(as = ImmutableAwsStorageConfigurationInfo.class)
+@tools.jackson.databind.annotation.JsonDeserialize(as = ImmutableAwsStorageConfigurationInfo.class)
+@JsonTypeName("AwsStorageConfigurationInfo")
+public abstract class AwsStorageConfigurationInfo extends PolarisStorageConfigurationInfo {
+
+  public static ImmutableAwsStorageConfigurationInfo.Builder builder() {
+    return ImmutableAwsStorageConfigurationInfo.builder();
+  }
+
+  @JsonIgnore public static final String ROLE_ARN_PATTERN = "^.+:(.*):.+:.*:(.*):.+$";
+
+  private static final Pattern ROLE_ARN_PATTERN_COMPILED = Pattern.compile(ROLE_ARN_PATTERN);
+
+  @Override
+  public StorageType getStorageType() {
+    return StorageType.S3;
+  }
+
+  @Override
+  public String getFileIoImplClassName() {
+    return "org.apache.iceberg.aws.s3.S3FileIO";
+  }
+
+  @Nullable
+  public abstract String getRoleARN();
+
+  /**
+   * Deprecated KMS Key ARN, retained for compatibility and treated as an encryption key.
+   *
+   * @deprecated since 1.8.0. Use {@link #getEncryptionKeys()} instead.
+   */
+  @Deprecated(since = "1.8.0")
+  @Nullable
+  public abstract String getCurrentKmsKey();
+
+  /** Deprecated list of KMS keys allowed for encryption and decryption, optional. */
+  @Deprecated(since = "1.8.0")
+  @Nullable
+  public abstract List<String> getAllowedKmsKeys();
+
+  /** List of KMS keys used for encryption, optional. */
+  @Nullable
+  public abstract List<String> getEncryptionKeys();
+
+  /** Returns the encryption keys, including keys from deprecated configuration properties. */
+  @JsonIgnore
+  @SuppressWarnings("deprecation")
+  public List<String> getEffectiveEncryptionKeys() {
+    List<String> effectiveEncryptionKeys = new ArrayList<>();
+    if (getEncryptionKeys() != null) {
+      effectiveEncryptionKeys.addAll(getEncryptionKeys());
+    }
+    if (getAllowedKmsKeys() != null) {
+      getAllowedKmsKeys().stream()
+          .filter(key -> !effectiveEncryptionKeys.contains(key))
+          .forEach(effectiveEncryptionKeys::add);
+    }
+    String currentKmsKey = getCurrentKmsKey();
+    if (currentKmsKey != null && !effectiveEncryptionKeys.contains(currentKmsKey)) {
+      effectiveEncryptionKeys.add(currentKmsKey);
+    }
+    return List.copyOf(effectiveEncryptionKeys);
+  }
+
+  /** List of KMS keys used for decryption, optional. */
+  @Nullable
+  public abstract List<String> getDecryptionKeys();
+
+  /** AWS external ID, optional */
+  @Nullable
+  public abstract String getExternalId();
+
+  /** User ARN for the service principal */
+  @Nullable
+  public abstract String getUserARN();
+
+  /** AWS region */
+  @Nullable
+  public abstract String getRegion();
+
+  /** Endpoint URI for S3 API calls */
+  @Nullable
+  public abstract String getEndpoint();
+
+  /** Internal endpoint URI for S3 API calls */
+  @Nullable
+  public abstract String getEndpointInternal();
+
+  @JsonIgnore
+  @Nullable
+  public URI getEndpointUri() {
+    return getEndpoint() == null ? null : URI.create(getEndpoint());
+  }
+
+  @JsonIgnore
+  @Nullable
+  public URI getInternalEndpointUri() {
+    return getEndpointInternal() == null ? getEndpointUri() : URI.create(getEndpointInternal());
+  }
+
+  /** Flag indicating whether path-style bucket access should be forced in S3 clients. */
+  public abstract @Nullable Boolean getPathStyleAccess();
+
+  /**
+   * The mechanism that vends credentials for this catalog, an identifier such as {@link
+   * S3CredentialVendingMechanism#STS}, or null when the catalog leaves the choice to the server;
+   * see {@link #resolvedCredentialVendingMechanism()}. A row persisted before this field existed
+   * lacks it and reads as null. The value is carried as is; the realm allowlist, the mechanism
+   * registry and the mechanism itself decide whether it is accepted.
+   */
+  @Nullable
+  public abstract String getCredentialVendingMechanism();
+
+  /**
+   * The identifier to resolve in the mechanism registry: the explicit value, or {@link
+   * S3CredentialVendingMechanism#STS} when the field is empty. The stored value stays empty.
+   */
+  @JsonIgnore
+  public String resolvedCredentialVendingMechanism() {
+    String mechanism = getCredentialVendingMechanism();
+    return mechanism == null ? S3CredentialVendingMechanism.STS : mechanism;
+  }
+
+  /**
+   * Normalizes a value received through the management API: null and blank both mean the field is
+   * empty, so the catalog uses the server's default mechanism, STS.
+   */
+  @Nullable
+  public static String credentialVendingMechanismOf(@Nullable String value) {
+    return value == null || value.isBlank() ? null : value;
+  }
+
+  /**
+   * Flag indicating whether STS is available or not. It is modeled in the negative to simplify
+   * support for unset values ({@code null} being interpreted as {@code false}).
+   */
+  public abstract @Nullable Boolean getStsUnavailable();
+
+  /**
+   * Flag indicating whether KMS is available or not. It is modeled in the negative to simplify
+   * support for unset values ({@code null} being interpreted as {@code false}).
+   */
+  public abstract @Nullable Boolean getKmsUnavailable();
+
+  /** Endpoint URI for STS API calls */
+  @Nullable
+  public abstract String getStsEndpoint();
+
+  /** Returns the STS endpoint if set, defaulting to {@link #getEndpointUri()} otherwise. */
+  @JsonIgnore
+  @Nullable
+  public URI getStsEndpointUri() {
+    return getStsEndpoint() == null ? getInternalEndpointUri() : URI.create(getStsEndpoint());
+  }
+
+  @JsonIgnore
+  @Nullable
+  public String getAwsAccountId() {
+    String arn = getRoleARN();
+    if (arn != null) {
+      Matcher matcher = ROLE_ARN_PATTERN_COMPILED.matcher(arn);
+      checkState(matcher.matches());
+      return matcher.group(2);
+    }
+    return null;
+  }
+
+  @JsonIgnore
+  @Nullable
+  public String getAwsPartition() {
+    String arn = getRoleARN();
+    if (arn != null) {
+      Matcher matcher = ROLE_ARN_PATTERN_COMPILED.matcher(arn);
+      checkState(matcher.matches());
+      return matcher.group(1);
+    }
+    return null;
+  }
+
+  @Value.Check
+  @Override
+  protected void check() {
+    super.check();
+    String mechanism = getCredentialVendingMechanism();
+    if (mechanism != null && mechanism.isBlank()) {
+      throw new IllegalArgumentException("credentialVendingMechanism must not be blank");
+    }
+    String arn = getRoleARN();
+    validateArn(arn);
+    if (arn != null) {
+      Matcher matcher = ROLE_ARN_PATTERN_COMPILED.matcher(arn);
+      if (!matcher.matches()) {
+        throw new IllegalArgumentException("ARN does not match the expected role ARN pattern");
+      }
+    }
+  }
+
+  public static void validateArn(String arn) {
+    if (arn == null) {
+      return;
+    }
+    if (arn.isEmpty()) {
+      throw new IllegalArgumentException("ARN must not be empty");
+    }
+    checkArgument(Pattern.matches(ROLE_ARN_PATTERN, arn), "Invalid role ARN format: %s", arn);
+  }
+}

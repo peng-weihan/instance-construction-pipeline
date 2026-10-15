@@ -1,0 +1,786 @@
+{
+  "valid": true,
+  "score": 0.4,
+  "pass_rate": 1.0,
+  "checks": [
+    {
+      "name": "native_compile",
+      "passed": true
+    },
+    {
+      "name": "native_regressions",
+      "passed": true
+    },
+    {
+      "name": "native/universe/types-000",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-001",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-002",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-010",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-011",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-012",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-020",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-021",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-022",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-100",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-101",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-102",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-110",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-111",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-112",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-120",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-121",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-122",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-200",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-201",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-202",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-210",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-211",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-212",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-220",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-221",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/types-222",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/empty",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/skew-0",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/skew-1",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/skew-2",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/universe/skew-3",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/range/boundary-0",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/range/boundary-1",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/range/boundary-2",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/range/boundary-3",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/range/boundary-4",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/range/boundary-5",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/range/boundary-6",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/range/boundary-7",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/range/boundary-8",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/range/window-0",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/range/window-1",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/range/window-2",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/range/window-3",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/batch/alias-repeat",
+      "group": "batch",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/batch/zero",
+      "group": "batch",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/batch/null-q",
+      "group": "batch",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/batch/null-out",
+      "group": "batch",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/batch/atomic-0",
+      "group": "batch",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/batch/atomic-1",
+      "group": "batch",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/batch/atomic-2",
+      "group": "batch",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/batch/atomic-3",
+      "group": "batch",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/batch/atomic-4",
+      "group": "batch",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/batch/atomic-5",
+      "group": "batch",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/interop/mode-2",
+      "group": "interop",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/interop/mode-3",
+      "group": "interop",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/interop/mode-4",
+      "group": "interop",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/interop/mode-5",
+      "group": "interop",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/interop/mode-6",
+      "group": "interop",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/interop/mode-7",
+      "group": "interop",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/interop/wide-cow",
+      "group": "interop",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "native/interop/wide-external",
+      "group": "interop",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar_compile",
+      "passed": true
+    },
+    {
+      "name": "scalar/universe/types-000",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-001",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-002",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-010",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-011",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-012",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-020",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-021",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-022",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-100",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-101",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-102",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-110",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-111",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-112",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-120",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-121",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-122",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-200",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-201",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-202",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-210",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-211",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-212",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-220",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-221",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/types-222",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/empty",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/skew-0",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/skew-1",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/skew-2",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/universe/skew-3",
+      "group": "universe",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/range/boundary-0",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/range/boundary-1",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/range/boundary-2",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/range/boundary-3",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/range/boundary-4",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/range/boundary-5",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/range/boundary-6",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/range/boundary-7",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/range/boundary-8",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/range/window-0",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/range/window-1",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/range/window-2",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/range/window-3",
+      "group": "range",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/batch/alias-repeat",
+      "group": "batch",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/batch/zero",
+      "group": "batch",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/batch/null-q",
+      "group": "batch",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/batch/null-out",
+      "group": "batch",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/batch/atomic-0",
+      "group": "batch",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/batch/atomic-1",
+      "group": "batch",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/batch/atomic-2",
+      "group": "batch",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/batch/atomic-3",
+      "group": "batch",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/batch/atomic-4",
+      "group": "batch",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/batch/atomic-5",
+      "group": "batch",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/interop/mode-2",
+      "group": "interop",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/interop/mode-3",
+      "group": "interop",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/interop/mode-4",
+      "group": "interop",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/interop/mode-5",
+      "group": "interop",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/interop/mode-6",
+      "group": "interop",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/interop/mode-7",
+      "group": "interop",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/interop/wide-cow",
+      "group": "interop",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    },
+    {
+      "name": "scalar/interop/wide-external",
+      "group": "interop",
+      "passed": true,
+      "detail": "set oracle, portable interoperability and immutability"
+    }
+  ],
+  "metrics": {
+    "performance_enabled": false,
+    "performance_score": null,
+    "split": "feedback",
+    "snapshot_bytes": 1335247,
+    "snapshot_files": 54,
+    "native_compile_seconds": 22.132223809021525,
+    "scalar_compile_seconds": 19.09493591496721,
+    "semantic_cases": 126
+  },
+  "summary": "Frozen semantic score; performance contribution disabled."
+}

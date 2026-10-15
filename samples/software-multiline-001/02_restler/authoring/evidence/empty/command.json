@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/02_restler/authoring/venv/bin/python",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/02_restler/tests/grader.py",
+    "--candidate",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/02_restler/authoring/empty",
+    "--output",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/02_restler/authoring/evidence/empty",
+    "--component-only"
+  ],
+  "exit": 0,
+  "stdout": "{\n  \"valid\": false,\n  \"score\": null,\n  \"summary\": \"hold_for_evidence: native component diagnostics available, Polaris HTTP/reset/lifecycle reference and acceptance oracle missing\",\n  \"component_checks\": [\n    {\n      \"name\": \"native_smoke\",\n      \"passed\": false,\n      \"detail\": \"missing native engine\"\n    },\n    {\n      \"name\": \"native_replay\",\n      \"passed\": false,\n      \"detail\": \"missing native engine\"\n    },\n    {\n      \"name\": \"commit\",\n      \"passed\": false,\n      \"detail\": \"missing native engine\"\n    },\n    {\n      \"name\": \"resume\",\n      \"passed\": false,\n      \"detail\": \"missing native engine\"\n    },\n    {\n      \"name\": \"corruption\",\n      \"passed\": false,\n      \"detail\": \"missing native engine\"\n    },\n    {\n      \"name\": \"input_mismatch\",\n      \"passed\": false,\n      \"detail\": \"missing native engine\"\n    }\n  ],\n  \"component_pass_rate\": 0.0,\n  \"component_fixed_denominator\": 6,\n  \"unexecuted_required_groups\": [\n    \"external HTTP crash/replay exactly-once semantics\",\n    \"Polaris principal/role/catalog dependency restoration\",\n    \"cleanup and resource lifecycle after cancellation\"\n  ]\n}\n",
+  "stderr": ""
+}

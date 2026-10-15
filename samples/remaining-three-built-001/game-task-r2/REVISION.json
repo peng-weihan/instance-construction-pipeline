@@ -1,0 +1,6 @@
+{
+  "previous_revision": "game-task-r1",
+  "change": "execution failures now propagate valid=false",
+  "formula_constants_unchanged": true,
+  "six_hour_difficulty": "not_measured"
+}

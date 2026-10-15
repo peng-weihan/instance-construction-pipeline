@@ -1,0 +1,42 @@
+schema_version = "1.4"
+artifacts = ["/home/workspace/edgekv/submission"]
+
+[metadata]
+name = "edgekv-transaction-journal-v1"
+description = "Build a deterministic multi-client RESP3 service with transactional journal recovery"
+author = "EdgeBench task author"
+category = "software-engineering"
+reward_type = "bounded_continuous"
+source_revision = "cf5efa70192faedacb6741ee2a8f800d0482862f"
+work_build_context = "environment"
+judge_build_context = "verifier"
+score_spec = "authoring/score-spec.json"
+construction_status = "constructed_unverified"
+
+[agent]
+timeout_sec = 21600
+network_mode = "no-network"
+
+[environment]
+docker_image = "edgekv-work:author-v1"
+workdir = "/home/workspace/edgekv"
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048
+storage_mb = 4096
+build_timeout_sec = 600
+
+[verifier]
+timeout_sec = 1800
+user = "root"
+network_mode = "no-network"
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "edgekv-judge:author-v1"
+workdir = "/home/workspace/edgekv"
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048
+storage_mb = 4096
+build_timeout_sec = 600

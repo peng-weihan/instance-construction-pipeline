@@ -1,0 +1,427 @@
+{
+  "instance": "03_httpx_transport",
+  "status": "constructed_unverified",
+  "decision": "build_pilot",
+  "stages": {
+    "material_acquired": "completed",
+    "constructed_unverified": "completed",
+    "local_checks_completed": "completed (scope and actual failures below)",
+    "held_for_evidence": false,
+    "rejected": false
+  },
+  "task_path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task",
+  "source_revision": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+  "reference_revision": "70b7566f34fca0889ec7faf5e6420d57be088f35",
+  "requested_model": "gpt-6.1-sol",
+  "new_model_or_subagent_launches": 0,
+  "teacher_runs_started": 0,
+  "difficulty_accepted": false,
+  "material_files": 125,
+  "score_dimensions": {
+    "budget": {
+      "weight": 0.14285714285714285,
+      "members": 18
+    },
+    "replay": {
+      "weight": 0.14285714285714285,
+      "members": 16
+    },
+    "origin": {
+      "weight": 0.14285714285714285,
+      "members": 6
+    },
+    "events": {
+      "weight": 0.14285714285714285,
+      "members": 6
+    },
+    "cleanup": {
+      "weight": 0.14285714285714285,
+      "members": 10
+    },
+    "compatibility": {
+      "weight": 0.14285714285714285,
+      "members": 12
+    },
+    "native_regressions": {
+      "weight": 0.14285714285714285,
+      "members": 160
+    }
+  },
+  "scores": {
+    "reference_same_snapshot_repeats": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "nop": 0.46746031746031746,
+    "near_misses": [
+      {
+        "name": "uncapped-replay-freeze",
+        "source": "reference-derived mutation, not independent baseline",
+        "expected_direction": "仅 replay 上限边界失分",
+        "score": 0.9821428571428571,
+        "group_fractions": {
+          "budget": 1.0,
+          "replay": 0.875,
+          "origin": 1.0,
+          "events": 1.0,
+          "cleanup": 1.0,
+          "compatibility": 1.0,
+          "native_regressions": 1.0
+        },
+        "failed_checks": [
+          "limit_overflow_sync",
+          "limit_overflow_async"
+        ]
+      },
+      {
+        "name": "foreign-auth-freeze",
+        "source": "reference-derived mutation, not independent baseline",
+        "expected_direction": "仅 origin 凭据边界失分",
+        "score": 0.9047619047619047,
+        "group_fractions": {
+          "budget": 1.0,
+          "replay": 1.0,
+          "origin": 0.3333333333333333,
+          "events": 1.0,
+          "cleanup": 1.0,
+          "compatibility": 1.0,
+          "native_regressions": 1.0
+        },
+        "failed_checks": [
+          "foreign_auth_sync",
+          "foreign_auth_async",
+          "foreign_redirect_hooks_sync",
+          "foreign_redirect_hooks_async"
+        ]
+      }
+    ]
+  },
+  "checks": [
+    {
+      "name": "独立薄包装器基线",
+      "command": ".venv/bin/python authoring/baseline_probe.py",
+      "result": "outer 与 transport 都突破 budget=2；直接流消费二次重试触发 StreamConsumed",
+      "evidence": "authoring/evidence/cheap-baseline.json"
+    },
+    {
+      "name": "真实 tenacity 基线",
+      "command": ".venv/bin/python authoring/baseline_tenacity.py",
+      "result": "两种合法集成都实际发送三次，未满足共享预算；该库未禁用",
+      "evidence": "authoring/evidence/cheap-baseline-tenacity.json"
+    },
+    {
+      "name": "原生构建",
+      "commands": [
+        "TMPDIR=<job>/evidence/build-tmp .venv/bin/python -m pip --cache-dir ./dep-cache wheel --no-index --no-build-isolation --no-deps --wheel-dir evidence/build-upstream ./material-src",
+        "TMPDIR=<job>/evidence/build-tmp .venv/bin/python -m pip --cache-dir ./dep-cache wheel --no-index --no-build-isolation --no-deps --wheel-dir evidence/build-reference ./reference-branch"
+      ],
+      "result": "两者均真实构建 wheel 成功",
+      "evidence": [
+        "authoring/evidence/build-upstream.log",
+        "authoring/evidence/build-reference.log"
+      ]
+    },
+    {
+      "name": "冻结 reference/NOP/near-miss",
+      "command": ".venv/bin/python authoring/regrade_final_metadata.py",
+      "result": [
+        {
+          "name": "reference-freeze-1",
+          "command": [
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/.venv/bin/python",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/tests/grader.py",
+            "--submission",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/reference",
+            "--assets",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/verifier",
+            "--public",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/verifier",
+            "--output",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/evidence/reference-freeze-1",
+            "--scratch",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/evidence/scratch",
+            "--python",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/.venv/bin/python"
+          ],
+          "exit_code": 0,
+          "score": 1.0,
+          "valid": true,
+          "grader_sha256": "c44909ab2e3e6685794aeb0a4ec0624ae19e14893d615ffb0a2a8503550f0acc",
+          "score_spec_sha256": "76a05bb8afc5abca4b8237b8aa3c40fde99e296ee015854874a494d138c4c7f4"
+        },
+        {
+          "name": "reference-freeze-2",
+          "command": [
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/.venv/bin/python",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/tests/grader.py",
+            "--submission",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/reference",
+            "--assets",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/verifier",
+            "--public",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/verifier",
+            "--output",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/evidence/reference-freeze-2",
+            "--scratch",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/evidence/scratch",
+            "--python",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/.venv/bin/python"
+          ],
+          "exit_code": 0,
+          "score": 1.0,
+          "valid": true,
+          "grader_sha256": "c44909ab2e3e6685794aeb0a4ec0624ae19e14893d615ffb0a2a8503550f0acc",
+          "score_spec_sha256": "76a05bb8afc5abca4b8237b8aa3c40fde99e296ee015854874a494d138c4c7f4"
+        },
+        {
+          "name": "reference-freeze-3",
+          "command": [
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/.venv/bin/python",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/tests/grader.py",
+            "--submission",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/reference",
+            "--assets",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/verifier",
+            "--public",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/verifier",
+            "--output",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/evidence/reference-freeze-3",
+            "--scratch",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/evidence/scratch",
+            "--python",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/.venv/bin/python"
+          ],
+          "exit_code": 0,
+          "score": 1.0,
+          "valid": true,
+          "grader_sha256": "c44909ab2e3e6685794aeb0a4ec0624ae19e14893d615ffb0a2a8503550f0acc",
+          "score_spec_sha256": "76a05bb8afc5abca4b8237b8aa3c40fde99e296ee015854874a494d138c4c7f4"
+        },
+        {
+          "name": "reference-freeze-4",
+          "command": [
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/.venv/bin/python",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/tests/grader.py",
+            "--submission",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/reference",
+            "--assets",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/verifier",
+            "--public",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/verifier",
+            "--output",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/evidence/reference-freeze-4",
+            "--scratch",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/evidence/scratch",
+            "--python",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/.venv/bin/python"
+          ],
+          "exit_code": 0,
+          "score": 1.0,
+          "valid": true,
+          "grader_sha256": "c44909ab2e3e6685794aeb0a4ec0624ae19e14893d615ffb0a2a8503550f0acc",
+          "score_spec_sha256": "76a05bb8afc5abca4b8237b8aa3c40fde99e296ee015854874a494d138c4c7f4"
+        },
+        {
+          "name": "reference-freeze-5",
+          "command": [
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/.venv/bin/python",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/tests/grader.py",
+            "--submission",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/reference",
+            "--assets",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/verifier",
+            "--public",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/verifier",
+            "--output",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/evidence/reference-freeze-5",
+            "--scratch",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/evidence/scratch",
+            "--python",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/.venv/bin/python"
+          ],
+          "exit_code": 0,
+          "score": 1.0,
+          "valid": true,
+          "grader_sha256": "c44909ab2e3e6685794aeb0a4ec0624ae19e14893d615ffb0a2a8503550f0acc",
+          "score_spec_sha256": "76a05bb8afc5abca4b8237b8aa3c40fde99e296ee015854874a494d138c4c7f4"
+        },
+        {
+          "name": "nop-freeze",
+          "command": [
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/.venv/bin/python",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/tests/grader.py",
+            "--submission",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/environment/project/submission",
+            "--assets",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/verifier",
+            "--public",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/verifier",
+            "--output",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/evidence/nop-freeze",
+            "--scratch",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/evidence/scratch",
+            "--python",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/.venv/bin/python"
+          ],
+          "exit_code": 0,
+          "score": 0.46746031746031746,
+          "valid": true,
+          "grader_sha256": "c44909ab2e3e6685794aeb0a4ec0624ae19e14893d615ffb0a2a8503550f0acc",
+          "score_spec_sha256": "76a05bb8afc5abca4b8237b8aa3c40fde99e296ee015854874a494d138c4c7f4"
+        },
+        {
+          "name": "uncapped-replay-freeze",
+          "command": [
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/.venv/bin/python",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/tests/grader.py",
+            "--submission",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/authoring/controls/uncapped_replay",
+            "--assets",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/verifier",
+            "--public",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/verifier",
+            "--output",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/evidence/uncapped-replay-freeze",
+            "--scratch",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/evidence/scratch",
+            "--python",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/.venv/bin/python"
+          ],
+          "exit_code": 0,
+          "score": 0.9821428571428571,
+          "valid": true,
+          "grader_sha256": "c44909ab2e3e6685794aeb0a4ec0624ae19e14893d615ffb0a2a8503550f0acc",
+          "score_spec_sha256": "76a05bb8afc5abca4b8237b8aa3c40fde99e296ee015854874a494d138c4c7f4"
+        },
+        {
+          "name": "foreign-auth-freeze",
+          "command": [
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/.venv/bin/python",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/tests/grader.py",
+            "--submission",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/authoring/controls/foreign_auth",
+            "--assets",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/verifier",
+            "--public",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/verifier",
+            "--output",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/evidence/foreign-auth-freeze",
+            "--scratch",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/evidence/scratch",
+            "--python",
+            "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/.venv/bin/python"
+          ],
+          "exit_code": 0,
+          "score": 0.9047619047619047,
+          "valid": true,
+          "grader_sha256": "c44909ab2e3e6685794aeb0a4ec0624ae19e14893d615ffb0a2a8503550f0acc",
+          "score_spec_sha256": "76a05bb8afc5abca4b8237b8aa3c40fde99e296ee015854874a494d138c4c7f4"
+        }
+      ],
+      "evidence": "authoring/evidence/final-freeze-regrades.json"
+    },
+    {
+      "name": "原生评分子集",
+      "command": "native_runner.py，由 grader 使用 UID 2102 调用",
+      "result": "reference 的 160/160 冻结成员通过；1 项上游 skip 不计分，2 项 server 用例未选入",
+      "evidence": "authoring/evidence/reference-freeze-1/score.json"
+    },
+    {
+      "name": "全量原生作者审计",
+      "commands": [
+        ".venv/bin/python authoring/run_native_all.py --upstream",
+        ".venv/bin/python authoring/run_native_all.py"
+      ],
+      "result": "两者均 1411 passed、1 failed、1 skipped、5 deselected；同一 Trio write-timeout 清理警告，reference 无独有失败；不是全绿",
+      "evidence": [
+        "authoring/evidence/native-all-checks-upstream.json",
+        "authoring/evidence/native-all-checks-reference.json",
+        "authoring/evidence/native-baseline-comparison.json"
+      ]
+    },
+    {
+      "name": "公开新增测试",
+      "command": "authoring/run_native_all.py 中 public-development 调用",
+      "result": "reference 3/3 通过；未扩展 upstream 0/3，原因是新 API 尚不存在",
+      "evidence": "authoring/evidence/native-all-checks-reference.json"
+    },
+    {
+      "name": "独立作者语义审计",
+      "command": ".venv/bin/python authoring/audit_reference.py",
+      "result": "6/6；初版 IDNA/port 0 两个失败已修复并保留原始失败证据",
+      "evidence": [
+        "authoring/evidence/audit-initial.json",
+        "authoring/evidence/audit-final.json"
+      ]
+    },
+    {
+      "name": "候选失败与基础设施失败",
+      "commands": [
+        ".venv/bin/python authoring/validate_local.py",
+        ".venv/bin/python authoring/final_freeze_checks.py"
+      ],
+      "result": "语法错误、缺文件、坏协议均 valid=true/score=0；故意损坏私有成员清单 valid=false/score=null/exit=2，清除旧 reward.txt/reward.json",
+      "evidence": [
+        "authoring/evidence/syntax-failure/score.json",
+        "authoring/evidence/missing-failure/score.json",
+        "authoring/evidence/malformed-protocol/score.json",
+        "authoring/evidence/infrastructure-failure/score.json"
+      ]
+    },
+    {
+      "name": "实际权限隔离",
+      "command": ".venv/bin/python authoring/check_isolation.py",
+      "result": "compile UID 2101 与 run UID 2102 均不能读取私有参考、完整分支、gold wheel、构造脚本，均不能写奖励",
+      "evidence": "authoring/evidence/isolation.json"
+    },
+    {
+      "name": "离线闭包",
+      "command": "TMPDIR=<job>/evidence/pip-tmp offline-venv/bin/pip --disable-pip-version-check --no-cache-dir install --no-index --find-links=task/environment/wheels -r task/environment/requirements.lock; offline-venv/bin/pip check",
+      "result": "本地 amd64 新 venv 离线安装成功且依赖一致；arm64 wheel 下载成功但未执行",
+      "evidence": [
+        "authoring/evidence/offline-final-install.log",
+        "authoring/evidence/offline-final-pip-check.log"
+      ]
+    },
+    {
+      "name": "注入与补丁",
+      "commands": [
+        "HTTPX_SUBMISSION_DIR=<job>/evidence/solution-injection sh task/solution/solve.sh",
+        ".venv/bin/python authoring/check_patches.py"
+      ],
+      "result": "真实注入和双向 patch 均逐文件比对一致",
+      "evidence": [
+        "authoring/evidence/solution-injection.json",
+        "authoring/evidence/patch-checks.json"
+      ]
+    },
+    {
+      "name": "静态包契约",
+      "command": ".venv/bin/python authoring/check_package.py",
+      "result": "31 项字段名/路径/COPY 闭包/入口字节检查通过，基于所给实际 Harbor schema AST；不是完整 Pydantic 或镜像运行验证",
+      "evidence": "authoring/evidence/package-static.json"
+    }
+  ],
+  "unresolved": [
+    "Docker 固定镜像尚未实际构建/运行，Harbor 原生与周期适配器双入口集成和实际 fault replay 未执行。",
+    "ARM 仅取得 wheel 闭包，未做运行或资源测量；本地主机 Python 3.12.15 不能代表 FROM 3.12.8。",
+    "全量非 network 原生套件仍有 upstream/reference 同名的 Trio write-timeout 清理警告失败，未过滤警告或修改上游测试。",
+    "正式六小时校准、三条轨迹、两小时后持续增长均未验证；NOP 约 0.46746，早满风险高，强 ContextVar/transport-wrapper 路线仍值得独立否证。",
+    "合同、测试和参考由同一作者构造，未完成独立人员语义审阅或恶意 Python 候选红队审计。",
+    "实际 TaskConfig Pydantic 实例化与正式 adapter profile 加载仍待运行；当前只核对提供的 schema 字段及静态路径。",
+    "作者模型身份和父进程 JSONL 由父编排持有，本轮未读取认证/进程环境/父日志作独立核验。"
+  ],
+  "evidence_scope": "本地直接运行同一权威 controller，非 Docker/ARM/Harbor 运行成功声明；数值分数均来自实际输出。",
+  "scoring_history_notes": [
+    "初始构造版本把 trace 误作所有组前置，后在冻结前按语义维度解耦；旧输出保留于 job evidence，未修改教师或旧任务分数。",
+    "修正 metadata native_skipped 标签为真实 node ID，成员/权重/公式未变；最终新 metadata 的同快照 5 次 reference 与 NOP/near-miss 重新运行。"
+  ],
+  "scope_notes": [
+    "所有持久产物在授权 job 目录；未更改共享/其他用户源码或配置，未 archive 活跃工作。",
+    "早期工具/原生 pytest 未显式指定 TMPDIR/basetemp；后续编译、运行和审计已固定在 job 内临时目录。未检查/清理共享临时目录。"
+  ],
+  "trajectory": "父会话工具调用由编排端记录；本地 authoring/trajectory.jsonl 为补充阶段账本，不伪造模型对话。"
+}

@@ -1,0 +1,8 @@
+{
+  "task": "samples/long-horizon-built-005/restler_resilient_execution",
+  "archive": "restler-005-smoke.tar.gz",
+  "sha256": "f5ab73a9e30c0bf01cb31627a32c3aef058a7b8d10e1fa51b5a75f89b6af5054",
+  "bytes": 9631929,
+  "uploaded": false,
+  "executed": false
+}

@@ -1,0 +1,63 @@
+{
+  "repo": "USEPA/WNTR",
+  "revision": "11eec7d5bf0a9367ffe04d75707918f0c0a890a1",
+  "resolved_utc": "2026-10-15T14:58:54.933793+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:05:59.358655+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "9ea100828d031381ae8bbdde68a9fa83f611aa97b53bccca01220495c924de01",
+    "truncated": false,
+    "blob_count": 435
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE.md",
+      "bytes": 4787,
+      "sha256": "1ea2266f0cd710165d06807307f86553ce0ac7f7b6755f5bd2a9929a88900dd1",
+      "url": "https://github.com/USEPA/WNTR/blob/11eec7d5bf0a9367ffe04d75707918f0c0a890a1/LICENSE.md"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4572,
+      "sha256": "c0c235f22facacdeeec5aed0f2fdd9778f7a5a38dd5d4a77de66346868a6f49d",
+      "url": "https://github.com/USEPA/WNTR/blob/11eec7d5bf0a9367ffe04d75707918f0c0a890a1/README.md"
+    },
+    {
+      "path": "examples/networks/Net3.inp",
+      "bytes": 31249,
+      "sha256": "ea3e825c4fef0b5cba47fb06301bc85253f18b6364dc96c44d9fb492c40faa52",
+      "url": "https://github.com/USEPA/WNTR/blob/11eec7d5bf0a9367ffe04d75707918f0c0a890a1/examples/networks/Net3.inp"
+    },
+    {
+      "path": "examples/pipe_criticality.py",
+      "bytes": 3806,
+      "sha256": "dccd5381170f2c0d15810c8c61fd19a332c2000e973fabbcd80d49ef53bc1529",
+      "url": "https://github.com/USEPA/WNTR/blob/11eec7d5bf0a9367ffe04d75707918f0c0a890a1/examples/pipe_criticality.py"
+    },
+    {
+      "path": "wntr/sim/core.py",
+      "bytes": 76723,
+      "sha256": "5d167938fb3072b09153610ab5ad2137eb8b146d12e8006577c342b3a33345c8",
+      "url": "https://github.com/USEPA/WNTR/blob/11eec7d5bf0a9367ffe04d75707918f0c0a890a1/wntr/sim/core.py"
+    },
+    {
+      "path": "wntr/tests/networks_for_testing/simulator.inp",
+      "bytes": 16114,
+      "sha256": "b43d076634e574b42debe7c72b39b956a5ee16c0b8f4a2a57c46bad9957590e3",
+      "url": "https://github.com/USEPA/WNTR/blob/11eec7d5bf0a9367ffe04d75707918f0c0a890a1/wntr/tests/networks_for_testing/simulator.inp"
+    },
+    {
+      "path": "wntr/tests/test_sim_PDD.py",
+      "bytes": 1191,
+      "sha256": "72cde4dfbbe75e4eb06dedb3d8040d7142b6649d31575b28f1b82652bb0262cf",
+      "url": "https://github.com/USEPA/WNTR/blob/11eec7d5bf0a9367ffe04d75707918f0c0a890a1/wntr/tests/test_sim_PDD.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

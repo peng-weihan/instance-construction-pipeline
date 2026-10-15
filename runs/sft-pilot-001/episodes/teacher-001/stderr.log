@@ -1,0 +1,6 @@
+----- Native stack trace -----
+
+ 1: 0x106c61224 node::InitializeOncePerProcessInternal(std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, node::ProcessInitializationFlags::Flags) (.cold.11) [/Users/raymone/.nvm/versions/node/v24.13.1/bin/node]
+ 2: 0x104ab8854 node::InitializeOncePerProcessInternal(std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, node::ProcessInitializationFlags::Flags) [/Users/raymone/.nvm/versions/node/v24.13.1/bin/node]
+ 3: 0x104ab94a8 node::Start(int, char**) [/Users/raymone/.nvm/versions/node/v24.13.1/bin/node]
+ 4: 0x18cf9c4e4 start [/usr/lib/dyld]

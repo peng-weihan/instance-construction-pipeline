@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "score": 0.0,
+  "pass_rate": 0.0,
+  "checks": [
+    {
+      "name": "nested",
+      "passed": false,
+      "detail": "missing generator"
+    },
+    {
+      "name": "union",
+      "passed": false,
+      "detail": "missing generator"
+    },
+    {
+      "name": "arrays",
+      "passed": false,
+      "detail": "missing generator"
+    },
+    {
+      "name": "siblings",
+      "passed": false,
+      "detail": "missing generator"
+    },
+    {
+      "name": "wire",
+      "passed": false,
+      "detail": "missing generator"
+    },
+    {
+      "name": "conflict",
+      "passed": false,
+      "detail": "missing generator"
+    }
+  ],
+  "metrics": {
+    "passed_semantic_groups": 0,
+    "fixed_denominator": 6
+  },
+  "summary": "Generated SDK semantic groups; host execution is not Harbor acceptance",
+  "records": []
+}

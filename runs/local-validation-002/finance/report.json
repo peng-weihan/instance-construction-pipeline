@@ -1,0 +1,179 @@
+{
+  "category": "finance",
+  "task": "samples/long-horizon-built-006/cross_asset_adaptive_allocator",
+  "mode": "trusted_component_host_validation",
+  "docker_executed": false,
+  "model_runs": 0,
+  "six_hour_runs": 0,
+  "started_unix": 1791984018.077921,
+  "task_manifest_sha256": "eea7eba1c682f1a76add697843e4c67325166bab8932c036e0c735ff54a1bdf3",
+  "checks": [
+    {
+      "name": "public/fixed_baseline",
+      "pass": true
+    },
+    {
+      "name": "public/author_reference",
+      "pass": true
+    },
+    {
+      "name": "public/invalid_policy_rejected",
+      "pass": true
+    },
+    {
+      "name": "feedback/fixed_baseline",
+      "pass": true
+    },
+    {
+      "name": "feedback/author_reference",
+      "pass": true
+    },
+    {
+      "name": "feedback/invalid_policy_rejected",
+      "pass": true
+    },
+    {
+      "name": "audit/fixed_baseline",
+      "pass": true
+    },
+    {
+      "name": "audit/author_reference",
+      "pass": true
+    },
+    {
+      "name": "audit/invalid_policy_rejected",
+      "pass": true
+    }
+  ],
+  "records": [
+    {
+      "suite": "public",
+      "policy": "fixed_baseline",
+      "metrics": {
+        "utility": -0.03493630409758154,
+        "annual_log_growth": 0.06804597667297678,
+        "annual_volatility": 0.05586229328253778,
+        "max_drawdown": 0.07505113412928943,
+        "pinball": 0.0004159747710631814,
+        "variance_mse": 5.031732954927017e-10,
+        "breach_rate": 0.04970178926441352,
+        "turnover": 1.728227775292908,
+        "days": 1006,
+        "final_nav": 1312119.6188344292,
+        "rebalance_count": 51
+      },
+      "seconds": 0.14487929199822247,
+      "warnings": []
+    },
+    {
+      "suite": "public",
+      "policy": "author_reference",
+      "metrics": {
+        "utility": -0.0866792549757044,
+        "annual_log_growth": 0.050888167992504445,
+        "annual_volatility": 0.060673911883967105,
+        "max_drawdown": 0.1072304670262253,
+        "pinball": 0.0004661925377925024,
+        "variance_mse": 1.6289338876037167e-09,
+        "breach_rate": 0.055666003976143144,
+        "turnover": 33.721657595075705,
+        "days": 1006,
+        "final_nav": 1225254.7696788423,
+        "rebalance_count": 415
+      },
+      "seconds": 9.034796332998667,
+      "warnings": [
+        "divide by zero encountered in matmul",
+        "invalid value encountered in matmul",
+        "overflow encountered in matmul"
+      ]
+    },
+    {
+      "suite": "feedback",
+      "policy": "fixed_baseline",
+      "metrics": {
+        "utility": -0.29930322142084037,
+        "annual_log_growth": -0.0039023236766697338,
+        "annual_volatility": 0.1060752155465751,
+        "max_drawdown": 0.24236328997088308,
+        "pinball": 0.0008384241280978931,
+        "variance_mse": 1.8641177695042157e-08,
+        "breach_rate": 0.07539682539682539,
+        "turnover": 1.8937187036737742,
+        "days": 756,
+        "final_nav": 988361.2889232433,
+        "rebalance_count": 39
+      },
+      "seconds": 0.1078205420053564,
+      "warnings": []
+    },
+    {
+      "suite": "feedback",
+      "policy": "author_reference",
+      "metrics": {
+        "utility": -0.15155807153061038,
+        "annual_log_growth": 0.012668258611940226,
+        "annual_volatility": 0.06437253911388294,
+        "max_drawdown": 0.13204006058560913,
+        "pinball": 0.0005525595218242136,
+        "variance_mse": 2.5881451793941275e-09,
+        "breach_rate": 0.06349206349206349,
+        "turnover": 16.814499723863438,
+        "days": 756,
+        "final_nav": 1038736.1937001715,
+        "rebalance_count": 206
+      },
+      "seconds": 6.227255957957823,
+      "warnings": [
+        "divide by zero encountered in matmul",
+        "invalid value encountered in matmul",
+        "overflow encountered in matmul"
+      ]
+    },
+    {
+      "suite": "audit",
+      "policy": "fixed_baseline",
+      "metrics": {
+        "utility": -0.0880064275427209,
+        "annual_log_growth": 0.07100273212960054,
+        "annual_volatility": 0.08877987648003739,
+        "max_drawdown": 0.11461922143230274,
+        "pinball": 0.0006542936649165307,
+        "variance_mse": 4.413090138852649e-09,
+        "breach_rate": 0.0398936170212766,
+        "turnover": 1.5244376525285968,
+        "days": 752,
+        "final_nav": 1236001.0009863537,
+        "rebalance_count": 38
+      },
+      "seconds": 0.11073641700204462,
+      "warnings": []
+    },
+    {
+      "suite": "audit",
+      "policy": "author_reference",
+      "metrics": {
+        "utility": -0.014261195704572495,
+        "annual_log_growth": 0.05736550346040138,
+        "annual_volatility": 0.05424306114090903,
+        "max_drawdown": 0.04450516859451936,
+        "pinball": 0.0003924248566541397,
+        "variance_mse": 4.866788316613515e-10,
+        "breach_rate": 0.05186170212765957,
+        "turnover": 13.301359096182843,
+        "days": 752,
+        "final_nav": 1186711.3937337731,
+        "rebalance_count": 171
+      },
+      "seconds": 6.19951345800655,
+      "warnings": [
+        "divide by zero encountered in matmul",
+        "invalid value encountered in matmul",
+        "overflow encountered in matmul"
+      ]
+    }
+  ],
+  "policy_worker_sandbox_tested": false,
+  "status": "passed",
+  "finished_unix": 1791984040.698585
+}

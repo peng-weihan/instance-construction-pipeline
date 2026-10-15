@@ -1,0 +1,27 @@
+{
+  "scope": "task-contract and design-material analysis; not full production-source or hidden-test audit",
+  "task_rows": 36,
+  "unique_task_cards": 36,
+  "missing_task_ids": [],
+  "extra_task_ids": [],
+  "duplicate_task_ids": [],
+  "mechanisms": {
+    "M3": 6,
+    "M2": 12,
+    "M4": 3,
+    "M1": 13,
+    "M5": 2
+  },
+  "public_json_count": 12,
+  "paper_overview_only_count": 24,
+  "missing_markdown_links": [],
+  "source_sha256": {
+    "research/software-engineering-2026-10-15/software-task-map.csv": "f88f0b783049dac9a0bcfb11add85b872b5e194fdbd9c0d857a67ff92eedada0",
+    "research/sources/edgebench-paper.html": "037e38aae985564b009d5988acd84a00b628d8b615ed05f0baf3db11e8aa83cc",
+    "research/software-engineering-2026-10-15/official-software-time-scores.csv": "a8dea80297aafd1feb6a374397daa85a652fa7c3b4eb281554d6f4145b177ea3",
+    "requirements/software_long_horizon_scope_2026-10-15.md": "6c54645722598421126c7a4839b538cd155a475701cc9dcff2ab7bbce095d14a"
+  },
+  "new_candidate_executions": 0,
+  "new_model_runs": 0,
+  "existing_task_or_score_changes": false
+}

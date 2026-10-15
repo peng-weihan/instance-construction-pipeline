@@ -1,0 +1,119 @@
+{
+  "status": "passed",
+  "tasks_checked": 12,
+  "actual_judge_outputs_parsed": 18,
+  "source_commit": "6e4e5f4aa087a9121aa09a6059e5484e5102c6ff",
+  "python": "3.9.6 (default, Jan  9 2026, 11:03:41) \n[Clang 17.0.0 (clang-1700.6.4.2)]",
+  "records": [
+    {
+      "task_id": "routing_clustered_stop_limit_b7ea7e8e93ad",
+      "phase": "feedback",
+      "official_loader": "passed",
+      "dockerfile_render": "passed",
+      "actual_judge_outputs_parsed": 3,
+      "work_image_key": "edgefactory_feedback.work.routing_clustered_stop_limit_b7ea7e8e93ad:03efafe00886",
+      "judge_image_key": "edgefactory_feedback.judge.routing_clustered_stop_limit_b7ea7e8e93ad:bbc340298d24"
+    },
+    {
+      "task_id": "routing_clustered_stop_limit_bb1c866cca05",
+      "phase": "feedback",
+      "official_loader": "passed",
+      "dockerfile_render": "passed",
+      "actual_judge_outputs_parsed": 3,
+      "work_image_key": "edgefactory_feedback.work.routing_clustered_stop_limit_bb1c866cca05:7d0cc3578c89",
+      "judge_image_key": "edgefactory_feedback.judge.routing_clustered_stop_limit_bb1c866cca05:4f7ef0a1776b"
+    },
+    {
+      "task_id": "routing_clustered_tight_24b48db8cf62",
+      "phase": "feedback",
+      "official_loader": "passed",
+      "dockerfile_render": "passed",
+      "actual_judge_outputs_parsed": 3,
+      "work_image_key": "edgefactory_feedback.work.routing_clustered_tight_24b48db8cf62:a81063e71b6f",
+      "judge_image_key": "edgefactory_feedback.judge.routing_clustered_tight_24b48db8cf62:64341de331bc"
+    },
+    {
+      "task_id": "routing_clustered_tight_2e4cd5ce1927",
+      "phase": "feedback",
+      "official_loader": "passed",
+      "dockerfile_render": "passed",
+      "actual_judge_outputs_parsed": 3,
+      "work_image_key": "edgefactory_feedback.work.routing_clustered_tight_2e4cd5ce1927:14ab9eca80a8",
+      "judge_image_key": "edgefactory_feedback.judge.routing_clustered_tight_2e4cd5ce1927:48c4f090aa8b"
+    },
+    {
+      "task_id": "routing_uniform_loose_6693a63fa4d4",
+      "phase": "feedback",
+      "official_loader": "passed",
+      "dockerfile_render": "passed",
+      "actual_judge_outputs_parsed": 3,
+      "work_image_key": "edgefactory_feedback.work.routing_uniform_loose_6693a63fa4d4:ed95aa9eb766",
+      "judge_image_key": "edgefactory_feedback.judge.routing_uniform_loose_6693a63fa4d4:b44607376fef"
+    },
+    {
+      "task_id": "routing_uniform_loose_c3072d8f480e",
+      "phase": "feedback",
+      "official_loader": "passed",
+      "dockerfile_render": "passed",
+      "actual_judge_outputs_parsed": 3,
+      "work_image_key": "edgefactory_feedback.work.routing_uniform_loose_c3072d8f480e:62a8fbf24f9b",
+      "judge_image_key": "edgefactory_feedback.judge.routing_uniform_loose_c3072d8f480e:1f8eb6bc406b"
+    },
+    {
+      "task_id": "routing_clustered_stop_limit_b7ea7e8e93ad",
+      "phase": "final",
+      "official_loader": "passed",
+      "dockerfile_render": "passed",
+      "actual_judge_outputs_parsed": 0,
+      "work_image_key": "edgefactory_final.work.routing_clustered_stop_limit_b7ea7e8e93ad:03efafe00886",
+      "judge_image_key": "edgefactory_final.judge.routing_clustered_stop_limit_b7ea7e8e93ad:bd8748627f07"
+    },
+    {
+      "task_id": "routing_clustered_stop_limit_bb1c866cca05",
+      "phase": "final",
+      "official_loader": "passed",
+      "dockerfile_render": "passed",
+      "actual_judge_outputs_parsed": 0,
+      "work_image_key": "edgefactory_final.work.routing_clustered_stop_limit_bb1c866cca05:7d0cc3578c89",
+      "judge_image_key": "edgefactory_final.judge.routing_clustered_stop_limit_bb1c866cca05:b7ef67fe95c2"
+    },
+    {
+      "task_id": "routing_clustered_tight_24b48db8cf62",
+      "phase": "final",
+      "official_loader": "passed",
+      "dockerfile_render": "passed",
+      "actual_judge_outputs_parsed": 0,
+      "work_image_key": "edgefactory_final.work.routing_clustered_tight_24b48db8cf62:a81063e71b6f",
+      "judge_image_key": "edgefactory_final.judge.routing_clustered_tight_24b48db8cf62:e4f186996ba2"
+    },
+    {
+      "task_id": "routing_clustered_tight_2e4cd5ce1927",
+      "phase": "final",
+      "official_loader": "passed",
+      "dockerfile_render": "passed",
+      "actual_judge_outputs_parsed": 0,
+      "work_image_key": "edgefactory_final.work.routing_clustered_tight_2e4cd5ce1927:14ab9eca80a8",
+      "judge_image_key": "edgefactory_final.judge.routing_clustered_tight_2e4cd5ce1927:f255f6d7e980"
+    },
+    {
+      "task_id": "routing_uniform_loose_6693a63fa4d4",
+      "phase": "final",
+      "official_loader": "passed",
+      "dockerfile_render": "passed",
+      "actual_judge_outputs_parsed": 0,
+      "work_image_key": "edgefactory_final.work.routing_uniform_loose_6693a63fa4d4:ed95aa9eb766",
+      "judge_image_key": "edgefactory_final.judge.routing_uniform_loose_6693a63fa4d4:fff174f87d75"
+    },
+    {
+      "task_id": "routing_uniform_loose_c3072d8f480e",
+      "phase": "final",
+      "official_loader": "passed",
+      "dockerfile_render": "passed",
+      "actual_judge_outputs_parsed": 0,
+      "work_image_key": "edgefactory_final.work.routing_uniform_loose_c3072d8f480e:62a8fbf24f9b",
+      "judge_image_key": "edgefactory_final.judge.routing_uniform_loose_c3072d8f480e:4eff8fa9d07f"
+    }
+  ],
+  "container_built_or_run": false,
+  "model_evaluation_run": false
+}

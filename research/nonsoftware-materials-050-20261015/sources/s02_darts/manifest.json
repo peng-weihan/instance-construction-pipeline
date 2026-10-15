@@ -1,0 +1,51 @@
+{
+  "repo": "unit8co/darts",
+  "revision": "05192e9b9e7ed5d0bcabc27543424bd2776b3ce4",
+  "resolved_utc": "2026-10-15T14:58:14.005765+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:02.136299+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "0fe653a5b17cae5f4630ff2e7c34f3cf3cba0239f06989fb0be73c9ad55b6c69",
+    "truncated": false,
+    "blob_count": 492
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 11338,
+      "sha256": "a9f5092af3beb16a4e210725e991ebfc9bcca4420644730e969f8418173eb31e",
+      "url": "https://github.com/unit8co/darts/blob/05192e9b9e7ed5d0bcabc27543424bd2776b3ce4/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 67296,
+      "sha256": "43a2dc91a81a9e5694878bb80e51114dd30f3e65f0917991a8757df14fb06c15",
+      "url": "https://github.com/unit8co/darts/blob/05192e9b9e7ed5d0bcabc27543424bd2776b3ce4/README.md"
+    },
+    {
+      "path": "darts/dataprocessing/transformers/reconciliation.py",
+      "bytes": 10691,
+      "sha256": "5c8e8e0ef48fb122016fde0773473577700a50396e44d4c5f51f612cd4ba646d",
+      "url": "https://github.com/unit8co/darts/blob/05192e9b9e7ed5d0bcabc27543424bd2776b3ce4/darts/dataprocessing/transformers/reconciliation.py"
+    },
+    {
+      "path": "darts/tests/dataprocessing/transformers/test_reconciliation.py",
+      "bytes": 9666,
+      "sha256": "821711157fe0cbde4257e82d09934398c0ba3153e3d09364747f09dd012039d2",
+      "url": "https://github.com/unit8co/darts/blob/05192e9b9e7ed5d0bcabc27543424bd2776b3ce4/darts/tests/dataprocessing/transformers/test_reconciliation.py"
+    },
+    {
+      "path": "darts/utils/timeseries_generation.py",
+      "bytes": 36257,
+      "sha256": "7eaab8d221065eb3ce44be34f5ee8877c8b5494afc22d1e1db7e517bbcacc1c2",
+      "url": "https://github.com/unit8co/darts/blob/05192e9b9e7ed5d0bcabc27543424bd2776b3ce4/darts/utils/timeseries_generation.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

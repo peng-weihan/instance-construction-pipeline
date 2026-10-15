@@ -1,0 +1,20 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/05_toml/tests/grader.py",
+    "--candidate",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/05_toml/authoring/starter",
+    "--private",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/05_toml/verifier/private/cases.json",
+    "--vendor",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/05_toml/authoring/vendor",
+    "--cargo",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/05_toml/tools/local/bin/cargo",
+    "--output",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/05_toml/authoring/evidence/starter",
+    "--host-mode"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": ""
+}

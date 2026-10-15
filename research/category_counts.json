@@ -1,0 +1,32 @@
+{
+  "Systems & Software Engineering": {
+    "full": 36,
+    "public": 12,
+    "public_fraction": 0.3333
+  },
+  "Scientific Problems & ML": {
+    "full": 39,
+    "public": 4,
+    "public_fraction": 0.1026
+  },
+  "Combinatorial Optimization": {
+    "full": 19,
+    "public": 15,
+    "public_fraction": 0.7895
+  },
+  "Formal Math & Theorem Proving": {
+    "full": 13,
+    "public": 8,
+    "public_fraction": 0.6154
+  },
+  "Professional Knowledge Work": {
+    "full": 19,
+    "public": 4,
+    "public_fraction": 0.2105
+  },
+  "Interactive Games & Simulators": {
+    "full": 8,
+    "public": 8,
+    "public_fraction": 1.0
+  }
+}

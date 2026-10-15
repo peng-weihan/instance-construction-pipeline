@@ -1,0 +1,7 @@
+{
+  "agent_image": "edgebench-datafusion-sort-agent:constructed-v1",
+  "verifier_image": "edgebench-datafusion-sort-verifier:constructed-v1",
+  "artifacts": ["/home/workspace/datafusion/submission"],
+  "selection": "valid_then_score",
+  "score_direction": "maximize"
+}

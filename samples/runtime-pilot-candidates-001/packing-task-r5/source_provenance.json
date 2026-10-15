@@ -1,0 +1,40 @@
+{
+  "task_id": "industrial_nesting_improvement",
+  "category": "Combinatorial Optimization",
+  "title": "工业异形排样的基线突破",
+  "anchor": "jagua_nesting_optimization",
+  "status": "constructed_unverified",
+  "sources": [
+    {
+      "repository": "https://github.com/fontanf/packingsolver.git",
+      "commit": "79b67f8f9924018943daa878613da67bca955355",
+      "files": [
+        {
+          "path": "src/irregular/optimize.cpp",
+          "sha256": "df75731b011b22b1938e9d5164f6f2bf3c0e7429b3b617329a383ac52c03ff31"
+        },
+        {
+          "path": "src/irregular/local_search.cpp",
+          "sha256": "01f392f71f4138a0db1efa46d52496301830dc7ade1d641ff5c4f82f64948b61"
+        }
+      ],
+      "acquired": true,
+      "runtime_verified": false
+    }
+  ],
+  "authoring": "interactive source inspection + deterministic construction scripts; no independent CLI model run",
+  "long_horizon_potential": "design hypothesis, not an observed six-hour curve",
+  "empirical_training_benefit": null,
+  "accepted": false,
+  "progression": [
+    "稳定输出可行排样并建立性能画像",
+    "改进初始布局与搜索邻域",
+    "在固定预算下跨设计族改进并超越冻结参考"
+  ],
+  "construction_gaps": [
+    "Frozen reference lengths have not been measured.",
+    "Independent geometry checks and data-rights review pending."
+  ],
+  "runtime_verification": "deferred_by_user",
+  "construction_stage": "materials_and_spec_constructed"
+}

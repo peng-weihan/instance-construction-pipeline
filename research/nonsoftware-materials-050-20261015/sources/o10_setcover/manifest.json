@@ -1,0 +1,63 @@
+{
+  "repo": "fontanf/setcoveringsolver",
+  "revision": "6b24f8cb0a8e5baa6849283e5250aa4a3bd09aff",
+  "resolved_utc": "2026-10-15T14:59:59.288901+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:02:12.971590+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "89ffdd35f7c77fc4f89d40cdad2903bbb44f7503d84308a88b0f9a20939ce25d",
+    "truncated": false,
+    "blob_count": 103
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 1071,
+      "sha256": "69af8deb5c986861d0d90e880d1220f9157582b4cc2743e1146d6bb62939a0de",
+      "url": "https://github.com/fontanf/setcoveringsolver/blob/6b24f8cb0a8e5baa6849283e5250aa4a3bd09aff/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9804,
+      "sha256": "b1c7c10c434cb50503a049de3dbe3a2433b54d7d10884a7dd4c155d41cfff185",
+      "url": "https://github.com/fontanf/setcoveringsolver/blob/6b24f8cb0a8e5baa6849283e5250aa4a3bd09aff/README.md"
+    },
+    {
+      "path": "data/data.csv",
+      "bytes": 19991,
+      "sha256": "c76f07bb5b77d455811c98c61b1dc993edd8bedf871096a882c44c0783ee1f5f",
+      "url": "https://github.com/fontanf/setcoveringsolver/blob/6b24f8cb0a8e5baa6849283e5250aa4a3bd09aff/data/data.csv"
+    },
+    {
+      "path": "include/setcoveringsolver/solution.hpp",
+      "bytes": 5680,
+      "sha256": "ed770012402bc41aa850daf2f4e0f2f7d9aa98a281e4884196d8f819316d5943",
+      "url": "https://github.com/fontanf/setcoveringsolver/blob/6b24f8cb0a8e5baa6849283e5250aa4a3bd09aff/include/setcoveringsolver/solution.hpp"
+    },
+    {
+      "path": "scripts/download_data.py",
+      "bytes": 1238,
+      "sha256": "931bc981754b493c4ba952bdd68d86aec3b016ec5f66b8ce5acaa1c02e6d6135",
+      "url": "https://github.com/fontanf/setcoveringsolver/blob/6b24f8cb0a8e5baa6849283e5250aa4a3bd09aff/scripts/download_data.py"
+    },
+    {
+      "path": "src/algorithms/greedy.cpp",
+      "bytes": 17705,
+      "sha256": "19152c1811f64526f2fc68f0b74a98b98ef745b8d048afd19990f6cd12b9929e",
+      "url": "https://github.com/fontanf/setcoveringsolver/blob/6b24f8cb0a8e5baa6849283e5250aa4a3bd09aff/src/algorithms/greedy.cpp"
+    },
+    {
+      "path": "src/algorithms/large_neighborhood_search.cpp",
+      "bytes": 12474,
+      "sha256": "970064f39b63a66a59a95e65212892342956d980ae4af818fdb5d8fe7507ab6a",
+      "url": "https://github.com/fontanf/setcoveringsolver/blob/6b24f8cb0a8e5baa6849283e5250aa4a3bd09aff/src/algorithms/large_neighborhood_search.cpp"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

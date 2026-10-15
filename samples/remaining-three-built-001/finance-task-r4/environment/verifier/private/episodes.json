@@ -1,0 +1,282 @@
+[
+  {
+    "id": "public_2012_ordinary",
+    "split": "public",
+    "first_date": "2012-01-01",
+    "last_date": "2013-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.0005,
+      "risk_target_annual": 0.1
+    }
+  },
+  {
+    "id": "public_2012_costly",
+    "split": "public",
+    "first_date": "2012-01-01",
+    "last_date": "2013-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.002,
+      "risk_target_annual": 0.085
+    }
+  },
+  {
+    "id": "public_2013_ordinary",
+    "split": "public",
+    "first_date": "2013-01-01",
+    "last_date": "2014-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.0005,
+      "risk_target_annual": 0.1
+    }
+  },
+  {
+    "id": "public_2013_costly",
+    "split": "public",
+    "first_date": "2013-01-01",
+    "last_date": "2014-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.002,
+      "risk_target_annual": 0.085
+    }
+  },
+  {
+    "id": "feedback_2014_ordinary",
+    "split": "feedback",
+    "first_date": "2014-01-01",
+    "last_date": "2015-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.0005,
+      "risk_target_annual": 0.1
+    }
+  },
+  {
+    "id": "feedback_2014_costly",
+    "split": "feedback",
+    "first_date": "2014-01-01",
+    "last_date": "2015-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.002,
+      "risk_target_annual": 0.085
+    }
+  },
+  {
+    "id": "feedback_2015_ordinary",
+    "split": "feedback",
+    "first_date": "2015-01-01",
+    "last_date": "2016-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.0005,
+      "risk_target_annual": 0.1
+    }
+  },
+  {
+    "id": "feedback_2015_costly",
+    "split": "feedback",
+    "first_date": "2015-01-01",
+    "last_date": "2016-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.002,
+      "risk_target_annual": 0.085
+    }
+  },
+  {
+    "id": "feedback_2016_ordinary",
+    "split": "feedback",
+    "first_date": "2016-01-01",
+    "last_date": "2017-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.0005,
+      "risk_target_annual": 0.1
+    }
+  },
+  {
+    "id": "feedback_2016_costly",
+    "split": "feedback",
+    "first_date": "2016-01-01",
+    "last_date": "2017-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.002,
+      "risk_target_annual": 0.085
+    }
+  },
+  {
+    "id": "feedback_2017_ordinary",
+    "split": "feedback",
+    "first_date": "2017-01-01",
+    "last_date": "2018-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.0005,
+      "risk_target_annual": 0.1
+    }
+  },
+  {
+    "id": "feedback_2017_costly",
+    "split": "feedback",
+    "first_date": "2017-01-01",
+    "last_date": "2018-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.002,
+      "risk_target_annual": 0.085
+    }
+  },
+  {
+    "id": "feedback_2018_ordinary",
+    "split": "feedback",
+    "first_date": "2018-01-01",
+    "last_date": "2019-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.0005,
+      "risk_target_annual": 0.1
+    }
+  },
+  {
+    "id": "feedback_2018_costly",
+    "split": "feedback",
+    "first_date": "2018-01-01",
+    "last_date": "2019-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.002,
+      "risk_target_annual": 0.085
+    }
+  },
+  {
+    "id": "feedback_2019_ordinary",
+    "split": "feedback",
+    "first_date": "2019-01-01",
+    "last_date": "2020-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.0005,
+      "risk_target_annual": 0.1
+    }
+  },
+  {
+    "id": "feedback_2019_costly",
+    "split": "feedback",
+    "first_date": "2019-01-01",
+    "last_date": "2020-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.002,
+      "risk_target_annual": 0.085
+    }
+  },
+  {
+    "id": "audit_2020_ordinary",
+    "split": "audit",
+    "first_date": "2020-01-01",
+    "last_date": "2021-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.0005,
+      "risk_target_annual": 0.1
+    }
+  },
+  {
+    "id": "audit_2020_costly",
+    "split": "audit",
+    "first_date": "2020-01-01",
+    "last_date": "2021-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.002,
+      "risk_target_annual": 0.085
+    }
+  },
+  {
+    "id": "audit_2021_ordinary",
+    "split": "audit",
+    "first_date": "2021-01-01",
+    "last_date": "2022-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.0005,
+      "risk_target_annual": 0.1
+    }
+  },
+  {
+    "id": "audit_2021_costly",
+    "split": "audit",
+    "first_date": "2021-01-01",
+    "last_date": "2022-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.002,
+      "risk_target_annual": 0.085
+    }
+  },
+  {
+    "id": "audit_2022_ordinary",
+    "split": "audit",
+    "first_date": "2022-01-01",
+    "last_date": "2023-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.0005,
+      "risk_target_annual": 0.1
+    }
+  },
+  {
+    "id": "audit_2022_costly",
+    "split": "audit",
+    "first_date": "2022-01-01",
+    "last_date": "2023-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.002,
+      "risk_target_annual": 0.085
+    }
+  },
+  {
+    "id": "audit_2023_ordinary",
+    "split": "audit",
+    "first_date": "2023-01-01",
+    "last_date": "2024-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.0005,
+      "risk_target_annual": 0.1
+    }
+  },
+  {
+    "id": "audit_2023_costly",
+    "split": "audit",
+    "first_date": "2023-01-01",
+    "last_date": "2024-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.002,
+      "risk_target_annual": 0.085
+    }
+  },
+  {
+    "id": "audit_2024_ordinary",
+    "split": "audit",
+    "first_date": "2024-01-01",
+    "last_date": "2025-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.0005,
+      "risk_target_annual": 0.1
+    }
+  },
+  {
+    "id": "audit_2024_costly",
+    "split": "audit",
+    "first_date": "2024-01-01",
+    "last_date": "2025-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.002,
+      "risk_target_annual": 0.085
+    }
+  },
+  {
+    "id": "audit_2025_ordinary",
+    "split": "audit",
+    "first_date": "2025-01-01",
+    "last_date": "2026-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.0005,
+      "risk_target_annual": 0.1
+    }
+  },
+  {
+    "id": "audit_2025_costly",
+    "split": "audit",
+    "first_date": "2025-01-01",
+    "last_date": "2026-01-01",
+    "mandate_overrides": {
+      "cost_per_abs_weight_change": 0.002,
+      "risk_target_annual": 0.085
+    }
+  }
+]

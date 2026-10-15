@@ -1,0 +1,69 @@
+{
+  "repo": "celery/celery",
+  "revision": "4b7a3652e3297730c0e018ce3038e0121de983bc",
+  "resolved_utc": "2026-10-15T13:30:27.703412+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:31:10.837161+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "1c417e6cf1b40e430a96a96c1dd7645738954b07f14053149759edd1e32f3509",
+    "truncated": false,
+    "blob_count": 852
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 2717,
+      "sha256": "c358cdf77f28bbab50d4a754e123118339c15230349e82bf66489cece3ac093a",
+      "url": "https://github.com/celery/celery/blob/4b7a3652e3297730c0e018ce3038e0121de983bc/LICENSE"
+    },
+    {
+      "path": "README.rst",
+      "bytes": 18028,
+      "sha256": "8c9a82fcc35e86200d6ac2302609d7940349bf3dedfbd173e64f2c430cb13ccb",
+      "url": "https://github.com/celery/celery/blob/4b7a3652e3297730c0e018ce3038e0121de983bc/README.rst"
+    },
+    {
+      "path": "celery/backends/base.py",
+      "bytes": 61189,
+      "sha256": "0c64b1dc047678e08cf9206ba19fbc96e41bfa7ca6532fe801986df5e1ef96d9",
+      "url": "https://github.com/celery/celery/blob/4b7a3652e3297730c0e018ce3038e0121de983bc/celery/backends/base.py"
+    },
+    {
+      "path": "celery/canvas.py",
+      "bytes": 112593,
+      "sha256": "3c2ddf4e44916861402cdccf79c7dca918e6d1903e8ac210c8296b7e6626fc82",
+      "url": "https://github.com/celery/celery/blob/4b7a3652e3297730c0e018ce3038e0121de983bc/celery/canvas.py"
+    },
+    {
+      "path": "celery/worker/request.py",
+      "bytes": 35421,
+      "sha256": "99c55fa55c97cb413daa5aa790bcdb8a4ff7c0ea1ab1d797cb9e84d96c37db6a",
+      "url": "https://github.com/celery/celery/blob/4b7a3652e3297730c0e018ce3038e0121de983bc/celery/worker/request.py"
+    },
+    {
+      "path": "docs/userguide/canvas.rst",
+      "bytes": 42101,
+      "sha256": "3fadd39e14c2e8b65d204827731f6dcb55561e444a80f0ff4bcfdc6b30c5ae02",
+      "url": "https://github.com/celery/celery/blob/4b7a3652e3297730c0e018ce3038e0121de983bc/docs/userguide/canvas.rst"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 1383,
+      "sha256": "2f46121a037f2470525106f7d657d63a9500e84f8665f77287497ab201ddc797",
+      "url": "https://github.com/celery/celery/blob/4b7a3652e3297730c0e018ce3038e0121de983bc/pyproject.toml"
+    },
+    {
+      "path": "t/unit/tasks/test_canvas.py",
+      "bytes": 139064,
+      "sha256": "69b5fab697962eb7d45d93454f0e1ccb1a2a00250eb9f70026f6ec0264ea2dd8",
+      "url": "https://github.com/celery/celery/blob/4b7a3652e3297730c0e018ce3038e0121de983bc/t/unit/tasks/test_canvas.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

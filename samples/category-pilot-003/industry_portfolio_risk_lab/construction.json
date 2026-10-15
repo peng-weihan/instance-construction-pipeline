@@ -1,0 +1,26 @@
+{
+  "task_id": "industry_portfolio_risk_lab",
+  "category": "Professional Knowledge Work",
+  "title": "跨市场阶段的行业组合风险校准",
+  "status": "constructed_unverified",
+  "original_anchor": "portfolio_risk_calibration",
+  "sources": [
+    {
+      "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/49_Industry_Portfolios_daily_CSV.zip",
+      "sha256": "8f394fe34bea54d41b9aafed410425ee8f8e252ede3c71a7c1cd20bab83040de",
+      "acquired": true,
+      "license_status": "not established; local research prototype only"
+    }
+  ],
+  "construction_method": "real financial panel -> frozen vintage -> chronological split -> rolling risk forecasts for new portfolio mandates",
+  "authoring": {
+    "mode": "interactive_agent_source_inspection_and_scripted_transformation",
+    "independent_cli_model_called": false
+  },
+  "similarity_claim": "mechanism-level design hypothesis, not empirically same-distribution",
+  "known_gap": "Original task instruction is image-contained and not extracted; anchor similarity based on task metadata only. Data is public and may be memorized.",
+  "runtime_validation": "deferred_by_user",
+  "difficulty_calibrated": false,
+  "accepted": false,
+  "redistribution_review": "See SOURCE_TO_TASK.md; repository license does not automatically license all third-party data."
+}

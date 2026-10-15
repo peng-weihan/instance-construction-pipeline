@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "kept_native_ids": [
+    "tests/test_2fe81b_core.py::test_bytes_0",
+    "tests/test_2fe81b_core.py::test_bytes_1",
+    "tests/test_2fe81b_core.py::test_bytes_2",
+    "tests/test_2fe81b_core.py::test_bytes_3",
+    "tests/test_2fe81b_core.py::test_bytes_4",
+    "tests/test_2fe81b_core.py::test_bytes_5",
+    "tests/test_2fe81b_core.py::test_bytes_6",
+    "tests/test_2fe81b_core.py::test_bytes_7",
+    "tests/test_2fe81b_core.py::test_bytes_8",
+    "tests/test_2fe81b_core.py::test_bytes_9",
+    "tests/test_2fe81b_core.py::test_error"
+  ],
+  "n_kept": 11,
+  "n_tests": 12,
+  "n_branches": 1,
+  "ignored": [
+    "tests.test_2fe81b_core.test_weak_exit"
+  ]
+}

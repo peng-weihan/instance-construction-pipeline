@@ -1,0 +1,125 @@
+{
+  "sha": "3a207fa6e87c535b95eafca4cf5a6ef524d77df2",
+  "node_id": "C_kwDOAAMme9oAKDNhMjA3ZmE2ZTg3YzUzNWI5NWVhZmNhNGNmNWE2ZWY1MjRkNzdkZjI",
+  "commit": {
+    "author": {
+      "name": "Manu Zhang",
+      "email": "OwenZhang1990@gmail.com",
+      "date": "2026-10-14T14:23:42Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-10-14T14:23:42Z"
+    },
+    "message": "AVRO-4360: [C++] Fix binary floating-point byte order (#4043)\n\nUse the little-endian IEEE 754 wire format required by Avro when\nencoding and decoding floats and doubles on big-endian hosts.\nAdd independent wire-byte regressions for signed zero, finite limits,\ninfinities and NaN payloads across fragmented streams.\n\nCo-authored-by: Codex <codex@openai.com>",
+    "tree": {
+      "sha": "438e1195bf6f95b32532111d10895bc9437b65a4",
+      "url": "https://api.github.com/repos/apache/avro/git/trees/438e1195bf6f95b32532111d10895bc9437b65a4"
+    },
+    "url": "https://api.github.com/repos/apache/avro/git/commits/3a207fa6e87c535b95eafca4cf5a6ef524d77df2",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqz5BuCRC1aQ7uu5UhlAAAcGEQAHWUhO5wweajo/sP5+9CpeDZ\ngbwL8g2XOuJdxwtQfc75BTAftZJR66DddU7pwAwDUck0sIrFSN1QMFmD6STFvhNj\n+/+TUPDmvocJfM8mnEnF8sS+Qepa7TAssoFke25ZAKC/SE4uP2JeFA8gFeOUSPf3\ntAvwNEBRuR/tkF6LKZNuUGYSpJvkP240qEA0Z3brd0kng15uOj8FJmVxP+nshsml\nnWXFHWsb25ro3g08KDSKmNJPkEYv7q+8o391m58lviUznxjBJAsP/n0jPZ1/Qv/6\n3wLVwZR71UQnRx/lAQcFMzVIVM+5Ov8M6HXYKfOa+5x7+Teyhc9FXp8exRqPgxOV\n6HyhVvIKiWPI62hF9Stg3AnBiF2Mh3IOLulqivp3ID72emTV8TAXyrmGRMCgIKhd\n3Sit/XX8LjuYEFgmAv1Xzwyl19qtYeihtOpNFkUqkN89PKsZAvK2uE+wNR3pXvsr\nx116bP/Cd7RLcjDSVkkW9cJ2qRDCludVJ1TWnYMz3QbOaXZgS3WOdux0xH8ZE6m8\n9h33HEdhxQVqn0jemBqgbb+ttTN10qG2TLsX0Sp9E6FnMmEkAZ9R/ISaCtRk0bqS\nst/+zc4T2T9RX0POSEi50oH3a4Sv2D4JDv8jiMHz2frNvQEUfWqu8+Nz3A8FhAG8\nupGEr85FbAZUINhqWjrX\n=yMOX\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 438e1195bf6f95b32532111d10895bc9437b65a4\nparent 28cb08c15543c8c2dd8d186db2029bfe760940a5\nauthor Manu Zhang <OwenZhang1990@gmail.com> 1791987822 +0800\ncommitter GitHub <noreply@github.com> 1791987822 +0200\n\nAVRO-4360: [C++] Fix binary floating-point byte order (#4043)\n\nUse the little-endian IEEE 754 wire format required by Avro when\nencoding and decoding floats and doubles on big-endian hosts.\nAdd independent wire-byte regressions for signed zero, finite limits,\ninfinities and NaN payloads across fragmented streams.\n\nCo-authored-by: Codex <codex@openai.com>",
+      "verified_at": "2026-10-14T14:23:44Z"
+    }
+  },
+  "url": "https://api.github.com/repos/apache/avro/commits/3a207fa6e87c535b95eafca4cf5a6ef524d77df2",
+  "html_url": "https://github.com/apache/avro/commit/3a207fa6e87c535b95eafca4cf5a6ef524d77df2",
+  "comments_url": "https://api.github.com/repos/apache/avro/commits/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/comments",
+  "author": {
+    "login": "manuzhang",
+    "id": 1191767,
+    "node_id": "MDQ6VXNlcjExOTE3Njc=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/1191767?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/manuzhang",
+    "html_url": "https://github.com/manuzhang",
+    "followers_url": "https://api.github.com/users/manuzhang/followers",
+    "following_url": "https://api.github.com/users/manuzhang/following{/other_user}",
+    "gists_url": "https://api.github.com/users/manuzhang/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/manuzhang/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/manuzhang/subscriptions",
+    "organizations_url": "https://api.github.com/users/manuzhang/orgs",
+    "repos_url": "https://api.github.com/users/manuzhang/repos",
+    "events_url": "https://api.github.com/users/manuzhang/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/manuzhang/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "28cb08c15543c8c2dd8d186db2029bfe760940a5",
+      "url": "https://api.github.com/repos/apache/avro/commits/28cb08c15543c8c2dd8d186db2029bfe760940a5",
+      "html_url": "https://github.com/apache/avro/commit/28cb08c15543c8c2dd8d186db2029bfe760940a5"
+    }
+  ],
+  "stats": {
+    "total": 108,
+    "additions": 98,
+    "deletions": 10
+  },
+  "files": [
+    {
+      "sha": "e6dcbe971f7ad826335a73de84cabcbc376481ee",
+      "filename": "lang/c++/impl/BinaryDecoder.cc",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 6,
+      "changes": 21,
+      "blob_url": "https://github.com/apache/avro/blob/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/lang%2Fc%2B%2B%2Fimpl%2FBinaryDecoder.cc",
+      "raw_url": "https://github.com/apache/avro/raw/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/lang%2Fc%2B%2B%2Fimpl%2FBinaryDecoder.cc",
+      "contents_url": "https://api.github.com/repos/apache/avro/contents/lang%2Fc%2B%2B%2Fimpl%2FBinaryDecoder.cc?ref=3a207fa6e87c535b95eafca4cf5a6ef524d77df2",
+      "patch": "@@ -19,6 +19,9 @@\n #include \"Decoder.hh\"\n #include \"Exception.hh\"\n #include \"Zigzag.hh\"\n+#include <algorithm>\n+#include <array>\n+#include <bit>\n #include <memory>\n \n namespace avro {\n@@ -90,15 +93,21 @@ int64_t BinaryDecoder::decodeLong() {\n }\n \n float BinaryDecoder::decodeFloat() {\n-    float result;\n-    in_.readBytes(reinterpret_cast<uint8_t *>(&result), sizeof(float));\n-    return result;\n+    std::array<uint8_t, 4> bytes;\n+    in_.readBytes(bytes.data(), bytes.size());\n+    if constexpr (std::endian::native == std::endian::big) {\n+        std::reverse(bytes.begin(), bytes.end());\n+    }\n+    return std::bit_cast<float>(bytes);\n }\n \n double BinaryDecoder::decodeDouble() {\n-    double result;\n-    in_.readBytes(reinterpret_cast<uint8_t *>(&result), sizeof(double));\n-    return result;\n+    std::array<uint8_t, 8> bytes;\n+    in_.readBytes(bytes.data(), bytes.size());\n+    if constexpr (std::endian::native == std::endian::big) {\n+        std::reverse(bytes.begin(), bytes.end());\n+    }\n+    return std::bit_cast<double>(bytes);\n }\n \n size_t BinaryDecoder::doDecodeLength() {"
+    },
+    {
+      "sha": "bdd1dd44703a9a355a319350bd456bfd9ea7292b",
+      "filename": "lang/c++/impl/BinaryEncoder.cc",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 4,
+      "changes": 16,
+      "blob_url": "https://github.com/apache/avro/blob/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/lang%2Fc%2B%2B%2Fimpl%2FBinaryEncoder.cc",
+      "raw_url": "https://github.com/apache/avro/raw/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/lang%2Fc%2B%2B%2Fimpl%2FBinaryEncoder.cc",
+      "contents_url": "https://api.github.com/repos/apache/avro/contents/lang%2Fc%2B%2B%2Fimpl%2FBinaryEncoder.cc?ref=3a207fa6e87c535b95eafca4cf5a6ef524d77df2",
+      "patch": "@@ -18,7 +18,9 @@\n \n #include \"Encoder.hh\"\n #include \"Zigzag.hh\"\n+#include <algorithm>\n #include <array>\n+#include <bit>\n \n namespace avro {\n \n@@ -79,13 +81,19 @@ void BinaryEncoder::encodeLong(int64_t l) {\n }\n \n void BinaryEncoder::encodeFloat(float f) {\n-    const auto *p = reinterpret_cast<const uint8_t *>(&f);\n-    out_.writeBytes(p, sizeof(float));\n+    auto bytes = std::bit_cast<std::array<uint8_t, 4>>(f);\n+    if constexpr (std::endian::native == std::endian::big) {\n+        std::reverse(bytes.begin(), bytes.end());\n+    }\n+    out_.writeBytes(bytes.data(), bytes.size());\n }\n \n void BinaryEncoder::encodeDouble(double d) {\n-    const auto *p = reinterpret_cast<const uint8_t *>(&d);\n-    out_.writeBytes(p, sizeof(double));\n+    auto bytes = std::bit_cast<std::array<uint8_t, 8>>(d);\n+    if constexpr (std::endian::native == std::endian::big) {\n+        std::reverse(bytes.begin(), bytes.end());\n+    }\n+    out_.writeBytes(bytes.data(), bytes.size());\n }\n \n void BinaryEncoder::encodeString(const std::string &s) {"
+    },
+    {
+      "sha": "428f152bb8cce5f20e8f1ccc7f6bc63c0a3bfe9f",
+      "filename": "lang/c++/test/CodecTests.cc",
+      "status": "modified",
+      "additions": 71,
+      "deletions": 0,
+      "changes": 71,
+      "blob_url": "https://github.com/apache/avro/blob/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/lang%2Fc%2B%2B%2Ftest%2FCodecTests.cc",
+      "raw_url": "https://github.com/apache/avro/raw/3a207fa6e87c535b95eafca4cf5a6ef524d77df2/lang%2Fc%2B%2B%2Ftest%2FCodecTests.cc",
+      "contents_url": "https://api.github.com/repos/apache/avro/contents/lang%2Fc%2B%2B%2Ftest%2FCodecTests.cc?ref=3a207fa6e87c535b95eafca4cf5a6ef524d77df2",
+      "patch": "@@ -25,6 +25,8 @@\n #include \"Specific.hh\"\n #include \"ValidSchema.hh\"\n \n+#include <array>\n+#include <bit>\n #include <boost/bind/bind.hpp>\n #include <cstdint>\n #include <functional>\n@@ -1982,6 +1984,73 @@ static void testStreamLifetimes() {\n     }\n }\n \n+template<typename T, typename Bits>\n+static void checkFloatingPointBinaryCodec(Bits bits, const std::array<uint8_t, sizeof(Bits)> &expected) {\n+    for (size_t chunkSize : {1, 3, 16}) {\n+        BOOST_TEST_CONTEXT(\"bits=\" << bits << \", chunkSize=\" << chunkSize) {\n+            auto output = memoryOutputStream(chunkSize);\n+            auto encoder = binaryEncoder();\n+            encoder->init(*output);\n+            avro::encode(*encoder, std::bit_cast<T>(bits));\n+            encoder->flush();\n+\n+            const auto actual = snapshot(*output);\n+            BOOST_CHECK_EQUAL_COLLECTIONS(actual->begin(), actual->end(), expected.begin(), expected.end());\n+\n+            // Decode independent wire bytes, so matching encoder/decoder bugs cannot cancel out.\n+            auto wire = memoryOutputStream(chunkSize);\n+            StreamWriter writer;\n+            writer.reset(*wire);\n+            writer.writeBytes(expected.data(), expected.size());\n+            writer.flush();\n+            auto input = memoryInputStream(*wire);\n+            auto decoder = binaryDecoder();\n+            decoder->init(*input);\n+            T value;\n+            avro::decode(*decoder, value);\n+            BOOST_CHECK_EQUAL(std::bit_cast<Bits>(value), bits);\n+        }\n+    }\n+}\n+\n+static void testFloatBinaryByteOrder() {\n+    const std::pair<uint32_t, std::array<uint8_t, 4>> cases[] = {\n+        {0x00000000, {0x00, 0x00, 0x00, 0x00}}, // +0\n+        {0x80000000, {0x00, 0x00, 0x00, 0x80}}, // -0\n+        {0x3f800000, {0x00, 0x00, 0x80, 0x3f}}, // 1\n+        {0xc0200000, {0x00, 0x00, 0x20, 0xc0}}, // -2.5\n+        {0x00000001, {0x01, 0x00, 0x00, 0x00}}, // Smallest subnormal\n+        {0x00800000, {0x00, 0x00, 0x80, 0x00}}, // Smallest positive normal\n+        {0x7f7fffff, {0xff, 0xff, 0x7f, 0x7f}}, // Largest finite value\n+        {0x7f800000, {0x00, 0x00, 0x80, 0x7f}}, // +infinity\n+        {0xff800000, {0x00, 0x00, 0x80, 0xff}}, // -infinity\n+        {0x7fc12345, {0x45, 0x23, 0xc1, 0x7f}}, // Quiet NaN with payload\n+        {0xffc54321, {0x21, 0x43, 0xc5, 0xff}}, // Negative quiet NaN with payload\n+    };\n+    for (const auto &[bits, bytes] : cases) {\n+        checkFloatingPointBinaryCodec<float>(bits, bytes);\n+    }\n+}\n+\n+static void testDoubleBinaryByteOrder() {\n+    const std::pair<uint64_t, std::array<uint8_t, 8>> cases[] = {\n+        {0x0000000000000000, {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}}, // +0\n+        {0x8000000000000000, {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80}}, // -0\n+        {0x3ff0000000000000, {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xf0, 0x3f}}, // 1\n+        {0xc004000000000000, {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04, 0xc0}}, // -2.5\n+        {0x0000000000000001, {0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}}, // Smallest subnormal\n+        {0x0010000000000000, {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00}}, // Smallest positive normal\n+        {0x7fefffffffffffff, {0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xef, 0x7f}}, // Largest finite value\n+        {0x7ff0000000000000, {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xf0, 0x7f}}, // +infinity\n+        {0xfff0000000000000, {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xf0, 0xff}}, // -infinity\n+        {0x7ff8123456789abc, {0xbc, 0x9a, 0x78, 0x56, 0x34, 0x12, 0xf8, 0x7f}}, // Quiet NaN with payload\n+        {0xfff8abcdef123456, {0x56, 0x34, 0x12, 0xef, 0xcd, 0xab, 0xf8, 0xff}}, // Negative quiet NaN with payload\n+    };\n+    for (const auto &[bits, bytes] : cases) {\n+        checkFloatingPointBinaryCodec<double>(bits, bytes);\n+    }\n+}\n+\n static void testLimits(const EncoderPtr &e, const DecoderPtr &d) {\n     std::unique_ptr<OutputStream> s1 = memoryOutputStream();\n     {\n@@ -2154,6 +2223,8 @@ init_unit_test_suite(int, char *[]) {\n     auto *ts = BOOST_TEST_SUITE(\"Avro C++ unit tests for codecs\");\n     avro::parsing::add_tests(*ts);\n     ts->add(BOOST_TEST_CASE(avro::testStreamLifetimes));\n+    ts->add(BOOST_TEST_CASE(avro::testFloatBinaryByteOrder));\n+    ts->add(BOOST_TEST_CASE(avro::testDoubleBinaryByteOrder));\n     ts->add(BOOST_TEST_CASE(avro::testLimitsBinaryCodec));\n     ts->add(BOOST_TEST_CASE(avro::testLimitsJsonCodec));\n     ts->add(BOOST_PARAM_TEST_CASE(&avro::testJson, avro::jsonData,"
+    }
+  ]
+}

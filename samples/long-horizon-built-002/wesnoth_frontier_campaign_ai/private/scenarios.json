@@ -1,0 +1,65 @@
+[
+  {
+    "id": "frontier_river_crossings_public",
+    "family": "river_crossings",
+    "split": "public",
+    "map_sha256": "08fbf535d031c33bd46b5287883d3ce181054bb4933e246242001f524c5cb32c",
+    "new_map": true
+  },
+  {
+    "id": "frontier_forest_flanks_public",
+    "family": "forest_flanks",
+    "split": "public",
+    "map_sha256": "b8c20c2d9aae6415cf79248c62135699245efc1e04fdc42907e71089f511dd68",
+    "new_map": true
+  },
+  {
+    "id": "frontier_open_economy_public",
+    "family": "open_economy",
+    "split": "public",
+    "map_sha256": "d82f288720f291083f960c81850ba145d13173a1ffa904f67782d5f9aff92e2b",
+    "new_map": true
+  },
+  {
+    "id": "frontier_river_crossings_feedback",
+    "family": "river_crossings",
+    "split": "feedback",
+    "map_sha256": "377e4f223bd0977c9796bc58c847e157ea5687558bc64e3afddbe3c27c8506aa",
+    "new_map": true
+  },
+  {
+    "id": "frontier_forest_flanks_feedback",
+    "family": "forest_flanks",
+    "split": "feedback",
+    "map_sha256": "2d68886eeceba5bd97932d3b70e396ac2852713bebf86df5e50b7f0085f1babe",
+    "new_map": true
+  },
+  {
+    "id": "frontier_open_economy_feedback",
+    "family": "open_economy",
+    "split": "feedback",
+    "map_sha256": "28ce45820fd5630e5776c623de96855038c10ea574cb6250287b07213257763e",
+    "new_map": true
+  },
+  {
+    "id": "frontier_river_crossings_audit",
+    "family": "river_crossings",
+    "split": "audit",
+    "map_sha256": "572dc94fd448dd36ef84b9043aa1b2bcc03b1ef47f0fe452983fce6cf467a487",
+    "new_map": true
+  },
+  {
+    "id": "frontier_forest_flanks_audit",
+    "family": "forest_flanks",
+    "split": "audit",
+    "map_sha256": "49f56e38c2b26e1d0fe46195df4742c55998ea638a1a973c8c2d9ba0ee3923f0",
+    "new_map": true
+  },
+  {
+    "id": "frontier_open_economy_audit",
+    "family": "open_economy",
+    "split": "audit",
+    "map_sha256": "07cd5e2a4ff5c12327ec07741e7c403d492eb84bfcc18541bfbe2ad113c4bc20",
+    "new_map": true
+  }
+]

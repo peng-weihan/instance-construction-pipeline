@@ -1,0 +1,1166 @@
+{
+  "candidates": [
+    {
+      "id": "01_openapi_streaming",
+      "repo": "openapi-generators/openapi-python-client",
+      "revision": "0a283fe21eeaa23046faf622d4ff4b2c826d2edb",
+      "family": "engineering_evolution",
+      "new_source": false,
+      "title": "流式SDK、取消与资源生命周期",
+      "files": [
+        "README.md",
+        "CHANGELOG.md",
+        "pyproject.toml",
+        "end_to_end_tests/functional_tests/README.md"
+      ],
+      "retrieved_utc": "2026-10-15T09:20:28.823045+00:00",
+      "files_acquired": [
+        {
+          "path": "README.md",
+          "bytes": 10377,
+          "sha256": "0db70b7a141fbe516d03277eda5075b2495b3028875e8b7d787eeb5d209a9025",
+          "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/README.md"
+        },
+        {
+          "path": "CHANGELOG.md",
+          "bytes": 66790,
+          "sha256": "d8bfe97e16a0f42c31a1a67b90aa7f204273fd614743de1a829a332ee9fa4488",
+          "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/CHANGELOG.md"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 3813,
+          "sha256": "ce1a113eb2a184bbc24f8c8fa8d44e642ba6a137034ce9ce8c16c1118ecca2b2",
+          "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/pyproject.toml"
+        },
+        {
+          "path": "end_to_end_tests/functional_tests/README.md",
+          "bytes": 3840,
+          "sha256": "4c11cc45e198db053db73447055ac0a2937a1808a37a284cbc60b48601787277",
+          "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/end_to_end_tests/functional_tests/README.md"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 1075,
+          "sha256": "e1da71418a98d030776936ae46ba9846ebba05536c3d225d61e513dec1faa506",
+          "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/LICENSE"
+        },
+        {
+          "path": "openapi_python_client/templates/endpoint_module.py.jinja",
+          "bytes": 5319,
+          "sha256": "c1b2628053eb4875ba59566baa5ae907666f9cbfafa308d93f970a4404b7cd52",
+          "url": "https://github.com/openapi-generators/openapi-python-client/blob/0a283fe21eeaa23046faf622d4ff4b2c826d2edb/openapi_python_client/templates/endpoint_module.py.jinja"
+        }
+      ],
+      "missing_paths": [
+        "LICENSE.txt",
+        "LICENSE.md",
+        "COPYING",
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ],
+      "runtime_validation": false,
+      "six_hour_difficulty_verified": false,
+      "tree_manifest": {
+        "path": "git-tree.json",
+        "sha256": "7c82022c6d05fddf737355ff3e316b3a534baad8e4117e1d6fd61652dcdb7a91",
+        "blob_count": 488,
+        "truncated": false
+      },
+      "resolved_initial_404_paths": {},
+      "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+    },
+    {
+      "id": "02_restler_recovery",
+      "repo": "microsoft/restler-fuzzer",
+      "revision": "6d984deedbc54aad957fa3da0c7e9e5df23a2aee",
+      "family": "engineering_evolution",
+      "new_source": false,
+      "title": "真实campaign的崩溃恢复与状态一致性",
+      "files": [
+        "README.md",
+        "restler/utils/saver.py",
+        "restler/engine/core/driver.py",
+        "docs/user-guide/Replay.md"
+      ],
+      "retrieved_utc": "2026-10-15T09:20:29.725298+00:00",
+      "files_acquired": [
+        {
+          "path": "README.md",
+          "bytes": 9690,
+          "sha256": "d2aab30caf88bdde3e0256b29d8631640cb266096ab8e3dd48b2cb12cd0e0974",
+          "url": "https://github.com/microsoft/restler-fuzzer/blob/6d984deedbc54aad957fa3da0c7e9e5df23a2aee/README.md"
+        },
+        {
+          "path": "restler/engine/core/driver.py",
+          "bytes": 45452,
+          "sha256": "bb7c4f56294d775f9fc813a60d10b1c6ad4b21b334fe679a397c2289def19f60",
+          "url": "https://github.com/microsoft/restler-fuzzer/blob/6d984deedbc54aad957fa3da0c7e9e5df23a2aee/restler/engine/core/driver.py"
+        },
+        {
+          "path": "docs/user-guide/Replay.md",
+          "bytes": 6666,
+          "sha256": "55d060251662257b0f535df3910c2dc4c2f7125c2fe879966a1539ad88bf69d0",
+          "url": "https://github.com/microsoft/restler-fuzzer/blob/6d984deedbc54aad957fa3da0c7e9e5df23a2aee/docs/user-guide/Replay.md"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 1141,
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "url": "https://github.com/microsoft/restler-fuzzer/blob/6d984deedbc54aad957fa3da0c7e9e5df23a2aee/LICENSE"
+        },
+        {
+          "path": "restler/utils/saver.py",
+          "bytes": 3670,
+          "sha256": "10393b9e1239b0bbb9b6cb884b77050beee03ca2a2e4dd7394f9d5b237b4c1ed",
+          "url": "https://github.com/microsoft/restler-fuzzer/blob/6d984deedbc54aad957fa3da0c7e9e5df23a2aee/restler/utils/saver.py"
+        }
+      ],
+      "missing_paths": [
+        "LICENSE.txt",
+        "LICENSE.md",
+        "COPYING",
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ],
+      "runtime_validation": false,
+      "six_hour_difficulty_verified": false,
+      "tree_manifest": {
+        "path": "git-tree.json",
+        "sha256": "b5aeb5f2293ba742adddad3cbab3aff6d81ed54efdce72f72de85fa6f387e206",
+        "blob_count": 476,
+        "truncated": false
+      },
+      "resolved_initial_404_paths": {
+        "restler/engine/core/saver.py": "restler/utils/saver.py"
+      },
+      "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+    },
+    {
+      "id": "03_httpx_transport",
+      "repo": "encode/httpx",
+      "family": "engineering_evolution",
+      "new_source": true,
+      "title": "传输、重定向、认证与流式关闭的联合演进",
+      "files": [
+        "README.md",
+        "httpx/_client.py",
+        "httpx/_models.py",
+        "tests/client/test_async_client.py"
+      ],
+      "revision": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+      "retrieved_utc": "2026-10-15T09:20:28.953340+00:00",
+      "files_acquired": [
+        {
+          "path": "README.md",
+          "bytes": 4944,
+          "sha256": "d58f476c1273c9c06c978467c6596620d3840ea8c99ba9d32300ab3286f0e0c3",
+          "url": "https://github.com/encode/httpx/blob/b5addb64f0161ff6bfe94c124ef76f6a1fba5254/README.md"
+        },
+        {
+          "path": "httpx/_client.py",
+          "bytes": 65713,
+          "sha256": "ed717b3ac00debb48d089daeb4dd7fbaf47cb5642ebc4a6e76f3a2fc6cfc0f70",
+          "url": "https://github.com/encode/httpx/blob/b5addb64f0161ff6bfe94c124ef76f6a1fba5254/httpx/_client.py"
+        },
+        {
+          "path": "httpx/_models.py",
+          "bytes": 44697,
+          "sha256": "af118b075a5bcece608acbc989b221703935cbea128a4a98ca21a23ff3e860ac",
+          "url": "https://github.com/encode/httpx/blob/b5addb64f0161ff6bfe94c124ef76f6a1fba5254/httpx/_models.py"
+        },
+        {
+          "path": "tests/client/test_async_client.py",
+          "bytes": 11670,
+          "sha256": "b38b824378aed908f83f26fe0c5164e57a02f60bf1bd48fc63f2096efeda32ad",
+          "url": "https://github.com/encode/httpx/blob/b5addb64f0161ff6bfe94c124ef76f6a1fba5254/tests/client/test_async_client.py"
+        },
+        {
+          "path": "LICENSE.md",
+          "bytes": 1508,
+          "sha256": "4ec59d544f12b5f539a3a716fd321ac58ccd8030b465221f2c880200cdf28d8d",
+          "url": "https://github.com/encode/httpx/blob/b5addb64f0161ff6bfe94c124ef76f6a1fba5254/LICENSE.md"
+        }
+      ],
+      "missing_paths": [
+        "LICENSE",
+        "LICENSE.txt",
+        "COPYING",
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ],
+      "runtime_validation": false,
+      "six_hour_difficulty_verified": false,
+      "tree_manifest": {
+        "path": "git-tree.json",
+        "sha256": "9d7c34d74e8e347d262494e15f8d91e1087400a16a9c153eb40ffaa0b4d5b0dc",
+        "blob_count": 125,
+        "truncated": false
+      },
+      "resolved_initial_404_paths": {},
+      "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+    },
+    {
+      "id": "04_pytest_fixtures",
+      "repo": "pytest-dev/pytest",
+      "family": "engineering_evolution",
+      "new_source": true,
+      "title": "fixture生命周期、动态收集与插件交互",
+      "files": [
+        "README.rst",
+        "src/_pytest/fixtures.py",
+        "testing/python/fixtures.py",
+        "doc/en/explanation/fixtures.rst"
+      ],
+      "revision": "c9c19f8e62c12834ad83193a1869cc82fe9c700e",
+      "retrieved_utc": "2026-10-15T09:20:33.133969+00:00",
+      "files_acquired": [
+        {
+          "path": "README.rst",
+          "bytes": 5454,
+          "sha256": "37c713f12b48774c77c40accfe3a6a28c25d7e763c9c5e34266261cf738713b5",
+          "url": "https://github.com/pytest-dev/pytest/blob/c9c19f8e62c12834ad83193a1869cc82fe9c700e/README.rst"
+        },
+        {
+          "path": "src/_pytest/fixtures.py",
+          "bytes": 102988,
+          "sha256": "d22df766fedb26845c5aaa2572c6d06718dcdfaec15fa8b9cad17f25b2176ef5",
+          "url": "https://github.com/pytest-dev/pytest/blob/c9c19f8e62c12834ad83193a1869cc82fe9c700e/src/_pytest/fixtures.py"
+        },
+        {
+          "path": "testing/python/fixtures.py",
+          "bytes": 196490,
+          "sha256": "9af290a1930f81b7e5fd0fc661367602bb79df322507a8313cddcf367c30d0d7",
+          "url": "https://github.com/pytest-dev/pytest/blob/c9c19f8e62c12834ad83193a1869cc82fe9c700e/testing/python/fixtures.py"
+        },
+        {
+          "path": "doc/en/explanation/fixtures.rst",
+          "bytes": 6090,
+          "sha256": "aa98786d14e9415396ff5e1c1d4cb350dc420438c984e20104823186761ef6ef",
+          "url": "https://github.com/pytest-dev/pytest/blob/c9c19f8e62c12834ad83193a1869cc82fe9c700e/doc/en/explanation/fixtures.rst"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 1091,
+          "sha256": "ca836a5f9ecca3b2f350230faa20a48fb8b145653b5568d784862df864706b9b",
+          "url": "https://github.com/pytest-dev/pytest/blob/c9c19f8e62c12834ad83193a1869cc82fe9c700e/LICENSE"
+        }
+      ],
+      "missing_paths": [
+        "LICENSE.txt",
+        "LICENSE.md",
+        "COPYING",
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ],
+      "runtime_validation": false,
+      "six_hour_difficulty_verified": false,
+      "tree_manifest": {
+        "path": "git-tree.json",
+        "sha256": "7db8018f557d6d290051035ddf62d4e36afbebf0062f82bae58656b3d7bcb6e6",
+        "blob_count": 727,
+        "truncated": false
+      },
+      "resolved_initial_404_paths": {},
+      "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+    },
+    {
+      "id": "05_uv_resolution",
+      "repo": "astral-sh/uv",
+      "family": "engineering_evolution",
+      "new_source": true,
+      "title": "跨环境依赖解析与增量锁定",
+      "files": [
+        "README.md",
+        "docs/concepts/resolution.md",
+        "crates/uv-resolver/src/lib.rs",
+        "crates/uv/tests/lock/lock.rs"
+      ],
+      "revision": "9385290f1bf895cb3f587118ce92cce9a0585f77",
+      "retrieved_utc": "2026-10-15T09:20:37.384541+00:00",
+      "files_acquired": [
+        {
+          "path": "README.md",
+          "bytes": 9859,
+          "sha256": "57a84a5a635f30e3a26541ebc16ca690944a7750f05713b1af92d3170b58f704",
+          "url": "https://github.com/astral-sh/uv/blob/9385290f1bf895cb3f587118ce92cce9a0585f77/README.md"
+        },
+        {
+          "path": "docs/concepts/resolution.md",
+          "bytes": 41949,
+          "sha256": "20d178235cc8847feae2ea5ab01673d3320ce2927ee6263b6a238847dad1f3e2",
+          "url": "https://github.com/astral-sh/uv/blob/9385290f1bf895cb3f587118ce92cce9a0585f77/docs/concepts/resolution.md"
+        },
+        {
+          "path": "crates/uv-resolver/src/lib.rs",
+          "bytes": 2348,
+          "sha256": "343014d6478a85563421bf1e981c00c80b6f77093a28cb03e15b12b9066c576b",
+          "url": "https://github.com/astral-sh/uv/blob/9385290f1bf895cb3f587118ce92cce9a0585f77/crates/uv-resolver/src/lib.rs"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "bytes": 11357,
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "url": "https://github.com/astral-sh/uv/blob/9385290f1bf895cb3f587118ce92cce9a0585f77/LICENSE-APACHE"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "bytes": 1077,
+          "sha256": "860e3d7a86b84e6a7012c7a635fc64df475cebc6cce34dfeb73a5982ec58176c",
+          "url": "https://github.com/astral-sh/uv/blob/9385290f1bf895cb3f587118ce92cce9a0585f77/LICENSE-MIT"
+        },
+        {
+          "path": "crates/uv-resolver/src/resolver/mod.rs",
+          "bytes": 174991,
+          "sha256": "77ab4cedecbd9aa984dd6fad2944310e995b2ff9a4f91762d284f996a152074d",
+          "url": "https://github.com/astral-sh/uv/blob/9385290f1bf895cb3f587118ce92cce9a0585f77/crates/uv-resolver/src/resolver/mod.rs"
+        },
+        {
+          "path": "crates/uv/tests/lock/lock.rs",
+          "bytes": 2076616,
+          "sha256": "7a7493eac5ad40804c067e489bf2303ea1567475c230c5502575d09b17517569",
+          "url": "https://github.com/astral-sh/uv/blob/9385290f1bf895cb3f587118ce92cce9a0585f77/crates/uv/tests/lock/lock.rs"
+        },
+        {
+          "path": "crates/uv/tests/lock_scenarios/lock_conflict.rs",
+          "bytes": 699832,
+          "sha256": "0055c8218ad3be14bd0b51f30ed8f71676bc20e8c2da89a4ecedb3275c78c61e",
+          "url": "https://github.com/astral-sh/uv/blob/9385290f1bf895cb3f587118ce92cce9a0585f77/crates/uv/tests/lock_scenarios/lock_conflict.rs"
+        }
+      ],
+      "missing_paths": [
+        "LICENSE",
+        "LICENSE.txt",
+        "LICENSE.md",
+        "COPYING"
+      ],
+      "runtime_validation": false,
+      "six_hour_difficulty_verified": false,
+      "tree_manifest": {
+        "path": "git-tree.json",
+        "sha256": "43cd93bdb6bab65dba929abea0b272d76bb79ddc033529a11e7c4eb460f3cfb3",
+        "blob_count": 1863,
+        "truncated": false
+      },
+      "resolved_initial_404_paths": {
+        "crates/uv/tests/it/lock.rs": "crates/uv/tests/lock/lock.rs"
+      },
+      "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+    },
+    {
+      "id": "06_wasm_validation",
+      "repo": "WebAssembly/spec",
+      "revision": "d910f03bd6d6477656fc5070b5098e8f909305d3",
+      "family": "system_implementation",
+      "new_source": false,
+      "title": "类型验证、间接调用与模块链接的VM",
+      "files": [
+        "README.md",
+        "test/core/call_indirect.wast",
+        "test/core/unwind.wast",
+        "document/core/valid/instructions.rst"
+      ],
+      "retrieved_utc": "2026-10-15T09:20:33.712053+00:00",
+      "files_acquired": [
+        {
+          "path": "README.md",
+          "bytes": 1143,
+          "sha256": "df130951778625853a5b46be7f55ee76a3c55a337941dfc2bc95e31bc979d96e",
+          "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/README.md"
+        },
+        {
+          "path": "test/core/call_indirect.wast",
+          "bytes": 33439,
+          "sha256": "3b400ee77b55671ce648ec5cf76f48eeaa3539c8793fb7fc43dc0c7da3e08775",
+          "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/test/core/call_indirect.wast"
+        },
+        {
+          "path": "test/core/unwind.wast",
+          "bytes": 10276,
+          "sha256": "55da9a7d4d2dc19feb04fca3ab47eb842aa10202f2f9136fb3ca756c0b2bb931",
+          "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/test/core/unwind.wast"
+        },
+        {
+          "path": "document/core/valid/instructions.rst",
+          "bytes": 42263,
+          "sha256": "c867aefe04c4fbb8be4484fca0358e719653f0e563c728a9a9370a520be38316",
+          "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/document/core/valid/instructions.rst"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 376,
+          "sha256": "288b61e62a57d249eded5179eb3d6545cd844b29140e436aa3710e5a80ea5d99",
+          "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/LICENSE"
+        },
+        {
+          "path": "document/core/LICENSE",
+          "bytes": 2014,
+          "sha256": "983b7373bdde9a9aae54b7b2f1f53c5458787cb56ea5f49eae3fe76c5544345b",
+          "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/document/core/LICENSE"
+        },
+        {
+          "path": "test/LICENSE",
+          "bytes": 11358,
+          "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08",
+          "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/test/LICENSE"
+        },
+        {
+          "path": "interpreter/LICENSE",
+          "bytes": 11358,
+          "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08",
+          "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/interpreter/LICENSE"
+        },
+        {
+          "path": "interpreter/valid/valid.ml",
+          "bytes": 21794,
+          "sha256": "5c5810aeb63e8246a57ecbacd4f35ed9adc9a39d7da91b3a94bd41edfeeeb319",
+          "url": "https://github.com/WebAssembly/spec/blob/d910f03bd6d6477656fc5070b5098e8f909305d3/interpreter/valid/valid.ml"
+        }
+      ],
+      "missing_paths": [
+        "LICENSE.txt",
+        "LICENSE.md",
+        "COPYING",
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ],
+      "runtime_validation": false,
+      "six_hour_difficulty_verified": false,
+      "tree_manifest": {
+        "path": "git-tree.json",
+        "sha256": "ea55ff2e4458992a4f8be63b4f83fbba774130c610d43e11763f018e811131a7",
+        "blob_count": 720,
+        "truncated": false
+      },
+      "resolved_initial_404_paths": {},
+      "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+    },
+    {
+      "id": "07_arrow_ipc",
+      "repo": "apache/arrow",
+      "family": "system_implementation",
+      "new_source": true,
+      "title": "嵌套类型和字典演化的IPC读写器",
+      "files": [
+        "README.md",
+        "format/Message.fbs",
+        "docs/source/format/Columnar.rst",
+        "dev/archery/archery/integration/runner.py"
+      ],
+      "revision": "ca5564e007a209e251b9d4648af4bc6a53c68c4f",
+      "retrieved_utc": "2026-10-15T09:20:34.384029+00:00",
+      "files_acquired": [
+        {
+          "path": "README.md",
+          "bytes": 5855,
+          "sha256": "a8240517de55f26840b8d798cba46d2159ee62cf3a9ea8758565db7fe2db86e7",
+          "url": "https://github.com/apache/arrow/blob/ca5564e007a209e251b9d4648af4bc6a53c68c4f/README.md"
+        },
+        {
+          "path": "format/Message.fbs",
+          "bytes": 6580,
+          "sha256": "ec4274d76bfeb959b4a1961fa7ddb07dd06aa4a4a4960832c9fecec61f3bce53",
+          "url": "https://github.com/apache/arrow/blob/ca5564e007a209e251b9d4648af4bc6a53c68c4f/format/Message.fbs"
+        },
+        {
+          "path": "docs/source/format/Columnar.rst",
+          "bytes": 74828,
+          "sha256": "f7291ce8562f1a248da288bdcf4fc9a6b6f31afe88da561fda27f7df7d429ca9",
+          "url": "https://github.com/apache/arrow/blob/ca5564e007a209e251b9d4648af4bc6a53c68c4f/docs/source/format/Columnar.rst"
+        },
+        {
+          "path": "dev/archery/archery/integration/runner.py",
+          "bytes": 29690,
+          "sha256": "f90312ce15a1bf9fc34d15aecf0e5b4e544443afbe30770259bc1556cd42548b",
+          "url": "https://github.com/apache/arrow/blob/ca5564e007a209e251b9d4648af4bc6a53c68c4f/dev/archery/archery/integration/runner.py"
+        },
+        {
+          "path": "LICENSE.txt",
+          "bytes": 110383,
+          "sha256": "cd03925a27219d326d622609fbcae6567279af8b8885c33d5969a9e4ef5d7525",
+          "url": "https://github.com/apache/arrow/blob/ca5564e007a209e251b9d4648af4bc6a53c68c4f/LICENSE.txt"
+        },
+        {
+          "path": "format/Schema.fbs",
+          "bytes": 21803,
+          "sha256": "c5187ee92f011736e3877f22372869aaf11930fb176eb63fa942d39a9a11be8d",
+          "url": "https://github.com/apache/arrow/blob/ca5564e007a209e251b9d4648af4bc6a53c68c4f/format/Schema.fbs"
+        }
+      ],
+      "missing_paths": [
+        "LICENSE",
+        "LICENSE.md",
+        "COPYING",
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ],
+      "runtime_validation": false,
+      "six_hour_difficulty_verified": false,
+      "tree_manifest": {
+        "path": "git-tree.json",
+        "sha256": "0186a3b60f473564512ec15fa8b72295ab6947528ac3c32165ed006ea7466729",
+        "blob_count": 5322,
+        "truncated": false
+      },
+      "resolved_initial_404_paths": {},
+      "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+    },
+    {
+      "id": "08_http2_session",
+      "repo": "nghttp2/nghttp2",
+      "family": "system_implementation",
+      "new_source": true,
+      "title": "HTTP2帧、HPACK与会话状态机",
+      "files": [
+        "README.rst",
+        "lib/nghttp2_session.c",
+        "tests/nghttp2_session_test.c",
+        "tests/nghttp2_hd_test.c"
+      ],
+      "revision": "7e10fcf3c58e692902939bab8f898bdd9ec9cff7",
+      "retrieved_utc": "2026-10-15T09:20:45.846098+00:00",
+      "files_acquired": [
+        {
+          "path": "README.rst",
+          "bytes": 49770,
+          "sha256": "6d6b83f1c6e2dd5304b1d31519b3062c3984f7f61026f0c983c015cabb58ac6e",
+          "url": "https://github.com/nghttp2/nghttp2/blob/7e10fcf3c58e692902939bab8f898bdd9ec9cff7/README.rst"
+        },
+        {
+          "path": "lib/nghttp2_session.c",
+          "bytes": 250857,
+          "sha256": "062fcaa9dc8eb24f1b43ed5c4e9ac67d9abf32f4d56eb510358ebe0cbf05c595",
+          "url": "https://github.com/nghttp2/nghttp2/blob/7e10fcf3c58e692902939bab8f898bdd9ec9cff7/lib/nghttp2_session.c"
+        },
+        {
+          "path": "tests/nghttp2_session_test.c",
+          "bytes": 418505,
+          "sha256": "630752cd8088bfa554aad6c48818f46f593ec257a47c8470fc5fdc956ec62daf",
+          "url": "https://github.com/nghttp2/nghttp2/blob/7e10fcf3c58e692902939bab8f898bdd9ec9cff7/tests/nghttp2_session_test.c"
+        },
+        {
+          "path": "tests/nghttp2_hd_test.c",
+          "bytes": 52677,
+          "sha256": "e3e1c14b39d61a4c83cc8913a65a90fd6643e7a1e4eee7b63dae068876b8f960",
+          "url": "https://github.com/nghttp2/nghttp2/blob/7e10fcf3c58e692902939bab8f898bdd9ec9cff7/tests/nghttp2_hd_test.c"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 12,
+          "sha256": "f0518afc0a555337bac2f0fb37d33cdee6111983da69aaa504a1876beeddfde0",
+          "url": "https://github.com/nghttp2/nghttp2/blob/7e10fcf3c58e692902939bab8f898bdd9ec9cff7/LICENSE"
+        },
+        {
+          "path": "COPYING",
+          "bytes": 1156,
+          "sha256": "6b94f3abc1aabd0c72a7c7d92a77f79dda7c8a0cb3df839a97890b4116a2de2a",
+          "url": "https://github.com/nghttp2/nghttp2/blob/7e10fcf3c58e692902939bab8f898bdd9ec9cff7/COPYING"
+        }
+      ],
+      "missing_paths": [
+        "LICENSE.txt",
+        "LICENSE.md",
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ],
+      "runtime_validation": false,
+      "six_hour_difficulty_verified": false,
+      "tree_manifest": {
+        "path": "git-tree.json",
+        "sha256": "9a4d92e70ec2a1708b13f69076adbee7106589430717c12360e6991a389aaea2",
+        "blob_count": 613,
+        "truncated": false
+      },
+      "resolved_initial_404_paths": {},
+      "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+    },
+    {
+      "id": "09_valkey_transactions",
+      "repo": "valkey-io/valkey",
+      "family": "system_implementation",
+      "new_source": true,
+      "title": "RESP3事务与持久化恢复服务",
+      "files": [
+        "README.md",
+        "src/multi.c",
+        "src/aof.c",
+        "tests/unit/multi.tcl",
+        "tests/unit/protocol.tcl"
+      ],
+      "revision": "cf5efa70192faedacb6741ee2a8f800d0482862f",
+      "retrieved_utc": "2026-10-15T09:20:39.079203+00:00",
+      "files_acquired": [
+        {
+          "path": "README.md",
+          "bytes": 14607,
+          "sha256": "87625b05d383cb43b68f711992118fde02377cf10e4c6dcfc6238a7a43b4f1f7",
+          "url": "https://github.com/valkey-io/valkey/blob/cf5efa70192faedacb6741ee2a8f800d0482862f/README.md"
+        },
+        {
+          "path": "src/multi.c",
+          "bytes": 26551,
+          "sha256": "a9c9c350accc7d6adf767170a893098f517af89c01579d941cb068e859cfc4ad",
+          "url": "https://github.com/valkey-io/valkey/blob/cf5efa70192faedacb6741ee2a8f800d0482862f/src/multi.c"
+        },
+        {
+          "path": "src/aof.c",
+          "bytes": 116099,
+          "sha256": "03b3f0b61094a6053f757f7096ac63f075f6106a5af5163ccebfc8594018d9a6",
+          "url": "https://github.com/valkey-io/valkey/blob/cf5efa70192faedacb6741ee2a8f800d0482862f/src/aof.c"
+        },
+        {
+          "path": "tests/unit/protocol.tcl",
+          "bytes": 14473,
+          "sha256": "b51ea718556cb424f8d2c0aa12de365b6351f3eff2abec1bc5910a64757c4845",
+          "url": "https://github.com/valkey-io/valkey/blob/cf5efa70192faedacb6741ee2a8f800d0482862f/tests/unit/protocol.tcl"
+        },
+        {
+          "path": "COPYING",
+          "bytes": 1571,
+          "sha256": "9a67d40ae9076cd60b9d228135a9c0ce5d60f84f0c54c472965d4e03fdeb8f8f",
+          "url": "https://github.com/valkey-io/valkey/blob/cf5efa70192faedacb6741ee2a8f800d0482862f/COPYING"
+        },
+        {
+          "path": "tests/unit/multi.tcl",
+          "bytes": 34240,
+          "sha256": "f11d949385376dca9a11dc43853ea6fc428a0944ae9503d52476248179a7516d",
+          "url": "https://github.com/valkey-io/valkey/blob/cf5efa70192faedacb6741ee2a8f800d0482862f/tests/unit/multi.tcl"
+        }
+      ],
+      "missing_paths": [
+        "LICENSE",
+        "LICENSE.txt",
+        "LICENSE.md",
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ],
+      "runtime_validation": false,
+      "six_hour_difficulty_verified": false,
+      "tree_manifest": {
+        "path": "git-tree.json",
+        "sha256": "88a1f71a741e960821e0254cb7770b2e3968cc01401362c4b0c6c068d4fc1971",
+        "blob_count": 2050,
+        "truncated": false
+      },
+      "resolved_initial_404_paths": {
+        "tests/unit/transactions.tcl": "tests/unit/multi.tcl"
+      },
+      "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+    },
+    {
+      "id": "10_datafusion_sort",
+      "repo": "apache/datafusion",
+      "revision": "10343c18292fc3a9ca62b59c8bb530169fe79b82",
+      "family": "correctness_constrained_performance",
+      "new_source": false,
+      "title": "有界内存排序、TopK与多分区合并",
+      "files": [
+        "README.md",
+        "Cargo.toml",
+        "benchmarks/README.md",
+        "datafusion/physical-plan/src/sorts/sort.rs"
+      ],
+      "retrieved_utc": "2026-10-15T09:20:44.667078+00:00",
+      "files_acquired": [
+        {
+          "path": "README.md",
+          "bytes": 7621,
+          "sha256": "f719979f2578726b36a44d4b6a51e93859d593340ec49e3f7956228c1c12db0d",
+          "url": "https://github.com/apache/datafusion/blob/10343c18292fc3a9ca62b59c8bb530169fe79b82/README.md"
+        },
+        {
+          "path": "Cargo.toml",
+          "bytes": 9573,
+          "sha256": "242dcd9c8c25d871b44a98f97ce45895f660032bd176c16691e7f845774ad2cc",
+          "url": "https://github.com/apache/datafusion/blob/10343c18292fc3a9ca62b59c8bb530169fe79b82/Cargo.toml"
+        },
+        {
+          "path": "benchmarks/README.md",
+          "bytes": 31771,
+          "sha256": "636cf607dbd37d61521d9a93ec7fbcefc9f36b0af0712b9e13141c36cf1d00e1",
+          "url": "https://github.com/apache/datafusion/blob/10343c18292fc3a9ca62b59c8bb530169fe79b82/benchmarks/README.md"
+        },
+        {
+          "path": "datafusion/physical-plan/src/sorts/sort.rs",
+          "bytes": 89140,
+          "sha256": "4f5b23220727ce7b7e1284520549d9761ea24d76e240c123b575859d9c03533c",
+          "url": "https://github.com/apache/datafusion/blob/10343c18292fc3a9ca62b59c8bb530169fe79b82/datafusion/physical-plan/src/sorts/sort.rs"
+        },
+        {
+          "path": "LICENSE.txt",
+          "bytes": 11645,
+          "sha256": "232588dc9ad2096eb589a4f46bd58aafc3b57a38b146196c3d38dec884359888",
+          "url": "https://github.com/apache/datafusion/blob/10343c18292fc3a9ca62b59c8bb530169fe79b82/LICENSE.txt"
+        }
+      ],
+      "missing_paths": [
+        "LICENSE",
+        "LICENSE.md",
+        "COPYING",
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ],
+      "runtime_validation": false,
+      "six_hour_difficulty_verified": false,
+      "tree_manifest": {
+        "path": "git-tree.json",
+        "sha256": "2e1daf2225a6e74a4d52e81c10b0c19d21ac96841c806b448a49a5376dc716da",
+        "blob_count": 2516,
+        "truncated": false
+      },
+      "resolved_initial_404_paths": {},
+      "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+    },
+    {
+      "id": "11_rocksdb_compaction",
+      "repo": "facebook/rocksdb",
+      "family": "correctness_constrained_performance",
+      "new_source": true,
+      "title": "读写放大约束下的存储引擎优化",
+      "files": [
+        "README.md",
+        "tools/db_bench_tool.cc",
+        "db/db_compaction_test.cc",
+        "tools/benchmark.sh"
+      ],
+      "revision": "a215c38a8ed34848edc152f7435eabc128208111",
+      "retrieved_utc": "2026-10-15T09:20:45.770267+00:00",
+      "files_acquired": [
+        {
+          "path": "README.md",
+          "bytes": 1689,
+          "sha256": "99d85d5d88c6d853c2e6fda21de51fa33288a51d3aa4959dd2b68535f768894b",
+          "url": "https://github.com/facebook/rocksdb/blob/a215c38a8ed34848edc152f7435eabc128208111/README.md"
+        },
+        {
+          "path": "tools/db_bench_tool.cc",
+          "bytes": 467882,
+          "sha256": "b54ebd53bdd7772c471dd85aadaf17aa3c2aed70bba53ba5f1b16c77d2758143",
+          "url": "https://github.com/facebook/rocksdb/blob/a215c38a8ed34848edc152f7435eabc128208111/tools/db_bench_tool.cc"
+        },
+        {
+          "path": "db/db_compaction_test.cc",
+          "bytes": 501154,
+          "sha256": "a4753dff88d51bde6d887c8458131ee55b2ff3fae7a65dde92cded2da212ac0f",
+          "url": "https://github.com/facebook/rocksdb/blob/a215c38a8ed34848edc152f7435eabc128208111/db/db_compaction_test.cc"
+        },
+        {
+          "path": "tools/benchmark.sh",
+          "bytes": 44198,
+          "sha256": "2a2b5ea910b881042ce49f41899c9b3da7151f6582bc3eceaf50b9bd9800b3dd",
+          "url": "https://github.com/facebook/rocksdb/blob/a215c38a8ed34848edc152f7435eabc128208111/tools/benchmark.sh"
+        },
+        {
+          "path": "COPYING",
+          "bytes": 18092,
+          "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+          "url": "https://github.com/facebook/rocksdb/blob/a215c38a8ed34848edc152f7435eabc128208111/COPYING"
+        },
+        {
+          "path": "LICENSE.Apache",
+          "bytes": 11358,
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "url": "https://github.com/facebook/rocksdb/blob/a215c38a8ed34848edc152f7435eabc128208111/LICENSE.Apache"
+        }
+      ],
+      "missing_paths": [
+        "LICENSE",
+        "LICENSE.txt",
+        "LICENSE.md",
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ],
+      "runtime_validation": false,
+      "six_hour_difficulty_verified": false,
+      "tree_manifest": {
+        "path": "git-tree.json",
+        "sha256": "58ed27e43b7abcad765c5296099caa9afe120409b28bfd08c898f5dbc3d1b8fd",
+        "blob_count": 2350,
+        "truncated": false
+      },
+      "resolved_initial_404_paths": {},
+      "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+    },
+    {
+      "id": "12_croaring_kernels",
+      "repo": "RoaringBitmap/CRoaring",
+      "family": "correctness_constrained_performance",
+      "new_source": true,
+      "title": "混合容器的bitmap操作与压缩优化",
+      "files": [
+        "README.md",
+        "src/roaring.c",
+        "src/containers/containers.c",
+        "tests/mixed_container_unit.c"
+      ],
+      "revision": "f2d9c6d3affaed28c8a899e96d85334ce4ae35af",
+      "retrieved_utc": "2026-10-15T09:20:44.650371+00:00",
+      "files_acquired": [
+        {
+          "path": "README.md",
+          "bytes": 57285,
+          "sha256": "0a2508ff3e9583764b98b037858737247c26f5e5dfb9e733c1f6a26db076489b",
+          "url": "https://github.com/RoaringBitmap/CRoaring/blob/f2d9c6d3affaed28c8a899e96d85334ce4ae35af/README.md"
+        },
+        {
+          "path": "src/roaring.c",
+          "bytes": 142362,
+          "sha256": "cbe60d24b7574d4336dfe2827a172e27f8badeaec8e0040d409c26b7888c5cae",
+          "url": "https://github.com/RoaringBitmap/CRoaring/blob/f2d9c6d3affaed28c8a899e96d85334ce4ae35af/src/roaring.c"
+        },
+        {
+          "path": "src/containers/containers.c",
+          "bytes": 45463,
+          "sha256": "6cfc74398188abe1771df55c6ea8d56a21de0aa4421df2dc3d0deaa3c8b77cc9",
+          "url": "https://github.com/RoaringBitmap/CRoaring/blob/f2d9c6d3affaed28c8a899e96d85334ce4ae35af/src/containers/containers.c"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 12609,
+          "sha256": "f8e1f16a3f22e001b44ae9b12625420b9a0c4dbb7ec0e9f83b6a3d38a9525411",
+          "url": "https://github.com/RoaringBitmap/CRoaring/blob/f2d9c6d3affaed28c8a899e96d85334ce4ae35af/LICENSE"
+        },
+        {
+          "path": "tests/mixed_container_unit.c",
+          "bytes": 74080,
+          "sha256": "0ae2420821772c84d400b35e573c9e288247e03643f35c3e91fe9c69af846b98",
+          "url": "https://github.com/RoaringBitmap/CRoaring/blob/f2d9c6d3affaed28c8a899e96d85334ce4ae35af/tests/mixed_container_unit.c"
+        },
+        {
+          "path": "tests/robust_deserialization_unit.c",
+          "bytes": 14735,
+          "sha256": "ffd3eb2f5b2cd32c4f0894c17ac512cc99a4d4aa87876d16c670409803d9cce9",
+          "url": "https://github.com/RoaringBitmap/CRoaring/blob/f2d9c6d3affaed28c8a899e96d85334ce4ae35af/tests/robust_deserialization_unit.c"
+        }
+      ],
+      "missing_paths": [
+        "LICENSE.txt",
+        "LICENSE.md",
+        "COPYING",
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ],
+      "runtime_validation": false,
+      "six_hour_difficulty_verified": false,
+      "tree_manifest": {
+        "path": "git-tree.json",
+        "sha256": "4715b3bdc753c97e7a9d91ac1c8d06a1d9956e9907e28d48b8a38d1fa7078f7f",
+        "blob_count": 1988,
+        "truncated": false
+      },
+      "resolved_initial_404_paths": {
+        "tests/toplevel.c": "tests/mixed_container_unit.c"
+      },
+      "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+    },
+    {
+      "id": "13_toml_lossless",
+      "repo": "toml-rs/toml",
+      "revision": "ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+      "family": "implementation_recovery",
+      "new_source": false,
+      "title": "无损解析、span与结构化编辑的跨层恢复",
+      "files": [
+        "README.md",
+        "crates/toml_parser/README.md",
+        "crates/toml_edit/README.md",
+        "crates/toml_edit/src/document.rs",
+        "crates/toml_edit/src/table.rs"
+      ],
+      "retrieved_utc": "2026-10-15T09:20:48.198567+00:00",
+      "files_acquired": [
+        {
+          "path": "README.md",
+          "bytes": 554,
+          "sha256": "b8c1ee4046e8047e77723a84fb4f1bee8c2e5b92049ee1c38a36c3d8aa1bd284",
+          "url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/README.md"
+        },
+        {
+          "path": "crates/toml_parser/README.md",
+          "bytes": 808,
+          "sha256": "7fd2ecd4079f236e6d25f3550ff65048006ff08a13bd389aab5d28f02888e40d",
+          "url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates/toml_parser/README.md"
+        },
+        {
+          "path": "crates/toml_edit/README.md",
+          "bytes": 1819,
+          "sha256": "d8254b85a52b5c5967a67f287d634eea352ec42cc7296b5dcc62230460ba1b7f",
+          "url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates/toml_edit/README.md"
+        },
+        {
+          "path": "crates/toml_edit/src/document.rs",
+          "bytes": 5911,
+          "sha256": "d118ec5d04ca50dee3752bba29e74f29fd42394407f8c04c9e9b52473ea1eaf0",
+          "url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates/toml_edit/src/document.rs"
+        },
+        {
+          "path": "crates/toml_edit/src/table.rs",
+          "bytes": 26656,
+          "sha256": "e571872a057f76ace965baacc1b473744195559c90998e98953c8be74bfb45c5",
+          "url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates/toml_edit/src/table.rs"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "bytes": 11349,
+          "sha256": "249fdb6694467dd615b259f7ddde07be3f8ae5a72cecebb0e24f6629af4215fe",
+          "url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/LICENSE-APACHE"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "bytes": 1062,
+          "sha256": "6efb0476a1cc085077ed49357026d8c173bf33017278ef440f222fb9cbcb66e6",
+          "url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/LICENSE-MIT"
+        },
+        {
+          "path": "crates/toml_edit/tests/testsuite/edit.rs",
+          "bytes": 59547,
+          "sha256": "3b9a7701970574b329cae6d560f4ba790af2dd84bbeba5c6504f9bc859b7af68",
+          "url": "https://github.com/toml-rs/toml/blob/ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates/toml_edit/tests/testsuite/edit.rs"
+        }
+      ],
+      "missing_paths": [
+        "LICENSE",
+        "LICENSE.txt",
+        "LICENSE.md",
+        "COPYING"
+      ],
+      "runtime_validation": false,
+      "six_hour_difficulty_verified": false,
+      "tree_manifest": {
+        "path": "git-tree.json",
+        "sha256": "a445453e3841d0a0f8975d94aa1f713ee0f67c09d4be683c57d973f4be213849",
+        "blob_count": 1652,
+        "truncated": false
+      },
+      "resolved_initial_404_paths": {},
+      "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+    },
+    {
+      "id": "14_tree_sitter_incremental",
+      "repo": "tree-sitter/tree-sitter",
+      "family": "implementation_recovery",
+      "new_source": true,
+      "title": "增量解析、错误恢复和节点位置一致性",
+      "files": [
+        "README.md",
+        "lib/src/parser.c",
+        "lib/src/tree.c",
+        "lib/src/stack.c",
+        "lib/binding_rust/lib.rs"
+      ],
+      "revision": "8ca548849fc8dbefd699edcec26546bb14112820",
+      "retrieved_utc": "2026-10-15T09:20:49.255030+00:00",
+      "files_acquired": [
+        {
+          "path": "README.md",
+          "bytes": 1153,
+          "sha256": "7984c7c2f775cd08f470431af058b5523886888daa8ef6443c0dbd8c2afe3bcc",
+          "url": "https://github.com/tree-sitter/tree-sitter/blob/8ca548849fc8dbefd699edcec26546bb14112820/README.md"
+        },
+        {
+          "path": "lib/src/parser.c",
+          "bytes": 80095,
+          "sha256": "450cb5196ffb74ffd8ba16fcb770b995f000348ac054542afb9f547bd86ab611",
+          "url": "https://github.com/tree-sitter/tree-sitter/blob/8ca548849fc8dbefd699edcec26546bb14112820/lib/src/parser.c"
+        },
+        {
+          "path": "lib/src/tree.c",
+          "bytes": 5144,
+          "sha256": "a0f63bc46fc4fcb88d35caa6fe89d7fc18edb895bc781db20f11d5c58988fb06",
+          "url": "https://github.com/tree-sitter/tree-sitter/blob/8ca548849fc8dbefd699edcec26546bb14112820/lib/src/tree.c"
+        },
+        {
+          "path": "lib/src/stack.c",
+          "bytes": 28636,
+          "sha256": "f70b7e5823e82901801193562908037db4c1a73721e48da0fe54cdb2a6b5856d",
+          "url": "https://github.com/tree-sitter/tree-sitter/blob/8ca548849fc8dbefd699edcec26546bb14112820/lib/src/stack.c"
+        },
+        {
+          "path": "lib/binding_rust/lib.rs",
+          "bytes": 150199,
+          "sha256": "1837935ea37e0d8bde7c4e6daab9e6020047b7d7af40fbc55eceb6c982403b7a",
+          "url": "https://github.com/tree-sitter/tree-sitter/blob/8ca548849fc8dbefd699edcec26546bb14112820/lib/binding_rust/lib.rs"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 1080,
+          "sha256": "c5cfb43042b6b72045f4ba997834d0a7786d2793d91680868b5815b39f14fc78",
+          "url": "https://github.com/tree-sitter/tree-sitter/blob/8ca548849fc8dbefd699edcec26546bb14112820/LICENSE"
+        },
+        {
+          "path": "crates/cli/src/tests/parser_test.rs",
+          "bytes": 73599,
+          "sha256": "75903a53f4390c43d7a456b546f12288ee4c89f5ad11d8f88fa1c3c217f7eaac",
+          "url": "https://github.com/tree-sitter/tree-sitter/blob/8ca548849fc8dbefd699edcec26546bb14112820/crates/cli/src/tests/parser_test.rs"
+        },
+        {
+          "path": "crates/cli/src/tests/helpers/edits.rs",
+          "bytes": 1372,
+          "sha256": "64ef36610a53967dcc7e29f657c3f51c65c6d495c5f68997125c93f743ef5bd6",
+          "url": "https://github.com/tree-sitter/tree-sitter/blob/8ca548849fc8dbefd699edcec26546bb14112820/crates/cli/src/tests/helpers/edits.rs"
+        }
+      ],
+      "missing_paths": [
+        "LICENSE.txt",
+        "LICENSE.md",
+        "COPYING",
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ],
+      "runtime_validation": false,
+      "six_hour_difficulty_verified": false,
+      "tree_manifest": {
+        "path": "git-tree.json",
+        "sha256": "f233a835146cc837e5500ba5fd3a2aec597270bf008e9bd31b3d6ebecedc16d8",
+        "blob_count": 628,
+        "truncated": false
+      },
+      "resolved_initial_404_paths": {},
+      "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+    },
+    {
+      "id": "15_jq_composition",
+      "repo": "jqlang/jq",
+      "revision": "71c2ab509a8628dbbad4bc7b3f98a64aa90d3297",
+      "family": "behavioral_reimplementation",
+      "new_source": false,
+      "title": "流、作用域、递归与错误前缀的CLI兼容",
+      "files": [
+        "README.md",
+        "tests/jq.test",
+        "src/execute.c",
+        "docs/content/manual/v1.7/manual.yml"
+      ],
+      "retrieved_utc": "2026-10-15T09:20:50.242865+00:00",
+      "files_acquired": [
+        {
+          "path": "README.md",
+          "bytes": 1791,
+          "sha256": "add9e9e77e47eda850a04a076e76761ea280f47daee2ac535e54d26ffce15939",
+          "url": "https://github.com/jqlang/jq/blob/71c2ab509a8628dbbad4bc7b3f98a64aa90d3297/README.md"
+        },
+        {
+          "path": "tests/jq.test",
+          "bytes": 40026,
+          "sha256": "35aade216e95e78e63e77011fb4588856a5d04d6ac7be572ad382a3430d8b4d5",
+          "url": "https://github.com/jqlang/jq/blob/71c2ab509a8628dbbad4bc7b3f98a64aa90d3297/tests/jq.test"
+        },
+        {
+          "path": "src/execute.c",
+          "bytes": 37257,
+          "sha256": "a0687de0fcd903ee37a8ef9fd28ed7106f9de051b10389bd0526465efb3b050c",
+          "url": "https://github.com/jqlang/jq/blob/71c2ab509a8628dbbad4bc7b3f98a64aa90d3297/src/execute.c"
+        },
+        {
+          "path": "docs/content/manual/v1.7/manual.yml",
+          "bytes": 141452,
+          "sha256": "b932b521e1cca60f3d50803bb546e1bd6502613f7b5f8109bb3e5485a450bb8d",
+          "url": "https://github.com/jqlang/jq/blob/71c2ab509a8628dbbad4bc7b3f98a64aa90d3297/docs/content/manual/v1.7/manual.yml"
+        },
+        {
+          "path": "COPYING",
+          "bytes": 6026,
+          "sha256": "10e974638a41fadfd72357f2f3a4325e20b856c563365128f72feaa406f8c92d",
+          "url": "https://github.com/jqlang/jq/blob/71c2ab509a8628dbbad4bc7b3f98a64aa90d3297/COPYING"
+        }
+      ],
+      "missing_paths": [
+        "LICENSE",
+        "LICENSE.txt",
+        "LICENSE.md",
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ],
+      "runtime_validation": false,
+      "six_hour_difficulty_verified": false,
+      "tree_manifest": {
+        "path": "git-tree.json",
+        "sha256": "21d45d0176fd2c676b476a14f03a3874ce14fae89d2411a02a4ed954ff1402b4",
+        "blob_count": 307,
+        "truncated": false
+      },
+      "resolved_initial_404_paths": {},
+      "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+    },
+    {
+      "id": "16_libarchive_cli",
+      "repo": "libarchive/libarchive",
+      "family": "behavioral_reimplementation",
+      "new_source": true,
+      "title": "归档读写、链接与流式格式的CLI兼容",
+      "files": [
+        "README.md",
+        "libarchive/archive_read_support_format_tar.c",
+        "libarchive/test/test_read_format_tar.c",
+        "libarchive/test/test_write_format_pax.c",
+        "tar/test/test_option_C_upper.c"
+      ],
+      "revision": "b10312a52e5e4d1baf047b563e501b4fb184adde",
+      "retrieved_utc": "2026-10-15T09:20:52.279464+00:00",
+      "files_acquired": [
+        {
+          "path": "README.md",
+          "bytes": 11351,
+          "sha256": "158527b45cc55cce474530d54e8c7e1a6fd3f57c6cf0967777421c07ea34398d",
+          "url": "https://github.com/libarchive/libarchive/blob/b10312a52e5e4d1baf047b563e501b4fb184adde/README.md"
+        },
+        {
+          "path": "libarchive/archive_read_support_format_tar.c",
+          "bytes": 118395,
+          "sha256": "1a48e05c8a34e50eb59d37c7f1c66c45e74a7ee42795d8db20bbf1c47c52710f",
+          "url": "https://github.com/libarchive/libarchive/blob/b10312a52e5e4d1baf047b563e501b4fb184adde/libarchive/archive_read_support_format_tar.c"
+        },
+        {
+          "path": "libarchive/test/test_read_format_tar.c",
+          "bytes": 25448,
+          "sha256": "d72b3fbbaebc9454417c0b366ddb920ec34ff14471dfacb1640e40680f43e9a0",
+          "url": "https://github.com/libarchive/libarchive/blob/b10312a52e5e4d1baf047b563e501b4fb184adde/libarchive/test/test_read_format_tar.c"
+        },
+        {
+          "path": "libarchive/test/test_write_format_pax.c",
+          "bytes": 11506,
+          "sha256": "db07fb2c03d6d1857665806bab1760a9c59ab07443d146901520443089edd837",
+          "url": "https://github.com/libarchive/libarchive/blob/b10312a52e5e4d1baf047b563e501b4fb184adde/libarchive/test/test_write_format_pax.c"
+        },
+        {
+          "path": "COPYING",
+          "bytes": 3089,
+          "sha256": "30e556b3959e3985d66efefec5eaac51d4995053caa1d3cffe6eb916f146f229",
+          "url": "https://github.com/libarchive/libarchive/blob/b10312a52e5e4d1baf047b563e501b4fb184adde/COPYING"
+        },
+        {
+          "path": "tar/test/test_option_C_upper.c",
+          "bytes": 3557,
+          "sha256": "495e55d5e9637eea15e888cc6746edf65780470f17eaae0149f84e15093bd10c",
+          "url": "https://github.com/libarchive/libarchive/blob/b10312a52e5e4d1baf047b563e501b4fb184adde/tar/test/test_option_C_upper.c"
+        },
+        {
+          "path": "tar/test/test_basic.c",
+          "bytes": 2683,
+          "sha256": "3b6e8e64ce73f5e107c5f85d1047e6d49f44bd461e1572b33302835c109b60e7",
+          "url": "https://github.com/libarchive/libarchive/blob/b10312a52e5e4d1baf047b563e501b4fb184adde/tar/test/test_basic.c"
+        }
+      ],
+      "missing_paths": [
+        "LICENSE",
+        "LICENSE.txt",
+        "LICENSE.md",
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ],
+      "runtime_validation": false,
+      "six_hour_difficulty_verified": false,
+      "tree_manifest": {
+        "path": "git-tree.json",
+        "sha256": "d91457124cda9e2a97b441ed73cfb8a0cba76333b46303839b106cde1b3f89a4",
+        "blob_count": 1565,
+        "truncated": false
+      },
+      "resolved_initial_404_paths": {
+        "tar/test/test_option_C.c": "tar/test/test_option_C_upper.c"
+      },
+      "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+    }
+  ],
+  "failures": []
+}

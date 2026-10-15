@@ -1,0 +1,342 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.polaris.persistence.nosql.quarkus.distcache;
+
+import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON;
+import static java.util.Collections.emptyList;
+import static org.apache.polaris.persistence.nosql.api.cache.CacheInvalidations.CacheInvalidationEvictObj.cacheInvalidationEvictObj;
+import static org.apache.polaris.persistence.nosql.api.cache.CacheInvalidations.CacheInvalidationEvictReference.cacheInvalidationEvictReference;
+import static org.apache.polaris.persistence.nosql.api.cache.CacheInvalidations.cacheInvalidations;
+import static org.apache.polaris.persistence.nosql.quarkus.distcache.AddressResolver.LOCAL_ADDRESSES;
+import static org.apache.polaris.persistence.nosql.quarkus.distcache.CacheInvalidationReceiver.CACHE_INVALIDATION_TOKEN_HEADER;
+import static org.apache.polaris.persistence.nosql.quarkus.distcache.QuarkusDistributedCacheInvalidationsConfig.CACHE_INVALIDATIONS_CONFIG_PREFIX;
+import static org.apache.polaris.persistence.nosql.quarkus.distcache.QuarkusDistributedCacheInvalidationsConfig.CONFIG_VALID_TOKENS;
+
+import com.google.common.annotations.VisibleForTesting;
+import io.quarkus.runtime.Startup;
+import io.vertx.core.Future;
+import io.vertx.core.Vertx;
+import io.vertx.core.buffer.Buffer;
+import io.vertx.core.http.HttpClient;
+import io.vertx.core.http.HttpClientResponse;
+import io.vertx.core.http.HttpMethod;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+import org.apache.polaris.persistence.nosql.api.cache.CacheInvalidations.CacheInvalidation;
+import org.apache.polaris.persistence.nosql.api.cache.DistributedCacheInvalidation;
+import org.apache.polaris.persistence.nosql.api.obj.ObjRef;
+import org.eclipse.microprofile.config.ConfigProvider;
+import org.jspecify.annotations.NonNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
+
+/**
+ * Sender for distributed cache invalidation messages.
+ *
+ * <p>This bean is automatically initialized via the {@code @Observes} annotation, and automatically
+ * injected via the implemented {@link DistributedCacheInvalidation.Sender} interface.
+ */
+@ApplicationScoped
+@Startup
+class CacheInvalidationSender implements DistributedCacheInvalidation.Sender {
+  private static final Logger LOGGER = LoggerFactory.getLogger(CacheInvalidationSender.class);
+
+  private final Vertx vertx;
+  private final long peerDiscoveryIntervalMillis;
+
+  private final HttpClient httpClient;
+  private final CacheInvalidationPeerDiscovery peerDiscovery;
+  private final boolean peerDiscoveryConfigured;
+
+  private final String invalidationUri;
+  private final long requestTimeout;
+
+  private final ObjectMapper objectMapper = JsonMapper.shared();
+  private final Lock lock = new ReentrantLock();
+  private final int batchSize;
+  private final BlockingQueue<CacheInvalidation> invalidations = new LinkedBlockingQueue<>();
+  private boolean triggered;
+  private final String token;
+
+  private int quarkusManagementPort;
+
+  /** Contains the peers from the most recently successful discovery request. */
+  private volatile List<CacheInvalidationPeer> resolvedPeers = emptyList();
+
+  @Inject
+  CacheInvalidationSender(
+      @SuppressWarnings("CdiInjectionPointsInspection") Vertx vertx,
+      QuarkusDistributedCacheInvalidationsConfig config,
+      ServerInstanceId serverInstanceId,
+      CacheInvalidationPeerDiscovery peerDiscovery) {
+    this.vertx = vertx;
+
+    this.peerDiscovery = peerDiscovery;
+    this.peerDiscoveryConfigured = peerDiscovery.isConfigured();
+    this.requestTimeout =
+        config
+            .cacheInvalidationRequestTimeout()
+            .orElse(Duration.of(30, ChronoUnit.SECONDS))
+            .toMillis();
+    this.httpClient = vertx.createHttpClient();
+    this.invalidationUri =
+        config.cacheInvalidationUri() + "?sender=" + serverInstanceId.instanceId();
+    this.peerDiscoveryIntervalMillis =
+        config.cacheInvalidationServiceNameLookupInterval().toMillis();
+    this.batchSize = config.cacheInvalidationBatchSize();
+    this.token = config.cacheInvalidationValidTokens().map(List::getFirst).orElse(null);
+    if (peerDiscoveryConfigured) {
+      try {
+        LOGGER.info(
+            "Sending remote cache invalidations using peer discovery {}",
+            peerDiscovery.getClass().getName());
+        var initialDiscovery = updatePeerDiscovery();
+        if (config.cacheInvalidationInitialDiscoveryRequired()) {
+          initialDiscovery.toCompletionStage().toCompletableFuture().get();
+        }
+        if (config.cacheInvalidationValidTokens().isEmpty()) {
+          LOGGER.warn(
+              "No token configured for cache invalidation messages - will not send any invalidation message. You need to configure the token(s) via {}.{}",
+              CACHE_INVALIDATIONS_CONFIG_PREFIX,
+              CONFIG_VALID_TOKENS);
+        }
+      } catch (Exception e) {
+        throw new RuntimeException(
+            "Failed to discover peers for remote cache invalidations",
+            (e instanceof ExecutionException) ? e.getCause() : e);
+      }
+    } else if (token != null) {
+      LOGGER.warn(
+          "No peer discovery is configured to send cache invalidation messages to - will not send any invalidation message.");
+    }
+  }
+
+  @VisibleForTesting
+  CacheInvalidationSender(
+      Vertx vertx,
+      QuarkusDistributedCacheInvalidationsConfig config,
+      ServerInstanceId serverInstanceId) {
+    this(vertx, config, serverInstanceId, new DnsCacheInvalidationPeerDiscovery(vertx, config));
+  }
+
+  private Future<List<CacheInvalidationPeer>> updatePeerDiscovery() {
+    var previous = new HashSet<>(resolvedPeers);
+    return discoverPeers()
+        .map(
+            all ->
+                all.stream()
+                    // DNS peers use the sender's management port, so a locally bound address is
+                    // always this sender. Explicitly addressed peers can represent a different
+                    // process on the same host and are left to the receiver's instance-ID check.
+                    .filter(
+                        peer ->
+                            peer.managementPort().isPresent()
+                                || !LOCAL_ADDRESSES.contains(peer.host()))
+                    .toList())
+        .onSuccess(
+            all -> {
+              schedulePeerDiscovery();
+
+              var resolved = new HashSet<>(all);
+              if (!resolved.equals(previous)) {
+                LOGGER.info("Peers for remote cache invalidations now resolve to {}", all);
+              }
+
+              updateResolvedPeers(all);
+            })
+        .onFailure(
+            t -> {
+              schedulePeerDiscovery();
+
+              LOGGER.warn(
+                  "Failed to discover peers for remote cache invalidations: {}", t.toString());
+            });
+  }
+
+  @VisibleForTesting
+  void updateResolvedPeers(List<CacheInvalidationPeer> all) {
+    resolvedPeers = all;
+  }
+
+  private void schedulePeerDiscovery() {
+    vertx.setTimer(peerDiscoveryIntervalMillis, x -> updatePeerDiscovery());
+  }
+
+  @VisibleForTesting
+  Future<List<CacheInvalidationPeer>> discoverPeers() {
+    return peerDiscovery.discoverPeers();
+  }
+
+  void enqueue(CacheInvalidation invalidation) {
+    if (!peerDiscoveryConfigured || token == null) {
+      // Don't do anything if there are no targets to send invalidations to or whether no token has
+      // been configured.
+      return;
+    }
+
+    lock.lock();
+    try {
+      invalidations.add(invalidation);
+
+      if (!triggered && quarkusManagementPort() != 0) {
+        LOGGER.trace("Triggered invalidation submission");
+        vertx.executeBlocking(this::sendInvalidations);
+        triggered = true;
+      }
+    } finally {
+      lock.unlock();
+    }
+  }
+
+  private Void sendInvalidations() {
+    var batch = new ArrayList<CacheInvalidation>(batchSize);
+    var httpPort = quarkusManagementPort();
+    try {
+      while (true) {
+        lock.lock();
+        try {
+          invalidations.drainTo(batch, batchSize);
+          if (batch.isEmpty()) {
+            LOGGER.trace("Done sending invalidations");
+            triggered = false;
+            break;
+          }
+        } finally {
+          lock.unlock();
+        }
+        submit(batch, resolvedPeers, httpPort);
+        batch = new ArrayList<>(batchSize);
+      }
+    } finally {
+      // Handle the very unlikely case that the call to submit() failed and we cannot be sure that
+      // the current batch was submitted.
+      if (!batch.isEmpty()) {
+        lock.lock();
+        try {
+          invalidations.addAll(batch);
+          triggered = false;
+        } finally {
+          lock.unlock();
+        }
+      }
+    }
+    return null;
+  }
+
+  @VisibleForTesting
+  int quarkusManagementPort() {
+    if (quarkusManagementPort == 0) {
+      quarkusManagementPort =
+          ConfigProvider.getConfig().getValue("quarkus.management.port", Integer.class);
+    }
+    return quarkusManagementPort;
+  }
+
+  @VisibleForTesting
+  List<Future<Map.Entry<HttpClientResponse, Buffer>>> submit(
+      List<CacheInvalidation> batch, List<CacheInvalidationPeer> resolvedPeers, int httpPort) {
+    LOGGER.trace("Submitting {} invalidations", batch.size());
+
+    String json = objectMapper.writeValueAsString(cacheInvalidations(batch));
+
+    var futures =
+        new ArrayList<Future<Map.Entry<HttpClientResponse, Buffer>>>(resolvedPeers.size());
+    for (var peer : resolvedPeers) {
+      var address = peer.host();
+      var peerManagementPort = peer.managementPortOrDefault(httpPort);
+      futures.add(
+          httpClient
+              .request(HttpMethod.POST, peerManagementPort, address, invalidationUri)
+              .compose(
+                  req ->
+                      req.putHeader("Content-Type", APPLICATION_JSON)
+                          .putHeader(CACHE_INVALIDATION_TOKEN_HEADER, token)
+                          .send(json))
+              .compose(resp -> resp.body().map(b -> Map.entry(resp, b)))
+              .timeout(requestTimeout, TimeUnit.MILLISECONDS)
+              .onComplete(
+                  success -> {
+                    var resp = success.getKey();
+                    var statusCode = resp.statusCode();
+                    if (statusCode != 200 && statusCode != 204) {
+                      LOGGER.warn(
+                          "{} cache invalidations could not be sent to {}:{}{} - HTTP {}/{} - body: {}",
+                          batch.size(),
+                          address,
+                          peerManagementPort,
+                          invalidationUri,
+                          statusCode,
+                          resp.statusMessage(),
+                          success.getValue());
+                    } else {
+                      LOGGER.trace(
+                          "{} cache invalidations sent to {}:{}",
+                          batch.size(),
+                          address,
+                          peerManagementPort);
+                    }
+                  },
+                  failure -> {
+                    if (failure instanceof SocketException
+                        || failure instanceof UnknownHostException) {
+                      LOGGER.warn(
+                          "Technical network issue sending cache invalidations to {}:{}{} : {}",
+                          address,
+                          peerManagementPort,
+                          invalidationUri,
+                          failure.getMessage());
+                    } else {
+                      LOGGER.error(
+                          "Technical failure sending cache invalidations to {}:{}{}",
+                          address,
+                          peerManagementPort,
+                          invalidationUri,
+                          failure);
+                    }
+                  }));
+    }
+    return futures;
+  }
+
+  @Override
+  public void evictReference(@NonNull String repositoryId, @NonNull String refName) {
+    enqueue(cacheInvalidationEvictReference(repositoryId, refName));
+  }
+
+  @Override
+  public void evictObj(@NonNull String repositoryId, @NonNull ObjRef objId) {
+    enqueue(cacheInvalidationEvictObj(repositoryId, objId));
+  }
+}

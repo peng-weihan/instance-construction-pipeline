@@ -1,0 +1,955 @@
+{
+  "valid": true,
+  "score": 0.32708333333333334,
+  "pass_rate": 0.32142857142857145,
+  "summary": "27/84 behavior cases; equal weight across 8 groups",
+  "metrics": {
+    "group_passed": {
+      "streams": 7,
+      "structure": 4,
+      "operators": 2,
+      "bindings": 0,
+      "control": 0,
+      "reductions": 2,
+      "cli": 7,
+      "errors": 5
+    },
+    "group_total": {
+      "streams": 12,
+      "structure": 12,
+      "operators": 12,
+      "bindings": 10,
+      "control": 10,
+      "reductions": 10,
+      "cli": 9,
+      "errors": 9
+    },
+    "candidate_uid_isolation": false
+  },
+  "checks": [
+    {
+      "name": "identity",
+      "group": "streams",
+      "passed": true,
+      "actual": {
+        "stdout": "{\"a\":1}\n[2,3]\nnull\n",
+        "stderr": "",
+        "exit": 0,
+        "timeout": false
+      }
+    },
+    {
+      "name": "iterate",
+      "group": "streams",
+      "passed": true,
+      "actual": {
+        "stdout": "1\nnull\nfalse\n3\n",
+        "stderr": "",
+        "exit": 0,
+        "timeout": false
+      }
+    },
+    {
+      "name": "comma",
+      "group": "streams",
+      "passed": true,
+      "actual": {
+        "stdout": "1\n2\n",
+        "stderr": "",
+        "exit": 0,
+        "timeout": false
+      }
+    },
+    {
+      "name": "pipe",
+      "group": "streams",
+      "passed": true,
+      "actual": {
+        "stdout": "1\n2\n",
+        "stderr": "",
+        "exit": 0,
+        "timeout": false
+      }
+    },
+    {
+      "name": "cartesian",
+      "group": "streams",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "empty",
+      "group": "streams",
+      "passed": true,
+      "actual": {
+        "stdout": "",
+        "stderr": "",
+        "exit": 0,
+        "timeout": false
+      }
+    },
+    {
+      "name": "array_collect",
+      "group": "streams",
+      "passed": true,
+      "actual": {
+        "stdout": "[1,2,3]\n",
+        "stderr": "",
+        "exit": 0,
+        "timeout": false
+      }
+    },
+    {
+      "name": "comma_binding",
+      "group": "streams",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "input_sequence",
+      "group": "streams",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "optional_iterate",
+      "group": "streams",
+      "passed": true,
+      "actual": {
+        "stdout": "1\n2\n",
+        "stderr": "",
+        "exit": 0,
+        "timeout": false
+      }
+    },
+    {
+      "name": "recursive",
+      "group": "streams",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "nested_products",
+      "group": "streams",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "object",
+      "group": "structure",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "index",
+      "group": "structure",
+      "passed": true,
+      "actual": {
+        "stdout": "3\n",
+        "stderr": "",
+        "exit": 0,
+        "timeout": false
+      }
+    },
+    {
+      "name": "slice",
+      "group": "structure",
+      "passed": true,
+      "actual": {
+        "stdout": "[1,2]\n",
+        "stderr": "",
+        "exit": 0,
+        "timeout": false
+      }
+    },
+    {
+      "name": "missing",
+      "group": "structure",
+      "passed": true,
+      "actual": {
+        "stdout": "null\n",
+        "stderr": "",
+        "exit": 0,
+        "timeout": false
+      }
+    },
+    {
+      "name": "update",
+      "group": "structure",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "assign",
+      "group": "structure",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "delete",
+      "group": "structure",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "paths",
+      "group": "structure",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "getpath",
+      "group": "structure",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "entries",
+      "group": "structure",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "keys",
+      "group": "structure",
+      "passed": true,
+      "actual": {
+        "stdout": "[\"a\",\"z\"]\n",
+        "stderr": "",
+        "exit": 0,
+        "timeout": false
+      }
+    },
+    {
+      "name": "has",
+      "group": "structure",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "arithmetic",
+      "group": "operators",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "division",
+      "group": "operators",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "types",
+      "group": "operators",
+      "passed": true,
+      "actual": {
+        "stdout": "[\"array\",3]\n",
+        "stderr": "",
+        "exit": 0,
+        "timeout": false
+      }
+    },
+    {
+      "name": "array_add",
+      "group": "operators",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "object_merge",
+      "group": "operators",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "deep_merge",
+      "group": "operators",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "alternative",
+      "group": "operators",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "truth",
+      "group": "operators",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "compare",
+      "group": "operators",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "string",
+      "group": "operators",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "sort",
+      "group": "operators",
+      "passed": true,
+      "actual": {
+        "stdout": "[1,2,3]\n",
+        "stderr": "",
+        "exit": 0,
+        "timeout": false
+      }
+    },
+    {
+      "name": "group",
+      "group": "operators",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "lexical",
+      "group": "bindings",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "scope",
+      "group": "bindings",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "generator_binding",
+      "group": "bindings",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "destructure",
+      "group": "bindings",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "function",
+      "group": "bindings",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "function_stream",
+      "group": "bindings",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "recursion",
+      "group": "bindings",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "shadow",
+      "group": "bindings",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "function_argument",
+      "group": "bindings",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "object_binding",
+      "group": "bindings",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "if",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "select",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "try",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "suppress",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "catch_message",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "range",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "limit",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "until",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "while",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "label",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "reduce",
+      "group": "reductions",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "foreach",
+      "group": "reductions",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "object_reduce",
+      "group": "reductions",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "reduce_empty",
+      "group": "reductions",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "map_select",
+      "group": "reductions",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "add",
+      "group": "reductions",
+      "passed": true,
+      "actual": {
+        "stdout": "6\n",
+        "stderr": "",
+        "exit": 0,
+        "timeout": false
+      }
+    },
+    {
+      "name": "flatten",
+      "group": "reductions",
+      "passed": true,
+      "actual": {
+        "stdout": "[1,2,3]\n",
+        "stderr": "",
+        "exit": 0,
+        "timeout": false
+      }
+    },
+    {
+      "name": "any",
+      "group": "reductions",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "minmax",
+      "group": "reductions",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "sortby",
+      "group": "reductions",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "null_input",
+      "group": "cli",
+      "passed": true,
+      "actual": {
+        "stdout": "[1,2,3]\n",
+        "stderr": "",
+        "exit": 0,
+        "timeout": false
+      }
+    },
+    {
+      "name": "slurp",
+      "group": "cli",
+      "passed": true,
+      "actual": {
+        "stdout": "4\n",
+        "stderr": "",
+        "exit": 0,
+        "timeout": false
+      }
+    },
+    {
+      "name": "raw",
+      "group": "cli",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "arg",
+      "group": "cli",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "exit_false",
+      "group": "cli",
+      "passed": true,
+      "actual": {
+        "stdout": "false\n",
+        "stderr": "",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "exit_null",
+      "group": "cli",
+      "passed": true,
+      "actual": {
+        "stdout": "null\n",
+        "stderr": "",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "exit_empty",
+      "group": "cli",
+      "passed": true,
+      "actual": {
+        "stdout": "",
+        "stderr": "",
+        "exit": 4,
+        "timeout": false
+      }
+    },
+    {
+      "name": "exit_zero",
+      "group": "cli",
+      "passed": true,
+      "actual": {
+        "stdout": "0\n",
+        "stderr": "",
+        "exit": 0,
+        "timeout": false
+      }
+    },
+    {
+      "name": "multiple_raw",
+      "group": "cli",
+      "passed": true,
+      "actual": {
+        "stdout": "a\nb\nh\u00e9llo\n",
+        "stderr": "",
+        "exit": 0,
+        "timeout": false
+      }
+    },
+    {
+      "name": "compile",
+      "group": "errors",
+      "passed": true,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "bad_token",
+      "group": "errors",
+      "passed": true,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "runtime_index",
+      "group": "errors",
+      "passed": true,
+      "actual": {
+        "stdout": "",
+        "stderr": "runtime error\n",
+        "exit": 5,
+        "timeout": false
+      }
+    },
+    {
+      "name": "divide_zero",
+      "group": "errors",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "explicit",
+      "group": "errors",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "input_json",
+      "group": "errors",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "parse error\n",
+        "exit": 4,
+        "timeout": false
+      }
+    },
+    {
+      "name": "partial_output",
+      "group": "errors",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    },
+    {
+      "name": "invalid_iterate",
+      "group": "errors",
+      "passed": true,
+      "actual": {
+        "stdout": "",
+        "stderr": "runtime error\n",
+        "exit": 5,
+        "timeout": false
+      }
+    },
+    {
+      "name": "scope_error",
+      "group": "errors",
+      "passed": true,
+      "actual": {
+        "stdout": "",
+        "stderr": "compile error\n",
+        "exit": 3,
+        "timeout": false
+      }
+    }
+  ]
+}

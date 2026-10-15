@@ -1,0 +1,65 @@
+FFFFF                                                                    [100%]
+=================================== FAILURES ===================================
+_________________________________ test_parent __________________________________
+
+    def test_parent():
+>       assert combine({"a": 1}, {}) == {"a": 1}
+E       AssertionError: assert {} == {'a': 1}
+E         
+E         Right contains 1 more item:
+E         {'a': 1}
+E         Use -v to get more diff
+
+tests/test_target.py:3: AssertionError
+__________________________________ test_child __________________________________
+
+    def test_child():
+>       assert combine({}, {"b": 2}) == {"b": 2}
+E       AssertionError: assert {} == {'b': 2}
+E         
+E         Right contains 1 more item:
+E         {'b': 2}
+E         Use -v to get more diff
+
+tests/test_target.py:5: AssertionError
+________________________________ test_override _________________________________
+
+    def test_override():
+>       assert combine({"a": 1, "b": 2}, {"a": 3}) == {"a": 3, "b": 2}
+E       AssertionError: assert {} == {'a': 3, 'b': 2}
+E         
+E         Right contains 2 more items:
+E         {'a': 3, 'b': 2}
+E         Use -v to get more diff
+
+tests/test_target.py:7: AssertionError
+_________________________________ test_unicode _________________________________
+
+    def test_unicode():
+>       assert combine({"名字": "甲"}, {"名字": "乙"}) == {"名字": "乙"}
+E       AssertionError: assert {} == {'名字': '乙'}
+E         
+E         Right contains 1 more item:
+E         {'名字': '乙'}
+E         Use -v to get more diff
+
+tests/test_target.py:9: AssertionError
+_______________________________ test_none_value ________________________________
+
+    def test_none_value():
+>       assert combine({"a": 1}, {"a": None}) == {"a": None}
+E       AssertionError: assert {} == {'a': None}
+E         
+E         Right contains 1 more item:
+E         {'a': None}
+E         Use -v to get more diff
+
+tests/test_boundary.py:3: AssertionError
+- generated xml file: /Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-02/specialize/base/validation/C2/workspace/.factory-report.xml -
+=========================== short test summary info ============================
+FAILED tests/test_target.py::test_parent - AssertionError: assert {} == {'a': 1}
+FAILED tests/test_target.py::test_child - AssertionError: assert {} == {'b': 2}
+FAILED tests/test_target.py::test_override - AssertionError: assert {} == {'a...
+FAILED tests/test_target.py::test_unicode - AssertionError: assert {} == {'名...
+FAILED tests/test_boundary.py::test_none_value - AssertionError: assert {} ==...
+5 failed in 0.07s

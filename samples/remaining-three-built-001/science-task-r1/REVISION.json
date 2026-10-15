@@ -1,0 +1,17 @@
+{
+  "source_task": "samples/long-horizon-built-007/layered_aquifer_source_lab",
+  "physical_changes": [
+    "conservative nonlinear Langmuir storage",
+    "mobile/immobile exchange",
+    "known injection calibration",
+    "two superposed sources with segmented release"
+  ],
+  "public_forward_supplied": true,
+  "parameter_count": 29,
+  "original_formula_constants_unchanged": true,
+  "numerical_agreement": {
+    "calibration": 6.661338147750939e-16,
+    "contaminant": 1.6653345369377348e-16
+  },
+  "six_hour_difficulty": "not_yet_measured"
+}

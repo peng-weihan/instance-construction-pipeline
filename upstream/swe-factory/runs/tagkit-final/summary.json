@@ -1,0 +1,25 @@
+{
+  "schema_version": "nl2repo.demo.v1",
+  "passed": true,
+  "execution": "host-subprocess",
+  "synthetic_fixture": true,
+  "model_called": false,
+  "docker_executed": false,
+  "image_built": false,
+  "production_instance_accepted": false,
+  "instance_dir": "/Users/raymone/Desktop/swe-factory/runs/tagkit-final/instance",
+  "rewards": {
+    "oracle": 1.0,
+    "empty": 0.0,
+    "broken": 0.75
+  },
+  "expected_rewards": {
+    "oracle": 1.0,
+    "empty": 0.0,
+    "broken": 0.75
+  },
+  "limitations": [
+    "Host tests do not establish container isolation or image correctness.",
+    "The demo task uses a host Python path; production packaging uses the A1 container commands."
+  ]
+}

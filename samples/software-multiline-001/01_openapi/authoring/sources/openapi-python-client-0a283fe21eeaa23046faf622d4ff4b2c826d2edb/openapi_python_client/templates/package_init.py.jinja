@@ -1,0 +1,9 @@
+{% from "helpers.jinja" import docstring %}
+
+{{ docstring(package_description | safe_for_docstring) }}
+from .client import AuthenticatedClient, Client
+
+__all__ = (
+    "AuthenticatedClient",
+    "Client",
+)

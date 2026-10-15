@@ -1,0 +1,63 @@
+{
+  "observed_cst": "2026-10-15T17:01:45.382643+08:00",
+  "source_sha256": "5b958e4c9325f70262071eddfbae9869ffde5d815b3c3ef5a009d4ac65d6abe7",
+  "time_axis": "snapshot capture time since actual cloud learning start; feedback time retained in CSV",
+  "future_scores_extrapolated": false,
+  "formal_acceptance": false,
+  "tasks": {
+    "science": {
+      "run_root": "/ws/users/raymone/edgebench/remaining-three-001/science-pilot/run-6h-001",
+      "model": "gpt-6.1-sol",
+      "host_alive": true,
+      "learning_started_cst": "2026-10-15T15:49:25.642440+08:00",
+      "expected_six_hour_end_cst": "2026-10-15T21:49:25.642440+08:00",
+      "elapsed_seconds": 4339.740203,
+      "elapsed_text": "1小时12分19秒",
+      "completed_valid_grades": 38,
+      "first_score": 0.3926459008379822,
+      "first_snapshot_seconds": 35.207397766876966,
+      "last_score": 0.5804488856049843,
+      "last_snapshot_seconds": 4219.614490117878,
+      "best_score": 0.6077547405161176,
+      "best_first_snapshot_seconds": 3560.8487053649733,
+      "checkpoints_by_minute": {
+        "15": 0.5493856898256925,
+        "30": 0.5545539746011926,
+        "45": 0.5965974957036349,
+        "60": 0.6077547405161176,
+        "90": null,
+        "120": null,
+        "240": null,
+        "360": null
+      },
+      "pending_or_invalid_entries": 0
+    },
+    "finance": {
+      "run_root": "/ws/users/raymone/edgebench/remaining-three-001/finance-pilot-r3/run-6h-001",
+      "model": "gpt-6.1-sol",
+      "host_alive": true,
+      "learning_started_cst": "2026-10-15T16:05:42.015515+08:00",
+      "expected_six_hour_end_cst": "2026-10-15T22:05:42.015515+08:00",
+      "elapsed_seconds": 3363.367128,
+      "elapsed_text": "0小时56分03秒",
+      "completed_valid_grades": 20,
+      "first_score": 0.39329753265088446,
+      "first_snapshot_seconds": 38.57317477511242,
+      "last_score": 0.5264193712573911,
+      "last_snapshot_seconds": 2999.821981755,
+      "best_score": 0.5636694010536649,
+      "best_first_snapshot_seconds": 2192.9830178930424,
+      "checkpoints_by_minute": {
+        "15": 0.5017399326350717,
+        "30": 0.5381496471984132,
+        "45": 0.5636694010536649,
+        "60": null,
+        "90": null,
+        "120": null,
+        "240": null,
+        "360": null
+      },
+      "pending_or_invalid_entries": 0
+    }
+  }
+}

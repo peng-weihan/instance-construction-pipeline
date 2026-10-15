@@ -1,0 +1,4 @@
+CREATE EXTERNAL TABLE lineitem
+STORED AS PARQUET
+LOCATION '${DATA_DIR:-data}/tpch_sf${BENCH_SIZE:-1}/lineitem'
+${BENCH_SORTED:-false|WITH ORDER (l_orderkey ASC NULLS LAST)| };

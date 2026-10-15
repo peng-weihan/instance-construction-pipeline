@@ -1,0 +1,69 @@
+{
+  "id": "08_http2_session",
+  "repo": "nghttp2/nghttp2",
+  "family": "system_implementation",
+  "new_source": true,
+  "title": "HTTP2帧、HPACK与会话状态机",
+  "files": [
+    "README.rst",
+    "lib/nghttp2_session.c",
+    "tests/nghttp2_session_test.c",
+    "tests/nghttp2_hd_test.c"
+  ],
+  "revision": "7e10fcf3c58e692902939bab8f898bdd9ec9cff7",
+  "retrieved_utc": "2026-10-15T09:20:45.846098+00:00",
+  "files_acquired": [
+    {
+      "path": "README.rst",
+      "bytes": 49770,
+      "sha256": "6d6b83f1c6e2dd5304b1d31519b3062c3984f7f61026f0c983c015cabb58ac6e",
+      "url": "https://github.com/nghttp2/nghttp2/blob/7e10fcf3c58e692902939bab8f898bdd9ec9cff7/README.rst"
+    },
+    {
+      "path": "lib/nghttp2_session.c",
+      "bytes": 250857,
+      "sha256": "062fcaa9dc8eb24f1b43ed5c4e9ac67d9abf32f4d56eb510358ebe0cbf05c595",
+      "url": "https://github.com/nghttp2/nghttp2/blob/7e10fcf3c58e692902939bab8f898bdd9ec9cff7/lib/nghttp2_session.c"
+    },
+    {
+      "path": "tests/nghttp2_session_test.c",
+      "bytes": 418505,
+      "sha256": "630752cd8088bfa554aad6c48818f46f593ec257a47c8470fc5fdc956ec62daf",
+      "url": "https://github.com/nghttp2/nghttp2/blob/7e10fcf3c58e692902939bab8f898bdd9ec9cff7/tests/nghttp2_session_test.c"
+    },
+    {
+      "path": "tests/nghttp2_hd_test.c",
+      "bytes": 52677,
+      "sha256": "e3e1c14b39d61a4c83cc8913a65a90fd6643e7a1e4eee7b63dae068876b8f960",
+      "url": "https://github.com/nghttp2/nghttp2/blob/7e10fcf3c58e692902939bab8f898bdd9ec9cff7/tests/nghttp2_hd_test.c"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 12,
+      "sha256": "f0518afc0a555337bac2f0fb37d33cdee6111983da69aaa504a1876beeddfde0",
+      "url": "https://github.com/nghttp2/nghttp2/blob/7e10fcf3c58e692902939bab8f898bdd9ec9cff7/LICENSE"
+    },
+    {
+      "path": "COPYING",
+      "bytes": 1156,
+      "sha256": "6b94f3abc1aabd0c72a7c7d92a77f79dda7c8a0cb3df839a97890b4116a2de2a",
+      "url": "https://github.com/nghttp2/nghttp2/blob/7e10fcf3c58e692902939bab8f898bdd9ec9cff7/COPYING"
+    }
+  ],
+  "missing_paths": [
+    "LICENSE.txt",
+    "LICENSE.md",
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "runtime_validation": false,
+  "six_hour_difficulty_verified": false,
+  "tree_manifest": {
+    "path": "git-tree.json",
+    "sha256": "9a4d92e70ec2a1708b13f69076adbee7106589430717c12360e6991a389aaea2",
+    "blob_count": 613,
+    "truncated": false
+  },
+  "resolved_initial_404_paths": {},
+  "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+}

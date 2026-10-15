@@ -1,0 +1,13 @@
+test_all_original_tasks_are_classified_once_and_plan_is_non_destructive (test_swe_pipeline.SWEPipelineTests.test_all_original_tasks_are_classified_once_and_plan_is_non_destructive) ... ok
+test_ambiguous_reports_and_duplicate_improvement_paths_are_not_accepted (test_swe_pipeline.SWEPipelineTests.test_ambiguous_reports_and_duplicate_improvement_paths_are_not_accepted) ... ok
+test_disabled_performance_and_saturated_starter_block_even_reference_below_one (test_swe_pipeline.SWEPipelineTests.test_disabled_performance_and_saturated_starter_block_even_reference_below_one) ... ok
+test_full_score_ordinary_reparse_is_a_blocker (test_swe_pipeline.SWEPipelineTests.test_full_score_ordinary_reparse_is_a_blocker) ... ok
+test_gold_mutation_does_not_count_as_independent_baseline (test_swe_pipeline.SWEPipelineTests.test_gold_mutation_does_not_count_as_independent_baseline) ... ok
+test_invalid_score_is_not_zero_and_claimed_score_cannot_override_real_bytes (test_swe_pipeline.SWEPipelineTests.test_invalid_score_is_not_zero_and_claimed_score_cannot_override_real_bytes) ... ok
+test_missing_tampered_or_outside_evidence_fails_closed (test_swe_pipeline.SWEPipelineTests.test_missing_tampered_or_outside_evidence_fails_closed) ... ok
+test_no_static_input_can_be_called_difficulty_or_runtime_verified (test_swe_pipeline.SWEPipelineTests.test_no_static_input_can_be_called_difficulty_or_runtime_verified) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.025s
+
+OK

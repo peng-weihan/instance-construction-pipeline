@@ -1,0 +1,187 @@
+{
+  "status": "constructed_unverified",
+  "selection": "held_for_evidence",
+  "release_ready": false,
+  "source_revision": "10343c18292fc3a9ca62b59c8bb530169fe79b82",
+  "reference_revision": "f8e16673f6d22abe4d22820a2fdc52862d64236f",
+  "stages": {
+    "material_acquired": true,
+    "constructed_unverified": true,
+    "local_checks_completed": true,
+    "held_for_evidence": true,
+    "rejected": false
+  },
+  "decision": "具体代码与评测草稿已构造。现有排序元数据 API 可消除已知有序输入的主要瓶颈，不能把该功能或较弱配置的 headroom 冒称新缺口。保留草稿供审阅，性能价值与六小时难度待证据。",
+  "active_scoring": {
+    "correctness_ceiling": 0.25,
+    "performance_enabled": false,
+    "performance_weight_disabled": 0.75,
+    "normalized_score_range": [
+      0,
+      1
+    ],
+    "nop_host_grader_score": 0.25,
+    "reference_host_behavior_scores": [
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "near_miss_host_audits": {
+      "nulls-last": {
+        "passed": 24,
+        "total": 34,
+        "native_profile": "ci",
+        "native_passed": false,
+        "author_audit_diagnostic_score": 0.11666666666666667,
+        "formal_native_or_periodic_trial": false
+      },
+      "skip-ascending": {
+        "passed": 23,
+        "total": 34,
+        "native_profile": "ci",
+        "native_passed": false,
+        "author_audit_diagnostic_score": 0.11222222222222222,
+        "formal_native_or_periodic_trial": false
+      }
+    },
+    "formal_harbor_scores": null
+  },
+  "actual_checks": [
+    {
+      "command": "git -C material-src rev-parse HEAD; git -C material-src status --porcelain",
+      "result": "固定源版本一致，工作树无改动",
+      "evidence": "authoring/source-manifest.json"
+    },
+    {
+      "command": "CARGO_HOME=<job>/cargo-home CARGO_TARGET_DIR=<job>/build cargo build --locked --offline --release --manifest-path author-src/Cargo.toml -p datafusion-physical-plan --example edgebench_sort",
+      "result": "未改生产代码的真实 release 引擎构建成功",
+      "evidence": "authoring/evidence/baseline-build.log"
+    },
+    {
+      "command": "python3 task/authoring/measure_native_defaults.py",
+      "result": "原生 SessionConfig 默认值实测：4 个可行工作负载正确；8MiB 池小于默认 10MiB spill 预留的场景失败保留",
+      "evidence": "authoring/evidence/native-default-baseline.json"
+    },
+    {
+      "command": "python3 task/authoring/run_host_baseline.py",
+      "result": "34/34 独立语义用例；45 普通配置中 42 成功、3 个低内存大输出配置失败",
+      "evidence": "authoring/evidence/baseline-sweep.json"
+    },
+    {
+      "command": "cargo test --locked --offline --release --manifest-path author-src/Cargo.toml -p datafusion-physical-plan --lib sorts::sort::tests:: -- --test-threads=1",
+      "result": "上游与参考各 15/15 原生 sort 测试通过；不代表全部仓库单测",
+      "evidence": "authoring/evidence/reference-native.log"
+    },
+    {
+      "command": "cargo build --locked --offline --release -p datafusion-physical-plan --example edgebench_sort --example audit_reference; audit_reference",
+      "result": "真实参考构建成功，完整 identity 复用和短前缀压缩审计通过",
+      "evidence": "authoring/evidence/reference-allocation-audit.log"
+    },
+    {
+      "command": "python3 task/authoring/check_engine.py --label final-reference ... --repeat 5",
+      "result": "同一参考引擎五次重放均 34/34，诊断分均 0.25；非五次完整 Harbor trial",
+      "evidence": "authoring/evidence/final-reference-behavior.json"
+    },
+    {
+      "command": "python3 task/authoring/compare_reference.py",
+      "result": "50 个真实交错进程运行正确，保留 engine ns、whole-process RSS 与 rusage I/O；未用于性能奖励",
+      "evidence": "authoring/evidence/interleaved-reference-comparison.json"
+    },
+    {
+      "command": "python3 task/authoring/check_ordering_metadata.py",
+      "result": "10/10 正确；未改上游的已知有序信息 API 能跳过排序，构成强廉价基线",
+      "evidence": "authoring/evidence/ordering-metadata-baseline.json"
+    },
+    {
+      "command": "sh task/authoring/run_controls.sh; python3 task/authoring/check_engine.py --label final-<control> ...",
+      "result": "两份控制 release 引擎分别 24/34、23/34；ci profile 原生回归分别 13/15、10/15。诊断分不是正式 Harbor 成绩",
+      "evidence": "authoring/evidence/controls-run.log"
+    },
+    {
+      "command": "python3 task/tests/grader.py --runtime <job>/host-runtime --base <job>/host-runtime/base --private <job>/task/verifier/private --submission <job>/material-src --temporary-root <job>/host-checks --output <job>/evidence/isolated-nop-grade",
+      "result": "降权真实编译/执行，valid=true、score=0.25、pass_rate=1，reward.txt 同值；发生于最后所有权加固前",
+      "evidence": "authoring/evidence/isolated-nop-grade/score.json"
+    },
+    {
+      "command": "grader.py with missing submission / missing runtime; real UID rustc include/read/write probes",
+      "result": "缺提交有效0；基础设施失败无数值奖励；私有引用、reward 写入、只读源码/测试/探针修改均被拒绝；普通只读输入可编译",
+      "evidence": "authoring/evidence/permission-checks.json"
+    },
+    {
+      "command": "patch -p1 reference.patch; patch -p1 inverse.patch; SUBMISSION_DIR=<job>/host-checks/solve-injection task/solution/solve.sh",
+      "result": "正向生成精确参考、逆向恢复精确上游，solve.sh 实际注入成功",
+      "evidence": "authoring/evidence/patch-roundtrip.json"
+    },
+    {
+      "command": "TOML/AST against supplied Harbor snapshot; source archive hashes and context/duplicate checks",
+      "result": "仅静态字段、路径、完整源码闭包及权威评分副本一致检查；不冒充 Docker/Harbor 接收",
+      "evidence": "authoring/evidence/package-closure-audit.json"
+    }
+  ],
+  "host_measurement_summary_ns": {
+    "full-random": {
+      "baseline": 25171061,
+      "reference": 24482723
+    },
+    "full-sorted": {
+      "baseline": 12930226,
+      "reference": 329522
+    },
+    "full-spill-random": {
+      "baseline": 75837708,
+      "reference": 73676748
+    },
+    "merge-duplicates": {
+      "baseline": 479785,
+      "reference": 476609
+    },
+    "topk-random": {
+      "baseline": 576658,
+      "reference": 461881
+    }
+  },
+  "strong_ordinary_ordering_metadata": {
+    "full": {
+      "median_engine_ns": 7116493,
+      "measurements": 15,
+      "all_correct": true
+    },
+    "advertised": {
+      "median_engine_ns": 4889,
+      "measurements": 15,
+      "all_correct": true
+    }
+  },
+  "known_authoring_incidents": [
+    {
+      "incident": "首次降权检查 vendor 权限导致构建失败，旧分类器误记候选0",
+      "disposition": "保留原始结果，不计作合法 NOP 分；修复权限并增加运行时文件哈希/权限及编译器健康预检，重跑 NOP 得0.25",
+      "evidence": "authoring/evidence/isolated-nop-grade-initial-runtime-permissions/score.json"
+    },
+    {
+      "incident": "早期宿主探针未显式固定临时目录",
+      "disposition": "未审计早期临时位置；原始记录以 pre-explicit-tmp-* 保留，所有最终宿主测量与控制语义重放显式固定在 job 下。"
+    },
+    {
+      "incident": "GitHub codeload export-ignore 省略了 .github；首次静态闭包检查失败",
+      "disposition": "从完整固定 Git checkout 重建 public/judge 源包，补齐所有 tracked 内容并物化仓内许可证 symlink，2516 文件哈希逐项一致；没有降低验收条件",
+      "evidence": "authoring/evidence/package-closure-audit.json"
+    }
+  ],
+  "unresolved": [
+    "Docker 两个镜像尚未实际构建/启动，ARM 未验证；Debian snapshot 系统包安装仍待镜像验证。",
+    "最终源码/测试只读、执行顺序与输出协议加固后未重做完整独立镜像端到端；已有实际 UID 权限检查、语义重放及缺提交/基础设施分支证据。",
+    "参考与两份 near-miss 未做正式 Harbor 原生/周期双入口试跑；near-miss 的原生单测为 ci profile 作者诊断，不是 release verifier trial。",
+    "性能奖励 0.75 保持禁用，归一化/锚点为 null；宿主测量没有专用 CPU/磁盘隔离，RSS 包含输入构造，不能跨硬件复用锚点。",
+    "已知有序信息普通配置比参考核心快路径更强；广泛未知顺序、TopK 与 spill 协调的稳定改进空间尚无充分证据。",
+    "未启动任何教师/其他模型/子代理/云沙箱；六小时与三轨迹难度校准按用户本阶段指令延期。",
+    "早期直接宿主检查未显式固定 TMPDIR，临时写入路径未独立审计；原证据保留，最终宿主测量及控制重放使用显式 job-local TMPDIR。"
+  ],
+  "teacher_started": false,
+  "cloud_started": false,
+  "subagents_started": false,
+  "difficulty_accepted": false,
+  "updated_utc": "2026-10-15T11:35:37.203256+00:00"
+}

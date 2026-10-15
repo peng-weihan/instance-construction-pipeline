@@ -1,0 +1,74 @@
+{
+  "repo": "p4lang/behavioral-model",
+  "revision": "7f4e1daca12b7fe52897687764b7e74ded7dab55",
+  "resolved_utc": "2026-10-15T13:08:17.233143+00:00",
+  "retrieved_utc": "2026-10-15T13:14:23.842235+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "0f1952ea76a19bf64e13f7c5e8656eb2b45a4a0ab4ebe1a1a4a4b24880243efe",
+    "truncated": false,
+    "blob_count": 952
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 23,
+      "sha256": "963dcc022dd2394e5455c501f1e488688af97532b39c7d04edcaf3413a4243c3",
+      "url": "https://github.com/p4lang/behavioral-model/blob/7f4e1daca12b7fe52897687764b7e74ded7dab55/LICENSE"
+    },
+    {
+      "path": "LICENSES/Apache-2.0.txt",
+      "bytes": 10280,
+      "sha256": "074e6e32c86a4c0ef8b3ed25b721ca23aca83df277cd88106ef7177c354615ff",
+      "url": "https://github.com/p4lang/behavioral-model/blob/7f4e1daca12b7fe52897687764b7e74ded7dab55/LICENSES/Apache-2.0.txt"
+    },
+    {
+      "path": "README.md",
+      "bytes": 16969,
+      "sha256": "d605c831e33b108da2fa4f21d418d40d08685dfb8621acdd63e810e4de1c5d17",
+      "url": "https://github.com/p4lang/behavioral-model/blob/7f4e1daca12b7fe52897687764b7e74ded7dab55/README.md"
+    },
+    {
+      "path": "docs/JSON_format.md",
+      "bytes": 44006,
+      "sha256": "8c647b2a12321b1ecff8973309c3db271ed6d5cfcba1548e83a0ace3394a4ef4",
+      "url": "https://github.com/p4lang/behavioral-model/blob/7f4e1daca12b7fe52897687764b7e74ded7dab55/docs/JSON_format.md"
+    },
+    {
+      "path": "docs/simple_switch.md",
+      "bytes": 54283,
+      "sha256": "960ad57d00e7488cb9483a061d97e1bb93bc09af4edf4091b11843b4b91be886",
+      "url": "https://github.com/p4lang/behavioral-model/blob/7f4e1daca12b7fe52897687764b7e74ded7dab55/docs/simple_switch.md"
+    },
+    {
+      "path": "src/bm_sim/deparser.cpp",
+      "bytes": 2993,
+      "sha256": "4f2b7f9fbb3d7823d28615317374b08a4a2d315e1418eb545f1b263214604c4d",
+      "url": "https://github.com/p4lang/behavioral-model/blob/7f4e1daca12b7fe52897687764b7e74ded7dab55/src/bm_sim/deparser.cpp"
+    },
+    {
+      "path": "src/bm_sim/match_tables.cpp",
+      "bytes": 37606,
+      "sha256": "f3628aa1198a42e913220e8833f7a3dd20b727536d596d73ea5f6dccb10fb731",
+      "url": "https://github.com/p4lang/behavioral-model/blob/7f4e1daca12b7fe52897687764b7e74ded7dab55/src/bm_sim/match_tables.cpp"
+    },
+    {
+      "path": "src/bm_sim/parser.cpp",
+      "bytes": 37921,
+      "sha256": "83f7edd2550f01c05c0b3ecd26d38601c86ea90a41eabbe1827b435580b08ff4",
+      "url": "https://github.com/p4lang/behavioral-model/blob/7f4e1daca12b7fe52897687764b7e74ded7dab55/src/bm_sim/parser.cpp"
+    },
+    {
+      "path": "tests/test_parser.cpp",
+      "bytes": 78960,
+      "sha256": "8cb3fe91fe0cb8070ee43f24de9722b539b3f6f57bab6238ef565dcdc49cae51",
+      "url": "https://github.com/p4lang/behavioral-model/blob/7f4e1daca12b7fe52897687764b7e74ded7dab55/tests/test_parser.cpp"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

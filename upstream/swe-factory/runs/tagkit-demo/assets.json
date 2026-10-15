@@ -1,0 +1,32 @@
+{
+  "destination": "/Users/raymone/Desktop/swe-factory/runs/tagkit-demo/instance",
+  "config": {
+    "pro_name": "TagKit",
+    "test_case_count": 4,
+    "test_commands": [
+      "/Users/raymone/Desktop/swe-factory/.venv/bin/python -m pytest -q -p no:cacheprovider"
+    ],
+    "test_files": [
+      "tests/test_api.py"
+    ],
+    "package_files": [
+      "pyproject.toml"
+    ],
+    "fixture_files": []
+  },
+  "test_roots": [
+    "tests"
+  ],
+  "whitelist": [
+    "tests/test_api.py"
+  ],
+  "reference_files": [
+    "pyproject.toml",
+    "tests/__pycache__/test_api.cpython-312-pytest-8.4.2.pyc",
+    "tests/test_api.py"
+  ],
+  "asset_warnings": [],
+  "image_archive": "/Users/raymone/Desktop/swe-factory/runs/tagkit-demo/images/tagkit.tar",
+  "docker_build_context": "/Users/raymone/Desktop/swe-factory/runs/tagkit-demo/instance/environment",
+  "image_built": false
+}

@@ -1,0 +1,107 @@
+[
+  {
+    "path": "DESIGN.md",
+    "sha256": "e4945069d6b0b32aeb046551c74c1204b729e239760ca5148e151639ba543947",
+    "bytes": 761
+  },
+  {
+    "path": "candidate.json",
+    "sha256": "8077cb8d98bc06c762736e8ca708a557b7afb74475b373791f5f241704f048c1",
+    "bytes": 1848
+  },
+  {
+    "path": "private/data/audit_prices.csv",
+    "sha256": "f9ad1e8de25cddd0ed3e846432469781f559dd2d28656c161482054411f7dbba",
+    "bytes": 117477
+  },
+  {
+    "path": "private/data/feedback_prices.csv",
+    "sha256": "83df7f58d3f41708b5e706ddb781d1eea2b84cceb08c9aba873fcf2134e1d21d",
+    "bytes": 119278
+  },
+  {
+    "path": "private/data_lineage.json",
+    "sha256": "79d89b04a53120794d9800877f43ebc020be86a8ebe7df9d08a42cd803b88957",
+    "bytes": 362
+  },
+  {
+    "path": "private/source_reference/LICENSE",
+    "sha256": "8cb9eaa4c7c963e891b527c6ebbfd97d72c104a1903c09c37c28289497907174",
+    "bytes": 1080
+  },
+  {
+    "path": "private/source_reference/portrisk/__init__.py",
+    "sha256": "829834df5086534131cabf99c2503694f6deb4ae078f05281fc6f1a8fe917abd",
+    "bytes": 149
+  },
+  {
+    "path": "private/source_reference/portrisk/backtest.py",
+    "sha256": "755012939a236bbc0a3d3385906fd5e5f9ace7b818bcb0e6e9537007b4ec91d0",
+    "bytes": 3861
+  },
+  {
+    "path": "private/source_reference/portrisk/data.py",
+    "sha256": "462e93b46810a4a2fadbefcaf83fab83c59f27d509c0c837c3b1045e6e49cba2",
+    "bytes": 4472
+  },
+  {
+    "path": "private/source_reference/portrisk/optimization.py",
+    "sha256": "3be4e4c44c215de96fb103087249d1eddd87e08fbf9c42aaa6ee76981faca9cd",
+    "bytes": 3318
+  },
+  {
+    "path": "private/source_reference/portrisk/plotting.py",
+    "sha256": "1783d4a8f3027a23073bb1b62ff23408a1e306110ef9bd7893795654d4d23af9",
+    "bytes": 4506
+  },
+  {
+    "path": "private/source_reference/portrisk/risk_metrics.py",
+    "sha256": "6e2307f93e391a595f15510a08c56483d9edd9d1d325bcb97a2f252201a48079",
+    "bytes": 2032
+  },
+  {
+    "path": "private/source_reference/portrisk/stress_test.py",
+    "sha256": "d7e5b215be4e03c3f22c4ad7f4cf5de3ced3f5cc812a9b24ec4eedb077a797a9",
+    "bytes": 2067
+  },
+  {
+    "path": "public/accounting.md",
+    "sha256": "dc502f7eaf690d0849f065be55fe8d720a99490c71d4477b702d6457e8084d27",
+    "bytes": 1112
+  },
+  {
+    "path": "public/contract.draft.json",
+    "sha256": "3648cbc5724312e7758121f9037d6b4215af74ec246a31ce39a34525b84d8c68",
+    "bytes": 1090
+  },
+  {
+    "path": "public/data/dev_prices.csv",
+    "sha256": "4e2e1eb0ae533ac3d237babcb156fd829406fdaf7fd74d562b99bca06abdfac1",
+    "bytes": 159539
+  },
+  {
+    "path": "public/data/train_prices.csv",
+    "sha256": "decfaf0a0a3a23f48e30b81b64efa98e8bd3d429fbf1942c43db67e924004f33",
+    "bytes": 381121
+  },
+  {
+    "path": "public/instruction.md",
+    "sha256": "36a248ab82e41fd10470f477450cee115cbba878d3a302d9be0783a9be33214e",
+    "bytes": 1258
+  },
+  {
+    "path": "public/mandate.json",
+    "sha256": "6ffbac8dc42b9212ac345908b1526225cfaddec4745073ceef49440a3c485004",
+    "bytes": 1173
+  },
+  {
+    "path": "public/score_design.json",
+    "sha256": "63034a1405f7a9362a39bb92f4dd4b8e84fb1d0423ed0715a3bd92c5a7e368e0",
+    "bytes": 634
+  },
+  {
+    "path": "public/submission/policy.py",
+    "sha256": "a46539a843304c598315350819a033dc3b1507adad77d2d33502bfd3ae7cc66d",
+    "bytes": 565
+  }
+]

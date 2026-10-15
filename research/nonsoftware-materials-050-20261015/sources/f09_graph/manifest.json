@@ -1,0 +1,63 @@
+{
+  "repo": "rocq-community/graph-theory",
+  "revision": "322e352b72c4ca3f153e5f80123c5020a0d40620",
+  "resolved_utc": "2026-10-15T14:58:51.441396+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:01:50.639660+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "9277b47488166ea3c2275f2117ffe1ec4f27479612960806b68a9f1b8260090b",
+    "truncated": false,
+    "blob_count": 65
+  },
+  "files_acquired": [
+    {
+      "path": "README.md",
+      "bytes": 5804,
+      "sha256": "86203767edc7c9b88fa1009da8a3404d0b6afceb684e95786a2b3d10b5749394",
+      "url": "https://github.com/rocq-community/graph-theory/blob/322e352b72c4ca3f153e5f80123c5020a0d40620/README.md"
+    },
+    {
+      "path": "_CoqProject",
+      "bytes": 1652,
+      "sha256": "0d5c1f86b2e2e9fffcb993662c21dc83618f483eeb4dedfa8d6c395d3e9d750a",
+      "url": "https://github.com/rocq-community/graph-theory/blob/322e352b72c4ca3f153e5f80123c5020a0d40620/_CoqProject"
+    },
+    {
+      "path": "coq-graph-theory.opam",
+      "bytes": 1053,
+      "sha256": "f7415204b922d78d6410bc065a315a13b418c6aae3af0e6a4509889ae5b7862e",
+      "url": "https://github.com/rocq-community/graph-theory/blob/322e352b72c4ca3f153e5f80123c5020a0d40620/coq-graph-theory.opam"
+    },
+    {
+      "path": "meta.yml",
+      "bytes": 5502,
+      "sha256": "2f2a12fdfff2bda61ab64563db5abe4cee75c9196e2dd3774cef59f2af1beb26",
+      "url": "https://github.com/rocq-community/graph-theory/blob/322e352b72c4ca3f153e5f80123c5020a0d40620/meta.yml"
+    },
+    {
+      "path": "theories/core/excluded.v",
+      "bytes": 22477,
+      "sha256": "5698d50c6cf8c463e345c49b5fd3489b9e0e93632654db5a8b2e740b1068b13e",
+      "url": "https://github.com/rocq-community/graph-theory/blob/322e352b72c4ca3f153e5f80123c5020a0d40620/theories/core/excluded.v"
+    },
+    {
+      "path": "theories/core/minor.v",
+      "bytes": 20008,
+      "sha256": "ef3b3f035181b78e1f03560674431b8412339191f36c21751db4a39dede6aaba",
+      "url": "https://github.com/rocq-community/graph-theory/blob/322e352b72c4ca3f153e5f80123c5020a0d40620/theories/core/minor.v"
+    },
+    {
+      "path": "theories/core/treewidth.v",
+      "bytes": 30383,
+      "sha256": "7d924d36e469eddf565e5cdf22ee1a89b18681cdb7f5619c0a2d0589ab4ae974",
+      "url": "https://github.com/rocq-community/graph-theory/blob/322e352b72c4ca3f153e5f80123c5020a0d40620/theories/core/treewidth.v"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

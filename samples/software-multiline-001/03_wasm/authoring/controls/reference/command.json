@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/Users/raymone/Desktop/edgebench/.venv/bin/python",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/tests/grader.py",
+    "--submission",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/reference_submission",
+    "--cases",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/verifier/private/cases.json",
+    "--logs",
+    "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/reference"
+  ],
+  "cwd": "/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm",
+  "stdout": "{\"valid\": true, \"score\": 1.0, \"pass_rate\": 1.0, \"summary\": \"223/223 behavior cases; equal weight across 8 groups\", \"metrics\": {\"group_passed\": {\"integer\": 163, \"traps\": 14, \"control\": 19, \"loops\": 6, \"calls\": 5, \"memory\": 8, \"composition\": 4, \"binary\": 4}, \"group_total\": {\"integer\": 163, \"traps\": 14, \"control\": 19, \"loops\": 6, \"calls\": 5, \"memory\": 8, \"composition\": 4, \"binary\": 4}, \"candidate_uid_isolation\": false}}\n",
+  "stderr": "",
+  "exit": 0,
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "host_only": true
+}

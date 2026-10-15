@@ -1,0 +1,66 @@
+--- a/lib/src/get_changed_ranges.c
++++ b/lib/src/get_changed_ranges.c
+@@ -382,7 +382,7 @@
+     ((old_state == ERROR_STATE) != (new_state == ERROR_STATE)) ||
+     old_error_cost != new_error_cost ||
+     old_has_external_tokens != new_has_external_tokens ||
+-    false || /* Recovery: edited-subtree comparison. */
++    ts_subtree_has_changes(old_tree) ||
+     (
+       old_has_external_tokens &&
+       !ts_subtree_external_scanner_state_eq(old_iter->prev_external_token, new_iter->prev_external_token)
+--- a/lib/src/parser.c
++++ b/lib/src/parser.c
+@@ -780,8 +780,6 @@
+       continue;
+     }
+ 
+-    // Recovery: scanner compatibility gate is incomplete.
+-
+     const char *reason = NULL;
+     if (ts_subtree_has_changes(result)) {
+       reason = "has_changes";
+@@ -813,7 +811,7 @@
+ 
+     TSSymbol leaf_symbol = ts_subtree_leaf_symbol(result);
+     ts_language_table_entry(self->language, *state, leaf_symbol, table_entry);
+-    if (false) { /* Recovery: first-leaf parse-state compatibility. */
++    if (!ts_parser__can_reuse_first_leaf(self, *state, result, table_entry)) {
+       LOG(
+         "cant_reuse_node symbol:%s, first_leaf_symbol:%s",
+         TREE_NAME(result),
+--- a/lib/src/subtree.c
++++ b/lib/src/subtree.c
+@@ -733,7 +733,7 @@
+       result.ptr->size = size;
+     }
+ 
+-    // Recovery: invalidation propagation is incomplete.
++    ts_subtree_set_has_changes(&result);
+     *entry.tree = ts_subtree_from_mut(result);
+ 
+     Length child_left, child_right = length_zero();
+@@ -765,9 +765,9 @@
+ 
+       // Transform edit into the child's coordinate space.
+       Edit child_edit = {
+-        .start = edit.start,
+-        .old_end = edit.old_end,
+-        .new_end = edit.new_end,
++        .start = length_saturating_sub(edit.start, child_left),
++        .old_end = length_saturating_sub(edit.old_end, child_left),
++        .new_end = length_saturating_sub(edit.new_end, child_left),
+       };
+ 
+       // Interpret all inserted text as applying to the *first* child that touches the edit.
+--- a/lib/src/tree.c
++++ b/lib/src/tree.c
+@@ -96,7 +96,7 @@
+ 
+ void ts_tree_edit(TSTree *self, const TSInputEdit *edit) {
+   for (unsigned i = 0; i < self->included_range_count; i++) {
+-    // Recovery: included-range coordinate updates are incomplete.
++    ts_range_edit(&self->included_ranges[i], edit);
+   }
+ 
+   SubtreePool pool = ts_subtree_pool_new(0);

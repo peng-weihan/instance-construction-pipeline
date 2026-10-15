@@ -1,0 +1,1 @@
+{"arguments":{"command":"date '+%H:%M:%S' && ls src","timeout_seconds":20},"request_id":"f658a21c779f4ab4acc639826f35432c"}

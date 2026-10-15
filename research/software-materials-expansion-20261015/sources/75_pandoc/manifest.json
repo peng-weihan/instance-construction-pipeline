@@ -1,0 +1,69 @@
+{
+  "repo": "jgm/pandoc",
+  "revision": "35742c0001ab2da45cebae1c37eacc2439f147ed",
+  "resolved_utc": "2026-10-15T13:31:17.417133+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:32:53.355501+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "1217fa2e72e558b8094ca5d05fa615a021effc104c6cebb875d55d194846c250",
+    "truncated": false,
+    "blob_count": 2896
+  },
+  "files_acquired": [
+    {
+      "path": "COPYING.md",
+      "bytes": 17763,
+      "sha256": "3ebfbf9235b049d384cdba5a66a1a3434bb544391e720b76faa8e1b3ee61a4e5",
+      "url": "https://github.com/jgm/pandoc/blob/35742c0001ab2da45cebae1c37eacc2439f147ed/COPYING.md"
+    },
+    {
+      "path": "README.md",
+      "bytes": 13806,
+      "sha256": "4375d3060e00abfa1ec0013bfef122f1e678ad40013a7a18e4e4214d4f0c427d",
+      "url": "https://github.com/jgm/pandoc/blob/35742c0001ab2da45cebae1c37eacc2439f147ed/README.md"
+    },
+    {
+      "path": "README.template",
+      "bytes": 3814,
+      "sha256": "4165a21b0b35a4d204ddc5f312f4067a697db7b064dc6a82e735a67e960765c9",
+      "url": "https://github.com/jgm/pandoc/blob/35742c0001ab2da45cebae1c37eacc2439f147ed/README.template"
+    },
+    {
+      "path": "pandoc.cabal",
+      "bytes": 43133,
+      "sha256": "55e33ebd4ce9c6466152ae221804184a43c19c9bd85ee9477ae6cd0bd468dab9",
+      "url": "https://github.com/jgm/pandoc/blob/35742c0001ab2da45cebae1c37eacc2439f147ed/pandoc.cabal"
+    },
+    {
+      "path": "src/Text/Pandoc/Readers/Markdown.hs",
+      "bytes": 91015,
+      "sha256": "7c4a62e5f9ddec61823d52e34160d1b2ff6fa14fc925eef672b51e65f393a2c7",
+      "url": "https://github.com/jgm/pandoc/blob/35742c0001ab2da45cebae1c37eacc2439f147ed/src/Text/Pandoc/Readers/Markdown.hs"
+    },
+    {
+      "path": "src/Text/Pandoc/Writers/HTML.hs",
+      "bytes": 84673,
+      "sha256": "419ce0e0d6ac31aba4c1b707e68cde683e03678613748e5a8d7fbebb84dbd1f2",
+      "url": "https://github.com/jgm/pandoc/blob/35742c0001ab2da45cebae1c37eacc2439f147ed/src/Text/Pandoc/Writers/HTML.hs"
+    },
+    {
+      "path": "test/Tests/Readers/Markdown.hs",
+      "bytes": 33487,
+      "sha256": "e0f3653157682f4a629584b352829db47fb4af7f2e3f0eac4b4b65e9f5ddf769",
+      "url": "https://github.com/jgm/pandoc/blob/35742c0001ab2da45cebae1c37eacc2439f147ed/test/Tests/Readers/Markdown.hs"
+    },
+    {
+      "path": "test/Tests/Writers/HTML.hs",
+      "bytes": 8623,
+      "sha256": "bb7802c9c7bf885f0116561a02e08d586485e594b3ee9fe38ad9dea86b1f4ed6",
+      "url": "https://github.com/jgm/pandoc/blob/35742c0001ab2da45cebae1c37eacc2439f147ed/test/Tests/Writers/HTML.hs"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

@@ -1,0 +1,46 @@
+@initial
+0 module 1 0 0 0 0 0 58 0 0 8 0
+field -
+1 expression_statement 1 0 0 0 0 0 5 0 0 0 5
+field -
+2 unary_operator 1 0 0 0 0 0 5 0 0 0 5
+field operator
+3 - 0 0 0 0 0 0 1 0 0 0 1
+field argument
+3 float 1 0 0 0 0 1 5 0 1 0 5
+field -
+1 expression_statement 1 0 0 0 0 6 11 1 0 1 5
+field -
+2 unary_operator 1 0 0 0 0 6 11 1 0 1 5
+field operator
+3 + 0 0 0 0 0 6 7 1 0 1 1
+field argument
+3 float 1 0 0 0 0 7 11 1 1 1 5
+field -
+1 expression_statement 1 0 0 0 0 12 20 2 0 2 8
+field -
+2 float 1 0 0 0 0 12 20 2 0 2 8
+field -
+1 expression_statement 1 0 0 0 0 21 29 3 0 3 8
+field -
+2 float 1 0 0 0 0 21 29 3 0 3 8
+field -
+1 expression_statement 1 0 0 0 0 30 37 4 0 4 7
+field -
+2 float 1 0 0 0 0 30 37 4 0 4 7
+field -
+1 expression_statement 1 0 0 0 0 38 42 5 0 5 4
+field -
+2 float 1 0 0 0 0 38 42 5 0 5 4
+field -
+1 expression_statement 1 0 0 0 0 43 50 6 0 6 7
+field -
+2 float 1 0 0 0 0 43 50 6 0 6 7
+field -
+1 expression_statement 1 0 0 0 0 51 57 7 0 7 6
+field -
+2 float 1 0 0 0 0 51 57 7 0 7 6
+@end
+@sexp
+(module (expression_statement (unary_operator (float))) (expression_statement (unary_operator (float))) (expression_statement (float)) (expression_statement (float)) (expression_statement (float)) (expression_statement (float)) (expression_statement (float)) (expression_statement (float)))
+@end

@@ -1,0 +1,14 @@
+opam-version: "2.0"
+maintainer: "Mathematical Components <mathcomp-dev@sympa.inria.fr>"
+homepage: "https://math-comp.github.io/math-comp/"
+bug-reports: "Mathematical Components <mathcomp-dev@sympa.inria.fr>"
+dev-repo: "git+https://github.com/math-comp/odd-order"
+license: "CeCILL-B"
+version: "dev"
+
+depends: [
+  "coq-core"
+  "rocq-mathcomp-odd-order"
+]
+
+synopsis: "Compatibility package for rocq-mathcomp-odd-order"

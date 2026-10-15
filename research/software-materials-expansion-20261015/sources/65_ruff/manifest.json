@@ -1,0 +1,69 @@
+{
+  "repo": "astral-sh/ruff",
+  "revision": "3514027edb659bbc3c787d355be9d130e5587f15",
+  "resolved_utc": "2026-10-15T13:30:30.460828+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:31:12.280994+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "7fbfea4d877d91f147ff7c71a3da4153afcbfdd5816d0f1714fae09e9620f426",
+    "truncated": false,
+    "blob_count": 11245
+  },
+  "files_acquired": [
+    {
+      "path": "Cargo.toml",
+      "bytes": 19147,
+      "sha256": "893b5ff55f23fde170f5079766ebbe20937419a24296394a6dd0f326b8ccba88",
+      "url": "https://github.com/astral-sh/ruff/blob/3514027edb659bbc3c787d355be9d130e5587f15/Cargo.toml"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 20731,
+      "sha256": "2597d854122b77ddc71971564ca2350a37608575ce324adc5650a2b2051c8f18",
+      "url": "https://github.com/astral-sh/ruff/blob/3514027edb659bbc3c787d355be9d130e5587f15/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 19655,
+      "sha256": "284bf1f18d1a8081f7b47399eb4f16ffc17595730bbf998e374b95c6838a4e91",
+      "url": "https://github.com/astral-sh/ruff/blob/3514027edb659bbc3c787d355be9d130e5587f15/README.md"
+    },
+    {
+      "path": "crates/ruff_python_parser/src/parser/expression.rs",
+      "bytes": 121828,
+      "sha256": "cb7bf925c67804a739984775bd95cfdb7436f62c43c8d5847a9875c33ef0cb7e",
+      "url": "https://github.com/astral-sh/ruff/blob/3514027edb659bbc3c787d355be9d130e5587f15/crates/ruff_python_parser/src/parser/expression.rs"
+    },
+    {
+      "path": "crates/ruff_python_parser/src/parser/mod.rs",
+      "bytes": 70372,
+      "sha256": "95c37dd9afd397727816f95e192c263fe5aaeb7c25d541532d0c3a130b171987",
+      "url": "https://github.com/astral-sh/ruff/blob/3514027edb659bbc3c787d355be9d130e5587f15/crates/ruff_python_parser/src/parser/mod.rs"
+    },
+    {
+      "path": "crates/ruff_python_parser/src/parser/statement.rs",
+      "bytes": 150601,
+      "sha256": "0fb0c0a76ca90b218d1b310a30b79ca17ae8cf139aa7a3102854f62cab7f7658",
+      "url": "https://github.com/astral-sh/ruff/blob/3514027edb659bbc3c787d355be9d130e5587f15/crates/ruff_python_parser/src/parser/statement.rs"
+    },
+    {
+      "path": "crates/ruff_python_parser/src/parser/tests.rs",
+      "bytes": 15462,
+      "sha256": "d3e17347994eb48a56d978736ca9c7b9bd6718d94c309e57616343c5b711dc44",
+      "url": "https://github.com/astral-sh/ruff/blob/3514027edb659bbc3c787d355be9d130e5587f15/crates/ruff_python_parser/src/parser/tests.rs"
+    },
+    {
+      "path": "crates/ruff_python_parser/tests/fixtures.rs",
+      "bytes": 25313,
+      "sha256": "a5f5ea14efb0179e4e66bcc938f43ddcc198d33014e43ad206b5a3e70b887b21",
+      "url": "https://github.com/astral-sh/ruff/blob/3514027edb659bbc3c787d355be9d130e5587f15/crates/ruff_python_parser/tests/fixtures.rs"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

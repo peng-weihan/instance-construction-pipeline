@@ -1,0 +1,21 @@
+{
+  "healthy": true,
+  "tests": {
+    "tests/test_2fe81b_core.py::test_bytes_0": "failed",
+    "tests/test_2fe81b_core.py::test_bytes_1": "failed",
+    "tests/test_2fe81b_core.py::test_bytes_2": "failed",
+    "tests/test_2fe81b_core.py::test_bytes_3": "failed",
+    "tests/test_2fe81b_core.py::test_bytes_4": "failed",
+    "tests/test_2fe81b_core.py::test_bytes_5": "failed",
+    "tests/test_2fe81b_core.py::test_bytes_6": "failed",
+    "tests/test_2fe81b_core.py::test_bytes_7": "failed",
+    "tests/test_2fe81b_core.py::test_bytes_8": "failed",
+    "tests/test_2fe81b_core.py::test_bytes_9": "failed",
+    "tests/test_2fe81b_core.py::test_weak_exit": "passed",
+    "tests/test_2fe81b_core.py::test_error": "failed"
+  },
+  "errors": [],
+  "returncode": 1,
+  "timed_out": false,
+  "evidence": "/Users/raymone/Desktop/01_Research/swe-factory/runs/programbench-demo-02/construction/qc/dummy"
+}

@@ -1,0 +1,636 @@
+@initial
+0 module 1 0 0 0 0 0 57 0 0 5 0
+field -
+1 function_definition 1 0 0 0 0 0 48 0 0 3 12
+field -
+2 def 0 0 0 0 0 0 3 0 0 0 3
+field name
+2 identifier 1 0 0 0 0 4 5 0 4 0 5
+field parameters
+2 parameters 1 0 0 0 0 5 7 0 5 0 7
+field -
+3 ( 0 0 0 0 0 5 6 0 5 0 6
+field -
+3 ) 0 0 0 0 0 6 7 0 6 0 7
+field -
+2 : 0 0 0 0 0 7 8 0 7 0 8
+field body
+2 block 1 0 0 0 0 13 48 1 4 3 12
+field -
+3 if_statement 1 0 0 0 0 13 35 1 4 2 16
+field -
+4 if 0 0 0 0 0 13 15 1 4 1 6
+field condition
+4 identifier 1 0 0 0 0 16 17 1 7 1 8
+field -
+4 : 0 0 0 0 0 17 18 1 8 1 9
+field consequence
+4 block 1 0 0 0 0 27 35 2 8 2 16
+field -
+5 return_statement 1 0 0 0 0 27 35 2 8 2 16
+field -
+6 return 0 0 0 0 0 27 33 2 8 2 14
+field -
+6 integer 1 0 0 0 0 34 35 2 15 2 16
+field -
+3 return_statement 1 0 0 0 0 40 48 3 4 3 12
+field -
+4 return 0 0 0 0 0 40 46 3 4 3 10
+field -
+4 integer 1 0 0 0 0 47 48 3 11 3 12
+field -
+1 expression_statement 1 0 0 0 0 49 56 4 0 4 7
+field -
+2 assignment 1 0 0 0 0 49 56 4 0 4 7
+field left
+3 identifier 1 0 0 0 0 49 50 4 0 4 1
+field -
+3 = 0 0 0 0 0 51 52 4 2 4 3
+field right
+3 call 1 0 0 0 0 53 56 4 4 4 7
+field function
+4 identifier 1 0 0 0 0 53 54 4 4 4 5
+field arguments
+4 argument_list 1 0 0 0 0 54 56 4 5 4 7
+field -
+5 ( 0 0 0 0 0 54 55 4 5 4 6
+field -
+5 ) 0 0 0 0 0 55 56 4 6 4 7
+@end
+@sexp
+(module (function_definition (identifier) (parameters) (block (if_statement (identifier) (block (return_statement (integer)))) (return_statement (integer)))) (expression_statement (assignment (identifier) (call (identifier) (argument_list)))))
+@end
+@edited
+0 module 1 0 0 0 0 0 53 0 0 5 0 1
+field -
+1 function_definition 1 0 0 0 0 0 44 0 0 3 12 1
+field -
+2 def 0 0 0 0 0 0 3 0 0 0 3 0
+field name
+2 identifier 1 0 0 0 0 4 5 0 4 0 5 0
+field parameters
+2 parameters 1 0 0 0 0 5 7 0 5 0 7 0
+field -
+3 ( 0 0 0 0 0 5 6 0 5 0 6 0
+field -
+3 ) 0 0 0 0 0 6 7 0 6 0 7 0
+field -
+2 : 0 0 0 0 0 7 8 0 7 0 8 0
+field body
+2 block 1 0 0 0 0 13 44 1 4 3 12 1
+field -
+3 if_statement 1 0 0 0 0 13 31 1 4 2 12 1
+field -
+4 if 0 0 0 0 0 13 15 1 4 1 6 0
+field condition
+4 identifier 1 0 0 0 0 16 17 1 7 1 8 0
+field -
+4 : 0 0 0 0 0 17 18 1 8 1 9 0
+field consequence
+4 block 1 0 0 0 0 31 31 2 12 2 12 1
+field -
+5 return_statement 1 0 0 0 0 31 31 2 12 2 12 1
+field -
+6 return 0 0 0 0 0 31 31 2 12 2 12 1
+field -
+6 integer 1 0 0 0 0 31 31 2 12 2 12 1
+field -
+3 return_statement 1 0 0 0 0 36 44 3 4 3 12 0
+field -
+4 return 0 0 0 0 0 36 42 3 4 3 10 0
+field -
+4 integer 1 0 0 0 0 43 44 3 11 3 12 0
+field -
+1 expression_statement 1 0 0 0 0 45 52 4 0 4 7 0
+field -
+2 assignment 1 0 0 0 0 45 52 4 0 4 7 0
+field left
+3 identifier 1 0 0 0 0 45 46 4 0 4 1 0
+field -
+3 = 0 0 0 0 0 47 48 4 2 4 3 0
+field right
+3 call 1 0 0 0 0 49 52 4 4 4 7 0
+field function
+4 identifier 1 0 0 0 0 49 50 4 4 4 5 0
+field arguments
+4 argument_list 1 0 0 0 0 50 52 4 5 4 7 0
+field -
+5 ( 0 0 0 0 0 50 51 4 5 4 6 0
+field -
+5 ) 0 0 0 0 0 51 52 4 6 4 7 0
+@end
+@copy
+0 module 1 0 0 0 0 0 57 0 0 5 0 0
+field -
+1 function_definition 1 0 0 0 0 0 48 0 0 3 12 0
+field -
+2 def 0 0 0 0 0 0 3 0 0 0 3 0
+field name
+2 identifier 1 0 0 0 0 4 5 0 4 0 5 0
+field parameters
+2 parameters 1 0 0 0 0 5 7 0 5 0 7 0
+field -
+3 ( 0 0 0 0 0 5 6 0 5 0 6 0
+field -
+3 ) 0 0 0 0 0 6 7 0 6 0 7 0
+field -
+2 : 0 0 0 0 0 7 8 0 7 0 8 0
+field body
+2 block 1 0 0 0 0 13 48 1 4 3 12 0
+field -
+3 if_statement 1 0 0 0 0 13 35 1 4 2 16 0
+field -
+4 if 0 0 0 0 0 13 15 1 4 1 6 0
+field condition
+4 identifier 1 0 0 0 0 16 17 1 7 1 8 0
+field -
+4 : 0 0 0 0 0 17 18 1 8 1 9 0
+field consequence
+4 block 1 0 0 0 0 27 35 2 8 2 16 0
+field -
+5 return_statement 1 0 0 0 0 27 35 2 8 2 16 0
+field -
+6 return 0 0 0 0 0 27 33 2 8 2 14 0
+field -
+6 integer 1 0 0 0 0 34 35 2 15 2 16 0
+field -
+3 return_statement 1 0 0 0 0 40 48 3 4 3 12 0
+field -
+4 return 0 0 0 0 0 40 46 3 4 3 10 0
+field -
+4 integer 1 0 0 0 0 47 48 3 11 3 12 0
+field -
+1 expression_statement 1 0 0 0 0 49 56 4 0 4 7 0
+field -
+2 assignment 1 0 0 0 0 49 56 4 0 4 7 0
+field left
+3 identifier 1 0 0 0 0 49 50 4 0 4 1 0
+field -
+3 = 0 0 0 0 0 51 52 4 2 4 3 0
+field right
+3 call 1 0 0 0 0 53 56 4 4 4 7 0
+field function
+4 identifier 1 0 0 0 0 53 54 4 4 4 5 0
+field arguments
+4 argument_list 1 0 0 0 0 54 56 4 5 4 7 0
+field -
+5 ( 0 0 0 0 0 54 55 4 5 4 6 0
+field -
+5 ) 0 0 0 0 0 55 56 4 6 4 7 0
+@end
+@handle
+0 function_definition 1 0 0 0 0 0 48 0 0 3 12 0
+field -
+1 def 0 0 0 0 0 0 3 0 0 0 3 0
+field name
+1 identifier 1 0 0 0 0 4 5 0 4 0 5 0
+field parameters
+1 parameters 1 0 0 0 0 5 7 0 5 0 7 0
+field -
+2 ( 0 0 0 0 0 5 6 0 5 0 6 0
+field -
+2 ) 0 0 0 0 0 6 7 0 6 0 7 0
+field -
+1 : 0 0 0 0 0 7 8 0 7 0 8 0
+field body
+1 block 1 0 0 0 0 13 48 1 4 3 12 0
+field -
+2 if_statement 1 0 0 0 0 13 35 1 4 2 16 0
+field -
+3 if 0 0 0 0 0 13 15 1 4 1 6 0
+field condition
+3 identifier 1 0 0 0 0 16 17 1 7 1 8 0
+field -
+3 : 0 0 0 0 0 17 18 1 8 1 9 0
+field consequence
+3 block 1 0 0 0 0 27 35 2 8 2 16 0
+field -
+4 return_statement 1 0 0 0 0 27 35 2 8 2 16 0
+field -
+5 return 0 0 0 0 0 27 33 2 8 2 14 0
+field -
+5 integer 1 0 0 0 0 34 35 2 15 2 16 0
+field -
+2 return_statement 1 0 0 0 0 40 48 3 4 3 12 0
+field -
+3 return 0 0 0 0 0 40 46 3 4 3 10 0
+field -
+3 integer 1 0 0 0 0 47 48 3 11 3 12 0
+@end
+@included
+0 4294967295 0 0 4294967295 4294967295
+@end
+@parsed
+0 module 1 0 0 0 0 0 53 0 0 5 0
+field -
+1 function_definition 1 0 0 0 0 0 44 0 0 3 12
+field -
+2 def 0 0 0 0 0 0 3 0 0 0 3
+field name
+2 identifier 1 0 0 0 0 4 5 0 4 0 5
+field parameters
+2 parameters 1 0 0 0 0 5 7 0 5 0 7
+field -
+3 ( 0 0 0 0 0 5 6 0 5 0 6
+field -
+3 ) 0 0 0 0 0 6 7 0 6 0 7
+field -
+2 : 0 0 0 0 0 7 8 0 7 0 8
+field body
+2 block 1 0 0 0 0 13 44 1 4 3 12
+field -
+3 if_statement 1 0 0 0 0 13 18 1 4 1 9
+field -
+4 if 0 0 0 0 0 13 15 1 4 1 6
+field condition
+4 identifier 1 0 0 0 0 16 17 1 7 1 8
+field -
+4 : 0 0 0 0 0 17 18 1 8 1 9
+field consequence
+4 block 1 0 0 0 0 18 18 1 9 1 9
+field -
+3 return_statement 1 0 0 0 0 23 31 2 4 2 12
+field -
+4 return 0 0 0 0 0 23 29 2 4 2 10
+field -
+4 integer 1 0 0 0 0 30 31 2 11 2 12
+field -
+3 return_statement 1 0 0 0 0 36 44 3 4 3 12
+field -
+4 return 0 0 0 0 0 36 42 3 4 3 10
+field -
+4 integer 1 0 0 0 0 43 44 3 11 3 12
+field -
+1 expression_statement 1 0 0 0 0 45 52 4 0 4 7
+field -
+2 assignment 1 0 0 0 0 45 52 4 0 4 7
+field left
+3 identifier 1 0 0 0 0 45 46 4 0 4 1
+field -
+3 = 0 0 0 0 0 47 48 4 2 4 3
+field right
+3 call 1 0 0 0 0 49 52 4 4 4 7
+field function
+4 identifier 1 0 0 0 0 49 50 4 4 4 5
+field arguments
+4 argument_list 1 0 0 0 0 50 52 4 5 4 7
+field -
+5 ( 0 0 0 0 0 50 51 4 5 4 6
+field -
+5 ) 0 0 0 0 0 51 52 4 6 4 7
+@end
+@fresh
+0 module 1 0 0 0 0 0 53 0 0 5 0
+field -
+1 function_definition 1 0 0 0 0 0 44 0 0 3 12
+field -
+2 def 0 0 0 0 0 0 3 0 0 0 3
+field name
+2 identifier 1 0 0 0 0 4 5 0 4 0 5
+field parameters
+2 parameters 1 0 0 0 0 5 7 0 5 0 7
+field -
+3 ( 0 0 0 0 0 5 6 0 5 0 6
+field -
+3 ) 0 0 0 0 0 6 7 0 6 0 7
+field -
+2 : 0 0 0 0 0 7 8 0 7 0 8
+field body
+2 block 1 0 0 0 0 13 44 1 4 3 12
+field -
+3 if_statement 1 0 0 0 0 13 18 1 4 1 9
+field -
+4 if 0 0 0 0 0 13 15 1 4 1 6
+field condition
+4 identifier 1 0 0 0 0 16 17 1 7 1 8
+field -
+4 : 0 0 0 0 0 17 18 1 8 1 9
+field consequence
+4 block 1 0 0 0 0 18 18 1 9 1 9
+field -
+3 return_statement 1 0 0 0 0 23 31 2 4 2 12
+field -
+4 return 0 0 0 0 0 23 29 2 4 2 10
+field -
+4 integer 1 0 0 0 0 30 31 2 11 2 12
+field -
+3 return_statement 1 0 0 0 0 36 44 3 4 3 12
+field -
+4 return 0 0 0 0 0 36 42 3 4 3 10
+field -
+4 integer 1 0 0 0 0 43 44 3 11 3 12
+field -
+1 expression_statement 1 0 0 0 0 45 52 4 0 4 7
+field -
+2 assignment 1 0 0 0 0 45 52 4 0 4 7
+field left
+3 identifier 1 0 0 0 0 45 46 4 0 4 1
+field -
+3 = 0 0 0 0 0 47 48 4 2 4 3
+field right
+3 call 1 0 0 0 0 49 52 4 4 4 7
+field function
+4 identifier 1 0 0 0 0 49 50 4 4 4 5
+field arguments
+4 argument_list 1 0 0 0 0 50 52 4 5 4 7
+field -
+5 ( 0 0 0 0 0 50 51 4 5 4 6
+field -
+5 ) 0 0 0 0 0 51 52 4 6 4 7
+@end
+@changed
+18 31 1 9 2 12
+@end
+@edited
+0 module 1 0 0 0 0 0 59 0 0 5 0 1
+field -
+1 function_definition 1 0 0 0 0 0 50 0 0 3 12 1
+field -
+2 def 0 0 0 0 0 0 3 0 0 0 3 0
+field name
+2 identifier 1 0 0 0 0 4 5 0 4 0 5 0
+field parameters
+2 parameters 1 0 0 0 0 5 7 0 5 0 7 0
+field -
+3 ( 0 0 0 0 0 5 6 0 5 0 6 0
+field -
+3 ) 0 0 0 0 0 6 7 0 6 0 7 0
+field -
+2 : 0 0 0 0 0 7 8 0 7 0 8 0
+field body
+2 block 1 0 0 0 0 13 50 1 4 3 12 1
+field -
+3 if_statement 1 0 0 0 0 13 18 1 4 1 9 1
+field -
+4 if 0 0 0 0 0 13 15 1 4 1 6 0
+field condition
+4 identifier 1 0 0 0 0 16 17 1 7 1 8 0
+field -
+4 : 0 0 0 0 0 17 18 1 8 1 9 0
+field consequence
+4 block 1 0 0 0 0 18 18 1 9 1 9 1
+field -
+3 return_statement 1 0 0 0 0 37 37 2 18 2 18 1
+field -
+4 return 0 0 0 0 0 37 37 2 18 2 18 1
+field -
+4 integer 1 0 0 0 0 37 37 2 18 2 18 1
+field -
+3 return_statement 1 0 0 0 0 42 50 3 4 3 12 0
+field -
+4 return 0 0 0 0 0 42 48 3 4 3 10 0
+field -
+4 integer 1 0 0 0 0 49 50 3 11 3 12 0
+field -
+1 expression_statement 1 0 0 0 0 51 58 4 0 4 7 0
+field -
+2 assignment 1 0 0 0 0 51 58 4 0 4 7 0
+field left
+3 identifier 1 0 0 0 0 51 52 4 0 4 1 0
+field -
+3 = 0 0 0 0 0 53 54 4 2 4 3 0
+field right
+3 call 1 0 0 0 0 55 58 4 4 4 7 0
+field function
+4 identifier 1 0 0 0 0 55 56 4 4 4 5 0
+field arguments
+4 argument_list 1 0 0 0 0 56 58 4 5 4 7 0
+field -
+5 ( 0 0 0 0 0 56 57 4 5 4 6 0
+field -
+5 ) 0 0 0 0 0 57 58 4 6 4 7 0
+@end
+@copy
+0 module 1 0 0 0 0 0 53 0 0 5 0 0
+field -
+1 function_definition 1 0 0 0 0 0 44 0 0 3 12 0
+field -
+2 def 0 0 0 0 0 0 3 0 0 0 3 0
+field name
+2 identifier 1 0 0 0 0 4 5 0 4 0 5 0
+field parameters
+2 parameters 1 0 0 0 0 5 7 0 5 0 7 0
+field -
+3 ( 0 0 0 0 0 5 6 0 5 0 6 0
+field -
+3 ) 0 0 0 0 0 6 7 0 6 0 7 0
+field -
+2 : 0 0 0 0 0 7 8 0 7 0 8 0
+field body
+2 block 1 0 0 0 0 13 44 1 4 3 12 0
+field -
+3 if_statement 1 0 0 0 0 13 18 1 4 1 9 0
+field -
+4 if 0 0 0 0 0 13 15 1 4 1 6 0
+field condition
+4 identifier 1 0 0 0 0 16 17 1 7 1 8 0
+field -
+4 : 0 0 0 0 0 17 18 1 8 1 9 0
+field consequence
+4 block 1 0 0 0 0 18 18 1 9 1 9 0
+field -
+3 return_statement 1 0 0 0 0 23 31 2 4 2 12 0
+field -
+4 return 0 0 0 0 0 23 29 2 4 2 10 0
+field -
+4 integer 1 0 0 0 0 30 31 2 11 2 12 0
+field -
+3 return_statement 1 0 0 0 0 36 44 3 4 3 12 0
+field -
+4 return 0 0 0 0 0 36 42 3 4 3 10 0
+field -
+4 integer 1 0 0 0 0 43 44 3 11 3 12 0
+field -
+1 expression_statement 1 0 0 0 0 45 52 4 0 4 7 0
+field -
+2 assignment 1 0 0 0 0 45 52 4 0 4 7 0
+field left
+3 identifier 1 0 0 0 0 45 46 4 0 4 1 0
+field -
+3 = 0 0 0 0 0 47 48 4 2 4 3 0
+field right
+3 call 1 0 0 0 0 49 52 4 4 4 7 0
+field function
+4 identifier 1 0 0 0 0 49 50 4 4 4 5 0
+field arguments
+4 argument_list 1 0 0 0 0 50 52 4 5 4 7 0
+field -
+5 ( 0 0 0 0 0 50 51 4 5 4 6 0
+field -
+5 ) 0 0 0 0 0 51 52 4 6 4 7 0
+@end
+@handle
+0 function_definition 1 0 0 0 0 0 44 0 0 3 12 0
+field -
+1 def 0 0 0 0 0 0 3 0 0 0 3 0
+field name
+1 identifier 1 0 0 0 0 4 5 0 4 0 5 0
+field parameters
+1 parameters 1 0 0 0 0 5 7 0 5 0 7 0
+field -
+2 ( 0 0 0 0 0 5 6 0 5 0 6 0
+field -
+2 ) 0 0 0 0 0 6 7 0 6 0 7 0
+field -
+1 : 0 0 0 0 0 7 8 0 7 0 8 0
+field body
+1 block 1 0 0 0 0 13 44 1 4 3 12 0
+field -
+2 if_statement 1 0 0 0 0 13 18 1 4 1 9 0
+field -
+3 if 0 0 0 0 0 13 15 1 4 1 6 0
+field condition
+3 identifier 1 0 0 0 0 16 17 1 7 1 8 0
+field -
+3 : 0 0 0 0 0 17 18 1 8 1 9 0
+field consequence
+3 block 1 0 0 0 0 18 18 1 9 1 9 0
+field -
+2 return_statement 1 0 0 0 0 23 31 2 4 2 12 0
+field -
+3 return 0 0 0 0 0 23 29 2 4 2 10 0
+field -
+3 integer 1 0 0 0 0 30 31 2 11 2 12 0
+field -
+2 return_statement 1 0 0 0 0 36 44 3 4 3 12 0
+field -
+3 return 0 0 0 0 0 36 42 3 4 3 10 0
+field -
+3 integer 1 0 0 0 0 43 44 3 11 3 12 0
+@end
+@included
+0 4294967295 0 0 4294967295 4294967295
+@end
+@parsed
+0 module 1 0 0 0 0 0 59 0 0 5 0
+field -
+1 function_definition 1 0 0 0 0 0 50 0 0 3 12
+field -
+2 def 0 0 0 0 0 0 3 0 0 0 3
+field name
+2 identifier 1 0 0 0 0 4 5 0 4 0 5
+field parameters
+2 parameters 1 0 0 0 0 5 7 0 5 0 7
+field -
+3 ( 0 0 0 0 0 5 6 0 5 0 6
+field -
+3 ) 0 0 0 0 0 6 7 0 6 0 7
+field -
+2 : 0 0 0 0 0 7 8 0 7 0 8
+field body
+2 block 1 0 0 0 0 13 50 1 4 3 12
+field -
+3 if_statement 1 0 0 0 0 13 37 1 4 2 18
+field -
+4 if 0 0 0 0 0 13 15 1 4 1 6
+field condition
+4 identifier 1 0 0 0 0 16 17 1 7 1 8
+field -
+4 : 0 0 0 0 0 17 18 1 8 1 9
+field consequence
+4 block 1 0 0 0 0 27 37 2 8 2 18
+field -
+5 return_statement 1 0 0 0 0 27 37 2 8 2 18
+field -
+6 return 0 0 0 0 0 27 33 2 8 2 14
+field -
+6 list 1 0 0 0 0 34 37 2 15 2 18
+field -
+7 [ 0 0 0 0 0 34 35 2 15 2 16
+field -
+7 integer 1 0 0 0 0 35 36 2 16 2 17
+field -
+7 ] 0 0 0 0 0 36 37 2 17 2 18
+field -
+3 return_statement 1 0 0 0 0 42 50 3 4 3 12
+field -
+4 return 0 0 0 0 0 42 48 3 4 3 10
+field -
+4 integer 1 0 0 0 0 49 50 3 11 3 12
+field -
+1 expression_statement 1 0 0 0 0 51 58 4 0 4 7
+field -
+2 assignment 1 0 0 0 0 51 58 4 0 4 7
+field left
+3 identifier 1 0 0 0 0 51 52 4 0 4 1
+field -
+3 = 0 0 0 0 0 53 54 4 2 4 3
+field right
+3 call 1 0 0 0 0 55 58 4 4 4 7
+field function
+4 identifier 1 0 0 0 0 55 56 4 4 4 5
+field arguments
+4 argument_list 1 0 0 0 0 56 58 4 5 4 7
+field -
+5 ( 0 0 0 0 0 56 57 4 5 4 6
+field -
+5 ) 0 0 0 0 0 57 58 4 6 4 7
+@end
+@fresh
+0 module 1 0 0 0 0 0 59 0 0 5 0
+field -
+1 function_definition 1 0 0 0 0 0 50 0 0 3 12
+field -
+2 def 0 0 0 0 0 0 3 0 0 0 3
+field name
+2 identifier 1 0 0 0 0 4 5 0 4 0 5
+field parameters
+2 parameters 1 0 0 0 0 5 7 0 5 0 7
+field -
+3 ( 0 0 0 0 0 5 6 0 5 0 6
+field -
+3 ) 0 0 0 0 0 6 7 0 6 0 7
+field -
+2 : 0 0 0 0 0 7 8 0 7 0 8
+field body
+2 block 1 0 0 0 0 13 50 1 4 3 12
+field -
+3 if_statement 1 0 0 0 0 13 37 1 4 2 18
+field -
+4 if 0 0 0 0 0 13 15 1 4 1 6
+field condition
+4 identifier 1 0 0 0 0 16 17 1 7 1 8
+field -
+4 : 0 0 0 0 0 17 18 1 8 1 9
+field consequence
+4 block 1 0 0 0 0 27 37 2 8 2 18
+field -
+5 return_statement 1 0 0 0 0 27 37 2 8 2 18
+field -
+6 return 0 0 0 0 0 27 33 2 8 2 14
+field -
+6 list 1 0 0 0 0 34 37 2 15 2 18
+field -
+7 [ 0 0 0 0 0 34 35 2 15 2 16
+field -
+7 integer 1 0 0 0 0 35 36 2 16 2 17
+field -
+7 ] 0 0 0 0 0 36 37 2 17 2 18
+field -
+3 return_statement 1 0 0 0 0 42 50 3 4 3 12
+field -
+4 return 0 0 0 0 0 42 48 3 4 3 10
+field -
+4 integer 1 0 0 0 0 49 50 3 11 3 12
+field -
+1 expression_statement 1 0 0 0 0 51 58 4 0 4 7
+field -
+2 assignment 1 0 0 0 0 51 58 4 0 4 7
+field left
+3 identifier 1 0 0 0 0 51 52 4 0 4 1
+field -
+3 = 0 0 0 0 0 53 54 4 2 4 3
+field right
+3 call 1 0 0 0 0 55 58 4 4 4 7
+field function
+4 identifier 1 0 0 0 0 55 56 4 4 4 5
+field arguments
+4 argument_list 1 0 0 0 0 56 58 4 5 4 7
+field -
+5 ( 0 0 0 0 0 56 57 4 5 4 6
+field -
+5 ) 0 0 0 0 0 57 58 4 6 4 7
+@end
+@changed
+18 37 1 9 2 18
+@end

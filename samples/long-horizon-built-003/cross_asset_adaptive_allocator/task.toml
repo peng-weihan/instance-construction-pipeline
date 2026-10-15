@@ -1,0 +1,45 @@
+# LOCAL AUTHORING CONTRACT. Map to the contractor's Harbor schema when supplied.
+schema = "edgebench.local-task.v2"
+task_id = "cross_asset_adaptive_allocator"
+instruction = "instruction.md"
+submission_root = "submission"
+
+[agent]
+timeout_seconds = 21600
+network = "none"
+build_context = "environment/agent"
+dockerfile = "Dockerfile"
+
+[verifier]
+timeout_seconds = 1800
+network = "none"
+build_context = "environment/verifier"
+dockerfile = "Dockerfile"
+command = "python /judge/verifier/entry.py --submission /submission --suite feedback"
+stateless = true
+snapshot_only = true
+
+[build]
+network = "public"
+open_internet_justification = "Acquire pinned upstream compiler, libraries and engine sources during image construction. Runtime is offline."
+platforms = ["linux/amd64", "linux/arm64"]
+
+[score]
+kind = "local_bounded_continuous"
+direction = "higher_is_better"
+minimum = 0.0
+maximum = 1.0
+aggregation = "best_valid_submission_on_fixed_feedback_suite"
+metadata = "public/scoring_metadata.json"
+result_schema = "feedback_schema.json"
+
+[resources]
+cpus = 2
+memory_mb = 12288
+gpu = false
+
+[evidence]
+status = "constructed_unverified"
+runtime_runs = 0
+model_runs = 0
+official_harbor_schema_mapped = false

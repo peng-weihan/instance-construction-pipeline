@@ -1,0 +1,9 @@
+[package]
+name = "edgebench-toml-probe"
+version = "0.1.0"
+edition = "2024"
+[workspace]
+[dependencies]
+toml = { path = "../sources/toml-ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates/toml" }
+toml_edit = { path = "../sources/toml-ceac6e4412420d5a5c19e4f7293ad005cf1a31b2/crates/toml_edit", features = ["serde"] }
+serde_json = "=1.0.149"

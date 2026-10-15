@@ -1,0 +1,9 @@
+{
+  "public_only": true,
+  "model_runs": 0,
+  "residual_calls": 573,
+  "optimizer_nfev": 12,
+  "elapsed_seconds": 38.69061187497573,
+  "public_loss": 0.020049590590655066,
+  "starts_from": "public-data-only 1200-evaluation reference"
+}

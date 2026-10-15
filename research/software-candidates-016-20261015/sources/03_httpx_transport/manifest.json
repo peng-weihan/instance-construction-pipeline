@@ -1,0 +1,64 @@
+{
+  "id": "03_httpx_transport",
+  "repo": "encode/httpx",
+  "family": "engineering_evolution",
+  "new_source": true,
+  "title": "传输、重定向、认证与流式关闭的联合演进",
+  "files": [
+    "README.md",
+    "httpx/_client.py",
+    "httpx/_models.py",
+    "tests/client/test_async_client.py"
+  ],
+  "revision": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+  "retrieved_utc": "2026-10-15T09:20:28.953340+00:00",
+  "files_acquired": [
+    {
+      "path": "README.md",
+      "bytes": 4944,
+      "sha256": "d58f476c1273c9c06c978467c6596620d3840ea8c99ba9d32300ab3286f0e0c3",
+      "url": "https://github.com/encode/httpx/blob/b5addb64f0161ff6bfe94c124ef76f6a1fba5254/README.md"
+    },
+    {
+      "path": "httpx/_client.py",
+      "bytes": 65713,
+      "sha256": "ed717b3ac00debb48d089daeb4dd7fbaf47cb5642ebc4a6e76f3a2fc6cfc0f70",
+      "url": "https://github.com/encode/httpx/blob/b5addb64f0161ff6bfe94c124ef76f6a1fba5254/httpx/_client.py"
+    },
+    {
+      "path": "httpx/_models.py",
+      "bytes": 44697,
+      "sha256": "af118b075a5bcece608acbc989b221703935cbea128a4a98ca21a23ff3e860ac",
+      "url": "https://github.com/encode/httpx/blob/b5addb64f0161ff6bfe94c124ef76f6a1fba5254/httpx/_models.py"
+    },
+    {
+      "path": "tests/client/test_async_client.py",
+      "bytes": 11670,
+      "sha256": "b38b824378aed908f83f26fe0c5164e57a02f60bf1bd48fc63f2096efeda32ad",
+      "url": "https://github.com/encode/httpx/blob/b5addb64f0161ff6bfe94c124ef76f6a1fba5254/tests/client/test_async_client.py"
+    },
+    {
+      "path": "LICENSE.md",
+      "bytes": 1508,
+      "sha256": "4ec59d544f12b5f539a3a716fd321ac58ccd8030b465221f2c880200cdf28d8d",
+      "url": "https://github.com/encode/httpx/blob/b5addb64f0161ff6bfe94c124ef76f6a1fba5254/LICENSE.md"
+    }
+  ],
+  "missing_paths": [
+    "LICENSE",
+    "LICENSE.txt",
+    "COPYING",
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "runtime_validation": false,
+  "six_hour_difficulty_verified": false,
+  "tree_manifest": {
+    "path": "git-tree.json",
+    "sha256": "9d7c34d74e8e347d262494e15f8d91e1087400a16a9c153eb40ffaa0b4d5b0dc",
+    "blob_count": 125,
+    "truncated": false
+  },
+  "resolved_initial_404_paths": {},
+  "material_scope": "selected_primary_files_and_complete_git_tree_index_not_full_checkout_or_offline_dependencies"
+}

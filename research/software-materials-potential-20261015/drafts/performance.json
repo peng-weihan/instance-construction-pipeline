@@ -1,0 +1,562 @@
+[
+  {
+    "id": "34_duckdb",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "受限内存下聚合子系统优化：倾斜基数、宽状态与多线程组合，保持完整SQL结果。",
+    "difficulty_reason": "分区数、状态表示、外排、并行combine共同决定时间/内存；改善一个阶段可能增加另一个阶段I/O，存在多轮测量与结构改造的自然空间。",
+    "shortcut_risk": "当前已有自适应、perfect/dictionary/radix和状态溢写；threads/memory_limit及数据布局可能先解决大部分问题。",
+    "judge_plan": "冻结上游+独立小数据整数/字符串参考；无序结果规范化、浮点独立容差合同；原生 spill/parallel/recursive 回归。",
+    "residual_milestones": [
+      "正确支持并验证低内存宽状态及混合键负载",
+      "profile定位分区或状态搬运后改造，再检查跨负载退化和峰值资源"
+    ],
+    "first_probe": "先扫现有设置，再定位倾斜/状态导出热点；作者须做出一项超出配置的稳定改进，才冻结新优化合同。",
+    "stop_condition": "正常配置已覆盖目标，或受限内存下改进只转移成本而无稳定整体收益。",
+    "evidence": [
+      {
+        "path": "sources/34_duckdb/files/src/execution/radix_partitioned_hashtable.cpp",
+        "line": 246,
+        "claim": "外排分区数受 reservation、线程和 block 大小约束",
+        "url": "https://github.com/duckdb/duckdb/blob/dda2e4090494101087e7726581928e6af44dbc34/src/execution/radix_partitioned_hashtable.cpp#L246",
+        "upstream_path": "src/execution/radix_partitioned_hashtable.cpp"
+      },
+      {
+        "path": "sources/34_duckdb/files/test/sql/aggregate/aggregates/aggregate_state_spilling.test_slow",
+        "line": 1,
+        "claim": "原生测试已覆盖 arena-backed 状态 spilling、低内存并行和重复复用",
+        "url": "https://github.com/duckdb/duckdb/blob/dda2e4090494101087e7726581928e6af44dbc34/test/sql/aggregate/aggregates/aggregate_state_spilling.test_slow#L1",
+        "upstream_path": "test/sql/aggregate/aggregates/aggregate_state_spilling.test_slow"
+      }
+    ],
+    "caveat": "现有回归证明能力已存在，未证明剩余优化空间；完整引擎构建及内存资源隔离成本高。",
+    "read_scope": [
+      {
+        "path": "sources/34_duckdb/files/src/execution/radix_partitioned_hashtable.cpp",
+        "start": 241,
+        "end": 300,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/34_duckdb/files/test/sql/aggregate/aggregates/aggregate_state_spilling.test_slow",
+        "start": 1,
+        "end": 87,
+        "kind": "test_or_spec"
+      }
+    ],
+    "screening_priority": "P1",
+    "difficulty_empirically_verified": false,
+    "evidence_confidence": "targeted_snapshot_review"
+  },
+  {
+    "id": "35_simdjson",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "完整定义访问/验证合同的混合JSON流处理优化，包含文档边界、错误和资源。",
+    "difficulty_reason": "分批、扫描、解码与消费存在数据依赖；短长记录混合会使局部吞吐优化和分配/调度产生取舍。",
+    "shortcut_risk": "dispatch、缓冲复用和sliced/threaded路径已成熟；换成On-Demand但少检查字段会造成虚假提速。",
+    "judge_plan": "冻结上游同访问序列+独立标准解析器逐文档字段/数值/错误核验；原生 stream/UTF-8/截断测试。声明按需验证范围，独立严谨 harness 不沿用跳错吞掉错误。",
+    "residual_milestones": [
+      "建立逐文档字段/错误对照和批边界正确性",
+      "在强批次/并行基线后改善可复现热点，跨结构密度与转义负载验证"
+    ],
+    "first_probe": "比较已有dispatch、复用和分批并行；把任何跳过文档/未消费值剔除后，再尝试实际结构改进。",
+    "stop_condition": "收益来自原生调用方式、未完成规定访问/验证，或只对一ISA/seed成立。",
+    "evidence": [
+      {
+        "path": "sources/35_simdjson/files/include/simdjson/generic/ondemand/parser-inl.h",
+        "line": 24,
+        "claim": "已有容量及 string buffer 复用和扩容",
+        "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/include/simdjson/generic/ondemand/parser-inl.h#L24",
+        "upstream_path": "include/simdjson/generic/ondemand/parser-inl.h"
+      },
+      {
+        "path": "sources/35_simdjson/files/tests/ondemand/ondemand_document_stream_tests.cpp",
+        "line": 18,
+        "claim": "原生测试覆盖截断 UTF-8，且注释说明实现间错误检测时点差异",
+        "url": "https://github.com/simdjson/simdjson/blob/9c003534b1be3bc4f1322bfa7a770a7ffbf247d9/tests/ondemand/ondemand_document_stream_tests.cpp#L18",
+        "upstream_path": "tests/ondemand/ondemand_document_stream_tests.cpp"
+      }
+    ],
+    "caveat": "当前sliced基准会在部分错误后continue，不能直接成为评分oracle；要冻结错误暴露时点。",
+    "read_scope": [
+      {
+        "path": "sources/35_simdjson/files/include/simdjson/generic/ondemand/parser-inl.h",
+        "start": 24,
+        "end": 70,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/35_simdjson/files/tests/ondemand/ondemand_document_stream_tests.cpp",
+        "start": 1,
+        "end": 75,
+        "kind": "test_or_spec"
+      },
+      {
+        "path": "sources/35_simdjson/files/benchmark/bench_stream_formats.cpp",
+        "start": 147,
+        "end": 183,
+        "kind": "implementation"
+      }
+    ],
+    "screening_priority": "P2",
+    "difficulty_empirically_verified": false,
+    "evidence_confidence": "targeted_snapshot_review"
+  },
+  {
+    "id": "36_libvips",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "固定codec与像素/色彩合同下，多图缩略和ROI流水线的资源优化。",
+    "difficulty_reason": "区域求值、缓存、并发、alpha和颜色转换相互约束；降低重复求值可能增加内存，跨图调度又影响尾延迟。",
+    "shortcut_risk": "已有thumbnail、shrink-on-load、UCHAR alpha快路径、Highway与缓存配置；调用错误API形成的慢基线没有价值。",
+    "judge_plan": "冻结上游+独立小图标量参考，尺寸/像素/舍入/alpha/orientation/颜色逐项核验；精确与浮点路径分别合同，不以原生平均值检查替代完整 oracle。",
+    "residual_milestones": [
+      "建立逐像素/颜色/alpha语义与真正sink求值的基线",
+      "改进经profile确认的区域搬运或调度热点，同时守住内存与长尾"
+    ],
+    "first_probe": "强thumbnail/SIMD/cache/concurrency配置后，分离外部codec与内部区域成本，作者验证可重复的内部改进。",
+    "stop_condition": "瓶颈完全在不修改的codec，或提速依靠牺牲linear-light/alpha/质量合同。",
+    "evidence": [
+      {
+        "path": "sources/36_libvips/files/libvips/resample/thumbnail.c",
+        "line": 496,
+        "claim": "linear-light 合同限制 JPEG 的 Y 空间 shrink-on-load",
+        "url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/libvips/resample/thumbnail.c#L496",
+        "upstream_path": "libvips/resample/thumbnail.c"
+      },
+      {
+        "path": "sources/36_libvips/files/test/test-suite/test_resample.py",
+        "line": 176,
+        "claim": "thumbnail 原生测试覆盖尺寸/crop/多页/RGBA，但部分为平均值而非逐像素 oracle",
+        "url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/test/test-suite/test_resample.py#L176",
+        "upstream_path": "test/test-suite/test_resample.py"
+      }
+    ],
+    "caveat": "原生部分测试只比较平均值；作者需补独立像素判据，完整依赖和分架构构建未验证。",
+    "read_scope": [
+      {
+        "path": "sources/36_libvips/files/libvips/resample/thumbnail.c",
+        "start": 490,
+        "end": 520,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/36_libvips/files/libvips/resample/thumbnail.c",
+        "start": 878,
+        "end": 935,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/36_libvips/files/test/test-suite/test_resample.py",
+        "start": 176,
+        "end": 225,
+        "kind": "test_or_spec"
+      }
+    ],
+    "screening_priority": "P1",
+    "difficulty_empirically_verified": false,
+    "evidence_confidence": "targeted_snapshot_review"
+  },
+  {
+    "id": "57_lz4",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "medium",
+    "recommended_scope": "固定标准兼容和资源合同的多块LZ4编码优化，必要时计入解码成本。",
+    "difficulty_reason": "匹配搜索深度、字典复用、输出大小和拷贝效率彼此牵制；相似短块与不可压缩块需要不同策略。",
+    "shortcut_risk": "acceleration/HC/块大小/字典已提供大量取舍；仅换参数不证明有结构剩余空间。",
+    "judge_plan": "固定上游交叉编解码、逐字节 roundtrip、截断/损坏流失败边界；原生 fuzzer 与 frame 规范。基准 XXH 仅是辅助，不能替代逐字节 oracle。",
+    "residual_milestones": [
+      "交叉编解码与边界安全保持正确",
+      "越过正常参数前沿后改善匹配/状态复用，并检查跨块和不可压缩输入回退"
+    ],
+    "first_probe": "先绘制已有配置的大小/编码时间/解码时间/内存前沿，作者做出跨独立语料族的非调参改进。",
+    "stop_condition": "收益只是调参、关闭安全检查，或只记住固定语料而无新分布收益。",
+    "evidence": [
+      {
+        "path": "sources/57_lz4/files/lib/lz4.c",
+        "line": 479,
+        "claim": "x86 和 aarch64 的既有 fast decode 配置",
+        "url": "https://github.com/lz4/lz4/blob/48bfbfe351c5d6ea87d4af5557705e87755844e0/lib/lz4.c#L479",
+        "upstream_path": "lib/lz4.c"
+      },
+      {
+        "path": "sources/57_lz4/files/lib/lz4.c",
+        "line": 1036,
+        "claim": "匹配搜索已有 acceleration 跳步",
+        "url": "https://github.com/lz4/lz4/blob/48bfbfe351c5d6ea87d4af5557705e87755844e0/lib/lz4.c#L1036",
+        "upstream_path": "lib/lz4.c"
+      },
+      {
+        "path": "sources/57_lz4/files/tests/fuzzer.c",
+        "line": 430,
+        "claim": "原生fuzzer核查目标缓冲边界、解码长度和内容hash；正式oracle仍需逐字节比较",
+        "url": "https://github.com/lz4/lz4/blob/48bfbfe351c5d6ea87d4af5557705e87755844e0/tests/fuzzer.c#L430"
+      }
+    ],
+    "caveat": "核心离线环境较轻，但算法成熟；原生fuzzer常用hash检查，正式oracle应逐字节比较。",
+    "read_scope": [
+      {
+        "path": "sources/57_lz4/files/lib/lz4.c",
+        "start": 479,
+        "end": 505,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/57_lz4/files/lib/lz4.c",
+        "start": 1025,
+        "end": 1080,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/57_lz4/files/tests/fuzzer.c",
+        "start": 430,
+        "end": 475,
+        "kind": "test_or_spec"
+      },
+      {
+        "path": "sources/57_lz4/files/doc/lz4_Frame_format.md",
+        "start": 30,
+        "end": 64,
+        "kind": "test_or_spec"
+      }
+    ],
+    "screening_priority": "P1",
+    "difficulty_empirically_verified": false,
+    "evidence_confidence": "targeted_snapshot_review"
+  },
+  {
+    "id": "58_lucene",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "固定索引与score/tie/totalHits合同的混合布尔top-k检索优化。",
+    "difficulty_reason": "安全跳过依赖保守分数上界、collector反馈与segment推进；局部错误会漏候选，segment倾斜又引出调度与合并代价。",
+    "shortcut_risk": "已有block-max WAND、MaxScore、缓存和并行slice；改变totalHits精确性或查询语义不能当提速。",
+    "judge_plan": "冻结上游结果+小索引穷举完整评分；逐一比较 docID/score/tie/totalHits 语义；原生 WAND scaling 和 basics/random tests。",
+    "residual_milestones": [
+      "小索引穷举评分、docID/score/tie及totalHits对照",
+      "在强JIT/查询计划/并行设置后改善迭代或segment调度，并检查p95与分配"
+    ],
+    "first_probe": "先对频率混合、minShouldMatch和多segment矩阵测强计划；profile后验证至少一个保持竞争分数安全的改进。",
+    "stop_condition": "收益仅来自热身/缓存或弱totalHits合同，或现有计划已消除目标热点。",
+    "evidence": [
+      {
+        "path": "sources/58_lucene/files/lucene/core/src/java/org/apache/lucene/search/WANDScorer.java",
+        "line": 55,
+        "claim": "已有 block-max WAND 实现和竞争分数反馈",
+        "url": "https://github.com/apache/lucene/blob/8476457b8752be2fd8094eaf5cd9bf0cea9594ae/lucene/core/src/java/org/apache/lucene/search/WANDScorer.java#L55",
+        "upstream_path": "lucene/core/src/java/org/apache/lucene/search/WANDScorer.java"
+      },
+      {
+        "path": "sources/58_lucene/files/lucene/core/src/test/org/apache/lucene/search/TestWANDScorer.java",
+        "line": 90,
+        "claim": "原生索引查询正确性测试",
+        "url": "https://github.com/apache/lucene/blob/8476457b8752be2fd8094eaf5cd9bf0cea9594ae/lucene/core/src/test/org/apache/lucene/search/TestWANDScorer.java#L90",
+        "upstream_path": "lucene/core/src/test/org/apache/lucene/search/TestWANDScorer.java"
+      }
+    ],
+    "caveat": "小数边界与JIT波动需要专门控制；不把庞大Java项目规模当难度证据。",
+    "read_scope": [
+      {
+        "path": "sources/58_lucene/files/lucene/core/src/java/org/apache/lucene/search/WANDScorer.java",
+        "start": 45,
+        "end": 135,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/58_lucene/files/lucene/core/src/test/org/apache/lucene/search/TestWANDScorer.java",
+        "start": 90,
+        "end": 155,
+        "kind": "test_or_spec"
+      }
+    ],
+    "screening_priority": "P1",
+    "difficulty_empirically_verified": false,
+    "evidence_confidence": "targeted_snapshot_review"
+  },
+  {
+    "id": "59_re2",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "保持RE2捕获与first/longest语义，在固定内存预算下优化共享模式匹配。",
+    "difficulty_reason": "DFA容量、回退引擎和捕获输出形成同一语义链，缓存同步/清空还带来并发状态与长尾。",
+    "shortcut_risk": "现有DFA/one-pass/bitstate/NFA已按条件选择；max_mem和编译复用可能直接覆盖拟热点。",
+    "judge_plan": "冻结上游+小规模穷举参考，逐项比较 match/span/captures 与错误；原生 DFA memory/multithread tests 和搜索差分测试。",
+    "residual_milestones": [
+      "分别核验匹配范围、捕获顺序与内存不足回退",
+      "强复用/预算基线后改进缓存或选择开销，并保持安全与多线程一致性"
+    ],
+    "first_probe": "先扫合法max_mem、复用和线程，确认性能剩余来自内部状态管理而非重复编译。",
+    "stop_condition": "只有重复编译的调用误用、削弱捕获语义或线性安全保证才能产生收益。",
+    "evidence": [
+      {
+        "path": "sources/59_re2/files/re2/re2.cc",
+        "line": 734,
+        "claim": "已有多引擎选择条件",
+        "url": "https://github.com/google/re2/blob/2da0056814cf180480a19f5cf811e7e1c054bf6d/re2/re2.cc#L734",
+        "upstream_path": "re2/re2.cc"
+      },
+      {
+        "path": "sources/59_re2/files/re2/testing/dfa_test.cc",
+        "line": 53,
+        "claim": "原生共享 DFA 并行构造测试",
+        "url": "https://github.com/google/re2/blob/2da0056814cf180480a19f5cf811e7e1c054bf6d/re2/testing/dfa_test.cc#L53",
+        "upstream_path": "re2/testing/dfa_test.cc"
+      }
+    ],
+    "caveat": "共享缓存的竞态需要压力/检查器与确定性语义分开；不能把压力等待算长程工作。",
+    "read_scope": [
+      {
+        "path": "sources/59_re2/files/re2/re2.cc",
+        "start": 734,
+        "end": 790,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/59_re2/files/re2/re2.cc",
+        "start": 875,
+        "end": 917,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/59_re2/files/re2/testing/dfa_test.cc",
+        "start": 53,
+        "end": 132,
+        "kind": "test_or_spec"
+      }
+    ],
+    "screening_priority": "P2",
+    "difficulty_empirically_verified": false,
+    "evidence_confidence": "targeted_snapshot_review"
+  },
+  {
+    "id": "60_fast_float",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "medium",
+    "recommended_scope": "精确舍入与返回指针/错误合同下的十进制解析内核优化。",
+    "difficulty_reason": "词法、快速数值路径和高精度回退必须共享正确边界；半ULP、次正规与极值可推翻常见近似，虽范围小也有技术深度。",
+    "shortcut_risk": "当前已优化Clinger和长数字回退；普通本机编译/调用布局可能留下极少可测空间。",
+    "judge_plan": "MPFR 或整数有理数精确舍入参考+冻结上游，比较 IEEE 位、负零、返回指针/ec；原生不同 rounding-mode 测试。NaN 按已订语义而非未规定 payload 比较。",
+    "residual_milestones": [
+      "建立独立精确舍入和终止指针/ec判据",
+      "定位混合负载热点，改进扫描或中间信息复用并逐位验证边界"
+    ],
+    "first_probe": "使用MPFR或整数有理数oracle，先测强编译与调用布局；作者证明一个语义不降级的稳定改进。",
+    "stop_condition": "只需换API/编译选项，或收益被噪声覆盖/依赖fast-math弱化语义。",
+    "evidence": [
+      {
+        "path": "sources/60_fast_float/files/include/fast_float/parse_number.h",
+        "line": 219,
+        "claim": "已有 Clinger 快路径及舍入环境处理",
+        "url": "https://github.com/fastfloat/fast_float/blob/166d2b3df29cf8101bb715bde2125610881df791/include/fast_float/parse_number.h#L219",
+        "upstream_path": "include/fast_float/parse_number.h"
+      },
+      {
+        "path": "sources/60_fast_float/files/tests/basictest.cpp",
+        "line": 172,
+        "claim": "原生测试在不同舍入模式核验零位模式",
+        "url": "https://github.com/fastfloat/fast_float/blob/166d2b3df29cf8101bb715bde2125610881df791/tests/basictest.cpp#L172",
+        "upstream_path": "tests/basictest.cpp"
+      }
+    ],
+    "caveat": "当前代码已处理非默认舍入环境，不能把它当新缺口；难度上限高但长程优化余量证据弱。",
+    "read_scope": [
+      {
+        "path": "sources/60_fast_float/files/include/fast_float/parse_number.h",
+        "start": 219,
+        "end": 263,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/60_fast_float/files/include/fast_float/parse_number.h",
+        "start": 298,
+        "end": 344,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/60_fast_float/files/tests/basictest.cpp",
+        "start": 155,
+        "end": 222,
+        "kind": "test_or_spec"
+      }
+    ],
+    "screening_priority": "P3",
+    "difficulty_empirically_verified": false,
+    "evidence_confidence": "targeted_snapshot_review"
+  },
+  {
+    "id": "61_libjxl",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "固定整数像素/alpha/位深的无损Modular编码优化，比较标准码流大小与资源。",
+    "difficulty_reason": "变换、预测/建树与熵编码有跨阶段统计依赖；更精细搜索可以缩小码流同时拉高时间和内存，适合真实多目标搜索。",
+    "shortcut_risk": "已有effort、palette和成本评估回撤；单纯提高effort或改变orientation合同不构成结构改进。",
+    "judge_plan": "冻结上游交叉解码、逐像素含 alpha/位深校对、标准码流解码；元数据/方向独立合同。benchmark 也特别固定 orientation，不能忽略其设置。",
+    "residual_milestones": [
+      "交叉解码并逐像素验证包含alpha和位深",
+      "强effort/线程前沿后共享统计或改善建树/缓冲，再验证码流大小及时间资源"
+    ],
+    "first_probe": "预置完整依赖，先测现有参数前沿；作者在独立图族验证保持无损的非调参改进。",
+    "stop_condition": "收益只是选effort、丢元数据/alpha，或固定图集特化无法跨族泛化。",
+    "evidence": [
+      {
+        "path": "sources/61_libjxl/files/lib/jxl/enc_modular.cc",
+        "line": 314,
+        "claim": "已有 speed-tier 控制变换搜索",
+        "url": "https://github.com/libjxl/libjxl/blob/ef67fde2ec16d52e644c5a0969230b9a85e3eb31/lib/jxl/enc_modular.cc#L314",
+        "upstream_path": "lib/jxl/enc_modular.cc"
+      },
+      {
+        "path": "sources/61_libjxl/files/lib/jxl/enc_modular.cc",
+        "line": 333,
+        "claim": "已有按成本/颜色数选择 palette 的机制",
+        "url": "https://github.com/libjxl/libjxl/blob/ef67fde2ec16d52e644c5a0969230b9a85e3eb31/lib/jxl/enc_modular.cc#L333",
+        "upstream_path": "lib/jxl/enc_modular.cc"
+      }
+    ],
+    "caveat": "本次有实现和官方effort规格选读，没有原生编码正确性测试选读；gold与完整依赖未构建。",
+    "read_scope": [
+      {
+        "path": "sources/61_libjxl/files/lib/jxl/enc_modular.cc",
+        "start": 310,
+        "end": 365,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/61_libjxl/files/doc/encode_effort.md",
+        "start": 1,
+        "end": 49,
+        "kind": "test_or_spec"
+      },
+      {
+        "path": "sources/61_libjxl/files/tools/benchmark/benchmark_codec_jxl.cc",
+        "start": 310,
+        "end": 344,
+        "kind": "implementation"
+      }
+    ],
+    "screening_priority": "P2",
+    "difficulty_empirically_verified": false,
+    "evidence_confidence": "targeted_snapshot_review"
+  },
+  {
+    "id": "62_lmdb",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "保持MVCC和持久确认的页复用/COW子系统优化，含长快照与反复更新。",
+    "difficulty_reason": "旧快照限制可回收页，页分配/复制与提交共同决定空间和写延迟；错误回收可在后续历史读取才显现。",
+    "shortcut_risk": "事务批次/mapsize/游标复用及OS cache可能解释差异；NOSYNC或提前结束必要快照会偷换合同。",
+    "judge_plan": "冻结上游+内存有序映射校对每次读写/abort/快照历史，重开校对；独立进程崩溃注入仅在后续容器验证。原生 mtest 是回归素材，不是完整耐久 oracle。",
+    "residual_milestones": [
+      "有序状态模型验证commit/abort、历史读与重开",
+      "固定durability后优化已证实的空闲页搜索或复制热点，并验证资源及恢复"
+    ],
+    "first_probe": "固定文件系统/fsync合同，控制缓存和快照生命周期，先做强配置再验证页热点与作者改进。",
+    "stop_condition": "收益来自少同步、结束必要快照、换存储/缓存状态，或无可复现内部热点。",
+    "evidence": [
+      {
+        "path": "sources/62_lmdb/files/libraries/liblmdb/mdb.c",
+        "line": 2704,
+        "claim": "已有 loose/FreeDB 分配与连续范围搜索",
+        "url": "https://github.com/LMDB/lmdb/blob/253ba5219172531b719bc14fee6b4aa1a2a5c4a5/libraries/liblmdb/mdb.c#L2704",
+        "upstream_path": "libraries/liblmdb/mdb.c"
+      },
+      {
+        "path": "sources/62_lmdb/files/libraries/liblmdb/mtest.c",
+        "line": 24,
+        "claim": "原生事务插入、commit 和 cursor 遍历测试",
+        "url": "https://github.com/LMDB/lmdb/blob/253ba5219172531b719bc14fee6b4aa1a2a5c4a5/libraries/liblmdb/mtest.c#L24",
+        "upstream_path": "libraries/liblmdb/mtest.c"
+      }
+    ],
+    "caveat": "存储噪声和跨平台mmap/fsync成本高；本次mtest只支持功能素材，不证明完整耐久判据。",
+    "read_scope": [
+      {
+        "path": "sources/62_lmdb/files/libraries/liblmdb/mdb.c",
+        "start": 2651,
+        "end": 2682,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/62_lmdb/files/libraries/liblmdb/mdb.c",
+        "start": 2704,
+        "end": 2770,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/62_lmdb/files/libraries/liblmdb/mtest.c",
+        "start": 24,
+        "end": 100,
+        "kind": "test_or_spec"
+      }
+    ],
+    "screening_priority": "P3",
+    "difficulty_empirically_verified": false,
+    "evidence_confidence": "targeted_snapshot_review"
+  },
+  {
+    "id": "63_onetbb",
+    "tier": "B",
+    "potential": "high",
+    "authoring_cost": "high",
+    "recommended_scope": "固定有实际计算内容的嵌套任务图，优化多arena执行和唤醒资源。",
+    "difficulty_reason": "任务可见性、隔离上下文、worker demand与通知共同决定是否丢任务及长尾；调度优化会改变并行度与局部性。",
+    "shortcut_risk": "已有auto/simple/affinity partitioner、grain和arena控制；改应用任务粒度往往比改调度器更直接。",
+    "judge_plan": "任务图确定性输出+执行计数/依赖顺序与并发上限日志，原生 task_arena 进入/attach/concurrent tests；后续 TSAN/压力测试不能替代输出检查。",
+    "residual_milestones": [
+      "独立账本验证任务次数、依赖与资源上限",
+      "强粒度/partitioner基线后改进已证实的唤醒/队列热点，再检查取消与嵌套"
+    ],
+    "first_probe": "先用正常任务分解与API调参，排除空任务伪负载；作者在实质计算DAG上验证跨形态内部改进。",
+    "stop_condition": "仅grain/并发限制就已足够、收益只出现在空任务，或正确性依赖偶然调度。",
+    "evidence": [
+      {
+        "path": "sources/63_onetbb/files/src/tbb/arena.cpp",
+        "line": 364,
+        "claim": "arena 维护局部、FIFO、resume 等既有任务检查",
+        "url": "https://github.com/uxlfoundation/oneTBB/blob/885b7813d38de698a9942e5026ad1bd9d16125d9/src/tbb/arena.cpp#L364",
+        "upstream_path": "src/tbb/arena.cpp"
+      },
+      {
+        "path": "sources/63_onetbb/files/test/tbb/test_task_arena.cpp",
+        "line": 1908,
+        "claim": "原生并发 arena 测试",
+        "url": "https://github.com/uxlfoundation/oneTBB/blob/885b7813d38de698a9942e5026ad1bd9d16125d9/test/tbb/test_task_arena.cpp#L1908",
+        "upstream_path": "test/tbb/test_task_arena.cpp"
+      }
+    ],
+    "caveat": "并发确定性harness和性能噪声均较难；源码TODO只是优化线索，不是收益或缺陷证明。",
+    "read_scope": [
+      {
+        "path": "sources/63_onetbb/files/src/tbb/arena.cpp",
+        "start": 364,
+        "end": 430,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/63_onetbb/files/src/tbb/task_dispatcher.cpp",
+        "start": 31,
+        "end": 73,
+        "kind": "implementation"
+      },
+      {
+        "path": "sources/63_onetbb/files/test/tbb/test_task_arena.cpp",
+        "start": 1890,
+        "end": 1951,
+        "kind": "test_or_spec"
+      }
+    ],
+    "screening_priority": "P3",
+    "difficulty_empirically_verified": false,
+    "evidence_confidence": "targeted_snapshot_review"
+  }
+]

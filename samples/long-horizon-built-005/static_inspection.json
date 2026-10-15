@@ -1,0 +1,90 @@
+{
+  "scope": "static source/package/material inspection only",
+  "solver_runs": 0,
+  "grader_runs": 0,
+  "docker_builds": 0,
+  "tasks": [
+    {
+      "task_id": "restler_resilient_execution",
+      "manifest_files": 1464,
+      "python_sources_parsed": 14,
+      "separate_build_contexts": true,
+      "hashes_match": true,
+      "manifest_complete": true,
+      "scoring_metadata_consistent": true,
+      "grader_loads_scoring_metadata": true,
+      "behavior_checks": {
+        "public": 7,
+        "feedback": 36,
+        "audit": 7
+      }
+    },
+    {
+      "task_id": "layered_aquifer_source_lab",
+      "manifest_files": 66,
+      "python_sources_parsed": 8,
+      "separate_build_contexts": true,
+      "hashes_match": true,
+      "manifest_complete": true,
+      "scoring_metadata_consistent": true,
+      "grader_loads_scoring_metadata": true,
+      "observations": {
+        "public": 96,
+        "feedback": 96,
+        "audit": 180
+      }
+    },
+    {
+      "task_id": "industrial_nesting_improvement",
+      "manifest_files": 3222,
+      "python_sources_parsed": 9,
+      "separate_build_contexts": true,
+      "hashes_match": true,
+      "manifest_complete": true,
+      "scoring_metadata_consistent": true,
+      "grader_loads_scoring_metadata": true,
+      "workloads": 27,
+      "geometry_families": 8
+    },
+    {
+      "task_id": "brownian_multibranch_proofs",
+      "manifest_files": 381,
+      "python_sources_parsed": 6,
+      "separate_build_contexts": true,
+      "hashes_match": true,
+      "manifest_complete": true,
+      "scoring_metadata_consistent": true,
+      "grader_loads_scoring_metadata": true,
+      "reference_proof_bodies": 31
+    },
+    {
+      "task_id": "cross_asset_adaptive_allocator",
+      "manifest_files": 82,
+      "python_sources_parsed": 8,
+      "separate_build_contexts": true,
+      "hashes_match": true,
+      "manifest_complete": true,
+      "scoring_metadata_consistent": true,
+      "grader_loads_scoring_metadata": true,
+      "price_rows": {
+        "train": 2414,
+        "dev": 1006,
+        "feedback": 756,
+        "audit": 752
+      },
+      "protocol_deadline_sum_seconds": 2032
+    },
+    {
+      "task_id": "wesnoth_frontier_campaign_ai",
+      "manifest_files": 161,
+      "python_sources_parsed": 5,
+      "separate_build_contexts": true,
+      "hashes_match": true,
+      "manifest_complete": true,
+      "scoring_metadata_consistent": true,
+      "grader_loads_scoring_metadata": true,
+      "unique_maps": 9,
+      "audit_game_deadline_sum_seconds": 1440
+    }
+  ]
+}

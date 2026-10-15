@@ -1,0 +1,36 @@
+{
+  "retrieved_date": "2026-10-15",
+  "method": "web open primary official GitHub pages; WNTR official documentation fallback",
+  "urls": [
+    "https://github.com/google-deepmind/open_spiel",
+    "https://github.com/Farama-Foundation/Minigrid",
+    "https://github.com/Farama-Foundation/MAgent2",
+    "https://github.com/Lux-AI-Challenge/Lux-Design-S2",
+    "https://github.com/google-deepmind/hanabi-learning-environment",
+    "https://github.com/flatland-association/flatland-rl",
+    "https://github.com/microsoft/TextWorld",
+    "https://github.com/HaliteChallenge/Halite-III",
+    "https://github.com/MultiAgentLearning/playground",
+    "https://github.com/screeps/engine",
+    "https://github.com/PyPSA/PyPSA",
+    "https://github.com/USEPA/WNTR",
+    "https://github.com/gem/oq-engine",
+    "https://github.com/TUDelft-CNS-ATM/bluesky",
+    "https://github.com/UDST/urbansim",
+    "https://usepa.github.io/WNTR/"
+  ],
+  "fragments": [
+    {
+      "path": "drafts/official-games-knowledge-web-1.txt",
+      "bytes": 11491,
+      "sha256": "0270c062857824123b523548f0f0c08f12c0c4560418c9a4d56daeb2984f5444"
+    },
+    {
+      "path": "drafts/official-games-knowledge-web-2.txt",
+      "bytes": 3605,
+      "sha256": "b4e62397140cd3c378a0de1d23301da7ca441b25070c59bed0960199f02dca02"
+    }
+  ],
+  "scope": "Online ownership/title confirmation only; pinned source evidence separately in per-source manifests",
+  "additional_body": "sources/k07_wntr/official-documentation.json"
+}

@@ -1,0 +1,63 @@
+{
+  "repo": "pydantic/pydantic",
+  "revision": "8cd3bec6c7e1d360d92193841613465d30f63955",
+  "resolved_utc": "2026-10-15T13:32:45.582200+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:33:48.808955+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "7679310e627b01097c62a121d3c35a1c9f2707e3d52d08b215a6d6f657adfb73",
+    "truncated": false,
+    "blob_count": 851
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 1129,
+      "sha256": "a9e186f3ca16b5eef84318e7a701721351a00cb7b8ae3a4394b67b49e3529ef3",
+      "url": "https://github.com/pydantic/pydantic/blob/8cd3bec6c7e1d360d92193841613465d30f63955/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3599,
+      "sha256": "48d13886eca6541ad714bcd7cfaa2c31cefc2335a83ea6c4ef301a23a2cad374",
+      "url": "https://github.com/pydantic/pydantic/blob/8cd3bec6c7e1d360d92193841613465d30f63955/README.md"
+    },
+    {
+      "path": "pydantic-core/Cargo.toml",
+      "bytes": 2854,
+      "sha256": "d8fa62b571427090c6068771389c774a91be9b1c893ce6c2e8ec02988b383b1b",
+      "url": "https://github.com/pydantic/pydantic/blob/8cd3bec6c7e1d360d92193841613465d30f63955/pydantic-core/Cargo.toml"
+    },
+    {
+      "path": "pydantic-core/src/serializers/type_serializers/model.rs",
+      "bytes": 11300,
+      "sha256": "278bda6787a91b37dd24a4d68ed2791221694a07bccabc22edd3f88f55af834d",
+      "url": "https://github.com/pydantic/pydantic/blob/8cd3bec6c7e1d360d92193841613465d30f63955/pydantic-core/src/serializers/type_serializers/model.rs"
+    },
+    {
+      "path": "pydantic-core/src/validators/union.rs",
+      "bytes": 16263,
+      "sha256": "c1d53a6ba5750315b2be8781ab672f2ae6f1d46decdf09efddf1a3f3de56effe",
+      "url": "https://github.com/pydantic/pydantic/blob/8cd3bec6c7e1d360d92193841613465d30f63955/pydantic-core/src/validators/union.rs"
+    },
+    {
+      "path": "pydantic-core/tests/serializers/test_model.py",
+      "bytes": 47352,
+      "sha256": "ef371513abd74b18d44838c0db24bc786097fa1bf020d348d08496b741cb1ce6",
+      "url": "https://github.com/pydantic/pydantic/blob/8cd3bec6c7e1d360d92193841613465d30f63955/pydantic-core/tests/serializers/test_model.py"
+    },
+    {
+      "path": "pydantic-core/tests/validators/test_union.py",
+      "bytes": 51515,
+      "sha256": "6851a75993ff858099b6e918f7396f2a3353e59ad8e63cb67bb26c005b91471b",
+      "url": "https://github.com/pydantic/pydantic/blob/8cd3bec6c7e1d360d92193841613465d30f63955/pydantic-core/tests/validators/test_union.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

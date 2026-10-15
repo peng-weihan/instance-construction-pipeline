@@ -1,0 +1,75 @@
+{
+  "repo": "tox-dev/tox",
+  "revision": "d947dd4e43388f727bb534c3f0ad7997d76b4767",
+  "resolved_utc": "2026-10-15T13:30:20.146397+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:31:10.528386+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "741c2394c33bf0314916f18b76e0c4479f7d2563460b98b7957e4371ed9c539d",
+    "truncated": false,
+    "blob_count": 326
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 1023,
+      "sha256": "90e25e1faf2a4aaea8d95ee8e7f5738b052a1acc0c9c58068101f931a86bd588",
+      "url": "https://github.com/tox-dev/tox/blob/d947dd4e43388f727bb534c3f0ad7997d76b4767/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1551,
+      "sha256": "43f378c53af8d945d4b06726789058a0cb808d70266c5c0f32b08aa007eb1511",
+      "url": "https://github.com/tox-dev/tox/blob/d947dd4e43388f727bb534c3f0ad7997d76b4767/README.md"
+    },
+    {
+      "path": "docs/reference/config.rst",
+      "bytes": 130512,
+      "sha256": "599653b5f8dc92f89faffce7f3c9ed13e7293b556561b1f2386354274e6a1482",
+      "url": "https://github.com/tox-dev/tox/blob/d947dd4e43388f727bb534c3f0ad7997d76b4767/docs/reference/config.rst"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 10287,
+      "sha256": "65292e51d8757505fe1d81242bc06ddfab353f74966782bec1ddad215f3c3339",
+      "url": "https://github.com/tox-dev/tox/blob/d947dd4e43388f727bb534c3f0ad7997d76b4767/pyproject.toml"
+    },
+    {
+      "path": "src/tox/session/cmd/run/common.py",
+      "bytes": 24495,
+      "sha256": "feef431802d7da37c7c469abe4d501f05c5b8f956a89859d4a4d96d1e16e05cf",
+      "url": "https://github.com/tox-dev/tox/blob/d947dd4e43388f727bb534c3f0ad7997d76b4767/src/tox/session/cmd/run/common.py"
+    },
+    {
+      "path": "src/tox/session/cmd/run/parallel.py",
+      "bytes": 3059,
+      "sha256": "2320557a5429e5e3fda9789b1b06b4ae99c017a1fec3f05829a9d012edb0b6a3",
+      "url": "https://github.com/tox-dev/tox/blob/d947dd4e43388f727bb534c3f0ad7997d76b4767/src/tox/session/cmd/run/parallel.py"
+    },
+    {
+      "path": "src/tox/tox_env/api.py",
+      "bytes": 25680,
+      "sha256": "f3ebe88fa6d67770099f41d388e7e65015ea3dabe2d366972867f738d0489f2c",
+      "url": "https://github.com/tox-dev/tox/blob/d947dd4e43388f727bb534c3f0ad7997d76b4767/src/tox/tox_env/api.py"
+    },
+    {
+      "path": "tests/session/cmd/test_depends.py",
+      "bytes": 6039,
+      "sha256": "7f63248925da38ebb8d1398c4034b3cb02103e4c58a0503940b78e51ddcb09b7",
+      "url": "https://github.com/tox-dev/tox/blob/d947dd4e43388f727bb534c3f0ad7997d76b4767/tests/session/cmd/test_depends.py"
+    },
+    {
+      "path": "tests/session/cmd/test_parallel.py",
+      "bytes": 12507,
+      "sha256": "a7526780c30b04906734199732ab242f8f70662bad5c19c3ff6f0ba9d12fbe2f",
+      "url": "https://github.com/tox-dev/tox/blob/d947dd4e43388f727bb534c3f0ad7997d76b4767/tests/session/cmd/test_parallel.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

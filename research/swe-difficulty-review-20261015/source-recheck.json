@@ -1,0 +1,535 @@
+{
+  "observed_utc": "2026-10-15T12:28:46.362169+00:00",
+  "checked_files": 88,
+  "all_unchanged": true,
+  "checks": [
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/AUTHOR_RESULT.json",
+      "expected_sha256": "da25a49a617d90777a9e4706857e3262b846e269314c79f663baee57f225b288",
+      "observed_sha256": "da25a49a617d90777a9e4706857e3262b846e269314c79f663baee57f225b288",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/instruction.md",
+      "expected_sha256": "6a0d6b3f6a0f29c70b090c8b1d6636f10007370b0f192e77d5da22548cd5ecfc",
+      "observed_sha256": "6a0d6b3f6a0f29c70b090c8b1d6636f10007370b0f192e77d5da22548cd5ecfc",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/DIFFICULTY.md",
+      "expected_sha256": "d6cb58859bf529e6b8529401376b9ffb86bc808602ebed99cd9cc5ee46aecb51",
+      "observed_sha256": "d6cb58859bf529e6b8529401376b9ffb86bc808602ebed99cd9cc5ee46aecb51",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/MATERIALS.md",
+      "expected_sha256": "791068def6cc8a5ab22383e27c36ac10f3823d897745fd32cee6394fe54eac24",
+      "observed_sha256": "791068def6cc8a5ab22383e27c36ac10f3823d897745fd32cee6394fe54eac24",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/AUTHORING_REPORT.json",
+      "expected_sha256": "1cf9d4dc4bda67783f805f62c97118f8999b5949c5f932abe900bf75f14a4318",
+      "observed_sha256": "1cf9d4dc4bda67783f805f62c97118f8999b5949c5f932abe900bf75f14a4318",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/task.toml",
+      "expected_sha256": "a6eb07bdc7cc3fe7f49ae725d58494278de55897d45d7361c250b2d9b2f4d50e",
+      "observed_sha256": "a6eb07bdc7cc3fe7f49ae725d58494278de55897d45d7361c250b2d9b2f4d50e",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/pipeline-profile.json",
+      "expected_sha256": "b4adcf54150eb5765327b14007efde5c154cdc28092fe2e36990b4098f3dc425",
+      "observed_sha256": "b4adcf54150eb5765327b14007efde5c154cdc28092fe2e36990b4098f3dc425",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/authoring/score-spec.json",
+      "expected_sha256": "488615cb6d745a238a21d06542c1b90c8c4725d512a2cc81c2cf6e6d1276f125",
+      "observed_sha256": "488615cb6d745a238a21d06542c1b90c8c4725d512a2cc81c2cf6e6d1276f125",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/tests/grader.py",
+      "expected_sha256": "84d9141b949709b2b024578036b714de353f6e479449c472a88843624b55eb30",
+      "observed_sha256": "84d9141b949709b2b024578036b714de353f6e479449c472a88843624b55eb30",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/tests/test.sh",
+      "expected_sha256": "776a2e2b9d30e7a551376bf569e04f1e09ef2f7d8756630fe7f0d7abddd80fb9",
+      "observed_sha256": "776a2e2b9d30e7a551376bf569e04f1e09ef2f7d8756630fe7f0d7abddd80fb9",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/solution/solve.sh",
+      "expected_sha256": "427b0e37b39af20ed29148b84a9b063cf9849b9c44b5dbaa3d3feb016bb2ead4",
+      "observed_sha256": "427b0e37b39af20ed29148b84a9b063cf9849b9c44b5dbaa3d3feb016bb2ead4",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/02_restler_recovery/AUTHOR_RESULT.json",
+      "expected_sha256": "bef4ac15ac69f5478409076347b8c0e56b9c58becad1a83adf48ec80669890db",
+      "observed_sha256": "bef4ac15ac69f5478409076347b8c0e56b9c58becad1a83adf48ec80669890db",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/02_restler_recovery/task/instruction.md",
+      "expected_sha256": "d2f3180d01b2241a646237b34f5fb71571d7f42426a60ecb6b0517bcac165bd8",
+      "observed_sha256": "d2f3180d01b2241a646237b34f5fb71571d7f42426a60ecb6b0517bcac165bd8",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/02_restler_recovery/task/DIFFICULTY.md",
+      "expected_sha256": "e2414a926845d45161ba25dbdd471821c4993ed21a565f4fffcd4f6ec1ecb4e2",
+      "observed_sha256": "e2414a926845d45161ba25dbdd471821c4993ed21a565f4fffcd4f6ec1ecb4e2",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/02_restler_recovery/task/MATERIALS.md",
+      "expected_sha256": "9031993d8590c79452766e7c1f129830516759f84946fa0513e5ed9827a21d67",
+      "observed_sha256": "9031993d8590c79452766e7c1f129830516759f84946fa0513e5ed9827a21d67",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/02_restler_recovery/task/AUTHORING_REPORT.json",
+      "expected_sha256": "8d2bd83b864c2120adaf03c854c9234187565bce88e6ad7561fb0fac4646eabf",
+      "observed_sha256": "8d2bd83b864c2120adaf03c854c9234187565bce88e6ad7561fb0fac4646eabf",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/02_restler_recovery/task/task.toml",
+      "expected_sha256": "c7cf62d18e5559467bf034ba458634e39b65028d6a98d4b5493097b8861153d0",
+      "observed_sha256": "c7cf62d18e5559467bf034ba458634e39b65028d6a98d4b5493097b8861153d0",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/02_restler_recovery/task/pipeline-profile.json",
+      "expected_sha256": "de79939ed3ac41a2343b6997c1011553cd63811dad3ba4635b7c082b7ceaa079",
+      "observed_sha256": "de79939ed3ac41a2343b6997c1011553cd63811dad3ba4635b7c082b7ceaa079",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/02_restler_recovery/task/authoring/score-spec.json",
+      "expected_sha256": "8c9177727d7a4104bbfb61895410c0c8590821e64f30cdd1cc0976105dc7b391",
+      "observed_sha256": "8c9177727d7a4104bbfb61895410c0c8590821e64f30cdd1cc0976105dc7b391",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/02_restler_recovery/task/tests/grader.py",
+      "expected_sha256": "18d9212f2095bd48af8919db356785df35687e8a91fbef951134cba9e4de67e7",
+      "observed_sha256": "18d9212f2095bd48af8919db356785df35687e8a91fbef951134cba9e4de67e7",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/02_restler_recovery/task/tests/test.sh",
+      "expected_sha256": "21891ca093d53759a2c6de663167355f8df4db5f5c0f17ed8cad15c9d352bb53",
+      "observed_sha256": "21891ca093d53759a2c6de663167355f8df4db5f5c0f17ed8cad15c9d352bb53",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/02_restler_recovery/task/solution/solve.sh",
+      "expected_sha256": "37032b4bc4ec84c92deb7cc3d59030ce1c09c8172c711271821700065b3beeb8",
+      "observed_sha256": "37032b4bc4ec84c92deb7cc3d59030ce1c09c8172c711271821700065b3beeb8",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/AUTHOR_RESULT.json",
+      "expected_sha256": "63e90840d474939ea80735b4672afff70d3f3bec2fd066ec0cc9cc55ff24570b",
+      "observed_sha256": "63e90840d474939ea80735b4672afff70d3f3bec2fd066ec0cc9cc55ff24570b",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/instruction.md",
+      "expected_sha256": "59608474378dedc005344af079f7c559f09ac2c96743185f02942dcc22ddefec",
+      "observed_sha256": "59608474378dedc005344af079f7c559f09ac2c96743185f02942dcc22ddefec",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/DIFFICULTY.md",
+      "expected_sha256": "00107a8b63130c764244921054f051b847376f1091130adf471c0ee9805b7f5d",
+      "observed_sha256": "00107a8b63130c764244921054f051b847376f1091130adf471c0ee9805b7f5d",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/MATERIALS.md",
+      "expected_sha256": "6ce85b159760e70c8ad8c625fc009520e3942391a83a43b206f8d057ffc33641",
+      "observed_sha256": "6ce85b159760e70c8ad8c625fc009520e3942391a83a43b206f8d057ffc33641",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/AUTHORING_REPORT.json",
+      "expected_sha256": "7cd04c158acbf588ec3ba1d3282a45bd6e0bf91ee84b82098a3d0fc2cee00e86",
+      "observed_sha256": "7cd04c158acbf588ec3ba1d3282a45bd6e0bf91ee84b82098a3d0fc2cee00e86",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/task.toml",
+      "expected_sha256": "84d0016799bf09535b5245bdfea5df4ae073bb71c3981ddefd06fb0eaac2a637",
+      "observed_sha256": "84d0016799bf09535b5245bdfea5df4ae073bb71c3981ddefd06fb0eaac2a637",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/pipeline-profile.json",
+      "expected_sha256": "17793cd5b0f7fc098b2a3bf4f4be4b2c10f1863cf8d726fe2cebe27b68a3c14b",
+      "observed_sha256": "17793cd5b0f7fc098b2a3bf4f4be4b2c10f1863cf8d726fe2cebe27b68a3c14b",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/authoring/score-spec.json",
+      "expected_sha256": "76a05bb8afc5abca4b8237b8aa3c40fde99e296ee015854874a494d138c4c7f4",
+      "observed_sha256": "76a05bb8afc5abca4b8237b8aa3c40fde99e296ee015854874a494d138c4c7f4",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/tests/grader.py",
+      "expected_sha256": "c44909ab2e3e6685794aeb0a4ec0624ae19e14893d615ffb0a2a8503550f0acc",
+      "observed_sha256": "c44909ab2e3e6685794aeb0a4ec0624ae19e14893d615ffb0a2a8503550f0acc",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/tests/test.sh",
+      "expected_sha256": "23c9a169baeee90e58d9a1a97b2b35ac9a64efa7df0b73f2ea5b581322cbc8b7",
+      "observed_sha256": "23c9a169baeee90e58d9a1a97b2b35ac9a64efa7df0b73f2ea5b581322cbc8b7",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/03_httpx_transport/task/solution/solve.sh",
+      "expected_sha256": "64aa3963b219ca768bbe588de6651d7dde06aacaab2eba9b7acfe0cfc61e8721",
+      "observed_sha256": "64aa3963b219ca768bbe588de6651d7dde06aacaab2eba9b7acfe0cfc61e8721",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/AUTHOR_RESULT.json",
+      "expected_sha256": "bb9809740b1d27c75ea9522d42cbe0bb512c84967c6d49d072f4d4fcd47858b9",
+      "observed_sha256": "bb9809740b1d27c75ea9522d42cbe0bb512c84967c6d49d072f4d4fcd47858b9",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/instruction.md",
+      "expected_sha256": "da85ef1e37bcbd72feb7ddc276791c488b6bfcbf430659c8e3580e17a7fef2d7",
+      "observed_sha256": "da85ef1e37bcbd72feb7ddc276791c488b6bfcbf430659c8e3580e17a7fef2d7",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/DIFFICULTY.md",
+      "expected_sha256": "99f2dc477297871918c2e324bb906b36ecdfda3faf405358bbbe2d7c7572ab2b",
+      "observed_sha256": "99f2dc477297871918c2e324bb906b36ecdfda3faf405358bbbe2d7c7572ab2b",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/MATERIALS.md",
+      "expected_sha256": "e0e54ed4b3e5e6492692082575e806f8f71cd64c339d10dcd63c84e429b62a5a",
+      "observed_sha256": "e0e54ed4b3e5e6492692082575e806f8f71cd64c339d10dcd63c84e429b62a5a",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/AUTHORING_REPORT.json",
+      "expected_sha256": "615e2cded8a3fd6ed021986f0fbfe6f05be173a85faaf3084051b304b07d9087",
+      "observed_sha256": "615e2cded8a3fd6ed021986f0fbfe6f05be173a85faaf3084051b304b07d9087",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/task.toml",
+      "expected_sha256": "f0e6f43b88edff970ff33754b025e3a3b7b1641d8ca570792679a4bdbf617765",
+      "observed_sha256": "f0e6f43b88edff970ff33754b025e3a3b7b1641d8ca570792679a4bdbf617765",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/pipeline-profile.json",
+      "expected_sha256": "d7e4a981da102b9b6affb630aed8258dcb4ebcd89db9c700051900789cc167e4",
+      "observed_sha256": "d7e4a981da102b9b6affb630aed8258dcb4ebcd89db9c700051900789cc167e4",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/authoring/score-spec.json",
+      "expected_sha256": "61484652e467cef8b3b52fc841b85cb81ca89ee8beddb05f7a5b01a20417864c",
+      "observed_sha256": "61484652e467cef8b3b52fc841b85cb81ca89ee8beddb05f7a5b01a20417864c",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/tests/grader.py",
+      "expected_sha256": "6b800ec887ce71960adf7e95f86c8aba502a67ad8d70cdf9a192e68fa1556512",
+      "observed_sha256": "6b800ec887ce71960adf7e95f86c8aba502a67ad8d70cdf9a192e68fa1556512",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/tests/test.sh",
+      "expected_sha256": "0ae88b96730928ba5d22d4c119d031a1c837ca49138c913846cba91a0325c8b2",
+      "observed_sha256": "0ae88b96730928ba5d22d4c119d031a1c837ca49138c913846cba91a0325c8b2",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/04_pytest_fixtures/task/solution/solve.sh",
+      "expected_sha256": "4b2a9e66567f18705a92e5b819df5035cce089f67d9d1426ad248a96a8ff9a07",
+      "observed_sha256": "4b2a9e66567f18705a92e5b819df5035cce089f67d9d1426ad248a96a8ff9a07",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/AUTHOR_RESULT.json",
+      "expected_sha256": "fe109fedcf2921ed80004f63954dec565a3572414fbd4c5f1da88f32d6173bf0",
+      "observed_sha256": "fe109fedcf2921ed80004f63954dec565a3572414fbd4c5f1da88f32d6173bf0",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/instruction.md",
+      "expected_sha256": "513dda087ce60d256c7c9eac5a26c9b16b39e9592efa230d2f531d11ba4439a9",
+      "observed_sha256": "513dda087ce60d256c7c9eac5a26c9b16b39e9592efa230d2f531d11ba4439a9",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/DIFFICULTY.md",
+      "expected_sha256": "7226db78979dd6ed739586374bec545df89d9b0ba0b87710d862395b6705edc5",
+      "observed_sha256": "7226db78979dd6ed739586374bec545df89d9b0ba0b87710d862395b6705edc5",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/MATERIALS.md",
+      "expected_sha256": "1191d5921f75bda2d74ef778f3485a13d51d875f330495ebfc12506325ca31f1",
+      "observed_sha256": "1191d5921f75bda2d74ef778f3485a13d51d875f330495ebfc12506325ca31f1",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/AUTHORING_REPORT.json",
+      "expected_sha256": "181df1ac394003950e7608d2408d2b5927982f6c1220f5d3106cf99987b2eec2",
+      "observed_sha256": "181df1ac394003950e7608d2408d2b5927982f6c1220f5d3106cf99987b2eec2",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/task.toml",
+      "expected_sha256": "296254830ba5479d4304ddfd5b9cdaf3ef65df11d4e1468aa611130a717128b5",
+      "observed_sha256": "296254830ba5479d4304ddfd5b9cdaf3ef65df11d4e1468aa611130a717128b5",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/pipeline-profile.json",
+      "expected_sha256": "f35fecf44ec980bf168fc50dadea2740faf6115340c6e2306d4e70992175ef6b",
+      "observed_sha256": "f35fecf44ec980bf168fc50dadea2740faf6115340c6e2306d4e70992175ef6b",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/authoring/score-spec.json",
+      "expected_sha256": "9a8f5cd23125ee5c4708b25d5fc2162967a04dbf0caa94ba1d6186fd24bdd460",
+      "observed_sha256": "9a8f5cd23125ee5c4708b25d5fc2162967a04dbf0caa94ba1d6186fd24bdd460",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/grader.py",
+      "expected_sha256": "b0cb769990b8107df5cc17f3491b6e5e9f2f2e14063edf1cc4127c8b1bf138bf",
+      "observed_sha256": "b0cb769990b8107df5cc17f3491b6e5e9f2f2e14063edf1cc4127c8b1bf138bf",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/tests/test.sh",
+      "expected_sha256": "a9b5bedb6158a2be49c8db261c8cd044f2ae74a47b5ba5c72b41afc9b8e8d5e5",
+      "observed_sha256": "a9b5bedb6158a2be49c8db261c8cd044f2ae74a47b5ba5c72b41afc9b8e8d5e5",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/09_valkey_transactions/task/solution/solve.sh",
+      "expected_sha256": "1e15673f46b4fa7277ba43c1a9c1e1cc0de9de373e81591c126ba6c604d97a76",
+      "observed_sha256": "1e15673f46b4fa7277ba43c1a9c1e1cc0de9de373e81591c126ba6c604d97a76",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/10_datafusion_sort/AUTHOR_RESULT.json",
+      "expected_sha256": "50352af01dd648b9ec1c4081f2d8f15c6cd32e949373dc27589e9fcb00f24db7",
+      "observed_sha256": "50352af01dd648b9ec1c4081f2d8f15c6cd32e949373dc27589e9fcb00f24db7",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/10_datafusion_sort/task/instruction.md",
+      "expected_sha256": "36bd0750ccbab523c3ee92bb174e68047e59d9e0f399b34b32e80f5cac5fd1b1",
+      "observed_sha256": "36bd0750ccbab523c3ee92bb174e68047e59d9e0f399b34b32e80f5cac5fd1b1",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/10_datafusion_sort/task/DIFFICULTY.md",
+      "expected_sha256": "5881e66e4537dcdd5e63bd7e64565176b4be559c76a1e93d894105642ee1ad98",
+      "observed_sha256": "5881e66e4537dcdd5e63bd7e64565176b4be559c76a1e93d894105642ee1ad98",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/10_datafusion_sort/task/MATERIALS.md",
+      "expected_sha256": "7b2a3ee1b247a87c322c8303ea3bce55213678d02888bee7ade4e518ea590113",
+      "observed_sha256": "7b2a3ee1b247a87c322c8303ea3bce55213678d02888bee7ade4e518ea590113",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/10_datafusion_sort/task/AUTHORING_REPORT.json",
+      "expected_sha256": "314a4ee17acdc2fb453c9de8b8204d8a5a8492c0cd8fb2551ca7c766e3d8084a",
+      "observed_sha256": "314a4ee17acdc2fb453c9de8b8204d8a5a8492c0cd8fb2551ca7c766e3d8084a",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/10_datafusion_sort/task/task.toml",
+      "expected_sha256": "9b544222234f7b2b0d33e5b26886b767b1ce070b8d55c3371aba0868f21a4d52",
+      "observed_sha256": "9b544222234f7b2b0d33e5b26886b767b1ce070b8d55c3371aba0868f21a4d52",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/10_datafusion_sort/task/pipeline-profile.json",
+      "expected_sha256": "bb2a569a6553e2de8deabd6eca2743701bebb0ccec5b64206c9781936e6a9c2f",
+      "observed_sha256": "bb2a569a6553e2de8deabd6eca2743701bebb0ccec5b64206c9781936e6a9c2f",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/10_datafusion_sort/task/authoring/score-spec.json",
+      "expected_sha256": "dfbc23c48faaa753e69d397eed1cada5304226cfdf72815b63fe63548cc99ad7",
+      "observed_sha256": "dfbc23c48faaa753e69d397eed1cada5304226cfdf72815b63fe63548cc99ad7",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/10_datafusion_sort/task/tests/grader.py",
+      "expected_sha256": "7386aa6234ca9019b2aacbdc6d1e3c4137b0b61cfe1e559caf40655832f971b7",
+      "observed_sha256": "7386aa6234ca9019b2aacbdc6d1e3c4137b0b61cfe1e559caf40655832f971b7",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/10_datafusion_sort/task/tests/test.sh",
+      "expected_sha256": "a543b0ba2c09d5769dae32774770f123ce1031992c9d934678df58dc42dbdfc0",
+      "observed_sha256": "a543b0ba2c09d5769dae32774770f123ce1031992c9d934678df58dc42dbdfc0",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/10_datafusion_sort/task/solution/solve.sh",
+      "expected_sha256": "a1b5d4895a9879d6706397ba65935209c4f418029079affc79f450875bcad73d",
+      "observed_sha256": "a1b5d4895a9879d6706397ba65935209c4f418029079affc79f450875bcad73d",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/12_croaring_kernels/AUTHOR_RESULT.json",
+      "expected_sha256": "31ede89582c4c9d79307c3f098248dd5d9883ec845895ef0d71e08b1564356c6",
+      "observed_sha256": "31ede89582c4c9d79307c3f098248dd5d9883ec845895ef0d71e08b1564356c6",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/12_croaring_kernels/task/instruction.md",
+      "expected_sha256": "189a6b5d539d39695397078d17f5672a21c56bcc4617fcddbe9411738e515803",
+      "observed_sha256": "189a6b5d539d39695397078d17f5672a21c56bcc4617fcddbe9411738e515803",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/12_croaring_kernels/task/DIFFICULTY.md",
+      "expected_sha256": "5770f8a4910ea7f5684c0b0f02259adb9e307ed9fa5f0c0bd4a22bd98fc2df6b",
+      "observed_sha256": "5770f8a4910ea7f5684c0b0f02259adb9e307ed9fa5f0c0bd4a22bd98fc2df6b",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/12_croaring_kernels/task/MATERIALS.md",
+      "expected_sha256": "657485a626567d92e7ae4eb5c5f0e043fdaa123f100f94c4339f4e34069051e8",
+      "observed_sha256": "657485a626567d92e7ae4eb5c5f0e043fdaa123f100f94c4339f4e34069051e8",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/12_croaring_kernels/task/AUTHORING_REPORT.json",
+      "expected_sha256": "0176df08891b601df182bc997ff5664b6c034eb6e4f0988e03441eebf975e518",
+      "observed_sha256": "0176df08891b601df182bc997ff5664b6c034eb6e4f0988e03441eebf975e518",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/12_croaring_kernels/task/task.toml",
+      "expected_sha256": "10b6130200e8e605068515ea5c21471bb12bdbc450bfac777b9306b385ae9922",
+      "observed_sha256": "10b6130200e8e605068515ea5c21471bb12bdbc450bfac777b9306b385ae9922",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/12_croaring_kernels/task/pipeline-profile.json",
+      "expected_sha256": "95af281e695b3c5a99782173d07251a41c1dc021c2d54d49125dcd27ea6de616",
+      "observed_sha256": "95af281e695b3c5a99782173d07251a41c1dc021c2d54d49125dcd27ea6de616",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/12_croaring_kernels/task/authoring/score-spec.json",
+      "expected_sha256": "2c58927b3cee64ebda7e7d53da177a39dc73822f3605fa6e3ba0b6e6485da218",
+      "observed_sha256": "2c58927b3cee64ebda7e7d53da177a39dc73822f3605fa6e3ba0b6e6485da218",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/12_croaring_kernels/task/tests/grader.py",
+      "expected_sha256": "6cc3f34c85ef6d2f2de34d0f3769985539ddb755d7fc320ae756bcfdc32fa5b2",
+      "observed_sha256": "6cc3f34c85ef6d2f2de34d0f3769985539ddb755d7fc320ae756bcfdc32fa5b2",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/12_croaring_kernels/task/tests/test.sh",
+      "expected_sha256": "b495873c407f77bbfc4b67e3eb4cf5d1a74fb5d1e5eb9b46a1f84be686ba98e1",
+      "observed_sha256": "b495873c407f77bbfc4b67e3eb4cf5d1a74fb5d1e5eb9b46a1f84be686ba98e1",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/12_croaring_kernels/task/solution/solve.sh",
+      "expected_sha256": "845b0b3a760333247cf40abc88b542782e40a38a7555a85b4e9a18bc2ee53ffa",
+      "observed_sha256": "845b0b3a760333247cf40abc88b542782e40a38a7555a85b4e9a18bc2ee53ffa",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/AUTHOR_RESULT.json",
+      "expected_sha256": "86aa2f4b4fd420c28be391dfd9731cc1e889214609f6d5c1f94b7606fe1ac924",
+      "observed_sha256": "86aa2f4b4fd420c28be391dfd9731cc1e889214609f6d5c1f94b7606fe1ac924",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/instruction.md",
+      "expected_sha256": "e507ddccb1c6588cec2e8b3610a6c9acc7417c160ffef4995fc2561e9409a00a",
+      "observed_sha256": "e507ddccb1c6588cec2e8b3610a6c9acc7417c160ffef4995fc2561e9409a00a",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/DIFFICULTY.md",
+      "expected_sha256": "01eb9be4be4baf1207531659c62eee2a388a1d2e74f7387a7f86cb0741ea45fb",
+      "observed_sha256": "01eb9be4be4baf1207531659c62eee2a388a1d2e74f7387a7f86cb0741ea45fb",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/MATERIALS.md",
+      "expected_sha256": "763c71cd5e8a02e9724d5aba4cc6b858679c30a8dddec03a086035e0c99095e7",
+      "observed_sha256": "763c71cd5e8a02e9724d5aba4cc6b858679c30a8dddec03a086035e0c99095e7",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/AUTHORING_REPORT.json",
+      "expected_sha256": "cb8ccc78d37365cf4636f6a4fe815111363f3bdfff9b1283128db96b3ea6b6b1",
+      "observed_sha256": "cb8ccc78d37365cf4636f6a4fe815111363f3bdfff9b1283128db96b3ea6b6b1",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/task.toml",
+      "expected_sha256": "046ee5ad29cf4e6d036455525c011f8555ce28fb126d240104300a1287ce4390",
+      "observed_sha256": "046ee5ad29cf4e6d036455525c011f8555ce28fb126d240104300a1287ce4390",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/pipeline-profile.json",
+      "expected_sha256": "7d362fd4b67c9e9fb8a9ad449617541c33ee661b31a6ce802a08a2b0d7852279",
+      "observed_sha256": "7d362fd4b67c9e9fb8a9ad449617541c33ee661b31a6ce802a08a2b0d7852279",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/authoring/score-spec.json",
+      "expected_sha256": "f2f194207c8895ce85b7cf8c2e0c220f9bc4ad2c56321de125899547542119ea",
+      "observed_sha256": "f2f194207c8895ce85b7cf8c2e0c220f9bc4ad2c56321de125899547542119ea",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/tests/grader.py",
+      "expected_sha256": "7c972da847c395750fb3d43a915d5bf2159bbfc2b3c498ccd4b3dbe4fca92488",
+      "observed_sha256": "7c972da847c395750fb3d43a915d5bf2159bbfc2b3c498ccd4b3dbe4fca92488",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/tests/test.sh",
+      "expected_sha256": "85d35daa3bb23f8649df29c3cdb95f9c4f0ce3e4cab2ba8fbb6c5458ed4239ab",
+      "observed_sha256": "85d35daa3bb23f8649df29c3cdb95f9c4f0ce3e4cab2ba8fbb6c5458ed4239ab",
+      "unchanged": true
+    },
+    {
+      "path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/14_tree_sitter_incremental/task/solution/solve.sh",
+      "expected_sha256": "6be7cfa007dba956d635191191d6178a0268d03db26d30144d8d2ec273679c0a",
+      "observed_sha256": "6be7cfa007dba956d635191191d6178a0268d03db26d30144d8d2ec273679c0a",
+      "unchanged": true
+    }
+  ]
+}

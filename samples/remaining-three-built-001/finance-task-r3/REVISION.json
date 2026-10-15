@@ -1,0 +1,7 @@
+{
+  "previous_revision": "finance-task-r2",
+  "change": "missing policy is invalid submission; empty snapshot directory exists",
+  "score_constants_unchanged": true,
+  "real_prices_unchanged": true,
+  "redistribution_rights": "not_confirmed"
+}

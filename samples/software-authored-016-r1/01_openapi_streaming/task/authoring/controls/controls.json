@@ -1,0 +1,51 @@
+[
+  {
+    "name": "cheap",
+    "base": "../../environment/submission",
+    "patch": "cheap.patch",
+    "patch_sha256": "eaf024ec5e75533905e17530e96417b3bccb27b17a041ff5b6ead67d1b8be2c2",
+    "observed_score": 0.6,
+    "observed_passed": 21,
+    "expected_direction": "below full reference; preserve meaningful passing dimensions",
+    "evidence": "../control-evidence/cheap/score.json"
+  },
+  {
+    "name": "no_auth_override",
+    "base": "../../environment/submission",
+    "patch": "no_auth_override.patch",
+    "patch_sha256": "502675e38bc13a4cd6955b742f316f44be92a054edb44c37b5d40912cf9dcf1d",
+    "observed_score": 0.84,
+    "observed_passed": 28,
+    "expected_direction": "below full reference; preserve meaningful passing dimensions",
+    "evidence": "../control-evidence/no_auth_override/score.json"
+  },
+  {
+    "name": "eager",
+    "base": "../../environment/submission",
+    "patch": "eager.patch",
+    "patch_sha256": "b2c6abafe636b9928f4cf7ba3e55e696e268ccae7ebe5ec4647fb3b80d71fdf8",
+    "observed_score": 0.5992424242424242,
+    "observed_passed": 23,
+    "expected_direction": "below full reference; preserve meaningful passing dimensions",
+    "evidence": "../control-evidence/eager/score.json"
+  },
+  {
+    "name": "nop",
+    "source": "../../environment/submission",
+    "observed_score": 0.03,
+    "expected_direction": "native regression floor, streaming checks fail"
+  },
+  {
+    "name": "reference",
+    "source": "../../solution/reference",
+    "branch_commit": "1e114ab2d00e83f07faef3398f5a1e2e51465b95",
+    "observed_scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "expected_direction": "declared ordinary oracle upper bound 1"
+  }
+]

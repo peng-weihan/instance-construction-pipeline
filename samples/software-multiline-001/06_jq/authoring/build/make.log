@@ -1,0 +1,39 @@
+mkdir -p src
+mkdir -p src
+  GEN      src/config_opts.inc
+  GEN      src/builtin.inc
+mkdir -p src
+  GEN      src/version.h
+/Library/Developer/CommandLineTools/usr/bin/make  all-recursive
+  CC       src/builtin.lo
+  CC       src/bytecode.lo
+  CC       src/compile.lo
+  CC       src/execute.lo
+  CC       src/jq_test.lo
+  CC       src/jv.lo
+  CC       src/jv_alloc.lo
+  CC       src/jv_aux.lo
+  CC       src/jv_dtoa.lo
+  CC       src/jv_file.lo
+../sources/jq-1.7.1/src/jv_file.c:46:12: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   46 |   char buf[4096+max_utf8_len];
+      |            ^~~~~~~~~~~~~~~~~
+  CC       src/jv_parse.lo
+1 warning generated.
+  CC       src/jv_print.lo
+  CC       src/jv_unicode.lo
+  CC       src/linker.lo
+  CC       src/locfile.lo
+  CC       src/util.lo
+  CC       src/decNumber/decContext.lo
+  CC       src/decNumber/decNumber.lo
+  CC       src/jv_dtoa_tsd.lo
+  CC       src/lexer.lo
+  CC       src/parser.lo
+  CC       src/main.o
+src/parser.c:2407:9: warning: variable 'yynerrs' set but not used [-Wunused-but-set-variable]
+ 2407 |     int yynerrs = 0;
+      |         ^
+1 warning generated.
+  CCLD     libjq.la
+  CCLD     jq

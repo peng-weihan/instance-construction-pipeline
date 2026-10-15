@@ -1,0 +1,26 @@
+{
+  "reward_type": "bounded_continuous",
+  "direction": "higher_is_better",
+  "range": [
+    0,
+    1
+  ],
+  "formula": "mean_over_fixed_suite_batches(mean_over_classes_with_true_support(2*TP/(2*TP+FP+FN)))",
+  "constants": {
+    "class_count": 36,
+    "zero_division": 0,
+    "prediction_count": 33883
+  },
+  "baseline": "public/baseline.py, public-data-only SVD and logistic regression",
+  "upper": {
+    "value": 1,
+    "meaning": "perfect labels; not demonstrated by learned model"
+  },
+  "aggregation": "best valid snapshot on fixed feedback batch",
+  "baseline_score": {
+    "host_only_not_deployment_evidence": 0.3885168478386856,
+    "deployment_check": "pending"
+  },
+  "nop_score": null,
+  "three_model_run_mean": null
+}

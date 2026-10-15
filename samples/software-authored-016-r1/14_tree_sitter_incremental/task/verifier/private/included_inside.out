@@ -1,0 +1,366 @@
+@initial
+0 module 1 0 0 0 0 12 24 2 0 3 5
+field -
+1 expression_statement 1 0 0 0 0 12 18 2 0 2 6
+field -
+2 assignment 1 0 0 0 0 12 18 2 0 2 6
+field left
+3 identifier 1 0 0 0 0 12 13 2 0 2 1
+field -
+3 = 0 0 0 0 0 14 15 2 2 2 3
+field right
+3 integer 1 0 0 0 0 16 18 2 4 2 6
+field -
+1 expression_statement 1 0 0 0 0 19 24 3 0 3 5
+field -
+2 assignment 1 0 0 0 0 19 24 3 0 3 5
+field left
+3 identifier 1 0 0 0 0 19 20 3 0 3 1
+field -
+3 = 0 0 0 0 0 21 22 3 2 3 3
+field right
+3 integer 1 0 0 0 0 23 24 3 4 3 5
+@end
+@sexp
+(module (expression_statement (assignment (identifier) (integer))) (expression_statement (assignment (identifier) (integer))))
+@end
+@edited
+0 module 1 0 0 0 0 12 32 2 0 4 5 1
+field -
+1 expression_statement 1 0 0 0 0 12 26 2 0 3 5 1
+field -
+2 assignment 1 0 0 0 0 12 26 2 0 3 5 1
+field left
+3 identifier 1 0 0 0 0 12 26 2 0 3 5 1
+field -
+3 = 0 0 0 0 0 26 26 3 5 3 5 1
+field right
+3 integer 1 0 0 0 0 26 26 3 5 3 5 1
+field -
+1 expression_statement 1 0 0 0 0 27 32 4 0 4 5 0
+field -
+2 assignment 1 0 0 0 0 27 32 4 0 4 5 0
+field left
+3 identifier 1 0 0 0 0 27 28 4 0 4 1 0
+field -
+3 = 0 0 0 0 0 29 30 4 2 4 3 0
+field right
+3 integer 1 0 0 0 0 31 32 4 4 4 5 0
+@end
+@copy
+0 module 1 0 0 0 0 12 24 2 0 3 5 0
+field -
+1 expression_statement 1 0 0 0 0 12 18 2 0 2 6 0
+field -
+2 assignment 1 0 0 0 0 12 18 2 0 2 6 0
+field left
+3 identifier 1 0 0 0 0 12 13 2 0 2 1 0
+field -
+3 = 0 0 0 0 0 14 15 2 2 2 3 0
+field right
+3 integer 1 0 0 0 0 16 18 2 4 2 6 0
+field -
+1 expression_statement 1 0 0 0 0 19 24 3 0 3 5 0
+field -
+2 assignment 1 0 0 0 0 19 24 3 0 3 5 0
+field left
+3 identifier 1 0 0 0 0 19 20 3 0 3 1 0
+field -
+3 = 0 0 0 0 0 21 22 3 2 3 3 0
+field right
+3 integer 1 0 0 0 0 23 24 3 4 3 5 0
+@end
+@handle
+0 expression_statement 1 0 0 0 0 12 18 2 0 2 6 0
+field -
+1 assignment 1 0 0 0 0 12 18 2 0 2 6 0
+field left
+2 identifier 1 0 0 0 0 12 13 2 0 2 1 0
+field -
+2 = 0 0 0 0 0 14 15 2 2 2 3 0
+field right
+2 integer 1 0 0 0 0 16 18 2 4 2 6 0
+@end
+@included
+12 32 2 0 4 5
+@end
+@parsed
+0 module 1 0 0 0 0 12 32 2 0 4 5
+field -
+1 expression_statement 1 0 0 0 0 12 20 2 0 2 8
+field -
+2 assignment 1 0 0 0 0 12 20 2 0 2 8
+field left
+3 identifier 1 0 0 0 0 12 13 2 0 2 1
+field -
+3 = 0 0 0 0 0 14 15 2 2 2 3
+field right
+3 string 1 0 0 0 0 16 20 2 4 2 8
+field -
+4 string_start 1 0 0 0 0 16 17 2 4 2 5
+field -
+4 string_content 1 0 0 0 0 17 19 2 5 2 7
+field -
+4 string_end 1 0 0 0 0 19 20 2 7 2 8
+field -
+1 expression_statement 1 0 0 0 0 21 26 3 0 3 5
+field -
+2 assignment 1 0 0 0 0 21 26 3 0 3 5
+field left
+3 identifier 1 0 0 0 0 21 22 3 0 3 1
+field -
+3 = 0 0 0 0 0 23 24 3 2 3 3
+field right
+3 integer 1 0 0 0 0 25 26 3 4 3 5
+field -
+1 expression_statement 1 0 0 0 0 27 32 4 0 4 5
+field -
+2 assignment 1 0 0 0 0 27 32 4 0 4 5
+field left
+3 identifier 1 0 0 0 0 27 28 4 0 4 1
+field -
+3 = 0 0 0 0 0 29 30 4 2 4 3
+field right
+3 integer 1 0 0 0 0 31 32 4 4 4 5
+@end
+@fresh
+0 module 1 0 0 0 0 12 32 2 0 4 5
+field -
+1 expression_statement 1 0 0 0 0 12 20 2 0 2 8
+field -
+2 assignment 1 0 0 0 0 12 20 2 0 2 8
+field left
+3 identifier 1 0 0 0 0 12 13 2 0 2 1
+field -
+3 = 0 0 0 0 0 14 15 2 2 2 3
+field right
+3 string 1 0 0 0 0 16 20 2 4 2 8
+field -
+4 string_start 1 0 0 0 0 16 17 2 4 2 5
+field -
+4 string_content 1 0 0 0 0 17 19 2 5 2 7
+field -
+4 string_end 1 0 0 0 0 19 20 2 7 2 8
+field -
+1 expression_statement 1 0 0 0 0 21 26 3 0 3 5
+field -
+2 assignment 1 0 0 0 0 21 26 3 0 3 5
+field left
+3 identifier 1 0 0 0 0 21 22 3 0 3 1
+field -
+3 = 0 0 0 0 0 23 24 3 2 3 3
+field right
+3 integer 1 0 0 0 0 25 26 3 4 3 5
+field -
+1 expression_statement 1 0 0 0 0 27 32 4 0 4 5
+field -
+2 assignment 1 0 0 0 0 27 32 4 0 4 5
+field left
+3 identifier 1 0 0 0 0 27 28 4 0 4 1
+field -
+3 = 0 0 0 0 0 29 30 4 2 4 3
+field right
+3 integer 1 0 0 0 0 31 32 4 4 4 5
+@end
+@changed
+13 26 2 1 3 5
+@end
+@edited
+0 module 1 0 0 0 0 12 42 2 0 5 9 1
+field -
+1 expression_statement 1 0 0 0 0 12 20 2 0 2 8 0
+field -
+2 assignment 1 0 0 0 0 12 20 2 0 2 8 0
+field left
+3 identifier 1 0 0 0 0 12 13 2 0 2 1 0
+field -
+3 = 0 0 0 0 0 14 15 2 2 2 3 0
+field right
+3 string 1 0 0 0 0 16 20 2 4 2 8 0
+field -
+4 string_start 1 0 0 0 0 16 17 2 4 2 5 0
+field -
+4 string_content 1 0 0 0 0 17 19 2 5 2 7 0
+field -
+4 string_end 1 0 0 0 0 19 20 2 7 2 8 0
+field -
+1 expression_statement 1 0 0 0 0 21 26 3 0 3 5 0
+field -
+2 assignment 1 0 0 0 0 21 26 3 0 3 5 0
+field left
+3 identifier 1 0 0 0 0 21 22 3 0 3 1 0
+field -
+3 = 0 0 0 0 0 23 24 3 2 3 3 0
+field right
+3 integer 1 0 0 0 0 25 26 3 4 3 5 0
+field -
+1 expression_statement 1 0 0 0 0 27 42 4 0 5 9 1
+field -
+2 assignment 1 0 0 0 0 27 42 4 0 5 9 1
+field left
+3 identifier 1 0 0 0 0 27 42 4 0 5 9 1
+field -
+3 = 0 0 0 0 0 42 42 5 9 5 9 1
+field right
+3 integer 1 0 0 0 0 42 42 5 9 5 9 1
+@end
+@copy
+0 module 1 0 0 0 0 12 32 2 0 4 5 0
+field -
+1 expression_statement 1 0 0 0 0 12 20 2 0 2 8 0
+field -
+2 assignment 1 0 0 0 0 12 20 2 0 2 8 0
+field left
+3 identifier 1 0 0 0 0 12 13 2 0 2 1 0
+field -
+3 = 0 0 0 0 0 14 15 2 2 2 3 0
+field right
+3 string 1 0 0 0 0 16 20 2 4 2 8 0
+field -
+4 string_start 1 0 0 0 0 16 17 2 4 2 5 0
+field -
+4 string_content 1 0 0 0 0 17 19 2 5 2 7 0
+field -
+4 string_end 1 0 0 0 0 19 20 2 7 2 8 0
+field -
+1 expression_statement 1 0 0 0 0 21 26 3 0 3 5 0
+field -
+2 assignment 1 0 0 0 0 21 26 3 0 3 5 0
+field left
+3 identifier 1 0 0 0 0 21 22 3 0 3 1 0
+field -
+3 = 0 0 0 0 0 23 24 3 2 3 3 0
+field right
+3 integer 1 0 0 0 0 25 26 3 4 3 5 0
+field -
+1 expression_statement 1 0 0 0 0 27 32 4 0 4 5 0
+field -
+2 assignment 1 0 0 0 0 27 32 4 0 4 5 0
+field left
+3 identifier 1 0 0 0 0 27 28 4 0 4 1 0
+field -
+3 = 0 0 0 0 0 29 30 4 2 4 3 0
+field right
+3 integer 1 0 0 0 0 31 32 4 4 4 5 0
+@end
+@handle
+0 expression_statement 1 0 0 0 0 12 20 2 0 2 8 0
+field -
+1 assignment 1 0 0 0 0 12 20 2 0 2 8 0
+field left
+2 identifier 1 0 0 0 0 12 13 2 0 2 1 0
+field -
+2 = 0 0 0 0 0 14 15 2 2 2 3 0
+field right
+2 string 1 0 0 0 0 16 20 2 4 2 8 0
+field -
+3 string_start 1 0 0 0 0 16 17 2 4 2 5 0
+field -
+3 string_content 1 0 0 0 0 17 19 2 5 2 7 0
+field -
+3 string_end 1 0 0 0 0 19 20 2 7 2 8 0
+@end
+@included
+12 42 2 0 5 9
+@end
+@parsed
+0 module 1 0 0 0 0 12 42 2 0 5 9
+field -
+1 expression_statement 1 0 0 0 0 12 20 2 0 2 8
+field -
+2 assignment 1 0 0 0 0 12 20 2 0 2 8
+field left
+3 identifier 1 0 0 0 0 12 13 2 0 2 1
+field -
+3 = 0 0 0 0 0 14 15 2 2 2 3
+field right
+3 string 1 0 0 0 0 16 20 2 4 2 8
+field -
+4 string_start 1 0 0 0 0 16 17 2 4 2 5
+field -
+4 string_content 1 0 0 0 0 17 19 2 5 2 7
+field -
+4 string_end 1 0 0 0 0 19 20 2 7 2 8
+field -
+1 expression_statement 1 0 0 0 0 21 26 3 0 3 5
+field -
+2 assignment 1 0 0 0 0 21 26 3 0 3 5
+field left
+3 identifier 1 0 0 0 0 21 22 3 0 3 1
+field -
+3 = 0 0 0 0 0 23 24 3 2 3 3
+field right
+3 integer 1 0 0 0 0 25 26 3 4 3 5
+field -
+1 if_statement 1 0 0 0 0 27 42 4 0 5 9
+field -
+2 if 0 0 0 0 0 27 29 4 0 4 2
+field condition
+2 identifier 1 0 0 0 0 30 31 4 3 4 4
+field -
+2 : 0 0 0 0 0 31 32 4 4 4 5
+field consequence
+2 block 1 0 0 0 0 37 42 5 4 5 9
+field -
+3 expression_statement 1 0 0 0 0 37 42 5 4 5 9
+field -
+4 assignment 1 0 0 0 0 37 42 5 4 5 9
+field left
+5 identifier 1 0 0 0 0 37 38 5 4 5 5
+field -
+5 = 0 0 0 0 0 39 40 5 6 5 7
+field right
+5 integer 1 0 0 0 0 41 42 5 8 5 9
+@end
+@fresh
+0 module 1 0 0 0 0 12 42 2 0 5 9
+field -
+1 expression_statement 1 0 0 0 0 12 20 2 0 2 8
+field -
+2 assignment 1 0 0 0 0 12 20 2 0 2 8
+field left
+3 identifier 1 0 0 0 0 12 13 2 0 2 1
+field -
+3 = 0 0 0 0 0 14 15 2 2 2 3
+field right
+3 string 1 0 0 0 0 16 20 2 4 2 8
+field -
+4 string_start 1 0 0 0 0 16 17 2 4 2 5
+field -
+4 string_content 1 0 0 0 0 17 19 2 5 2 7
+field -
+4 string_end 1 0 0 0 0 19 20 2 7 2 8
+field -
+1 expression_statement 1 0 0 0 0 21 26 3 0 3 5
+field -
+2 assignment 1 0 0 0 0 21 26 3 0 3 5
+field left
+3 identifier 1 0 0 0 0 21 22 3 0 3 1
+field -
+3 = 0 0 0 0 0 23 24 3 2 3 3
+field right
+3 integer 1 0 0 0 0 25 26 3 4 3 5
+field -
+1 if_statement 1 0 0 0 0 27 42 4 0 5 9
+field -
+2 if 0 0 0 0 0 27 29 4 0 4 2
+field condition
+2 identifier 1 0 0 0 0 30 31 4 3 4 4
+field -
+2 : 0 0 0 0 0 31 32 4 4 4 5
+field consequence
+2 block 1 0 0 0 0 37 42 5 4 5 9
+field -
+3 expression_statement 1 0 0 0 0 37 42 5 4 5 9
+field -
+4 assignment 1 0 0 0 0 37 42 5 4 5 9
+field left
+5 identifier 1 0 0 0 0 37 38 5 4 5 5
+field -
+5 = 0 0 0 0 0 39 40 5 6 5 7
+field right
+5 integer 1 0 0 0 0 41 42 5 8 5 9
+@end
+@changed
+27 42 4 0 5 9
+@end

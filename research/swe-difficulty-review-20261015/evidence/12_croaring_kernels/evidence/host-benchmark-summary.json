@@ -1,0 +1,91 @@
+{
+  "host": "AMD Ryzen 9 9950X, x86_64, GCC 13.3.0",
+  "ordinary": "unmodified engine compiled -O3 -march=native, run_optimize, min-pair materialization, per-batch descriptor reuse",
+  "reference": "fused stack-buffer container traversal with descriptor reuse",
+  "paired_repeats": 3,
+  "isolated_cpu": false,
+  "affinity_pinned": false,
+  "reward_anchor": false,
+  "groups": [
+    {
+      "group": "dense",
+      "ordinary_median_ns": 120688.472,
+      "reference_median_ns": 6380.863,
+      "speedup": 18.91412995389495,
+      "ordinary_samples_ns": [
+        162775.187,
+        120688.472,
+        119565.198
+      ],
+      "reference_samples_ns": [
+        6380.863,
+        5874.865,
+        6849.273
+      ]
+    },
+    {
+      "group": "sparse",
+      "ordinary_median_ns": 8685.5,
+      "reference_median_ns": 12388.192,
+      "speedup": 0.7011111871692012,
+      "ordinary_samples_ns": [
+        8685.5,
+        8112.692,
+        10441.61
+      ],
+      "reference_samples_ns": [
+        12388.192,
+        11943.603,
+        13274.319
+      ]
+    },
+    {
+      "group": "run",
+      "ordinary_median_ns": 3924.96,
+      "reference_median_ns": 9845.598,
+      "speedup": 0.39865125510913607,
+      "ordinary_samples_ns": [
+        3511.072,
+        3924.96,
+        4626.554
+      ],
+      "reference_samples_ns": [
+        9669.997,
+        9845.598,
+        13339.814
+      ]
+    },
+    {
+      "group": "mixed",
+      "ordinary_median_ns": 17296.11,
+      "reference_median_ns": 11074.036,
+      "speedup": 1.5618614568347078,
+      "ordinary_samples_ns": [
+        16965.982,
+        21170.681,
+        17296.11
+      ],
+      "reference_samples_ns": [
+        11074.036,
+        12363.024,
+        8740.161
+      ]
+    },
+    {
+      "group": "window",
+      "ordinary_median_ns": 35567.412,
+      "reference_median_ns": 8015.538,
+      "speedup": 4.437308138268448,
+      "ordinary_samples_ns": [
+        35567.412,
+        35801.9,
+        27896.571
+      ],
+      "reference_samples_ns": [
+        7857.766,
+        8015.538,
+        8262.253
+      ]
+    }
+  ]
+}

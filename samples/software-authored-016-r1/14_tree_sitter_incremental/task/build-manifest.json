@@ -1,0 +1,124 @@
+{
+  "version": "1",
+  "work": {
+    "context": "environment",
+    "dockerfile": "environment/Dockerfile",
+    "image": "edgebench-tree-sitter-work:author-v1",
+    "build_command": "docker build -f task/environment/Dockerfile -t edgebench-tree-sitter-work:author-v1 task/environment",
+    "built": false
+  },
+  "judge": {
+    "context": "verifier",
+    "dockerfile": "verifier/Dockerfile",
+    "image": "edgebench-tree-sitter-judge:author-v1",
+    "build_command": "docker build -f task/verifier/Dockerfile -t edgebench-tree-sitter-judge:author-v1 task/verifier",
+    "built": false
+  },
+  "base": {
+    "image": "python:3.12.8-slim-bookworm",
+    "digest": "sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+    "manifest_url": "https://registry-1.docker.io/v2/library/python/manifests/3.12.8-slim-bookworm",
+    "platforms": [
+      {
+        "architecture": "amd64",
+        "os": "linux"
+      },
+      {
+        "architecture": "unknown",
+        "os": "unknown"
+      },
+      {
+        "architecture": "arm",
+        "os": "linux",
+        "variant": "v5"
+      },
+      {
+        "architecture": "unknown",
+        "os": "unknown"
+      },
+      {
+        "architecture": "arm",
+        "os": "linux",
+        "variant": "v7"
+      },
+      {
+        "architecture": "unknown",
+        "os": "unknown"
+      },
+      {
+        "architecture": "arm64",
+        "os": "linux",
+        "variant": "v8"
+      },
+      {
+        "architecture": "unknown",
+        "os": "unknown"
+      },
+      {
+        "architecture": "386",
+        "os": "linux"
+      },
+      {
+        "architecture": "unknown",
+        "os": "unknown"
+      },
+      {
+        "architecture": "ppc64le",
+        "os": "linux"
+      },
+      {
+        "architecture": "unknown",
+        "os": "unknown"
+      },
+      {
+        "architecture": "s390x",
+        "os": "linux"
+      },
+      {
+        "architecture": "unknown",
+        "os": "unknown"
+      }
+    ],
+    "manifest_bytes_sha256": "2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+    "auth_credentials_saved": false
+  },
+  "toolchain": {
+    "immutable_source": "https://snapshot.debian.org/archive/debian/20250113T000000Z/",
+    "verified_index_evidence": "authoring/evidence/toolchain-snapshot.json",
+    "package_versions_locked_in_Dockerfile": true,
+    "apt_signature_verification_in_recipe": true,
+    "signature_verified_locally": true,
+    "signature_evidence": "authoring/evidence/toolchain-signature.json",
+    "binary_installation_tested": false,
+    "architectures_with_index_metadata": [
+      "amd64",
+      "arm64"
+    ],
+    "runtime_architectures_tested": [
+      "host x86_64 only; see host-tools.json"
+    ]
+  },
+  "build_network": "only immutable base image + timestamped signed Debian package archive",
+  "runtime_network": "no-network in agent/environment/verifier/verifier.environment",
+  "artifact": "/home/workspace/tree-sitter/submission",
+  "graded_source": "/home/workspace/tree-sitter/submission/lib/src/*.[ch] recursively",
+  "source_ownership": "candidate .c/.h only; frozen public headers, grammar, tests and trusted harness objects",
+  "compile_run": "tests/grader.py; trusted objects built separately; candidate cc under UID65534; native probe under UID65533",
+  "canonical_tests": {
+    "root": {
+      "grader.py": "7c972da847c395750fb3d43a915d5bf2159bbfc2b3c498ccd4b3dbe4fca92488",
+      "test.sh": "85d35daa3bb23f8649df29c3cdb95f9c4f0ce3e4cab2ba8fbb6c5458ed4239ab"
+    },
+    "judge": {
+      "grader.py": "7c972da847c395750fb3d43a915d5bf2159bbfc2b3c498ccd4b3dbe4fca92488",
+      "test.sh": "85d35daa3bb23f8649df29c3cdb95f9c4f0ce3e4cab2ba8fbb6c5458ed4239ab"
+    }
+  },
+  "host_checks": "authoring/evidence",
+  "unverified": [
+    "container build/entrypoints and native-vs-periodic replay",
+    "ARM execution",
+    "entire Rust CLI test suite",
+    "formal six-hour calibration"
+  ]
+}

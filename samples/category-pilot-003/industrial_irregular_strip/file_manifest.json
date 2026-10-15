@@ -1,0 +1,5297 @@
+[
+  {
+    "path": "SOURCE_TO_TASK.md",
+    "bytes": 1019,
+    "sha256": "e9799237383e82b90387d7eaea57febd2c61aeabe98d799a6267eec916643293"
+  },
+  {
+    "path": "construction.json",
+    "bytes": 3151,
+    "sha256": "af7e54aa9363057e9e20d31ccc6f3668158a3d6b5498c72c763edc99633ca91b"
+  },
+  {
+    "path": "private/case_manifest.json",
+    "bytes": 4606,
+    "sha256": "42ffa75a0a8b66d83965d616c0d21bc22fa68a925e003ed448b0d2b61a585c9b"
+  },
+  {
+    "path": "private/feedback_cases/adirondack_chair.json",
+    "bytes": 330340,
+    "sha256": "d738113a0a0f68b2215ec188eaa38df84731842d78896ba2ebc48e5d7354a7fb"
+  },
+  {
+    "path": "private/feedback_cases/deer.json",
+    "bytes": 435464,
+    "sha256": "9f6c932810fedf3dc2459c6ab00e95f10353d5d95d5ae19b3411acf485082ea6"
+  },
+  {
+    "path": "private/feedback_cases/knight_body.json",
+    "bytes": 17295,
+    "sha256": "fe4e51b91b84fb015defa035f59183191903d0615cc6099d3ff075bdbcf1bc91"
+  },
+  {
+    "path": "private/final_cases/knight_armor.json",
+    "bytes": 20501,
+    "sha256": "50dc8283a61f59c73535851d13c78229d45046f5cf5bd4dae1b7bf7ea85fb69e"
+  },
+  {
+    "path": "private/final_cases/sofa_structure.json",
+    "bytes": 417294,
+    "sha256": "6fc8a8e97e2aa23331a33f12bd97582d2604a6e9ae82cde8222156b87dc7edfd"
+  },
+  {
+    "path": "private/final_cases/table.json",
+    "bytes": 1128511,
+    "sha256": "9f3f54579f14e62d325305b0886b1f7506976c0df7fed516f8100398ebd0c432"
+  },
+  {
+    "path": "private/original_shapes/adirondack_chair.json",
+    "bytes": 330356,
+    "sha256": "9e68748a84908a7e74074d2d89426b5ac49d4946be1ebe1e11f21ad983614f24"
+  },
+  {
+    "path": "private/original_shapes/chair.json",
+    "bytes": 18468,
+    "sha256": "f88918eda3d315d4925593160e5092be8c31cc092e8e17a4254d728ab614c0b4"
+  },
+  {
+    "path": "private/original_shapes/deer.json",
+    "bytes": 435444,
+    "sha256": "36c3410914d8c03d95610d5f1465ab23f22ed7019b44efad5d7c722d453b09ee"
+  },
+  {
+    "path": "private/original_shapes/knight_armor.json",
+    "bytes": 20481,
+    "sha256": "f7342c2e7562f28a8f10a449fd283569d0334cc53eae3352d58fd2bd616da523"
+  },
+  {
+    "path": "private/original_shapes/knight_body.json",
+    "bytes": 17274,
+    "sha256": "42a39787af73acd83897b4a5ac84a358d7f215d5694ef28614f5828f4561d74f"
+  },
+  {
+    "path": "private/original_shapes/sofa_structure.json",
+    "bytes": 417354,
+    "sha256": "f77eaf16d8a83569dd5ed95377a12fa3a0745118785aaa8fd78d21bfc7a7577f"
+  },
+  {
+    "path": "private/original_shapes/stepladder.json",
+    "bytes": 44018,
+    "sha256": "20effe8bda10f8e513326d0951b5c12d92bc42637f4d8a1ba34afe4fe2fb0abc"
+  },
+  {
+    "path": "private/original_shapes/stool_x10.json",
+    "bytes": 52575,
+    "sha256": "efdcfb698496af9356b6e312c7d794c95da69a6ce5e46e182c8873b39d62cad8"
+  },
+  {
+    "path": "private/original_shapes/table.json",
+    "bytes": 1128554,
+    "sha256": "7ea1ae2a13a55512244bad1368d523b5401d881c24748a8f68211f667e4bbcf8"
+  },
+  {
+    "path": "public/cases/chair.json",
+    "bytes": 60082,
+    "sha256": "f1d87bda8f05a818b9683f4043df61c6d5662feb88478638100e5468648c13a2"
+  },
+  {
+    "path": "public/cases/stepladder.json",
+    "bytes": 43972,
+    "sha256": "e0f61ccb5bbb7465fdfded87bb62e7890a78c622a5345e6888a1d9d11d06676c"
+  },
+  {
+    "path": "public/cases/stool_x10.json",
+    "bytes": 52525,
+    "sha256": "e196f71abc05efb65eba9ce325af017c2392dcf205d2ff7f9a66198f43d345a2"
+  },
+  {
+    "path": "public/evaluation_contract.draft.json",
+    "bytes": 1878,
+    "sha256": "61bc46aa6135b53995f0382d5fb993b961db9721e87e3fefd455a8ddcddca5ea"
+  },
+  {
+    "path": "public/instruction.md",
+    "bytes": 1233,
+    "sha256": "2147911424dcee5299f53bc2f21094df7c2b228756471c7439e3863dc18206c1"
+  },
+  {
+    "path": "public/repo/CMakeLists.txt",
+    "bytes": 2667,
+    "sha256": "4e0a26b574ae3f1e6e1698ec7e5ad33aafea5bc3551b39b3e153e80c23e14594"
+  },
+  {
+    "path": "public/repo/LICENSE",
+    "bytes": 1071,
+    "sha256": "69af8deb5c986861d0d90e880d1220f9157582b4cc2743e1146d6bb62939a0de"
+  },
+  {
+    "path": "public/repo/README.md",
+    "bytes": 14548,
+    "sha256": "85cebd42efc08d8bf321f5583b2c383927a26d7aa7b3df740e8f180ffc19e1cc"
+  },
+  {
+    "path": "public/repo/doc/Makefile",
+    "bytes": 634,
+    "sha256": "8b6587b859607f200f116e2cb043fc358e1c3a26c326b563bf348453cfc68307"
+  },
+  {
+    "path": "public/repo/doc/TODO.md",
+    "bytes": 3111,
+    "sha256": "807f186318d8ed37497a26366b675a61f7974262566753a1239b63f44ceaa58e"
+  },
+  {
+    "path": "public/repo/doc/_ext/example_tabs.py",
+    "bytes": 5614,
+    "sha256": "265aa9fc5aa95aceba0b1c0843d1af1f95f6c1f6ee9d6b786a868d6b00a5597d"
+  },
+  {
+    "path": "public/repo/doc/_static/custom.css",
+    "bytes": 452,
+    "sha256": "34f242c7b2b9140cc36d88ba41e6aed9052d3acd851db91c59d0235aa04ec7a0"
+  },
+  {
+    "path": "public/repo/doc/box.rst",
+    "bytes": 9309,
+    "sha256": "9f4e1c38bb00200439e0b282f0481e5706888584ae50598a5dbb0e19848ff3d7"
+  },
+  {
+    "path": "public/repo/doc/boxstacks.rst",
+    "bytes": 28254,
+    "sha256": "815c10923da57a1c90128c6fa0ce3dba702b8c010cfd12617f2cf22f13dd65d3"
+  },
+  {
+    "path": "public/repo/doc/conf.py",
+    "bytes": 1456,
+    "sha256": "ec1c8d612f8aa2eb1257f4003b71297cd49e1f9357f59fd29403edddcb620e2a"
+  },
+  {
+    "path": "public/repo/doc/examples/box/basic/instance.cpp",
+    "bytes": 659,
+    "sha256": "e6060f7728191ad2e823ba269d4e132ee23bc0083593909c4a07f3c3a59d6113"
+  },
+  {
+    "path": "public/repo/doc/examples/box/basic/instance.json",
+    "bytes": 278,
+    "sha256": "54c29dc118477deb0846e9173c7f8ac10fadf156ddff7990f1f87846a888c614"
+  },
+  {
+    "path": "public/repo/doc/examples/box/basic/instance.py",
+    "bytes": 374,
+    "sha256": "ac62fe718bcfd0fa7cc91e35de170d12d328ec29ef98109184e355ce776f848e"
+  },
+  {
+    "path": "public/repo/doc/examples/box/basic/output.txt",
+    "bytes": 3272,
+    "sha256": "36be40132db57b4437713c3248a4af572d11427c397d80767587d8d4edc771af"
+  },
+  {
+    "path": "public/repo/doc/examples/box/basic/solution.csv",
+    "bytes": 600,
+    "sha256": "33b7f536f8b03ae50a38e8a06f78db40f3f41f4eff8638ddcb674f777d6615fd"
+  },
+  {
+    "path": "public/repo/doc/examples/box/box_vs_boxstacks/instance.cpp",
+    "bytes": 1391,
+    "sha256": "b1e948df2b56e03678bafa6d6142cfd94e67057e4c16b459db4be6f0e185968c"
+  },
+  {
+    "path": "public/repo/doc/examples/box/box_vs_boxstacks/instance.json",
+    "bytes": 620,
+    "sha256": "e3b2b9f0db059b41a1f55a72ac7fed9c31e1e5918ed6f6d335240c7221d64c7f"
+  },
+  {
+    "path": "public/repo/doc/examples/box/box_vs_boxstacks/instance.py",
+    "bytes": 734,
+    "sha256": "67782f87eece34255951adf967b127c36c2b75694cddc9080299dc0fafe74dd0"
+  },
+  {
+    "path": "public/repo/doc/examples/box/box_vs_boxstacks/output.txt",
+    "bytes": 6473,
+    "sha256": "e1a54713afe7577fc66e00f5a34a6f4e2628ca967f954efbc8b77ba680ae0178"
+  },
+  {
+    "path": "public/repo/doc/examples/box/box_vs_boxstacks/solution.csv",
+    "bytes": 2064,
+    "sha256": "fbf850d4077311b5424e178227071c9919242b217802bc707d1dc17e154b62a4"
+  },
+  {
+    "path": "public/repo/doc/examples/box/examples.json",
+    "bytes": 450,
+    "sha256": "3f9626dc41b4404d7150ab90abc8326feddf2c4f89171aa9f745e60864824ac5"
+  },
+  {
+    "path": "public/repo/doc/examples/box/maximum_weight_no/instance.cpp",
+    "bytes": 560,
+    "sha256": "36b3d23436bb10d91aeff889df77533d50e75ec5f881d0cde6cf3f6680c7e850"
+  },
+  {
+    "path": "public/repo/doc/examples/box/maximum_weight_no/instance.json",
+    "bytes": 202,
+    "sha256": "dba38242395f07adb3d1ba1acbc19e91201a2ad813a9955bd0753fb3a2b07875"
+  },
+  {
+    "path": "public/repo/doc/examples/box/maximum_weight_no/instance.py",
+    "bytes": 285,
+    "sha256": "d713dfd710bdfc95ecc466e825f0c232022241d58c281ece56e9cee020fe9934"
+  },
+  {
+    "path": "public/repo/doc/examples/box/maximum_weight_no/output.txt",
+    "bytes": 1460,
+    "sha256": "cea19a722abb6c0788f334dda2434e1d01ae3a299189c9cb8267d5e7545a5659"
+  },
+  {
+    "path": "public/repo/doc/examples/box/maximum_weight_no/solution.csv",
+    "bytes": 193,
+    "sha256": "bf1960b23aba0cc158b0865fc9aabd5349d64a784f7ba57f7b24514b6b77dd45"
+  },
+  {
+    "path": "public/repo/doc/examples/box/maximum_weight_yes/instance.cpp",
+    "bytes": 624,
+    "sha256": "167aade19aca14fd3dd50c8c69e2536a258ec4b1208e289a7962ee410942d4de"
+  },
+  {
+    "path": "public/repo/doc/examples/box/maximum_weight_yes/instance.json",
+    "bytes": 225,
+    "sha256": "504598a15da2be3fff495248013a138415acf9d4d5b34becd4ee71a681c7ac56"
+  },
+  {
+    "path": "public/repo/doc/examples/box/maximum_weight_yes/instance.py",
+    "bytes": 305,
+    "sha256": "e3137b9324eb866493c86d1563b18a3fa1028be90cb08f1979fec20170707bcc"
+  },
+  {
+    "path": "public/repo/doc/examples/box/maximum_weight_yes/output.txt",
+    "bytes": 1476,
+    "sha256": "b42138a1cd107088e45be995bbceabca1d11d764482cf0ec4a83793fcc00aaa0"
+  },
+  {
+    "path": "public/repo/doc/examples/box/maximum_weight_yes/solution.csv",
+    "bytes": 217,
+    "sha256": "6bfea1167e85c282a43ea4cd366dcade582b29c4aac072fa1cde243d3de4851f"
+  },
+  {
+    "path": "public/repo/doc/examples/box/rotation_no/instance.cpp",
+    "bytes": 460,
+    "sha256": "c1958744413e3b4258c58b03ae142971f0c74d94e306ed835ce53eafbf017451"
+  },
+  {
+    "path": "public/repo/doc/examples/box/rotation_no/instance.json",
+    "bytes": 207,
+    "sha256": "5808b6573fb4b375623cc25fa7543fe4b4077cb944853b459dde0e7309f3cfd8"
+  },
+  {
+    "path": "public/repo/doc/examples/box/rotation_no/instance.py",
+    "bytes": 302,
+    "sha256": "3b95818cc86ad2b7e0cf2d83ff7abe158b57d87ecb8ae99e2106f24b4efb9290"
+  },
+  {
+    "path": "public/repo/doc/examples/box/rotation_no/output.txt",
+    "bytes": 1455,
+    "sha256": "6a72a336f6ca8cf18529616c4784e2453c350466333fbbc0c4415710b699403c"
+  },
+  {
+    "path": "public/repo/doc/examples/box/rotation_no/solution.csv",
+    "bytes": 152,
+    "sha256": "39731df643b64a5632e257c18ab46532d17dd28c1760fd52f83da05a060acf02"
+  },
+  {
+    "path": "public/repo/doc/examples/box/rotation_yes/instance.cpp",
+    "bytes": 711,
+    "sha256": "ae804e97c6ab0d7613d035d1d61cdbbd86a0dca66585edff23d2689eaf123f4e"
+  },
+  {
+    "path": "public/repo/doc/examples/box/rotation_yes/instance.json",
+    "bytes": 258,
+    "sha256": "fbae5f0c7d3a14f597008b72b47b82fb499472214d767951041b0bd6c2bd9faf"
+  },
+  {
+    "path": "public/repo/doc/examples/box/rotation_yes/instance.py",
+    "bytes": 415,
+    "sha256": "52662b2195652a69d11d60eba66ebee6e95e926d6b2225f353852a607834e3a1"
+  },
+  {
+    "path": "public/repo/doc/examples/box/rotation_yes/output.txt",
+    "bytes": 1448,
+    "sha256": "13906dec0f00203cdd61d682b6c394d4f899df29098a24439e0c228e50a94a60"
+  },
+  {
+    "path": "public/repo/doc/examples/box/rotation_yes/solution.csv",
+    "bytes": 126,
+    "sha256": "e018e5e33dc81e7af8ba3235f2459fa7a9bddc1f6517a4de6a351988f651abeb"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/axle_weight_no/instance.cpp",
+    "bytes": 765,
+    "sha256": "a72f16d577c3e7a7d5476e4a2d0faccac8ab806f6d9c7242ab56d6d9f47b84d0"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/axle_weight_no/instance.json",
+    "bytes": 287,
+    "sha256": "a9e242525cac499479806b1e4de12d76f7743693706b85e77eea39272bf4a3a4"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/axle_weight_no/instance.py",
+    "bytes": 379,
+    "sha256": "7e1257a537e1e5643c119ae76ae930c6a8a91139aa2a67db3bf5f05717d2a4d8"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/axle_weight_no/output.txt",
+    "bytes": 1464,
+    "sha256": "9a399b94b35c5d6d1f1dcd7b00a3c81309c48f315931531c1b0966a612056ab6"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/axle_weight_no/solution.csv",
+    "bytes": 2287,
+    "sha256": "5f0f76d98e26ff8ee19e261abab1701c2e123bc63c36db7d72417fd26ca8314b"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/axle_weight_yes/instance.cpp",
+    "bytes": 1558,
+    "sha256": "890f2c3f178d10cd2ec280e7519e1f6794eade9c38fbbbb011e6cbbfaddd747a"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/axle_weight_yes/instance.json",
+    "bytes": 938,
+    "sha256": "efe164c085602fe56b767b031e7a84c97d3637412e69a4120b160e9e4b50846f"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/axle_weight_yes/instance.py",
+    "bytes": 968,
+    "sha256": "c35c49f2bce651d4f5fddfefa3fcd8de39f54ba931ea9f8eb5490eadb501c827"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/axle_weight_yes/output.txt",
+    "bytes": 1468,
+    "sha256": "6861f87bdc56010e079164e02ba28549e66b0a9fc4da79903ab093be86de7fcb"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/axle_weight_yes/solution.csv",
+    "bytes": 2310,
+    "sha256": "902acd7e2207d6ca63590da28bd80cc993f455d1d45332bb0401cc5afa7067ed"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/basic/instance.cpp",
+    "bytes": 881,
+    "sha256": "c042daa167d72e35d0379e28474d13679903a193c76a04ce0588a4d6fbf852f1"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/basic/instance.json",
+    "bytes": 359,
+    "sha256": "81236f8e47e55726205b0d83eefcd5df27fa1f0e385d566f29b819f855608fdf"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/basic/instance.py",
+    "bytes": 455,
+    "sha256": "a84fe4db5d143aa6593431a84647eae14d9ae3072873db8de0652b83716f24f9"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/basic/output.txt",
+    "bytes": 1438,
+    "sha256": "1d2a926c21186d826049b2c606548a203258749672d10c37dfb9e01ab233445f"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/basic/solution.csv",
+    "bytes": 1426,
+    "sha256": "e2e648ef260f4b571c1b445ac62417fc581fc41de1695816a97798dd4742b6cc"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/box_vs_boxstacks/instance.cpp",
+    "bytes": 1988,
+    "sha256": "5e0aeb670f42e8c2cc557e8630919048ecf1b2f3e58e236298fca759121da419"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/box_vs_boxstacks/instance.json",
+    "bytes": 818,
+    "sha256": "aba94d43a24d73b7c686692de2cfb7fde66de93fafa62438954e1e790126b1d5"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/box_vs_boxstacks/instance.py",
+    "bytes": 914,
+    "sha256": "7618720c57834de4df768936e8709a3cc20fd0f0598861358d0e8c544421a0a7"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/box_vs_boxstacks/output.txt",
+    "bytes": 1457,
+    "sha256": "a05f33b8cbe9c577119a05b44d1d119bf1aedc1535003e67b5685ac92d8346d1"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/box_vs_boxstacks/solution.csv",
+    "bytes": 2074,
+    "sha256": "f3454e4444408bdd24e7e9aea4324cd5fcc46e67b83300611d66cf923b0ea9ab"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/examples.json",
+    "bytes": 1295,
+    "sha256": "fb5e40f1314738bf5138dae3e59da4c341cf1df6b9ba2ca8994b1a33ee5f187a"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_stack_density_no/instance.cpp",
+    "bytes": 768,
+    "sha256": "8f52202ce66248e9421e6c72de022fc365a59dcd622dca65bf2c774a8e38dfcf"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_stack_density_no/instance.json",
+    "bytes": 290,
+    "sha256": "456dd7b9951a29bd31448b7d98745cdf535b7b44edd45e889a5439c8c4a881d6"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_stack_density_no/instance.py",
+    "bytes": 382,
+    "sha256": "49ec3014df366e4c4ac22a17d443f81393bbe9151b8d683b0fc1077c13a9acdc"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_stack_density_no/output.txt",
+    "bytes": 1426,
+    "sha256": "4b9bd5974f88ef74d7f8224d847d38826cceaf6f53153f713c1ab50f165e5f73"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_stack_density_no/solution.csv",
+    "bytes": 1068,
+    "sha256": "269f7f1e85859dd7a1b08684181add73d12a4563d47b85cf1fa8da77095091b7"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_stack_density_yes/instance.cpp",
+    "bytes": 839,
+    "sha256": "a14fceb070f1a2c63f95ebd780dc6bf0cc3b4c06d6e0b036630319be1cf9f43f"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_stack_density_yes/instance.json",
+    "bytes": 320,
+    "sha256": "42d50abebfc8916249f9c6ab6a594b0532ac62bead61fd96b3570a8078aebe4b"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_stack_density_yes/instance.py",
+    "bytes": 452,
+    "sha256": "9b8a5505dbbe5ef0aaaf30d262c0af1a1749b96ee9d279b06153041e8e541d2d"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_stack_density_yes/output.txt",
+    "bytes": 1450,
+    "sha256": "4c05b79b22f819b07a743136adf139329f9f5a81a590f4c4c256a3aa1fce85ae"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_stack_density_yes/solution.csv",
+    "bytes": 1199,
+    "sha256": "fc2df3aec2ffcba9dcc21e4db7ff0b372b53da7189452a9c31db53aff1795260"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_stackability_no/instance.cpp",
+    "bytes": 645,
+    "sha256": "1122c40844cab985df68c89b12938a4d3448baa73abbab927c83e8bb8fe1d7a3"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_stackability_no/instance.json",
+    "bytes": 253,
+    "sha256": "4f2140b1b88e0834976d77c7de952ac0e6b7d40883bac2edb75c5327f115eece"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_stackability_no/instance.py",
+    "bytes": 351,
+    "sha256": "9f7adefa46e95766d3c66ca990d6125dcac542e335b914137032dc8c28306725"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_stackability_no/output.txt",
+    "bytes": 1417,
+    "sha256": "1cf0fc716416c088113a9f9889c00db509af2f3fd5484957866c640433f5079c"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_stackability_no/solution.csv",
+    "bytes": 434,
+    "sha256": "53ad19fa665cbf11eee7b2bd79dfdfd9494774e4f1c9d63865bb81e6d5c8f890"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_stackability_yes/instance.cpp",
+    "bytes": 787,
+    "sha256": "6682d6a64fb0764af08b4d351ee8bdf0bca3a591d84619df9029394957459ff8"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_stackability_yes/instance.json",
+    "bytes": 309,
+    "sha256": "763f4adeb7ed87bba44040099d5776692778df3ff41a940dafe66a8db33bc76b"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_stackability_yes/instance.py",
+    "bytes": 487,
+    "sha256": "30672f09682c756afbecc41978f17032746df9af235c266c891e820af8893c8c"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_stackability_yes/output.txt",
+    "bytes": 1437,
+    "sha256": "25b2a75a34721e9b7f3b85efccd39468c37012646658b214fbc56107e72b3014"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_stackability_yes/solution.csv",
+    "bytes": 498,
+    "sha256": "9cde866a612edbc391fa9b237a13926714ad76d11b6b7f5cac8f079996adc59e"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_weight_above_no/instance.cpp",
+    "bytes": 760,
+    "sha256": "9853734fec0be356e3b117cb6df7438cc3f90581daa8672e71703e9182b24400"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_weight_above_no/instance.json",
+    "bytes": 282,
+    "sha256": "47a2f248cbbe4b3d0b9ffb45f9d525bacbcdd9d03a76fe80431758bfca3a3a11"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_weight_above_no/instance.py",
+    "bytes": 374,
+    "sha256": "1416a6ec9c3101b1805670500645708d23809cf6b223f573aebad70853c09a4f"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_weight_above_no/output.txt",
+    "bytes": 1422,
+    "sha256": "8ba948ac9f594d10280cf355297c20a1c24616558b6136513101cf3bb022800c"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_weight_above_no/solution.csv",
+    "bytes": 354,
+    "sha256": "e0b15fdc7275773720f63a223ae31c078dadd11af4c4653227f4b53229d7c933"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_weight_above_yes/instance.cpp",
+    "bytes": 905,
+    "sha256": "b33da1d322da2fd99d9d898321b1f954306ad02bf44b688b4d9e7ed42a3ea663"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_weight_above_yes/instance.json",
+    "bytes": 341,
+    "sha256": "28cd947a61d14b8174e80ecad82f1f840cdcc7107bfa938fda36c7e8fe26cd07"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_weight_above_yes/instance.py",
+    "bytes": 529,
+    "sha256": "621c9e6fa7f0c8eda721727c8daca4edae2bbc9fa7423c343d3a625129bdd930"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_weight_above_yes/output.txt",
+    "bytes": 1442,
+    "sha256": "a66d74696a1be45d2d15230e9068bd60171c147781dd056ca7b3b168e5fe564c"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/maximum_weight_above_yes/solution.csv",
+    "bytes": 422,
+    "sha256": "751d1e9e136e2c95bdfe4d66ee15c73d0a5cfcf90292eada22adcdd2dc4d6c0d"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/nesting_height_no/instance.cpp",
+    "bytes": 774,
+    "sha256": "c4c6f00e0af4146d455166158ccb89e39b4882c0e1b75c49b930b99d0aaa2cee"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/nesting_height_no/instance.json",
+    "bytes": 296,
+    "sha256": "84b91bf1420525c982ebf8817f9b7f09ac5b12718daf885a3adbced74175fe24"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/nesting_height_no/instance.py",
+    "bytes": 388,
+    "sha256": "d3e8a2a496b91236cfbe3c3f23b40624bd7503e8fc8b8ee8060af1e290f05c92"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/nesting_height_no/output.txt",
+    "bytes": 1453,
+    "sha256": "fa63c122d47bf23919df5c7048e19016f91b9a257a22512d5c163c80819a7a5d"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/nesting_height_no/solution.csv",
+    "bytes": 1067,
+    "sha256": "eda047352758723779ca8c3fdd0eaba613edcfc8cfd6b76276450edf32400086"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/nesting_height_yes/instance.cpp",
+    "bytes": 778,
+    "sha256": "a15ad472e22d782e59c9576869ad407b5bdd7af0a4f80767da8bc21bdca7f07f"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/nesting_height_yes/instance.json",
+    "bytes": 300,
+    "sha256": "49629bed0adeeeff9c15e3e5d866cddf5882e0b00908e758ab1240dff7c8d4e4"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/nesting_height_yes/instance.py",
+    "bytes": 392,
+    "sha256": "1fd4f3cc538d96c6a9198522b9be1faec8430019ee44f69acecd0724703f6da2"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/nesting_height_yes/output.txt",
+    "bytes": 1450,
+    "sha256": "2ff5aec64caa426a3d6e12263ea8646d103fc6d8ee62218381b4866256675912"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/nesting_height_yes/solution.csv",
+    "bytes": 813,
+    "sha256": "c71fbfdf66305214c56238d4211342b1a31cfe82a36bbe49fa9b069cf02ae3f1"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/rotation_no/instance.cpp",
+    "bytes": 526,
+    "sha256": "e8087fc36ca7a0ad92d60edf3bb9f89c17a79eed9f1a2656ea8352d7a8a6d9d6"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/rotation_no/instance.json",
+    "bytes": 199,
+    "sha256": "aba541ee7adcfaa7bcd18d03da911bed053b2cf35d17bedafa7fe0e8bc4e26ba"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/rotation_no/instance.py",
+    "bytes": 294,
+    "sha256": "d38ddefe8b86ca434fe1a71dde4b1247f59cd8f1826c055bcfdd929250b3aeee"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/rotation_no/output.txt",
+    "bytes": 1435,
+    "sha256": "c50c63eaf5004003cb5bc4c922335976234116437522327a3e665ee44924d058"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/rotation_no/solution.csv",
+    "bytes": 558,
+    "sha256": "b591ea1c9bec9f3867a52abcd126c795df8ba749b8498082de9e26eb64fc50ed"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/rotation_yes/instance.cpp",
+    "bytes": 666,
+    "sha256": "c35ca917c51770ed89416112837e08f533fb8b2a7c08cdda7ae6ad06b69186e4"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/rotation_yes/instance.json",
+    "bytes": 228,
+    "sha256": "5e32ec17721660c2cfa1f2cea60bedeaeaa785016338e40b14d825223e64467f"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/rotation_yes/instance.py",
+    "bytes": 387,
+    "sha256": "1e07fb45b82e4898ff40d512d7efe5ef023ef5e4e405792c44923c0a0e9b2f62"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/rotation_yes/output.txt",
+    "bytes": 1404,
+    "sha256": "9be8271a8be7221497f721e5779a9b154b3ec644ef452feb29f5f3cd7e8cd28c"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/rotation_yes/solution.csv",
+    "bytes": 1044,
+    "sha256": "a8852af94943ffd8ae53be667c3c0ba02a395b5ede913299899eb848398cf991"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/unloading_no/instance.cpp",
+    "bytes": 917,
+    "sha256": "57cec213a0c7d0fbec7ba2c5823ea80dbd8f9ed9a4e8903c7a24ba4bb8fd25ca"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/unloading_no/instance.json",
+    "bytes": 382,
+    "sha256": "f8ce7633204ad8e4562af549dc72dab5dad418cf952f129762b3b2be91352020"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/unloading_no/instance.py",
+    "bytes": 475,
+    "sha256": "2537e689a014f5dc3949b6dc0a48ba410e973bc0893e5a69f7aef33e0790934b"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/unloading_no/output.txt",
+    "bytes": 1457,
+    "sha256": "dd6f0b125761d35d731b318d4da70f49f98a37053457a0faab2d2cf2813f5db1"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/unloading_no/solution.csv",
+    "bytes": 318,
+    "sha256": "28efd16b3fb94d413d337892e51e5a430ca7423a17a4d74a61c3271e516103d6"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/unloading_yes/instance.cpp",
+    "bytes": 1008,
+    "sha256": "e3460f8c603dfbb47ce45e4dc940084ed9af4dd46917a624f31017e96cde7f45"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/unloading_yes/instance.json",
+    "bytes": 430,
+    "sha256": "2c9261ac00ed055a361542289c9982c1c968d547822ca53ab765b6b485348437"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/unloading_yes/instance.py",
+    "bytes": 558,
+    "sha256": "da5a86cb3a8ba2a5fd87a431070e740409491c9d0363ec81ebefff92a0356fd1"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/unloading_yes/output.txt",
+    "bytes": 1472,
+    "sha256": "a1caa16cc2456d060ce964e3b7d841eb554a453e4370216a4aaa5f85e310cfe3"
+  },
+  {
+    "path": "public/repo/doc/examples/boxstacks/unloading_yes/solution.csv",
+    "bytes": 341,
+    "sha256": "0971b147664809d64c7266f9d53ba18f850dd003b767aadbb9ab48941a6fb372"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/basic/instance.cpp",
+    "bytes": 4278,
+    "sha256": "48d41f5c620b75b5a6ad3705cc5efc8c43f138dbb14ee0f210044cf3fcce29b9"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/basic/instance.json",
+    "bytes": 3605,
+    "sha256": "92fe69e6a026e1867e5243839aca705c4b15c8c17a5689c31abab0a2d3c9efed"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/basic/instance.py",
+    "bytes": 2084,
+    "sha256": "c3824c001d12ef9514438ac9552b7af713d46d8ba5a6e1b414cbc880ca0582aa"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/basic/output.txt",
+    "bytes": 1596,
+    "sha256": "14ff308f55010088df8405c78491ac923e72e47fd6b0d44873ee3b6f1e3887e8"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/basic/solution.json",
+    "bytes": 47159,
+    "sha256": "d3a416eb060506ba50955e891bf1eb34aa64c0d6840caab873f558c8cbe747e4"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/defects_no/instance.cpp",
+    "bytes": 955,
+    "sha256": "90ac4bfcc91c1780095d2ae323404493c64f54ed678a40f989830cd6f3c5fdb0"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/defects_no/instance.json",
+    "bytes": 601,
+    "sha256": "7bdd1dc7dd101035454b6509be82800b9a3b3fd760536d9c668c385d28e72c49"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/defects_no/instance.py",
+    "bytes": 481,
+    "sha256": "d6447a511cdd391f8bf01049b513430fab177e323c419317e04d0ca6e676b373"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/defects_no/output.txt",
+    "bytes": 1502,
+    "sha256": "4243cffef2ec276b212164d6c16d52e4d53109d2cf8725f83c20c13a2fce0e38"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/defects_no/solution.json",
+    "bytes": 5555,
+    "sha256": "baa173e4ca12d58f1e703639b673befc5aac080b456ad022bd3a756fa54b14d6"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/defects_yes/instance.cpp",
+    "bytes": 1199,
+    "sha256": "38368b0deecfa6cbbffb77fb5bd7d913bcee11c4d1484bf46a1af5071b46ee82"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/defects_yes/instance.json",
+    "bytes": 859,
+    "sha256": "576fe40e5bda5eff0520f3814bd99263babda58dcdde7e31b13ef6e98e1e8339"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/defects_yes/instance.py",
+    "bytes": 670,
+    "sha256": "700898150f6441e4fa124a9d0da3def2fde86a5a5d79c8c16ab27d09d46b254f"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/defects_yes/output.txt",
+    "bytes": 1507,
+    "sha256": "fb1dd3cb35126fe4f93c42733eaf1904267bebfe6cf3095d2c93c10350636257"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/defects_yes/solution.json",
+    "bytes": 7686,
+    "sha256": "b184695b197927ef7cb00cb6aad9b6338a978a0ba2f2fb52ba77c9642d648b55"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/examples.json",
+    "bytes": 1259,
+    "sha256": "632f135187a5c47ac33177448c57c530f90dbb02507c5a9d7384f88019df7af2"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/holes_no/instance.cpp",
+    "bytes": 818,
+    "sha256": "d484924c2b6d7c7fe99c6449c547a9513f5ab448aa89e80fc88986d910637898"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/holes_no/instance.json",
+    "bytes": 561,
+    "sha256": "406e8c5abfa851446332bfb9e8f9f62a0b2d4a1ff55999ccf61ccbbbfa9da321"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/holes_no/instance.py",
+    "bytes": 478,
+    "sha256": "2c7655bdef3e48cba380f2096ad560aca43bbf5a0e4dc0a1a4c1a68fb49d6cb5"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/holes_no/output.txt",
+    "bytes": 1505,
+    "sha256": "a6634ab3db195e755fa22cbc19864e8b5bfca6ac9a8a02200874b5f4e069f53c"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/holes_no/solution.json",
+    "bytes": 5231,
+    "sha256": "f3a78f5ed4b7534fa572ce3cc877595159844c19f43665ec7e48707a61f429a1"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/holes_yes/instance.cpp",
+    "bytes": 872,
+    "sha256": "2e9ae90f57278a56d47632048b4d3e73e4c28c482736350242f22cec41cb5a8e"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/holes_yes/instance.json",
+    "bytes": 767,
+    "sha256": "e8e0929e311da1abe0c8c83e47c98c5a65f7bf384dc8814f1f3e797f40a7408a"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/holes_yes/instance.py",
+    "bytes": 549,
+    "sha256": "c4acfc3ff5a5de6f545ec45e881220af916e457151823a8adad31e01e6a32f96"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/holes_yes/output.txt",
+    "bytes": 1497,
+    "sha256": "0b819b16bb64a1a0c7bc715bc97aee48e8eebe79d4398633129200644f6db148"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/holes_yes/solution.json",
+    "bytes": 5459,
+    "sha256": "9e6f4f0774df80d600f3fa0a61c42720645edf3fdb930b890100201179931256"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/irregular_bin/instance.cpp",
+    "bytes": 9204,
+    "sha256": "fbadc882805d1f604476cca2d7a2c99f486a00ca449bb85a8a0ab6bd69afac5b"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/irregular_bin/instance.json",
+    "bytes": 8702,
+    "sha256": "13cadc84f021596e9db9e64ddb48fc290dd58712f9c09657082526d2da4fc594"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/irregular_bin/instance.py",
+    "bytes": 5747,
+    "sha256": "d3a98e37ca36b5e70d70f26a94ba5e67f4ba820dc177f018a2b90b3d46826068"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/irregular_bin/output.txt",
+    "bytes": 6399,
+    "sha256": "30e43e5e336d369c0bbb935715551fe57cf1887d25bbc255056839027081c2d5"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/irregular_bin/solution.json",
+    "bytes": 38895,
+    "sha256": "791be3927c501328c6e9ce9d5ec0d759ce74f0379c474ba32bcf1a2ec807894d"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_bin_spacing_no/instance.cpp",
+    "bytes": 971,
+    "sha256": "0786575833bb74de283cf391d9708b527e236314488dc992ff3086f583d66873"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_bin_spacing_no/instance.json",
+    "bytes": 619,
+    "sha256": "f2b9b268f40f947e3124efa5f0daf23353da4800e92880e5602bb67b5787ebee"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_bin_spacing_no/instance.py",
+    "bytes": 497,
+    "sha256": "0fd4856f646be59ddc4bcadf7682dbd9013a0773c61ac323a0be72c54fda4521"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_bin_spacing_no/output.txt",
+    "bytes": 1628,
+    "sha256": "c5ebfd229971a28c465b7a2bd5170b5b1163d2b2aa3e0dc78b07a87a7d4097b4"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_bin_spacing_no/solution.json",
+    "bytes": 23972,
+    "sha256": "67f4fa14db8d3f4a57bf2a8362c83eee5d1072dd98d8639322403637b304c3bc"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_bin_spacing_yes/instance.cpp",
+    "bytes": 1034,
+    "sha256": "78f78fa11d29c52782a825f6919a1be87a08a02c80c312fb45a96dfab7f31e05"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_bin_spacing_yes/instance.json",
+    "bytes": 656,
+    "sha256": "5e0999520d993cf98a4a263da17c15e3baf9ef281d72540c26dd4e5cb3532a1c"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_bin_spacing_yes/instance.py",
+    "bytes": 552,
+    "sha256": "28e3db50785fb037858dc6c268cce6d4b0862e99b3ebb388cd095cd175a5f0ea"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_bin_spacing_yes/output.txt",
+    "bytes": 1716,
+    "sha256": "73bee3bba6e844986eba5822b7addb07553e62b9ba293e58cdf2189b8e79fe35"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_bin_spacing_yes/solution.json",
+    "bytes": 24863,
+    "sha256": "21fc76f95e1d5fd21702bf61e81625303e4b60c300e523c3803ff6801a72832d"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_defect_spacing_no/instance.cpp",
+    "bytes": 1299,
+    "sha256": "4e0470e005447ef0c264bf59c30deeb28ede680ffd24db6f506a4ceb3ed7b465"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_defect_spacing_no/instance.json",
+    "bytes": 886,
+    "sha256": "a8bddebf9cdcfd80da058845d23f9ef47af6ba6a435601c377eb14d14db23b20"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_defect_spacing_no/instance.py",
+    "bytes": 760,
+    "sha256": "0bb40968a652125f6807c9af43898d61e9d2bdc06d13ca654e89d756e35d3004"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_defect_spacing_no/output.txt",
+    "bytes": 1854,
+    "sha256": "d10a24ba84a4c0c425f85ff774ba624fecba8c586ca1d18dc5aff4808dfd03cc"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_defect_spacing_no/solution.json",
+    "bytes": 32684,
+    "sha256": "304bcd11415af0f5d9fd450a1dc7a2033eddf3c3872650b2cbb0bb82b369b1e3"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_defect_spacing_yes/instance.cpp",
+    "bytes": 1299,
+    "sha256": "73151f893ee22065bdb5b23582f04f35bdb6f21647ef5ea942ec3cbfe50e14ef"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_defect_spacing_yes/instance.json",
+    "bytes": 886,
+    "sha256": "edd76933b6b88bf9b9a5eb6e17e80f2723a3f5f796fb8a52d20d81877cf277df"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_defect_spacing_yes/instance.py",
+    "bytes": 760,
+    "sha256": "2f4e4e5197e51cbe3e7cb89fd92edca7489db3cb3e7c47166262da21b323aad9"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_defect_spacing_yes/output.txt",
+    "bytes": 1718,
+    "sha256": "dc39952a5b083d3a80fd04cf9e897de90f2bab34223d9c77dc6f2afe0efa87a5"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_defect_spacing_yes/solution.json",
+    "bytes": 34261,
+    "sha256": "658ba8e8c7f3c21770551cdafb409087545aea825ac6db80b64964e5943e2197"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_item_spacing_no/instance.cpp",
+    "bytes": 971,
+    "sha256": "0786575833bb74de283cf391d9708b527e236314488dc992ff3086f583d66873"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_item_spacing_no/instance.json",
+    "bytes": 619,
+    "sha256": "f2b9b268f40f947e3124efa5f0daf23353da4800e92880e5602bb67b5787ebee"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_item_spacing_no/instance.py",
+    "bytes": 497,
+    "sha256": "0fd4856f646be59ddc4bcadf7682dbd9013a0773c61ac323a0be72c54fda4521"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_item_spacing_no/output.txt",
+    "bytes": 1628,
+    "sha256": "00154b82a218ff3db403a541b96772d9a5df779c8ae993783d9673addb6e9a57"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_item_spacing_no/solution.json",
+    "bytes": 23972,
+    "sha256": "67f4fa14db8d3f4a57bf2a8362c83eee5d1072dd98d8639322403637b304c3bc"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_item_spacing_yes/instance.cpp",
+    "bytes": 1022,
+    "sha256": "6d621df4fdd2fbed1dd78453b4918ecb9adb1876619d7144e3b34500cfcc08de"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_item_spacing_yes/instance.json",
+    "bytes": 677,
+    "sha256": "18eee31ba86ba781cac4611257e8daaf0ebb32b87746b4b85b4345f201d60eaf"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_item_spacing_yes/instance.py",
+    "bytes": 547,
+    "sha256": "8b037574e8afc5aa6e3921fa51a8d028aa0ad48c07168e968299a50ecc0d54e8"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_item_spacing_yes/output.txt",
+    "bytes": 1715,
+    "sha256": "f5f76f8f10b7d88c5b1d3b65cbffef8f04aadecc00933d85d8a93112688afd0f"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/item_item_spacing_yes/solution.json",
+    "bytes": 24863,
+    "sha256": "998cafaaf3718d5ed69ca4d7138f722c5ad1ad05dc6c166e9adc2e15715246ab"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/mirroring_no/instance.cpp",
+    "bytes": 970,
+    "sha256": "b642440ba1aa629ceaf5409b83cef06b2e4e31798dcbd6daadb0beed16b303f2"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/mirroring_no/instance.json",
+    "bytes": 658,
+    "sha256": "25da98b12b0186ee4e01f61aa6c7bdfb71500ccf5ce19e81756d714425773a12"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/mirroring_no/instance.py",
+    "bytes": 564,
+    "sha256": "305520969ded1aba1376e711303c8e4d27dc15dc0cf1a0e1e3ef11e54782014c"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/mirroring_no/output.txt",
+    "bytes": 1502,
+    "sha256": "a1b0d8d8c125e8b222fe72f47260ace91efdd0245d83c01a4ccc79899055e2f6"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/mirroring_no/solution.json",
+    "bytes": 8161,
+    "sha256": "990f1122ec3c267e72eb3f870751a8c14a05739033792acd3be21e050cb580c1"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/mirroring_yes/instance.cpp",
+    "bytes": 1045,
+    "sha256": "4dbaab54deedc399f4d1f26a7495026ef366e029bb75b2f14879b7c8c3e3d162"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/mirroring_yes/instance.json",
+    "bytes": 706,
+    "sha256": "2e876fb1d497224e1566c5a4a39ba725c8904e06b762687ad1d9db25774ad44d"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/mirroring_yes/instance.py",
+    "bytes": 578,
+    "sha256": "8c5c3f91a168763165d1d822be632a8b31834a92cb956cf74d54fa8f1d4fa7f2"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/mirroring_yes/output.txt",
+    "bytes": 1495,
+    "sha256": "fe5c7bb17d39c6f1c2376320ddad74f90a53ae0fc5103814dac835396b720dad"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/mirroring_yes/solution.json",
+    "bytes": 7205,
+    "sha256": "6c6e3de3ee17a054c5c0704813b3cec823af4657d4f91c0f2dba885e7a5b75d4"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/rotation_continuous/instance.cpp",
+    "bytes": 814,
+    "sha256": "ecdef56a6284f7e3db2e9bd6188f1252fcdf5e146303e6d007369c27543619f8"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/rotation_continuous/instance.json",
+    "bytes": 873,
+    "sha256": "3ed39b13b9008ee12e9fe86e8577a326e8bcb1f15057d29a991d19e655d7ca55"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/rotation_continuous/instance.py",
+    "bytes": 590,
+    "sha256": "a9ca05a29c643914facdce928536cca1f14b4ddc2d1a5f8ad1df857f9e6f2c27"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/rotation_continuous/output.txt",
+    "bytes": 2903,
+    "sha256": "7fb88e73a4a6b108e425a63cdeb6fbd9dace1402de6d0d98641e2ef09fc02c4a"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/rotation_continuous/solution.json",
+    "bytes": 43080,
+    "sha256": "eb59eaa0b64ee97cf98319bb23c9db36aeea701f2db35afe588efb625def2b90"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/rotation_no/instance.cpp",
+    "bytes": 717,
+    "sha256": "a4f4ab051eac42cb3c771475434e85f4c147149477bdd1c8ddaa0778f69de172"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/rotation_no/instance.json",
+    "bytes": 492,
+    "sha256": "320daf0c2bf7c6c46f3e33b4f70626a7361dd63b1cc77fe5b4202f1f78d14061"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/rotation_no/instance.py",
+    "bytes": 426,
+    "sha256": "cceb1470fb4c3437762aae594b8cf56f707c848fbde9cb9d378d3ba8aa97d096"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/rotation_no/output.txt",
+    "bytes": 1508,
+    "sha256": "b81dda360adc942e0f3bfd60bb70e2b0c4dade7cad824d998c3dcd64c51ed4cd"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/rotation_no/solution.json",
+    "bytes": 6507,
+    "sha256": "31b4f16592894b1e7f484f83f07c6519346b14f8dc27c824e1b88bbb89a97c8e"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/rotation_yes/instance.cpp",
+    "bytes": 955,
+    "sha256": "90ac4bfcc91c1780095d2ae323404493c64f54ed678a40f989830cd6f3c5fdb0"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/rotation_yes/instance.json",
+    "bytes": 601,
+    "sha256": "4ce9fbd66fcd7014e7be1e0598d7e605a92769f7a5bb59cce841717b5a5bcb6f"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/rotation_yes/instance.py",
+    "bytes": 481,
+    "sha256": "d6447a511cdd391f8bf01049b513430fab177e323c419317e04d0ca6e676b373"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/rotation_yes/output.txt",
+    "bytes": 1502,
+    "sha256": "fde52b3d6394558762ca2533d44e40e761f1e2abad11d4f9eddadf1124502973"
+  },
+  {
+    "path": "public/repo/doc/examples/irregular/rotation_yes/solution.json",
+    "bytes": 5555,
+    "sha256": "baa173e4ca12d58f1e703639b673befc5aac080b456ad022bd3a756fa54b14d6"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/basic/instance.cpp",
+    "bytes": 2317,
+    "sha256": "78cec99e307093b4cbe44c74ac8a01fa42e214c79410f7345416ab487bc09631"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/basic/instance.json",
+    "bytes": 1427,
+    "sha256": "ef5397a38d7729c9bcc516d7d91d2008f2777fa8edc29b88649e3f98ee46c763"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/basic/instance.py",
+    "bytes": 2098,
+    "sha256": "7a04007733e2eab742f556c68bd0dc29da8362db25e09881b661af9f282fe2e0"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/basic/output.txt",
+    "bytes": 1164,
+    "sha256": "03d7a19ee7fa1a4db0afae9f3d5a0aba0218dc776a9b03042f4b553016d3400e"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/basic/solution.csv",
+    "bytes": 1356,
+    "sha256": "99302691372fea8bd033772eeb44e1df353c9ded1163329a87d8ec1a66aa7cf7"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/examples.json",
+    "bytes": 738,
+    "sha256": "a31ec4a3f9ce46ed0d75e63efb9ec2dca24c409632da7a5c748afd5f4266d443"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_stackability_no/instance.cpp",
+    "bytes": 618,
+    "sha256": "2dbccd134be2ea10660974307fef5be3010ad9930c54378295d5657f40b7da3a"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_stackability_no/instance.json",
+    "bytes": 201,
+    "sha256": "fb5358a7977e9214490fed3f7d26817017a6271f38c06330da6e24733e3025f7"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_stackability_no/instance.py",
+    "bytes": 316,
+    "sha256": "6a39226abcdee056e80fba356ea5aa04d8939d43e354c6c91417a82e046b22c7"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_stackability_no/output.txt",
+    "bytes": 992,
+    "sha256": "99925e84a1c46e9403dbbacaff75c527636fd1f938270311f5837c1b7ca11201"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_stackability_no/solution.csv",
+    "bytes": 185,
+    "sha256": "bea211726582972f1377c046693f73776e8aff5025ba21f30821506cf912a82f"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_stackability_yes/instance.cpp",
+    "bytes": 760,
+    "sha256": "b132db8de432d77d0abc3d56fa338a3f22f66ce72ba3d3b2f01e53bbd4866252"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_stackability_yes/instance.json",
+    "bytes": 257,
+    "sha256": "3046c74c91016c2bfcabe52b82d9490f12c38f41e3a5273ae9d392cb6ae3c9b6"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_stackability_yes/instance.py",
+    "bytes": 366,
+    "sha256": "6e8436d10f90d927b6709c88e4439a3af77a78a2cb2ecd4fa3e5edc792c12b5d"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_stackability_yes/output.txt",
+    "bytes": 1005,
+    "sha256": "ab7a6cc7446b66869cdd10fe20b861d55622c76e63582b059c887b0beb7be04f"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_stackability_yes/solution.csv",
+    "bytes": 199,
+    "sha256": "351a0e9608cfa3b44db7cf597a400b9cdb9c524e3090546ff6694962c52b5921"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_weight_after_no/instance.cpp",
+    "bytes": 747,
+    "sha256": "998dbb172d94954b833fdecabfa7457e84fac80b79570fc0aba8cbdc67c7be50"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_weight_after_no/instance.json",
+    "bytes": 246,
+    "sha256": "7be967ab441c96df29e8b933a1ed14366d993a225a022740b77f886adebdff42"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_weight_after_no/instance.py",
+    "bytes": 353,
+    "sha256": "68a62108e3343c2db9d2345d501b690060ee92a051994714dde4ee36aeb73143"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_weight_after_no/output.txt",
+    "bytes": 1004,
+    "sha256": "946c0ce39b7e8ab6152146da0cdd20e4a82ecd4f82e466b964bdcddee33575b7"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_weight_after_no/solution.csv",
+    "bytes": 147,
+    "sha256": "2c916da5b28267d7bfaafd657a6435572de8db7614b791ac977438677ff6c9ad"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_weight_after_yes/instance.cpp",
+    "bytes": 893,
+    "sha256": "e31dbf79f406ba5d32ca76c3f292f78ad064e1d81d4e32dfa273d4a283cfe6b0"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_weight_after_yes/instance.json",
+    "bytes": 306,
+    "sha256": "cda3d8e6c4b51de31c19fdfc38cafe8d4861e7f2310a4403d46254919e6be822"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_weight_after_yes/instance.py",
+    "bytes": 477,
+    "sha256": "48ea7d4ef10c5194832917ed329d6fd2388f11766e15b58cb172934ffc811829"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_weight_after_yes/output.txt",
+    "bytes": 1076,
+    "sha256": "f1384e503257b85d628da5543727c7b3e8ebd2594da6f53c61882e5a1852c307"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_weight_after_yes/solution.csv",
+    "bytes": 109,
+    "sha256": "12810002b6294b5dfa5c47289a4a8c7b963e82259a329f31e8126d5be58ae3ed"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_weight_no/instance.cpp",
+    "bytes": 568,
+    "sha256": "41def45b524d445b91b12e0dd571052d22571ed19c13837cf0cf9798bec6ec99"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_weight_no/instance.json",
+    "bytes": 178,
+    "sha256": "53c86cf3a4e84370e5bc511c8cc485cc5359342ad1cdeb99f5f0cd6c782777da"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_weight_no/instance.py",
+    "bytes": 282,
+    "sha256": "ba6dd7eeed0e0c810ef5942cb9697913860099a048f34b31eedf3c399beaccc6"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_weight_no/output.txt",
+    "bytes": 985,
+    "sha256": "91e5ef567bb5315efcfe57dffa7962ebee5a6d49d8c44b8b9d5b839729206ba4"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_weight_no/solution.csv",
+    "bytes": 114,
+    "sha256": "681f149dcd92e8cc67697f2037b4c4214ee5e8e6c551a0349068878b5073d1a2"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_weight_yes/instance.cpp",
+    "bytes": 632,
+    "sha256": "cadcd451dc96151e364fa884cab59b24a79cf82eff6181663269bffd2efde3b3"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_weight_yes/instance.json",
+    "bytes": 201,
+    "sha256": "c0423d9affca4c8bbd0714f1385b475eb317becf446b7b1ef16a5be25061d0ac"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_weight_yes/instance.py",
+    "bytes": 302,
+    "sha256": "4dbf420bc8cad43af10461ce4138b4fb5e9d0624c92d2f5881c31b1ac2601d99"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_weight_yes/output.txt",
+    "bytes": 998,
+    "sha256": "b3aa1906fb702511a449ac26dfa91633b3a6c4903c00004ce72e43e1749478c5"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/maximum_weight_yes/solution.csv",
+    "bytes": 128,
+    "sha256": "ce395264da75d81d5a7379ba067b8c384bcc8440c264af786819c7d70f84b820"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/nesting_length_no/instance.cpp",
+    "bytes": 509,
+    "sha256": "23b93c9b6c4d353ce696f742ce5d147926b21c4f9955bec70d29836cf63d8210"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/nesting_length_no/instance.json",
+    "bytes": 162,
+    "sha256": "cf7f20e762a37c2dcd96002e488e724c7e750e2914c11a3050345adb08d8f230"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/nesting_length_no/instance.py",
+    "bytes": 269,
+    "sha256": "e656a78ce416f0b923d174612e83c8dc24119fa0667576373c284c2db374c9e9"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/nesting_length_no/output.txt",
+    "bytes": 996,
+    "sha256": "12f05c9f48ede79f2e3568b03a037aca8ca64c2971eec639c3d60d8fdc1cd98d"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/nesting_length_no/solution.csv",
+    "bytes": 195,
+    "sha256": "f05820204ee57c7f587a49020a4648983ddd5e8f0d548843c4e9257ab97f72d3"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/nesting_length_yes/instance.cpp",
+    "bytes": 574,
+    "sha256": "a47b378a2504c5af2fdf23e07d77eb10ed931f86ff25f325b0965f3102629f98"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/nesting_length_yes/instance.json",
+    "bytes": 184,
+    "sha256": "80aaf6ffb3d2033786d00a6880f40ed3d88ba31bf6d2b9489667662bc42bae4f"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/nesting_length_yes/instance.py",
+    "bytes": 288,
+    "sha256": "98be602cb32d5ece3873239e77b884702c0638882da24eed6531dae81b959cdf"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/nesting_length_yes/output.txt",
+    "bytes": 997,
+    "sha256": "d59c589adf4e362b808d3da0f6cfc13a92fd5cd5f9da4f7a19564c88ba62aefd"
+  },
+  {
+    "path": "public/repo/doc/examples/onedimensional/nesting_length_yes/solution.csv",
+    "bytes": 181,
+    "sha256": "69ddb340b49a6e81c1995ae0ce23bfd126e6b92c61435822b4fef7e0d1bfcaf3"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/basic/instance.cpp",
+    "bytes": 639,
+    "sha256": "28fe18bfd76883e158f4b37113ea3951e5f62f03a1d9c9b15602b80a10f0c6f3"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/basic/instance.json",
+    "bytes": 234,
+    "sha256": "55b19efc23a4ecdd027e1ed1255efd3b9cf44113ddd1bce08026f0fdc506335a"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/basic/instance.py",
+    "bytes": 342,
+    "sha256": "e7bc1530ccddb751a1fd17615551181a6f58d89e542ae610c2221ccbf3f883ce"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/basic/output.txt",
+    "bytes": 1761,
+    "sha256": "2cbc25882a0b3f753775255a103f37fd35f809911458ae332b7d84ee06cc697f"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/basic/solution.csv",
+    "bytes": 642,
+    "sha256": "39476b950fd0612f79220c29c1908a2ac35652c2b464bc18182d586219b01ec0"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/defects_no/instance.cpp",
+    "bytes": 491,
+    "sha256": "d3fefb2ed3ec80f42fdb5b92d3cc874c4b18eaf7a71767ef794ddce13c769dae"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/defects_no/instance.json",
+    "bytes": 222,
+    "sha256": "bfc6881295daf7d1d0191bd99d37d686af41ea66fa25e517a29448b0457df5da"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/defects_no/instance.py",
+    "bytes": 332,
+    "sha256": "4ea8722b79534f7eaac25bf151d272c04f8fca1f7e986f7dcae5057d6eca06f8"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/defects_no/output.txt",
+    "bytes": 1476,
+    "sha256": "abd4e102cb2d77e52bfedd644f2bab5062e827095cbf5bffbcb59c8703408d65"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/defects_no/solution.csv",
+    "bytes": 140,
+    "sha256": "7071be2f0987f57e8653c4238f520b63f4ef437032c92a6670aabe1b10b7cd16"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/defects_yes/instance.cpp",
+    "bytes": 576,
+    "sha256": "b6b6154216f41e589d4ebece95f6a32158ec15479dcd7e2bada0c8a6d08fd1fd"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/defects_yes/instance.json",
+    "bytes": 285,
+    "sha256": "3339f44398e44156a6440d54170d55ce38ee613bc0a6ef38cbe98d1e982203eb"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/defects_yes/instance.py",
+    "bytes": 406,
+    "sha256": "6516e0631b547ae4b445d1021f21b426d924042ab5f8b8f752ea6587026b6bdc"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/defects_yes/output.txt",
+    "bytes": 1480,
+    "sha256": "949c1237846fbb2192d45ff52c303a7068c2cd02968117845f45a990e381cac3"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/defects_yes/solution.csv",
+    "bytes": 190,
+    "sha256": "60174e3922c3a8a81a2be35c95305ebcc701e7392aa1565c87fa169910e2c8c2"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/examples.json",
+    "bytes": 1498,
+    "sha256": "68a36badce523e4b4bcf57ee4e7639eb248b98895e4a06cb6a4fac07d1ccf1c9"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/guillotine_vs_non_guillotine/instance.cpp",
+    "bytes": 558,
+    "sha256": "2fd5cf24fc3239ec3917806416c811dfe2f8b35650d2150a148212b5acd4c67b"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/guillotine_vs_non_guillotine/instance.json",
+    "bytes": 302,
+    "sha256": "034eabe4076bda444ebb9f101d81620d261348013705b43e7a655327f36fb2a4"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/guillotine_vs_non_guillotine/instance.py",
+    "bytes": 428,
+    "sha256": "b7db008234fb49ce48bd2576a5d3c963a25edb3c73a1473d92aa71a1209548bd"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/guillotine_vs_non_guillotine/output.txt",
+    "bytes": 1491,
+    "sha256": "078c0163dd7476628efd719cbcaf423b3f5f6f2bd5604f24b5ae9c85178461b5"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/guillotine_vs_non_guillotine/solution.csv",
+    "bytes": 142,
+    "sha256": "0b034f708cdef8e47219ae07a25293385d1ae4ab2cffda34d82be7060922d2ac"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/maximum_weight_no/instance.cpp",
+    "bytes": 568,
+    "sha256": "84452a40dcdc0269e2d164de8008656c7bc9319fbe441c58ac4e493e0f388673"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/maximum_weight_no/instance.json",
+    "bytes": 188,
+    "sha256": "e8e33562de1c6680010b620083dcaca928b473781ef3c25f175710bc5cfa9054"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/maximum_weight_no/instance.py",
+    "bytes": 287,
+    "sha256": "dc6e5c70bc280e048e477d0f28273b7c8f18ad85039f27f49ed543bbcd31b7f8"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/maximum_weight_no/output.txt",
+    "bytes": 1461,
+    "sha256": "483f5c5dd8c25de6c2dca86213b08439485ab9c1dd5e7773b1e6a8f9d6452dd3"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/maximum_weight_no/solution.csv",
+    "bytes": 169,
+    "sha256": "5843147f02c3a3b9de4fbb7696b7a39fb9fdf5b036597aac433e25e66ca11ba0"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/maximum_weight_yes/instance.cpp",
+    "bytes": 632,
+    "sha256": "4d2f115212ff5a1cb0e5ee9941f7f22859925b603db32074780d8d241c2c1444"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/maximum_weight_yes/instance.json",
+    "bytes": 211,
+    "sha256": "28c9adf2559cfb0e9fe0186c7d846d5b970291ec0e0b3296221087c4b77fce99"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/maximum_weight_yes/instance.py",
+    "bytes": 307,
+    "sha256": "d1a4fadfacb85db006ca654f98a6d0f21a2e1709a8c17107edbb508fac03f925"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/maximum_weight_yes/output.txt",
+    "bytes": 1484,
+    "sha256": "d5f164adbbc227720eb74272df967b08f1e2f66d598fc331e7e2d620fb6e67a0"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/maximum_weight_yes/solution.csv",
+    "bytes": 188,
+    "sha256": "85853b866bff974ebca39e384d5ac7757e00d3481d6594f02291a1d861275864"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/modes_20_items/instance.cpp",
+    "bytes": 1231,
+    "sha256": "6e92140b99c0e2443721f412a5a9115722f9ca7e63d91ba1e2d5307fee3ac409"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/modes_20_items/instance.json",
+    "bytes": 737,
+    "sha256": "391b81fe1ca3f9f62736de60b8f6054cdb1dc8d69614d528d692757e82d05412"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/modes_20_items/instance.py",
+    "bytes": 1049,
+    "sha256": "68a6eb952363f5c29fb3cffe8d861bb4433f363a0231310727518f5b293a10d8"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/modes_40_items/instance.cpp",
+    "bytes": 2063,
+    "sha256": "99f8ac1baed5210e6ff538db13da183181d22e1362706f15cd8981c04877d27e"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/modes_40_items/instance.json",
+    "bytes": 1329,
+    "sha256": "4a034ff238637dbf782fb1167fbe20d678cf420699a1d5c96fbf654575a3bf01"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/modes_40_items/instance.py",
+    "bytes": 1861,
+    "sha256": "2d74c132282afc117b935fcb12e9ea858301d3906e414d8e87da182f152a3662"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/objective_bin_packing_with_leftovers/instance.cpp",
+    "bytes": 862,
+    "sha256": "1cf0c7d199a2ed366f5d5c6cb38a4b07f7bb11c7543b20871d2be9fd80986a94"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/objective_bin_packing_with_leftovers/instance.json",
+    "bytes": 321,
+    "sha256": "32b88acc652eecd85f5d6efe561b31d8cbca714c1bbf93ca696c17e8fe32a773"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/objective_bin_packing_with_leftovers/instance.py",
+    "bytes": 444,
+    "sha256": "ff7b0c6c649947431fedfeb7b5049c3913b421ecc7514741f8a3dcb5f4f5905f"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/objective_bin_packing_with_leftovers/output.txt",
+    "bytes": 2055,
+    "sha256": "0ad16bf0199a784eca39ad0e14d495be7c73fbfcbe173c2bf528bf79eee7f082"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/objective_bin_packing_with_leftovers/solution.csv",
+    "bytes": 1026,
+    "sha256": "79a53868a18ac8ccc614332e25288452b4704ef32b4fd02913cf1ebf41028c6b"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/objective_knapsack/instance.cpp",
+    "bytes": 735,
+    "sha256": "d2f359a21390256289befc5b637d06473f7e51f037dec0bf6215c99c4c893bb5"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/objective_knapsack/instance.json",
+    "bytes": 257,
+    "sha256": "6f06ae95548253f0aa612d9828b0bd2bbd67a464f14ab8775b1768379395975f"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/objective_knapsack/instance.py",
+    "bytes": 376,
+    "sha256": "c1ddca0bab359b25079a3f79570f9349bc85ff1143ee4b268f095997a537b03f"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/objective_knapsack/output.txt",
+    "bytes": 3324,
+    "sha256": "71dd05af720d5db367180fb8498084a9ecea4621605a8eb0ae96da4fb596df25"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/objective_knapsack/solution.csv",
+    "bytes": 796,
+    "sha256": "77a002b00db5a921091b79b990d444eb973de1b3bd1cbe516bef3a19ad193bb5"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/objective_open_dimension_x/instance.cpp",
+    "bytes": 664,
+    "sha256": "a9112e18540940a248bb743f849e720feaf8a85e540750be327fa826dd9b0ae7"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/objective_open_dimension_x/instance.json",
+    "bytes": 253,
+    "sha256": "8121861ae7edbda8e1d0ec4fdb61e6cc80c55eba71fb54ab989a6b86b6a48c15"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/objective_open_dimension_x/instance.py",
+    "bytes": 373,
+    "sha256": "02fc846986b3bc2d6e8a6fc140bf380b5e68a35898edcf9c0440099d89a0d922"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/objective_open_dimension_x/output.txt",
+    "bytes": 1678,
+    "sha256": "25d694dceca39a3f4207719ea8a4d6aa818065837eded3ff8d4fafbc0c7de86a"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/objective_open_dimension_x/solution.csv",
+    "bytes": 1026,
+    "sha256": "4f73c2388d0e4ef131b7c592c1d68752114910927ec0df4d0f13eed11f49040b"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/objective_variable_sized_bin_packing/instance.cpp",
+    "bytes": 862,
+    "sha256": "b5af803a64fd15107747d6b7fe59cccded75e07d9a9d832dc29823e06fdc10a1"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/objective_variable_sized_bin_packing/instance.json",
+    "bytes": 321,
+    "sha256": "ebe50770b1b80260059bc82655dffc89cc2e8dcf6fdbcf67878c0bf6271395ec"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/objective_variable_sized_bin_packing/instance.py",
+    "bytes": 444,
+    "sha256": "6864a8374d706c1b5d301cdb896e4e7232567def6bfafceb23fea0564b37a1c8"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/objective_variable_sized_bin_packing/output.txt",
+    "bytes": 1702,
+    "sha256": "745fba5a7e645a43922cf74ecf1756d1ed7d02fbc0671e0abf545474d567e2e6"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/objective_variable_sized_bin_packing/solution.csv",
+    "bytes": 1024,
+    "sha256": "659634716635bbb5ebd84b28e54cacc01db6946fc6dd3265b124af5bf00280f6"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/rotation_no/instance.cpp",
+    "bytes": 528,
+    "sha256": "b58579c1a263f5d384814c5d2dea1a6d30f866e52e561e36bc380ea84cc00ddd"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/rotation_no/instance.json",
+    "bytes": 205,
+    "sha256": "b1ef6581617a02c8527fcb4ec9f0b97505359265893b0ff5227cb2fc26dbc2aa"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/rotation_no/instance.py",
+    "bytes": 302,
+    "sha256": "4f216101505880a3bec4954ab6d0529fa7594877e5c28c68f7e8dbce0d4dcf44"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/rotation_no/output.txt",
+    "bytes": 1493,
+    "sha256": "68f6f757189f0276dabd03c4dad7b6ccb9da2130f0789d4680b37f7377852c0e"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/rotation_no/solution.csv",
+    "bytes": 161,
+    "sha256": "ab0b68da8d060c9e4a6f3dd6963745dc09811e9bc042c54f224edc815890b366"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/rotation_yes/instance.cpp",
+    "bytes": 522,
+    "sha256": "bb5ffa1a99c0b1f47cd0e8fa62cc36bc703d81643c8564a3f8cfd3c9ac3211c9"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/rotation_yes/instance.json",
+    "bytes": 187,
+    "sha256": "16a1c058d83f6d9a29230a36bc0cdcaf08a49c68abfe934449ec46a9c80fcf96"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/rotation_yes/instance.py",
+    "bytes": 287,
+    "sha256": "c1afee5b8fdef2d09733264bc6b797878a68383910f32b6ddd329990697694b8"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/rotation_yes/output.txt",
+    "bytes": 1482,
+    "sha256": "97471ca7bbc67514e82f2fe7da88aa2b735986c9d57e7247d4d6900bd95291c9"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/rotation_yes/solution.csv",
+    "bytes": 140,
+    "sha256": "ba09aa99a74a2660c9a2a2ccb8887a920eef9146661b6eb7c83c43b425c1cdc0"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/unloading_increasing_x/instance.cpp",
+    "bytes": 665,
+    "sha256": "2c13688bdab5574dbb220269c24dfdafca5113db60285c1e292e57349f2aac7d"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/unloading_increasing_x/instance.json",
+    "bytes": 285,
+    "sha256": "62bfe93f7151e941deae0dfaed152ecde115c68975a25be123e215435be9e3b6"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/unloading_increasing_x/instance.py",
+    "bytes": 443,
+    "sha256": "5bd5d7c1f4f992920b27dad5406250edecf62f606450fae2144455de8993a448"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/unloading_increasing_x/output.txt",
+    "bytes": 1513,
+    "sha256": "33ee05c93f3789acbd853a12ed2e81ba3c590858835140fa826fc9e179075847"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/unloading_increasing_x/solution.csv",
+    "bytes": 142,
+    "sha256": "8cd4d1cc907ae085e4798bf7aa44a7d29f4c36453a870a7869cfb2a187dcaaac"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/unloading_no/instance.cpp",
+    "bytes": 675,
+    "sha256": "48d62610e9188c12683172fa53712798c09590e9b868af35d748523953402019"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/unloading_no/instance.json",
+    "bytes": 264,
+    "sha256": "e330f48e89e7669eff17627820940894ef88f1a26b339ff157520ed0a33ffe9b"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/unloading_no/instance.py",
+    "bytes": 383,
+    "sha256": "7543020893901ae036d726aeb1db914c91c90170d823e7a528cd747b1c31a445"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/unloading_no/output.txt",
+    "bytes": 1559,
+    "sha256": "4fe0405a43329f34dea4502a0f4ce90cfed6924072807170b63cafdbd75f0ca1"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/unloading_no/solution.csv",
+    "bytes": 142,
+    "sha256": "ec03e191f350623375bc8c5c02cc7bb9f21eaf7a68c1616a1979ddc3cd4c7f86"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/unloading_x_movements/instance.cpp",
+    "bytes": 668,
+    "sha256": "ae22d29953cf2f2ca44b503016c72610c0dff2b1e8b94905a0ab164cc50f0b70"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/unloading_x_movements/instance.json",
+    "bytes": 289,
+    "sha256": "58541496d9f479ee4a79cf996027ee039e63e66aa9d02903b9814ecb070be5a9"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/unloading_x_movements/instance.py",
+    "bytes": 446,
+    "sha256": "a8f6f35ee4231102150900bd66285a27b0eb950e78dc550c39bc35322ee9b15a"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/unloading_x_movements/output.txt",
+    "bytes": 1575,
+    "sha256": "77553d968804ce9258251df914958460905f43324b73affb01c2706130472336"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/unloading_x_movements/solution.csv",
+    "bytes": 140,
+    "sha256": "b1bdc9fa0534cca68cb74bc31b3603d55deec74182037ac10923d66bd0219844"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/unloading_yes/instance.cpp",
+    "bytes": 755,
+    "sha256": "692b60b56fd5620e327365c5de9cdf7ff6c8dd1d3f3d48ef89bd7b73498dc10c"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/unloading_yes/instance.json",
+    "bytes": 312,
+    "sha256": "afd68b5a68fa0a52757f589c78ad2ae2e4306ed29ac7dddb3f86383af4d5dafe"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/unloading_yes/instance.py",
+    "bytes": 465,
+    "sha256": "2ad254bb5749b726829c79f90651fe4eac591f5f122c825de7f4ebf3b929c330"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/unloading_yes/output.txt",
+    "bytes": 1573,
+    "sha256": "0e88b48dbcee3916fee0dfc586fd1710201ce58686785569893655c86c2c633a"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangle/unloading_yes/solution.csv",
+    "bytes": 161,
+    "sha256": "e18ac36a01e6195524d867bbae047b6d5173d739e200808cd2d6d7bf5ef2f9b7"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/basic/instance.cpp",
+    "bytes": 769,
+    "sha256": "2dd74cb248cda2bb6c4b4ae79015b3822c4153c4e3202f627043b43fe659e8d5"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/basic/instance.json",
+    "bytes": 310,
+    "sha256": "9438f14f3d82534ae7c4c525b87d943dad17e767dd3dc358bdb2107ba7baa806"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/basic/instance.py",
+    "bytes": 400,
+    "sha256": "667094c3bb0193fc365737c3213a9c7e644b570ffa4bad280ace5228b016141f"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/basic/output.txt",
+    "bytes": 2805,
+    "sha256": "74221177d9dc9ee78ac7216a3382412c168cec00c08b23eb465b679009e98124"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/basic/solution.csv",
+    "bytes": 610,
+    "sha256": "0216d2bccca303cc8650c02046d8326f09c0a2d9c7273e8d46240630945b7901"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cutdefects_no/instance.cpp",
+    "bytes": 640,
+    "sha256": "891cda9f29bb54daff6dee20b914d3be481bda11f6bf880f1b41129cb02c78bd"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cutdefects_no/instance.json",
+    "bytes": 362,
+    "sha256": "9a55718ef372df3ebd972b14c603575ec033dcd6bfe1952163eff6f10e0813b5"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cutdefects_no/instance.py",
+    "bytes": 481,
+    "sha256": "4016356421f9ff9ae3879284cc09d8ee100ee7b37cf1bf7669f0e990e70006a1"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cutdefects_no/output.txt",
+    "bytes": 2390,
+    "sha256": "55fed432dfef9d01ffa71abc4bdc59286cca66e10b58e10cfbc061118ee85a15"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cutdefects_no/solution.csv",
+    "bytes": 335,
+    "sha256": "de23c412a6a3c978eefa8176d79d34bdbf9b16551b4a68239745dc40a0c7d2aa"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cutdefects_yes/instance.cpp",
+    "bytes": 688,
+    "sha256": "6abfd6bd2a6e9dfdbc42d3f5c8d0715b910248726c7ef6f2c5bcde343289c41d"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cutdefects_yes/instance.json",
+    "bytes": 395,
+    "sha256": "84d6e0d48133cacd5b8ff86a74ee8000bf5f94bb573bdb7b9fb1fb79ca25259b"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cutdefects_yes/instance.py",
+    "bytes": 528,
+    "sha256": "5ac3b2f1c2c5e9c7e40b96b94e73433d174627a2de26fcb362a50c41e771a3d4"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cutdefects_yes/output.txt",
+    "bytes": 2384,
+    "sha256": "8e6a776abe19f4ab29a068140905bea5cf25e1a0e821abc365bd6a987cb69d57"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cutdefects_yes/solution.csv",
+    "bytes": 226,
+    "sha256": "37f9e4400bf709bbb7a67437bd7862d6d725854d929e0cf2ec8042137d3649b1"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cutthickness_no/instance.cpp",
+    "bytes": 577,
+    "sha256": "b1e7034349a49f0370db25e976ef8d4ad45ed43d7ef5aa4ff2d244cd0b7349a0"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cutthickness_no/instance.json",
+    "bytes": 322,
+    "sha256": "7f19ea053b30504292dc120775e4cf0131ab9020f8d63c9038b242f71bd77559"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cutthickness_no/instance.py",
+    "bytes": 428,
+    "sha256": "9d4fb2ddbb353bdf3e5d6967eecb073fba479fa493b083705597d0b88061a612"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cutthickness_no/output.txt",
+    "bytes": 2385,
+    "sha256": "f14a06c1ff4ff7e68afd56851ebf79181c9920e17e0df923afe8f5387a3100b5"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cutthickness_no/solution.csv",
+    "bytes": 230,
+    "sha256": "830475a295a4fb9c69bca5e6568cfb6d06474d502190af596f438fb7c44032ee"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cutthickness_yes/instance.cpp",
+    "bytes": 577,
+    "sha256": "6433072d6d016101e9176b35d753f08fa09ec88d4a4dbd05153f3de4ac733e9e"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cutthickness_yes/instance.json",
+    "bytes": 322,
+    "sha256": "f6521654ae3dad7448f392e0169ad672c51af4f962c9f302d3110793fb837d67"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cutthickness_yes/instance.py",
+    "bytes": 428,
+    "sha256": "997b00b9205954101399c23c6c971081587594c3cfc0d34bc9c8d17a01f08986"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cutthickness_yes/output.txt",
+    "bytes": 2393,
+    "sha256": "815800cf6ccce1ba149194b0400c8d4eaa1555c0676aa93ab1bab2871fff5ae7"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cutthickness_yes/solution.csv",
+    "bytes": 320,
+    "sha256": "fcfcbd5ef54b8bc5eb8c738564146c3a0708fdc74965edc121168df013229ffe"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cuttype_exact/instance.cpp",
+    "bytes": 1560,
+    "sha256": "4c7bcf40d3af6755993a50275eab43a57dea8fa6ccfc1d9a3ec4509966da745c"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cuttype_exact/instance.json",
+    "bytes": 978,
+    "sha256": "a4bcdef745329ae0ef582b015111126a185592f64d812a19233f22d09eef1562"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cuttype_exact/instance.py",
+    "bytes": 1110,
+    "sha256": "2bb48b0cf536f051b2b77e3ddaa18a7d450f3d2ecfc4cdaa678b6f9aebe58e32"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cuttype_exact/output.txt",
+    "bytes": 2951,
+    "sha256": "55b167e1c181d0265c2548aed8d266a02819a650362185e58171be0e979101a9"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cuttype_exact/solution.csv",
+    "bytes": 1587,
+    "sha256": "85bed11d12a3064fc7db2c66b769df52e6165db1a3f33f79a04fe04c9197feae"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cuttype_homogenous/instance.cpp",
+    "bytes": 1565,
+    "sha256": "a7b2d352301db23caa3103deac5b307ebc72695c5936890806399af028910824"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cuttype_homogenous/instance.json",
+    "bytes": 983,
+    "sha256": "0857806e7045f8a4550b68d628094a4a036bc7b7974bb5f0a71687b91c852944"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cuttype_homogenous/instance.py",
+    "bytes": 1115,
+    "sha256": "6aa2f10e52c06212af24d49c3075b79132ddbd33ccb0bf6aeafd8610f8c9cd50"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cuttype_homogenous/output.txt",
+    "bytes": 3442,
+    "sha256": "99e21a6b033d7572129da9121f052af1a5cc09c23a6abaf8e6176c471d96bf7b"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cuttype_homogenous/solution.csv",
+    "bytes": 1632,
+    "sha256": "a872e569ed401128517c2c07ce3232f8734cd7ea40494795d4fdc910ac01532a"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cuttype_nonexact/instance.cpp",
+    "bytes": 1563,
+    "sha256": "46e94b89acda9d2f65e5142f16f4b980eb2b7d30b794f57c1c8b8ded019fbd8f"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cuttype_nonexact/instance.json",
+    "bytes": 982,
+    "sha256": "62e08afc741312f374aaff0501479a3bbcbd704a9201000b9d4b516a24cf5340"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cuttype_nonexact/instance.py",
+    "bytes": 1113,
+    "sha256": "3db638f27a8c1c2ceb194f2270db1f1252760b9cdca5d7aa8d3130a23d7ea892"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cuttype_nonexact/output.txt",
+    "bytes": 2954,
+    "sha256": "6339fa92b069f668e1a44de5679e6dcb2c2dff1e54b2fbf908ba0606eca8feb1"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cuttype_nonexact/solution.csv",
+    "bytes": 1741,
+    "sha256": "24dc0511853d3fb89c2e66dab5178ce41d00ba73fdcfd09f49b0db6ac898d2c2"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cuttype_roadef2018/instance.cpp",
+    "bytes": 1565,
+    "sha256": "23590d64f46c995485601e2e037192b1b77e381713060ceb36cc7fc60ce23ea1"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cuttype_roadef2018/instance.json",
+    "bytes": 983,
+    "sha256": "5990308b4f0c37072bb288c25fe9b2cb39c228b0a23bd656bdb675a43590cbbe"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cuttype_roadef2018/instance.py",
+    "bytes": 1115,
+    "sha256": "c5a69393485406e1894d3c0615ea424116709d98425b09c113e11d4b320129a1"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cuttype_roadef2018/output.txt",
+    "bytes": 3280,
+    "sha256": "be1376c6680500ebef1a3310261c5eb2d87d17e1b0524ce1021c1128f10958df"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/cuttype_roadef2018/solution.csv",
+    "bytes": 1633,
+    "sha256": "8be1fd685666435374d712bc7c168e4b947fb200767f232f4b8b4d60a434df07"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/defects_no/instance.cpp",
+    "bytes": 530,
+    "sha256": "2889cc20850e4e9ee5f6fb3dabe4a66fc70fb52fb96a79451da6b28f59312f2c"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/defects_no/instance.json",
+    "bytes": 203,
+    "sha256": "0d4f9802815ffc5bfe44feaacc3a3553be9e422a86a038f7fdc33350ce5b4be6"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/defects_no/instance.py",
+    "bytes": 294,
+    "sha256": "cfa5d6e8b5993f949fb3c1b647434871c733c18378773aa55735355e1f70ef46"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/defects_no/output.txt",
+    "bytes": 2385,
+    "sha256": "3c496daf58704e8aa89af67a0441d1a31f99d3af994efc589dcba714ff17b2a9"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/defects_no/solution.csv",
+    "bytes": 187,
+    "sha256": "0eddb8d55146b5a412ad130068ad25f27948014fe98916a0cd17a815e8c85be7"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/defects_yes/instance.cpp",
+    "bytes": 637,
+    "sha256": "cc42a6d06e14936666e41da90915506533ef94aa7cb3193a6d447f12eed155c5"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/defects_yes/instance.json",
+    "bytes": 296,
+    "sha256": "d097d32407266d131f86f1c60bbfd5cfc7fb896e5f22f6105b506429106c69ca"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/defects_yes/instance.py",
+    "bytes": 399,
+    "sha256": "b7d5eaa910f6c100cc554b363666e1174f6e33a9a4de98df985892708c2fc02c"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/defects_yes/output.txt",
+    "bytes": 2392,
+    "sha256": "ef980b4e11b865d3db1763b1c3f457e525da047817eb9ccb7c77c47fc1f82d93"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/defects_yes/solution.csv",
+    "bytes": 322,
+    "sha256": "cef1c5533bc97dae43fc5c3ab5ffb13ad95b5f5a1bf11c661b92cdf49c464304"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/examples.json",
+    "bytes": 1882,
+    "sha256": "37bc2a43fe2ae144e313cb9f5ec5aec1cc10026ede0d9355ec24875bd6ed0a9b"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/guillotine_vs_non_guillotine/instance.cpp",
+    "bytes": 578,
+    "sha256": "a1d2d59cc6beb75ae46e9409d2d056e0114c5730f39f0ebe9ae49f04f98f8b3f"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/guillotine_vs_non_guillotine/instance.json",
+    "bytes": 347,
+    "sha256": "17012135e10d3f823e03c60d17cd07987cb05ff953971ef20932eea860e122d1"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/guillotine_vs_non_guillotine/instance.py",
+    "bytes": 438,
+    "sha256": "76995dfad1936ed145828fc3fc24ed8905c08ffe6a51e6696882b22bb3887ad4"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/guillotine_vs_non_guillotine/output.txt",
+    "bytes": 2391,
+    "sha256": "a3faf566f4f88b46b02ed80094a26583a7f4da5a44b905c03070047a6c0c2038"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/guillotine_vs_non_guillotine/solution.csv",
+    "bytes": 424,
+    "sha256": "2ab636c471c80666640cb46c228e16b5b5da51b6d359c83527d4ee4d983c8bec"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/maxcuts2_no/instance.cpp",
+    "bytes": 656,
+    "sha256": "aaa8cd0fe8c05313de9b3f11d15d940d532b300d9ff0492e5756b41c80e8a42c"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/maxcuts2_no/instance.json",
+    "bytes": 396,
+    "sha256": "6265d6b268c88ffb93ae18a657be5871d550b0d6f08dede6e7ab3c180d67b387"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/maxcuts2_no/instance.py",
+    "bytes": 518,
+    "sha256": "b003924eb5e482df61b19af28d334f1eb346c9ad4dcea0cf3811b548c8942ee7"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/maxcuts2_no/output.txt",
+    "bytes": 2456,
+    "sha256": "98bb79d1095a891d41272dfc188a2057f7678b570c2e45f4f9b648f0a8969b1c"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/maxcuts2_no/solution.csv",
+    "bytes": 306,
+    "sha256": "14d42b62a7acafe259caa9156bdcd3fd28b9a5ad5a25ae97a7659c9e2c724217"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/maxcuts2_yes/instance.cpp",
+    "bytes": 703,
+    "sha256": "8f088a0813f07621258afa1695c1d977f301509b28bd50cac3f8fbce90b4e810"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/maxcuts2_yes/instance.json",
+    "bytes": 428,
+    "sha256": "f114b46f575c6022172d0b358a1c2bbe4d1d28e807b9ef32a01a27c3245d70a6"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/maxcuts2_yes/instance.py",
+    "bytes": 564,
+    "sha256": "0dc318f188d86ad6671e0804a773f7211edf654aab333450facf4e3531d20efc"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/maxcuts2_yes/output.txt",
+    "bytes": 2396,
+    "sha256": "eaa860e68ce7e9558db5d8acd5aa69202e1adb3fad4ab00ea7de5ea6689ea95f"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/maxcuts2_yes/solution.csv",
+    "bytes": 398,
+    "sha256": "a9aaa2836a86681f4479e19421056f7cbb29439ed13a1bad5f9e875cfdca200f"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/maxcuts_no/instance.cpp",
+    "bytes": 572,
+    "sha256": "105247afd9f94e8c739f9b44567b37e4c13d113e4f4372423a31c93cdf7da3a1"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/maxcuts_no/instance.json",
+    "bytes": 230,
+    "sha256": "ab5cda3c29aa1847b0753493a9a78045abb0d30d7b388c623d2a0afc913d5d13"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/maxcuts_no/instance.py",
+    "bytes": 335,
+    "sha256": "26a0845a933c7db283ccd7fa6f52a09e16f3e9e8532c0aeec1d2bc0027f14c44"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/maxcuts_no/output.txt",
+    "bytes": 2380,
+    "sha256": "148955d392f6cf7d3085615ced907b81a245ff9f2a2d9faf8cb01ed6516a75b9"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/maxcuts_no/solution.csv",
+    "bytes": 229,
+    "sha256": "c06a02df29a60c96e215e6d87789176c372fbd582cccb5e5d5f903b346077f14"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/maxcuts_yes/instance.cpp",
+    "bytes": 619,
+    "sha256": "b6c4958986c8c6dab3e3a9baf98842b3b844746be5107360f580eeeb56d162b6"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/maxcuts_yes/instance.json",
+    "bytes": 262,
+    "sha256": "75855d2268fa668bca6073b50fcc0691eaacb2ee9b184a20a11d85b42d0ed56e"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/maxcuts_yes/instance.py",
+    "bytes": 381,
+    "sha256": "7eb62b0b254b22bb1b22a55e4b2b6003a6cb9a685f7ef09237aed04828575f45"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/maxcuts_yes/output.txt",
+    "bytes": 2388,
+    "sha256": "2ce920fb202fa4aaecbb829a31dfaf255d89c532676efa922e7b7ca4025bedbf"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/maxcuts_yes/solution.csv",
+    "bytes": 295,
+    "sha256": "5f65c754d187c9232fb6bd64a1ea3d01d499eeb3e3445a87e31049e207efc352"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/orientation_no/instance.cpp",
+    "bytes": 695,
+    "sha256": "ff524246bea56f338accd11826ef23493fddf018b76331000340707610c151b2"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/orientation_no/instance.json",
+    "bytes": 420,
+    "sha256": "08ff456e99e874440660b46fc93f8b87fd9ed219d835f6de3e09ee24fcb102be"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/orientation_no/instance.py",
+    "bytes": 556,
+    "sha256": "c345c61280048c4e58425a82f3ab14dc9bd849e91a66dbb3f1c52cec2f9c1c30"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/orientation_no/output.txt",
+    "bytes": 2390,
+    "sha256": "d153b75f6ee8dac97b8bb5c62cfd5d93d993e49efdf03e9de2311085b77ad872"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/orientation_no/solution.csv",
+    "bytes": 357,
+    "sha256": "de4f8b0e3a5b41981b6c768825f2c2fbf7be89e51a26a0469368eb2b64168bee"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/orientation_yes/instance.cpp",
+    "bytes": 693,
+    "sha256": "8c1be946763bbbd6cb2faddd6cd8bbe87eb184bec2c7690ec6ce27786b52263a"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/orientation_yes/instance.json",
+    "bytes": 418,
+    "sha256": "ab39c25d5ede74325b1b3120871e8100e25a28a0a3bcbe78d3a486ecfe57dd60"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/orientation_yes/instance.py",
+    "bytes": 554,
+    "sha256": "c94acb761673bf285334aed6b58fbbb26ab4c09fff530ba9e2bfb59d0b318c55"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/orientation_yes/output.txt",
+    "bytes": 2380,
+    "sha256": "88a3f6ca9d4720ad23ed1bedb8d9b0cc07676fbd72adcaefbefd2306e978e29b"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/orientation_yes/solution.csv",
+    "bytes": 223,
+    "sha256": "e6a8cdedba7190cb016653a4962d6c2a6ec4bdb6c23c7d26850b686d16026107"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/rotation_no/instance.cpp",
+    "bytes": 530,
+    "sha256": "0dc84290d2a38a931fa72c71f245ce1bf15037109d23989da324ae51845a6de1"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/rotation_no/instance.json",
+    "bytes": 203,
+    "sha256": "3c16c93387a1569ece2d8e47d4e2b237dabf8702ba07807f028cacd579c09bea"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/rotation_no/instance.py",
+    "bytes": 294,
+    "sha256": "bb12dcc006f7e041996d64df8c7bd432f56bb05403e626868c7965ca3b0570c7"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/rotation_no/output.txt",
+    "bytes": 2384,
+    "sha256": "e76cd789fb919cd409f5b3e0edaff982fd0881a0c1ba091f9041428b8cbc3c1c"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/rotation_no/solution.csv",
+    "bytes": 319,
+    "sha256": "c1577f1f55164a70bb81dc825a2a4ac88eae85534a665cab2d3ec15e1a419703"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/rotation_yes/instance.cpp",
+    "bytes": 524,
+    "sha256": "31b8cc0659dbe476e41822df33d8855bd9c477c856f4c0c08d60fecc9ff13348"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/rotation_yes/instance.json",
+    "bytes": 185,
+    "sha256": "1b2019c64f80ce79ea089706c7f8a2fd9afd6a98d7efe81bdf3458bbb086c309"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/rotation_yes/instance.py",
+    "bytes": 279,
+    "sha256": "6cab8dd72aa04aa47c5297d50d92c32114965516598b9a8331058a42da13e8b9"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/rotation_yes/output.txt",
+    "bytes": 2376,
+    "sha256": "1c0e0ee52c8d1b7b8e1b95b022104015660c13eee4943fc5ba35cd6bb616dcef"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/rotation_yes/solution.csv",
+    "bytes": 187,
+    "sha256": "0eddb8d55146b5a412ad130068ad25f27948014fe98916a0cd17a815e8c85be7"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stacks_no/instance.cpp",
+    "bytes": 579,
+    "sha256": "143c6daed91b39042f6805e96fea29c60ace4c3cc84ba72364eced8cdf92116d"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stacks_no/instance.json",
+    "bytes": 348,
+    "sha256": "b1928027a70182ae9a1ba4895d9ff2187ef9d9a3a2d5c42961daaefd8b77eb54"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stacks_no/instance.py",
+    "bytes": 439,
+    "sha256": "01dadc54e644819943434749110182ca86c4e6af42d29adc767ccccf8e189c30"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stacks_no/output.txt",
+    "bytes": 2442,
+    "sha256": "1d2318a3049511177efd4a66c008487c8f72fbcde19300816ffea18611b4b390"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stacks_no/solution.csv",
+    "bytes": 287,
+    "sha256": "b4ba9340479100d57b0760eb71f8a5f3d98ebf62bb8cd57cf9850faf2876b430"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stacks_yes/instance.cpp",
+    "bytes": 591,
+    "sha256": "78812856d72ef20b9528636be49af01169cde52689d1110c5e07347260a85d16"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stacks_yes/instance.json",
+    "bytes": 408,
+    "sha256": "e9d81aab3472d572c3085c7754eef488c27a21f6627baaacd2a95658d276b43a"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stacks_yes/instance.py",
+    "bytes": 487,
+    "sha256": "1835d2fd678a554f23ecc5c104fa41211a112b9c0f1b0e77e6667c7d85245249"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stacks_yes/output.txt",
+    "bytes": 2385,
+    "sha256": "e5447e22650d1c5443c6ce8d81220fe537d5d573396b5cbd94ff0fecf9faefa3"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stacks_yes/solution.csv",
+    "bytes": 426,
+    "sha256": "6b312d166f32b9bb9fa8895994cac4415d951e5530379ba7ecb2e41af69116f8"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stages_2/instance.cpp",
+    "bytes": 1560,
+    "sha256": "542350b671b855330aae76f48bccc50b6edd3f73bc15f0163a2397dea794a69c"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stages_2/instance.json",
+    "bytes": 978,
+    "sha256": "9cc0bbede9a9eb861f3e904363ba4387342d66eb7c81de2a99e20cccaf6070ff"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stages_2/instance.py",
+    "bytes": 1110,
+    "sha256": "7c7f5e4f18fe21275ca8bd29942dbcf4019e31421cd112a655bad3da2d7f0788"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stages_2/output.txt",
+    "bytes": 2790,
+    "sha256": "c2b0f0e9cb4d23851611bb24dc4b94043af88d1e93acd3bb6340770fd15fe8db"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stages_2/solution.csv",
+    "bytes": 1421,
+    "sha256": "3c4cf92c72321c904952c414647c8526e6281c5f6d204b1589827df76a83e608"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stages_3/instance.cpp",
+    "bytes": 1560,
+    "sha256": "4c7bcf40d3af6755993a50275eab43a57dea8fa6ccfc1d9a3ec4509966da745c"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stages_3/instance.json",
+    "bytes": 978,
+    "sha256": "f2a00be70bd91f8c111b18b49feaf1d1a1597c4b82d46d2d6c5dd7e0f7da1d23"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stages_3/instance.py",
+    "bytes": 1110,
+    "sha256": "2bb48b0cf536f051b2b77e3ddaa18a7d450f3d2ecfc4cdaa678b6f9aebe58e32"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stages_3/output.txt",
+    "bytes": 2788,
+    "sha256": "76763c2c313074c8a14c8cf3a196cbb65864fd1ec4a0dc188a36857a61f6ceae"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stages_3/solution.csv",
+    "bytes": 1587,
+    "sha256": "85bed11d12a3064fc7db2c66b769df52e6165db1a3f33f79a04fe04c9197feae"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stages_unlimited/instance.cpp",
+    "bytes": 1569,
+    "sha256": "b799457f8b166834b62f1edf40701704b1fc9cd76a7d3f7de98714b966a2951f"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stages_unlimited/instance.json",
+    "bytes": 988,
+    "sha256": "68f5919981b4de2bf63bd8cffcb15f8b6e4d3dccbd86c105c4d827a64fdba16b"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stages_unlimited/instance.py",
+    "bytes": 1119,
+    "sha256": "c2f316ad3c40188e733196c93f562bf3b3a95a99543c747391d7dc5d68f3ef99"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stages_unlimited/output.txt",
+    "bytes": 3116,
+    "sha256": "58c5cc3dec0bbb0f22c2d224e4a6edcc76d82670a91dcf15855e01798e3116c9"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/stages_unlimited/solution.csv",
+    "bytes": 1879,
+    "sha256": "39e0864a7af67492f10cf3febb6294d2c727040c6e5779b43a94f6a2782ef115"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/trims_no/instance.cpp",
+    "bytes": 535,
+    "sha256": "beef5ee7db2d4fefb85b06daad49c74f508d74b684dd66810391a175c57c2810"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/trims_no/instance.json",
+    "bytes": 295,
+    "sha256": "41e0e0780dd452bd1632c4f6da3e29720a80fcb975a875f7fb81e3bb0fe3bc07"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/trims_no/instance.py",
+    "bytes": 387,
+    "sha256": "537c2f21097bf00008d593ed148ca9229e171fb0997e38b663f02415383bc51a"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/trims_no/output.txt",
+    "bytes": 2384,
+    "sha256": "bf5cdf5d3925a0acb663126a5c4e99e8d0b6c4b4e25538d4294abb991d57ca71"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/trims_no/solution.csv",
+    "bytes": 205,
+    "sha256": "44751cf75245d658963175d1c4e0b73048cfadcce77bc0b937a8bb699fde9b3a"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/trims_yes/instance.cpp",
+    "bytes": 693,
+    "sha256": "915befd2fcf37a3a1bfd7e972c0ff21d6fc939d4c092af09e403f0be4b7bddb1"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/trims_yes/instance.json",
+    "bytes": 455,
+    "sha256": "19d75ede2c755a0e14b8822be5a47419f785ee0d3e7060688365b6529f965340"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/trims_yes/instance.py",
+    "bytes": 496,
+    "sha256": "03b8df0026379b89baf8cdfa8f9f5e19632e099cfcf61066ddfbb609d0e5f37f"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/trims_yes/output.txt",
+    "bytes": 2390,
+    "sha256": "f7855146482f1b7cbe2c95dd8bfc338cbff7b9b7abb13e1d6c8c1d37e5ec24f3"
+  },
+  {
+    "path": "public/repo/doc/examples/rectangleguillotine/trims_yes/solution.csv",
+    "bytes": 521,
+    "sha256": "edd01df7b984dac3b0a1870a17a40a5dd4eb93a13c17ee8c9a3b0ee21db24b8a"
+  },
+  {
+    "path": "public/repo/doc/img/algorithm_selection_variable_sized_bin_packing.png",
+    "bytes": 26183,
+    "sha256": "0494b1a957e5d129a771fcb54695ead9cfe20d1a06941dad179e5fe0f6652ad1"
+  },
+  {
+    "path": "public/repo/doc/img/box_example_solution.png",
+    "bytes": 703614,
+    "sha256": "629b1abe6670e0d2532b2f0f81fc3cda3b066e9bfc3d79a320cf0e450c396d8e"
+  },
+  {
+    "path": "public/repo/doc/img/box_maximum_weight_no.png",
+    "bytes": 123293,
+    "sha256": "d57b4c9347137bff417782e8d783575a4cb3648af48ec633a167ea20416c5d78"
+  },
+  {
+    "path": "public/repo/doc/img/box_maximum_weight_yes.png",
+    "bytes": 254659,
+    "sha256": "3d5569e617b39e9f5af30995ef273e57ed966f83e7e826e24f95c67846592b16"
+  },
+  {
+    "path": "public/repo/doc/img/box_rotation_no.png",
+    "bytes": 130943,
+    "sha256": "0d3a047b7629469a1a32c79728a77dc3d730c30be0f5faae7a047e630491a752"
+  },
+  {
+    "path": "public/repo/doc/img/box_rotation_yes.png",
+    "bytes": 62937,
+    "sha256": "9b99c1205cc7ff2cea3d7636494a1793d8d6ee21f8decf326c381d1c8c687a32"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_axle_weight_1.png",
+    "bytes": 31596,
+    "sha256": "41ab644b328521851019b3d536e90622bb17c36931758f8562bc233ee91cac27"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_axle_weight_2.png",
+    "bytes": 63128,
+    "sha256": "3a65f3a8b8faa29079631724f9f1dcc0e762a1eabe25ffd1f6cb128755b1b071"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_axle_weight_no.png",
+    "bytes": 58719,
+    "sha256": "aedf63bfad4cb1f0ee61cbcc20e1788b00d68e40ea3ee72a6a310cf0018dd87f"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_axle_weight_yes.png",
+    "bytes": 213740,
+    "sha256": "3a5f3233f9b8040a792fbcb09308ef9c6a8e131393a848ebf85058952c9a9151"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_box_vs_boxstacks_box.png",
+    "bytes": 112500,
+    "sha256": "d23200b34bd256f9a4bdc237219f10cd0490689c7fc487ff1e5ff7c8b16ea60e"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_box_vs_boxstacks_boxstacks.png",
+    "bytes": 107413,
+    "sha256": "1406e768067e90331b1fb3bd9b5e683dbf90ca6dc05fe8a4d5670c5c67fd8642"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_example_solution.png",
+    "bytes": 421059,
+    "sha256": "eb358d3fe8c942a01fb4b132ca67deb3addb6706b0a19132c5724d41a4a502b9"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_maximum_stack_density_no.png",
+    "bytes": 63910,
+    "sha256": "7bb635d5c5c2d7b005dd4f05dc1be7fcc2d54c8e8841ac31a5290a237e093a83"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_maximum_stack_density_yes.png",
+    "bytes": 224029,
+    "sha256": "d146816342759be7516ca9fb376c58c974e975aa78a56c4572d4e5948e044e23"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_maximum_stackability_no.png",
+    "bytes": 63078,
+    "sha256": "1cb8c7571436c4a0c9aac6b85e22f423043c242e9088d880f9350de28e8ac5dc"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_maximum_stackability_yes.png",
+    "bytes": 218029,
+    "sha256": "e0e5699f3ba99df81acab51c87994d28241e837ee0d5a7ca1133291180775ec4"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_maximum_weight_above_no.png",
+    "bytes": 61922,
+    "sha256": "cda9dea5887e8ce49b2cf4cd6052281676760e3d030995fa1d1d0c00e85c63e6"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_maximum_weight_above_yes.png",
+    "bytes": 221376,
+    "sha256": "e8b334fd5075f435b89499b284ed0601b08ca89d594f284330aa5625d4d7c026"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_nesting_height.jpeg",
+    "bytes": 6770,
+    "sha256": "af74b4db1b9748563ef4e99fa3676ddbbd3d6548b4c14da1ecafbe5fb9b19aed"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_nesting_height_no.png",
+    "bytes": 225724,
+    "sha256": "0eea15ba5bf437d3e2a4e7775e8590b93577c460640c72c642de3dfbf396ed0c"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_nesting_height_yes.png",
+    "bytes": 70093,
+    "sha256": "20f1a08bafd034d2440678740ebdecf7eb0d9e6f0a14c9ab6d1e83f5798f4ec0"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_rotation_no.png",
+    "bytes": 221754,
+    "sha256": "2b61e6ad322f5a113205f87f0a54303399eb6c81dc0d95d8546aff9ce5fef40f"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_rotation_yes.png",
+    "bytes": 64135,
+    "sha256": "6069790e58631eaa11fb128cfdf51778b277a4bf84d69b65cde7bf79706512d4"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_sequential_onedimensional_rectangle.png",
+    "bytes": 12705,
+    "sha256": "7b2b25f0f91d4614206538dabb74775bd74ff39b9e7d7b3056c331043175e90e"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_tree_search.png",
+    "bytes": 4011,
+    "sha256": "8d02020b5c8ed26e471721ea183c06dbd71781aad624c227cddb13b6457752cd"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_unloading_no.png",
+    "bytes": 64356,
+    "sha256": "db20a50e610b60a9e5012a75d3dee4e6c61597082c89605a836168d6ac071eff"
+  },
+  {
+    "path": "public/repo/doc/img/boxstacks_unloading_yes.png",
+    "bytes": 185381,
+    "sha256": "47c233470a8809ffb4f3e1517315b501c8824417916b1dad008afa49dfe070a2"
+  },
+  {
+    "path": "public/repo/doc/img/generic_algorithms_column_generation.png",
+    "bytes": 49935,
+    "sha256": "4512f79f103ee94005318364b89ca4db401b2e2f1e25b690977c358e1adb76b0"
+  },
+  {
+    "path": "public/repo/doc/img/generic_algorithms_dichotomic_search.png",
+    "bytes": 46611,
+    "sha256": "7861aad44398bd7cf1e00907e1cc76ae0656bb2f25eb49642c07ba4959105daf"
+  },
+  {
+    "path": "public/repo/doc/img/generic_algorithms_sequential_single_knapsack.png",
+    "bytes": 17761,
+    "sha256": "b983999d430991798fc1e0bfe0cba2e41365a13c9323a9a7625543a83e40f7d0"
+  },
+  {
+    "path": "public/repo/doc/img/generic_algorithms_sequential_value_correction.png",
+    "bytes": 7238,
+    "sha256": "c7a1be87d5a882c0e41032e824f94778a26b30804b7b7e88c0be90da72ac2420"
+  },
+  {
+    "path": "public/repo/doc/img/irregular_defects_no.png",
+    "bytes": 29853,
+    "sha256": "cbc69959a7d35291e35d0e21dcfd029be1f896eda91a109d3c5a2af4715cd246"
+  },
+  {
+    "path": "public/repo/doc/img/irregular_defects_yes.png",
+    "bytes": 51299,
+    "sha256": "6ec38e144495d744d1a1b5315fac5b7d8733037756bd5db523adb972fba69bc2"
+  },
+  {
+    "path": "public/repo/doc/img/irregular_example_solution.png",
+    "bytes": 78219,
+    "sha256": "499ea55fdfd795d31293ff32f92d619ab68e55396ab391f6848c7848d5f3bda7"
+  },
+  {
+    "path": "public/repo/doc/img/irregular_holes_no.png",
+    "bytes": 34135,
+    "sha256": "abe3a323cd5bca1f42d90299cfdcf246e2679fad76342adaa1a49dd46e4e0777"
+  },
+  {
+    "path": "public/repo/doc/img/irregular_holes_yes.png",
+    "bytes": 28859,
+    "sha256": "f583e3df26b39643068b0131dff2b0b13332ca954a41dd931df1ee57709c0ae9"
+  },
+  {
+    "path": "public/repo/doc/img/irregular_irregular_bin.png",
+    "bytes": 261826,
+    "sha256": "dcc7723b32a671102232d09c7ff47c8fc86691c4285d976fa76efa237109192c"
+  },
+  {
+    "path": "public/repo/doc/img/irregular_item_bin_spacing_no.png",
+    "bytes": 46833,
+    "sha256": "cc174d9aa6391b82487fa1334841fb9403d8265c73c40b45cd9232ff13ce09a0"
+  },
+  {
+    "path": "public/repo/doc/img/irregular_item_bin_spacing_yes.png",
+    "bytes": 75292,
+    "sha256": "b1f4da142b5b4661742cbd60d6541b334a4c1e9c25b1d37ed8e5059b2b2d0435"
+  },
+  {
+    "path": "public/repo/doc/img/irregular_item_defect_spacing_no.png",
+    "bytes": 68482,
+    "sha256": "c43cea2885d1c641b2b2f1484d6f1bcd30052b0cb9f97cc4aac294bc15dc2083"
+  },
+  {
+    "path": "public/repo/doc/img/irregular_item_defect_spacing_yes.png",
+    "bytes": 101826,
+    "sha256": "c2c6877e890ca814529f488ad94c8965a24b27100712ea56c53aa62c489d59e5"
+  },
+  {
+    "path": "public/repo/doc/img/irregular_item_item_spacing_no.png",
+    "bytes": 46833,
+    "sha256": "cc174d9aa6391b82487fa1334841fb9403d8265c73c40b45cd9232ff13ce09a0"
+  },
+  {
+    "path": "public/repo/doc/img/irregular_item_item_spacing_yes.png",
+    "bytes": 76810,
+    "sha256": "6ce226ae286877cf782fe80c22dc35589480601c8a35bbb360d52404c805d01f"
+  },
+  {
+    "path": "public/repo/doc/img/irregular_local_search.png",
+    "bytes": 2600,
+    "sha256": "e00645979aaf3f2dd8178374183aa0e098e1c98d34891b3ce19bdddddb4e397d"
+  },
+  {
+    "path": "public/repo/doc/img/irregular_milp_raster.png",
+    "bytes": 4314,
+    "sha256": "cf327e26e3e44cd90a8109ffca0fe34c689c99b29e4099caead1e9bcd31690ed"
+  },
+  {
+    "path": "public/repo/doc/img/irregular_mirroring_no.png",
+    "bytes": 40118,
+    "sha256": "73fbdec1d41f2eef6cc58050458278864ac5f4d368632e45ef114ba1fa3a2bf9"
+  },
+  {
+    "path": "public/repo/doc/img/irregular_mirroring_yes.png",
+    "bytes": 28219,
+    "sha256": "c5d26442effe8cad8ccec9d2647c6c6afaf369dbc03c634d271bbd9704604234"
+  },
+  {
+    "path": "public/repo/doc/img/irregular_rotation_continuous.png",
+    "bytes": 220375,
+    "sha256": "aba69fbb43ff6d28b683ed6263376b354595d128a59299ee7fa865f3355fd22e"
+  },
+  {
+    "path": "public/repo/doc/img/irregular_rotation_no.png",
+    "bytes": 45415,
+    "sha256": "5e59c95ec58a79d7e9a843885130880f5f5aa43149fb010e209a9084fcc08f21"
+  },
+  {
+    "path": "public/repo/doc/img/irregular_rotation_yes.png",
+    "bytes": 29853,
+    "sha256": "cbc69959a7d35291e35d0e21dcfd029be1f896eda91a109d3c5a2af4715cd246"
+  },
+  {
+    "path": "public/repo/doc/img/irregular_tree_search.png",
+    "bytes": 4753,
+    "sha256": "4a099d7aecee506a54e83823060e010bca97693434930cd312084ad443460d57"
+  },
+  {
+    "path": "public/repo/doc/img/objective_bin_packing_with_leftovers_solution.png",
+    "bytes": 79584,
+    "sha256": "e0bcc71c18794b88c8365534c99c8c45cf8e525e18928cb7cd0f81219cff6117"
+  },
+  {
+    "path": "public/repo/doc/img/objective_knapsack_solution.png",
+    "bytes": 62776,
+    "sha256": "9ac2464d20b8426d4f88f01e39584d5d832d21f2a4c80b3b77740c53831213a8"
+  },
+  {
+    "path": "public/repo/doc/img/objective_open_dimension_x_solution.png",
+    "bytes": 67009,
+    "sha256": "3d4509c41b59f3bb06c61c0f0c3974a6d5371f5622a56f44f5720a482323dba6"
+  },
+  {
+    "path": "public/repo/doc/img/objective_variable_sized_bin_packing_solution.png",
+    "bytes": 78077,
+    "sha256": "3919ea6bf40d3353b42e7a7152b9f6d7fbb3261b3c739fd9c9f94b3a202f73df"
+  },
+  {
+    "path": "public/repo/doc/img/onedimensional_maximum_stackability_no.png",
+    "bytes": 12082,
+    "sha256": "cb48c59f812015d3af322b547b044b153266f1f5a2e5e0100c38ae0506bbfc87"
+  },
+  {
+    "path": "public/repo/doc/img/onedimensional_maximum_stackability_yes.png",
+    "bytes": 14131,
+    "sha256": "1ab5e55ee120393ac06dfab3a82e74c1fd77001cc460ca25adfa618b601db949"
+  },
+  {
+    "path": "public/repo/doc/img/onedimensional_maximum_weight_after_no.png",
+    "bytes": 11119,
+    "sha256": "5dc67b7d5b32cc722d89de3a31ccfb55a013039895ce504c1aef5e8f6e936134"
+  },
+  {
+    "path": "public/repo/doc/img/onedimensional_maximum_weight_after_yes.png",
+    "bytes": 14030,
+    "sha256": "772fb9e86be61d713e5eb6f1e4221f1645dc77de54e1f952e58682bf2f6432f6"
+  },
+  {
+    "path": "public/repo/doc/img/onedimensional_maximum_weight_no.png",
+    "bytes": 11538,
+    "sha256": "2c1280a1ee9ec55e6d47ea81f2dafdeceea8bc5086a35c1b1c70f5b9dae08470"
+  },
+  {
+    "path": "public/repo/doc/img/onedimensional_maximum_weight_yes.png",
+    "bytes": 14651,
+    "sha256": "b8e0f1ed8272b5a68ecc1ae386e40a05a3b8ec5ad1f1e591cadc6935a01e439e"
+  },
+  {
+    "path": "public/repo/doc/img/onedimensional_nesting_length.jpeg",
+    "bytes": 6770,
+    "sha256": "af74b4db1b9748563ef4e99fa3676ddbbd3d6548b4c14da1ecafbe5fb9b19aed"
+  },
+  {
+    "path": "public/repo/doc/img/onedimensional_nesting_length_no.png",
+    "bytes": 11721,
+    "sha256": "9c708640c4099b09d2b16e199b7f595f355cd8f695b4df22838250b2c5e96813"
+  },
+  {
+    "path": "public/repo/doc/img/onedimensional_nesting_length_yes.png",
+    "bytes": 10092,
+    "sha256": "10c1dc31b2b41d267f644e32a2c7455d8ef81f3de16536296eef5b731e27407c"
+  },
+  {
+    "path": "public/repo/doc/img/onedimensional_solution.png",
+    "bytes": 72039,
+    "sha256": "faa6857b03c34798a4692f5c365d9c33c140c2addd4b3eba8748b7a4c1022ea1"
+  },
+  {
+    "path": "public/repo/doc/img/onedimensional_tree_search.png",
+    "bytes": 10502,
+    "sha256": "5a8c5445a63966c888a3a915be795fa578cb3e1d244ecad513f270910a3de5a5"
+  },
+  {
+    "path": "public/repo/doc/img/rectangle_benders_decomposition.png",
+    "bytes": 19297,
+    "sha256": "846b9d146c4b8bcc20e2892e43c704b2256f569b528a5ff6ec2aec0ca9dab918"
+  },
+  {
+    "path": "public/repo/doc/img/rectangle_defects_no.png",
+    "bytes": 43288,
+    "sha256": "11c4c5f50a7385ddcb3c3260bb1938705c6dab67ca4c68e706e083015c3c57a6"
+  },
+  {
+    "path": "public/repo/doc/img/rectangle_defects_yes.png",
+    "bytes": 70487,
+    "sha256": "3c184bf3f10005d402e158c9866dd4f78c6f8d20f1c9abb576b1f0d414465f29"
+  },
+  {
+    "path": "public/repo/doc/img/rectangle_dual_feasible_functions_1.png",
+    "bytes": 6409,
+    "sha256": "978058517b7d9162b25b7deda34f74968fd2fef3180b7053b3451ad0c6873986"
+  },
+  {
+    "path": "public/repo/doc/img/rectangle_dual_feasible_functions_2.png",
+    "bytes": 5820,
+    "sha256": "b4cb0861fd51fe527433197164beb5e81b9110dfa34096bc39417838880abedc"
+  },
+  {
+    "path": "public/repo/doc/img/rectangle_example_solution.png",
+    "bytes": 153128,
+    "sha256": "367e16f59b7197c4dbf9336c3f87352aec6f83712231de7dfc36c41296ecb055"
+  },
+  {
+    "path": "public/repo/doc/img/rectangle_maximum_weight_no.png",
+    "bytes": 33910,
+    "sha256": "2f4fea858b18e150f1d8f071f24087e5e9ae9027d68cbfd289eb1496ce20dd17"
+  },
+  {
+    "path": "public/repo/doc/img/rectangle_maximum_weight_yes.png",
+    "bytes": 51355,
+    "sha256": "9b4053d4932718acbfa4e15b161d0a12cd4237ea36c6da65aaffe761d5a67351"
+  },
+  {
+    "path": "public/repo/doc/img/rectangle_rotation_no.png",
+    "bytes": 62022,
+    "sha256": "b1489e5ed0af485cf431af5406caab74fbe9e6b4c6278d1caa58a3a68a34fc9a"
+  },
+  {
+    "path": "public/repo/doc/img/rectangle_rotation_yes.png",
+    "bytes": 40279,
+    "sha256": "7413d281467c742e944686cdc94256a52b32894f159981eae7cf43c5dbe53610"
+  },
+  {
+    "path": "public/repo/doc/img/rectangle_tree_search.png",
+    "bytes": 6278,
+    "sha256": "f5645d411ecbb229ddc4950aecee06fcffe478521b329e2bff5f810000c4801d"
+  },
+  {
+    "path": "public/repo/doc/img/rectangle_tree_search_maximal_spaces_1.png",
+    "bytes": 5841,
+    "sha256": "a163d25b99853c826d0c3bedf4697850c4bea3e19e9f5b170081f0673e1a22eb"
+  },
+  {
+    "path": "public/repo/doc/img/rectangle_tree_search_maximal_spaces_2.png",
+    "bytes": 6245,
+    "sha256": "62b72496e9c42086a35c8f327a61bb4811b0024f9155ccd9c0b6e436acba3ae2"
+  },
+  {
+    "path": "public/repo/doc/img/rectangle_tree_search_maximal_spaces_3.png",
+    "bytes": 757,
+    "sha256": "8872a9e7a971d0e1075e6b0efc16fd3b93cb97c087d4a6e453c3177fd8e81184"
+  },
+  {
+    "path": "public/repo/doc/img/rectangle_tree_search_maximal_spaces_4.png",
+    "bytes": 4335,
+    "sha256": "e68d98973714a2772b178fa5bdc17ea580f869a3c00d4cc2f30418c57c933ede"
+  },
+  {
+    "path": "public/repo/doc/img/rectangle_unloading_increasing_x.png",
+    "bytes": 42215,
+    "sha256": "eaaac4d439de9565c611fa6084f05fe4c74c9f726135728d0885abe0be49c013"
+  },
+  {
+    "path": "public/repo/doc/img/rectangle_unloading_no.png",
+    "bytes": 41537,
+    "sha256": "11fbb99d5ea69b33dcd94cb794192ecc74dffd9c5fc6a86779d38e68fb775c3b"
+  },
+  {
+    "path": "public/repo/doc/img/rectangle_unloading_x_movements.png",
+    "bytes": 42262,
+    "sha256": "c222c57561aef63d03b76b6ba3a1183ac65826ec99699b85e1e2bbd14706dab3"
+  },
+  {
+    "path": "public/repo/doc/img/rectangle_unloading_yes.png",
+    "bytes": 59580,
+    "sha256": "d2189d54cc7ead26241fd4e9c590af05fe4decbc0b0b77ff2d0293131a5efca4"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_column_generation_strips.png",
+    "bytes": 35396,
+    "sha256": "4143a7b90a40eccdb9509e08c0b1c2ddf5fc70125ce155066f5a20fafd2ceaa1"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_cutdefects_no.png",
+    "bytes": 46057,
+    "sha256": "8c8f3929d70de944897038d35afb98bf0c83ddbf53841a6d63847d07a73beccb"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_cutdefects_yes.png",
+    "bytes": 35513,
+    "sha256": "e1689ea4fcdd4ca1cd236ee20ee58e4dc9a1270e5fa85e28678d6e128271bed1"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_cutthickness_no.png",
+    "bytes": 35121,
+    "sha256": "050cacaee875c5027855c124ad67fd47a5a951e85bd06d1df5777a9f4b533de4"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_cutthickness_yes.png",
+    "bytes": 43305,
+    "sha256": "dc8a116e1b0a913a626738b73fe22f3e0f83b90500401e7f982e5a2848f6d8f9"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_cuttype_exact.png",
+    "bytes": 124896,
+    "sha256": "10d3b3e7752976f62b2f872165398fdf3e32c829422b363d2306cd43e24a13c1"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_cuttype_homogenous.png",
+    "bytes": 129984,
+    "sha256": "fb8bde214e3247d41da0caf7085798dc3d5e8de631f8d4a5d056c46a6488d8c6"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_cuttype_nonexact.png",
+    "bytes": 132184,
+    "sha256": "38f591eb592457c52d898f7c2bece31acbac84d5574cd7b04876b1e3f6e205c9"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_cuttype_roadef2018.png",
+    "bytes": 135996,
+    "sha256": "1b3ed1e530c4d6b39c98cbbb6787cfc411625e61d9e2dc243be2082101e74390"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_defects_no.png",
+    "bytes": 31274,
+    "sha256": "65e09c1a5a437b487a342ba541be448d0343e30fbc9cc4e01654e6ea25da673a"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_defects_yes.png",
+    "bytes": 51721,
+    "sha256": "2f90489b345a08d10c9c4e5367ddef720b272ef1bf18277010a5a51271bcf9ed"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_dynamic_programming_infinite_copies.png",
+    "bytes": 16679,
+    "sha256": "bbe6edcf073888c71283b01c583c88066d9552a4cf558e520fd466810c8ea6cb"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_example_solution.png",
+    "bytes": 127490,
+    "sha256": "93afc8cd24af16145b252be56df4ddfa9293faa6968ce295f2e5734b98b6db3d"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_guillotine_vs_non_guillotine_rectangle.png",
+    "bytes": 34474,
+    "sha256": "118eee79f5afb8ea28fb0d9a45350e99e46f9dbac85ade36c6a0c44ab5d5f247"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_guillotine_vs_non_guillotine_rectangleguillotine.png",
+    "bytes": 51895,
+    "sha256": "3362e36724887eb836b562a6eb34b1c26b85feede28c01b51da50676fc92c3d0"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_labelling.png",
+    "bytes": 3973,
+    "sha256": "65224bcbe0de2ede7df6436baa86d92d2c67fa809b70298577135718d440b62b"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_maxcuts2_no.png",
+    "bytes": 47049,
+    "sha256": "125d46d6453ea0c5bcacc5e2139dce179b90f85a9b39c2f175378fafb30a6ad0"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_maxcuts2_yes.png",
+    "bytes": 64011,
+    "sha256": "c8762e2e0c571cee8de4124975d99ed3d1b33152f350599ee0f7c096e5c5a591"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_maxcuts_no.png",
+    "bytes": 26632,
+    "sha256": "ad35cf7173a40d69da0d9bb27040f545d6cd90a7207c62721e40aec7de509b26"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_maxcuts_yes.png",
+    "bytes": 43453,
+    "sha256": "e219b4814ff379c7185c36843b870a253a79b803addd95c469b26c7d832ad44b"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_number_of_stages.png",
+    "bytes": 45952,
+    "sha256": "01ea25570d6b4b72b235bab770be0df23f57233e8758e6e2ac81b3d286a7da5e"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_orientation_no.png",
+    "bytes": 49379,
+    "sha256": "1f3bc6221ebb65555fee40efa9556000b5b3a3e4e0d4e52befefa72cb036cdc9"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_orientation_yes.png",
+    "bytes": 38601,
+    "sha256": "87e330269fa22300cb46cea4169eeb7318141d49c1978ffb8af3b94996d9ee91"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_rotation_no.png",
+    "bytes": 43538,
+    "sha256": "74d103a2e40f7c48fbafa33bcbb34ab8a913e510c5608016182755207a0dcf02"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_rotation_yes.png",
+    "bytes": 31274,
+    "sha256": "65e09c1a5a437b487a342ba541be448d0343e30fbc9cc4e01654e6ea25da673a"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_sequential_strips_onedimensional.png",
+    "bytes": 13021,
+    "sha256": "75c541d329c95513a2b16dcf7d538113c8d93bb3af1d83f597181f813b19d5e4"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_stacks_no.png",
+    "bytes": 37989,
+    "sha256": "2e530c06b55c2e07acb2b62fff3d6f536c81b167b66c2c672fdd10f2e79b475b"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_stacks_yes.png",
+    "bytes": 45636,
+    "sha256": "12297beffffd7c2463a0a640f18586bde14ba8a9422b969c2a9fb00cca0d3113"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_stages_2.png",
+    "bytes": 134006,
+    "sha256": "4dcf7b599db787a7a62e2a04970c5fea2eb4153e5ecb7c3a38047ec877b08966"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_stages_3.png",
+    "bytes": 107786,
+    "sha256": "d6901710cb18d2f6a37f6fb3a4afdcde1e9ea85d1ca3b5a55d10c44f490d11be"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_stages_unlimited.png",
+    "bytes": 131812,
+    "sha256": "e37b5e2fcbe3b0845dcdf3c030935c6993e927a1a125f45f04aae1790f41054b"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_tree_search.png",
+    "bytes": 7341,
+    "sha256": "ad12ceed2b27a2311b871897da0b49424812db6196e641e839e5fd7db525ab27"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_tree_search_maximal_spaces_1.png",
+    "bytes": 5841,
+    "sha256": "a163d25b99853c826d0c3bedf4697850c4bea3e19e9f5b170081f0673e1a22eb"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_tree_search_maximal_spaces_2.png",
+    "bytes": 9452,
+    "sha256": "96eac458ebfc438bbf31f685e723ba8a853012b268ecae511c2a4e7858cc692c"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_tree_search_maximal_spaces_3.png",
+    "bytes": 746,
+    "sha256": "caadca5bf5d6494ed8d300239c81cd1bec1549b6ce8aaa58577b5c82f1a69a3b"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_tree_search_maximal_spaces_4.png",
+    "bytes": 5471,
+    "sha256": "6da632e3c16923c5129bb7560844355e680415f700ae75c91dbe335f24ddc9e7"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_trims_no.png",
+    "bytes": 35187,
+    "sha256": "586344cc9721794be7c7ce54124a804e6849bd1488eda5333a2122d6a49b448b"
+  },
+  {
+    "path": "public/repo/doc/img/rectangleguillotine_trims_yes.png",
+    "bytes": 47939,
+    "sha256": "8ea886196f93254d55646547792dd17e56c3dcc54ce59596b7ee14df6c56eb39"
+  },
+  {
+    "path": "public/repo/doc/index.rst",
+    "bytes": 3646,
+    "sha256": "624fcbbf3272b9ff16441900018cf50876bbb3a95742fc9ea9f39309af7acad5"
+  },
+  {
+    "path": "public/repo/doc/internals/algorithm_selection.rst",
+    "bytes": 2019,
+    "sha256": "f06403f06be8bbe05fde5c5c6c3a8f2240a3fce9986ce3440783162bfd649944"
+  },
+  {
+    "path": "public/repo/doc/internals/algorithm_selection_variable_sized_bin_packing.drawio",
+    "bytes": 4632,
+    "sha256": "af8ee70af02d434b1c166148fd9cd12a69108d160dff36ef167ad8bba155fe0c"
+  },
+  {
+    "path": "public/repo/doc/internals/box.rst",
+    "bytes": 1218,
+    "sha256": "bc14c7adf5e8480b7849f5fa1dd7f24a267296ff9b7caa32872e1848fc589816"
+  },
+  {
+    "path": "public/repo/doc/internals/boxstacks.rst",
+    "bytes": 1852,
+    "sha256": "aaa9b7c9723865dd0fca28e07c8198d4e25fb355c521f9ed96f27f423289cb32"
+  },
+  {
+    "path": "public/repo/doc/internals/boxstacks_sequential_onedimensional_rectangle.drawio",
+    "bytes": 10629,
+    "sha256": "1fa659db140529e33389ab0c49b6f0fbf25ceea78cf7801bacb7db55213b7e35"
+  },
+  {
+    "path": "public/repo/doc/internals/boxstacks_tree_search.drawio",
+    "bytes": 1209,
+    "sha256": "3ba8a98f21db03a9777a148fe5d54517be4cbdbfd3d20fcbf8dacde3e7276740"
+  },
+  {
+    "path": "public/repo/doc/internals/generic_algorithms.rst",
+    "bytes": 6697,
+    "sha256": "cad67b330c9768dcadf26d12984553c055d3b7e3a14ef49432b2194e46ad48c2"
+  },
+  {
+    "path": "public/repo/doc/internals/generic_algorithms_column_generation.drawio",
+    "bytes": 16911,
+    "sha256": "253a5d3c11141445d30a81d3f2b81e246da627a1cdb352f13e2a8d82c728bcf4"
+  },
+  {
+    "path": "public/repo/doc/internals/generic_algorithms_dichotomic_search.drawio",
+    "bytes": 18750,
+    "sha256": "f2f2071be1d3f7b397d904fb7aaa1801ea04a33558876b2f2ccbc5ad0d344622"
+  },
+  {
+    "path": "public/repo/doc/internals/generic_algorithms_sequential_single_knapsack.drawio",
+    "bytes": 1537,
+    "sha256": "b3fa05b8f5f35b56f8e9885b81f3bbe4943f3e119fd652a8c602d2df731103bc"
+  },
+  {
+    "path": "public/repo/doc/internals/generic_algorithms_sequential_value_correction.drawio",
+    "bytes": 8861,
+    "sha256": "6ab6a6eeaa5d016a313504384dce62d900f9846b2286db4b0a7aaa7e495039fe"
+  },
+  {
+    "path": "public/repo/doc/internals/irregular.rst",
+    "bytes": 3485,
+    "sha256": "5dd5f864778435f7fd379a4f0c1d75690199aa46fc8d85ed4a15f1f1d8e6f6ab"
+  },
+  {
+    "path": "public/repo/doc/internals/irregular_local_search.drawio",
+    "bytes": 5589,
+    "sha256": "d504f0a97909c77bfd85c5b2ab8b2a2a5d0b7945d636126d4aa5879079f9510b"
+  },
+  {
+    "path": "public/repo/doc/internals/irregular_milp_raster.drawio",
+    "bytes": 9701,
+    "sha256": "c63d4a08e3d5e8ee5f749ba8d84b81b23f6a923bcabd7cdec271d13e96f10d41"
+  },
+  {
+    "path": "public/repo/doc/internals/irregular_tree_search.drawio",
+    "bytes": 12212,
+    "sha256": "5250018a1c50c8b8a69d184b6ee9aca79816b194804591670f581510a2297c1e"
+  },
+  {
+    "path": "public/repo/doc/internals/onedimensional.rst",
+    "bytes": 1804,
+    "sha256": "954c714c6802ad9a76910e48e020fbf3fc9982a85919c042eb9b6b319312ada7"
+  },
+  {
+    "path": "public/repo/doc/internals/onedimensional_tree_search.drawio",
+    "bytes": 2805,
+    "sha256": "8c6aaaa70318be67c476321be8cf571702911e4f64621772c8f66dd3ee51aa08"
+  },
+  {
+    "path": "public/repo/doc/internals/overview.rst",
+    "bytes": 1685,
+    "sha256": "ca27334957c0a6ad201cbcfcc994e55ffa32b8b7aa0a390e56832b8ff96a9f6b"
+  },
+  {
+    "path": "public/repo/doc/internals/rectangle.rst",
+    "bytes": 8716,
+    "sha256": "c8263cc3dd6e25cf10ac9aa4849e0372bfa668af702b8addb230510409796769"
+  },
+  {
+    "path": "public/repo/doc/internals/rectangle_benders_decomposition.drawio",
+    "bytes": 9451,
+    "sha256": "a36371df062560d5503009634d5a4a8df51b97712dc2e45e9e20264c91b13f74"
+  },
+  {
+    "path": "public/repo/doc/internals/rectangle_dual_feasible_functions_1.drawio",
+    "bytes": 1720,
+    "sha256": "3d7e90d5fabf79f4191309de72b2f29fca1f78a38179a5397c3a8ea65b77a98f"
+  },
+  {
+    "path": "public/repo/doc/internals/rectangle_dual_feasible_functions_2.drawio",
+    "bytes": 1720,
+    "sha256": "aa13f2bfe16bb8933abca801e40c6000e4937a9dee3f892198b58ed5d8603530"
+  },
+  {
+    "path": "public/repo/doc/internals/rectangle_tree_search.drawio",
+    "bytes": 8116,
+    "sha256": "ecff7d54b5a4b199566732d8aed661851fb9645f4ddcc3fd90078802024ed9fa"
+  },
+  {
+    "path": "public/repo/doc/internals/rectangle_tree_search_maximal_spaces_1.drawio",
+    "bytes": 5992,
+    "sha256": "d9f541bc5c0e4da42b47ee19ed5e03a9c18ee3f71fe96d688f5d557d4fc3c45b"
+  },
+  {
+    "path": "public/repo/doc/internals/rectangle_tree_search_maximal_spaces_2.drawio",
+    "bytes": 7474,
+    "sha256": "d64dcd83381f15baea7bf6e9fb67a9913d9cb655a557d8590d9f01c59933dd71"
+  },
+  {
+    "path": "public/repo/doc/internals/rectangle_tree_search_maximal_spaces_3.drawio",
+    "bytes": 2075,
+    "sha256": "45625b95bdd83c84b6ed11e5da51b1ba85713ec7e6d63b9f29446d8171323972"
+  },
+  {
+    "path": "public/repo/doc/internals/rectangle_tree_search_maximal_spaces_4.drawio",
+    "bytes": 6022,
+    "sha256": "27621a132e368ea5e588874412ec78b62e800e81385633ec5d6e5514f1a25575"
+  },
+  {
+    "path": "public/repo/doc/internals/rectangleguillotine.rst",
+    "bytes": 8315,
+    "sha256": "cb4e38bab8c8c52b310e01742f762a78349e914714d931dc811e108a8de80a49"
+  },
+  {
+    "path": "public/repo/doc/internals/rectangleguillotine_column_generation_strips.drawio",
+    "bytes": 7124,
+    "sha256": "f3ca392306acebca7382d281495428c83b5dc270a383effbde233e09dfb592fc"
+  },
+  {
+    "path": "public/repo/doc/internals/rectangleguillotine_dynamic_programming_infinite_copies.drawio",
+    "bytes": 6382,
+    "sha256": "bf9bd57cfbfed505f0cfa5953e06ffd48551d1d5e2ddda7bd45e357c3c1a5a96"
+  },
+  {
+    "path": "public/repo/doc/internals/rectangleguillotine_labelling.drawio",
+    "bytes": 5823,
+    "sha256": "92d50375a7ed7c2ba13e4ec078675bece34f846d6ca7ed2766e6e36de8d232dc"
+  },
+  {
+    "path": "public/repo/doc/internals/rectangleguillotine_sequential_strips_onedimensional.drawio",
+    "bytes": 11066,
+    "sha256": "0327475d4193a27e190bba438db3879fe8d4668a946b9dc130fb0f07dd34444f"
+  },
+  {
+    "path": "public/repo/doc/internals/rectangleguillotine_tree_search.drawio",
+    "bytes": 11084,
+    "sha256": "4002c006249b366c3ab671dfbbc06d7239a9c7aa950ad85b713508d8ed746ad6"
+  },
+  {
+    "path": "public/repo/doc/internals/rectangleguillotine_tree_search_maximal_spaces_1.drawio",
+    "bytes": 5992,
+    "sha256": "d9f541bc5c0e4da42b47ee19ed5e03a9c18ee3f71fe96d688f5d557d4fc3c45b"
+  },
+  {
+    "path": "public/repo/doc/internals/rectangleguillotine_tree_search_maximal_spaces_2.drawio",
+    "bytes": 20794,
+    "sha256": "214d0e93fd6c363baaaad97710ad10b09bcb582e7287842b82667759acac2309"
+  },
+  {
+    "path": "public/repo/doc/internals/rectangleguillotine_tree_search_maximal_spaces_3.drawio",
+    "bytes": 2574,
+    "sha256": "c14dd1ad89430888b89f18a0004587c01c7a6f61a1de3e8240f4fc6b855b347b"
+  },
+  {
+    "path": "public/repo/doc/internals/rectangleguillotine_tree_search_maximal_spaces_4.drawio",
+    "bytes": 14533,
+    "sha256": "e81c61afe3fe6359628e5c96e4519264a3fb71704439bf86832a9dea590c22e6"
+  },
+  {
+    "path": "public/repo/doc/irregular.rst",
+    "bytes": 20665,
+    "sha256": "fe0da1162af533b7ec49a84f02c59f40ecc379aac88731402cbdd05a8005ff2d"
+  },
+  {
+    "path": "public/repo/doc/make.bat",
+    "bytes": 800,
+    "sha256": "bca6b3244f115b8f42cbc2bb866f1061b95eb6f01df1891e2ac68f03f7569d7b"
+  },
+  {
+    "path": "public/repo/doc/objectives.rst",
+    "bytes": 5008,
+    "sha256": "674816a4a4e28841a966241681186b60d32330f7929e20c7b255f7e83c62c759"
+  },
+  {
+    "path": "public/repo/doc/onedimensional.rst",
+    "bytes": 12418,
+    "sha256": "f206536454e6ded53f61e2d9d42f47c8d6e40c381d40679aeed5faee6c83ea5c"
+  },
+  {
+    "path": "public/repo/doc/optimization_modes.rst",
+    "bytes": 8950,
+    "sha256": "b90ca5a76e3edc8f814f4b922367a390a943e573c97509593b2ca27e39e01cc8"
+  },
+  {
+    "path": "public/repo/doc/rectangle.rst",
+    "bytes": 13987,
+    "sha256": "d7b2d80cd6831c5cdf664183f84a2a0fc6983b8245bde900cac79a82d85491e9"
+  },
+  {
+    "path": "public/repo/doc/rectangleguillotine.rst",
+    "bytes": 31345,
+    "sha256": "9e2dbf6e27a2b551e0afabd837db06b94ecf237ec3981c607c184120a2ba0e04"
+  },
+  {
+    "path": "public/repo/doc/rectangleguillotine_number_of_stages.drawio",
+    "bytes": 15281,
+    "sha256": "36a75e0b93256abd7b12ae874959b5b72cca30397b6f196f7f7db01286df313e"
+  },
+  {
+    "path": "public/repo/extern/CMakeLists.txt",
+    "bytes": 4931,
+    "sha256": "b370a57aeeda9b0d0089f9b4cf1670b5577f10e26d153f181e7ea8a874e443ba"
+  },
+  {
+    "path": "public/repo/img/banner.png",
+    "bytes": 85757,
+    "sha256": "53c40f8f865da71347107c00b4dacaed55169300a030ee049e7805d02c6174ab"
+  },
+  {
+    "path": "public/repo/img/banner.svg",
+    "bytes": 6198,
+    "sha256": "26d673caa18c1b5961153af0dca26334aa228978b586108c60f4f329e90b02fb"
+  },
+  {
+    "path": "public/repo/img/box.png",
+    "bytes": 230614,
+    "sha256": "b1cbb2213f788819f9cec811496d828af5f0d6ed1c1d91dbad7e0c884399154e"
+  },
+  {
+    "path": "public/repo/img/boxstacks.png",
+    "bytes": 239662,
+    "sha256": "8c55a49ada0ed471ddb75d1fddb9632df1815f6d4c80c374a2ba0fb54de5864b"
+  },
+  {
+    "path": "public/repo/img/commands.txt",
+    "bytes": 1787,
+    "sha256": "addebc4ff0b58483627805644af27f075f2f8cb31091d04768a4a18f7c5ec589"
+  },
+  {
+    "path": "public/repo/img/irregular.png",
+    "bytes": 666360,
+    "sha256": "05060c5733b504190a61667796deab0d322145a6628b4e78af5b11d2869a9a5b"
+  },
+  {
+    "path": "public/repo/img/onedimensional.png",
+    "bytes": 77501,
+    "sha256": "ffd21fce6706806c72e8f8d02973fe660f7769a998b90739aea289c8fc3b9e57"
+  },
+  {
+    "path": "public/repo/img/python_box.png",
+    "bytes": 204215,
+    "sha256": "75f7cbd0729d6a088ea6bd1ad8788b00ebcf4608ca24c0858316c3dda2a63870"
+  },
+  {
+    "path": "public/repo/img/python_boxstacks.png",
+    "bytes": 177443,
+    "sha256": "bc592089e518c26ff64c38e88236503c6ee72469247f95d02fd3653135d49b6b"
+  },
+  {
+    "path": "public/repo/img/python_irregular.png",
+    "bytes": 70140,
+    "sha256": "eb2486afbcfd009233b4cf650542c9f000f7a5070cab4ecef35191f0feea1020"
+  },
+  {
+    "path": "public/repo/img/python_onedimensional.png",
+    "bytes": 87369,
+    "sha256": "6e059c8dfc27462b8522f772f36ba1df16e655584bf8948427eaa38f0cddaa4f"
+  },
+  {
+    "path": "public/repo/img/python_rectangle.png",
+    "bytes": 69733,
+    "sha256": "57636ae2dcdba1a3a2d01b15e70a447d06b7e8eff2da5e075fc57c33c1408b89"
+  },
+  {
+    "path": "public/repo/img/python_rectangleguillotine.png",
+    "bytes": 71551,
+    "sha256": "e6141786d2010c2b0d4c27a768f433087651ae968f80c94f3de8b74fd10caf97"
+  },
+  {
+    "path": "public/repo/img/rectangle.png",
+    "bytes": 80068,
+    "sha256": "f3a40fae401625c7402b036fad15448608d4c29d8e2ae9e104d65e82ab9c3294"
+  },
+  {
+    "path": "public/repo/img/rectangleguillotine.png",
+    "bytes": 89792,
+    "sha256": "69ef105aff9a6614079c9b0bbad001eeba485c19305b7657fb63681025bd7184"
+  },
+  {
+    "path": "public/repo/img/solution.json",
+    "bytes": 1863506,
+    "sha256": "357aedbaf299727c78e496905326a9a2d2ae43c3bcb7084658de1dda057c2bfb"
+  },
+  {
+    "path": "public/repo/img/solution_box.csv",
+    "bytes": 3520,
+    "sha256": "d9bf400760502e34cd40c4e365cc64f45aa05a8371bf45c99fbac4bb7a2fe4c3"
+  },
+  {
+    "path": "public/repo/img/solution_boxstacks.csv",
+    "bytes": 3859,
+    "sha256": "784cf7b515ccd09771470ed14ea1b0761544c5c80f17406acdd1d54b56e9f86d"
+  },
+  {
+    "path": "public/repo/img/solution_onedimensional.csv",
+    "bytes": 1299,
+    "sha256": "1ec24ef1c12a6bfe59388d68904775997f1ce8f0bee3b877aaf09faadcadc769"
+  },
+  {
+    "path": "public/repo/img/solution_rectangle.csv",
+    "bytes": 453,
+    "sha256": "ef0ddb816c4ec6f5ed4135024d38f13936885ec8f92f17f28fcafd6034fe7271"
+  },
+  {
+    "path": "public/repo/img/solution_rectangleguillotine.csv",
+    "bytes": 3683,
+    "sha256": "df5f096aa1a547975dd5bc2237ca75e46ef14ba8fb93335d321cb38e793df447"
+  },
+  {
+    "path": "public/repo/include/packingsolver/algorithms/common.hpp",
+    "bytes": 29238,
+    "sha256": "ab38e1b0ce10ee63aebe0057ee704d5ded2456719f271401fe6183595bf252e5"
+  },
+  {
+    "path": "public/repo/include/packingsolver/algorithms/truck.hpp",
+    "bytes": 11528,
+    "sha256": "94e394cf1d5d1e3cfb8eda3ce3b01233a1453a1af5a6190b01ec7a04a4073257"
+  },
+  {
+    "path": "public/repo/include/packingsolver/box/algorithm_formatter.hpp",
+    "bytes": 2297,
+    "sha256": "dd3c025b96c83bea6ca9aedd8c85ec9541ab09288c6ff6055e9a1827ed3dea36"
+  },
+  {
+    "path": "public/repo/include/packingsolver/box/instance.hpp",
+    "bytes": 17452,
+    "sha256": "e34cf6d85d9982e535a59c7d6a48f751b4476b6d10d16ebd78d73a9e561db7e3"
+  },
+  {
+    "path": "public/repo/include/packingsolver/box/instance_builder.hpp",
+    "bytes": 7675,
+    "sha256": "150012e8ab4653c6e05f905a93a5057c3e50073742df521a964e1511f34f0032"
+  },
+  {
+    "path": "public/repo/include/packingsolver/box/optimize.hpp",
+    "bytes": 10606,
+    "sha256": "e6fa20971a5fb45556aa449af5740c00912cbee899783a7e400f9e4d3b6f7e48"
+  },
+  {
+    "path": "public/repo/include/packingsolver/box/post_process.hpp",
+    "bytes": 574,
+    "sha256": "09124100f39171ac5a1a988e5f9176b5bff4bf9c6206851001deb0ed84507614"
+  },
+  {
+    "path": "public/repo/include/packingsolver/box/reduction.hpp",
+    "bytes": 11118,
+    "sha256": "72d6e7633fc288a808eae27024568d8dd8332b4c5cb164f753f192ca0cbb88ef"
+  },
+  {
+    "path": "public/repo/include/packingsolver/box/solution.hpp",
+    "bytes": 11280,
+    "sha256": "c7a54a0c8416b9d9ba6f4931a9386205905403a9c3d68720172d8c86585a5635"
+  },
+  {
+    "path": "public/repo/include/packingsolver/boxstacks/algorithm_formatter.hpp",
+    "bytes": 1979,
+    "sha256": "f23903daac05079f774f2f1e154c589b7c0c0471435d6af780997d02c080e9fa"
+  },
+  {
+    "path": "public/repo/include/packingsolver/boxstacks/instance.hpp",
+    "bytes": 17442,
+    "sha256": "ae180921bd097ae7e8d39bd6a5d367f55d14e8d6a7a0c9f4f12dcafb29b39da3"
+  },
+  {
+    "path": "public/repo/include/packingsolver/boxstacks/instance_builder.hpp",
+    "bytes": 8795,
+    "sha256": "9a86006e7eb1f6332efbe354bdc085f0bcfbde15dcc345124b02c9075118e6f8"
+  },
+  {
+    "path": "public/repo/include/packingsolver/boxstacks/optimize.hpp",
+    "bytes": 10160,
+    "sha256": "8efb7123e5a1ad434cd5f182f415c9bcf761dba0a6b97e227c3ec20d11ec3f14"
+  },
+  {
+    "path": "public/repo/include/packingsolver/boxstacks/post_process.hpp",
+    "bytes": 587,
+    "sha256": "f4391d9bf946b446eed51b0f1217a09faba636adcb582a519976188c01a1be80"
+  },
+  {
+    "path": "public/repo/include/packingsolver/boxstacks/reduction.hpp",
+    "bytes": 11801,
+    "sha256": "dd42dfe62c1e645b0171f5c1dfda3cce34e1efcdf7909f2a79bfb5a7968e92f9"
+  },
+  {
+    "path": "public/repo/include/packingsolver/boxstacks/solution.hpp",
+    "bytes": 13867,
+    "sha256": "fe439f148c8af62fe4166d189e67d30fb35267337cefed6661c5aa68fa37a00f"
+  },
+  {
+    "path": "public/repo/include/packingsolver/irregular/algorithm_formatter.hpp",
+    "bytes": 2205,
+    "sha256": "d66fae415951469715c4abd9925748e869c5982ea1fe82d59da59d31796b2223"
+  },
+  {
+    "path": "public/repo/include/packingsolver/irregular/instance.hpp",
+    "bytes": 19107,
+    "sha256": "aeb6805fc1d7c5ca02e7fc1a3f8572c3ec057434575e5c0bf119ffaa26544308"
+  },
+  {
+    "path": "public/repo/include/packingsolver/irregular/instance_builder.hpp",
+    "bytes": 8288,
+    "sha256": "e3271d893d6fb06b985f9f050cc90c4f756f87b55693e685ec1da4284fdfa44c"
+  },
+  {
+    "path": "public/repo/include/packingsolver/irregular/optimize.hpp",
+    "bytes": 9892,
+    "sha256": "a197b128dc38454f51a86943181cfb082f0c321b4fb6e0447cda70c98076d1a1"
+  },
+  {
+    "path": "public/repo/include/packingsolver/irregular/post_process.hpp",
+    "bytes": 1801,
+    "sha256": "c32fb9dd1e302d0a550c21e4f242a17b453cbb78043a34b0a25823d2eee3f2cc"
+  },
+  {
+    "path": "public/repo/include/packingsolver/irregular/reduction.hpp",
+    "bytes": 10318,
+    "sha256": "c8b961961d07e61be1ef30b125c780dcebe0f5c641ed0ea7f84583b03f2cffe0"
+  },
+  {
+    "path": "public/repo/include/packingsolver/irregular/solution.hpp",
+    "bytes": 10645,
+    "sha256": "dd17b072f3460d603b385e35e9d5a1a67f5f94f2f5b98dc584304af4a26d1f3c"
+  },
+  {
+    "path": "public/repo/include/packingsolver/onedimensional/algorithm_formatter.hpp",
+    "bytes": 1974,
+    "sha256": "cb49ca876e0db1b287bd53c1319be246acb70770e8d436ffafe37b0764d79ba0"
+  },
+  {
+    "path": "public/repo/include/packingsolver/onedimensional/instance.hpp",
+    "bytes": 13935,
+    "sha256": "0a9b25113cc056bab137d42d57975b330ed415cf03e5165b81a48fbe3e4e2d6c"
+  },
+  {
+    "path": "public/repo/include/packingsolver/onedimensional/instance_builder.hpp",
+    "bytes": 8909,
+    "sha256": "aabadc7aab9e1ea37502439732360c91ec7441c9d2d151b03332263eea47be4b"
+  },
+  {
+    "path": "public/repo/include/packingsolver/onedimensional/optimize.hpp",
+    "bytes": 7302,
+    "sha256": "2aa2dd949241caa4c82d6b06fa4b82c266ce7e1547a4233ac7bc57cb06997294"
+  },
+  {
+    "path": "public/repo/include/packingsolver/onedimensional/post_process.hpp",
+    "bytes": 596,
+    "sha256": "5bf8658a5d78e00b2e476c757c815f6f88dddd322d14f6853fa97c448b95a1f2"
+  },
+  {
+    "path": "public/repo/include/packingsolver/onedimensional/reduction.hpp",
+    "bytes": 32220,
+    "sha256": "855ec592b29567d7a428fcc7f880487514a79d53a2c01739d079a4b3cae2aae6"
+  },
+  {
+    "path": "public/repo/include/packingsolver/onedimensional/solution.hpp",
+    "bytes": 10810,
+    "sha256": "b4cd93804d3150d21a8773d73ad090c9401febb4acbc6062228501ec2ad637f1"
+  },
+  {
+    "path": "public/repo/include/packingsolver/rectangle/algorithm_formatter.hpp",
+    "bytes": 2199,
+    "sha256": "187d14944aecc1aec9d251dc9035b3c953854436013605a78585307d8ea582e4"
+  },
+  {
+    "path": "public/repo/include/packingsolver/rectangle/instance.hpp",
+    "bytes": 18623,
+    "sha256": "9dafb256e8fae50cc47b3b4492f50cf378faf49859569f6af16d8f069ab4a856"
+  },
+  {
+    "path": "public/repo/include/packingsolver/rectangle/instance_builder.hpp",
+    "bytes": 9277,
+    "sha256": "887c314e2ba311b9bdc177e8231af269000d538b652299e2f79c62366aa01482"
+  },
+  {
+    "path": "public/repo/include/packingsolver/rectangle/optimize.hpp",
+    "bytes": 12172,
+    "sha256": "a2a13d5d4d745ec511fe2b725df6b9fe08e5cc17c28e806e9922fe80b3159d71"
+  },
+  {
+    "path": "public/repo/include/packingsolver/rectangle/post_process.hpp",
+    "bytes": 586,
+    "sha256": "86d4a532a596efa5067913556026697f42ca8aeed4b4321de20a2627ae53b0c8"
+  },
+  {
+    "path": "public/repo/include/packingsolver/rectangle/reduction.hpp",
+    "bytes": 112922,
+    "sha256": "1036bf88f74a7fc9923c45734401d9644eafdba4a7d3001fbe4717255c86f374"
+  },
+  {
+    "path": "public/repo/include/packingsolver/rectangle/solution.hpp",
+    "bytes": 10702,
+    "sha256": "2722c43d140ed73806ccd25a07854d8207b94cd3eb7e87e46de89ac4a70b6bd7"
+  },
+  {
+    "path": "public/repo/include/packingsolver/rectangleguillotine/algorithm_formatter.hpp",
+    "bytes": 2267,
+    "sha256": "1f5db121e63e276221155b616b7eb7de3ba17792f0f1c80b8c8521212b73bb9a"
+  },
+  {
+    "path": "public/repo/include/packingsolver/rectangleguillotine/instance.hpp",
+    "bytes": 23811,
+    "sha256": "e25d85306975c6ea18a02a4c9dd646a48eed72ef274fc5eabe06c9b8d77b51c5"
+  },
+  {
+    "path": "public/repo/include/packingsolver/rectangleguillotine/instance_builder.hpp",
+    "bytes": 10818,
+    "sha256": "e0a9d6877f80b839c0a63c99ea79a42f7344e00660030fbcbc8807be2123363c"
+  },
+  {
+    "path": "public/repo/include/packingsolver/rectangleguillotine/optimize.hpp",
+    "bytes": 11093,
+    "sha256": "8f3faf8479bbc7c460756d8472c9c34500f4ff02b2861f7d4b531ff1bb524a16"
+  },
+  {
+    "path": "public/repo/include/packingsolver/rectangleguillotine/post_process.hpp",
+    "bytes": 3962,
+    "sha256": "d5fe34c3981d62d760f604154dd9c7878940b27f2cb4f75017cda2da1f5eecbd"
+  },
+  {
+    "path": "public/repo/include/packingsolver/rectangleguillotine/reduction.hpp",
+    "bytes": 13357,
+    "sha256": "2aa7f4c769410c6f756b304f112d0b815162ade447f2078f821966e2efb35a14"
+  },
+  {
+    "path": "public/repo/include/packingsolver/rectangleguillotine/solution.hpp",
+    "bytes": 12523,
+    "sha256": "33d55892a2bf119d288e2c0a36cd32aaebc2621f3acc834205c277b0c5ac25e1"
+  },
+  {
+    "path": "public/repo/pyproject.toml",
+    "bytes": 1948,
+    "sha256": "7e8027e261e5141327d1194c221790a2ff0a8033beda6a37955b716971c2afb3"
+  },
+  {
+    "path": "public/repo/python/CMakeLists.txt",
+    "bytes": 2099,
+    "sha256": "6b2c92b7b231e9f474040b7f2d3ed2e6ab88a050e73aaa23d6eb25d4a69a9d7f"
+  },
+  {
+    "path": "public/repo/python/packingsolver/__init__.py",
+    "bytes": 705,
+    "sha256": "7380f7682e5995fbf0ae41cd05c2c05e0349ce906a94f95e4d0c7581390fc8e2"
+  },
+  {
+    "path": "public/repo/python/packingsolver/_version.py",
+    "bytes": 176,
+    "sha256": "1f7e1ff93184ab4e05a47bda330abfe909791f17b47d2c01d538e1e288df3620"
+  },
+  {
+    "path": "public/repo/python/packingsolver/_visualize.py",
+    "bytes": 916,
+    "sha256": "d39dcbfe0118a2249b5c2daa00dfbefb0ceb9a13342bdf124d3448f49d593958"
+  },
+  {
+    "path": "public/repo/python/packingsolver/box.py",
+    "bytes": 581,
+    "sha256": "1c67111dee8d787323862558b4be544e9163e36e3fed706d38b78c6aaca7e476"
+  },
+  {
+    "path": "public/repo/python/packingsolver/boxstacks.py",
+    "bytes": 756,
+    "sha256": "cbf4c470edfbe3aba15b5ad028e973f5bb44b8bdd7b1cba5cd7487d79df5109b"
+  },
+  {
+    "path": "public/repo/python/packingsolver/irregular.py",
+    "bytes": 623,
+    "sha256": "92916cc10efa05b445b0211a4a6fbfa87ac3c3765925c4040b92b8313a25e6c7"
+  },
+  {
+    "path": "public/repo/python/packingsolver/onedimensional.py",
+    "bytes": 626,
+    "sha256": "a3767e0720a58c669e08005fddb56ef0727fa36085194dbb5be7f61ba191074a"
+  },
+  {
+    "path": "public/repo/python/packingsolver/rectangle.py",
+    "bytes": 604,
+    "sha256": "cb8fffef4f87a9616bfb0b1ffeeae3563ffe8b79e8ef9fd8692eac71d228adee"
+  },
+  {
+    "path": "public/repo/python/packingsolver/rectangleguillotine.py",
+    "bytes": 650,
+    "sha256": "241409a3e9ed6f282dcf6394e834cb4163977423aa18ee0288169e16e0b7bec0"
+  },
+  {
+    "path": "public/repo/python/packingsolver/visualize/__init__.py",
+    "bytes": 655,
+    "sha256": "c07a4a20d29efacc41a60c8d895a0fe4134992ef79ef4128811b918e862d4b37"
+  },
+  {
+    "path": "public/repo/python/packingsolver/visualize/box.py",
+    "bytes": 10322,
+    "sha256": "3f2b71f1e5ebd32b03bca9bc97e5beab37b63ebbfa89f45ef2089a38176fc60b"
+  },
+  {
+    "path": "public/repo/python/packingsolver/visualize/boxstacks.py",
+    "bytes": 13312,
+    "sha256": "947b9d55d3fe1907d99379da38f5e5def08b61a6b59de4ac649492ef858b617f"
+  },
+  {
+    "path": "public/repo/python/packingsolver/visualize/irregular.py",
+    "bytes": 14043,
+    "sha256": "114aa3b492e4ffc32bb5169f3d0d756d4b8cba082df8f898fdef7404d78f44f9"
+  },
+  {
+    "path": "public/repo/python/packingsolver/visualize/onedimensional.py",
+    "bytes": 4941,
+    "sha256": "5bf40486a9139d96b618ac1da5a07ee5ae222aa1e638d920211e4bb40fb44d1f"
+  },
+  {
+    "path": "public/repo/python/packingsolver/visualize/rectangle.py",
+    "bytes": 11519,
+    "sha256": "7dc7a0f30f9322126e3a473a501a5684798d2e6c75d30ee8105fde3c19dd5a9d"
+  },
+  {
+    "path": "public/repo/python/packingsolver/visualize/rectangleguillotine.py",
+    "bytes": 7336,
+    "sha256": "be3539b35af60d97ba27af3972c9e31e6d0558a7c776d024e2d9c4e996224da2"
+  },
+  {
+    "path": "public/repo/python/src/box.cpp",
+    "bytes": 21522,
+    "sha256": "dbf79b1647fd7f48b51311a06c883524d12249a834f467fc5fb3dca9ba4303d9"
+  },
+  {
+    "path": "public/repo/python/src/boxstacks.cpp",
+    "bytes": 30771,
+    "sha256": "134bfcd89d9af9962e8500c4eb7ee82189cfacc65ab4f0ffa9e5900ae07ea6fc"
+  },
+  {
+    "path": "public/repo/python/src/common.cpp",
+    "bytes": 3093,
+    "sha256": "287e0b8e71613d525a7636678590d6caf6302b2e25daabc1fa226f92f8dcc228"
+  },
+  {
+    "path": "public/repo/python/src/common.hpp",
+    "bytes": 14634,
+    "sha256": "19cf20584357c8b27c36097a631970032dafa8173a010b04fa0928cee7b73a66"
+  },
+  {
+    "path": "public/repo/python/src/irregular.cpp",
+    "bytes": 39153,
+    "sha256": "0172fc7a452b7bcfd11d6207d54c64ba5e3006fef9231adf9a6f273a7e3d3f24"
+  },
+  {
+    "path": "public/repo/python/src/module.cpp",
+    "bytes": 1107,
+    "sha256": "1e890d76f56d5d3f74e94c12dbfec76ce225d948785e0c08afa5cd04b6636933"
+  },
+  {
+    "path": "public/repo/python/src/onedimensional.cpp",
+    "bytes": 21164,
+    "sha256": "d7058c3343ee7ce8bf57ada4bf9be6e46c0cc4f6f9a3c840f84d550e5159a96f"
+  },
+  {
+    "path": "public/repo/python/src/rectangle.cpp",
+    "bytes": 21953,
+    "sha256": "1ef0b72e8350b7f74c8a735b12ae0d0e1150955fc95da9ced82ea7a284400b82"
+  },
+  {
+    "path": "public/repo/python/src/rectangleguillotine.cpp",
+    "bytes": 30340,
+    "sha256": "c6dbafc997a3e5f1064db269461ffaf77a6bc260711271535f488d244af6d068"
+  },
+  {
+    "path": "public/repo/python/tests/test_bin_cost.py",
+    "bytes": 860,
+    "sha256": "f1fb793a0d5b5710ca4ff2be5ca721ab72c2f64ae7bff2451a4196fe4ffcc7cf"
+  },
+  {
+    "path": "public/repo/python/tests/test_box.py",
+    "bytes": 17629,
+    "sha256": "37cd34603d2e0c8cdae924e71e197dd76c229551f5637f3f74dcfadbf67730e9"
+  },
+  {
+    "path": "public/repo/python/tests/test_boxstacks.py",
+    "bytes": 31922,
+    "sha256": "9292735bf7668ddcb6075d05139aed094de572822a2683be57dcfd37d54dd9f5"
+  },
+  {
+    "path": "public/repo/python/tests/test_boxstacks_json.py",
+    "bytes": 7198,
+    "sha256": "a6a720fa781d7dc924fbf84b920fa58caaf25e1fff66a9e7ab1d689938216fbe"
+  },
+  {
+    "path": "public/repo/python/tests/test_copies_min.py",
+    "bytes": 2301,
+    "sha256": "9a36c49da46266d8a3042c394c0f4f8ad40f40e4dfca21012635cddaf5245630"
+  },
+  {
+    "path": "public/repo/python/tests/test_doc_examples.py",
+    "bytes": 1930,
+    "sha256": "9d35be8b52891b12eba9bed755120f397f058fb4b8ce82f342a859a27805d708"
+  },
+  {
+    "path": "public/repo/python/tests/test_group_weight_constraints.py",
+    "bytes": 993,
+    "sha256": "01e38e1718dbae3b6e0dacd86ff2d57e85e063335c9e4a427cb0508b3e9c9608"
+  },
+  {
+    "path": "public/repo/python/tests/test_infeasibility.py",
+    "bytes": 2361,
+    "sha256": "a05aa4478efc4cedc97ebac329a2eaad6c3ade3405ce7cc2d75c8bdde8962ff8"
+  },
+  {
+    "path": "public/repo/python/tests/test_instance.py",
+    "bytes": 4252,
+    "sha256": "e769f421c71b813c96415ba5801025bb9c85ad9d6c3ef00aab85cd9972e015e4"
+  },
+  {
+    "path": "public/repo/python/tests/test_irregular.py",
+    "bytes": 25472,
+    "sha256": "c70c2d2388df45fb90c328e9dcf20b3fbd1fd6f12ff3d88b6431bc155c7698dd"
+  },
+  {
+    "path": "public/repo/python/tests/test_item_fits.py",
+    "bytes": 3237,
+    "sha256": "4e1ed05be5acfc4cca041c5a2a1b96db44959a45537174c97f2c10ae73545b0c"
+  },
+  {
+    "path": "public/repo/python/tests/test_leftover_modes.py",
+    "bytes": 2570,
+    "sha256": "d926af984210333ff2d3b250c7a745645424c2ccb78ed235b8402a2565254608"
+  },
+  {
+    "path": "public/repo/python/tests/test_onedimensional.py",
+    "bytes": 19221,
+    "sha256": "8eeb33ecb0e0086dea0e6a9d8370008f296a3dc144dc4e33b07f7600ebc6a8eb"
+  },
+  {
+    "path": "public/repo/python/tests/test_parameters.py",
+    "bytes": 961,
+    "sha256": "581dd81c26cd4b801d986674b3695ab39d82b0dcbf1958d183f545b2bb5f60a5"
+  },
+  {
+    "path": "public/repo/python/tests/test_rectangle.py",
+    "bytes": 15623,
+    "sha256": "664cd55a605ef0907f2faab72a0af176070afd22614ddc4ac212f92a52dd943f"
+  },
+  {
+    "path": "public/repo/python/tests/test_rectangleguillotine.py",
+    "bytes": 25497,
+    "sha256": "d8873fdd646046eaa2592d7cdecf75d27d2429765f39467bb622aa0ee386e5e5"
+  },
+  {
+    "path": "public/repo/python/tests/test_visualize.py",
+    "bytes": 2478,
+    "sha256": "02e882918ff6968dc09b9d40b954b1166166c2ab1ade6775651e2a45e667663c"
+  },
+  {
+    "path": "public/repo/python/tests/test_visualize_box.py",
+    "bytes": 2116,
+    "sha256": "135b236e47c3eeb354838bfd1270a15ffdc76cac198b0b240c93fd649a51c8f4"
+  },
+  {
+    "path": "public/repo/python/tests/test_visualize_boxstacks.py",
+    "bytes": 2509,
+    "sha256": "a20763f00a437e57a115c859a048745a1818c896aae52fe4bddb208098fb2d5d"
+  },
+  {
+    "path": "public/repo/python/tests/test_visualize_irregular.py",
+    "bytes": 2654,
+    "sha256": "5b43a3540e4b0cd94b7e2cf0912ce141ad5bb1242e0aa24256d5591e291a787e"
+  },
+  {
+    "path": "public/repo/python/tests/test_visualize_onedimensional.py",
+    "bytes": 2550,
+    "sha256": "9d402ae12496004c9cd14e3ab1013fd76b23303b7b3910d448092c1557b6cec5"
+  },
+  {
+    "path": "public/repo/python/tests/test_visualize_rectangle.py",
+    "bytes": 1952,
+    "sha256": "7c4ba7e56cfa51f93b6fc2dc236fc4968f1513369726921a852468c47698f677"
+  },
+  {
+    "path": "public/repo/python/tests/test_visualize_rectangleguillotine.py",
+    "bytes": 2129,
+    "sha256": "4d8efd594ac5a776ce906629e08b89b7e58ca0e21cd5b03db1dffc49245a7e9a"
+  },
+  {
+    "path": "public/repo/requirements.txt",
+    "bytes": 65,
+    "sha256": "38883da9368968fa55ab0bee6cb32c880ded780e69657a450d03715e248716d8"
+  },
+  {
+    "path": "public/repo/src/CMakeLists.txt",
+    "bytes": 206,
+    "sha256": "52981d61c6871ef4dc4507fdeed804c3c46e189e67d9655a21600df66064203a"
+  },
+  {
+    "path": "public/repo/src/algorithms/CMakeLists.txt",
+    "bytes": 727,
+    "sha256": "a880722f7e3358b6026c9bf78d577baf06ddade0d1f1c81b0056e266e0e35739"
+  },
+  {
+    "path": "public/repo/src/algorithms/column_generation.hpp",
+    "bytes": 92633,
+    "sha256": "d2f97ccf83082cddfebd24e9ccaa6c758909ab4b48b0f11dfada24657f3b41f0"
+  },
+  {
+    "path": "public/repo/src/algorithms/common.cpp",
+    "bytes": 6618,
+    "sha256": "dd5a2ebcd9d345660c24d2b8f30cbc6420f745796d2e652db81d5a49c228493c"
+  },
+  {
+    "path": "public/repo/src/algorithms/dichotomic_search.hpp",
+    "bytes": 12749,
+    "sha256": "1cab83998f1821bb51fa38d749ac9da7ff19da4a0a24649ac8447f989bc24f5a"
+  },
+  {
+    "path": "public/repo/src/algorithms/meet_in_the_middle.hpp",
+    "bytes": 22555,
+    "sha256": "b0acb76bde6858c9872c63088226a682b16159a065a2e547e4204f92015b2693"
+  },
+  {
+    "path": "public/repo/src/algorithms/sequential_value_correction.hpp",
+    "bytes": 29983,
+    "sha256": "cbfa442531a30d29aff66599c3340fb0863f8799a755fa2b3584dcf817dcfcf7"
+  },
+  {
+    "path": "public/repo/src/algorithms/thread_pool.hpp",
+    "bytes": 6228,
+    "sha256": "d6fdd57c52ae1dcb754ae0bdecba93cdeaf83f67760a8c21c95a0bb5584a094e"
+  },
+  {
+    "path": "public/repo/src/box/CMakeLists.txt",
+    "bytes": 1498,
+    "sha256": "cef37a664e360b235e2c4d96e4b8177e3fa1558f7bb0bbafca0e11c253e951d5"
+  },
+  {
+    "path": "public/repo/src/box/algorithm_formatter.cpp",
+    "bytes": 14729,
+    "sha256": "1976db3d82527601362b375e966409adc08eee1749ea780ff25d1280e6385b4d"
+  },
+  {
+    "path": "public/repo/src/box/block.cpp",
+    "bytes": 17003,
+    "sha256": "f5c44cc53fabdaacf47dbc37088f3da0fba69b8e46e0f26f32ef53a9b7a9a1d8"
+  },
+  {
+    "path": "public/repo/src/box/block.hpp",
+    "bytes": 2659,
+    "sha256": "275d0c4cfe4aecdb13cc1e6fbbdbf6204892982d1ed8f0c9fb1a1f84b216e393"
+  },
+  {
+    "path": "public/repo/src/box/dual_feasible_functions.cpp",
+    "bytes": 23470,
+    "sha256": "6ddb44139dbc01b385d6ca4cb58908dddba29c8ae5df74d87c053d946f2f69c2"
+  },
+  {
+    "path": "public/repo/src/box/dual_feasible_functions.hpp",
+    "bytes": 1431,
+    "sha256": "c8cffc2c10e7f3f873550d3b5ae1e590e39695872e303cdbb2e6be72cc20a97b"
+  },
+  {
+    "path": "public/repo/src/box/instance.cpp",
+    "bytes": 17868,
+    "sha256": "1600c3f95bf061da02afb28f99c71db4e5ab9de0ecd99949f20ec0fafa1a851d"
+  },
+  {
+    "path": "public/repo/src/box/instance_builder.cpp",
+    "bytes": 44276,
+    "sha256": "234536922c6f15aaaf89c35c56502f23371e680ad1dd35a6b9cdf0d062b52211"
+  },
+  {
+    "path": "public/repo/src/box/instance_flipper.cpp",
+    "bytes": 5010,
+    "sha256": "11f19d30f42f8b20d544b41c82b80b5a838d5160582297933217091855d1a708"
+  },
+  {
+    "path": "public/repo/src/box/instance_flipper.hpp",
+    "bytes": 894,
+    "sha256": "fcafcbf8f3651799afb9ad0efafe0bcd93d7e916c1b9fe850a6b6df770557052"
+  },
+  {
+    "path": "public/repo/src/box/main.cpp",
+    "bytes": 14554,
+    "sha256": "5e15ebb64d89f562e428179038518e43f701ddd2c7e2b82a179f0e4de5bac997"
+  },
+  {
+    "path": "public/repo/src/box/optimize.cpp",
+    "bytes": 38678,
+    "sha256": "f445a6f94433ab5be39f4271f39be6ce3433a547735fd0d05f93d20e00ae7e51"
+  },
+  {
+    "path": "public/repo/src/box/post_process.cpp",
+    "bytes": 424,
+    "sha256": "40b6601bf50039865559ef34becd87c591512bd45ec3c466e2f10e4facb46454"
+  },
+  {
+    "path": "public/repo/src/box/reduction.cpp",
+    "bytes": 18869,
+    "sha256": "28b56a18d68cef063aec5381fd0c77b4bc435fa70f58d6a46426c414bd5d54a6"
+  },
+  {
+    "path": "public/repo/src/box/solution.cpp",
+    "bytes": 15522,
+    "sha256": "3ee43d1ca568d7680a3845045204c1ee1f57a0ee87c453d694068f8afb722f40"
+  },
+  {
+    "path": "public/repo/src/box/solution_builder.cpp",
+    "bytes": 4407,
+    "sha256": "bf088d20ebc5ab7555f98974f53e17a580c3fa274fa845e39ea46ad8d7b3267c"
+  },
+  {
+    "path": "public/repo/src/box/solution_builder.hpp",
+    "bytes": 825,
+    "sha256": "db3adf31b7bc6fc4c813801bafeaf476186a51d2704867b7b5fa19f8e13ed007"
+  },
+  {
+    "path": "public/repo/src/box/tree_search.cpp",
+    "bytes": 52535,
+    "sha256": "e9388096ba167388c89581daa35920cd9d1d087a56b9bbb6c65f81065e72c163"
+  },
+  {
+    "path": "public/repo/src/box/tree_search.hpp",
+    "bytes": 17965,
+    "sha256": "675cc8e53119b5b87a7be5bb87226774ca0fd254de371b3a906c6b3b4ffa20cc"
+  },
+  {
+    "path": "public/repo/src/box/tree_search_maximal_spaces.cpp",
+    "bytes": 42402,
+    "sha256": "880820caae1495ad246dd19ced6a376a90391c8ea0b94049c1d19369318cd458"
+  },
+  {
+    "path": "public/repo/src/box/tree_search_maximal_spaces.hpp",
+    "bytes": 23021,
+    "sha256": "ad5f17be1bcd22cf9d136178b9c4c3f71a0b69253abc180bcc3c95aa38f54856"
+  },
+  {
+    "path": "public/repo/src/box/trivial.cpp",
+    "bytes": 7199,
+    "sha256": "4e836d5d18c3f3dcc995885b1da89b5e50fce926651b61344bacefb904bc2bc1"
+  },
+  {
+    "path": "public/repo/src/box/trivial.hpp",
+    "bytes": 703,
+    "sha256": "cd7949513c6d70f649f003fe1325e1a70dc37eba393920b4ddddc7ce2b627b14"
+  },
+  {
+    "path": "public/repo/src/boxstacks/CMakeLists.txt",
+    "bytes": 1557,
+    "sha256": "937a1a0e98452619599500c9b1482f42bf1fab16a9d1d48b464bbac4525dca36"
+  },
+  {
+    "path": "public/repo/src/boxstacks/algorithm_formatter.cpp",
+    "bytes": 12279,
+    "sha256": "818ddc6758cccdcdf35d075252de1d234b1f71ce238c2e425a67c0ac7f3cdc61"
+  },
+  {
+    "path": "public/repo/src/boxstacks/instance.cpp",
+    "bytes": 20297,
+    "sha256": "ccb6d6cf53630b617ec9e16833e17ac709bb30573f53dc5c1f81e180c42866c7"
+  },
+  {
+    "path": "public/repo/src/boxstacks/instance_builder.cpp",
+    "bytes": 53187,
+    "sha256": "6d259ffa93f46f66041be87067f811c8b16233eee8b2da360bac049a8f23565f"
+  },
+  {
+    "path": "public/repo/src/boxstacks/instance_flipper.cpp",
+    "bytes": 6137,
+    "sha256": "ceddbbcae38c344fdc257e69b1fad48503905b4792b321d3d38df0daa543e625"
+  },
+  {
+    "path": "public/repo/src/boxstacks/instance_flipper.hpp",
+    "bytes": 546,
+    "sha256": "be8b4ddc7f009aa5ad12bbba9e464f5d8c2687c31f9c104210dcf5623cb224fb"
+  },
+  {
+    "path": "public/repo/src/boxstacks/main.cpp",
+    "bytes": 14382,
+    "sha256": "e1a85c54d1b95c65173574d0d97d5d9052a17a5b7d51f97e55c3b80b2bd28ae8"
+  },
+  {
+    "path": "public/repo/src/boxstacks/optimize.cpp",
+    "bytes": 31185,
+    "sha256": "4d72014218b66734a2ee0dc7abeb1499fa3044e79afbcd7d63920183618107aa"
+  },
+  {
+    "path": "public/repo/src/boxstacks/post_process.cpp",
+    "bytes": 442,
+    "sha256": "8a2144964b3ebcec8d7b41df7ef1e4b394f562f3d819465fb619af10091f0a9e"
+  },
+  {
+    "path": "public/repo/src/boxstacks/reduction.cpp",
+    "bytes": 16652,
+    "sha256": "43356e2a5e9e1f6d70bc63aac7f487586e763facd9829bb959281a279050c13a"
+  },
+  {
+    "path": "public/repo/src/boxstacks/sequential_onedimensional_rectangle.cpp",
+    "bytes": 84651,
+    "sha256": "ba6627ddb6f2739ed46ef2b500adcacd9fbe64480e4b1e378fcd6a0ca5bb1050"
+  },
+  {
+    "path": "public/repo/src/boxstacks/sequential_onedimensional_rectangle.hpp",
+    "bytes": 6369,
+    "sha256": "1150b8ae30864502854ff2a5952dfd48505d883e3c99c77728b6fbe37524f60b"
+  },
+  {
+    "path": "public/repo/src/boxstacks/solution.cpp",
+    "bytes": 25078,
+    "sha256": "f3623e181f50ae9eae9d042da560b3d6b0cb431a6e471d9eef3a759141b6215a"
+  },
+  {
+    "path": "public/repo/src/boxstacks/solution_builder.cpp",
+    "bytes": 7102,
+    "sha256": "2b15577382f65396dcaa0b9ccf0eb9abd42c13449eb33c42c828aea4b2899b33"
+  },
+  {
+    "path": "public/repo/src/boxstacks/solution_builder.hpp",
+    "bytes": 1032,
+    "sha256": "864547a271828d7df7bea139545099d051e3cbd6c9139c9c6ab6145287fd0bb9"
+  },
+  {
+    "path": "public/repo/src/boxstacks/tree_search.cpp",
+    "bytes": 82382,
+    "sha256": "b1e5b7640abd4209d06fda403de813600cc7a141f0c27cda25310ecc1347bd2c"
+  },
+  {
+    "path": "public/repo/src/boxstacks/tree_search.hpp",
+    "bytes": 24478,
+    "sha256": "ea2f24ad1e7debce7ed36d5a8b732494a084b0a8747ac8809c87fbe670e1a9d2"
+  },
+  {
+    "path": "public/repo/src/irregular/CMakeLists.txt",
+    "bytes": 3346,
+    "sha256": "6522f16cb686b9c224ac50b031ed4835649565e6af47c821ab57539a72d9c4fb"
+  },
+  {
+    "path": "public/repo/src/irregular/algorithm_formatter.cpp",
+    "bytes": 14413,
+    "sha256": "2a765073ad8053ddf85a482520e80fde865fae2ff835ad0422ee1dbb48d9698b"
+  },
+  {
+    "path": "public/repo/src/irregular/convert.cpp",
+    "bytes": 3247,
+    "sha256": "b9c9456ead3b58278ddb9b48dbc0b5e2faf9e619c026e484796bdb4c18a3acc2"
+  },
+  {
+    "path": "public/repo/src/irregular/convert.hpp",
+    "bytes": 811,
+    "sha256": "80c0283ba4c73f8825eae8cd7096519c71969d4af819c15a0c2eea546022b5a1"
+  },
+  {
+    "path": "public/repo/src/irregular/convert_main.cpp",
+    "bytes": 1910,
+    "sha256": "1bc39cf4d4dedd5eb622317b828283d10110d8c1397cc350a892a80fc0b3b9f9"
+  },
+  {
+    "path": "public/repo/src/irregular/fill_solution_file_main.cpp",
+    "bytes": 1483,
+    "sha256": "eb9f6bc85ef40ec4f24a238ae1deb8cb053bda3c062106ac0ebdb1b69d93aad0"
+  },
+  {
+    "path": "public/repo/src/irregular/instance.cpp",
+    "bytes": 34244,
+    "sha256": "2262ab6154dd1815e4850c9f8083a7599198f14c7c3eb289f76fa49de0bd2cd2"
+  },
+  {
+    "path": "public/repo/src/irregular/instance_builder.cpp",
+    "bytes": 57681,
+    "sha256": "9b77d4bea7bdf8443801959679c53db24b3bc1533e20559f7b671e0d545149cf"
+  },
+  {
+    "path": "public/repo/src/irregular/large_item_first.cpp",
+    "bytes": 10748,
+    "sha256": "76527242822e2422dc48b8cad6e398991fa9108c3eab59acef9f03869266353b"
+  },
+  {
+    "path": "public/repo/src/irregular/large_item_first.hpp",
+    "bytes": 2192,
+    "sha256": "2cf3c10c0c9704c36ae90d1e17895ebb979943ac11a5966f3d2d381adf59eef6"
+  },
+  {
+    "path": "public/repo/src/irregular/linear_programming.cpp",
+    "bytes": 62975,
+    "sha256": "2159006f0302b9569fc79de29c0c1c3d35f707946926f1b4c01936c9ecaa2f22"
+  },
+  {
+    "path": "public/repo/src/irregular/linear_programming.hpp",
+    "bytes": 3230,
+    "sha256": "44f5da23e760ff66a50ed8f9cd615b192a62d62f5cee83b3f9d7247a669ebe4a"
+  },
+  {
+    "path": "public/repo/src/irregular/local_search.cpp",
+    "bytes": 15467,
+    "sha256": "01f392f71f4138a0db1efa46d52496301830dc7ade1d641ff5c4f82f64948b61"
+  },
+  {
+    "path": "public/repo/src/irregular/local_search.hpp",
+    "bytes": 1025,
+    "sha256": "2a1751fe679d6b7b0cd7d488f8b24dcabfb6b1b436d266095ce763d6849c540d"
+  },
+  {
+    "path": "public/repo/src/irregular/main.cpp",
+    "bytes": 13147,
+    "sha256": "2368c1322cb23af874e9a88c4d1ab7b0b4e54bff0fc57cdd80dca7d5b6750a9e"
+  },
+  {
+    "path": "public/repo/src/irregular/milp_raster.cpp",
+    "bytes": 25868,
+    "sha256": "993e9aa68a7477c0f162e6f467da832d7b49064cf5d005590ef752a16ea953a5"
+  },
+  {
+    "path": "public/repo/src/irregular/milp_raster.hpp",
+    "bytes": 792,
+    "sha256": "4391b1e8729affa780359da9099878d8cc12279f9d53ab1170ee8a95d5a4a3e2"
+  },
+  {
+    "path": "public/repo/src/irregular/optimize.cpp",
+    "bytes": 56415,
+    "sha256": "df75731b011b22b1938e9d5164f6f2bf3c0e7429b3b617329a383ac52c03ff31"
+  },
+  {
+    "path": "public/repo/src/irregular/periodic_packing.cpp",
+    "bytes": 41045,
+    "sha256": "5f6e2c3efb47c9d93f3a26db1ef25fa063028363b6fe40f8ec9cbeeb5080c0be"
+  },
+  {
+    "path": "public/repo/src/irregular/periodic_packing.hpp",
+    "bytes": 2488,
+    "sha256": "67751324f81892708c983f3b975571b7db30ebe1eae03e7c49e9ee28eea9b0b9"
+  },
+  {
+    "path": "public/repo/src/irregular/post_process.cpp",
+    "bytes": 4322,
+    "sha256": "1b4a00b8b45bea89e722d5e63de131993fe75035628078a143fd11414fb170ae"
+  },
+  {
+    "path": "public/repo/src/irregular/reduction.cpp",
+    "bytes": 20214,
+    "sha256": "ac01b89b1ef29890631be38ce42309bb21e992c527b4c5f151a978b26f54cfe3"
+  },
+  {
+    "path": "public/repo/src/irregular/rotations.cpp",
+    "bytes": 28178,
+    "sha256": "05a263f80a11ad95a13ec3ad787435a1686064bdef585bd9759a0a4174adb9d2"
+  },
+  {
+    "path": "public/repo/src/irregular/rotations.hpp",
+    "bytes": 2677,
+    "sha256": "bc0cea3debbd05224ee6e050c906e4eda62dbe571b341e871eedc8ce27c49f1e"
+  },
+  {
+    "path": "public/repo/src/irregular/sequential_feasibility.cpp",
+    "bytes": 19652,
+    "sha256": "64f35e27ac3045513784a6ae67921c6ff4fe0850da64b163b7bfb3260b665e19"
+  },
+  {
+    "path": "public/repo/src/irregular/sequential_feasibility.hpp",
+    "bytes": 1204,
+    "sha256": "f70977cf1af16f4aaa97c9db1bf209ea5d4c4e802ec4afc3e6c24f3e44f8cfb4"
+  },
+  {
+    "path": "public/repo/src/irregular/shape_simplification.cpp",
+    "bytes": 11136,
+    "sha256": "651feb9f56b669804ec1e3d4adcad8b3beade9bde02c18606fc7e09171b24dd8"
+  },
+  {
+    "path": "public/repo/src/irregular/shape_simplification.hpp",
+    "bytes": 1027,
+    "sha256": "a60391d95e7a6a602c1363d144e16e663dffdc7467ce313316311937dc61b856"
+  },
+  {
+    "path": "public/repo/src/irregular/solution.cpp",
+    "bytes": 37566,
+    "sha256": "d14da97d9ee82b0582e65be4c40ddf49a56818083be2c2634d129332a4582a57"
+  },
+  {
+    "path": "public/repo/src/irregular/solution_builder.cpp",
+    "bytes": 3126,
+    "sha256": "d4a5cd86da88c87e660582c4a870ec1faa0aff85bbace62b02b3d41379462dd1"
+  },
+  {
+    "path": "public/repo/src/irregular/solution_builder.hpp",
+    "bytes": 884,
+    "sha256": "5d0b77ed052ed2ba374657815cbf1fc0e4b4c7f565b6af7fdeb51499355d1fa5"
+  },
+  {
+    "path": "public/repo/src/irregular/tree_search.cpp",
+    "bytes": 151627,
+    "sha256": "69997a627f5e317ef32b63aa856ad401ec27507cc413bcb1d588f42844e5aa29"
+  },
+  {
+    "path": "public/repo/src/irregular/tree_search.hpp",
+    "bytes": 25950,
+    "sha256": "357db09fb4111d482d2355188a9fae6683606341202260022d7b58492530a85c"
+  },
+  {
+    "path": "public/repo/src/irregular/tree_search_periodic_packing.cpp",
+    "bytes": 59030,
+    "sha256": "7689c1eaa84819e9917c0d2b1148f511ca5b941eace28157d305a0020571c37c"
+  },
+  {
+    "path": "public/repo/src/irregular/tree_search_periodic_packing.hpp",
+    "bytes": 18157,
+    "sha256": "0dd43e4459eaaa4016ad6524cf0b5435ab1f6af52f5877d03b5cbf82440bbde5"
+  },
+  {
+    "path": "public/repo/src/irregular/trivial.cpp",
+    "bytes": 3588,
+    "sha256": "aba235289108e391c01e6d952d41917e4795c848685bde78078e75aa5b7d1d21"
+  },
+  {
+    "path": "public/repo/src/irregular/trivial.hpp",
+    "bytes": 901,
+    "sha256": "5a81c40e5233c0b85393e0448b65b2280b4cd6038e53ee34789ca87889733eae"
+  },
+  {
+    "path": "public/repo/src/irregular/utils.hpp",
+    "bytes": 15349,
+    "sha256": "f4a4c9bdfdcd109f7d3d69577057fd9c1c4e1f398b6e7b4c2d063327faa69438"
+  },
+  {
+    "path": "public/repo/src/onedimensional/CMakeLists.txt",
+    "bytes": 1594,
+    "sha256": "67afbd095164fcf6146b552d53aed1c73a49d529c79f5711e2f8d9b7c0ee39a5"
+  },
+  {
+    "path": "public/repo/src/onedimensional/algorithm_formatter.cpp",
+    "bytes": 10821,
+    "sha256": "bf67fc3dc6f1e63ffade8f882fbd10198d33f60f16335f5abda5d1a9511adb61"
+  },
+  {
+    "path": "public/repo/src/onedimensional/dual_feasible_functions.cpp",
+    "bytes": 14525,
+    "sha256": "0f1c9b0c4e1695476eca66fb91a5ec469d7bf8cc43571f1c2de63bd34186c2a6"
+  },
+  {
+    "path": "public/repo/src/onedimensional/dual_feasible_functions.hpp",
+    "bytes": 1241,
+    "sha256": "878d13f588c69ca2fc9653d47f179b0adf3c2b46d11c62482ec0c0661904fc21"
+  },
+  {
+    "path": "public/repo/src/onedimensional/instance.cpp",
+    "bytes": 16062,
+    "sha256": "599b290a977121a15d8ffa53429808f97b7ac2b8c947704b180fce0f863f67c6"
+  },
+  {
+    "path": "public/repo/src/onedimensional/instance_builder.cpp",
+    "bytes": 45587,
+    "sha256": "5aa3aacd275156c30b0df28f044bf3f3095d042be0ddcae1703cf6745352fa37"
+  },
+  {
+    "path": "public/repo/src/onedimensional/main.cpp",
+    "bytes": 12080,
+    "sha256": "554d1f0cac991469374197e01108c1783d75f6cd579d9b864a2e59c9a28b4e3b"
+  },
+  {
+    "path": "public/repo/src/onedimensional/milp_assignment.cpp",
+    "bytes": 91603,
+    "sha256": "9136080a45c18cc6318c3e379d15c950b96be62c125b8942ea8d89c3406dd7c2"
+  },
+  {
+    "path": "public/repo/src/onedimensional/milp_assignment.hpp",
+    "bytes": 3822,
+    "sha256": "bd1e39752a9bc75f40bd449bf2f1547fdd783634fb2ddc28ee139bb6af3ffc7e"
+  },
+  {
+    "path": "public/repo/src/onedimensional/optimize.cpp",
+    "bytes": 50408,
+    "sha256": "3ae987785ff9a42e70640539c1ceda435cad1f5bb9e5a0e9b606e0b5a1e6ce96"
+  },
+  {
+    "path": "public/repo/src/onedimensional/post_process.cpp",
+    "bytes": 457,
+    "sha256": "b8975484611b05497fe04c75d2f8607e1f26bc77e9a849e54228f586fd84bf64"
+  },
+  {
+    "path": "public/repo/src/onedimensional/reduction.cpp",
+    "bytes": 55960,
+    "sha256": "293fbe198c0f098fa0f2eadb05324765e6adc50f7149f8992cf14bf7473e8447"
+  },
+  {
+    "path": "public/repo/src/onedimensional/solution.cpp",
+    "bytes": 17590,
+    "sha256": "4c2beecacfffba5ebc2f7e5f568ba2b42c22314ca7449c3f559d3b00e128d3d6"
+  },
+  {
+    "path": "public/repo/src/onedimensional/solution_builder.cpp",
+    "bytes": 4372,
+    "sha256": "7a1378a3c0ba560895eb268e6921ff5d68d410d3b84c9446376cfcba4fc0ca0f"
+  },
+  {
+    "path": "public/repo/src/onedimensional/solution_builder.hpp",
+    "bytes": 780,
+    "sha256": "1b10776cac4d3d716e3d3d1372bfc6e3d3ca230200afd1d4ced752a17a3585f9"
+  },
+  {
+    "path": "public/repo/src/onedimensional/tree_search.cpp",
+    "bytes": 32529,
+    "sha256": "3892307435a01b8b6a9803bcf248f6d06d382bd6e969d24d552e7a52f8765bad"
+  },
+  {
+    "path": "public/repo/src/onedimensional/tree_search.hpp",
+    "bytes": 14003,
+    "sha256": "bc1305036df2bf3f1c2dc65cffce2892f22434d0e0f03b553b1f107836758bbf"
+  },
+  {
+    "path": "public/repo/src/rectangle/CMakeLists.txt",
+    "bytes": 1876,
+    "sha256": "536d6a31a89c248440ee452a8342007fac0ea4a4a57397713840a6b4fbcea9aa"
+  },
+  {
+    "path": "public/repo/src/rectangle/algorithm_formatter.cpp",
+    "bytes": 13342,
+    "sha256": "799d4f405236ea67c4d626707c9357fd498186db0481aadba66a8b13012842e9"
+  },
+  {
+    "path": "public/repo/src/rectangle/bar_relaxation.cpp",
+    "bytes": 29321,
+    "sha256": "f3500ffca8366bf25b23485f5728846582ef6340e666a4705a4d32b729ffa9ef"
+  },
+  {
+    "path": "public/repo/src/rectangle/bar_relaxation.hpp",
+    "bytes": 7340,
+    "sha256": "233bbd8782ac462efb5476c408ffd44ca5d1045e4feb8167629133b92bd5bf8c"
+  },
+  {
+    "path": "public/repo/src/rectangle/benders_decomposition.cpp",
+    "bytes": 60589,
+    "sha256": "677818e768b7a9685eb0677ed501dd30faceea279e190f9a751140a12d1768e8"
+  },
+  {
+    "path": "public/repo/src/rectangle/benders_decomposition.hpp",
+    "bytes": 12581,
+    "sha256": "6fae330febd1af00ca7cff653fdca298be80a490767de2761b95b294e348c72a"
+  },
+  {
+    "path": "public/repo/src/rectangle/benders_decomposition_contiguity.cpp",
+    "bytes": 61822,
+    "sha256": "a7e1a975813df185c4d0d5f30eec4ec34ed2621d65ec3fb9b8ec7104ea5ba93f"
+  },
+  {
+    "path": "public/repo/src/rectangle/benders_decomposition_contiguity.hpp",
+    "bytes": 11097,
+    "sha256": "cf7c39f314d14b44263a912b2ac769cd150848e6d6528350a48c9ac2215a8750"
+  },
+  {
+    "path": "public/repo/src/rectangle/block.cpp",
+    "bytes": 18977,
+    "sha256": "f05e4e4987d90e65cbd79447e2fad476e5e3872d889d3f591aaf6f0f859949d7"
+  },
+  {
+    "path": "public/repo/src/rectangle/block.hpp",
+    "bytes": 4000,
+    "sha256": "070c0de9bddcd11cc74253f6ad64a73836dac1054abdf071306395bb870e0f8f"
+  },
+  {
+    "path": "public/repo/src/rectangle/conservative_scales.cpp",
+    "bytes": 15433,
+    "sha256": "add2e0087ef9dd466670d0812d7175ca77d74c2da27a9eb4240ddf62f7579a40"
+  },
+  {
+    "path": "public/repo/src/rectangle/conservative_scales.hpp",
+    "bytes": 3127,
+    "sha256": "31ba53a46031630eeb5b47d5030c3f3f45601df88942b500131a04299b7828e9"
+  },
+  {
+    "path": "public/repo/src/rectangle/dual_feasible_functions.cpp",
+    "bytes": 33558,
+    "sha256": "24343b04e653e2a3b96192c19707e8ee4167ce8d5ea4159172630dacfda93834"
+  },
+  {
+    "path": "public/repo/src/rectangle/dual_feasible_functions.hpp",
+    "bytes": 2746,
+    "sha256": "5b45e08944550b1297cef719edef127efe6e1d4e7987363b6b1ed31e9301ce24"
+  },
+  {
+    "path": "public/repo/src/rectangle/instance.cpp",
+    "bytes": 24654,
+    "sha256": "106fe6de7f4f40ee58fd3087a37234d754489be4eae06fe56be0191c7e604dd9"
+  },
+  {
+    "path": "public/repo/src/rectangle/instance_builder.cpp",
+    "bytes": 52855,
+    "sha256": "64918d8887c4672c61178e7ffd452337ab9274cb6369fa917351024d3b56d56b"
+  },
+  {
+    "path": "public/repo/src/rectangle/instance_flipper.cpp",
+    "bytes": 6022,
+    "sha256": "8abbd6ee63e80f1f1f8fe09bc7ffad2cb64f089a8e05206f8bc9383d8d90a96e"
+  },
+  {
+    "path": "public/repo/src/rectangle/instance_flipper.hpp",
+    "bytes": 546,
+    "sha256": "d2cb401eb3ca238c444ef219d86d1f3f559a5e06ce8dcdda73dce8115be6b356"
+  },
+  {
+    "path": "public/repo/src/rectangle/item_subset_incompatibility.cpp",
+    "bytes": 18643,
+    "sha256": "a2de86cf0f5879379ef3cf664a63ed01953e8c8b69c27a329ae61ae6289cf536"
+  },
+  {
+    "path": "public/repo/src/rectangle/item_subset_incompatibility.hpp",
+    "bytes": 5591,
+    "sha256": "d17689ee80cce40a71d8badca6c45624995462c0e014f6bead489be9a512eb86"
+  },
+  {
+    "path": "public/repo/src/rectangle/main.cpp",
+    "bytes": 15957,
+    "sha256": "48ebb1e04dc9598da4e2f5d27bf19d4c58f7b76283c56c3aa87cdbfb0f852b2c"
+  },
+  {
+    "path": "public/repo/src/rectangle/onedimentional_contiguity/milp.cpp",
+    "bytes": 19462,
+    "sha256": "d896f46aabd9d0b1c4d2294d28362c17810123ec358bc477099c308099711c0b"
+  },
+  {
+    "path": "public/repo/src/rectangle/onedimentional_contiguity/milp.hpp",
+    "bytes": 13055,
+    "sha256": "7f6d33756beb8d1512ca6a49de3ba9780b520836ebad960e31f84b3b60a27cd9"
+  },
+  {
+    "path": "public/repo/src/rectangle/onedimentional_contiguity/tree_search.cpp",
+    "bytes": 16087,
+    "sha256": "fd5b9054e235ad993924cd5f25c45e9de4f2f9d9431382fdb0f8df5a8e6a3143"
+  },
+  {
+    "path": "public/repo/src/rectangle/onedimentional_contiguity/tree_search.hpp",
+    "bytes": 10671,
+    "sha256": "53d115599169df5859266d001f074c78be9570414d29069929725120ab5cf07d"
+  },
+  {
+    "path": "public/repo/src/rectangle/optimize.cpp",
+    "bytes": 65096,
+    "sha256": "950acae61518d97a85b546538ae882c88072d1a7a7b34b1fe6355ec438601bd7"
+  },
+  {
+    "path": "public/repo/src/rectangle/post_process.cpp",
+    "bytes": 442,
+    "sha256": "0718e2d1a7d7211afc4d182b7d911c62d236848ba93d6990ad13c3897ea25972"
+  },
+  {
+    "path": "public/repo/src/rectangle/reduction.cpp",
+    "bytes": 128972,
+    "sha256": "a002e01c7e35bd90fcd5dd535f3a46446e0f4c4ca1e971d60515f3d2aee438cd"
+  },
+  {
+    "path": "public/repo/src/rectangle/solution.cpp",
+    "bytes": 19954,
+    "sha256": "b0105965f419f2902fcb112db0d3e65f4974ca0e1a159a3cd23184b82a4106d0"
+  },
+  {
+    "path": "public/repo/src/rectangle/solution_builder.cpp",
+    "bytes": 4419,
+    "sha256": "565836cd4fb63e09d96483904e2d4ae03af4f3e4835b85760c25ee99309edbb1"
+  },
+  {
+    "path": "public/repo/src/rectangle/solution_builder.hpp",
+    "bytes": 863,
+    "sha256": "6253dfebcf76b20acae59f878b944e9f7ea1542cda88e8a76bddffaa4f97d8ac"
+  },
+  {
+    "path": "public/repo/src/rectangle/tree_search.cpp",
+    "bytes": 73069,
+    "sha256": "13407657018a0003666e18828ec6a9dd2d99256e105d5cf26f7ecc1809b9b7c7"
+  },
+  {
+    "path": "public/repo/src/rectangle/tree_search.hpp",
+    "bytes": 25101,
+    "sha256": "c30fa397dd46e6beb1cfd1503c5e0a7cbeb9abb0c436d53bc24f10f6fd0c0936"
+  },
+  {
+    "path": "public/repo/src/rectangle/tree_search_maximal_spaces.cpp",
+    "bytes": 36527,
+    "sha256": "d58a986469ca2990a8a01abf05fe8f5313a2a5d51acb876a50543dd83f746612"
+  },
+  {
+    "path": "public/repo/src/rectangle/tree_search_maximal_spaces.hpp",
+    "bytes": 17595,
+    "sha256": "8b44c252983121bd3bb256600e0a49e035ce4a53fbc4a689ebd89dc14d5d72d3"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/CMakeLists.txt",
+    "bytes": 1866,
+    "sha256": "eb2441b279bece7ae762e403bb42571105d1e496962c65dd097970f33cada15b"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/algorithm_formatter.cpp",
+    "bytes": 14593,
+    "sha256": "085b33885c9f6c1cfab3d2383e2eefc54c58fc46ecdaabae5c62f040f097e7e1"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/block.cpp",
+    "bytes": 10797,
+    "sha256": "09a6999ef02ebd4b80567e754be840011062906f6f4633b52a97dfb04757f344"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/block.hpp",
+    "bytes": 2715,
+    "sha256": "767f4c4949fc50286b87fd86b3d6c0d0b8c7c8fcd9ff91428b69edc5c6190793"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/column_generation_strips.cpp",
+    "bytes": 116379,
+    "sha256": "a535595fb6f76ad87304ee97ed417e0c62c86f7fe2155bc08588be407de01b7b"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/column_generation_strips.hpp",
+    "bytes": 2785,
+    "sha256": "eb6e025edec330e63745e6cd4166f1d4e6bca7b2e6245d70ce52a2f474291f96"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/instance.cpp",
+    "bytes": 26803,
+    "sha256": "ccb5d1aa64ecd08fdebcde9b7604f3a624f6d796f9ad6ccb69d5a074a9f57fdd"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/instance_builder.cpp",
+    "bytes": 63580,
+    "sha256": "42de4ce43dd6dd69d1421ee9c91de6ea9f62831a1e0caa7d85835034ee769e3c"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/instance_flipper.cpp",
+    "bytes": 5484,
+    "sha256": "5813e3800c5404c5dc9083497984932ea58c03a7ab379b21c016ffdd6c755421"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/instance_flipper.hpp",
+    "bytes": 566,
+    "sha256": "718fb2e9d9ddd5db24e894bf212867119a82ced9401d34a5d71e82009d72133e"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/main.cpp",
+    "bytes": 21635,
+    "sha256": "04cf63cd6a673b360b7bf460da8133bf04c42a5125e8276e85166d8d35504618"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/optimize.cpp",
+    "bytes": 61883,
+    "sha256": "409377ebffc9d161483b85f7351a8e1d7b52685581c730b5624d88cf408676c9"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/post_process.cpp",
+    "bytes": 23082,
+    "sha256": "2b1d7f1b0dc02f135122650d76b5128db0d936631ab6466dbe859bf6c8d248b4"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/reduction.cpp",
+    "bytes": 23593,
+    "sha256": "09b50eda98541bbe24a8d7de15d16de6694e02b3d8d60e35e999d506520ff63f"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/sequential_feasibility.cpp",
+    "bytes": 9569,
+    "sha256": "47da9009130fcf704f29fa5a23202bfd18ae99f14cc267da4cae9e996dcc7f75"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/sequential_feasibility.hpp",
+    "bytes": 1082,
+    "sha256": "a45e24371ddb49b8ca464a8e5ef5ad7fc3d8520b66c4955ab347be1a5c63e1b0"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/sequential_strips_onedimensional.cpp",
+    "bytes": 18801,
+    "sha256": "6fb47c28a7e6bc894b06d1c93e8b75910b0f95f142943d32172828829a65ab87"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/sequential_strips_onedimensional.hpp",
+    "bytes": 1555,
+    "sha256": "09f17012a16a1629ac90080ded8367ce2445c2c2a92913de225db891a6ae4599"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/solution.cpp",
+    "bytes": 36697,
+    "sha256": "7adcd3280b55451444f6713be1075ce363ef0ac021390ec39d4273dc113f8566"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/solution_builder.cpp",
+    "bytes": 20706,
+    "sha256": "0ef7058e354693e522d4ec1735b849a61828ff0f53db85a089a7827e51a63195"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/solution_builder.hpp",
+    "bytes": 1303,
+    "sha256": "55dfd8df01cad4217fb42dee99f805c07d1e2ff799a7225b97106c795e79bd79"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/tree_search.cpp",
+    "bytes": 113489,
+    "sha256": "31d15b5ca9d7258dc703e3b6ce839c3b6f014b265eea5ab42d54e8cb96a9a297"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/tree_search.hpp",
+    "bytes": 30159,
+    "sha256": "728fd17db0b7041b3bff7eb7618a6df5f7c74ed90388b5ef2ffb3345780de9ff"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/tree_search_hypergraph.cpp",
+    "bytes": 25572,
+    "sha256": "ad0bd0dc9a86b3bee162d814abb5b2dab2658e0f3e499e0def1cd118e6c46ce2"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/tree_search_hypergraph.hpp",
+    "bytes": 1615,
+    "sha256": "a6eb3651ac8851267c3006dd8488e186611a06b0330f21486a55d10661d09c7c"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/tree_search_hypergraph_infinite_copies.cpp",
+    "bytes": 28775,
+    "sha256": "e3224283606deffd76f2adcdfd375727adcae2e2d4da9ea49d2d518bc2dab26b"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/tree_search_hypergraph_infinite_copies.hpp",
+    "bytes": 1296,
+    "sha256": "334c828a47a961e90b53b39576e2ef50bd93498f329fbb5fd4e2facd69e3fe56"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/tree_search_maximal_spaces.cpp",
+    "bytes": 43475,
+    "sha256": "840c8d35c899c1c9fabac5e72179a38e4895ef185e72d4e08fa866a32ae527af"
+  },
+  {
+    "path": "public/repo/src/rectangleguillotine/tree_search_maximal_spaces.hpp",
+    "bytes": 10704,
+    "sha256": "898d449be1b998db9709e01933d9b11a4ec30b6e20bc80493a7a372019311be6"
+  },
+  {
+    "path": "public/repo/wasm/CMakeLists.txt",
+    "bytes": 1530,
+    "sha256": "78514a50fd4090be935369e836cbd77eb5a83e1276cc8c95e446e86de285258e"
+  },
+  {
+    "path": "public/repo/wasm/README.md",
+    "bytes": 2603,
+    "sha256": "403c578c263fb0180cbf9a897a53ffdf775ca1ffa57a01dbef6ba23eddb5c807"
+  },
+  {
+    "path": "public/repo/wasm/js/packingsolver_worker.js",
+    "bytes": 3523,
+    "sha256": "6d57dd55c1fee9de7f2cad368c5cb3a8273e2966f5ebcf165879afb754211ea7"
+  },
+  {
+    "path": "public/repo/wasm/src/packingsolver_wasm.cpp",
+    "bytes": 10508,
+    "sha256": "fae2c7667ae138dfa7af9cec7409de833b71381a980e317cad37b1dd137a869a"
+  },
+  {
+    "path": "public/repo/wasm/tests/canonical_instance.mjs",
+    "bytes": 14106,
+    "sha256": "8e2531d72bdb47a40c30c4939dbbc971f00d88e143f51d025ba8ea4abf15c82a"
+  },
+  {
+    "path": "public/repo/wasm/tests/dxf.test.mjs",
+    "bytes": 2791,
+    "sha256": "9d5dc0815572654cabf83164f10b78dfd328b748d5f7e921568fa189fbf008d9"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/dxf/blocks.dxf",
+    "bytes": 14631,
+    "sha256": "a6d886f7bb2b9d46da8b61468834101d5226a5427f77943a39b5a93ea03c0d89"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/dxf/blocks.json",
+    "bytes": 313,
+    "sha256": "aa34243001b0cc29b263231c546f52d6ac9e2e812f36018ca69d15b59b13be3a"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/dxf/ellipse.dxf",
+    "bytes": 14037,
+    "sha256": "77cf51758a93f93f09c597383ab35e44408b1f252a2ef5f61c6c2ef09559ed00"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/dxf/ellipse.json",
+    "bytes": 69,
+    "sha256": "806bc16986f6bf0bee8af4b2c333430542a2eb826160bc55cf9bf0567b500f71"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/dxf/mirrored_arcs.dxf",
+    "bytes": 14142,
+    "sha256": "73af3a511534adf947e5a223a9d2688039c66901d35eb504f6eb6f5bf70cf6ed"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/dxf/mirrored_arcs.json",
+    "bytes": 178,
+    "sha256": "7ddc216cd91eb8b89703d1b07f49cbe7a0265210680ad48f9ef5b9e47ece8bc2"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/dxf/multiple_parts.dxf",
+    "bytes": 15764,
+    "sha256": "6b29b734597ca25472053efe171545c78656c41aaae1bdcef2bfdbeeffcaf9b6"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/dxf/multiple_parts.json",
+    "bytes": 565,
+    "sha256": "47525139a66f5df7e1a42b85c6f29156e62e1751657875f6dfdbf885ca3dcdde"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/dxf/plate_with_hole.dxf",
+    "bytes": 14421,
+    "sha256": "022be44b7f91728a8b8acf8998a3cd9efc9641c4c7b69c49e40018e9c4637313"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/dxf/plate_with_hole.json",
+    "bytes": 177,
+    "sha256": "f03a9aa08be887e2b80a72a1c3a0a8c286c112feee9de150d16206fdabb0231d"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/dxf/r12_polyline.dxf",
+    "bytes": 5203,
+    "sha256": "9b924fe9e53d5053e35b41c7a202daa83bf88a341870cd4809f0d3d4e603eb5f"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/dxf/r12_polyline.json",
+    "bytes": 195,
+    "sha256": "40a393d3b40877fa81a6669711f4cb3a95f698605790d812384a6411b51e5d59"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/dxf/rounded_rectangle.dxf",
+    "bytes": 14365,
+    "sha256": "b71634ebe1cf14ed824a146a9450639707b3155588f2270de6c07540ea8c8630"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/dxf/rounded_rectangle.json",
+    "bytes": 166,
+    "sha256": "9f1b07f365a5c098f1ced943cc1e603fc1b42e4dd85ac0b7eff74096c6037445"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/dxf/scaled_circle.dxf",
+    "bytes": 14366,
+    "sha256": "0201c9133974d9010b27ff2f15c3ceb413fd009ebad733547ce4ea46aefa2906"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/dxf/scaled_circle.json",
+    "bytes": 78,
+    "sha256": "c95bcd767c1250b75fbe72bedbbc3f0abe839af95aa5d6737e6363df71dc848a"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/dxf/spline.dxf",
+    "bytes": 14210,
+    "sha256": "e0e7bdfebfb7eea8612f8ee23e6290ce4cfbffdc293dc9e7a71729f97a9ded16"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/dxf/spline.json",
+    "bytes": 67,
+    "sha256": "9138c82bdc37944610de505d1de717825485f5edaf8e8718ae0df1f26c4b267b"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/instances/box_knapsack.json",
+    "bytes": 1325,
+    "sha256": "b5b63f11dc532d44172157dba74d404d8da4faeaf52aa12cfc742debd48645c3"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/instances/box_leftovers.json",
+    "bytes": 346,
+    "sha256": "9fb5c3ded149b32fe71b756dc5d9e9029b5a82d2fe2955d3426cbc1613338da6"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/instances/box_variable_sized.json",
+    "bytes": 494,
+    "sha256": "ea4f3742d01bb55e5591b54125982baa6b31232be9e6609f386f891e28396831"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/instances/boxstacks_bin_packing.json",
+    "bytes": 1719,
+    "sha256": "244a0bc90985e53c7b47f831fff217efd376b5f87a97292cf422ebea935236c0"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/instances/boxstacks_knapsack.json",
+    "bytes": 513,
+    "sha256": "3229c8f5af1db0b5737a052813f5a82d4f4d3b6dfa4691811306d6af12b99d70"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/instances/boxstacks_leftovers.json",
+    "bytes": 345,
+    "sha256": "2d7fda1dc9839b31e4b130946a99b28a8824114313d187ea66c02dc4ff330bfc"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/instances/irregular_knapsack.json",
+    "bytes": 686,
+    "sha256": "52359289218de54add8f4a63978d68c66c2a9266995999283672f174392101a2"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/instances/irregular_open_dimension_xy.json",
+    "bytes": 400,
+    "sha256": "286e40089864ecc6ebc8cd64894b594770ca1b5d7458776b7e0d8c5b20f7b115"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/instances/irregular_variable_sized.json",
+    "bytes": 5708,
+    "sha256": "ba311343094f003d7ec4301d79913a09b7f3ebdb973bd270478674ad6cad4c5d"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/instances/onedimensional_knapsack.json",
+    "bytes": 377,
+    "sha256": "4a98d3941c4bb3f0fb7dd5587372e14c7f0826936fa290b701c38592d97248e7"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/instances/onedimensional_variable_sized.json",
+    "bytes": 1407,
+    "sha256": "b1dd79bfcded75c92560fd6f21b3e5901cc4cc5d9e21d5ba4a06d28d09c19086"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/instances/rectangle_knapsack.json",
+    "bytes": 1604,
+    "sha256": "5248017cb69e39352bcd494ea33e453933c4441607b2fb008fa3a335e961ab7e"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/instances/rectangle_leftovers.json",
+    "bytes": 303,
+    "sha256": "d76f96288240b41d3c76f26853fe5bc28ff7c7753b42a52c9b20bfc2ee757ca6"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/instances/rectangleguillotine_cutting_cost.json",
+    "bytes": 2277,
+    "sha256": "4999223dcbdafa3a110d16a6b21f4cb0d77dc8165b62853e9b2d83dabbbeac56"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/instances/rectangleguillotine_knapsack.json",
+    "bytes": 472,
+    "sha256": "d9ee08fe0b7e63dbe16b80547f1414065108708efacbda1f5ab9a71a80293396"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/arcs.json",
+    "bytes": 475,
+    "sha256": "4185ca6d8ab1d55504dc1380eea8fc1198b26cbf3d8c486a11ebf245f1504524"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/arcs.svg",
+    "bytes": 622,
+    "sha256": "ffd39bc5aad3180e34f2819c77a51fda5b26ebc2474a5566a66383be8f5f15a3"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/bezier.json",
+    "bytes": 77,
+    "sha256": "7833a35471951a40a88030e429ac54e3509b385332b9053d4410657c231af52a"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/bezier.svg",
+    "bytes": 161,
+    "sha256": "02c809d4a84a002a480b9c11b2ffc622e8fd33094ea5557e557befedce002958"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/ellipse.json",
+    "bytes": 46,
+    "sha256": "433e2d5ae5fb69c993d198343ac9583434150b4ccb789c5307954c8eac14867b"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/ellipse.svg",
+    "bytes": 154,
+    "sha256": "0f4f0ec0cbe9c2346849d0e26c6f63b6273bc5a25c05f09cfe85ab0d0a027a04"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/elliptical_arc.json",
+    "bytes": 53,
+    "sha256": "fcfefa7a1684d635be51c79bb1891bad67ed4869fb240d0191cbb0af6279b21f"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/elliptical_arc.svg",
+    "bytes": 150,
+    "sha256": "ef8dbdf51f6f3d557b0dd5f9ede587d2ca72495fd5f8ddadb1b3132632f28f34"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/elliptical_corners.json",
+    "bytes": 56,
+    "sha256": "e486adedd994e968323dedb314dd28baa834e94009621d843d068b7b1f0a3b33"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/elliptical_corners.svg",
+    "bytes": 156,
+    "sha256": "e575b1da2c8d88eb98e7b35ef8cb4145a4631d44a654dbd1a86d59d034b77414"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/ignored.json",
+    "bytes": 191,
+    "sha256": "8684a047f519e19810a4b6334a58b8ab3031324bb695c4bf84dd71cb97ae2fe7"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/ignored.svg",
+    "bytes": 522,
+    "sha256": "6238f0b1c5e4c2112d2082bec5cb5b67b618265a26c8b6233b4b09eeadce7504"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/inkscape_mm.json",
+    "bytes": 205,
+    "sha256": "7a974bac178880fbb6bbf14ff7b650d8386d0458f912abc84b114efc094f803c"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/inkscape_mm.svg",
+    "bytes": 585,
+    "sha256": "e077bac3bf849a9c66b47154e85988646044fe1270c00f0a52df4bfe352f3c71"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/orientation.json",
+    "bytes": 326,
+    "sha256": "6a4fba7fd352cb5a71316a3a828608db76631012796f0b4ea66bed87f243ad8b"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/orientation.svg",
+    "bytes": 231,
+    "sha256": "41d0b957aecb2936bdd551deb856edfd2b1948b2cb6a43b0893a332d8dc7c612"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/pixels.json",
+    "bytes": 198,
+    "sha256": "ff39ae2440c358f803b2b7f6c5c004e71e13ad4825640237c4e2adc3e91a5e9a"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/pixels.svg",
+    "bytes": 159,
+    "sha256": "0377a19fbeb33ae39d3a18c5f579b2beb6302c4fc317ec35fce1874bb200ee6d"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/quadratic_bezier.json",
+    "bytes": 67,
+    "sha256": "800cbf77fb98f56a42e0c72e309af638f5f6c3de64a49055182717125524668e"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/quadratic_bezier.svg",
+    "bytes": 144,
+    "sha256": "d3aa49366f3bbc7799303bd3c7519823ff9b11c2df9dd7df90e6aa58ad735123"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/scaled_circle.json",
+    "bytes": 45,
+    "sha256": "271528e5f371605c4d50ec62a852491a7fe4258570feec9b5a538eec5515ab67"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/scaled_circle.svg",
+    "bytes": 166,
+    "sha256": "e1bf22093d4bd11cac26a079a8b0764668fdae988299df7bcb599920a384d99f"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/scaled_view_box.json",
+    "bytes": 205,
+    "sha256": "6893b82230607f7c00ec508e031fad1fdfec05dcba8803fb8faec6c91601c952"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/scaled_view_box.svg",
+    "bytes": 172,
+    "sha256": "7152cb3ac4566a98c3eec9ebfc8e1260c55c20844ddb4878c41b48987c842228"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/transforms.json",
+    "bytes": 685,
+    "sha256": "5c3dee63863aeb438261d35198b5e09be76e407321055b4827a7da3472716ac2"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/svg/transforms.svg",
+    "bytes": 892,
+    "sha256": "c63a4107100b75c857c6a04e783a75eb235be9380e5b36d78a30da4aff8bd86b"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/viewer/box_defects.csv",
+    "bytes": 422,
+    "sha256": "94f1cb90a109244a0e26cf530b08fe81330094c9ebdc0218dbcfe4ed1e179a1b"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/viewer/boxstacks_copies.csv",
+    "bytes": 236,
+    "sha256": "3fc5655e9b5919190cc0c53006f7514a3b3853057dc600044c05965ff5a8ccdf"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/viewer/irregular_arcs_solution.json",
+    "bytes": 5738,
+    "sha256": "a5d82c3f35c31cc57dc9df3cb65a93be8d2a72d3b6895147c8cd8d23fdf36a98"
+  },
+  {
+    "path": "public/repo/wasm/tests/fixtures/viewer/irregular_holes_solution.json",
+    "bytes": 3723,
+    "sha256": "c8f9e7c33830e688f3e6b16d0f8978b3b7f6a19713327a5868fd5931b520e325"
+  },
+  {
+    "path": "public/repo/wasm/tests/form_errors.test.mjs",
+    "bytes": 3974,
+    "sha256": "e0fc8116f4078008f72a952ae2e193c6623eb7ce48986ee2a0ada0c9f6c64c5a"
+  },
+  {
+    "path": "public/repo/wasm/tests/generate_dxf_fixtures.py",
+    "bytes": 7518,
+    "sha256": "b4be9b2fc1464b54f87d59a756bb5d573eec98f1448fbd5d8cb9c5d3781e3159"
+  },
+  {
+    "path": "public/repo/wasm/tests/generate_svg_fixtures.py",
+    "bytes": 6782,
+    "sha256": "a7fcabe57f16c2ddd5725077e178a59e89e77bf4d84fa9705179919390e3276d"
+  },
+  {
+    "path": "public/repo/wasm/tests/helpers.js",
+    "bytes": 2428,
+    "sha256": "1d243a0d514f7756b6f553cfc84822b80fb3c35285dec13ce394698a8193e4c1"
+  },
+  {
+    "path": "public/repo/wasm/tests/irregular_form.test.mjs",
+    "bytes": 25409,
+    "sha256": "1312bcc1400f437462b8834fc236799b23ffd1bfd0e22b91c9f6366dd413dd70"
+  },
+  {
+    "path": "public/repo/wasm/tests/open_instance.test.mjs",
+    "bytes": 6455,
+    "sha256": "c4c0859d900ee3e3419f76e15c74d15b7e18e31344e77022984d5d994b9845fa"
+  },
+  {
+    "path": "public/repo/wasm/tests/paste.test.mjs",
+    "bytes": 7928,
+    "sha256": "945dfba97e606a3ca79f03b24710b195900dfce57f4c7651225f3ba7dc46dfbf"
+  },
+  {
+    "path": "public/repo/wasm/tests/projects.test.mjs",
+    "bytes": 14628,
+    "sha256": "f76709a894e71ec9671bdcb661f1969d2bccd7d3c75dac5a34908731feb38045"
+  },
+  {
+    "path": "public/repo/wasm/tests/results.test.mjs",
+    "bytes": 8918,
+    "sha256": "2ca612432694323edfd7c62746b852cd863d57bc5cd91b5071dc4b9bd7e7f94b"
+  },
+  {
+    "path": "public/repo/wasm/tests/session.test.js",
+    "bytes": 3733,
+    "sha256": "93e58c5e6a07c6cdf83f678ce39f34ddc920b86a65c24d971d25683bd86571be"
+  },
+  {
+    "path": "public/repo/wasm/tests/shapes.mjs",
+    "bytes": 4113,
+    "sha256": "264b8cfc59b370352a209584d306a4016f61eaac752e623f757a751f3bd5d2e9"
+  },
+  {
+    "path": "public/repo/wasm/tests/solve.test.js",
+    "bytes": 2764,
+    "sha256": "838dfbe307e3435c0bd07fbe3d0514a6b9a6936a725413396168091759a6b58a"
+  },
+  {
+    "path": "public/repo/wasm/tests/svg.test.mjs",
+    "bytes": 3003,
+    "sha256": "2c778e929a80f8cfcbf2a6698437cb93da33445f3422d2ba8030cbebcd033583"
+  },
+  {
+    "path": "public/repo/wasm/tests/viewer_solution.test.mjs",
+    "bytes": 11580,
+    "sha256": "7aad9459786a6441987e3617cd917329f03d9dcee29917ebf04bb040ab95996d"
+  },
+  {
+    "path": "public/repo/wasm/tests/worker.test.js",
+    "bytes": 2473,
+    "sha256": "934f4eae6a7ccf552b8483d2901b7267e9feb6e19b73b84810ac1cbc7563d8f8"
+  },
+  {
+    "path": "public/repo/wasm/web/_headers",
+    "bytes": 228,
+    "sha256": "feb3c4f9b9b3f831e5f7b880a0c489f0b2cefc6ffda169a345416dbb04a23c1e"
+  },
+  {
+    "path": "public/repo/wasm/web/app.js",
+    "bytes": 74677,
+    "sha256": "27eb0fabe9f881ceb7f9e31b916329d38c4745f40950afb58cc3bc20c2d6677b"
+  },
+  {
+    "path": "public/repo/wasm/web/contours.js",
+    "bytes": 9818,
+    "sha256": "909d0522fceaed277205f6cf6bec7b98c3030e677b9f68e51ecf6a777f2440c0"
+  },
+  {
+    "path": "public/repo/wasm/web/dxf.js",
+    "bytes": 11911,
+    "sha256": "3a0ca4e97723e3b06d19356a518117529e5e3dceab14d406287c134d973e8bac"
+  },
+  {
+    "path": "public/repo/wasm/web/form.js",
+    "bytes": 47022,
+    "sha256": "3383cc08f9920a7c477d532f1207e746e28c9b0f8b84d0d85aadbf0b5517f866"
+  },
+  {
+    "path": "public/repo/wasm/web/index.html",
+    "bytes": 15136,
+    "sha256": "44cd8ce7e8b03665713fcd9777991baa2573d190aee51b17e03c2e1c0f32a33c"
+  },
+  {
+    "path": "public/repo/wasm/web/irregular_form.js",
+    "bytes": 64318,
+    "sha256": "3b97c9d21ccc5bb24796e5ee8611c99c5d8d719698a1dc049c39e8bce6515a71"
+  },
+  {
+    "path": "public/repo/wasm/web/package.json",
+    "bytes": 19,
+    "sha256": "48e847860dd4f0907ce91e346dbb00a4a12213163ad3d80a953c343eb9a11979"
+  },
+  {
+    "path": "public/repo/wasm/web/paste.js",
+    "bytes": 10946,
+    "sha256": "0b6008872b842a482a511c4dafdce45ab58540e78e8c4bdab95ae06498be761a"
+  },
+  {
+    "path": "public/repo/wasm/web/projects.js",
+    "bytes": 19412,
+    "sha256": "789941f56b398f0ad7c40100f7438f6773f2372572c2f63db72bf9cee4c7759f"
+  },
+  {
+    "path": "public/repo/wasm/web/results.js",
+    "bytes": 10382,
+    "sha256": "636d68e6e677372606bf12da3b59c129e5eea5f4c02362fa5df744b94da3d4e2"
+  },
+  {
+    "path": "public/repo/wasm/web/serve.py",
+    "bytes": 3610,
+    "sha256": "a79cd506b36604b7ea0ce4274bb666b816a2cd6ab3e7804804119dbfd9848827"
+  },
+  {
+    "path": "public/repo/wasm/web/style.css",
+    "bytes": 17066,
+    "sha256": "d4f0e817ee5eb41a64bcfd076dd7ae870cb91d9459acdf96f66c1dc3c35eddfc"
+  },
+  {
+    "path": "public/repo/wasm/web/svg.js",
+    "bytes": 19581,
+    "sha256": "a696ddd73a9f57af523c53976b80b7979cdb082e2152d45116d67ef0f8204e4c"
+  },
+  {
+    "path": "public/repo/wasm/web/viewer/common.js",
+    "bytes": 1100,
+    "sha256": "84ca018399fb9874b97e2cf37e0e6d1253464188ef178016e20c1531bf901a53"
+  },
+  {
+    "path": "public/repo/wasm/web/viewer/render.js",
+    "bytes": 6563,
+    "sha256": "8587c8501fb29b2e0f797e341be8695bf1ac3fa0adb480c9695ffe076b2e12b3"
+  },
+  {
+    "path": "public/repo/wasm/web/viewer/render3d.js",
+    "bytes": 11112,
+    "sha256": "89ec21e4b3340d69d406c4666cdbb772bca6940f1c51528c889dc41024db5de1"
+  },
+  {
+    "path": "public/repo/wasm/web/viewer/solution.js",
+    "bytes": 12674,
+    "sha256": "00d8f9e1770a8b1e878912003d1e008cefa188892a3492762c92ea3e10485a09"
+  },
+  {
+    "path": "public/repo/wasm/web/viewer/viewer.js",
+    "bytes": 6763,
+    "sha256": "6d1f5c2b3adc5813657d16985e52784bcdc25f1c81947bdb51126367353fcfdc"
+  },
+  {
+    "path": "public/repo/wasm/web/viewer-page.js",
+    "bytes": 3044,
+    "sha256": "076347207c9b51e804ac7857c30f4167865bbad30254f09c71f74d541457aee3"
+  },
+  {
+    "path": "public/repo/wasm/web/viewer.html",
+    "bytes": 4209,
+    "sha256": "5724f768b8e097c70665ab018bcb1c05112cac897790b158811a1c982508ed58"
+  }
+]

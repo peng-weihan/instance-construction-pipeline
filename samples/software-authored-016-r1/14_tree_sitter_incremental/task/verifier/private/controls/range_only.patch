@@ -1,0 +1,11 @@
+--- a/lib/src/get_changed_ranges.c
++++ b/lib/src/get_changed_ranges.c
+@@ -382,7 +382,7 @@
+     ((old_state == ERROR_STATE) != (new_state == ERROR_STATE)) ||
+     old_error_cost != new_error_cost ||
+     old_has_external_tokens != new_has_external_tokens ||
+-    false || /* Recovery: edited-subtree comparison. */
++    ts_subtree_has_changes(old_tree) ||
+     (
+       old_has_external_tokens &&
+       !ts_subtree_external_scanner_state_eq(old_iter->prev_external_token, new_iter->prev_external_token)

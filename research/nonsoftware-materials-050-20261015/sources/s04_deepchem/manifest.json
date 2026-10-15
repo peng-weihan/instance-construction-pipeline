@@ -1,0 +1,57 @@
+{
+  "repo": "deepchem/deepchem",
+  "revision": "455d07f3e17e880a4d980b5b0365e4a02b417e14",
+  "resolved_utc": "2026-10-15T14:58:14.321601+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T14:59:06.224616+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "ae9a82651605819d818e91559de51f305cf2c83d3d4ef442f532d5c7c1958066",
+    "truncated": false,
+    "blob_count": 1526
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 1047,
+      "sha256": "e93ec2f869cea11536743939feb7943e195096ea363e16298620d4622046631f",
+      "url": "https://github.com/deepchem/deepchem/blob/455d07f3e17e880a4d980b5b0365e4a02b417e14/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7338,
+      "sha256": "abdbe5435eedd208e4110b1d4310983add99c48124d0bc0f058fc35a3a7be720",
+      "url": "https://github.com/deepchem/deepchem/blob/455d07f3e17e880a4d980b5b0365e4a02b417e14/README.md"
+    },
+    {
+      "path": "datasets/delaney-processed.csv",
+      "bytes": 96699,
+      "sha256": "8c06a76f0c6487d29ab0f903e6a7a7139f189ab3c1178f159c8be8964602f189",
+      "url": "https://github.com/deepchem/deepchem/blob/455d07f3e17e880a4d980b5b0365e4a02b417e14/datasets/delaney-processed.csv"
+    },
+    {
+      "path": "deepchem/molnet/load_function/delaney_datasets.py",
+      "bytes": 3507,
+      "sha256": "12bf9a7118a9d9bf47347224b57a45900306f2b55813e2e310c55e18473d21ce",
+      "url": "https://github.com/deepchem/deepchem/blob/455d07f3e17e880a4d980b5b0365e4a02b417e14/deepchem/molnet/load_function/delaney_datasets.py"
+    },
+    {
+      "path": "deepchem/splits/splitters.py",
+      "bytes": 64330,
+      "sha256": "5adf9a5cbd1dca6419458f9ccf173dab1b0003228f820e436f8da4823b657d60",
+      "url": "https://github.com/deepchem/deepchem/blob/455d07f3e17e880a4d980b5b0365e4a02b417e14/deepchem/splits/splitters.py"
+    },
+    {
+      "path": "deepchem/splits/tests/test_scaffold_splitter.py",
+      "bytes": 1452,
+      "sha256": "86f018fefb64ad27cdb273e0d7235ea5b01c7f49734ccc02499e29c0af61ce7e",
+      "url": "https://github.com/deepchem/deepchem/blob/455d07f3e17e880a4d980b5b0365e4a02b417e14/deepchem/splits/tests/test_scaffold_splitter.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

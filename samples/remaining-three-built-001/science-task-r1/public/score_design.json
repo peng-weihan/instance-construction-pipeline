@@ -1,0 +1,23 @@
+{
+  "formula": "valid/(1+0.5*relative_rmse**2+0.5*log_rmse**2)",
+  "relative_rmse": "sqrt(mean((pred-true)^2))/max(sqrt(mean(true^2)),1e-6)",
+  "log_rmse": "sqrt(mean((log1p(pred/0.0003)-log1p(true/0.0003))^2))",
+  "physical_self_checks": "public debugging guidance only; no extra credit for unexecuted model claims",
+  "constants": {
+    "floor": 1e-06,
+    "log_scale": 0.0003,
+    "relative_mse_weight": 0.5,
+    "log_mse_weight": 0.5,
+    "relative_rmse_floor": 1e-06,
+    "negative_prediction_tolerance": 1e-12
+  },
+  "validity_gate": [
+    "finite bounded parameters",
+    "source inside domain",
+    "nonnegative finite predictions"
+  ],
+  "feedback_deadline_target_seconds": 300,
+  "reference_numerics_pending": true,
+  "experiment_aggregation": "equal arithmetic mean",
+  "parameter_count": 29
+}

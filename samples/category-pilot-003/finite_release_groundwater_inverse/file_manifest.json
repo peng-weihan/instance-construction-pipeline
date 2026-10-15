@@ -1,0 +1,72 @@
+[
+  {
+    "path": "SOURCE_TO_TASK.md",
+    "bytes": 1048,
+    "sha256": "25a579da05b489efdd066d92d5588a085ff4591539601c1a7f648f7ba0872231"
+  },
+  {
+    "path": "construction.json",
+    "bytes": 1614,
+    "sha256": "3f03a4632c21991a10e448e00122702413834db5d8b2fed256f8b421a91de16a"
+  },
+  {
+    "path": "private/data_generation.json",
+    "bytes": 6559,
+    "sha256": "7cc4c36f3424c0f17ed99f5a261ca98d62e74e843d0c96e05259c4274faa8049"
+  },
+  {
+    "path": "private/feedback_observations.csv",
+    "bytes": 10844,
+    "sha256": "8a98f8dec8ec15d078f3d21ff19ee306949d71b0ac69e9f3d78057b29e0b240d"
+  },
+  {
+    "path": "private/final_observations.csv",
+    "bytes": 19678,
+    "sha256": "748f382baf34bc0c95526f997fd24a63b27ff3318502a1c4b0d22c57dab4e8e5"
+  },
+  {
+    "path": "private/ground_truth.json",
+    "bytes": 213,
+    "sha256": "154a67324df2436269f36ccf0e460a3e2e681baeb877101f9cc5275c4be55df9"
+  },
+  {
+    "path": "private/source_reference/doc/sections/ex-gwt-moc3d-p02.tex",
+    "bytes": 3410,
+    "sha256": "7996d8ea8bff0c09056acb80a84410b3ed1b17b65ef95d69837896dcfd9e4ced"
+  },
+  {
+    "path": "private/source_reference/scripts/ex-gwt-moc3d-p02.py",
+    "bytes": 10307,
+    "sha256": "e911ccb39d69a8ff8b359cfef57277c7376e271537eac3c4aedda5a3e35d1d58"
+  },
+  {
+    "path": "public/evaluation_contract.draft.json",
+    "bytes": 1808,
+    "sha256": "ae5691dfddae12769da32045654dbd885ccbf068a7ee757b9bf43a5f1e09c8c7"
+  },
+  {
+    "path": "public/forward.py",
+    "bytes": 872,
+    "sha256": "4306b5092a57cc4574dde51992921f7b922ec02139895407d7dcc4e12844be7d"
+  },
+  {
+    "path": "public/instruction.md",
+    "bytes": 1273,
+    "sha256": "46a96fac86d9e5d80f4085228da221cf534eb49eadc4868d33a6cd8ded64c5d7"
+  },
+  {
+    "path": "public/parameter_bounds.json",
+    "bytes": 458,
+    "sha256": "543e261b237726eeab6b9af16edec5de01513e4d08788a832e605d9172564bd9"
+  },
+  {
+    "path": "public/public_observations.csv",
+    "bytes": 11830,
+    "sha256": "25138ad9e7daee4f0cdefea797111ddbb198a7b2dbebf96b901b775cdee2e14c"
+  },
+  {
+    "path": "public/submission/parameters.json",
+    "bytes": 245,
+    "sha256": "09450b3d1874e38cff63af031a06aeb1ef6ce97c70bb0eafbf356f0379f5e2c5"
+  }
+]

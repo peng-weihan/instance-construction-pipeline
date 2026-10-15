@@ -1,0 +1,63 @@
+{
+  "repo": "PyVRP/PyVRP",
+  "revision": "abe53138ca43bce75ed95c99e37c7452f14e53d2",
+  "resolved_utc": "2026-10-15T14:59:33.293370+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T15:02:03.811556+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "2d6866fc3bb7d6d9508a1ef10efad84594f6a1d53656898db981c0dee6c63a58",
+    "truncated": false,
+    "blob_count": 332
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE.md",
+      "bytes": 1172,
+      "sha256": "d9484b4905b1479240a99cdbe96b4f34d9a2c17347000d961819f8b177f3365b",
+      "url": "https://github.com/PyVRP/PyVRP/blob/abe53138ca43bce75ed95c99e37c7452f14e53d2/LICENSE.md"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5866,
+      "sha256": "d8bb078da2a202d332ecb62d60b80d961527bf3a5fe28389bdc12f76fca73c0f",
+      "url": "https://github.com/PyVRP/PyVRP/blob/abe53138ca43bce75ed95c99e37c7452f14e53d2/README.md"
+    },
+    {
+      "path": "pyvrp/Model.py",
+      "bytes": 20634,
+      "sha256": "f0827a03c8f4a8e81fe4b266238000ecccbee8befb35d37ce7c4ce23572b037f",
+      "url": "https://github.com/PyVRP/PyVRP/blob/abe53138ca43bce75ed95c99e37c7452f14e53d2/pyvrp/Model.py"
+    },
+    {
+      "path": "pyvrp/cpp/CostEvaluator.cpp",
+      "bytes": 680,
+      "sha256": "9d0b7e644ece3243f41127efb38bb72ef815756f65a4e8f7ce4dfc4df7896fc6",
+      "url": "https://github.com/PyVRP/PyVRP/blob/abe53138ca43bce75ed95c99e37c7452f14e53d2/pyvrp/cpp/CostEvaluator.cpp"
+    },
+    {
+      "path": "pyvrp/cpp/CostEvaluator.h",
+      "bytes": 10761,
+      "sha256": "0125e8ae1afaa57a747744350776a5f5283c3782e53f57e7e1b4d833e7dbce4d",
+      "url": "https://github.com/PyVRP/PyVRP/blob/abe53138ca43bce75ed95c99e37c7452f14e53d2/pyvrp/cpp/CostEvaluator.h"
+    },
+    {
+      "path": "tests/test_CostEvaluator.py",
+      "bytes": 11492,
+      "sha256": "8b17a59a0c2a4ed3b89518d7c76cc0f84f38c3d28d4c670b49c665857e975e1c",
+      "url": "https://github.com/PyVRP/PyVRP/blob/abe53138ca43bce75ed95c99e37c7452f14e53d2/tests/test_CostEvaluator.py"
+    },
+    {
+      "path": "tests/test_Solution.py",
+      "bytes": 32382,
+      "sha256": "b27652e92a192ea4f1df627b320284c9c48a159742b6dbbbd4e7c1e8ff8d5003",
+      "url": "https://github.com/PyVRP/PyVRP/blob/abe53138ca43bce75ed95c99e37c7452f14e53d2/tests/test_Solution.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

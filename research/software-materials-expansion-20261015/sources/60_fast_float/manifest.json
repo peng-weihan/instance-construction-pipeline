@@ -1,0 +1,75 @@
+{
+  "repo": "fastfloat/fast_float",
+  "revision": "166d2b3df29cf8101bb715bde2125610881df791",
+  "resolved_utc": "2026-10-15T13:30:47.514782+00:00",
+  "metadata_method": "shallow bare git with blob:none",
+  "retrieved_utc": "2026-10-15T13:31:21.694550+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "2b6b7bdd2cf47e5ce8bf4b7905150d1b5406e6f2c265b660d1ad97279f44a7a5",
+    "truncated": false,
+    "blob_count": 121
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE-APACHE",
+      "bytes": 10767,
+      "sha256": "097a889aa954d04e088b790b10a4014d6189561d0a6013935a73ce3d4ddaaf06",
+      "url": "https://github.com/fastfloat/fast_float/blob/166d2b3df29cf8101bb715bde2125610881df791/LICENSE-APACHE"
+    },
+    {
+      "path": "LICENSE-BOOST",
+      "bytes": 1337,
+      "sha256": "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b",
+      "url": "https://github.com/fastfloat/fast_float/blob/166d2b3df29cf8101bb715bde2125610881df791/LICENSE-BOOST"
+    },
+    {
+      "path": "LICENSE-MIT",
+      "bytes": 1079,
+      "sha256": "e562f3f974ced7e69dd1db77b820b36bcf8f30377f1aa105723fba449c53c4e6",
+      "url": "https://github.com/fastfloat/fast_float/blob/166d2b3df29cf8101bb715bde2125610881df791/LICENSE-MIT"
+    },
+    {
+      "path": "README.md",
+      "bytes": 25488,
+      "sha256": "0ba013aa31ec1161a5ad495e764fc38b4eb361ec5798ac0979b1778be6af714d",
+      "url": "https://github.com/fastfloat/fast_float/blob/166d2b3df29cf8101bb715bde2125610881df791/README.md"
+    },
+    {
+      "path": "benchmarks/CMakeLists.txt",
+      "bytes": 1680,
+      "sha256": "61f4158d334b9f30fd8bc94d2373bac1af593ac8b84a38cf10dd1631ba29b02d",
+      "url": "https://github.com/fastfloat/fast_float/blob/166d2b3df29cf8101bb715bde2125610881df791/benchmarks/CMakeLists.txt"
+    },
+    {
+      "path": "benchmarks/benchmark.cpp",
+      "bytes": 8014,
+      "sha256": "f77b7a31c9f1a9c95da6baf7d60ee4d065ff8bf858f935a6d48a2d7cfbe4712d",
+      "url": "https://github.com/fastfloat/fast_float/blob/166d2b3df29cf8101bb715bde2125610881df791/benchmarks/benchmark.cpp"
+    },
+    {
+      "path": "include/fast_float/decimal_to_binary.h",
+      "bytes": 9447,
+      "sha256": "5f4d50ddfac62add34b6682fc0cded2af3e875716aeaa3c9bfdee0a87d9e797c",
+      "url": "https://github.com/fastfloat/fast_float/blob/166d2b3df29cf8101bb715bde2125610881df791/include/fast_float/decimal_to_binary.h"
+    },
+    {
+      "path": "include/fast_float/parse_number.h",
+      "bytes": 24595,
+      "sha256": "84eb1f94521455ef78cbaa3e91ee5556832ba05c64808a1e9c8f86e1c857b95e",
+      "url": "https://github.com/fastfloat/fast_float/blob/166d2b3df29cf8101bb715bde2125610881df791/include/fast_float/parse_number.h"
+    },
+    {
+      "path": "tests/basictest.cpp",
+      "bytes": 120714,
+      "sha256": "6385d3171bc8ebeb742abb82fb98dbb7c1494586939065f6a5e3bdfd1847d32c",
+      "url": "https://github.com/fastfloat/fast_float/blob/166d2b3df29cf8101bb715bde2125610881df791/tests/basictest.cpp"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

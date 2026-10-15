@@ -1,0 +1,75 @@
+functionality:
+  name: novel
+  namespace: predict_modality_methods
+  
+  # metadata for your method
+  description: The task is solved via training encoder-decoder MLP model with one output neuron per component in the target. As an input, the encoders use representations obtained from ATAC and GEX data via LSI transform and raw ADT data. The hyperparameters of the models were found via broad hyperparameter search using the Optuna framework.
+  info:
+    method_label: "Novel"
+    submission_id: "169769"
+    team_name: Novel
+    # project_url: https://github.com/foo/bar
+    # publication_doi: 10.1101/0123.45.67.890123
+    # publication_url: https://arxiv.org/abs/1234.56789
+
+  authors:
+    - name: Gleb Ryazantsev
+      email: ryazantsev.gleb@gmail.com
+      roles: [ author, maintainer ]
+    - name: Nikolay Russkikh
+      email: russkikh.nikolay@gmail.com
+      roles: [ author, maintainer ]
+    - name: Igor I
+      email: herri.i.67@gmail.com
+      roles: [ author, maintainer ]
+      
+  # parameters
+  arguments:
+    # required inputs
+    - name: "--input_train_mod1"
+      type: "file"
+      example: "dataset_mod1.h5ad"
+      description: Censored dataset, training cells.
+      required: true
+    - name: "--input_test_mod1"
+      type: "file"
+      example: "dataset_mod1.h5ad"
+      description: Censored dataset, test cells.
+      required: true
+    - name: "--input_train_mod2"
+      type: "file"
+      example: "dataset_mod2.h5ad"
+      description: Censored dataset.
+      required: true
+    - name: "--input_pretrain"
+      type: "file"
+      example: "pretrain_model"
+      description: Path to the directory containing a pretrained model.
+      required: true
+    # required outputs
+    - name: "--output"
+      type: "file"
+      direction: "output"
+      example: "output.h5ad"
+      description: Dataset with predicted values for modality2.
+      required: true
+      
+  # files your script needs
+  resources:
+    - type: python_script
+      path: script.py
+    - path: ../resources/helper_functions.py
+      
+# target platforms
+platforms:
+  - type: docker
+    image: "pytorch/pytorch:1.9.0-cuda10.2-cudnn7-runtime"
+    setup:
+      - type: python
+        packages:
+          - anndata
+          - scikit-learn
+          - networkx
+
+  - type: nextflow
+    labels: [ lowmem, lowtime, lowcpu ]

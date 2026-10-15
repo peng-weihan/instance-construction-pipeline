@@ -1,0 +1,268 @@
+{
+  "batch": "software-candidates-016-20261015",
+  "target": 16,
+  "count_rule": "Six revised-scope candidates from previous sources plus ten new primary projects; prior rejected narrow profiles are not counted as new accepted tasks.",
+  "author_model_requested": "gpt-6.1-sol",
+  "author_codex_homes": [
+    "/ws/users/wcgu/new-codex-group/raymone/1",
+    "/ws/users/wcgu/new-codex-group/raymone/2",
+    "/ws/users/wcgu/new-codex-group/raymone/3"
+  ],
+  "candidates": [
+    {
+      "id": "01_openapi_streaming",
+      "repo": "openapi-generators/openapi-python-client",
+      "revision": "0a283fe21eeaa23046faf622d4ff4b2c826d2edb",
+      "family": "engineering_evolution",
+      "new_source": false,
+      "title": "流式SDK、取消与资源生命周期",
+      "files": [
+        "README.md",
+        "CHANGELOG.md",
+        "pyproject.toml",
+        "end_to_end_tests/functional_tests/README.md"
+      ],
+      "initial_path_corrections": {}
+    },
+    {
+      "id": "02_restler_recovery",
+      "repo": "microsoft/restler-fuzzer",
+      "revision": "6d984deedbc54aad957fa3da0c7e9e5df23a2aee",
+      "family": "engineering_evolution",
+      "new_source": false,
+      "title": "真实campaign的崩溃恢复与状态一致性",
+      "files": [
+        "README.md",
+        "restler/utils/saver.py",
+        "restler/engine/core/driver.py",
+        "docs/user-guide/Replay.md"
+      ],
+      "initial_path_corrections": {
+        "restler/engine/core/saver.py": "restler/utils/saver.py"
+      }
+    },
+    {
+      "id": "03_httpx_transport",
+      "repo": "encode/httpx",
+      "family": "engineering_evolution",
+      "new_source": true,
+      "title": "传输、重定向、认证与流式关闭的联合演进",
+      "files": [
+        "README.md",
+        "httpx/_client.py",
+        "httpx/_models.py",
+        "tests/client/test_async_client.py"
+      ],
+      "revision": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+      "initial_path_corrections": {}
+    },
+    {
+      "id": "04_pytest_fixtures",
+      "repo": "pytest-dev/pytest",
+      "family": "engineering_evolution",
+      "new_source": true,
+      "title": "fixture生命周期、动态收集与插件交互",
+      "files": [
+        "README.rst",
+        "src/_pytest/fixtures.py",
+        "testing/python/fixtures.py",
+        "doc/en/explanation/fixtures.rst"
+      ],
+      "revision": "c9c19f8e62c12834ad83193a1869cc82fe9c700e",
+      "initial_path_corrections": {}
+    },
+    {
+      "id": "05_uv_resolution",
+      "repo": "astral-sh/uv",
+      "family": "engineering_evolution",
+      "new_source": true,
+      "title": "跨环境依赖解析与增量锁定",
+      "files": [
+        "README.md",
+        "docs/concepts/resolution.md",
+        "crates/uv-resolver/src/lib.rs",
+        "crates/uv/tests/lock/lock.rs"
+      ],
+      "revision": "9385290f1bf895cb3f587118ce92cce9a0585f77",
+      "initial_path_corrections": {
+        "crates/uv/tests/it/lock.rs": "crates/uv/tests/lock/lock.rs"
+      }
+    },
+    {
+      "id": "06_wasm_validation",
+      "repo": "WebAssembly/spec",
+      "revision": "d910f03bd6d6477656fc5070b5098e8f909305d3",
+      "family": "system_implementation",
+      "new_source": false,
+      "title": "类型验证、间接调用与模块链接的VM",
+      "files": [
+        "README.md",
+        "test/core/call_indirect.wast",
+        "test/core/unwind.wast",
+        "document/core/valid/instructions.rst"
+      ],
+      "initial_path_corrections": {}
+    },
+    {
+      "id": "07_arrow_ipc",
+      "repo": "apache/arrow",
+      "family": "system_implementation",
+      "new_source": true,
+      "title": "嵌套类型和字典演化的IPC读写器",
+      "files": [
+        "README.md",
+        "format/Message.fbs",
+        "docs/source/format/Columnar.rst",
+        "dev/archery/archery/integration/runner.py"
+      ],
+      "revision": "ca5564e007a209e251b9d4648af4bc6a53c68c4f",
+      "initial_path_corrections": {}
+    },
+    {
+      "id": "08_http2_session",
+      "repo": "nghttp2/nghttp2",
+      "family": "system_implementation",
+      "new_source": true,
+      "title": "HTTP2帧、HPACK与会话状态机",
+      "files": [
+        "README.rst",
+        "lib/nghttp2_session.c",
+        "tests/nghttp2_session_test.c",
+        "tests/nghttp2_hd_test.c"
+      ],
+      "revision": "7e10fcf3c58e692902939bab8f898bdd9ec9cff7",
+      "initial_path_corrections": {}
+    },
+    {
+      "id": "09_valkey_transactions",
+      "repo": "valkey-io/valkey",
+      "family": "system_implementation",
+      "new_source": true,
+      "title": "RESP3事务与持久化恢复服务",
+      "files": [
+        "README.md",
+        "src/multi.c",
+        "src/aof.c",
+        "tests/unit/multi.tcl",
+        "tests/unit/protocol.tcl"
+      ],
+      "revision": "cf5efa70192faedacb6741ee2a8f800d0482862f",
+      "initial_path_corrections": {
+        "tests/unit/transactions.tcl": "tests/unit/multi.tcl"
+      }
+    },
+    {
+      "id": "10_datafusion_sort",
+      "repo": "apache/datafusion",
+      "revision": "10343c18292fc3a9ca62b59c8bb530169fe79b82",
+      "family": "correctness_constrained_performance",
+      "new_source": false,
+      "title": "有界内存排序、TopK与多分区合并",
+      "files": [
+        "README.md",
+        "Cargo.toml",
+        "benchmarks/README.md",
+        "datafusion/physical-plan/src/sorts/sort.rs"
+      ],
+      "initial_path_corrections": {}
+    },
+    {
+      "id": "11_rocksdb_compaction",
+      "repo": "facebook/rocksdb",
+      "family": "correctness_constrained_performance",
+      "new_source": true,
+      "title": "读写放大约束下的存储引擎优化",
+      "files": [
+        "README.md",
+        "tools/db_bench_tool.cc",
+        "db/db_compaction_test.cc",
+        "tools/benchmark.sh"
+      ],
+      "revision": "a215c38a8ed34848edc152f7435eabc128208111",
+      "initial_path_corrections": {}
+    },
+    {
+      "id": "12_croaring_kernels",
+      "repo": "RoaringBitmap/CRoaring",
+      "family": "correctness_constrained_performance",
+      "new_source": true,
+      "title": "混合容器的bitmap操作与压缩优化",
+      "files": [
+        "README.md",
+        "src/roaring.c",
+        "src/containers/containers.c",
+        "tests/mixed_container_unit.c"
+      ],
+      "revision": "f2d9c6d3affaed28c8a899e96d85334ce4ae35af",
+      "initial_path_corrections": {
+        "tests/toplevel.c": "tests/mixed_container_unit.c"
+      }
+    },
+    {
+      "id": "13_toml_lossless",
+      "repo": "toml-rs/toml",
+      "revision": "ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+      "family": "implementation_recovery",
+      "new_source": false,
+      "title": "无损解析、span与结构化编辑的跨层恢复",
+      "files": [
+        "README.md",
+        "crates/toml_parser/README.md",
+        "crates/toml_edit/README.md",
+        "crates/toml_edit/src/document.rs",
+        "crates/toml_edit/src/table.rs"
+      ],
+      "initial_path_corrections": {}
+    },
+    {
+      "id": "14_tree_sitter_incremental",
+      "repo": "tree-sitter/tree-sitter",
+      "family": "implementation_recovery",
+      "new_source": true,
+      "title": "增量解析、错误恢复和节点位置一致性",
+      "files": [
+        "README.md",
+        "lib/src/parser.c",
+        "lib/src/tree.c",
+        "lib/src/stack.c",
+        "lib/binding_rust/lib.rs"
+      ],
+      "revision": "8ca548849fc8dbefd699edcec26546bb14112820",
+      "initial_path_corrections": {}
+    },
+    {
+      "id": "15_jq_composition",
+      "repo": "jqlang/jq",
+      "revision": "71c2ab509a8628dbbad4bc7b3f98a64aa90d3297",
+      "family": "behavioral_reimplementation",
+      "new_source": false,
+      "title": "流、作用域、递归与错误前缀的CLI兼容",
+      "files": [
+        "README.md",
+        "tests/jq.test",
+        "src/execute.c",
+        "docs/content/manual/v1.7/manual.yml"
+      ],
+      "initial_path_corrections": {}
+    },
+    {
+      "id": "16_libarchive_cli",
+      "repo": "libarchive/libarchive",
+      "family": "behavioral_reimplementation",
+      "new_source": true,
+      "title": "归档读写、链接与流式格式的CLI兼容",
+      "files": [
+        "README.md",
+        "libarchive/archive_read_support_format_tar.c",
+        "libarchive/test/test_read_format_tar.c",
+        "libarchive/test/test_write_format_pax.c",
+        "tar/test/test_option_C_upper.c"
+      ],
+      "revision": "b10312a52e5e4d1baf047b563e501b4fb184adde",
+      "initial_path_corrections": {
+        "tar/test/test_option_C.c": "tar/test/test_option_C_upper.c"
+      }
+    }
+  ],
+  "revisions_frozen": true
+}

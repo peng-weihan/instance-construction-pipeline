@@ -1,0 +1,137 @@
+#!/bin/bash
+#
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+#
+# Idempotent setup for regression tests. Run manually or let run.sh auto-run.
+#
+# Warning - first time setup may download large amounts of files
+# Warning - may clobber conf/spark-defaults.conf
+
+set -x
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+if [ -z "${SPARK_HOME}" ]; then
+  SPARK_HOME=$(realpath ~/${SPARK_DISTRIBUTION})
+fi
+SPARK_CONF="${SPARK_HOME}/conf/spark-defaults.conf"
+DERBY_HOME="/tmp/derby"
+ICEBERG_VERSION="1.12.0"
+export PYTHONPATH="${SPARK_HOME}/python/:${SPARK_HOME}/python/lib/py4j-0.10.9.7-src.zip:$PYTHONPATH"
+
+# Download a file to $dest if it does not already exist.
+# Installs wget via brew on macOS if the first attempt fails.
+# Removes partial downloads on failure so re-runs are safe.
+download_if_missing() {
+  local dest="$1" url="$2"
+  if [ -f "$dest" ]; then
+    echo "Already present: $dest"
+    return 0
+  fi
+  echo "Downloading $url -> $dest"
+  if ! wget -O "$dest" "$url"; then
+    rm -f "$dest"
+    if [[ "${OSTYPE}" == "darwin"* ]]; then
+      echo "Detected OS: mac. Running 'brew install wget' to try again."
+      brew install wget
+      if ! wget -O "$dest" "$url"; then
+        rm -f "$dest"
+        return 1
+      fi
+    else
+      return 1
+    fi
+  fi
+}
+
+# Ensure binaries are downloaded locally
+echo 'Verifying Spark binaries...'
+if ! [ -f ${SPARK_HOME}/bin/spark-sql ]; then
+  echo 'Setting up Spark...'
+  if [ -z "${SPARK_VERSION}" ] || [ -z "${SPARK_DISTRIBUTION}" ]; then
+    echo 'SPARK_VERSION or SPARK_DISTRIBUTION not set. Please set SPARK_VERSION and SPARK_DISTRIBUTION to the desired version.'
+    exit 1
+  fi
+  echo 'Downloading spark distro...'
+  if ! download_if_missing ~/${SPARK_DISTRIBUTION}.tgz \
+      "https://www.apache.org/dyn/closer.lua/spark/${SPARK_VERSION}/${SPARK_DISTRIBUTION}.tgz?action=download"; then
+    echo 'Failed to download Spark distribution. Please check the logs.'
+    exit 1
+  fi
+  tar xzvf ~/${SPARK_DISTRIBUTION}.tgz -C ~
+  if [ $? -ne 0 ]; then
+    echo 'Failed to extract Spark distribution. Please check the logs.'
+    exit 1
+  else
+    echo 'Extracted Spark distribution.'
+    rm ~/${SPARK_DISTRIBUTION}.tgz
+  fi
+  SPARK_HOME=$(realpath ~/${SPARK_DISTRIBUTION})
+  SPARK_CONF="${SPARK_HOME}/conf/spark-defaults.conf"
+else
+  echo 'Verified Spark distro already installed.'
+fi
+
+# Download the iceberg cloud provider bundles needed
+echo 'Verifying bundle jars installed.'
+download_if_missing \
+  "${SPARK_HOME}/jars/iceberg-azure-bundle-${ICEBERG_VERSION}.jar" \
+  "https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-azure-bundle/${ICEBERG_VERSION}/iceberg-azure-bundle-${ICEBERG_VERSION}.jar"
+download_if_missing \
+  "${SPARK_HOME}/jars/iceberg-gcp-bundle-${ICEBERG_VERSION}.jar" \
+  "https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-gcp-bundle/${ICEBERG_VERSION}/iceberg-gcp-bundle-${ICEBERG_VERSION}.jar"
+
+# Ensure Spark boilerplate conf is set
+echo 'Verifying Spark conf...'
+if grep 'POLARIS_TESTCONF_V5' ${SPARK_CONF} 2>/dev/null; then
+  echo 'Verified spark conf'
+else
+  echo 'Setting spark conf...'
+  # Instead of clobbering existing spark conf, just comment it all out in case it was customized carefully.
+  # Use an explicit backup suffix so the in-place edit works on both GNU and BSD/macOS sed, then remove the backup.
+  sed -i.bak 's/^/# /' ${SPARK_CONF} && rm -f ${SPARK_CONF}.bak
+cat << EOF >> ${SPARK_CONF}
+
+# POLARIS_TESTCONF_V5
+spark.jars.packages org.apache.iceberg:iceberg-spark-runtime-3.5_2.12:${ICEBERG_VERSION},org.apache.iceberg:iceberg-aws-bundle:${ICEBERG_VERSION}
+spark.hadoop.fs.s3.impl org.apache.hadoop.fs.s3a.S3AFileSystem
+spark.hadoop.fs.AbstractFileSystem.s3.impl org.apache.hadoop.fs.s3a.S3A
+spark.sql.variable.substitute true
+
+spark.driver.extraJavaOptions -Dderby.system.home=${DERBY_HOME}
+
+spark.sql.catalog.polaris=org.apache.iceberg.spark.SparkCatalog
+spark.sql.catalog.polaris.type=rest
+spark.sql.catalog.polaris.uri=http://${POLARIS_HOST:-localhost}:8181/api/catalog
+spark.sql.catalog.polaris.header.X-Iceberg-Access-Delegation=vended-credentials
+spark.sql.catalog.polaris.client.region=us-west-2
+EOF
+  echo 'Success!'
+fi
+
+# cleanup derby home if existed
+if [ -d "${DERBY_HOME}" ]; then
+  echo "Directory ${DERBY_HOME} exists. Deleting it..."
+  rm -rf "${DERBY_HOME}"
+fi
+# setup python venv and install polaris client library and test dependencies
+pushd $SCRIPT_DIR && ./pyspark-setup.sh && popd
+
+# bootstrap dependencies so that future queries don't need to wait for the downloads.
+# this is mostly useful for building the Docker image with all needed dependencies
+${SPARK_HOME}/bin/spark-sql -e "SELECT 1"

@@ -1,0 +1,606 @@
+// Licensed to the Apache Software Foundation (ASF) under one
+// or more contributor license agreements.  See the NOTICE file
+// distributed with this work for additional information
+// regarding copyright ownership.  The ASF licenses this file
+// to you under the Apache License, Version 2.0 (the
+// "License"); you may not use this file except in compliance
+// with the License.  You may obtain a copy of the License at
+//
+//   http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing,
+// software distributed under the License is distributed on an
+// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+// KIND, either express or implied.  See the License for the
+// specific language governing permissions and limitations
+// under the License.
+
+use crate::logical_plan::producer::{
+    SubstraitProducer, to_substrait_type, to_substrait_type_from_field,
+};
+use datafusion::arrow::datatypes::DataType;
+use datafusion::common::datatype::FieldExt;
+use datafusion::common::{
+    DFSchemaRef, internal_datafusion_err, not_impl_err, substrait_err,
+};
+use datafusion::logical_expr::{
+    Between, BinaryExpr, Expr, ExprSchemable, Like, Operator, expr,
+};
+use substrait::proto::FunctionOption;
+use substrait::proto::expression::{RexType, ScalarFunction};
+use substrait::proto::function_argument::ArgType;
+use substrait::proto::{Expression, FunctionArgument, Type};
+
+pub fn from_scalar_function(
+    producer: &mut impl SubstraitProducer,
+    fun: &expr::ScalarFunction,
+    schema: &DFSchemaRef,
+) -> datafusion::common::Result<Expression> {
+    let (_, output_field) = Expr::ScalarFunction(fun.clone()).to_field(schema)?;
+    from_function(
+        producer,
+        fun.name(),
+        &fun.args,
+        output_field.data_type(),
+        output_field.is_nullable(),
+        schema,
+    )
+}
+
+pub fn from_higher_order_function(
+    producer: &mut impl SubstraitProducer,
+    fun: &expr::HigherOrderFunction,
+    schema: &DFSchemaRef,
+) -> datafusion::common::Result<Expression> {
+    let mut lambda_parameters = fun.lambda_parameters(schema)?.into_iter();
+
+    let num_lambdas = fun
+        .args
+        .iter()
+        .filter(|arg| matches!(arg, Expr::Lambda(_)))
+        .count();
+
+    if lambda_parameters.len() != num_lambdas {
+        return substrait_err!(
+            "{} returned {} lambdas but {num_lambdas} expected",
+            fun.name(),
+            lambda_parameters.len()
+        );
+    }
+
+    let arguments = fun
+        .args
+        .iter()
+        .map(|arg| {
+            let arg = match arg {
+                Expr::Lambda(l) => {
+                    let lambda_parameters =
+                        lambda_parameters.next().ok_or_else(|| {
+                            internal_datafusion_err!(
+                                "lambda_parameters len should have been checked above"
+                            )
+                        })?;
+
+                    if l.params.len() > lambda_parameters.len() {
+                        return substrait_err!(
+                            "Lambda defined {} parameters ({}) but function {} supports only {}",
+                            l.params.len(),
+                            l.params.join(","),
+                            fun.name(),
+                            lambda_parameters.len()
+                        )
+                    }
+
+                    let named_lambda_parameters =
+                        std::iter::zip(&l.params, lambda_parameters)
+                            .map(|(name, parameter)| parameter.renamed(name))
+                            .collect();
+
+                    producer.push_lambda_parameters(named_lambda_parameters)?;
+
+                    let arg = producer.handle_lambda(l, schema);
+
+                    producer.pop_lambda_parameters()?;
+
+                    arg
+                }
+                _ => producer.handle_expr(arg, schema),
+            }?;
+
+            Ok(FunctionArgument {
+                arg_type: Some(ArgType::Value(arg)),
+            })
+        })
+        .collect::<datafusion::common::Result<_>>()?;
+
+    let function_anchor = producer.register_function(fun.name().to_string());
+
+    let (_, output_field) = Expr::HigherOrderFunction(fun.clone()).to_field(schema)?;
+    let output_type = to_substrait_type(
+        producer,
+        output_field.data_type(),
+        output_field.is_nullable(),
+    )?;
+
+    #[expect(deprecated)]
+    Ok(Expression {
+        rex_type: Some(RexType::ScalarFunction(ScalarFunction {
+            function_reference: function_anchor,
+            arguments,
+            output_type: Some(output_type),
+            options: vec![],
+            args: vec![],
+        })),
+    })
+}
+
+fn from_function(
+    producer: &mut impl SubstraitProducer,
+    name: &str,
+    args: &[Expr],
+    output_type: &DataType,
+    output_nullability: bool,
+    schema: &DFSchemaRef,
+) -> datafusion::common::Result<Expression> {
+    let mut arguments: Vec<FunctionArgument> = Vec::with_capacity(args.len());
+    for arg in args {
+        arguments.push(FunctionArgument {
+            arg_type: Some(ArgType::Value(producer.handle_expr(arg, schema)?)),
+        });
+    }
+
+    let arguments = custom_argument_handler(name, arguments);
+    let output_type = to_substrait_type(producer, output_type, output_nullability)?;
+
+    let function_anchor = producer.register_function(name.to_string());
+    #[expect(deprecated)]
+    Ok(Expression {
+        rex_type: Some(RexType::ScalarFunction(ScalarFunction {
+            function_reference: function_anchor,
+            arguments,
+            output_type: Some(output_type),
+            options: vec![],
+            args: vec![],
+        })),
+    })
+}
+
+// Handle functions that require custom handling for their arguments (e.g. log)
+pub fn custom_argument_handler(
+    name: &str,
+    args: Vec<FunctionArgument>,
+) -> Vec<FunctionArgument> {
+    match name {
+        "log" => {
+            if args.len() == 2 {
+                let mut args = args;
+                args.swap(0, 1);
+                args
+            } else {
+                args
+            }
+        }
+        _ => args,
+    }
+}
+
+pub fn from_unary_expr(
+    producer: &mut impl SubstraitProducer,
+    expr: &Expr,
+    schema: &DFSchemaRef,
+) -> datafusion::common::Result<Expression> {
+    let (fn_name, arg) = match expr {
+        Expr::Not(arg) => ("not", arg),
+        Expr::IsNull(arg) => ("is_null", arg),
+        Expr::IsNotNull(arg) => ("is_not_null", arg),
+        Expr::IsTrue(arg) => ("is_true", arg),
+        Expr::IsFalse(arg) => ("is_false", arg),
+        Expr::IsUnknown(arg) => ("is_unknown", arg),
+        Expr::IsNotTrue(arg) => ("is_not_true", arg),
+        Expr::IsNotFalse(arg) => ("is_not_false", arg),
+        Expr::IsNotUnknown(arg) => ("is_not_unknown", arg),
+        Expr::Negative(arg) => ("negate", arg),
+        expr => not_impl_err!("Unsupported expression: {expr:?}")?,
+    };
+    let (_, output_field) = expr.to_field(schema)?;
+    let output_type = to_substrait_type(
+        producer,
+        output_field.data_type(),
+        output_field.is_nullable(),
+    )?;
+    to_substrait_unary_scalar_fn(producer, fn_name, arg, schema, &output_type)
+}
+
+pub fn from_binary_expr(
+    producer: &mut impl SubstraitProducer,
+    expr: &BinaryExpr,
+    schema: &DFSchemaRef,
+) -> datafusion::common::Result<Expression> {
+    let BinaryExpr { left, op, right } = expr;
+    let l = producer.handle_expr(left, schema)?;
+    let r = producer.handle_expr(right, schema)?;
+    let (_, output_field) = Expr::BinaryExpr(expr.clone()).to_field(schema)?;
+    let output_type = to_substrait_type(
+        producer,
+        output_field.data_type(),
+        output_field.is_nullable(),
+    )?;
+    Ok(make_binary_op_scalar_func(
+        producer,
+        &l,
+        &r,
+        *op,
+        &output_type,
+    ))
+}
+
+/// The option `like` uses to carry case sensitivity, and the value that asks
+/// for the case insensitive form. Defined in `functions_string.yaml`.
+pub(crate) const CASE_SENSITIVITY_OPTION: &str = "case_sensitivity";
+pub(crate) const CASE_INSENSITIVE: &str = "CASE_INSENSITIVE";
+
+pub fn from_like(
+    producer: &mut impl SubstraitProducer,
+    like: &Like,
+    schema: &DFSchemaRef,
+) -> datafusion::common::Result<Expression> {
+    let Like {
+        negated,
+        expr,
+        pattern,
+        escape_char,
+        case_insensitive,
+    } = like;
+    // `like` takes two arguments and carries case sensitivity as an option;
+    // the extensions define no `ilike` and no escape character, so an escape
+    // has no encoding here and is rejected rather than emitted as a third
+    // argument that a consumer would bind to a parameter the function does
+    // not have.
+    if escape_char.is_some() {
+        return not_impl_err!("Substrait does not define an escape character for `like`");
+    }
+    // Substrait documents `output_type` as "Must be set to the return type of
+    // the function, exactly as derived using the declaration in the extension",
+    // and a consumer that reads it rejects the call when it is unset. The type
+    // comes from the expression itself so that it matches what DataFusion
+    // derives, rather than being restated here.
+    let (_, output_field) = Expr::Like(like.clone()).to_field(schema)?;
+    let output_type = to_substrait_type_from_field(producer, &output_field)?;
+
+    let function_anchor = producer.register_function("like".to_string());
+    let substrait_expr = producer.handle_expr(expr, schema)?;
+    let substrait_pattern = producer.handle_expr(pattern, schema)?;
+    let arguments = vec![
+        FunctionArgument {
+            arg_type: Some(ArgType::Value(substrait_expr)),
+        },
+        FunctionArgument {
+            arg_type: Some(ArgType::Value(substrait_pattern)),
+        },
+    ];
+    // An unset option leaves the default, which is `CASE_SENSITIVE`.
+    let options = if *case_insensitive {
+        vec![FunctionOption {
+            name: CASE_SENSITIVITY_OPTION.to_string(),
+            preference: vec![CASE_INSENSITIVE.to_string()],
+        }]
+    } else {
+        vec![]
+    };
+
+    #[expect(deprecated)]
+    let substrait_like = Expression {
+        rex_type: Some(RexType::ScalarFunction(ScalarFunction {
+            function_reference: function_anchor,
+            arguments,
+            output_type: Some(output_type.clone()),
+            args: vec![],
+            options,
+        })),
+    };
+
+    if *negated {
+        let function_anchor = producer.register_function("not".to_string());
+
+        #[expect(deprecated)]
+        Ok(Expression {
+            rex_type: Some(RexType::ScalarFunction(ScalarFunction {
+                function_reference: function_anchor,
+                arguments: vec![FunctionArgument {
+                    arg_type: Some(ArgType::Value(substrait_like)),
+                }],
+                // `not` yields the type its argument does.
+                output_type: Some(output_type),
+                args: vec![],
+                options: vec![],
+            })),
+        })
+    } else {
+        Ok(substrait_like)
+    }
+}
+
+/// Util to generate substrait [RexType::ScalarFunction] with one argument
+fn to_substrait_unary_scalar_fn(
+    producer: &mut impl SubstraitProducer,
+    fn_name: &str,
+    arg: &Expr,
+    schema: &DFSchemaRef,
+    output_type: &Type,
+) -> datafusion::common::Result<Expression> {
+    let function_anchor = producer.register_function(fn_name.to_string());
+    let substrait_expr = producer.handle_expr(arg, schema)?;
+
+    Ok(Expression {
+        rex_type: Some(RexType::ScalarFunction(ScalarFunction {
+            function_reference: function_anchor,
+            arguments: vec![FunctionArgument {
+                arg_type: Some(ArgType::Value(substrait_expr)),
+            }],
+            output_type: Some(output_type.clone()),
+            options: vec![],
+            ..Default::default()
+        })),
+    })
+}
+
+/// Return Substrait scalar function with two arguments
+pub fn make_binary_op_scalar_func(
+    producer: &mut impl SubstraitProducer,
+    lhs: &Expression,
+    rhs: &Expression,
+    op: Operator,
+    output_type: &Type,
+) -> Expression {
+    let function_anchor = producer.register_function(operator_to_name(op).to_string());
+    #[expect(deprecated)]
+    Expression {
+        rex_type: Some(RexType::ScalarFunction(ScalarFunction {
+            function_reference: function_anchor,
+            arguments: vec![
+                FunctionArgument {
+                    arg_type: Some(ArgType::Value(lhs.clone())),
+                },
+                FunctionArgument {
+                    arg_type: Some(ArgType::Value(rhs.clone())),
+                },
+            ],
+            output_type: Some(output_type.clone()),
+            args: vec![],
+            options: vec![],
+        })),
+    }
+}
+
+pub fn from_between(
+    producer: &mut impl SubstraitProducer,
+    between: &Between,
+    schema: &DFSchemaRef,
+) -> datafusion::common::Result<Expression> {
+    let Between {
+        expr,
+        negated,
+        low,
+        high,
+    } = between;
+
+    let expr = if *negated {
+        // `expr NOT BETWEEN low AND high` can be translated into (expr < low OR high < expr)
+        Expr::or(
+            Expr::lt(*expr.clone(), *low.clone()),
+            Expr::lt(*high.clone(), *expr.clone()),
+        )
+    } else {
+        // `expr BETWEEN low AND high` can be translated into (low <= expr AND expr <= high)
+        Expr::and(
+            Expr::lt_eq(*low.clone(), *expr.clone()),
+            Expr::lt_eq(*expr.clone(), *high.clone()),
+        )
+    };
+    producer.handle_expr(&expr, schema)
+}
+
+pub fn operator_to_name(op: Operator) -> &'static str {
+    match op {
+        Operator::Eq => "equal",
+        Operator::NotEq => "not_equal",
+        Operator::Lt => "lt",
+        Operator::LtEq => "lte",
+        Operator::Gt => "gt",
+        Operator::GtEq => "gte",
+        Operator::Plus => "add",
+        Operator::Minus => "subtract",
+        Operator::Multiply => "multiply",
+        Operator::Divide => "divide",
+        Operator::Modulo => "modulus",
+        Operator::And => "and",
+        Operator::Or => "or",
+        Operator::IsDistinctFrom => "is_distinct_from",
+        Operator::IsNotDistinctFrom => "is_not_distinct_from",
+        Operator::RegexMatch => "regex_match",
+        Operator::RegexIMatch => "regex_imatch",
+        Operator::RegexNotMatch => "regex_not_match",
+        Operator::RegexNotIMatch => "regex_not_imatch",
+        Operator::LikeMatch => "like_match",
+        Operator::ILikeMatch => "like_imatch",
+        Operator::NotLikeMatch => "like_not_match",
+        Operator::NotILikeMatch => "like_not_imatch",
+        Operator::BitwiseAnd => "bitwise_and",
+        Operator::BitwiseOr => "bitwise_or",
+        Operator::StringConcat => "str_concat",
+        Operator::AtArrow => "at_arrow",
+        Operator::ArrowAt => "arrow_at",
+        Operator::Arrow => "arrow",
+        Operator::LongArrow => "long_arrow",
+        Operator::HashArrow => "hash_arrow",
+        Operator::HashLongArrow => "hash_long_arrow",
+        Operator::AtAt => "at_at",
+        Operator::IntegerDivide => "integer_divide",
+        Operator::HashMinus => "hash_minus",
+        Operator::AtQuestion => "at_question",
+        Operator::Question => "question",
+        Operator::QuestionAnd => "question_and",
+        Operator::QuestionPipe => "question_pipe",
+        Operator::BitwiseXor => "bitwise_xor",
+        Operator::BitwiseShiftRight => "bitwise_shift_right",
+        Operator::BitwiseShiftLeft => "bitwise_shift_left",
+        Operator::Colon => "colon",
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::{CASE_INSENSITIVE, CASE_SENSITIVITY_OPTION};
+    use crate::logical_plan::producer::{
+        DefaultSubstraitProducer, SubstraitProducer, to_substrait_type,
+    };
+    use datafusion::arrow::datatypes::{DataType, Field, Schema};
+    use datafusion::common::{DFSchema, DFSchemaRef};
+    use datafusion::execution::SessionStateBuilder;
+    use datafusion::logical_expr::{Expr, Like};
+    use datafusion::prelude::{col, lit};
+    use substrait::proto::Expression;
+    use substrait::proto::FunctionOption;
+    use substrait::proto::expression::{RexType, ScalarFunction};
+    use substrait::proto::function_argument::ArgType;
+
+    /// `like` takes two arguments and carries case sensitivity as an option,
+    /// so `ILIKE` is that option rather than a separate function.
+    #[tokio::test]
+    async fn like_emits_case_sensitivity_option() -> datafusion::common::Result<()> {
+        let state = SessionStateBuilder::default().build();
+        let schema =
+            DFSchemaRef::new(DFSchema::try_from(Schema::new(vec![Field::new(
+                "s",
+                DataType::Utf8,
+                true,
+            )]))?);
+
+        for (case_insensitive, expected_options) in [
+            (false, vec![]),
+            (
+                true,
+                vec![FunctionOption {
+                    name: CASE_SENSITIVITY_OPTION.to_string(),
+                    preference: vec![CASE_INSENSITIVE.to_string()],
+                }],
+            ),
+        ] {
+            let mut producer = DefaultSubstraitProducer::new(&state);
+            let like = Like::new(
+                false,
+                Box::new(col("s")),
+                Box::new(lit("a%")),
+                None,
+                case_insensitive,
+            );
+            let expr = producer.handle_expr(&Expr::Like(like), &schema)?;
+
+            let Some(RexType::ScalarFunction(call)) = expr.rex_type else {
+                panic!("Substrait ScalarFunction expected")
+            };
+            assert_eq!(
+                producer
+                    .get_extensions()
+                    .functions
+                    .get(&call.function_reference),
+                Some(&"like".to_string()),
+                "case_insensitive = {case_insensitive}"
+            );
+            assert_eq!(call.arguments.len(), 2, "no escape argument is emitted");
+            assert_eq!(call.options, expected_options);
+        }
+
+        Ok(())
+    }
+
+    /// The extensions define no escape character, so there is nothing to emit.
+    #[tokio::test]
+    async fn like_with_escape_is_rejected() -> datafusion::common::Result<()> {
+        let state = SessionStateBuilder::default().build();
+        let schema =
+            DFSchemaRef::new(DFSchema::try_from(Schema::new(vec![Field::new(
+                "s",
+                DataType::Utf8,
+                true,
+            )]))?);
+        let mut producer = DefaultSubstraitProducer::new(&state);
+
+        let like = Like::new(
+            false,
+            Box::new(col("s")),
+            Box::new(lit("a!%")),
+            Some('!'),
+            false,
+        );
+        let err = producer
+            .handle_expr(&Expr::Like(like), &schema)
+            .expect_err("an escape character must be rejected")
+            .to_string();
+        assert!(err.contains("escape character"), "unexpected error: {err}");
+
+        Ok(())
+    }
+
+    #[tokio::test]
+    async fn binary_expr_output_type() -> datafusion::common::Result<()> {
+        let state = SessionStateBuilder::default().build();
+        let empty_schema = DFSchemaRef::new(DFSchema::empty());
+        let mut producer = DefaultSubstraitProducer::new(&state);
+
+        let expr = lit(1i64) + lit(2i64);
+        let substrait_expr = producer.handle_expr(&expr, &empty_schema)?;
+        if let Expression {
+            rex_type: Some(RexType::ScalarFunction(ScalarFunction { output_type, .. })),
+        } = substrait_expr
+        {
+            let expected_type =
+                to_substrait_type(&mut producer, &DataType::Int64, false)?;
+            assert_eq!(output_type, Some(expected_type));
+            Ok(())
+        } else {
+            panic!("Substrait ScalarFunction expected")
+        }
+    }
+
+    /// The `like` call carries the type the expression yields, and so does the
+    /// `not` that wraps a negated one.
+    #[tokio::test]
+    async fn like_output_type() -> datafusion::common::Result<()> {
+        let state = SessionStateBuilder::default().build();
+        let schema =
+            DFSchemaRef::new(DFSchema::try_from(Schema::new(vec![Field::new(
+                "s",
+                DataType::Utf8,
+                true,
+            )]))?);
+        let mut producer = DefaultSubstraitProducer::new(&state);
+        // A `LIKE` over a nullable input yields a nullable boolean.
+        let expected = to_substrait_type(&mut producer, &DataType::Boolean, true)?;
+
+        let like = Like::new(false, Box::new(col("s")), Box::new(lit("a%")), None, false);
+        let substrait_expr = producer.handle_expr(&Expr::Like(like), &schema)?;
+        let Some(RexType::ScalarFunction(like_fn)) = substrait_expr.rex_type else {
+            panic!("Substrait ScalarFunction expected")
+        };
+        assert_eq!(like_fn.output_type, Some(expected.clone()));
+
+        let negated =
+            Like::new(true, Box::new(col("s")), Box::new(lit("a%")), None, false);
+        let substrait_expr = producer.handle_expr(&Expr::Like(negated), &schema)?;
+        let Some(RexType::ScalarFunction(not_fn)) = substrait_expr.rex_type else {
+            panic!("Substrait ScalarFunction expected")
+        };
+        assert_eq!(not_fn.output_type, Some(expected.clone()));
+
+        // The `not` wraps the `like`, which carries the type as well.
+        let Some(ArgType::Value(Expression {
+            rex_type: Some(RexType::ScalarFunction(inner)),
+        })) = not_fn.arguments[0].arg_type.clone()
+        else {
+            panic!("Substrait ScalarFunction expected inside `not`")
+        };
+        assert_eq!(inner.output_type, Some(expected));
+        Ok(())
+    }
+}

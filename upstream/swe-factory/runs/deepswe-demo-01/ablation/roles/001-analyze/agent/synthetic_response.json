@@ -1,0 +1,8 @@
+{
+  "status": "ok",
+  "summary": "Synthetic mapping precedence fixture",
+  "evidence_paths": [
+    "calc.py",
+    "tests/test_regression.py"
+  ]
+}

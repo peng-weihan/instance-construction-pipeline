@@ -1,0 +1,2484 @@
+{
+  "valid": true,
+  "score": 0.0,
+  "pass_rate": 0.0,
+  "summary": "0/223 behavior cases; equal weight across 8 groups",
+  "metrics": {
+    "group_passed": {
+      "integer": 0,
+      "traps": 0,
+      "control": 0,
+      "loops": 0,
+      "calls": 0,
+      "memory": 0,
+      "composition": 0,
+      "binary": 0
+    },
+    "group_total": {
+      "integer": 163,
+      "traps": 14,
+      "control": 19,
+      "loops": 6,
+      "calls": 5,
+      "memory": 8,
+      "composition": 4,
+      "binary": 4
+    },
+    "candidate_uid_isolation": false
+  },
+  "checks": [
+    {
+      "name": "official_i32_add_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_add_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_add_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_add_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_add_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_add_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_sub_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_sub_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_sub_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_sub_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_sub_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_sub_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_mul_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_mul_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_mul_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_mul_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_mul_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_mul_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_div_s_1",
+      "group": "traps",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_div_s_2",
+      "group": "traps",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_div_s_3",
+      "group": "traps",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_div_s_4",
+      "group": "traps",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_div_s_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_div_s_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_div_u_1",
+      "group": "traps",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_div_u_2",
+      "group": "traps",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_div_u_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_div_u_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_div_u_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_div_u_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rem_s_1",
+      "group": "traps",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rem_s_2",
+      "group": "traps",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rem_s_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rem_s_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rem_s_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rem_s_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rem_u_1",
+      "group": "traps",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rem_u_2",
+      "group": "traps",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rem_u_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rem_u_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rem_u_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rem_u_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_and_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_and_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_and_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_and_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_and_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_and_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_or_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_or_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_or_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_or_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_or_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_or_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_xor_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_xor_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_xor_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_xor_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_xor_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_xor_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_shl_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_shl_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_shl_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_shl_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_shl_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_shl_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_shr_s_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_shr_s_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_shr_s_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_shr_s_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_shr_s_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_shr_s_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_shr_u_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_shr_u_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_shr_u_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_shr_u_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_shr_u_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_shr_u_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rotl_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rotl_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rotl_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rotl_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rotl_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rotl_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rotr_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rotr_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rotr_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rotr_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rotr_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_rotr_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_clz_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_clz_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_clz_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_clz_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_clz_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_clz_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ctz_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ctz_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ctz_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ctz_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ctz_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ctz_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_popcnt_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_popcnt_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_popcnt_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_popcnt_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_popcnt_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_popcnt_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_eqz_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_eqz_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_eqz_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_eqz_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_eqz_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_eq_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_eq_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_eq_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_eq_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_eq_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_eq_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ne_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ne_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ne_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ne_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ne_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ne_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_lt_s_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_lt_s_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_lt_s_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_lt_s_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_lt_s_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_lt_s_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_lt_u_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_lt_u_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_lt_u_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_lt_u_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_lt_u_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_lt_u_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_le_s_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_le_s_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_le_s_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_le_s_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_le_s_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_le_s_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_le_u_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_le_u_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_le_u_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_le_u_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_le_u_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_le_u_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_gt_s_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_gt_s_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_gt_s_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_gt_s_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_gt_s_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_gt_s_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_gt_u_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_gt_u_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_gt_u_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_gt_u_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_gt_u_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_gt_u_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ge_s_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ge_s_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ge_s_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ge_s_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ge_s_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ge_s_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ge_u_1",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ge_u_2",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ge_u_3",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ge_u_4",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ge_u_5",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "official_i32_ge_u_6",
+      "group": "integer",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "choose_0",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "choose_1",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "choose_2",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "choose_-1",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "escape_0",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "escape_1",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "escape_2",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "escape_-1",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "nested_0",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "nested_1",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "nested_2",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "nested_-1",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "table_0",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "table_1",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "table_2",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "table_-1",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "select_0",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "select_1",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "select_-1",
+      "group": "control",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "loop_sum_0",
+      "group": "loops",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "loop_sum_1",
+      "group": "loops",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "loop_sum_2",
+      "group": "loops",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "loop_sum_10",
+      "group": "loops",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "loop_sum_100",
+      "group": "loops",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "loop_sum_1000",
+      "group": "loops",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "factorial_0",
+      "group": "calls",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "factorial_1",
+      "group": "calls",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "factorial_2",
+      "group": "calls",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "factorial_6",
+      "group": "calls",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "factorial_12",
+      "group": "calls",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "memory_roundtrip_0",
+      "group": "memory",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "memory_roundtrip_1",
+      "group": "memory",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "memory_roundtrip_7",
+      "group": "memory",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "memory_roundtrip_65532",
+      "group": "memory",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "grow_0",
+      "group": "memory",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "grow_1",
+      "group": "memory",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "grow_2",
+      "group": "memory",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "grow_-1",
+      "group": "memory",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "oob_65533",
+      "group": "traps",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "oob_65536",
+      "group": "traps",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "oob_-1",
+      "group": "traps",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "unreachable",
+      "group": "traps",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "loop_call_store_3",
+      "group": "composition",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "loop_call_store_9",
+      "group": "composition",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "loop_call_store_32",
+      "group": "composition",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "loop_call_store_200",
+      "group": "composition",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "magic",
+      "group": "binary",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "version",
+      "group": "binary",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "truncated",
+      "group": "binary",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    },
+    {
+      "name": "size",
+      "group": "binary",
+      "passed": false,
+      "actual": {
+        "stdout": "",
+        "stderr": "  File \"/Users/raymone/Desktop/edgebench/samples/software-multiline-001/03_wasm/authoring/controls/syntax_submission/runner.py\", line 1\n    this is invalid Python !\n                    ^^^^^^\nSyntaxError: invalid syntax\n",
+        "exit": 1,
+        "timeout": false
+      }
+    }
+  ]
+}

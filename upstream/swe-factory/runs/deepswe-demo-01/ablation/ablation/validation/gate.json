@@ -1,0 +1,18 @@
+{
+  "passed": false,
+  "fail_to_pass": [],
+  "pass_to_pass": [],
+  "errors": [
+    "Both F2P and P2P must be nonempty",
+    "Required tests are missing/skipped/failing in gold",
+    "Required tests are missing/skipped/errored in problem state",
+    "Regression test identities changed across states"
+  ],
+  "base_missing_ids": [
+    "runs/deepswe-demo-01/ablation/ablation/validation/C5/workspace/tests/test_target.py::test_child",
+    "runs/deepswe-demo-01/ablation/ablation/validation/C5/workspace/tests/test_target.py::test_override",
+    "runs/deepswe-demo-01/ablation/ablation/validation/C5/workspace/tests/test_target.py::test_parent",
+    "runs/deepswe-demo-01/ablation/ablation/validation/C5/workspace/tests/test_target.py::test_unicode",
+    "runs/deepswe-demo-01/ablation/ablation/validation/C6/workspace/tests/test_regression.py::test_plain"
+  ]
+}

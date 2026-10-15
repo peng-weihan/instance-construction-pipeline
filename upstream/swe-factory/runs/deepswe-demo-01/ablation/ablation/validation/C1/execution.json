@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "/Users/raymone/Desktop/01_Research/swe-factory/.venv/bin/python",
+    "-m",
+    "pytest",
+    "tests/test_regression.py",
+    "-q",
+    "--junitxml=.factory-report.xml",
+    "-p",
+    "no:cacheprovider"
+  ],
+  "returncode": 0,
+  "stdout": ".                                                                        [100%]\n- generated xml file: /Users/raymone/Desktop/01_Research/swe-factory/runs/deepswe-demo-01/ablation/ablation/validation/C1/workspace/.factory-report.xml -\n1 passed in 0.04s\n",
+  "stderr": "",
+  "timed_out": false,
+  "elapsed_sec": 0.538,
+  "runtime": {
+    "backend": "host",
+    "isolated": false,
+    "image": null
+  }
+}

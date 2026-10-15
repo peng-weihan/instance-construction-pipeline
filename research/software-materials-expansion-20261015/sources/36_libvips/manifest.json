@@ -1,0 +1,80 @@
+{
+  "repo": "libvips/libvips",
+  "revision": "06564b0a4c3f473d0e0cb9f9977ab647888aa43d",
+  "resolved_utc": "2026-10-15T13:08:22.080149+00:00",
+  "retrieved_utc": "2026-10-15T13:09:16.705415+00:00",
+  "tree_manifest": {
+    "path": "tree.json",
+    "sha256": "e1abbe64a75a1c4b4bc34fcf97400524f67c4daf04b39279c01a9b92776562b3",
+    "truncated": false,
+    "blob_count": 861
+  },
+  "files_acquired": [
+    {
+      "path": "LICENSE",
+      "bytes": 26530,
+      "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551",
+      "url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 10109,
+      "sha256": "89dae59383e63ae50ef769ab7ab68c01222a23812743efb52e0c3b1c108550ae",
+      "url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/README.md"
+    },
+    {
+      "path": "doc/using-threads.md",
+      "bytes": 4641,
+      "sha256": "3fe8b9879f2b03b353da3f94a9a464756347e7b3887a4f2bf19a7ff42929c2c0",
+      "url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/doc/using-threads.md"
+    },
+    {
+      "path": "libvips/conversion/tilecache.c",
+      "bytes": 26574,
+      "sha256": "2eb4122a35515d5ff5e3756b6b5e71f18c269e8126a82938b1b83a068b249f3b",
+      "url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/libvips/conversion/tilecache.c"
+    },
+    {
+      "path": "libvips/deprecated/im_benchmark.c",
+      "bytes": 7759,
+      "sha256": "70d4c125471bf9d0cf9cd224837874ba82626c25c8b4a4a03e7a1663720a24a6",
+      "url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/libvips/deprecated/im_benchmark.c"
+    },
+    {
+      "path": "libvips/iofuncs/threadpool.c",
+      "bytes": 17580,
+      "sha256": "c30e1e94d01fc10b61ea61a6dee813f4de2fdbfd3932a5db4d5356a22e5547cc",
+      "url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/libvips/iofuncs/threadpool.c"
+    },
+    {
+      "path": "libvips/resample/shrinkh_hwy.cpp",
+      "bytes": 2960,
+      "sha256": "3859d56cc16fbb04f52746a171d988859370a18cd084bed5fb183af33f12730a",
+      "url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/libvips/resample/shrinkh_hwy.cpp"
+    },
+    {
+      "path": "libvips/resample/thumbnail.c",
+      "bytes": 61192,
+      "sha256": "92f5923f280611ee2022ab98476d0bb0784764ae551db028071301f51733abba",
+      "url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/libvips/resample/thumbnail.c"
+    },
+    {
+      "path": "meson.build",
+      "bytes": 33274,
+      "sha256": "d8fe1473db51eb5c5d35d2076f2a8edad5bd80b73a66ceac4f95c7a5a18c295b",
+      "url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/meson.build"
+    },
+    {
+      "path": "test/test-suite/test_resample.py",
+      "bytes": 12166,
+      "sha256": "fab1a83e1bbbc685c2a7b720706ca63126e046cc6e099dc44e07942bc45bc737",
+      "url": "https://github.com/libvips/libvips/blob/06564b0a4c3f473d0e0cb9f9977ab647888aa43d/test/test-suite/test_resample.py"
+    }
+  ],
+  "missing_requested_paths": [],
+  "fetch_errors": [],
+  "status": "source_excerpts_acquired_not_full_checkout",
+  "runtime_verified": false,
+  "task_constructed": false,
+  "six_hour_difficulty_verified": false
+}

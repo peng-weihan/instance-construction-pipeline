@@ -1,0 +1,20 @@
+{
+  "status": "ok",
+  "instruction": "Implement combine(parent, child) to return a new dictionary containing both mappings, with child values winning on duplicate keys. Preserve plain(value).",
+  "target_command": [
+    "{python}",
+    "-m",
+    "pytest",
+    "tests/test_target.py",
+    "tests/test_boundary.py",
+    "-q"
+  ],
+  "regression_command": [
+    "{python}",
+    "-m",
+    "pytest",
+    "tests/test_regression.py",
+    "-q"
+  ],
+  "build_command": []
+}

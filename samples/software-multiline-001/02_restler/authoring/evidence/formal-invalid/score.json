@@ -1,0 +1,45 @@
+{
+  "valid": false,
+  "score": null,
+  "summary": "hold_for_evidence: native component diagnostics available, Polaris HTTP/reset/lifecycle reference and acceptance oracle missing",
+  "component_checks": [
+    {
+      "name": "native_smoke",
+      "passed": false,
+      "detail": "missing native engine"
+    },
+    {
+      "name": "native_replay",
+      "passed": false,
+      "detail": "missing native engine"
+    },
+    {
+      "name": "commit",
+      "passed": false,
+      "detail": "missing native engine"
+    },
+    {
+      "name": "resume",
+      "passed": false,
+      "detail": "missing native engine"
+    },
+    {
+      "name": "corruption",
+      "passed": false,
+      "detail": "missing native engine"
+    },
+    {
+      "name": "input_mismatch",
+      "passed": false,
+      "detail": "missing native engine"
+    }
+  ],
+  "component_pass_rate": 0.0,
+  "component_fixed_denominator": 6,
+  "records": [],
+  "unexecuted_required_groups": [
+    "external HTTP crash/replay exactly-once semantics",
+    "Polaris principal/role/catalog dependency restoration",
+    "cleanup and resource lifecycle after cancellation"
+  ]
+}

@@ -1,0 +1,2057 @@
+[
+  {
+    "path": "SOURCE_TO_TASK.md",
+    "bytes": 977,
+    "sha256": "8a7f0553790fb7ae47f5ce3e0f7292630dedf9a95d8d112ca7edaa9c526316b8"
+  },
+  {
+    "path": "construction.json",
+    "bytes": 1708,
+    "sha256": "982c681fa5a609a73bb7868777f92bc726a617b190c33775475b3ce9dabed4d7"
+  },
+  {
+    "path": "private/feedback_maps/frontier_feedback_24.xml",
+    "bytes": 1872,
+    "sha256": "da0ba80108720df0ae15a3870fa4d217b8a2aaa539546e7d29fd0ae81c4c9001"
+  },
+  {
+    "path": "private/feedback_maps/frontier_feedback_32.xml",
+    "bytes": 2321,
+    "sha256": "d5f9f135b9e0e1d961c1bf716cb63e35716c35b8ca2007c1108759354dd10398"
+  },
+  {
+    "path": "private/feedback_maps/frontier_feedback_40.xml",
+    "bytes": 2898,
+    "sha256": "e3f6c232237e47e7175fa61e1b75f4bd16e4b79cb13b73d99fac622e44a47b4d"
+  },
+  {
+    "path": "private/final_maps/frontier_final_24.xml",
+    "bytes": 1872,
+    "sha256": "1996a771585f422ad9bd9d56cf887f8d05f06abd671a90ae97947eb6cec1f033"
+  },
+  {
+    "path": "private/final_maps/frontier_final_32.xml",
+    "bytes": 2321,
+    "sha256": "9f4e428bd4d9b0941c40ec76c22d3522e027037f5a1d472ceac74a47839ee3ec"
+  },
+  {
+    "path": "private/final_maps/frontier_final_40.xml",
+    "bytes": 2898,
+    "sha256": "117a28193f68cf6865923149999f13299b009ae5af8c54506084c443ab2de126"
+  },
+  {
+    "path": "private/map_manifest.json",
+    "bytes": 2250,
+    "sha256": "21ae0fceacfebc2eaa2f8849ec9176f2b29abd95e2c9ae7b9c07dc2e049e7ecf"
+  },
+  {
+    "path": "public/engine/CONTRIBUTING.md",
+    "bytes": 1940,
+    "sha256": "9c1a0495dc3ee207e7c1d81e3b46a5faa2533051eb489fcfd70734e0193ad276"
+  },
+  {
+    "path": "public/engine/LICENSE",
+    "bytes": 32472,
+    "sha256": "c61f12da7cdad526bdcbed47a4c0a603e60dbbfdaf8b66933cd088e9132c303f"
+  },
+  {
+    "path": "public/engine/README.md",
+    "bytes": 5312,
+    "sha256": "a0ae5e0b0424e89d1d17e5664de6c02597010179085376778a702089dda62308"
+  },
+  {
+    "path": "public/engine/build.xml",
+    "bytes": 2769,
+    "sha256": "7d8a894f814402b2b70fda06a95627015026fae4edacacc66d4e01e37bec2020"
+  },
+  {
+    "path": "public/engine/help.png",
+    "bytes": 106631,
+    "sha256": "0b76ab1e48a9fb6a2463677cd2f37bc78150e2f63527229ab30f2e0a5db26a09"
+  },
+  {
+    "path": "public/engine/lib/bots/Coac.jar",
+    "bytes": 30258,
+    "sha256": "053a01ac51c2e717940a1e8f348bd59575a05db40fdaa7ec58bec5390d22375f"
+  },
+  {
+    "path": "public/engine/lib/bots/Droplet.jar",
+    "bytes": 60851,
+    "sha256": "dbd50c664cb1b1e138d65d0324bc56f3020bcc6ffda8ef5db38dfd44b95fc5a8"
+  },
+  {
+    "path": "public/engine/lib/bots/GRojoA3N.jar",
+    "bytes": 666601,
+    "sha256": "0cba595cde5b53a076d4716d34155dc5a8f04507c8c077aff25ef6a9704b7151"
+  },
+  {
+    "path": "public/engine/lib/bots/Izanagi.jar",
+    "bytes": 1558659,
+    "sha256": "124e2cdf821942f72f65b53e1ce3b9bd6af2f126423016a7e979e323db91cee7"
+  },
+  {
+    "path": "public/engine/lib/bots/MixedBot.jar",
+    "bytes": 166928,
+    "sha256": "53ccb34d45f9b9397ec7807cefbce14e3083d88a04331426d82a22a7e587a517"
+  },
+  {
+    "path": "public/engine/lib/bots/TiamatBot.jar",
+    "bytes": 189367,
+    "sha256": "b5925b0b41a4aa45775fa30aacd5f13ffd52911c8198e0e05375623c29099a80"
+  },
+  {
+    "path": "public/engine/lib/bots/mayariBot.jar",
+    "bytes": 38875,
+    "sha256": "f7f5e52885418889039c200d6975561fd78d9e56c1480a2aa19ddf9b64141a70"
+  },
+  {
+    "path": "public/engine/lib/hamcrest-all-1.3.jar",
+    "bytes": 306578,
+    "sha256": "4877670629ab96f34f5f90ab283125fcd9acb7e683e66319a68be6eb2cca60de"
+  },
+  {
+    "path": "public/engine/lib/jdom.jar",
+    "bytes": 153253,
+    "sha256": "3b23bc3979aec14a952a12aafc483010dc57579775f2ffcacef5256a90eeda02"
+  },
+  {
+    "path": "public/engine/lib/junit-4.12.jar",
+    "bytes": 314932,
+    "sha256": "59721f0805e223d84b90677887d9ff567dc534d7c502ca903c0c2b17f05c116a"
+  },
+  {
+    "path": "public/engine/lib/minimal-json-0.9.4.jar",
+    "bytes": 30459,
+    "sha256": "e1d280900c78f18ae2e00c14e7410a77ba19cf084154b386532846aa6dc81721"
+  },
+  {
+    "path": "public/engine/lib/weka.jar",
+    "bytes": 11025147,
+    "sha256": "fff9301eb4ad82e40850a7486834676d7640d466234aa1f12364094156e7b92f"
+  },
+  {
+    "path": "public/engine/microrts-text.png",
+    "bytes": 120485,
+    "sha256": "877d122c2d0639ba1d32cb546db0cffb834a323fed59528a9dd7a459e23f4537"
+  },
+  {
+    "path": "public/engine/resources/config.properties",
+    "bytes": 1925,
+    "sha256": "f852b72c4bb87fa722f118dadf1e0212085cd864c82adc6e7bbb84073ff32a9b"
+  },
+  {
+    "path": "public/engine/src/.DS_Store",
+    "bytes": 8196,
+    "sha256": "fd9e3d7ed9634fa63df3e536d84211aa597ab4b67b655e5a34a6a476ddd0d1ba"
+  },
+  {
+    "path": "public/engine/src/ai/.DS_Store",
+    "bytes": 10244,
+    "sha256": "8530b4942d40fc73a4f1c9a4716e9cf1446c69c300279fc23e90051e29013202"
+  },
+  {
+    "path": "public/engine/src/ai/BranchingFactorCalculatorBigInteger.java",
+    "bytes": 13219,
+    "sha256": "d8bc402911b360791952a86001874024cee0bf3bcdbba0d2ade48b66d295a1bd"
+  },
+  {
+    "path": "public/engine/src/ai/BranchingFactorCalculatorDouble.java",
+    "bytes": 12286,
+    "sha256": "ba0f648d3936ad9eb61b1312ab15f47dea0168792152acc29743442213b7eb9d"
+  },
+  {
+    "path": "public/engine/src/ai/BranchingFactorCalculatorLong.java",
+    "bytes": 12232,
+    "sha256": "e7459169b78be42c2bcbf24901d8003c698abf2e38358366a1473421413c12f7"
+  },
+  {
+    "path": "public/engine/src/ai/PassiveAI.java",
+    "bytes": 896,
+    "sha256": "1af91640da9148b49a85bf717e10c9d7ee3eaaa9f0259ba67139efd35d981275"
+  },
+  {
+    "path": "public/engine/src/ai/RandomAI.java",
+    "bytes": 1348,
+    "sha256": "c2b26f9512d82caf39e68aaafff4901b1aeb7c9e5296965062b3563dd4723fec"
+  },
+  {
+    "path": "public/engine/src/ai/RandomBiasedAI.java",
+    "bytes": 3559,
+    "sha256": "f2997ba76306202ce7587c39bc17a44ac634b6a4568c9e3c196553ed1a26e886"
+  },
+  {
+    "path": "public/engine/src/ai/RandomBiasedSingleUnitAI.java",
+    "bytes": 3644,
+    "sha256": "04e92570f2bc123a9a23b7903224457480a29b2d1f9e50423c57f298d04fa150"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/.DS_Store",
+    "bytes": 8196,
+    "sha256": "2e337a1aa875543d05de4c10055a3e559c899f6185a89fe40423e690c1a14e93"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/AbstractAction.java",
+    "bytes": 3330,
+    "sha256": "9908e41ee1b17f4994d29172c5bb6623a212d24c78613d95eee7ccaab4112a1d"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/AbstractTrace.java",
+    "bytes": 2326,
+    "sha256": "625e165e9bd85f3b69dcefce3b1d78b8b585db24271077f0c5c2b0122cfeebcf"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/AbstractTraceEntry.java",
+    "bytes": 2675,
+    "sha256": "bfa99113b07c5eb2612973d2cdad41c420e47d7a046ead280b4441b28028e513"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/AbstractionLayerAI.java",
+    "bytes": 9312,
+    "sha256": "30cea446e7f0e934cb3c749981c751b5bb9b168b5c035cfea20eb29b544c3b58"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/Attack.java",
+    "bytes": 1952,
+    "sha256": "3c956e7008dea1947dadc15495e6f2ff002f8b58f49f9f9b3d0bcb0bf2307435"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/Build.java",
+    "bytes": 2685,
+    "sha256": "8cbdf21f8bdd3a15ad7e9be5408a5edacb9d716996a34c3d28826a5add1d077c"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/EMRDeterministico.java",
+    "bytes": 12804,
+    "sha256": "d90632b3d25767b4558d205c3c36312ab64441fafe58a91a0f0ea4f95085a7e5"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/EconomyMilitaryRush.java",
+    "bytes": 12998,
+    "sha256": "d4610f15181c3589a850a024cbc2dbcc386e61810197cc144632fc78822e7220"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/EconomyRush.java",
+    "bytes": 13713,
+    "sha256": "f48343d0fcb840244388e740a64a26f4ed2594a04ebe8c25a66f0fb7f8516cc8"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/EconomyRushBurster.java",
+    "bytes": 12075,
+    "sha256": "9a77587c68a2da4676651382324f320c3393e7d644abbc693d0e82da254cf41d"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/Harvest.java",
+    "bytes": 4458,
+    "sha256": "fbd7e98d1265ea83dd8b8850c9d05af6089cf43b38f11761674ea11c51a642f9"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/HeavyDefense.java",
+    "bytes": 8566,
+    "sha256": "00c6cdaa333f0dfd6fdce221e816445a633bb66275d77669a6023293aab68f42"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/HeavyRush.java",
+    "bytes": 9375,
+    "sha256": "6f16da3b9a7819e6ea8c2fa36c7256605f7982fc89b730ba60f8071cfe8b6592"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/Idle.java",
+    "bytes": 1409,
+    "sha256": "4e4c6003bced042e256fc9a3068c79944d8bf09cd45613206c502864a8b5432c"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/LightDefense.java",
+    "bytes": 8798,
+    "sha256": "38c1e02a21499fd7a81231a441e2539cae2ef5912fcd663774f9434cf2dcf146"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/LightRush.java",
+    "bytes": 9388,
+    "sha256": "442e522db2d6416f63965d48d3a8d8cbbad2082bfc76228022e9f88e050f14f5"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/Move.java",
+    "bytes": 1471,
+    "sha256": "a6959f272b94402b27f88a57e56f22085ca9409a6e7aa7bc1a2bef02bc7af274"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/RangedDefense.java",
+    "bytes": 8178,
+    "sha256": "02f173bddf38006d5c68b5f210c3a87b1ada4fddcfe687489f41d8112cabbe69"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/RangedRush.java",
+    "bytes": 8720,
+    "sha256": "42f4d40512ff10934fd75b669eb6c71d4d4278ec84bb85ea3834d7fe4728130d"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/SimpleEconomyRush.java",
+    "bytes": 10356,
+    "sha256": "e4a35773d3d173db068acf0d0b1bc3aa1415deecf68885a49f04026a621a1c8d"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/Train.java",
+    "bytes": 3878,
+    "sha256": "eee2dc8f8a889c75441aee9ac7b0260fec15ac6d6210dfd79e202f22bfb3a732"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/WorkerDefense.java",
+    "bytes": 7575,
+    "sha256": "30b436ea81776e613f77b9f7cab81d8d392062d52ead0dbba7d92141837a9185"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/WorkerRush.java",
+    "bytes": 7462,
+    "sha256": "5154c7e865827bf7098728a1f217386abd75b7631b7df842f2399722a61d5152"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/WorkerRushPlusPlus.java",
+    "bytes": 7690,
+    "sha256": "bce458c7239227fdcd5a83ffcd2d40137182f633036a7e7b1132f1be15367767"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/cRush/CRanged_Tactic.java",
+    "bytes": 15030,
+    "sha256": "4958df496074797b6f2099783779d8bbeb50390cb06d348d2a597b5070871edc"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/cRush/CRush_V1.java",
+    "bytes": 15216,
+    "sha256": "e5d3295f918d640ea6042b2e08c7e212a20c18e214a19707a473aae6b712655c"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/cRush/CRush_V2.java",
+    "bytes": 18112,
+    "sha256": "470f21e273529022a141c6ab94221b32a9be8b66595202c54920d44f6931148e"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/cRush/RangedAttack.java",
+    "bytes": 2989,
+    "sha256": "732aad4ced115c60306a7064288bc147ffc01d57c53847961afdf4455d2208aa"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/partialobservability/POHeavyRush.java",
+    "bytes": 2612,
+    "sha256": "dbc179c7a0502b2756a497ad2d88415346ee0fd733c78bac10e59f5029128dba"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/partialobservability/POLightRush.java",
+    "bytes": 2612,
+    "sha256": "f26ec3dc2ebc62bfcd235c9a86a2673a13efb007d8e8e794dd04f2dc9a1ad3eb"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/partialobservability/PORangedRush.java",
+    "bytes": 2618,
+    "sha256": "73457cd7d9b9c9ecb5c1521f8d5a841657eb9d36c0c63649ba5e96efe68f67de"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/partialobservability/POWorkerRush.java",
+    "bytes": 2618,
+    "sha256": "0cb4540e773bf43a1720500ab3c097bba3ee304355858f20d0c19327fbe01f71"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/pathfinding/AStarPathFinding.java",
+    "bytes": 11394,
+    "sha256": "ec56157c8479f807a4f24d22a8fe8127ddd5cb316c7088f9045ac1e461c2abb4"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/pathfinding/BFSPathFinding.java",
+    "bytes": 7077,
+    "sha256": "8b562d2cea13a2ca02c84697c8abbd217b85c5a952b7c08b4ef4e4cc4e9a1010"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/pathfinding/FloodFillPathFinding.java",
+    "bytes": 6944,
+    "sha256": "91e24d88fe9bda728b35dc141dd95c52e00252801a6ab3a11981aaaee6e33f57"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/pathfinding/GreedyPathFinding.java",
+    "bytes": 4031,
+    "sha256": "6c19472043166d67aed9ab3428edb3be692fc708cbe1fd61d261f30e8175c29b"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/pathfinding/OldAStarPathFinding.java",
+    "bytes": 15199,
+    "sha256": "58432226aae677d69baf3931291ad2be31eead650fe738049074fb607479c03c"
+  },
+  {
+    "path": "public/engine/src/ai/abstraction/pathfinding/PathFinding.java",
+    "bytes": 951,
+    "sha256": "71cc2181579ee25b9b0540465ac0f83eca5cb1d0d75567d03e526d5628d2e060"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/.DS_Store",
+    "bytes": 6148,
+    "sha256": "1249131bdefeeb5c06a0698b30a4eb290721179e2e50cfc476d542c9705958e5"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/AHTNAI.java",
+    "bytes": 8847,
+    "sha256": "d22f01dc68da88cd205303d54ad372aff20ec3cc0bdacec0b47ee3d90a90818f"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/domain/Binding.java",
+    "bytes": 635,
+    "sha256": "81fba30a1ac6b864853ca45d4cbaabf6b5878ac3e3bdde3339babe134b338ee8"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/domain/Clause.java",
+    "bytes": 14219,
+    "sha256": "0ff8c3bc989d2fe395c258f4644dbdc4a8ab52573c966d5a863061b0101f03e5"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/domain/DomainDefinition.java",
+    "bytes": 4210,
+    "sha256": "40dc89a22d18654aec00e96414710dec4949350ffb841cfa4b42715eafa40541"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/domain/Function.java",
+    "bytes": 2647,
+    "sha256": "87b2eb3d25405e65187d9cc3d5080d497cae0169c2cee34591a66f5eaf3266e0"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/domain/HTNMethod.java",
+    "bytes": 3630,
+    "sha256": "e463fe43517d1cae6ab1675fbb0efdca01c3c74f28d384924e3fd1e66f86de05"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/domain/HTNOperator.java",
+    "bytes": 1188,
+    "sha256": "8c5ec46e80ce0f0f9dae5cbbe66d0aaed05dc5c4c94a3c3ba00b13dbfb26b13e"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/domain/IntegerConstant.java",
+    "bytes": 1189,
+    "sha256": "8ff8e0319ba7206218453833268a3a482f45dd4ac9e92d980795dc01827d0a7b"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/domain/LispParser/LispElement.java",
+    "bytes": 1226,
+    "sha256": "0decf05bdadb5d20f1ac43a00187eef17e54d43067f21c67cf727553b8269cbc"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/domain/LispParser/LispParser.java",
+    "bytes": 1926,
+    "sha256": "9b446bf39de473cab00a38ca21ee50ee491cf083a78e598383d6128aa6dc4243"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/domain/LispParser/LispTokenizer.java",
+    "bytes": 2860,
+    "sha256": "738508463bccef33268ebe07bd4e3f16c7899a97b14a7a851c589dd9ff627b81"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/domain/MethodDecomposition.java",
+    "bytes": 23431,
+    "sha256": "738b44be677599e77661d0adf3a0857892de6d557c61e7a33badcb743e92418f"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/domain/Parameter.java",
+    "bytes": 819,
+    "sha256": "761369dd32806d768cc7b0e4a37d7f45882da28f2da17dfcb561ad8e167e625e"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/domain/PredefinedFunctions.java",
+    "bytes": 3289,
+    "sha256": "fa3e1ab48f3f7cf2edf806e9ce29c151d3ba24c33d29ef07d87328cdf176a4ea"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/domain/PredefinedOperators.java",
+    "bytes": 27012,
+    "sha256": "55ec91679270cdd502d0d7c2a78d8d34dabbd00a51c25febae73114c75b875c2"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/domain/PredefinedPredicates.java",
+    "bytes": 45945,
+    "sha256": "a8274077022447b25afcb874bd1a7bff18b2e0d63e88aaba59898d6465ced486"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/domain/Symbol.java",
+    "bytes": 4050,
+    "sha256": "4b4782ef16ff2f5ae22282f35892ce4967d3745e765435b7c7f6693448dbbc5b"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/domain/SymbolConstant.java",
+    "bytes": 1273,
+    "sha256": "721fd0ec486008383423b5b1913cd462d957e2336fab10801f9b8bfc986e40d2"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/domain/Term.java",
+    "bytes": 8527,
+    "sha256": "e7eb5f7344f0abad757d9858c0d9c61fd242fb57f661d85ea987c067e028ec07"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/domain/Variable.java",
+    "bytes": 2456,
+    "sha256": "5076dd872859ed69bac703169c84ad61ac8e7eed49a1ab2d06c4617c273a1ce3"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/planner/.DS_Store",
+    "bytes": 6148,
+    "sha256": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/planner/AdversarialBoundedDepthPlannerAlphaBeta.java",
+    "bytes": 34319,
+    "sha256": "aa4a7ceaf576d082834de34119cfdc72382e8e173b44ce2b573c3bb9eb34dafc"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/planner/AdversarialChoicePoint.java",
+    "bytes": 16685,
+    "sha256": "e2ed18fce8c9d66e280e16eed2ca394b1ee0ca43c1cea9ae357f16cf231c1e1d"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/planner/MethodDecompositionState.java",
+    "bytes": 1448,
+    "sha256": "f50428c03b78739ade62aeb391d9790a84329ba02bd7109613093caf396f3563"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/visualization/HTNDomainVisualizer.java",
+    "bytes": 16806,
+    "sha256": "04331d002d1d0aa82eec99a34e1f23dd9d0f6c1cd2f38580bd3b527dc4d44c25"
+  },
+  {
+    "path": "public/engine/src/ai/ahtn/visualization/HTNDomainVisualizerVertical.java",
+    "bytes": 16765,
+    "sha256": "caef057758d67fe0291c4a74c422e2832dc02937991a008d24185d4501791f28"
+  },
+  {
+    "path": "public/engine/src/ai/core/AI.java",
+    "bytes": 4014,
+    "sha256": "6fd91e1d18a24f9caaae87214c5af3aea6bd117a4f398ecd4f48b531eb3bff86"
+  },
+  {
+    "path": "public/engine/src/ai/core/AIWithComputationBudget.java",
+    "bytes": 2250,
+    "sha256": "719069fe09da42fba8dbce711faff9feadefc118fd5b4496f9044b7f5766a2da"
+  },
+  {
+    "path": "public/engine/src/ai/core/ContinuingAI.java",
+    "bytes": 5371,
+    "sha256": "0291a687969467b3c0f45b8b1598abf86518f908d91a5e6ea36a9777ac4fe1ef"
+  },
+  {
+    "path": "public/engine/src/ai/core/InterruptibleAI.java",
+    "bytes": 2275,
+    "sha256": "196068929631bfe63a370370c72943b7f546a74b35df7c552d99fe6c66c9ccef"
+  },
+  {
+    "path": "public/engine/src/ai/core/ParameterSpecification.java",
+    "bytes": 962,
+    "sha256": "c64380ef349376dee0a443067232c7c48130972aa830751db909214014946d57"
+  },
+  {
+    "path": "public/engine/src/ai/core/PseudoContinuingAI.java",
+    "bytes": 3772,
+    "sha256": "e5c68a72120bad9feb5cd1f118adc897e69dd08ebf6ff1bacd9f71b4d9d8a3ad"
+  },
+  {
+    "path": "public/engine/src/ai/evaluation/EvaluationFunction.java",
+    "bytes": 487,
+    "sha256": "5d52c69db6268d00a9b4c4a01b57357be2cf88f9ccc4306d62bbd301d68c1099"
+  },
+  {
+    "path": "public/engine/src/ai/evaluation/EvaluationFunctionForwarding.java",
+    "bytes": 802,
+    "sha256": "0a2116f3c34e789d49b8fbdc5729a33a3742ff642eb04ada2b9ff9dea2174140"
+  },
+  {
+    "path": "public/engine/src/ai/evaluation/LanchesterEvaluationFunction.java",
+    "bytes": 3343,
+    "sha256": "178a8ada56888f825e814fa00861e2951127d1b42f1cacfb7e85da3f3e938235"
+  },
+  {
+    "path": "public/engine/src/ai/evaluation/SimpleEvaluationFunction.java",
+    "bytes": 2256,
+    "sha256": "33283ff0fb5e2bad1a5ba44b41fed52b9f094d5217db993f7a518fd2b3ccc89b"
+  },
+  {
+    "path": "public/engine/src/ai/evaluation/SimpleOptEvaluationFunction.java",
+    "bytes": 2264,
+    "sha256": "470b620a5b72a001eb11615099c8a44903b2f83f11be4ef76296b551ffaaeece"
+  },
+  {
+    "path": "public/engine/src/ai/evaluation/SimpleSqrtEvaluationFunction.java",
+    "bytes": 2146,
+    "sha256": "fee58d4053c6735657c591fc46d17f8323a17ef9f27108fa4fb8785a8c945553"
+  },
+  {
+    "path": "public/engine/src/ai/evaluation/SimpleSqrtEvaluationFunction2.java",
+    "bytes": 2285,
+    "sha256": "5ad558a8bbe2b43b632ca73460468cc64debe7f3d6f9eb509077ab02a5a78e33"
+  },
+  {
+    "path": "public/engine/src/ai/evaluation/SimpleSqrtEvaluationFunction3.java",
+    "bytes": 1665,
+    "sha256": "ef66c68d275b1f918f92f1e1ad0fe228324d0c0dd69cd734f1a7241f7bd4af59"
+  },
+  {
+    "path": "public/engine/src/ai/jni/JNIAI.java",
+    "bytes": 2741,
+    "sha256": "b83780ac7e9faa80a37a0ee2ec924b5c7b2f967c482c6500273da37c3dbff65b"
+  },
+  {
+    "path": "public/engine/src/ai/jni/JNIInterface.java",
+    "bytes": 659,
+    "sha256": "18e722038e9260a5ccbc79b4c811eab554904f4d18428951752bcde7bb94aea7"
+  },
+  {
+    "path": "public/engine/src/ai/jni/Response.java",
+    "bytes": 808,
+    "sha256": "b386471df2f59799fe75f239d8a0c466584d6a0fefe821de30476781e0477358"
+  },
+  {
+    "path": "public/engine/src/ai/jni/Responses.java",
+    "bytes": 811,
+    "sha256": "9d4efba2c141101647223612738e2ed3d9068efc6af66959a8df11cb560c2870"
+  },
+  {
+    "path": "public/engine/src/ai/machinelearning/bayes/ActionInterdependenceModel.java",
+    "bytes": 22275,
+    "sha256": "226b5679441616f8fb69470e8ae675a524b637bf5ba4283cb20791644d40bb9a"
+  },
+  {
+    "path": "public/engine/src/ai/machinelearning/bayes/BayesianModel.java",
+    "bytes": 6240,
+    "sha256": "11b0dd1fe14378c6871d385f55c0be26b5ca198ef5d2263fe8fcd826c18aa76b"
+  },
+  {
+    "path": "public/engine/src/ai/machinelearning/bayes/BayesianModelByUnitTypeWithDefaultModel.java",
+    "bytes": 8462,
+    "sha256": "a0e6dd906da590a60356c4b789d7e8e2d1bcf670d0ad67ddfcee0bdf05eae779"
+  },
+  {
+    "path": "public/engine/src/ai/machinelearning/bayes/CalibratedNaiveBayes.java",
+    "bytes": 14468,
+    "sha256": "c141687fb13e158cc13be2d38fb70aeb79aef9cde166df5c51759438dc2ffaf9"
+  },
+  {
+    "path": "public/engine/src/ai/machinelearning/bayes/DiscreteCPD.java",
+    "bytes": 3815,
+    "sha256": "306aab7f4a895e8fe03a66aceef10476f8ad4c6869d54a41358f1596c8cc2556"
+  },
+  {
+    "path": "public/engine/src/ai/machinelearning/bayes/FeatureSelection.java",
+    "bytes": 15834,
+    "sha256": "3083a10fcfcef6b4f9cab0bef8cc5b7882d6d9c164f2f86568ce821d976386e7"
+  },
+  {
+    "path": "public/engine/src/ai/machinelearning/bayes/TrainingInstance.java",
+    "bytes": 1453,
+    "sha256": "15b317566b9a5345b3be73fa706402b1fad949fc2be189ebfc960d25a3eb786e"
+  },
+  {
+    "path": "public/engine/src/ai/machinelearning/bayes/featuregeneration/FeatureGenerator.java",
+    "bytes": 4509,
+    "sha256": "34bedbe632316f94bbbc0d44e64530bf3a16c4cf3d0f2690ce9d96ba673ec9e1"
+  },
+  {
+    "path": "public/engine/src/ai/machinelearning/bayes/featuregeneration/FeatureGeneratorComplex.java",
+    "bytes": 6437,
+    "sha256": "dfee15e679c2ee73b584747560f60d68a4af7c744e3dd74ff0534232a03a13d0"
+  },
+  {
+    "path": "public/engine/src/ai/machinelearning/bayes/featuregeneration/FeatureGeneratorEmpty.java",
+    "bytes": 549,
+    "sha256": "5c2dc8ea254afe1e02d05b469eb9636c13a2033374a3a4c979a7e244ee2099e2"
+  },
+  {
+    "path": "public/engine/src/ai/machinelearning/bayes/featuregeneration/FeatureGeneratorSimple.java",
+    "bytes": 4402,
+    "sha256": "1b3e5f15e1ebd425385dde178dff4365f0cbea57f232093c3d0e823143896f14"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/MCTSNode.java",
+    "bytes": 2486,
+    "sha256": "2ee3a0fc266176570964926e2300ecfb56fbe9aad0b8b2ec7fa2d0cfe5ab4262"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/believestatemcts/AIWithBelieveState.java",
+    "bytes": 3485,
+    "sha256": "b771ea7221c81afb9a2721b70c6ca0733396f0b10b090e825d86b030e42c7b6d"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/believestatemcts/BS1_NaiveMCTS.java",
+    "bytes": 6502,
+    "sha256": "8790d300c1de958b6240fb60f2527bccaa71ee398c98ce397b2f5122952ef5c0"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/believestatemcts/BS2_NaiveMCTS.java",
+    "bytes": 9114,
+    "sha256": "a2bf0b2bedc8edbd0749016ab448b951e87b79f109c735099cbbfc51e2b206b0"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/believestatemcts/BS3_NaiveMCTS.java",
+    "bytes": 18452,
+    "sha256": "cd232ebe5f3306585b5f4435ad215fe37204693b06d583c170777757854d6d22"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/informedmcts/InformedNaiveMCTS.java",
+    "bytes": 20224,
+    "sha256": "f0f1d3c85df85eec5a2f5354278b41408bb127a633ccd9df59eb3d11ef84030c"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/informedmcts/InformedNaiveMCTSNode.java",
+    "bytes": 15653,
+    "sha256": "1848f99f3f1db89c3d4b4741a7702c7b3abf66fc56f943f22f6ce2448e5fabb0"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/informedmcts/InformedUnitActionTableEntry.java",
+    "bytes": 964,
+    "sha256": "aa7c6e4b0b0a90eaf59b20499b38f3f4083a21c0ab4b5fa614e7fafc24bc541e"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/mlps/MLPSMCTS.java",
+    "bytes": 10662,
+    "sha256": "1ab0fac7f0c8abbef799317a4dd6b9d625c6e45ca07a873fb2e054255a23680a"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/mlps/MLPSNode.java",
+    "bytes": 13890,
+    "sha256": "e463908e41b655c7f0c80c2e988d45350d76d00bc4333816e325bc6b5232866f"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/naivemcts/NaiveMCTS.java",
+    "bytes": 15702,
+    "sha256": "43470e5bae9efef2d633cb1b42464ade40b9866e627a51e361675a441987abe2"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/naivemcts/NaiveMCTSNode.java",
+    "bytes": 15747,
+    "sha256": "e30a373adb2110602871b081ac1f698105905d322ed98a3ba9d20c9c5e83161c"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/naivemcts/TwoPhaseNaiveMCTS.java",
+    "bytes": 16930,
+    "sha256": "eca33aebdb288ef41b3bf21caaedd6dbabc34b1eb1fa4e0bd21c519cf1745475"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/naivemcts/TwoPhaseNaiveMCTSNode.java",
+    "bytes": 8751,
+    "sha256": "c8861e53e994a33e2707a6f48bb01425f8d5f4f4ea2a0594ed0515bfb5d11f33"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/naivemcts/TwoPhaseNaiveMCTSPerNode.java",
+    "bytes": 15844,
+    "sha256": "ac22ed7d46a9782d1ffa817eba7abc7e8024592d71d5889992f130e47520ab67"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/naivemcts/UnitActionTableEntry.java",
+    "bytes": 417,
+    "sha256": "5c91ed6fdb77101a772cf994189a131732ec881ff43a64dac453b051385edf36"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/uct/DownsamplingUCT.java",
+    "bytes": 8330,
+    "sha256": "5fae8230c9bf36a65dd00ce42a53a791a1aad6e571195934e3cac7aed655d001"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/uct/DownsamplingUCTNode.java",
+    "bytes": 5682,
+    "sha256": "e5b8be43515ea7080423a33f24d503baadd7fb5440543e19e246663481a2844a"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/uct/UCT.java",
+    "bytes": 9579,
+    "sha256": "6eb97c60ef9d679d7f08819ab2636bdd8c4616e928650d1116d5f5142922da8a"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/uct/UCTFirstPlayUrgency.java",
+    "bytes": 10146,
+    "sha256": "95500ca7b9e23c48646ba239f2fd22b37240fe2b10edaaffcd84ceb23f132395"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/uct/UCTNode.java",
+    "bytes": 5148,
+    "sha256": "feda66b058dbefbbc0fac567d4b2d11c1ace6b0e8446336ad72352f250c94488"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/uct/UCTNodeFirstPlayUrgency.java",
+    "bytes": 6145,
+    "sha256": "f067146e45f8e4dcbac28b866af9e5a273d94a646b16a93decfa57f121a29622"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/uct/UCTUnitActions.java",
+    "bytes": 8322,
+    "sha256": "5f8eba0704aa5e4cb3d1c1e99d275e24712e723b3daeadae1690e14add46badf"
+  },
+  {
+    "path": "public/engine/src/ai/mcts/uct/UCTUnitActionsNode.java",
+    "bytes": 5488,
+    "sha256": "1707ca3d6b8b91abe8e53e0dac605c46ca97244560186a95f27ab7b01383dae7"
+  },
+  {
+    "path": "public/engine/src/ai/minimax/ABCD/ABCD.java",
+    "bytes": 8694,
+    "sha256": "686fe5d2e81678c7a7c10a11327578b64325f3b12c7ecb3b5e592d50da7a11f3"
+  },
+  {
+    "path": "public/engine/src/ai/minimax/ABCD/ABCDNode.java",
+    "bytes": 839,
+    "sha256": "f623387a69fa391511057554576d08be68ded34358f1dad3a8ecf6ff7e5000e8"
+  },
+  {
+    "path": "public/engine/src/ai/minimax/ABCD/IDABCD.java",
+    "bytes": 24719,
+    "sha256": "10cbde5c7fa558f232796a6c7a0714451b246c48497d204e2fd096b7efe80dfe"
+  },
+  {
+    "path": "public/engine/src/ai/minimax/MiniMaxResult.java",
+    "bytes": 542,
+    "sha256": "fc01d2fe8275239020780f1a2fb57e0ce81ddd5c86500cb9a2971c45fa0282df"
+  },
+  {
+    "path": "public/engine/src/ai/minimax/RTMiniMax/IDRTMinimax.java",
+    "bytes": 15203,
+    "sha256": "de2fbc5d7b17591ba67d14ca6896e58e06ac998c88e9adbd93284d997b0ea4f6"
+  },
+  {
+    "path": "public/engine/src/ai/minimax/RTMiniMax/IDRTMinimaxRandomized.java",
+    "bytes": 14500,
+    "sha256": "dffe66c0e1b28cc0657dd1dd2daa990df9a8275ae0f59e7108683e1e40eafacd"
+  },
+  {
+    "path": "public/engine/src/ai/minimax/RTMiniMax/RTMiniMaxNode.java",
+    "bytes": 686,
+    "sha256": "6c07c7a4d58829d72b0e156cedc587e46115e2db98b0703306ded56632f830eb"
+  },
+  {
+    "path": "public/engine/src/ai/minimax/RTMiniMax/RTMiniMaxRandomizedRootNode.java",
+    "bytes": 495,
+    "sha256": "30135fd2c009e1dc2f30ee03bfcb2fd10175f3c30b78c715852c71c5859ded10"
+  },
+  {
+    "path": "public/engine/src/ai/minimax/RTMiniMax/RTMinimax.java",
+    "bytes": 7563,
+    "sha256": "a3ee98dae3ae245e82d24e64b40c133f4f6a512819d02723811b81d898b88979"
+  },
+  {
+    "path": "public/engine/src/ai/montecarlo/MonteCarlo.java",
+    "bytes": 10143,
+    "sha256": "cd1a60dd5b017ffe9dfc4834f2c24ab4b80b32e1c8144d468d855a71ef4d7885"
+  },
+  {
+    "path": "public/engine/src/ai/montecarlo/lsi/LSI.java",
+    "bytes": 51591,
+    "sha256": "2b4e99a150379a3516a8f98b3ed38707afed88f3b287a26546d1aec3b87dea46"
+  },
+  {
+    "path": "public/engine/src/ai/montecarlo/lsi/Sampling.java",
+    "bytes": 15894,
+    "sha256": "199c27d903c69c79b18d323c7d75afa9bda05fdc1b32351eef8af3825252aac9"
+  },
+  {
+    "path": "public/engine/src/ai/portfolio/PortfolioAI.java",
+    "bytes": 7857,
+    "sha256": "3fedbe784b9b693c60d460584ff3ad2bd716e2886c47af5693a9beaf05e30c77"
+  },
+  {
+    "path": "public/engine/src/ai/portfolio/portfoliogreedysearch/PGSAI.java",
+    "bytes": 12168,
+    "sha256": "96d6ac75c411dd99a6da23cf95cf10413f9cb866662d4705f5c7284dc36d77c9"
+  },
+  {
+    "path": "public/engine/src/ai/portfolio/portfoliogreedysearch/UnitScript.java",
+    "bytes": 494,
+    "sha256": "b47cf58d9bfd28ca48301aeecdfff5d4687b1f436b8369fb0013372005aa3f9d"
+  },
+  {
+    "path": "public/engine/src/ai/portfolio/portfoliogreedysearch/UnitScriptAttack.java",
+    "bytes": 1748,
+    "sha256": "0ecbf072999dbc241525042f12f1c055cd758eed4577558e7ca03de393ae8b50"
+  },
+  {
+    "path": "public/engine/src/ai/portfolio/portfoliogreedysearch/UnitScriptBuild.java",
+    "bytes": 2192,
+    "sha256": "c0c056a5f34c9e86c8c6588a46c7d833e5a2610aa83067ad78099fe7c95b261b"
+  },
+  {
+    "path": "public/engine/src/ai/portfolio/portfoliogreedysearch/UnitScriptHarvest.java",
+    "bytes": 2127,
+    "sha256": "655ea04abf9d8987346794026ee574a8e0a4be8ecfd1c26c2ad4e5500f1bda82"
+  },
+  {
+    "path": "public/engine/src/ai/portfolio/portfoliogreedysearch/UnitScriptIdle.java",
+    "bytes": 898,
+    "sha256": "bd738f999bc466cb958320a01d36e8b9f2149da3fe33a7fc1181f9a3a838a363"
+  },
+  {
+    "path": "public/engine/src/ai/portfolio/portfoliogreedysearch/UnitScriptTrain.java",
+    "bytes": 982,
+    "sha256": "9163f6fb4e65ff4febfa7310a84f420232e9da03f151617ba45e39034eece3e2"
+  },
+  {
+    "path": "public/engine/src/ai/portfolio/portfoliogreedysearch/UnitScriptsAI.java",
+    "bytes": 3617,
+    "sha256": "f5ddb92c7a5e24b4b001d68fd2c8d681df89139477b62278026fbfadb50c1a9e"
+  },
+  {
+    "path": "public/engine/src/ai/puppet/BasicConfigurableScript.java",
+    "bytes": 18840,
+    "sha256": "860b1c924735a0d915c2ee20fd7e7f941618a0c0fa86f29b27db3983d9618afa"
+  },
+  {
+    "path": "public/engine/src/ai/puppet/CacheTable.java",
+    "bytes": 2258,
+    "sha256": "bdf6e6f5fca611cf7a1d4bd8fa5a7d65c1812444c635855a9a9e0e3e56906df3"
+  },
+  {
+    "path": "public/engine/src/ai/puppet/ConfigurableScript.java",
+    "bytes": 2592,
+    "sha256": "414b43e07eeddefcc7e08ed871e32fab26cc26f76d6101d9fc77f05ce4da8814"
+  },
+  {
+    "path": "public/engine/src/ai/puppet/PuppetBase.java",
+    "bytes": 3822,
+    "sha256": "e8cb0301c8be16cd121d44f048099b8dce0e8b6152b2664b9b4eebe889e96c5f"
+  },
+  {
+    "path": "public/engine/src/ai/puppet/PuppetMCTSNode.java",
+    "bytes": 4208,
+    "sha256": "d3c67e1c39077af97e8abc96f8e2fc5e644eb076c605d1f8f840caf55b2de0e6"
+  },
+  {
+    "path": "public/engine/src/ai/puppet/PuppetNoPlan.java",
+    "bytes": 2557,
+    "sha256": "ddff4863c061d4534ec6b97fb91f98c65eba450202f020a555e5979ecfa282f0"
+  },
+  {
+    "path": "public/engine/src/ai/puppet/PuppetSearchAB.java",
+    "bytes": 13955,
+    "sha256": "91420f40c13581889989f8200547d39a9ef5cc689b54189f21c263498b9446dd"
+  },
+  {
+    "path": "public/engine/src/ai/puppet/PuppetSearchMCTS.java",
+    "bytes": 8896,
+    "sha256": "2fa732663f84fc8b48d3c3c41099d070d1515f976a02591970081f7b10578f7c"
+  },
+  {
+    "path": "public/engine/src/ai/puppet/SingleChoiceConfigurableScript.java",
+    "bytes": 2515,
+    "sha256": "a5a657d90dfc5056ce1f0d1002bc0acbed904cbbf7374d2a6c6c05c2c526dcea"
+  },
+  {
+    "path": "public/engine/src/ai/puppet/TranspositionTable.java",
+    "bytes": 2071,
+    "sha256": "b4868460103346305f39984d463179d36968e533afacceb88fb1edac325a9b29"
+  },
+  {
+    "path": "public/engine/src/ai/reward/AttackRewardFunction.java",
+    "bytes": 1311,
+    "sha256": "adda5f82fd032be5dd726d1e82257abd10bf0aab894c268e3539b404f7690b67"
+  },
+  {
+    "path": "public/engine/src/ai/reward/CloserToEnemyBaseRewardFunction.java",
+    "bytes": 2378,
+    "sha256": "2eadcd6b030cc5791aa8ab205eda27bb10c4d98dfea24d0b7c642bb2058d842c"
+  },
+  {
+    "path": "public/engine/src/ai/reward/CloserToEnemyUnitRewardFunction.java",
+    "bytes": 2378,
+    "sha256": "25069ce741ebc62c017fa3b6627454ca1d9aa6c5d5b545064a8d92b9e5e276e7"
+  },
+  {
+    "path": "public/engine/src/ai/reward/ProduceBuildingRewardFunction.java",
+    "bytes": 1040,
+    "sha256": "fc51c95839932c91ad558570bf22cb8880bcbe998756a9f1fc01fd77f5d3f234"
+  },
+  {
+    "path": "public/engine/src/ai/reward/ProduceCombatUnitRewardFunction.java",
+    "bytes": 1093,
+    "sha256": "038f746cab90074199fdde9b191b8099367e878381cfba0791156beb1b69376c"
+  },
+  {
+    "path": "public/engine/src/ai/reward/ProduceWorkerRewardFunction.java",
+    "bytes": 989,
+    "sha256": "3f7b1cb7d659730d4f429bc5ccda4f7683d6164029c0228e493abd1182b83646"
+  },
+  {
+    "path": "public/engine/src/ai/reward/ResourceGatherRewardFunction.java",
+    "bytes": 1467,
+    "sha256": "c6863a83b024a34201f03ea6cc1c6b32eedcc95b5a3b1c372eb5c597e14a2259"
+  },
+  {
+    "path": "public/engine/src/ai/reward/RewardFunctionInterface.java",
+    "bytes": 618,
+    "sha256": "f1d04d4b35826a397c8adec257455e854cecf6f2e294c1785f22bbf41cecb8f6"
+  },
+  {
+    "path": "public/engine/src/ai/reward/WinLossRewardFunction.java",
+    "bytes": 544,
+    "sha256": "b8434b3ab5838f94fcf21633e88eedab82956aa82c0be6366d5c277f09035132"
+  },
+  {
+    "path": "public/engine/src/ai/scv/SCV.java",
+    "bytes": 20421,
+    "sha256": "357a691edb1c4168e406d4330f5cf56b077c351d2c017f68c6a5395f0b51a673"
+  },
+  {
+    "path": "public/engine/src/ai/scv/models/SimpleLogisticSCV.model",
+    "bytes": 8606,
+    "sha256": "e5b91ccf7f7ed799a92a7bb950f537a79ce66f96dc4fe6b894a3b86e8e20cafa"
+  },
+  {
+    "path": "public/engine/src/ai/scv/models/SimpleLogisticSCV16.model",
+    "bytes": 8438,
+    "sha256": "8f2131a90af2f3689159b217308ed4c9c43fa389173f1a85a49a7d4001da1a74"
+  },
+  {
+    "path": "public/engine/src/ai/scv/models/SimpleLogisticSCV24.model",
+    "bytes": 8438,
+    "sha256": "7e70360293aa136906c00ce92686f745b1692fc1613300a8c5d99b6ff2b73abe"
+  },
+  {
+    "path": "public/engine/src/ai/scv/models/SimpleLogisticSCV32.model",
+    "bytes": 8438,
+    "sha256": "a5c52e3a6cea2bafca21a7132a9b01e728c8fd2e26f3c7d0b863897299fc1443"
+  },
+  {
+    "path": "public/engine/src/ai/scv/models/SimpleLogisticSCV64.model",
+    "bytes": 8438,
+    "sha256": "4d11af57adf392a75281a08ea716a73b61349cdac428ff3281ac3a57ed40378a"
+  },
+  {
+    "path": "public/engine/src/ai/scv/models/SimpleLogisticSCV8.model",
+    "bytes": 8434,
+    "sha256": "d21b3c443abfeb2fb48ef14e921664247a21413f43078797bb3b335e59e95fed"
+  },
+  {
+    "path": "public/engine/src/ai/scv/models/SimpleLogisticSCV9.model",
+    "bytes": 8434,
+    "sha256": "8c5ed701b35464aa80bc60a5020d9c1331f4d63456b1aa5a8c90c9837f610aca"
+  },
+  {
+    "path": "public/engine/src/ai/scv/models/dadosEnemyDistModelTemplateSCV.arff",
+    "bytes": 400,
+    "sha256": "2f55f0562f0907339867d4e0520dc1155d5642138a6b9ef0580c4cfae5b4a66d"
+  },
+  {
+    "path": "public/engine/src/ai/scv/models/ltdsFinais16.csv",
+    "bytes": 135778,
+    "sha256": "fad930c5c10b7d7540a3daee1f0ecd678cb0a8002ab5c841359351e478de9d53"
+  },
+  {
+    "path": "public/engine/src/ai/scv/models/ltdsFinais24.csv",
+    "bytes": 134076,
+    "sha256": "9621ae1bea8ccca4553377cfeb73284e2376d8b2cbb58d41f2bb47d2a750b50f"
+  },
+  {
+    "path": "public/engine/src/ai/scv/models/ltdsFinais32.csv",
+    "bytes": 134827,
+    "sha256": "0439ceab0d94312ab257e0a8730203cb7f417590e5702c7f605b53ec8bd758a3"
+  },
+  {
+    "path": "public/engine/src/ai/scv/models/ltdsFinais64.csv",
+    "bytes": 138196,
+    "sha256": "1c7197a46c270ab9d513487f95d5c46dfb58bca673a0b217d4a2e01470eba68b"
+  },
+  {
+    "path": "public/engine/src/ai/scv/models/ltdsFinais8.csv",
+    "bytes": 135500,
+    "sha256": "10d3a010292b7afab6274fac053ae9a0d11ed7ba112ef0161a14b9080cf43441"
+  },
+  {
+    "path": "public/engine/src/ai/scv/models/ltdsFinais9.csv",
+    "bytes": 131560,
+    "sha256": "dfacc1580fdd8de942369f724d10172538f61dbe6a7b219476e234410e95e0c8"
+  },
+  {
+    "path": "public/engine/src/ai/scv/models/ltdsFinaisSCV.csv",
+    "bytes": 53959,
+    "sha256": "45fc3aabb89fed860e913187eeeb1be2ee899bf848173dd7a77357ba092fa19e"
+  },
+  {
+    "path": "public/engine/src/ai/socket/GameVisualSimulationWithSocketAI.java",
+    "bytes": 2265,
+    "sha256": "1bc58c86602817f4199c264e447712132e851692020902f4ee0ec6c365ac16e7"
+  },
+  {
+    "path": "public/engine/src/ai/socket/JSONSocketWrapperAI.java",
+    "bytes": 7423,
+    "sha256": "1449c6d2247c0058ed1ffe43801d8f5470b4340e987ac6b7b18e1654fa620392"
+  },
+  {
+    "path": "public/engine/src/ai/socket/SocketAI.java",
+    "bytes": 9903,
+    "sha256": "c03c941ebe7810f00d5d50887ca96287c695dd772cbf0b1db6c4b3ae2d79b9fd"
+  },
+  {
+    "path": "public/engine/src/ai/socket/XMLSocketWrapperAI.java",
+    "bytes": 7486,
+    "sha256": "716ee2fc04a937d8bf2ddbc25bac6cb9494f7688e01a2079fb38e505e1275e4a"
+  },
+  {
+    "path": "public/engine/src/ai/stochastic/UnitActionProbabilityDistribution.java",
+    "bytes": 699,
+    "sha256": "78406280d8ecbeb74fd0338eb0383727fd48f2ed2d89af89f8d2a213bf69fcfe"
+  },
+  {
+    "path": "public/engine/src/ai/stochastic/UnitActionProbabilityDistributionAI.java",
+    "bytes": 4441,
+    "sha256": "2ca53e046b11bebc92defc48176ad367036feaf72c082504114adbbce08e665b"
+  },
+  {
+    "path": "public/engine/src/ai/stochastic/UnitActionTypeConstantDistribution.java",
+    "bytes": 1549,
+    "sha256": "f66f25da4231a1d17ab125472f146af3e49f8b0530a6c597d04f268ffa420953"
+  },
+  {
+    "path": "public/engine/src/ai/stochastic/UnitActionUniformDistribution.java",
+    "bytes": 867,
+    "sha256": "df239dcc97c046eb1abfb565cdb0f77a1852cb53f1cfd4a4fa289c14ead26876"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLBasicConditional/AbstractConditional.java",
+    "bytes": 2748,
+    "sha256": "de85099077d6207fe3d8997d1b084dbd401a102cc671fdbb84957ed11677fc4b"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLBasicConditional/AbstractUnitConditional.java",
+    "bytes": 2215,
+    "sha256": "2b7f554e36decce3b8c2d1a44bbcbaf7be2b36b41d6a3545e172a83d73e132f4"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLBasicConditional/ConditionalBiggerThen.java",
+    "bytes": 1968,
+    "sha256": "1f3864667961d1be88089894898add150444e071c89beb8768d0089f5099cf8f"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLBasicConditional/IConditional.java",
+    "bytes": 704,
+    "sha256": "1b57f3a56e68ad8e8117fd88694a4f6c9fb17aa81c1539971215172a3001551f"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLBasicConditional/IUnitConditional.java",
+    "bytes": 772,
+    "sha256": "9c08e2ef22b4bafc80ddd8063c3c6530bcb77a3494ac0c842e008dab612760fa"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLBasicConditional/SimpleConditional.java",
+    "bytes": 3682,
+    "sha256": "86fc95874659fb9d68cc7eb3e9a16766e387c0f93b440603d2e3e0ac4d36be44"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLBasicConditional/functions/AbstractConditionalFunction.java",
+    "bytes": 3623,
+    "sha256": "1cc80e0ae7c252b1e234f6473c1ce909e910af29c6701ac4ee88b272422f2fc5"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLBasicConditional/functions/HaveEnemiesStrongest.java",
+    "bytes": 3645,
+    "sha256": "a08398934d51befa7984ef0642411482a811056cb25c14fb66e9fcaa3d849e5e"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLBasicConditional/functions/HaveEnemiesinUnitsRange.java",
+    "bytes": 3770,
+    "sha256": "423738f86fcf91eaf7982570b131fca0e82c5990f22d6c4604185ff3b197ed62"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLBasicConditional/functions/HaveQtdEnemiesbyType.java",
+    "bytes": 1876,
+    "sha256": "768c350112c30275a867364c7fc76c2af4f4f742b64aed2a285cb4f89317502f"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLBasicConditional/functions/HaveQtdUnitsAttacking.java",
+    "bytes": 3925,
+    "sha256": "a0e27142e15c5d2c01b77c0fd9872e0925e0cd5144b481dbbb89a8ebe1932a6f"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLBasicConditional/functions/HaveQtdUnitsHarversting.java",
+    "bytes": 3433,
+    "sha256": "c5285c16b0ef53fe6727237f2a4a4ed65f9969d403ebfb37e1e5c00c9033a6dd"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLBasicConditional/functions/HaveQtdUnitsbyType.java",
+    "bytes": 1851,
+    "sha256": "c77c7b6f3d6ce2d8fc0abb50b0459df5b87af97b6cefb61e7bd46ab370355027"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLBasicConditional/functions/HaveUnitsStrongest.java",
+    "bytes": 3642,
+    "sha256": "eff6affe4105990aa3cab86fcd35708f37a18e6e0bfdaf63c50b77728796cb38"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLBasicConditional/functions/HaveUnitsToDistantToEnemy.java",
+    "bytes": 4016,
+    "sha256": "f36569bad39063680b13ed504343df553bbae798f54680db5ce4fc8b32161b82"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLBasicConditional/functions/HaveUnitsinEnemyRange.java",
+    "bytes": 3760,
+    "sha256": "2577ce54e9ae5a93bf21107688d51f8dd9a5771104ea2e1be0d6d3d02643ef1d"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLBasicConditional/functions/IConditionalFunction.java",
+    "bytes": 665,
+    "sha256": "a4d9d7237fe4c7e476d0ac0d707856f61121e9bd845c2a574f3bd2fce7a936ce"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLBasicConditional/functions/IsPlayerInPosition.java",
+    "bytes": 4158,
+    "sha256": "e08c8d07e95f073b456d30a5fa6cd9b1c04675d5ca739f43f71152ee0ca4bebf"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/AbstractBasicAction.java",
+    "bytes": 347,
+    "sha256": "27b37cbbe9b41a2a598836b9040b668a808868035e2e171b18e7fd2caa5e19c1"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/AbstractBooleanAction.java",
+    "bytes": 2275,
+    "sha256": "9695c416c8f9a29f6d31fbd8f8ec818c9bf543c60a2428b704334f3150e32a89"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/AbstractCommand.java",
+    "bytes": 10403,
+    "sha256": "d532d7c003dc989f74926d68bb4a7143dd7a61c6dec3878046ed09bc285975b7"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLBasicAction/AttackBasic.java",
+    "bytes": 5735,
+    "sha256": "da12f81f4b3587c0f775485a8bfee41fa2d4868dc7be24e88eb0c53bfef1013f"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLBasicAction/BuildBasic.java",
+    "bytes": 17867,
+    "sha256": "90ea186d8ea030f21554cb82d440354bff44a2e836da050906f88e36c3371411"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLBasicAction/ClusterBasic.java",
+    "bytes": 3654,
+    "sha256": "ea94a54ca5b010755724ac49f76cdcc5dcfc78d43789202fbe2e47abfaedafd3"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLBasicAction/HarvestBasic.java",
+    "bytes": 10338,
+    "sha256": "7e9890f746b3812ab2463500fd15b5593b493a13c40addc13aaddcad79111f9e"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLBasicAction/MoveAwayBasic.java",
+    "bytes": 6218,
+    "sha256": "15e3e7d139a5d50524d675549adc442670e336a4f8937426c5a0dd95b524ab65"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLBasicAction/MoveToCoordinatesBasic.java",
+    "bytes": 6236,
+    "sha256": "dc6c1485efb6176c5c4cb9075a6cf916fe526b9ac61793575cc3ed647396e0f4"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLBasicAction/MoveToCoordinatesBasic_old.java",
+    "bytes": 5420,
+    "sha256": "6b4c1307433645b3c9845d016f987646dafb06d5402368cf02f2a78cb98ffda0"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLBasicAction/MoveToCoordinatesOnce.java",
+    "bytes": 8588,
+    "sha256": "39586283dde7e30faf97285103b48a8dba948307ac166f2f815ba977f057cbdd"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLBasicAction/MoveToUnitBasic.java",
+    "bytes": 6386,
+    "sha256": "d8d84536dd14eef735f57c076edd64bd6cd224267739e4aa21447e12e9fc8dc6"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLBasicAction/TrainBasic.java",
+    "bytes": 10999,
+    "sha256": "80a931094db9a15165304831967d056d125d3a0d3bfa81e35844784939061c1e"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLBasicBoolean/AllyRange.java",
+    "bytes": 3776,
+    "sha256": "9c7df51c43e4feaed3dcba8cb4033cb7897a3239808900d01b394f8065581d86"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLBasicBoolean/DistanceFromEnemy.java",
+    "bytes": 3676,
+    "sha256": "bf571ebfb165537f9aac96b0eccea63680756e7023b4fe2a25ba6493ef4ed0aa"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLBasicBoolean/EnemyRange.java",
+    "bytes": 3687,
+    "sha256": "84b31c54a9aadce9c9368621e9a27e2d0ba5401d646cca353811b398b6ca6c53"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLBasicBoolean/IfFunction.java",
+    "bytes": 8763,
+    "sha256": "d7e6c6285bda2bbe26517c5317785db5a3921813045436f07d874cc8697108eb"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLBasicBoolean/NAllyUnitsAttacking.java",
+    "bytes": 2431,
+    "sha256": "c06a035c33a6c190155c2c93136b3565045df5f606f057198d5e4a33f55216c9"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLBasicBoolean/NAllyUnitsHarvesting.java",
+    "bytes": 2426,
+    "sha256": "920630660aee5da7116f1914433e395f17e421dd2a6c2b65eacbb433beebcce4"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLBasicBoolean/NAllyUnitsofType.java",
+    "bytes": 2415,
+    "sha256": "eb5c906e375b1d374e538cd4aa6cc44d47f94e201077369a4703baa83a68c9b0"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLBasicBoolean/NEnemyUnitsofType.java",
+    "bytes": 2424,
+    "sha256": "946a1d9cadf0bf2f691cfef56d5fc75ba87fe6d64e37267473b3cf120bebfe60"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLBasicLoops/ForFunction.java",
+    "bytes": 2601,
+    "sha256": "f3c345b875e52ff242eea375295bc2d686265cc9e6348f303b0eb3e8a1ec059d"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLEnumerators/EnumPlayerTarget.java",
+    "bytes": 1068,
+    "sha256": "a021b1f4d0a26f7d1bc8b69e68c81eb65445902e3960ae90cd39a0f214ae090e"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLEnumerators/EnumPositionType.java",
+    "bytes": 1378,
+    "sha256": "060f428707dcbe0999d62ebdd130c7efecf3cd829a543322d54650b3ab66e027"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSLEnumerators/EnumTypeUnits.java",
+    "bytes": 1528,
+    "sha256": "d98934c129110752a0b28764c02b30f5c26fe276f124aad39988418bbfeb7cfc"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/DSL_RunBattle.java",
+    "bytes": 7687,
+    "sha256": "8559dea45412a46cfb3d5ad7f3fd1970f917fcd494e8d8a5602d58ab020d3ae6"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommand/ValidatorLines.java",
+    "bytes": 1642,
+    "sha256": "cd420bf426f4fa70949d5420f8780606c2d19e13dbc00ebc8b9df16e79486b6c"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommandInterfaces/ICommand.java",
+    "bytes": 710,
+    "sha256": "55e5c8d0f08482db8d367fc4eafaf5bcb29a75e9baabfe50316bf5f1ffbf9715"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCommandInterfaces/IUnitCommand.java",
+    "bytes": 738,
+    "sha256": "b8c761ccd0b4e03c257f8b7f6f01a15d171c1423eebdbba0d76cb934883e9806"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCompiler/AbstractDSLCompiler.java",
+    "bytes": 5871,
+    "sha256": "248ae3a14097002673fad54c3174c4cacb20abe999f1cc5bc804c293f0d34f52"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCompiler/ConditionalDSLCompiler.java",
+    "bytes": 9265,
+    "sha256": "bd0aba73d6d6b31e5ba012e028719ede64ccc73d5d1f68a3c04a9e84c2545bd6"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCompiler/ForDSLCompiler.java",
+    "bytes": 4131,
+    "sha256": "b897c54971a55fcfd032fcd9e2ea189ac70adf231487b05089927f5371a7eb46"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCompiler/FunctionDSLCompiler.java",
+    "bytes": 12755,
+    "sha256": "817b84aec7211f4d0f5d9ac87675ebb86a7756d266429a3e764a9f2cfb595da7"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCompiler/IDSLCompiler.java",
+    "bytes": 571,
+    "sha256": "262a96fdc18ec229b1d3b451463a8eee9937fbb3ccc43e9b96c0fa0100532028"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCompiler/IfDSLCompiler.java",
+    "bytes": 2429,
+    "sha256": "e7a6918232a13cc28f66141178d89567eb61aaba017bb455b9402d730f524571"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLCompiler/MainDSLCompiler.java",
+    "bytes": 2542,
+    "sha256": "7c967c1b7e407e5c3c0c04e3281ab39a0b10ea5e1df079c02a0e4434470a20c7"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLParametersConcrete/BehaviorAbstract.java",
+    "bytes": 419,
+    "sha256": "5430b46f375734e1c5a519e63dfbf4660266121c285a1222bafc6087fc4dfd55"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLParametersConcrete/ClosestEnemy.java",
+    "bytes": 1166,
+    "sha256": "90fde26a86905399bf7612bed4e856a213d9a73aaa61eef942818e11b3f8747a"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLParametersConcrete/ConstructionTypeParam.java",
+    "bytes": 955,
+    "sha256": "f6400ef4ad574bf9a9ec457049ffe0ed8a1e03dc8b77cff19b0f4ddff975c96c"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLParametersConcrete/CoordinatesParam.java",
+    "bytes": 761,
+    "sha256": "951252e2ccc35bd1354ddcd2a5b7957f0bd563fb2c638b43dbebf2b82242159f"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLParametersConcrete/DistanceParam.java",
+    "bytes": 853,
+    "sha256": "3f08bbf37417dd638a555fb002182d274eabce4f12df155c35af062e3ccf4ca8"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLParametersConcrete/FarthestEnemy.java",
+    "bytes": 1185,
+    "sha256": "acf2ed0058c12677be51c600c7b645a008f04be27976c3d1bdf25237a29c2311"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLParametersConcrete/LessHealthyEnemy.java",
+    "bytes": 1163,
+    "sha256": "9d018a2ae3a4dbcaa281779a36b472eefc712a5732911081bdfe38f46e44d0b4"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLParametersConcrete/MostHealthyEnemy.java",
+    "bytes": 1161,
+    "sha256": "59f2d4b43e01516f7b306708b6c05b42e341658bb5d014cc9285570714b40df4"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLParametersConcrete/PlayerTargetParam.java",
+    "bytes": 1283,
+    "sha256": "9dafbe36eb8555f4ccb2e68605652e88e6b78f2350a6dfcd0d0bf1032b705bd9"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLParametersConcrete/PriorityPositionParam.java",
+    "bytes": 1276,
+    "sha256": "c35166ee4cbcfd5e2bd5c083d9f1de371967e3b0d3c9e63e49947ecd194bd321"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLParametersConcrete/QuantityParam.java",
+    "bytes": 848,
+    "sha256": "0e4f136edc7048d1a3cc2679698d318c1299989c50c900f3c56ac96108c1989f"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLParametersConcrete/RandomEnemy.java",
+    "bytes": 1290,
+    "sha256": "3d010ca2c6154076e5ccb98877e86516c7e58167b6d32f8f0567a35c7748c93c"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLParametersConcrete/StrongestEnemy.java",
+    "bytes": 1129,
+    "sha256": "8818a362ff8bc0e425e82bde11b923e64030eecbb0b62dd90b363717bb015443"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLParametersConcrete/TypeConcrete.java",
+    "bytes": 2305,
+    "sha256": "8d990d1ba70f8ebd2d0c57d9b13cbe5e70964e8215c4bff20815ca8eadf30e74"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLParametersConcrete/UnitTypeParam.java",
+    "bytes": 1037,
+    "sha256": "151ea6557ab96b78bafdd2a73feb66f5d33219439ec86c6406cfb00c1d2e96ff"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLParametersConcrete/WeakestEnemy.java",
+    "bytes": 1148,
+    "sha256": "61475cc94e81a47a68004889b29638783b08fd74c2e424e9c59d8702da287aa3"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLTableGenerator/FunctionsforDSL.java",
+    "bytes": 17842,
+    "sha256": "726aa9e5b8d446c4b5e117a221d5b43788943c685097a000aa38cdb07cf4f5ac"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DSLTableGenerator/ParameterDSL.java",
+    "bytes": 1347,
+    "sha256": "1958ba2825bfe0404edad876c8d855a167a67f27cb1c0edbd631e72419fad433"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DslAI.java",
+    "bytes": 5530,
+    "sha256": "62dfa62637485ca1a20cf9f8fd80db98db18c53b6f1df2d8770a65f308fd41d3"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/DslAIScript.java",
+    "bytes": 5213,
+    "sha256": "1f3c9c506d0ec18120fd75a70222cd49429f139352dd4f83ca1e54e77e931180"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/IDSLParameters/IBehavior.java",
+    "bytes": 450,
+    "sha256": "b5093c3472f93471834f2569d47b8033705551da0aa0d0396390297f9051246e"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/IDSLParameters/ICoordinates.java",
+    "bytes": 212,
+    "sha256": "ffc585a1a3cbbeea16165f5a79b0321e9b52ce07cca696d7e993f6e949bf9917"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/IDSLParameters/IDistance.java",
+    "bytes": 394,
+    "sha256": "3dfb0136d74addc92a36847b17015cf268d95f215940e8a52fc1bbe2901f8294"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/IDSLParameters/IParameters.java",
+    "bytes": 312,
+    "sha256": "346ca5c13924bed154545e7c1ee57b92fec822e87050038eb544b7ae3f21ddfc"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/IDSLParameters/IPlayerTarget.java",
+    "bytes": 336,
+    "sha256": "123766ba66b031025506b0b84f4aab42e82a9d32fb7b81a7f38e86f30999396d"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/IDSLParameters/IPriorityPosition.java",
+    "bytes": 337,
+    "sha256": "0fbb7850f028d338403df7b6e1ea13221f49dbc061ef8da1c9f6ecd4d8440b62"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/IDSLParameters/IQuantity.java",
+    "bytes": 394,
+    "sha256": "5b9a816bbe640ec5b9d60de970637a6e50da7c07be72389e8025993178bf3627"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/dslForScriptGenerator/IDSLParameters/IType.java",
+    "bytes": 475,
+    "sha256": "bfa645d57d92fdf4df5e02540f2993c492535ee10cd6f346b43c2afbf0f5f883"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/configurations/ConfigurationsGrammar.java",
+    "bytes": 1924,
+    "sha256": "fc92aef1ba6d96816b5630507619fafcc3325eb503938d271d753116f928e6f2"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/AbstractNodeDSLTree.java",
+    "bytes": 1730,
+    "sha256": "922391ba81bc19679b921367d8ef9fee04e0152fcb5258638c047e86a0c5fe8d"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/BooleanDSL.java",
+    "bytes": 2756,
+    "sha256": "8f1c51e0da1aab50ef159c30a4d3f24be85648a08550dde14d2448412a6b318e"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/CDSL.java",
+    "bytes": 4140,
+    "sha256": "9ab92fe5867630aaac6396eb6f63891043b033cf6c95134f2085150da44cefdd"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/CommandDSL.java",
+    "bytes": 2572,
+    "sha256": "51c5b9d73a668bbb2bf183a6a0383aacffb7670c2980c361706364f24eb336a7"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/EmptyDSL.java",
+    "bytes": 2432,
+    "sha256": "6cc9592f134ddbb67656c8734a369c94568fa38942c0d8fd66dfe658aee2e50a"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/S1DSL.java",
+    "bytes": 3959,
+    "sha256": "4df2dfc4b16778802048709130a0b2366bbea07b5b9ea2d270ebf27aa6a6f2a7"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/S2DSL.java",
+    "bytes": 5649,
+    "sha256": "ad574b99f87707084239784d21e2b2dc1092ff0dc848ba9dd3d2a095627311f9"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/S3DSL.java",
+    "bytes": 2721,
+    "sha256": "b3f1808abad46a63f87b71cd9aa2568e6565756219143110c107fd52625c858d"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/S4DSL.java",
+    "bytes": 3900,
+    "sha256": "5601b79d346abac4ba97d803f53e6035a4fc9be615999dee082dc6984983eb13"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/S5DSL.java",
+    "bytes": 4081,
+    "sha256": "9ddd19a1fbaa712aebd961a8aa88287d28cc3b623bcd4e1ab817cc4eadb5e732"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/S5DSLEnum.java",
+    "bytes": 303,
+    "sha256": "a32c4358739a5a528076a5f46bb7598b325ef9cfff421077488f5d9bff8bac22"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/builderDSLTree/BuilderDSLTreeSingleton.java",
+    "bytes": 48711,
+    "sha256": "3af2b7c8d4b3924d1b12cefc6d88f6a0884af8ff0f53170edc8f80ff2e6ccbee"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/builderDSLTree/BuilderSketchDSLSingleton.java",
+    "bytes": 9937,
+    "sha256": "8db2f2751b4f38b40117897e9569e44b1f66ef6c9105f7011733a51669dd8d27"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/builderDSLTree/NeighbourTypeEnum.java",
+    "bytes": 328,
+    "sha256": "d4895cb01ce9700549f1454b1fdd5d8ef8169e8b19c6d1c7c6f6311075f16708"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/builderDSLTree/localTestsValidation.java",
+    "bytes": 9789,
+    "sha256": "8a00d9b9b49b295a8d033ddc293123b0f2e492ff83886e97a400b1720ec91016"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/interfacesDSL/iBooleanDSL.java",
+    "bytes": 331,
+    "sha256": "255b657d7b7fc0976e7cb5426609092cb931fbe6dfa611f9e24c34763d34882c"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/interfacesDSL/iCommandDSL.java",
+    "bytes": 317,
+    "sha256": "4bca73addbbb0629a80586e13d52698802d383d57e6e80e461b0c41395e35cb1"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/interfacesDSL/iDSL.java",
+    "bytes": 484,
+    "sha256": "17857330e79e1228c96802231bf6cb17bc56ecf1820ce1ca2c13662724089665"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/interfacesDSL/iEmptyDSL.java",
+    "bytes": 322,
+    "sha256": "c2d959b126c52d2b6c50bf94317ec41e25c0f612c6d7b95351bef94c24ef5bf0"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/interfacesDSL/iNodeDSLTree.java",
+    "bytes": 673,
+    "sha256": "9e73d0f1fb921e94c290d9dcb8fa82ce487da274a5d1f112eddc81ba41637dea"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/interfacesDSL/iS1ConstraintDSL.java",
+    "bytes": 322,
+    "sha256": "08a2c9beaf153cab3495b517b44d8ee0c9f11e8320971e29d7a4be591171a85b"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/interfacesDSL/iS4ConstraintDSL.java",
+    "bytes": 322,
+    "sha256": "46690b6e6078914fc0b7398eb0b16d87db365cc55871522721db1dd03d4d68ae"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/interfacesDSL/iS5ConstraintDSL.java",
+    "bytes": 336,
+    "sha256": "6ca3be152928412346b5cd06696d7b16612d14f42457e28295f2fced7bc7b05e"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/utils/ReduceDSLController.java",
+    "bytes": 17557,
+    "sha256": "ac446be04953bfff6ff5d273aece1b77448f204670ba3dca19c2e4d4573a4956"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/dslTree/utils/SerializableController.java",
+    "bytes": 1337,
+    "sha256": "2704d0c84439898b1e9f7ed4a336e319a636d7d80651d8148bc760d989801aad"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/grammar/model/ProgramScript.java",
+    "bytes": 1449,
+    "sha256": "d5e548bd0b3f88ed9666aa38cd90137ef6dde20275e051e5f2d9b1b7f0260c64"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/runners/cleanAST/PerformCleanerAST.java",
+    "bytes": 8080,
+    "sha256": "7329448f59af5b8b96ffbead21b71c12b2ccea087d9bd84d4f5f0f1ceb850fd4"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/runners/cleanAST/PerformCleanerASTOptim.java",
+    "bytes": 9322,
+    "sha256": "b0acd51734340a00f0068db296fb459dc5a7d6be268ea070cd7a29a26cb15ab3"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/runners/cleanAST/SimpleTest.java",
+    "bytes": 10149,
+    "sha256": "19cf63039f1ea8548b34d041963ee04208e4dcdc1a56656b8f13fedb379f715c"
+  },
+  {
+    "path": "public/engine/src/ai/synthesis/runners/cleanAST/TradutorDSL.java",
+    "bytes": 12452,
+    "sha256": "040468ca21b15126ffe393a62b599bd8d1f4754c8c8a15604b66522f91645c8b"
+  },
+  {
+    "path": "public/engine/src/gui/JTextAreaWriter.java",
+    "bytes": 871,
+    "sha256": "963c848a1e8de29b8963ab6a084b0b38dbbeb3d9692c2877399dee9e404553e8"
+  },
+  {
+    "path": "public/engine/src/gui/MouseController.java",
+    "bytes": 5639,
+    "sha256": "4dfc977f87f58e3e89e379e358a94916ee02121cb0fc50bf9241a123543bd02a"
+  },
+  {
+    "path": "public/engine/src/gui/MouseControllerPanel.java",
+    "bytes": 3791,
+    "sha256": "998fe0976cf40b8f04e72096f467f56ac51dd9ccad0f8a94dee373a93bc0f474"
+  },
+  {
+    "path": "public/engine/src/gui/PGSMouseListener.java",
+    "bytes": 13381,
+    "sha256": "223e0a82749f4b0d1c9ea1cd08ff9896942d45662999cdf018f5afc4f4dbc814"
+  },
+  {
+    "path": "public/engine/src/gui/PhysicalGameStateJFrame.java",
+    "bytes": 905,
+    "sha256": "339616820118e390b44f90e8b63297f902e6bf5f07760a716d7e97e5a384d490"
+  },
+  {
+    "path": "public/engine/src/gui/PhysicalGameStateMouseJFrame.java",
+    "bytes": 2115,
+    "sha256": "223cd8d256f96182615e402516f1656b71d35717812af95b62e2099e4b7eca24"
+  },
+  {
+    "path": "public/engine/src/gui/PhysicalGameStatePanel.java",
+    "bytes": 23621,
+    "sha256": "f220c2f50c8e0e6010b71b4a02e247c8e317bc9a25835cdaa1befc53ab108d50"
+  },
+  {
+    "path": "public/engine/src/gui/TraceVisualizer.java",
+    "bytes": 3196,
+    "sha256": "08dcbcab1f92a990f29617f320a9c6fd98a459ea0cff4ae303f4899d8a7bb945"
+  },
+  {
+    "path": "public/engine/src/gui/frontend/FEStateMouseListener.java",
+    "bytes": 1767,
+    "sha256": "b5432585dbec647d08e05da2dab8b134497010e102a8f3dae611b8980830e09c"
+  },
+  {
+    "path": "public/engine/src/gui/frontend/FEStatePane.java",
+    "bytes": 51111,
+    "sha256": "3da2a4d01777d8968ee197642e23afd614160eb4bf21db98945f2aab49b01bd2"
+  },
+  {
+    "path": "public/engine/src/gui/frontend/FETournamentPane.java",
+    "bytes": 25838,
+    "sha256": "e3ed04650b3fb12ba80d7a779aba73000a5cfe969af8d3de16cd49ff14e8b4bf"
+  },
+  {
+    "path": "public/engine/src/gui/frontend/FETracePane.java",
+    "bytes": 8042,
+    "sha256": "239e31b8f0173d1f813539264aee58eb9d9d30a6a6ddb5ae1710fa5414682ad6"
+  },
+  {
+    "path": "public/engine/src/gui/frontend/FrontEnd.java",
+    "bytes": 1895,
+    "sha256": "d1b3cf53fe9584c6d19226fd3fe3b59dbc5da8963ec232d6ca1d45dc08c794e2"
+  },
+  {
+    "path": "public/engine/src/gui/frontend/PopUpStateEditorMenu.java",
+    "bytes": 7721,
+    "sha256": "bfccdfc605cccc899c55969c2de98695cfd722bb84a6a9fa2bb186bca5d7f500"
+  },
+  {
+    "path": "public/engine/src/rts/Game.java",
+    "bytes": 5922,
+    "sha256": "dad904bd29def520ce3e3d3a057555e3a9d582ea0eca8a15f2772889bc51f015"
+  },
+  {
+    "path": "public/engine/src/rts/GameSettings.java",
+    "bytes": 10510,
+    "sha256": "524bb27853f39e6ac6c232fb04b051d6388b1105dd81faf390835273e5224617"
+  },
+  {
+    "path": "public/engine/src/rts/GameState.java",
+    "bytes": 34369,
+    "sha256": "d720df4b7cf15354d64cddd34ea4cc58982bc1deb4030a03b383cf2cb597243c"
+  },
+  {
+    "path": "public/engine/src/rts/MicroRTS.java",
+    "bytes": 3093,
+    "sha256": "a6a3e6853c350b6f5e7d42ae98c48deddf3eda0ea26acc63fd33503b1d44777d"
+  },
+  {
+    "path": "public/engine/src/rts/MouseGame.java",
+    "bytes": 598,
+    "sha256": "b632edc82c57c0959aceb2d59b367f0f98ae9df64d4b5315429e26e5fecba65c"
+  },
+  {
+    "path": "public/engine/src/rts/PartiallyObservableGameState.java",
+    "bytes": 6709,
+    "sha256": "94566b523cc24c207727fd08de22090562c84e04e854e7dfd6536b9ab8823201"
+  },
+  {
+    "path": "public/engine/src/rts/PhysicalGameState.java",
+    "bytes": 22515,
+    "sha256": "29b084261e913f8ba1a40e85822a6a8f1e3b5e2f89ca55afe689c02eb102f909"
+  },
+  {
+    "path": "public/engine/src/rts/Player.java",
+    "bytes": 2539,
+    "sha256": "153b4385bbd164fba403aa51ebef82fe7c802466f8f4135c47f502edc05a1a1e"
+  },
+  {
+    "path": "public/engine/src/rts/PlayerAction.java",
+    "bytes": 11518,
+    "sha256": "0ab74b099a90514f16e51fb6d010e5fc8addcda3833d767abee8e3f5afb0ae77"
+  },
+  {
+    "path": "public/engine/src/rts/PlayerActionGenerator.java",
+    "bytes": 7396,
+    "sha256": "19a53c9171cebcb04c9080f8f4b9203986ed4b090e0a413f70ee6935e57656c3"
+  },
+  {
+    "path": "public/engine/src/rts/RemoteGame.java",
+    "bytes": 1395,
+    "sha256": "eab7760944f742191473edd2565fbe78bd7d47ec626c9f8e4af56c33f166388d"
+  },
+  {
+    "path": "public/engine/src/rts/ResourceUsage.java",
+    "bytes": 3191,
+    "sha256": "1aa320196c1e78e9af06dda30a881ad3c7bc0918a0aee170ce5b942fab7f2a46"
+  },
+  {
+    "path": "public/engine/src/rts/Trace.java",
+    "bytes": 8230,
+    "sha256": "231b07c04177dc4c31c21af798462c88bda03e6caea5fab3444ff9f7513d4bb3"
+  },
+  {
+    "path": "public/engine/src/rts/TraceEntry.java",
+    "bytes": 4400,
+    "sha256": "d0663eeb97ecad4c1e49bf2ccca664c6b641743b352ac8a189ee5a46cd02f32a"
+  },
+  {
+    "path": "public/engine/src/rts/UnitAction.java",
+    "bytes": 22363,
+    "sha256": "20c51a91c292c6e55c57dc4fcfc382208e5c14e8bfe97c5228e97a851f7dea15"
+  },
+  {
+    "path": "public/engine/src/rts/UnitActionAssignment.java",
+    "bytes": 621,
+    "sha256": "2a13d0f2e6f116ab1702f0f35140e0d5f571bd513ad6a470d3b3fb5ab6df2e60"
+  },
+  {
+    "path": "public/engine/src/rts/units/Unit.java",
+    "bytes": 18316,
+    "sha256": "32962fb64d663af572db5b6fe34d37d320014bd56921f648eb684b7ad6b44866"
+  },
+  {
+    "path": "public/engine/src/rts/units/UnitType.java",
+    "bytes": 11084,
+    "sha256": "42e5d925b317ab8afe62f4b9590e756469ee0fd90f800baf94eba372e51b80dc"
+  },
+  {
+    "path": "public/engine/src/rts/units/UnitTypeTable.java",
+    "bytes": 12602,
+    "sha256": "5294e4ab04dd424c3f405f5664f8c76a2a546044c65ec8c724012aa67e8dfd3d"
+  },
+  {
+    "path": "public/engine/src/tests/AIComplianceTest.java",
+    "bytes": 4718,
+    "sha256": "06ed1aa33bd762a3b7605b9660d572e1b52a2539583e1e4ec68b4e7403d78598"
+  },
+  {
+    "path": "public/engine/src/tests/AbstractTraceGenerationTest.java",
+    "bytes": 2775,
+    "sha256": "420eb9d4aa0700a0b8d555de6777227947c6c1c6960d93e15372e8e52acd458f"
+  },
+  {
+    "path": "public/engine/src/tests/CompareAllAIsObservable.java",
+    "bytes": 5617,
+    "sha256": "368e5c8e81f6e39e1825428f6bdc5f84063ad2eb43a2c5d94b7c1013f0c65d82"
+  },
+  {
+    "path": "public/engine/src/tests/CompareAllAIsPartiallyObservable.java",
+    "bytes": 5213,
+    "sha256": "08f946c8576c7596c7edfe92a690eb7f6076655b311ce8016b4cb4c7700f1061"
+  },
+  {
+    "path": "public/engine/src/tests/Experimenter.java",
+    "bytes": 13710,
+    "sha256": "b67d0df2f5216f2d0dd2b721942d87833b9193099884495de29cc8e37c3f7d3e"
+  },
+  {
+    "path": "public/engine/src/tests/ExperimenterAsymmetric.java",
+    "bytes": 11601,
+    "sha256": "98f06140897fe88a16587df04081d60aac922c40f8d3b8cebebae5d07732616a"
+  },
+  {
+    "path": "public/engine/src/tests/GameVisualSimulationTest.java",
+    "bytes": 2094,
+    "sha256": "97373fef42c8184ce9d5f9842d44b4cbc3124e72cd65b219ddcd3b5bafa9e5f0"
+  },
+  {
+    "path": "public/engine/src/tests/GenerateTestTraces.java",
+    "bytes": 4881,
+    "sha256": "3d3e92543f94892432c2c40a752e9eaa7e6c4675500af84e1ae0636e69d10ff0"
+  },
+  {
+    "path": "public/engine/src/tests/JNIBotClient.java",
+    "bytes": 5150,
+    "sha256": "90838f64f6c8aba540bbc2ece47f378e6387612f7213baa0659888b65f17952f"
+  },
+  {
+    "path": "public/engine/src/tests/JNIGridnetClient.java",
+    "bytes": 9059,
+    "sha256": "a1811db7b06dc6b992687fe00f5a4bd833e8adc3cb2621eda8a0363480a70f8b"
+  },
+  {
+    "path": "public/engine/src/tests/JNIGridnetClientSelfPlay.java",
+    "bytes": 9078,
+    "sha256": "1bb1c977be3c2de8bef4ad856926adac20be20216240ce0d369d056136582497"
+  },
+  {
+    "path": "public/engine/src/tests/JNIGridnetVecClient.java",
+    "bytes": 13297,
+    "sha256": "4e24e11238905671ee8b64d9dd859b542263ea4fa0a1a90b795e12f401e1150f"
+  },
+  {
+    "path": "public/engine/src/tests/LMCTest.java",
+    "bytes": 4747,
+    "sha256": "c12063e21e305e695f2ff9f3cacbe0136fb614f439e4811f3793ecfc7b03f5a7"
+  },
+  {
+    "path": "public/engine/src/tests/MapGenerator.java",
+    "bytes": 19331,
+    "sha256": "96156d3227dd0ef1b56847764e9ff4881309d4e954f1a78028449ba2ab6b3cfb"
+  },
+  {
+    "path": "public/engine/src/tests/MapVisualizationTest.java",
+    "bytes": 1282,
+    "sha256": "b85e373afe754ce67d28b46a35d03d30d05f2a2b6d2fb26bd74b588471fd59b8"
+  },
+  {
+    "path": "public/engine/src/tests/POGameVisualSimulationTest.java",
+    "bytes": 2574,
+    "sha256": "8773a98137f858ecf25f040a7e1778f1864822b4ca8f5fd3478d23fa07e243c6"
+  },
+  {
+    "path": "public/engine/src/tests/PlayGameWithMouseTest.java",
+    "bytes": 2411,
+    "sha256": "0891fd0ce0f06d1b0957ff307cc9475adb4c5dfbc056cbd1fa9c460fb3b5da63"
+  },
+  {
+    "path": "public/engine/src/tests/PlayerActionGenerationTest.java",
+    "bytes": 843,
+    "sha256": "cf374bc0f5cd0f12907fbfd97b65f8d33f70d3fda278b906381f84fff3dda02a"
+  },
+  {
+    "path": "public/engine/src/tests/RunConfigurableExperiments.java",
+    "bytes": 18149,
+    "sha256": "6056e68eb700597b767c0fddb0ddafb620296656e4c4916924f1bdb238095872"
+  },
+  {
+    "path": "public/engine/src/tests/bayesianmodels/GenerateTrainingTraces.java",
+    "bytes": 12523,
+    "sha256": "e5916d047705629d424be87de8553a5c25cfd6093dac62ed48b1097ae08a6742"
+  },
+  {
+    "path": "public/engine/src/tests/bayesianmodels/PretrainNaiveBayesModels.java",
+    "bytes": 8857,
+    "sha256": "56826da85763d729ccddc025ef9c3c72be045cc855677a0e93c1bd27bf8bebc6"
+  },
+  {
+    "path": "public/engine/src/tests/bayesianmodels/TestPretrainedBayesianModel.java",
+    "bytes": 16240,
+    "sha256": "36312ed0b6c3d540cf278ab1c2fb1d579e67cf9e0b340cbd55100999ce9b7fc8"
+  },
+  {
+    "path": "public/engine/src/tests/rts/PhysicalGameStateTest.java",
+    "bytes": 1230,
+    "sha256": "f6f5d0991bc22fa13b2840a7335da2d73fd475521f085ed7df44e4595c91c8ab"
+  },
+  {
+    "path": "public/engine/src/tests/sockets/RunClientExample.java",
+    "bytes": 2556,
+    "sha256": "27b6a5751f0e88eb49fd8514056e6443491719cbd2e6f3be66fe87fbb3ca09a8"
+  },
+  {
+    "path": "public/engine/src/tests/sockets/RunServerExample.java",
+    "bytes": 861,
+    "sha256": "88262125052762c58e83030f5f9b125f85b04cd7a97fae55ecec1ac6f099a98d"
+  },
+  {
+    "path": "public/engine/src/tests/trace/TraceGenerationTest.java",
+    "bytes": 2087,
+    "sha256": "672d3b923dad74f3d740dd08bca5044c39474c03a76152d7dd2d946fae05fe29"
+  },
+  {
+    "path": "public/engine/src/tests/trace/TraceVisualizationTest.java",
+    "bytes": 891,
+    "sha256": "28892d24ca68732eaf68db82fddef169592dc49d04f1cf71ae9f72b8d70fa703"
+  },
+  {
+    "path": "public/engine/src/tests/trace/ZipTraceGenerationTest.java",
+    "bytes": 1872,
+    "sha256": "f3e16eaf0f9ad825f2f7ede15272a112df31718715161f8a2d79b283f056d7cf"
+  },
+  {
+    "path": "public/engine/src/tests/trace/ZipTraceVisualizationTest.java",
+    "bytes": 530,
+    "sha256": "87ae97cb1a2b08640670193eb2215b3929f2f5feccf74135b646df68f002d140"
+  },
+  {
+    "path": "public/engine/src/tournaments/FixedOpponentsTournament.java",
+    "bytes": 4666,
+    "sha256": "3c96f32b6a78e2b08a1bd99ada2c9b2d4d1b8a6407e3b5941b7818b88a12dfaa"
+  },
+  {
+    "path": "public/engine/src/tournaments/LoadTournamentAIs.java",
+    "bytes": 2620,
+    "sha256": "424b1a774826c76a5a18c92e7d74a6c0320f9dd53a44fd9b79a16f5dd80f0344"
+  },
+  {
+    "path": "public/engine/src/tournaments/RoundRobinTournament.java",
+    "bytes": 4452,
+    "sha256": "5a1d4152a2c2ae93c868983098d9eeea28fbeacd13b169f108770388b16d57cc"
+  },
+  {
+    "path": "public/engine/src/tournaments/Tournament.java",
+    "bytes": 14160,
+    "sha256": "bbad6f24ef00bb398be2d4d7fc634cc3c7e837e797ceec1d146efc27bc2ae5a4"
+  },
+  {
+    "path": "public/engine/src/util/CartesianProduct.java",
+    "bytes": 1861,
+    "sha256": "49ba8c8a5d57cbf5864053d0932c593343dc20bc48ff86d21f212bc363a2c5cb"
+  },
+  {
+    "path": "public/engine/src/util/Pair.java",
+    "bytes": 235,
+    "sha256": "8495d2eea8c0f588ff04d2cde3e96a462b202f85433a20fb24b69c524a09a520"
+  },
+  {
+    "path": "public/engine/src/util/RunnableWithTimeOut.java",
+    "bytes": 2065,
+    "sha256": "1643e8b53eb4d75d915fb0cb1152c9c5a8793acddf301d7fa609ef4df0eb59b3"
+  },
+  {
+    "path": "public/engine/src/util/Sampler.java",
+    "bytes": 7668,
+    "sha256": "c8a80d8e40c5518a92859823027497287f72b4803d6b272d5af840e23e6aaa86"
+  },
+  {
+    "path": "public/engine/src/util/XMLWriter.java",
+    "bytes": 4277,
+    "sha256": "dd442b1cb790eeff19ee9bc65b05a247e3ee7b6a4a4419785251e7d9beb5550c"
+  },
+  {
+    "path": "public/engine/utts/TestUnitTypeTable.json",
+    "bytes": 4377,
+    "sha256": "2cc18e8c397f681de985a33d08de0b4ebab4340841b17b9af5614086de1773ef"
+  },
+  {
+    "path": "public/evaluation_contract.draft.json",
+    "bytes": 1929,
+    "sha256": "de172094747e5a635cd11f6eb4aa2e4c5a4c33166c4dc8fafe3b7d56f9ed2a4f"
+  },
+  {
+    "path": "public/instruction.md",
+    "bytes": 1452,
+    "sha256": "b78184ef3c841714e3b233fb4eb43db013adc8fe4945d2e1619baa8fd505aa5b"
+  },
+  {
+    "path": "public/maps/frontier_public_24.xml",
+    "bytes": 1872,
+    "sha256": "b6b45c3dddf5282130e6a5819d26a55f05fef98e3ccf4e6034c016af47894eef"
+  },
+  {
+    "path": "public/maps/frontier_public_32.xml",
+    "bytes": 2321,
+    "sha256": "0ef2fecd865f3b4be50bca42c7b9da501925bd8b1a71a10b17cf36f7a17ccb44"
+  },
+  {
+    "path": "public/maps/frontier_public_40.xml",
+    "bytes": 2898,
+    "sha256": "e8eabd57ca36d0e144e090361e6bdbe2280c726870e0bf7d361931c07aa0c87f"
+  },
+  {
+    "path": "public/submission/FrontierAI.java",
+    "bytes": 401,
+    "sha256": "13387415e52d946cc7ca619b302f7edfbf6721384cbd6972e860aa8e29f76a44"
+  }
+]

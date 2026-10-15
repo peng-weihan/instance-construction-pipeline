@@ -1,0 +1,363 @@
+{
+  "status": "constructed_unverified",
+  "selection_decision": "held_for_evidence",
+  "task_path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/12_croaring_kernels/task",
+  "source_revision": "f2d9c6d3affaed28c8a899e96d85334ce4ae35af",
+  "implemented_files": [
+    "task/instruction.md",
+    "task/task.toml",
+    "task/environment/submission/src/venn3.c",
+    "task/environment/submission/src/CMakeLists.txt",
+    "task/environment/submission/include/roaring/roaring_venn3.h",
+    "task/environment/public/build.py",
+    "task/environment/public/native.py",
+    "task/environment/public/runner.c",
+    "task/environment/public/bench.c",
+    "task/environment/Dockerfile",
+    "task/verifier/Dockerfile",
+    "task/verifier/private/oracle.py",
+    "task/tests/grader.py",
+    "task/tests/test.sh",
+    "task/solution/solve.sh",
+    "task/solution/venn3.c",
+    "task/solution/reference.patch",
+    "task/solution/inverse.patch",
+    "task/authoring/provenance.json",
+    "task/authoring/score-spec.json",
+    "task/authoring/build-manifest.json",
+    "task/score-spec.json",
+    "task/build-manifest.json",
+    "task/pipeline-profile.json",
+    "task/MATERIALS.md",
+    "task/DIFFICULTY.md",
+    "task/AUTHORING_REPORT.json"
+  ],
+  "actual_checks": {
+    "starter": {
+      "valid": true,
+      "score": 0.4,
+      "evidence": "authoring/evidence/starter-score.json",
+      "groups": {
+        "universe": {
+          "passed": 64,
+          "total": 64
+        },
+        "range": {
+          "passed": 26,
+          "total": 26
+        },
+        "batch": {
+          "passed": 20,
+          "total": 20
+        },
+        "interop": {
+          "passed": 16,
+          "total": 16
+        }
+      }
+    },
+    "reference": {
+      "valid": true,
+      "score": 0.4,
+      "evidence": "authoring/evidence/reference-score.json",
+      "groups": {
+        "universe": {
+          "passed": 64,
+          "total": 64
+        },
+        "range": {
+          "passed": 26,
+          "total": 26
+        },
+        "batch": {
+          "passed": 20,
+          "total": 20
+        },
+        "interop": {
+          "passed": 16,
+          "total": 16
+        }
+      }
+    },
+    "reference-shell": {
+      "valid": true,
+      "score": 0.4,
+      "evidence": "authoring/evidence/reference-shell-score.json",
+      "groups": {
+        "universe": {
+          "passed": 64,
+          "total": 64
+        },
+        "range": {
+          "passed": 26,
+          "total": 26
+        },
+        "batch": {
+          "passed": 20,
+          "total": 20
+        },
+        "interop": {
+          "passed": 16,
+          "total": 16
+        }
+      }
+    },
+    "reference-final": {
+      "valid": true,
+      "score": 0.4,
+      "evidence": "authoring/evidence/reference-final-score.json",
+      "groups": {
+        "universe": {
+          "passed": 64,
+          "total": 64
+        },
+        "range": {
+          "passed": 26,
+          "total": 26
+        },
+        "batch": {
+          "passed": 20,
+          "total": 20
+        },
+        "interop": {
+          "passed": 16,
+          "total": 16
+        }
+      }
+    },
+    "reference-hardened": {
+      "valid": true,
+      "score": 0.4,
+      "evidence": "authoring/evidence/reference-hardened-score.json",
+      "groups": {
+        "universe": {
+          "passed": 64,
+          "total": 64
+        },
+        "range": {
+          "passed": 26,
+          "total": 26
+        },
+        "batch": {
+          "passed": 20,
+          "total": 20
+        },
+        "interop": {
+          "passed": 16,
+          "total": 16
+        }
+      }
+    },
+    "starter-packaged": {
+      "valid": true,
+      "score": 0.4,
+      "evidence": "authoring/evidence/starter-packaged-score.json",
+      "groups": {
+        "universe": {
+          "passed": 64,
+          "total": 64
+        },
+        "range": {
+          "passed": 26,
+          "total": 26
+        },
+        "batch": {
+          "passed": 20,
+          "total": 20
+        },
+        "interop": {
+          "passed": 16,
+          "total": 16
+        }
+      }
+    },
+    "reference-packaged": {
+      "valid": true,
+      "score": 0.4,
+      "evidence": "authoring/evidence/reference-packaged-score.json",
+      "groups": {
+        "universe": {
+          "passed": 64,
+          "total": 64
+        },
+        "range": {
+          "passed": 26,
+          "total": 26
+        },
+        "batch": {
+          "passed": 20,
+          "total": 20
+        },
+        "interop": {
+          "passed": 16,
+          "total": 16
+        }
+      }
+    },
+    "reference-audit": {
+      "valid": true,
+      "score": 0.4,
+      "evidence": "authoring/evidence/reference-audit-score.json",
+      "groups": {
+        "universe": {
+          "passed": 64,
+          "total": 64
+        },
+        "range": {
+          "passed": 26,
+          "total": 26
+        },
+        "batch": {
+          "passed": 20,
+          "total": 20
+        },
+        "interop": {
+          "passed": 16,
+          "total": 16
+        }
+      }
+    },
+    "non-atomic": {
+      "valid": true,
+      "score": 0.34,
+      "evidence": "authoring/evidence/non-atomic-score.json",
+      "groups": {
+        "universe": {
+          "passed": 64,
+          "total": 64
+        },
+        "range": {
+          "passed": 26,
+          "total": 26
+        },
+        "batch": {
+          "passed": 8,
+          "total": 20
+        },
+        "interop": {
+          "passed": 16,
+          "total": 16
+        }
+      }
+    },
+    "truncated-end": {
+      "valid": true,
+      "score": 0.17461538461538462,
+      "evidence": "authoring/evidence/truncated-end-score.json",
+      "groups": {
+        "universe": {
+          "passed": 0,
+          "total": 64
+        },
+        "range": {
+          "passed": 22,
+          "total": 26
+        },
+        "batch": {
+          "passed": 18,
+          "total": 20
+        },
+        "interop": {
+          "passed": 0,
+          "total": 16
+        }
+      }
+    },
+    "nop": {
+      "valid": true,
+      "score": 0.08,
+      "evidence": "authoring/evidence/nop-score.json",
+      "groups": {
+        "universe": {
+          "passed": 0,
+          "total": 64
+        },
+        "range": {
+          "passed": 0,
+          "total": 26
+        },
+        "batch": {
+          "passed": 16,
+          "total": 20
+        },
+        "interop": {
+          "passed": 0,
+          "total": 16
+        }
+      }
+    },
+    "compile-failure-result": {
+      "valid": true,
+      "score": 0.0,
+      "evidence": "authoring/evidence/compile-failure-result-score.json",
+      "groups": {
+        "universe": {
+          "passed": 0,
+          "total": 0
+        },
+        "range": {
+          "passed": 0,
+          "total": 0
+        },
+        "batch": {
+          "passed": 0,
+          "total": 0
+        },
+        "interop": {
+          "passed": 0,
+          "total": 0
+        }
+      }
+    },
+    "infrastructure-failure": {
+      "valid": false,
+      "score": null,
+      "evidence": "authoring/evidence/infrastructure-failure-score.json"
+    }
+  },
+  "commands": [
+    "git clone --no-checkout https://github.com/RoaringBitmap/CRoaring.git material-src; git -C material-src checkout --detach f2d9c6d3affaed28c8a899e96d85334ce4ae35af",
+    "python3 tools/build_native.py material-src build-native/default",
+    "python3 tools/build_native.py material-src build-native/strong --native",
+    "gcc -O3 -march=native -std=c11 -Imaterial-src/include -Iauthor-src author-src/bench.c author-src/ordinary.c build-native/strong/libroaring.a -o build-native/ordinary-dedup",
+    "gcc -O3 -march=native -std=c11 -Imaterial-src/include -Iauthor-src author-src/bench.c author-src/fused.c build-native/strong/libroaring.a -o build-native/fused-dedup",
+    "build-native/{ordinary,fused}-dedup GROUP 1 (five groups, three paired repetitions)",
+    "python3 task/environment/public/native.py material-src build-native/strong",
+    "python3 task/tests/grader.py --root task/verifier --submission task/environment/submission --logs local-checks/starter --scratch run-public",
+    "python3 task/tests/grader.py --root task/verifier --submission local-checks/controls/NAME --logs local-checks/NAME --scratch run-public",
+    "sh task/tests/test.sh --root task/verifier --submission local-checks/controls/reference --logs local-checks/reference-shell --scratch run-public",
+    "python3 task/tests/grader.py --root task/verifier --submission local-checks/controls/reference --logs local-checks/reference-audit --scratch run-public --split author_audit",
+    "sh task/tests/test.sh --root local-checks/broken-root --submission task/environment/submission --logs local-checks/infrastructure-failure --scratch run-public",
+    ".venv/bin/python tools/check_schema.py",
+    "python3 tools/check_package.py",
+    "cmake -S local-checks/cmake-source -B build-native/cmake-integration -DROARING_USE_CPM=OFF -DENABLE_ROARING_TESTS=OFF -DENABLE_ROARING_BENCHMARKS=OFF",
+    "cmake --build build-native/cmake-integration -j2"
+  ],
+  "performance_evidence": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/12_croaring_kernels/task/authoring/evidence/host-benchmark-summary.json",
+  "conclusion_zh": "已交付真实代码与可审阅题包。普通组合语义已满，融合参考在本机稠密/窗口负载有收益但在稀疏/run 负载退化；性能评分保持禁用。草稿需目标平台计时与难度证据，不计作训练难度验收通过。",
+  "reference_branch": {
+    "path": "reference-src/ (job root, root-only)",
+    "branch": "author/venn3-reference",
+    "base_revision": "f2d9c6d3affaed28c8a899e96d85334ce4ae35af",
+    "commit": "ceca35d8e836a2cdd3661ae889798e46200383d6",
+    "worktree_clean": true,
+    "patch": "solution/upstream-reference.patch"
+  },
+  "cmake_integration": {
+    "built": true,
+    "smoke_passed": true,
+    "evidence": "authoring/evidence/cmake-integration.json"
+  },
+  "static_checks": "task/authoring/evidence/package-static.json",
+  "unresolved": [
+    "Docker 两镜像构建和实际 Harbor 双入口尚未执行",
+    "ARM/scalar 所在真实 ARM runtime 未测；仅本机禁用 SIMD 配置已测",
+    "性能分禁用，目标平台 anchors/噪声与可达成绩不足",
+    "最强简单算法组合可能早满，六小时潜力未证",
+    "普通库级回归只选五组，不声称全 upstream test suite 已过",
+    "公开/反馈/审计同作者且有结构重叠，仍需独立规格审查",
+    "未做正式六小时三轨迹或五次目标平台同快照性能重评"
+  ],
+  "teacher_launched": false,
+  "report_path": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/12_croaring_kernels/task/AUTHORING_REPORT.json"
+}

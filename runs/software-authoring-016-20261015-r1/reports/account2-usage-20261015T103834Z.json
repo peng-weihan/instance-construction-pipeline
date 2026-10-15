@@ -1,0 +1,48 @@
+{
+  "observed_utc": "2026-10-15T10:38:34.740661+00:00",
+  "account": "raymone/2",
+  "active_total_observed": 9,
+  "active_groups": [
+    {
+      "task": "SharpFullChain",
+      "count": 1,
+      "phase": "EdgeBench six-hour solver"
+    },
+    {
+      "task": "lean-thorp-routing-chain",
+      "count": 2,
+      "phase": "EdgeBench six-hour solver"
+    },
+    {
+      "task": "MaxCutFull",
+      "count": 1,
+      "phase": "EdgeBench six-hour solver"
+    },
+    {
+      "task": "HardSphere",
+      "count": 2,
+      "phase": "EdgeBench six-hour solver"
+    },
+    {
+      "task": "PartitionFullChain",
+      "count": 1,
+      "phase": "EdgeBench six-hour solver"
+    },
+    {
+      "task": "highs-incumbent-model-revisions",
+      "count": 1,
+      "phase": "TB2.1 author; preflight-recalibration-waiting-shared-slot"
+    },
+    {
+      "task": "zodb-checkpoint-handoff",
+      "count": 1,
+      "phase": "TB2.1 author; harbor-preflight"
+    }
+  ],
+  "previously_active_now_ended": {
+    "task": "fonttools-regional-release",
+    "phase": "preflight-complete-awaiting-root-review"
+  },
+  "method": "actual SDK running observations, current native PIDs and read-only candidate/progress metadata",
+  "source_receipt": "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/reports/raymone123-actual-unused-account-review-20261015T103829091349Z/ACTUAL-UNUSED-ACCOUNT-REVIEW.json"
+}

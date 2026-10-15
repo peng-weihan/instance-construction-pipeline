@@ -1,0 +1,18 @@
+{
+  "status": "kernel graph not measured",
+  "signature_text_references_only": [
+    [
+      "dotProduct_covMatrix_mulVec",
+      "covMatrix_mulVec"
+    ],
+    [
+      "exists_modification_holder_aux'",
+      "exists_modification_holder"
+    ],
+    [
+      "exists_modification_holder''",
+      "exists_modification_holder"
+    ]
+  ],
+  "required": "collect transitive axioms and exact constant dependencies from elaborated declarations"
+}

@@ -1,0 +1,7 @@
+{
+  "valid": false,
+  "score": null,
+  "summary": "infrastructure/reference error",
+  "error": "InfrastructureError('trusted asset integrity failure: stream-contract.json')",
+  "traceback": "Traceback (most recent call last):\n  File \"/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/task/tests/grader.py\", line 155, in main\n    raise InfrastructureError('trusted asset integrity failure: '+filename)\nInfrastructureError: trusted asset integrity failure: stream-contract.json\n"
+}

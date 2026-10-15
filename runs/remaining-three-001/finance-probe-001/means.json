@@ -1,0 +1,20 @@
+{
+  "public": {
+    "baseline": 0.39491723504978726,
+    "responsive": null,
+    "slow": 0.48284999738409895,
+    "trend": null
+  },
+  "feedback": {
+    "baseline": 0.39329753315544375,
+    "responsive": null,
+    "slow": 0.6058140207249595,
+    "trend": null
+  },
+  "audit": {
+    "baseline": 0.3932400148901434,
+    "responsive": null,
+    "slow": 0.6190164721405792,
+    "trend": null
+  }
+}

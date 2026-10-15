@@ -1,0 +1,37 @@
+{
+  "commit": "ceac6e4412420d5a5c19e4f7293ad005cf1a31b2",
+  "changes": [
+    {
+      "path": "crates/toml_parser/src/decoder/string.rs",
+      "start_marker": "fn escape_seq_char(",
+      "end_marker": "\nfn hexescape(",
+      "removed_lines": 50,
+      "replacement": "fn escape_seq_char(stream: &mut &str, _raw: Raw<'_>, _error: &mut dyn ErrorSink) -> char {\n    // Recovery gap: escape identifiers currently survive as literal characters.\n    stream.next_token().unwrap_or('\\\\')\n}",
+      "original_sha256": "41ef39b267ff5a1afa1ef2e1fcfedeb6cf007c97fcfdd2b8125fe27125482a2d"
+    },
+    {
+      "path": "crates/toml_parser/src/decoder/string.rs",
+      "start_marker": "fn mlb_escaped_nl(",
+      "end_marker": "\n/// `mlb-unescaped`",
+      "removed_lines": 84,
+      "replacement": "fn mlb_escaped_nl(stream: &mut &str, _raw: Raw<'_>, _error: &mut dyn ErrorSink) {\n    // Recovery gap: consume only the immediate newline, leaving indentation.\n    if stream.starts_with(\"\\r\\n\") { *stream = &stream[2..]; }\n    else if stream.starts_with('\\n') { *stream = &stream[1..]; }\n}",
+      "original_sha256": "3422b78571a8ea7249808998012a59229ce5661f16dd01485a14a7ca776f3689"
+    },
+    {
+      "path": "crates/toml_edit/src/encode.rs",
+      "start_marker": "pub(crate) fn encode_formatted<",
+      "end_marker": "\npub(crate) fn encode_array(",
+      "removed_lines": 23,
+      "replacement": "pub(crate) fn encode_formatted<T: ValueRepr>(\n    this: &Formatted<T>, buf: &mut dyn Write, _input: Option<&str>,\n    _default_decor: (&str, &str),\n) -> Result {\n    // Recovery gap: canonical value spelling erases raw representation/decor.\n    let repr = this.default_repr();\n    buf.write_str(repr.as_raw().as_str().unwrap_or(\"\"))\n}",
+      "original_sha256": "44858c269dd4fd3ef3160f0a008c974a639da4d322e5db0e78ea35164feeb1c9"
+    },
+    {
+      "path": "crates/toml_writer/src/string.rs",
+      "start_marker": "\nfn write_toml_value<W:",
+      "end_marker": "\n#[derive(Copy, Clone, Debug)]\nstruct ValueMetrics",
+      "removed_lines": 107,
+      "replacement": "fn write_toml_value<W: crate::TomlWrite + ?Sized>(\n    decoded: &str, _encoding: Option<Encoding>, _newline: bool, writer: &mut W,\n) -> core::fmt::Result {\n    // Recovery gap: naive quoting loses key/literal/multiline/escape policy.\n    write!(writer, \"\\\"{decoded}\\\"\")\n}",
+      "original_sha256": "29529bd49368d3297f2dabc96a8aa9f044d076a6bdb5942cde8c6f721a879913"
+    }
+  ]
+}

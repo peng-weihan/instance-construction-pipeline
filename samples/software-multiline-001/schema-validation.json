@@ -1,0 +1,78 @@
+{
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=8",
+    "-o",
+    "ControlPath=/tmp/edgebench-raymone-smoke.sock",
+    "root@173.231.10.234",
+    "/ws/users/wcgu/edgebench/venv/bin/python",
+    "-B",
+    "-"
+  ],
+  "generated_at_utc": "2026-10-15T08:55:50.667816+00:00",
+  "input_config_sha256": {
+    "01_openapi": "c4852f1a7e8666c391f996e88d6ca08ce39e7581e3dcdd0e3c96bf3ab27fab6e",
+    "02_restler": "926f1c4e061da9d81fda7a895ba38935629f30a463d4cdea6bf0c01d2dde251b",
+    "03_wasm": "de89492b971d0d5381a618a34a26516d5421b36e531b7ec5ae07bb1b6cf7f261",
+    "04_datafusion": "f0e293c1d14b86172f883989522aa16d1a00c407cc3e694d9e66a017a5d66b0b",
+    "05_toml": "31ec636be277a901fba5ab5fb98b5137ace09b6b5b0ed3396651fbe1296e94f8",
+    "06_jq": "45783336182a347133337c3e960349028078259279ddc81f0b836835949aff27"
+  },
+  "inputs_changed_during_validation": [],
+  "returncode": 0,
+  "stdout": "{\"config_sha256\": \"d8c62a49acefb8cd6a0be4c4d48dc0f4f52f31f8a8a6728439aad04e1c62e9fb\", \"records\": [{\"route\": \"01_openapi\", \"model_validation\": \"pass\", \"unknown_keys\": [], \"strict_known_fields_pass\": true, \"agent_network\": \"NetworkMode.NO_NETWORK\"}, {\"route\": \"02_restler\", \"model_validation\": \"pass\", \"unknown_keys\": [], \"strict_known_fields_pass\": true, \"agent_network\": \"NetworkMode.NO_NETWORK\"}, {\"route\": \"03_wasm\", \"model_validation\": \"pass\", \"unknown_keys\": [], \"strict_known_fields_pass\": true, \"agent_network\": \"NetworkMode.NO_NETWORK\"}, {\"route\": \"04_datafusion\", \"model_validation\": \"pass\", \"unknown_keys\": [], \"strict_known_fields_pass\": true, \"agent_network\": \"NetworkMode.NO_NETWORK\"}, {\"route\": \"05_toml\", \"model_validation\": \"pass\", \"unknown_keys\": [], \"strict_known_fields_pass\": true, \"agent_network\": \"NetworkMode.NO_NETWORK\"}, {\"route\": \"06_jq\", \"model_validation\": \"pass\", \"unknown_keys\": [], \"strict_known_fields_pass\": true, \"agent_network\": \"NetworkMode.NO_NETWORK\"}], \"scope\": \"actual TaskConfig validation only, not task/container execution\"}\n",
+  "stderr": "",
+  "schema_acceptance_only": true,
+  "runtime_verified": false,
+  "result": {
+    "config_sha256": "d8c62a49acefb8cd6a0be4c4d48dc0f4f52f31f8a8a6728439aad04e1c62e9fb",
+    "records": [
+      {
+        "route": "01_openapi",
+        "model_validation": "pass",
+        "unknown_keys": [],
+        "strict_known_fields_pass": true,
+        "agent_network": "NetworkMode.NO_NETWORK"
+      },
+      {
+        "route": "02_restler",
+        "model_validation": "pass",
+        "unknown_keys": [],
+        "strict_known_fields_pass": true,
+        "agent_network": "NetworkMode.NO_NETWORK"
+      },
+      {
+        "route": "03_wasm",
+        "model_validation": "pass",
+        "unknown_keys": [],
+        "strict_known_fields_pass": true,
+        "agent_network": "NetworkMode.NO_NETWORK"
+      },
+      {
+        "route": "04_datafusion",
+        "model_validation": "pass",
+        "unknown_keys": [],
+        "strict_known_fields_pass": true,
+        "agent_network": "NetworkMode.NO_NETWORK"
+      },
+      {
+        "route": "05_toml",
+        "model_validation": "pass",
+        "unknown_keys": [],
+        "strict_known_fields_pass": true,
+        "agent_network": "NetworkMode.NO_NETWORK"
+      },
+      {
+        "route": "06_jq",
+        "model_validation": "pass",
+        "unknown_keys": [],
+        "strict_known_fields_pass": true,
+        "agent_network": "NetworkMode.NO_NETWORK"
+      }
+    ],
+    "scope": "actual TaskConfig validation only, not task/container execution"
+  }
+}

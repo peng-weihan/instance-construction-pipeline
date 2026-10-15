@@ -1,0 +1,16 @@
+{
+  "50.0.0": {
+    "commit": "10343c18292fc3a9ca62b59c8bb530169fe79b82",
+    "rust_version_lines": [
+      "rust-version = \"1.86.0\""
+    ],
+    "source": "official annotated tag resolved to commit; fixed raw Cargo.toml"
+  },
+  "49.0.2": {
+    "commit": "f43df3f2ae3aafb347996c58e852cc378807095b",
+    "rust_version_lines": [
+      "rust-version = \"1.85.1\""
+    ],
+    "source": "official annotated tag resolved to commit; fixed raw Cargo.toml"
+  }
+}

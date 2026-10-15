@@ -1,0 +1,25 @@
+{
+  "public_smoke": [
+    {
+      "name": "starter",
+      "command": [
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv-offline/bin/python",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/public-smoke-starter/public/smoke.py"
+      ],
+      "exit_code": 1,
+      "expected_exit": "nonzero"
+    },
+    {
+      "name": "reference",
+      "command": [
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.venv-offline/bin/python",
+        "/ws/users/raymone/edgebench/swe-authoring-016-20261015-r1/jobs/01_openapi_streaming/.tmp/public-smoke-reference/public/smoke.py"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0
+    }
+  ],
+  "actual_solve_script_replayed": true,
+  "override": "SUBMISSION_DIR set to author-local destination; default Harbor path unchanged",
+  "reference_files_matching": 489
+}

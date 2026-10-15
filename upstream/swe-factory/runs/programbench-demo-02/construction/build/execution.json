@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "bash",
+    "build.sh"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "",
+  "timed_out": false,
+  "elapsed_sec": 0.067,
+  "runtime": {
+    "backend": "host",
+    "isolated": false,
+    "image": null
+  }
+}
